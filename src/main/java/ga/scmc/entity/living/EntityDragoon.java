@@ -10,6 +10,7 @@ import ga.scmc.handlers.SoundHandler;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.IRangedAttackMob;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackRanged;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
@@ -28,6 +29,9 @@ import net.minecraft.world.World;
  */
 public class EntityDragoon extends EntityProtossMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
 
+	public float offsetHealth;
+	public int timeSinceHurt;
+	 
 	public EntityDragoon(World world) {
 		super(world);
 		setSize(3.0F, 3.0F);
@@ -83,11 +87,6 @@ public class EntityDragoon extends EntityProtossMob implements IMob, IRangedAtta
 	}
 
 	@Override
-	protected void applyEntityAttributes() {
-		super.applyEntityAttributes();
-	}
-
-	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float p_82196_2_) {
 		EntityC14GaussRifleBullet bullet = new EntityC14GaussRifleBullet(this.world, this);
 		double d0 = target.posY + (double) target.getEyeHeight() - 1.800000023841858D - target.getDistanceSq(target.getPosition());
@@ -103,5 +102,28 @@ public class EntityDragoon extends EntityProtossMob implements IMob, IRangedAtta
 	@Override
 	public int getTalkInterval() {
 		return 160;
+	}
+	
+	@Override
+	protected void applyEntityAttributes() {
+		super.applyEntityAttributes();
+		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(133.0D);
+		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(.39000000417232513);
+		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(16.0D);
+		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
+		getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(2.0D);
+	}
+	
+	@Override
+	public void onUpdate() {
+			if(ticksExisted % 20 == 0 && this.getHealth() < this.getMaxHealth()) {
+				if(this.getHealth() < 66.5 - offsetHealth) {
+					offsetHealth = 66.5F - getHealth();
+				}
+				if(this.getHealth() < this.getMaxHealth() - offsetHealth && ticksExisted - timeSinceHurt > 200) {
+					this.heal(2.0F);
+				}
+			}
+		super.onUpdate();
 	}
 }

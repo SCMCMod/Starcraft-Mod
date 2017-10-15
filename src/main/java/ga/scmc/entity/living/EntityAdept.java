@@ -29,6 +29,9 @@ import net.minecraft.world.World;
  */
 public class EntityAdept extends EntityProtossMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
 
+	public float offsetHealth;
+	public int timeSinceHurt;
+	 
 	public EntityAdept(World world) {
 		super(world);
 		setSize(3.0F, 3.0F);
@@ -86,7 +89,7 @@ public class EntityAdept extends EntityProtossMob implements IMob, IRangedAttack
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(100.0D);
+		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(93.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(.39000000417232513);
 		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(16.0D);
 		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
@@ -109,5 +112,18 @@ public class EntityAdept extends EntityProtossMob implements IMob, IRangedAttack
 	@Override
 	public int getTalkInterval() {
 		return 160;
+	}
+	
+	@Override
+	public void onUpdate() {
+			if(ticksExisted % 20 == 0 && this.getHealth() < this.getMaxHealth()) {
+				if(this.getHealth() < 47.5 - offsetHealth) {
+					offsetHealth = 47.5F - getHealth();
+				}
+				if(this.getHealth() < this.getMaxHealth() - offsetHealth && ticksExisted - timeSinceHurt > 200) {
+					this.heal(2.0F);
+				}
+			}
+		super.onUpdate();
 	}
 }
