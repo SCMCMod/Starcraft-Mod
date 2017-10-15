@@ -34,6 +34,7 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 
 	public float offsetHealth;
 	public int timeSinceHurt;
+	public int ammo = 4;
 	
 	public EntityProtossReaver(World world) {
 		super(world);
@@ -111,10 +112,13 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase entity, float distance) {
-		if(!world.isRemote) {
+		if(!world.isRemote && this.ammo > 1) {
 			EntityScarab scarab = new EntityScarab(world);
 			scarab.setLocationAndAngles(posX, posY, posZ, 0, 0);
 			world.spawnEntity(scarab);
+			ammo--;
+		}else {
+			System.out.println("NO AMMO!");
 		}
 	}
 
@@ -171,6 +175,11 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 				}
 				if(this.getHealth() < this.getMaxHealth() - offsetHealth && ticksExisted - timeSinceHurt > 200) {
 					this.heal(2.0F);
+				}
+			}else if(ticksExisted % 160 == 0 || ticksExisted % 160  == 1) {
+				if(ammo < 4) {
+					ammo++;
+					System.out.println("regenerating ammo!");
 				}
 			}
 		super.onUpdate();
