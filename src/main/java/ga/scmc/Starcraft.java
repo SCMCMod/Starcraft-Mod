@@ -39,7 +39,7 @@ import net.minecraftforge.fml.relauncher.Side;
  * @author Hypeirochus
  * @author wundrweapon
  */
-@Mod(modid = Library.MODID, acceptedMinecraftVersions = "[1.10.2]", useMetadata = true, version = "1.5", dependencies = "required-after:mdxlib")
+@Mod(modid = Library.MODID, acceptedMinecraftVersions = "[1.10.2]", useMetadata = true, version = "1.6", dependencies = "required-after:mdxlib")
 public class Starcraft {
 
 	/** The mod's instance. Used for GUI stuff. */
