@@ -10,6 +10,7 @@ import ga.scmc.handlers.SoundHandler;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.IRangedAttackMob;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackRanged;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
@@ -85,6 +86,11 @@ public class EntityAdept extends EntityProtossMob implements IMob, IRangedAttack
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
+		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(100.0D);
+		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(.39000000417232513);
+		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(16.0D);
+		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
+		getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(2.0D);
 	}
 
 	@Override

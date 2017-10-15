@@ -4,6 +4,7 @@ import ga.scmc.entity.living.EntityAdept;
 import ga.scmc.lib.Library;
 import ga.scmc.model.ModelAdept;
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
@@ -29,5 +30,11 @@ public class RenderAdept extends RenderLiving<EntityAdept> {
 	@Override
 	protected ResourceLocation getEntityTexture(EntityAdept entity) {
 		return ADEPT_TEXTURES;
+	}
+	
+	@Override
+	protected void preRenderCallback(EntityAdept entitylivingbaseIn, float partialTickTime) {
+		GlStateManager.scale(0.75F, 0.75F, 0.75F);
+		super.preRenderCallback(entitylivingbaseIn, partialTickTime);
 	}
 }
