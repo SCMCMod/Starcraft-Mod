@@ -49,6 +49,14 @@ public class EntityDrone extends EntityZergPassive {
 	}
 	
 	@Override
+	public void onLivingUpdate() {
+		if(ticksExisted % 20 == 0 && !(this.getHealth() == this.getMaxHealth())) {
+			this.heal(0.27F);
+		}
+		super.onLivingUpdate();
+	}
+	
+	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
 		//TODO: Add drone drops
 		//ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.PROTOSS_INGOT, 1 + this.rand.nextInt(2), ItemEnumHandler.ProtossIngotType.KHALAI.getID()));

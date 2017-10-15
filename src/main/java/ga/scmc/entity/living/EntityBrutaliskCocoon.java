@@ -274,6 +274,14 @@ public class EntityBrutaliskCocoon extends EntityZergPassive {
 		}
 		super.onUpdate();
 	}
+	
+	@Override
+	public void onLivingUpdate() {
+		if(ticksExisted % 20 == 0 && !(this.getHealth() == this.getMaxHealth())) {
+			this.heal(0.27F);
+		}
+		super.onLivingUpdate();
+	}
 
 	@Override
 	protected void setRotation(float par1, float par2) {
