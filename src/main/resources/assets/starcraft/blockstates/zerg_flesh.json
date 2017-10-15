@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "type=purple": { "model":"starcraft:zerg_flesh_purple" },
+        "type=brown": { "model":"starcraft:zerg_flesh_brown" },
+         "type=pink": { "model":"starcraft:zerg_flesh_pink" },
+         "type=blue": { "model":"starcraft:zerg_flesh_blue" },
+         "type=cyan": { "model":"starcraft:zerg_flesh_cyan" },
+         "type=gray": { "model":"starcraft:zerg_flesh_gray" },
+         "type=green": { "model":"starcraft:zerg_flesh_green" },
+         "type=lightblue": { "model":"starcraft:zerg_flesh_lightblue" },
+         "type=lime": { "model":"starcraft:zerg_flesh_lime" },
+         "type=magenta": { "model":"starcraft:zerg_flesh_magenta" },
+         "type=orange": { "model":"starcraft:zerg_flesh_orange" },
+         "type=red": { "model":"starcraft:zerg_flesh_red" },
+         "type=silver": { "model":"starcraft:zerg_flesh_silver" },
+         "type=white": { "model":"starcraft:zerg_flesh_white" },
+         "type=yellow": { "model":"starcraft:zerg_flesh_yellow" },
+		 "type=black": { "model":"starcraft:zerg_flesh_black" }
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "type=blue": { "model":"starcraft:comp_mineral_blue" },
+        "type=rich": { "model":"starcraft:comp_mineral_rich" }
+    }
+}

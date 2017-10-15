@@ -1,0 +1,8 @@
+{
+    "parent": "starcraft:block/gas_collector",
+    "textures": {
+		"side": "starcraft:blocks/gas_collector_zerg_side",
+		"up": "starcraft:blocks/gas_collector_zerg_up",
+		"down": "starcraft:blocks/gas_collector_zerg_down"
+    }
+}

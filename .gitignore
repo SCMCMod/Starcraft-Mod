@@ -1,0 +1,22 @@
+# Everything
+/*
+
+# Directories
+!/src
+!/gradle
+
+# files
+!/.gitignore
+!/.gitmodules
+!/CONTRIBUTING.MD
+!/LICENSE.txt
+!/README.md
+!/gradle.properties
+!/build.gradle
+!/gradlew
+!/gradlew.bat
+!/.travis.yml
+!/travisSetup.sh
+.DS_Store
+
+gradle.properties

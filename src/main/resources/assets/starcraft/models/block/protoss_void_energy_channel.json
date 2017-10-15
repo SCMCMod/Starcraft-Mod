@@ -1,0 +1,8 @@
+{
+    "parent": "block/cube_bottom_top",
+    "textures": {
+        "top": "starcraft:blocks/protoss_metalt1_dark",
+        "bottom": "starcraft:blocks/protoss_metalt1_dark",
+        "side": "starcraft:blocks/protoss_void_energy_channel_side"
+    }
+}

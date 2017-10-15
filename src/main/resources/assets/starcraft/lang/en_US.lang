@@ -1,0 +1,574 @@
+
+### Item Groups ###
+######################################################################
+itemGroup.protoss=Protoss
+itemGroup.terran=Terran
+itemGroup.zerg=Zerg
+
+itemGroup.terran.general=General
+itemGroup.terran.machine=Machines
+itemGroup.terran.decoration=Decorations
+itemGroup.terran.weapons=Weapons
+itemGroup.terran.armors=Armors
+itemGroup.terran.tools=Tools
+######################################################################
+
+
+
+### Protoss Blocks ###
+######################################################################
+tile.protossMetalT1.dark.name=Dark Protoss Metal T1
+tile.protossMetalT1.aiur.name=Protoss Metal T1
+tile.protossMetalT1.blue.name=Blue Protoss Metal T1
+tile.protossMetalT1.green.name=Green Protoss Metal T1
+tile.protossMetalT1.red.name=Red Protoss Metal T1
+
+tile.protossMetalT2.dark.name=Dark Protoss Metal T2
+tile.protossMetalT2.aiur.name=Protoss Metal T2
+tile.protossMetalT2.blue.name=Blue Protoss Metal T2
+tile.protossMetalT2.green.name=Green Protoss Metal T2
+tile.protossMetalT2.red.name=Red Protoss Metal T2
+
+tile.protossMetalT3.dark.name=Dark Protoss Metal T3
+tile.protossMetalT3.aiur.name=Protoss Metal T3
+tile.protossMetalT3.blue.name=Blue Protoss Metal T3
+tile.protossMetalT3.green.name=Green Protoss Metal T3
+tile.protossMetalT3.red.name=Red Protoss Metal T3
+
+tile.protossEnergyStabilizer.name=Protoss Energy Stabilizer
+tile.protossEnergyChannel.name=Protoss Energy Channel
+tile.protossDarkEnergyStabilizer.name=Dark Protoss Energy Stabilizer
+tile.protossDarkEnergyChannel.name=Dark Protoss Energy Channel
+tile.protossVoidEnergyStabilizer.name=Void Protoss Energy Stabilizer
+tile.protossVoidEnergyChannel.name=Void Protoss Energy Channel
+
+tile.pylonCrystal.pure.name=Pylon Crystal
+tile.pylonCrystal.dark.name=Dark Pylon Crystal
+tile.pylonCrystal.void.name=Void Pylon Crystal
+
+tile.coreCyberneticsCoreVoid.name=Void Cybernetics Core Core
+tile.coreCyberneticsCoreDark.name=Dark Cybernetics Core Core
+tile.coreCyberneticsCoreKhalai.name=Khalai Cybernetics Core Core
+
+tile.corePylonVoid.name=Void Pylon Core
+tile.corePylonDark.name=Dark Pylon Core
+tile.corePylonKhalai.name=Khalai Pylon Core
+
+tile.coreWarpGateVoid.name=Void Warp Gate Core
+tile.coreWarpGateDark.name=Dark Warp Gate Core 
+tile.coreWarpGateKhalai.name=Khalai Warp Gate Core
+######################################################################
+
+
+
+### Terran Blocks ###
+######################################################################
+tile.compMetalT1.titanium.name=Block of Titanium
+tile.compMetalT1.uranium.name=Block of Uranium
+tile.compMetalT1.copper.name=Block of Copper
+tile.compMetalT1.steel.name=Block of Steel
+
+tile.neosteel.base.name=Neosteel Base
+tile.neosteel.frame.name=Neosteel Frame
+
+tile.paristeel.purple.name=Purple Paristeel
+tile.paristeel.brown.name=Brown Paristeel
+tile.paristeel.pink.name=Pink Paristeel
+tile.paristeel.blue.name=Blue Paristeel
+tile.paristeel.cyan.name=Cyan Paristeel
+tile.paristeel.gray.name=Gray Paristeel
+tile.paristeel.green.name=Green Paristeel
+tile.paristeel.lightblue.name=Light Blue Paristeel
+tile.paristeel.lime.name=Lime Paristeel
+tile.paristeel.magenta.name=Magenta Paristeel
+tile.paristeel.orange.name=Orange Paristeel
+tile.paristeel.red.name=Red Paristeel
+tile.paristeel.silver.name=Silver Paristeel
+tile.paristeel.white.name=White Paristeel
+tile.paristeel.yellow.name=Yellow Paristeel
+tile.paristeel.black.name=Black Paristeel
+######################################################################
+
+
+
+### Zerg Blocks ###
+######################################################################
+tile.zergCreep.name=Zerg Creep
+
+tile.zergFlesh.purple.name=Purple Zerg Flesh
+tile.zergFlesh.brown.name=Brown Zerg Flesh
+tile.zergFlesh.pink.name=Pink Zerg Flesh
+tile.zergFlesh.blue.name=Blue Zerg Flesh
+tile.zergFlesh.cyan.name=Cyan Zerg Flesh
+tile.zergFlesh.gray.name=Gray Zerg Flesh
+tile.zergFlesh.green.name=Green Zerg Flesh
+tile.zergFlesh.lightblue.name=Light Blue Zerg Flesh
+tile.zergFlesh.lime.name=Lime Zerg Flesh
+tile.zergFlesh.magenta.name=Magenta Zerg Flesh
+tile.zergFlesh.orange.name=Orange Zerg Flesh
+tile.zergFlesh.red.name=Red Zerg Flesh
+tile.zergFlesh.silver.name=Silver Zerg Flesh
+tile.zergFlesh.white.name=White Zerg Flesh
+tile.zergFlesh.yellow.name=Yellow Zerg Flesh
+tile.zergFlesh.black.name=Black Zerg Flesh
+
+tile.zergCarapace.t1.name=Structure Carapace T1 
+tile.zergCarapace.t2.name=Structure Carapace T2 
+tile.zergCarapace.t3.name=Structure Carapace T3 
+tile.zergKeratinChunk.name=Keratin Chunk
+######################################################################
+
+
+
+### Ores ###
+######################################################################
+tile.charOreMineral.name=Mineral Ore
+tile.overworldOreTitanium.name=Titanium Ore
+tile.overworldOreUranium.name=Uranium Ore
+tile.overworldOreCopper.name=Copper Ore
+
+tile.charOreMineralRich.name=Rich Mineral Ore
+tile.charOreTitanium.name=Titanium Ore
+tile.charOreUranium.name=Uranium Ore
+tile.charOreCopper.name=Copper Ore
+
+tile.shakurasOreCoal.name=Coal Ore
+tile.shakurasOreIron.name=Iron Ore
+tile.shakurasOreGold.name=Gold Ore
+tile.shakurasOreDiamond.name=Diamond Ore
+tile.shakurasOreRedstone.name=Redstone Ore
+tile.shakurasOreRedstoneLit.name=Redstone Ore
+tile.shakurasOreLapis.name=Lapis Lazuli Ore
+tile.shakurasOreMineral.name=Mineral Ore
+tile.shakurasOreMineralRich.name=Rich Mineral Ore
+tile.shakurasOreTitanium.name=Titanium Ore
+tile.shakurasOreUranium.name=Uranium Ore
+tile.shakurasOreCopper.name=Copper Ore
+######################################################################
+
+
+
+### Miscellaneous ###
+######################################################################
+tile.blockEnergy.name=Block Of Energy
+tile.voidEnergy.name=Block Of Void Energy
+
+tile.mineralField.name=Mineral Field
+tile.richMineralField.name=Rich Mineral Field
+tile.compMineral.rich.name=Block of Rich Mineral
+tile.compMineral.blue.name=Block of Mineral
+
+tile.geyserVespeneBase.name=Vespene Geyser Base
+tile.geyserVespeneBaseChar.name=Vespene Geyser Base
+tile.geyserVespeneBaseShakuras.name=Vespene Geyser Base
+
+tile.gasCollector.protoss.name=Protoss Gas Collector
+tile.gasCollector.terran.name=Terran Gas Collector
+tile.gasCollector.zerg.name=Zerg Gas Collector
+
+tile.test.name=Testing Block
+######################################################################
+
+
+
+### Protoss Items ###
+######################################################################
+item.psiBlade.name=Psi Blade
+item.darkPsiBlade.name=Bane Blade
+item.warpBlade.name=Warp Blade
+item.darkWarpBlade.name=Warp Blade (Dark)
+item.masterPsiBlade.name=Master Psi Blade
+
+item.vespene.protoss.name=Protoss Vespene
+item.terrazine.protoss.name=Protoss Terrazine
+
+item.protossArtifact.name=Protoss Artifact
+item.uraj.name=Uraj
+
+item.keystone.name=Keystone
+
+item.crystal.khaydarin.name=Khaydarin Crystal
+item.crystal.bloodshard.name=BloodShard Crystal
+item.crystal.uraj.name=Uraj Crystal
+
+item.pingot.khalai.name=Khalai Ingot
+item.pingot.dark.name=Dark Ingot
+
+item.adeptHelmetT1.name=Adept Helmet T1
+item.adeptChestplateT1.name=Adept Chestplate T1
+item.adeptLeggingsT1.name=Adept Leggings T1
+item.adeptBootsT1.name=Adept Boots T1
+
+item.adeptHelmetT2.name=Adept Helmet T2
+item.adeptChestplateT2.name=Adept Chestplate T2
+item.adeptLeggingsT2.name=Adept Leggings T2
+item.adeptBootsT2.name=Adept Boots T2
+
+item.adeptHelmetT3.name=Adept Helmet T3
+item.adeptChestplateT3.name=Adept Chestplate T3
+item.adeptLeggingsT3.name=Adept Leggings T3
+item.adeptBootsT3.name=Adept Boots T3
+
+item.darkZealotHelmetT1.name=Dark Zealot Helmet T1
+item.darkZealotChestplateT1.name=Dark Zealot Chestplate T1
+item.darkZealotLeggingsT1.name=Dark Zealot Leggings T1
+item.darkZealotBootsT1.name=Dark Zealot Boots T1
+
+item.darkZealotHelmetT2.name=Dark Zealot Helmet T2
+item.darkZealotChestplateT2.name=Dark Zealot Chestplate T2
+item.darkZealotLeggingsT2.name=Dark Zealot Leggings T2
+item.darkZealotBootsT2.name=Dark Zealot Boots T2
+
+item.darkZealotHelmetT3.name=Dark Zealot Helmet T3
+item.darkZealotChestplateT3.name=Dark Zealot Chestplate T3
+item.darkZealotLeggingsT3.name=Dark Zealot Leggings T3
+item.darkZealotBootsT3.name=Dark Zealot Boots T3
+
+item.purifierAdeptHelmetT1.name=Purifier Adept Helmet T1
+item.purifierAdeptChestplateT1.name=Purifier Adept Chestplate T1
+item.purifierAdeptLeggingsT1.name=Purifier Adept Leggings T1
+item.purifierAdeptBootsT1.name=Purifier Adept Boots T1
+
+item.purifierAdeptHelmetT2.name=Purifier Adept Helmet T2
+item.purifierAdeptChestplateT2.name=Purifier Adept Chestplate T2
+item.purifierAdeptLeggingsT2.name=Purifier Adept Leggings T2
+item.purifierAdeptBootsT2.name=Purifier Adept Boots T2
+
+item.purifierAdeptHelmetT3.name=Purifier Adept Helmet T3
+item.purifierAdeptChestplateT3.name=Purifier Adept Chestplate T3
+item.purifierAdeptLeggingsT3.name=Purifier Adept Leggings T3
+item.purifierAdeptBootsT3.name=Purifier Adept Boots T3
+
+item.zergOrganicTissue.name=Organic Tissue
+
+item.zealotHelmetT1.name=Zealot Helmet T1
+item.zealotChestplateT1.name=Zealot Chestplate T1
+item.zealotLeggingsT1.name=Zealot Leggings T1
+item.zealotBootsT1.name=Zealot Boots T1
+
+item.zealotHelmetT2.name=Zealot Helmet T2
+item.zealotChestplateT2.name=Zealot Chestplate T2
+item.zealotLeggingsT2.name=Zealot Leggings T2
+item.zealotBootsT2.name=Zealot Boots T2
+
+item.zealotHelmetT3.name=Zealot Helmet T3
+item.zealotChestplateT3.name=Zealot Chestplate T3
+item.zealotLeggingsT3.name=Zealot Leggings T3
+item.zealotBootsT3.name=Zealot Boots T3
+
+item.khaydarinAmulet.name=Khaydarin Amulet
+item.darkKhaydarinAmulet.name=Dark Khaydarin Amulet
+
+item.emptyContainer.protoss.name=Empty Gas Container (Protoss)
+
+item.spawnerProtossDarkCyberneticsCore.name=Dark Cybernetics Core Spawner
+item.spawnerProtossCyberneticsCore.name=Khalai Cybernetics Core Spawner
+item.spawnerProtossVoidCyberneticsCore.name=Void Cybernetics Core Spawner
+
+item.spawnerProtossDarkWarpGate.name=Dark Warp Gate Spawner
+item.spawnerProtossWarpGate.name=Khalai Warp Gate Spawner
+item.spawnerProtossVoidWarpGate.name=Void Warp Gate Spawner
+
+item.spawnerProtossDarkPylon.name=Dark Pylon Spawner
+item.spawnerProtossPylon.name=Khalai Pylon Spawner
+item.spawnerProtossVoidPylon.name=Void Pylon Spawner
+######################################################################
+
+
+
+### Terran Items ###
+######################################################################
+item.balisong.name=Balisong
+item.militaryKnife.name=Military Knife
+item.monomolecularBlade.name=Monomolecular Blade
+
+item.protossPsiBladeFocuserUncharged.aiur.name=Psi Blade Focuser
+item.protossPsiBladeFocuserUncharged.dark.name=Dark Psi Blade Focuser
+
+item.ingot.copper.name=Copper Ingot
+item.ingot.titanium.name=Titanium Ingot
+item.ingot.steel.name=Steel Ingot
+
+item.titaniumSword.name=Titanium Sword
+item.titaniumPickaxe.name=Titanium Pickaxe
+item.titaniumAxe.name=Titanium Axe
+item.titaniumShovel.name=Titanium Shovel
+item.titaniumHoe.name=Titanium Hoe
+
+item.titaniumHelmet.name=Titanium Helmet
+item.titaniumChestplate.name=Titanium Chestplate
+item.titaniumLeggings.name=Titanium Leggings
+item.titaniumBoots.name=Titanium Boots
+
+item.copperSword.name=Copper Sword
+item.copperPickaxe.name=Copper Pickaxe
+item.copperAxe.name=Copper Axe
+item.copperShovel.name=Copper Shovel
+item.copperHoe.name=Copper Hoe
+
+item.copperHelmet.name=Copper Helmet
+item.copperChestplate.name=Copper Chestplate
+item.copperLeggings.name=Copper Leggings
+item.copperBoots.name=Copper Boots
+
+item.steelSword.name=Steel Sword
+item.steelPickaxe.name=Steel Pickaxe
+item.steelAxe.name=Steel Axe
+item.steelShovel.name=Steel Shovel
+item.steelHoe.name=Steel Hoe
+
+item.steelHelmet.name=Steel Helmet
+item.steelChestplate.name=Steel Chestplate
+item.steelLeggings.name=Steel Leggings
+item.steelBoots.name=Steel Boots
+
+item.rifleC14.name=C14 Gauss Rifle
+item.bulletC14.c14.name=C14 Gauss Rifle Bullet
+item.partC14.barrel.name=C14 Rifle Barrel
+item.partC14.body.name=C14 Rifle Body
+item.partC14.grip.name=C14 Rifle Grip
+
+item.ghostHelmet.name=Ghost Helmet
+item.ghostChestplate.name=Ghost Chestplate
+item.ghostLeggings.name=Ghost Leggings
+item.ghostBoots.name=Ghost Boots
+
+item.vespene.terran.name=Terran Vespene
+item.terrazine.terran.name=Terran Terrazine
+
+item.emptyContainer.terran.name=Empty Gas Container (Terran)
+
+item.spawnerTerranBunker.name=Bunker Spawner
+
+item.dust.carbon.name=Carbon Grain
+item.dust.iron.name=Iron Grain
+item.dust.steel.name=Steel Dust
+######################################################################
+
+
+
+### Zerg Items ###
+######################################################################
+item.zergICarapace.t1.name=Zerg Carapace T1
+item.zergICarapace.t2.name=Zerg Carapace T2
+item.zergICarapace.t3.name=Zerg Carapace T3
+
+item.vespene.zerg.name=Zerg Vespene
+item.terrazine.zerg.name=Zerg Terrazine
+item.emptyContainer.zerg.name=Empty Gas Container (Zerg)
+
+item.zergCreepResin.name=Creep Resin
+item.organicTissue.name=Organic Tissue
+
+item.spawnerZergSpawningPool.name=Spawning Pool Spawner
+item.spawnerZergSpire.name=Spire Spawner
+item.spawnerZergHydraliskDen.name=Hydralisk Den Spawner
+######################################################################
+
+
+
+### Miscellaneous Items ###
+######################################################################
+item.mineralShard.blue.name=Mineral Shard
+item.mineralShard.rich.name=Rich Mineral Shard
+
+item.vespene.raw.name=Raw Vespene
+
+item.energy.pure.name=Energy
+item.energy.corrupted.name=Corrupted Energy
+item.energy.void.name=Void Energy
+
+item.terrazine.raw.name=Raw Terrazine
+######################################################################
+
+
+
+### Liquids ###
+######################################################################
+tile.fluidAcid.name=Fluid Acid
+tile.fluidBlood.name=Fluid Blood
+tile.fluidVespene.name=Vespene
+tile.fluidTerrazine.name=Terrazine
+
+fluid.fluidAcid=Acid
+fluid.fluidBlood=Blood
+fluid.fluidVespene=Vespene
+fluid.fluidTerrazine=Terrazine
+######################################################################
+
+
+
+### Gases ###
+######################################################################
+tile.gasVespene.name=Vespene Gas
+tile.gasTerrazine.name=Terrazine Gas
+######################################################################
+
+
+
+### Portals ###
+######################################################################
+tile.aiurDimPortal.name=Aiur Portal
+tile.charDimPortal.name=Char Portal
+tile.overworldDimPortal.name=Overworld Portal
+tile.shakurasDimPortal.name=Shakuras Portal
+######################################################################
+
+
+
+### Entities ###
+######################################################################
+entity.starcraft.larva.name=Larva
+entity.starcraft.larvaCocoon.name=Larva Cocoon
+entity.starcraft.broodling.name=Broodling
+entity.starcraft.zerglingSC2.name=Zergling
+entity.starcraft.zerglingRaptor.name=Zergling (Raptor)
+entity.starcraft.zerglingSwarmling.name=Zergling (Swarmling)
+entity.starcraft.zerglingBoost.name=Zergling (Metabolic Boost)
+entity.starcraft.infestedCivilian.name=Infested Civilian
+entity.starcraft.overlord.name=Overlord
+entity.starcraft.brutalisk.name=Brutalisk
+entity.starcraft.hydralisk.name=Hydralisk
+
+entity.starcraft.probe.name=Probe
+entity.starcraft.darkProbe.name=Dark Probe
+entity.starcraft.voidProbe.name=Void Probe
+entity.starcraft.darkTemplar.name=Dark Templar
+entity.starcraft.zealot.name=Zealot
+entity.starcraft.protossReaver.name=Reaver
+entity.starcraft.scarab.name=Scarab
+entity.starcraft.zeratul.name=Zeratul
+
+entity.starcraft.civilian.name=Civilian
+entity.starcraft.predator.name=Predator
+entity.starcraft.spiderMine.name=Spider Mine
+######################################################################
+
+
+
+### Damage Sources ###
+######################################################################
+death.attack.acid=%s melted into a puddle.
+death.attack.vespene=%s had their skin melt off.
+death.attack.vespene_gas=%s suffocated.
+death.attack.hydraneedle=%s was impaled by Hydralisk needles.
+######################################################################
+
+
+
+### Commands ###
+######################################################################
+command.updateModels=Usage: /command
+######################################################################
+
+
+
+### GUIs/Containers ###
+######################################################################
+gui.gas_collector.protoss=Protoss Gas Collector
+gui.gas_collector.terran=Terran Gas Collector
+gui.gas_collector.zerg=Zerg Gas Collector
+gui.gas_collector.protoss.fuel.tooltip=Place %s %s here to activate the machine.
+gui.gas_collector.terran.fuel.tooltip=Place %s %s here to activate the machine.
+gui.gas_collector.zerg.fuel.tooltip=Place %s %s here to activate the machine.
+item.protoss_ingot.name=Protoss Ingot
+
+gui.item_shop=Merchant
+gui.item_shop.money=Currency
+gui.item_shop.tooltip.mineral_cost=Mineral Cost: %s
+gui.item_shop.tooltip.vespene_cost=Vespene Cost: %s
+gui.item_shop.no_minerals=No More Minerals!
+gui.item_shop.no_vespene=No More Vespene!
+
+gui.buy=Buy
+######################################################################
+
+### Achievements ###
+######################################################################
+achievement.pageStarcraft=Starcraft
+
+achievement.mineMinerals=Ooo, Shiny!
+achievement.mineMinerals.desc=Get mineral shards!
+
+achievement.mineRichMinerals=Shinier!
+achievement.mineRichMinerals.desc=Get rich mineral shards!
+
+achievement.mineVespene=Vespene Geyser Depleted!
+achievement.mineVespene.desc=Obtain vespene!
+				
+achievement.getC14GaussRifle=Hell, It's About Time!
+achievement.getC14GaussRifle.desc=Obtain a C14 gauss rifle!
+
+achievement.getPsiBladeFocuser=Embrace Purity
+achievement.getPsiBladeFocuser.desc=Obtain a psi blade focuser!
+
+achievement.getPsiBladeFocuserDark=Embrace Corruption
+achievement.getPsiBladeFocuserDark.desc=Obtain a psi blade focuser (dark)!
+
+achievement.getPsiBlade=My Life for Aiur!
+achievement.getPsiBlade.desc=Obtain a psi blade!
+
+achievement.getPsiBladeDark=Amon's Will
+achievement.getPsiBladeDark.desc=Obtain a bane blade!
+
+achievement.getWarpBlade=For Shakuras!
+achievement.getWarpBlade.desc=Obtain a warp blade!
+
+achievement.getMasterPsiBlade=En Taro Zeratul...
+achievement.getMasterPsiBlade.desc=Obtain Zeratul's Master Psi Blade!
+
+achievement.enterChar=The Devil's Nest
+achievement.enterChar.desc=Arrive on Char!
+
+achievement.enterShakuras=We Linger, In Twilight...
+achievement.enterShakuras.desc=Arrive on Shakuras!
+######################################################################
+
+
+
+### Shakuras ###
+######################################################################
+tile.shakurasSand.name=Sand
+tile.shakurasDirt.name=Dirt
+tile.shakurasGravel.name=Gravel
+tile.shakurasStone.name=Stone
+tile.shakurasCobblestone.name=Cobblestone
+tile.furnaceShakuras.name=Furnace
+tile.furnaceShakurasLit.name=Lit Furnace
+######################################################################
+
+
+
+### Char ###
+######################################################################
+tile.charAsh.name=Ash
+tile.charDirt.name=Dirt
+tile.charGravel.name=Gravel
+tile.charStone.name=Stone
+tile.charCobblestone.name=Cobblestone
+tile.furnaceChar.name=Furnace
+tile.furnaceCharLit.name=Lit Furnace
+
+tile.charMagma.name=Magma
+tile.charOreCoal.name=Coal Ore
+tile.charOreIron.name=Iron Ore
+tile.charOreGold.name=Gold Ore
+tile.charOreDiamond.name=Diamond Ore
+tile.charOreRedstone.name=Redstone Ore
+tile.charOreRedstoneLit.name=Redstone Ore
+tile.charOreLapis.name=Lapis Lazuli Ore
+######################################################################
+
+
+
+### Slayn ###
+######################################################################
+tile.furnaceSlayn.name=Furnace
+tile.furnaceSlaynLit.name=Lit Furnace
+######################################################################
+
+
+
+### Zerus ###
+######################################################################
+######################################################################

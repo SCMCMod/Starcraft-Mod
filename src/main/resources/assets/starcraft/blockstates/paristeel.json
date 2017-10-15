@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "type=purple": { "model":"starcraft:paristeel_purple" },
+        "type=brown": { "model":"starcraft:paristeel_brown" },
+         "type=pink": { "model":"starcraft:paristeel_pink" },
+         "type=blue": { "model":"starcraft:paristeel_blue" },
+         "type=cyan": { "model":"starcraft:paristeel_cyan" },
+         "type=gray": { "model":"starcraft:paristeel_gray" },
+         "type=green": { "model":"starcraft:paristeel_green" },
+         "type=lightblue": { "model":"starcraft:paristeel_lightblue" },
+         "type=lime": { "model":"starcraft:paristeel_lime" },
+         "type=magenta": { "model":"starcraft:paristeel_magenta" },
+         "type=orange": { "model":"starcraft:paristeel_orange" },
+         "type=red": { "model":"starcraft:paristeel_red" },
+         "type=silver": { "model":"starcraft:paristeel_silver" },
+         "type=white": { "model":"starcraft:paristeel_white" },
+         "type=yellow": { "model":"starcraft:paristeel_yellow" },
+		 "type=black": { "model":"starcraft:paristeel_black" }
+    }
+}

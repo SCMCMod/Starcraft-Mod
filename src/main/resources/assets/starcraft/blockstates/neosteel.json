@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "type=base": { "model":"starcraft:neosteel_base" },
+        "type=frame": { "model":"starcraft:neosteel_frame" }
+    }
+}

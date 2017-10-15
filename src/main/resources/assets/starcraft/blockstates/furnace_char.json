@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "starcraft:furnace_char" },
+        "facing=south": { "model": "starcraft:furnace_char", "y": 180 },
+        "facing=west":  { "model": "starcraft:furnace_char", "y": 270 },
+        "facing=east":  { "model": "starcraft:furnace_char", "y": 90 }
+    }
+}

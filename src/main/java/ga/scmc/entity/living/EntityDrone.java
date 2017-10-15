@@ -1,0 +1,57 @@
+package ga.scmc.entity.living;
+
+import ga.scmc.entity.EntityProtossMob;
+import ga.scmc.entity.EntityTerranMob;
+import ga.scmc.entity.EntityZergPassive;
+import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIAvoidEntity;
+import net.minecraft.entity.ai.EntityAIHurtByTarget;
+import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.ai.EntityAISwimming;
+import net.minecraft.entity.ai.EntityAIWander;
+import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.world.World;
+
+public class EntityDrone extends EntityZergPassive {
+
+	public EntityDrone(World world) {
+		super(world);
+		setSize(1.0F, 1.5F);
+		this.setTeam(teamColors.PURPLE);
+		this.setFactions(factionTypes.SWARM);
+		setTypes(typeAttributes.LIGHT, typeAttributes.BIOLOGICAL, typeAttributes.GROUND);
+		tasks.addTask(0, new EntityAISwimming(this));
+		tasks.addTask(1, new EntityAIAvoidEntity<EntityProtossMob>(this, EntityProtossMob.class, 16.0F, 1.0D, 1.0D));
+		tasks.addTask(2, new EntityAIAvoidEntity<EntityTerranMob>(this, EntityTerranMob.class, 16.0F, 1.0D, 1.0D));
+		tasks.addTask(3, new EntityAIWander(this, 1));
+		tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 8));
+		tasks.addTask(5, new EntityAILookIdle(this));
+		targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
+	}
+	
+	@Override
+	protected void applyEntityAttributes() {
+		super.applyEntityAttributes();
+		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(27.0D);
+		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.39000000298023224D);
+	}
+	
+	@Override
+	public EntityAgeable createChild(EntityAgeable p_90011_1_) {
+		return null;
+	}
+
+	@Override
+	public int getTalkInterval() {
+		return 160;
+	}
+	
+	@Override
+	protected void dropFewItems(boolean recentlyHit, int looting) {
+		//TODO: Add drone drops
+		//ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.PROTOSS_INGOT, 1 + this.rand.nextInt(2), ItemEnumHandler.ProtossIngotType.KHALAI.getID()));
+		//drop.tryDrop(this);
+	}
+}
