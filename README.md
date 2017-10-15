@@ -6,4 +6,4 @@ Minecraft mod based on Starcraft. To install:
 
 3. Run command `gradlew eclipse` in {SCMC} For those using IDEA, use gradlew idea instead.
 
-**If confused about anything, PM wundrweapon#4856 or Abathur#5607 on Discord**
+**If confused about anything, PM Abathur#5607 on Discord**
