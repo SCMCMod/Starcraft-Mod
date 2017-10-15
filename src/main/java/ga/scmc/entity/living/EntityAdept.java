@@ -76,6 +76,9 @@ public class EntityAdept extends EntityProtossMob implements IMob, IRangedAttack
 					}
 				}
 			}else {
+				if(entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
+					return false;
+				}
 				return true;
 			}
 		}else if(entity.isInvisible() && this.isType(typeAttributes.DETECTOR)){

@@ -108,6 +108,9 @@ public class EntityGhost extends EntityTerranMob implements IMob, IRangedAttackM
 					}
 				}
 			}else {
+				if(entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
+					return false;
+				}
 				return true;
 			}
 		}else if(entity.isInvisible() && this.isType(typeAttributes.DETECTOR)){

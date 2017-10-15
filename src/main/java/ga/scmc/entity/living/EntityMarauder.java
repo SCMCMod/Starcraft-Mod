@@ -73,6 +73,9 @@ public class EntityMarauder extends EntityTerranMob implements IMob, IRangedAtta
 					}
 				}
 			}else {
+				if(entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
+					return false;
+				}
 				return true;
 			}
 		}else if(entity.isInvisible() && this.isType(typeAttributes.DETECTOR)){

@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 
 public abstract class EntityStarcraftMob extends EntityMob implements StarcraftEnums {
 
-	List<typeAttributes> types = new ArrayList<typeAttributes>(14);
+	List<typeAttributes> types = new ArrayList<typeAttributes>(15);
 	List<factionTypes> factions = new ArrayList<factionTypes>(15);
 	teamColors teamColor = teamColors.WHITE;
 	HashMap<typeAttributes, Double> bonusDamage = new HashMap<typeAttributes, Double>();

@@ -31,7 +31,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 /**
- * Work in progress
  * @author Hypeirochus
  */
 public class EntityHydralisk extends EntityZergMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {

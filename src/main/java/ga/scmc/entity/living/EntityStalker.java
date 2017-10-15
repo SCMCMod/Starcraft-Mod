@@ -76,6 +76,9 @@ public class EntityStalker extends EntityProtossMob implements IMob, IRangedAtta
 					}
 				}
 			}else {
+				if(entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
+					return false;
+				}
 				return true;
 			}
 		}else if(entity.isInvisible() && this.isType(typeAttributes.DETECTOR)){

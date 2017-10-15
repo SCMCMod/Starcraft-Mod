@@ -15,7 +15,8 @@ public interface StarcraftEnums {
 		OTHER,
 		PSIONIC,
 		ROBOTIC,
-		SUMMONED
+		SUMMONED,
+		PROJECTILE
 	}
 	
 	public static enum factionTypes {
