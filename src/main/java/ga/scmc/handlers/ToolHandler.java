@@ -1,17 +1,10 @@
 package ga.scmc.handlers;
 
-import ga.scmc.items.tools.ToolCopperAxe;
-import ga.scmc.items.tools.ToolCopperHoe;
-import ga.scmc.items.tools.ToolCopperPickaxe;
-import ga.scmc.items.tools.ToolCopperShovel;
-import ga.scmc.items.tools.ToolSteelAxe;
-import ga.scmc.items.tools.ToolSteelHoe;
-import ga.scmc.items.tools.ToolSteelPickaxe;
-import ga.scmc.items.tools.ToolSteelShovel;
-import ga.scmc.items.tools.ToolTitaniumAxe;
-import ga.scmc.items.tools.ToolTitaniumHoe;
-import ga.scmc.items.tools.ToolTitaniumPickaxe;
-import ga.scmc.items.tools.ToolTitaniumShovel;
+import ga.scmc.creativetabs.StarcraftCreativeTabs;
+import ga.scmc.items.tools.ToolAxe;
+import ga.scmc.items.tools.ToolHoe;
+import ga.scmc.items.tools.ToolPickaxe;
+import ga.scmc.items.tools.ToolShovel;
 import ga.scmc.lib.LogHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
@@ -28,45 +21,42 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  */
 public class ToolHandler {
 
-	public static final ToolMaterial BLUEMINERAL = EnumHelper.addToolMaterial("BLUEMINERAL", 2, 288, 4.7F, 1.5F, 10);
-	public static final ToolMaterial COPPER = EnumHelper.addToolMaterial("COPPER", 1, 190, 4.5F, 1.0F, 10);
 	public static Item COPPER_AXE;
 	public static Item COPPER_HOE;
 	public static Item COPPER_PICKAXE;
 	public static Item COPPER_SHOVEL;
-	public static final ToolMaterial KERATIN = EnumHelper.addToolMaterial("KERATIN", 2, 564, 5.8F, 2.5F, 10);
-	public static final ToolMaterial NEOSTEEL = EnumHelper.addToolMaterial("NEOSTEEL", 2, 867, 6.5F, 3.5F, 10);
-
-	public static final ToolMaterial ORANGEMINERAL = EnumHelper.addToolMaterial("ORANGEMINERAL", 2, 362, 5.0F, 1.8F, 10);
-	public static final ToolMaterial STEEL = EnumHelper.addToolMaterial("STEEL", 2, 753, 6.5F, 3.0F, 10);
+	
 	public static Item STEEL_AXE;
 	public static Item STEEL_HOE;
-
 	public static Item STEEL_PICKAXE;
 	public static Item STEEL_SHOVEL;
-	public static final ToolMaterial TITANIUM = EnumHelper.addToolMaterial("TITANIUM", 2, 502, 5.5F, 2.0F, 10);
+	
 	public static Item TITANIUM_AXE;
-
 	public static Item TITANIUM_HOE;
 	public static Item TITANIUM_PICKAXE;
 	public static Item TITANIUM_SHOVEL;
+	
+	
+	public static final ToolMaterial COPPER = EnumHelper.addToolMaterial("COPPER", 1, 190, 4.5F, 1.0F, 10);
+	public static final ToolMaterial TITANIUM = EnumHelper.addToolMaterial("TITANIUM", 2, 502, 5.5F, 2.0F, 10);
+	public static final ToolMaterial STEEL = EnumHelper.addToolMaterial("STEEL", 2, 753, 6.5F, 3.0F, 10);
 	public static final ToolMaterial VANADIUM = EnumHelper.addToolMaterial("VANADIUM", 3, 966, 7.3F, 4.0F, 10);
 
 	public static void init() {
-		COPPER_PICKAXE = new ToolCopperPickaxe(COPPER);
-		COPPER_AXE = new ToolCopperAxe(COPPER);
-		COPPER_SHOVEL = new ToolCopperShovel(COPPER);
-		COPPER_HOE = new ToolCopperHoe(COPPER);
+		COPPER_PICKAXE = new ToolPickaxe(COPPER).setUnlocalizedName("copperPickaxe").setRegistryName("copper_pickaxe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		COPPER_AXE = new ToolAxe(COPPER, 8, -3.2f).setUnlocalizedName("copperAxe").setRegistryName("copper_axe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		COPPER_SHOVEL = new ToolShovel(COPPER).setUnlocalizedName("copperShovel").setRegistryName("copper_shovel").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		COPPER_HOE = new ToolHoe(COPPER).setUnlocalizedName("copperHoe").setRegistryName("copper_hoe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 
-		TITANIUM_PICKAXE = new ToolTitaniumPickaxe(TITANIUM);
-		TITANIUM_AXE = new ToolTitaniumAxe(TITANIUM);
-		TITANIUM_SHOVEL = new ToolTitaniumShovel(TITANIUM);
-		TITANIUM_HOE = new ToolTitaniumHoe(TITANIUM);
+		TITANIUM_PICKAXE = new ToolPickaxe(TITANIUM).setUnlocalizedName("titaniumPickaxe").setRegistryName("titanium_pickaxe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		TITANIUM_AXE = new ToolAxe(TITANIUM, 8, -3.2f).setUnlocalizedName("titaniumAxe").setRegistryName("titanium_axe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		TITANIUM_SHOVEL = new ToolShovel(TITANIUM).setUnlocalizedName("titaniumShovel").setRegistryName("titanium_shovel").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		TITANIUM_HOE = new ToolHoe(TITANIUM).setUnlocalizedName("titaniumHoe").setRegistryName("titanium_hoe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 
-		STEEL_PICKAXE = new ToolSteelPickaxe(STEEL);
-		STEEL_AXE = new ToolSteelAxe(STEEL);
-		STEEL_SHOVEL = new ToolSteelShovel(STEEL);
-		STEEL_HOE = new ToolSteelHoe(STEEL);
+		STEEL_PICKAXE = new ToolPickaxe(STEEL).setUnlocalizedName("steelPickaxe").setRegistryName("steel_pickaxe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STEEL_AXE = new ToolAxe(STEEL, 7, -3.1f).setUnlocalizedName("steelAxe").setRegistryName("steel_axe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STEEL_SHOVEL = new ToolShovel(STEEL).setUnlocalizedName("steelShovel").setRegistryName("steel_shovel").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STEEL_HOE = new ToolHoe(STEEL).setUnlocalizedName("steelHoe").setRegistryName("steel_hoe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 	}
 
 	public static void register() {

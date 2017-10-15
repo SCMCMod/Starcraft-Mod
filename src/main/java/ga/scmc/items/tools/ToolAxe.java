@@ -6,13 +6,10 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 
-public class ToolSteelAxe extends ItemAxe {
+public class ToolAxe extends ItemAxe {
 
-	public ToolSteelAxe(ToolMaterial material) {
-		super(material, 8, -3.1f);
-		setUnlocalizedName("steelAxe");
-		setRegistryName("steel_axe");
-		setCreativeTab(StarcraftCreativeTabs.TERRAN);
+	public ToolAxe(ToolMaterial material, float damage, float speed) {
+		super(material, damage, speed);
 	}
 
 	@Override
