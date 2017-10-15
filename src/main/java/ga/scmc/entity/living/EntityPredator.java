@@ -4,11 +4,14 @@ import java.util.Random;
 
 import com.arisux.mdx.lib.client.entityfx.EntityFXElectricArc;
 import com.arisux.mdx.lib.game.Game;
+import com.arisux.mdx.lib.world.entity.ItemDrop;
 import com.google.common.base.Predicate;
 
 import ga.scmc.entity.EntityStarcraftMob;
 import ga.scmc.entity.EntityStarcraftPassive;
 import ga.scmc.entity.EntityTerranMob;
+import ga.scmc.handlers.ItemEnumHandler;
+import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -23,6 +26,7 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
@@ -102,8 +106,8 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 	
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
-		//ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), ItemEnumHandler.CarapaceType.T1.getID()));
-		//drop.tryDrop(this);
+		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.INGOT, 1 + this.rand.nextInt(2), ItemEnumHandler.IngotType.STEEL.getID()));
+		drop.tryDrop(this);
 	}
 
 	@Override

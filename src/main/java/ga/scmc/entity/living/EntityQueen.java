@@ -160,8 +160,7 @@ public class EntityQueen extends EntityZergMob implements IMob, IRangedAttackMob
 	 */
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
-		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2),
-				ItemEnumHandler.CarapaceType.T2.getID()));
+		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), ItemEnumHandler.CarapaceType.T2.getID()));
 		drop.tryDrop(this);
 	}
 

@@ -1,8 +1,12 @@
 package ga.scmc.entity.living;
 
+import com.arisux.mdx.lib.world.entity.ItemDrop;
+
 import ga.scmc.entity.EntityProtossMob;
 import ga.scmc.entity.EntityTerranMob;
 import ga.scmc.entity.EntityZergPassive;
+import ga.scmc.handlers.ItemEnumHandler;
+import ga.scmc.handlers.ItemHandler;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAvoidEntity;
@@ -12,6 +16,7 @@ import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class EntityDrone extends EntityZergPassive {
@@ -58,8 +63,7 @@ public class EntityDrone extends EntityZergPassive {
 	
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
-		//TODO: Add drone drops
-		//ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.PROTOSS_INGOT, 1 + this.rand.nextInt(2), ItemEnumHandler.ProtossIngotType.KHALAI.getID()));
-		//drop.tryDrop(this);
+		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), ItemEnumHandler.CarapaceType.T1.getID()));
+		drop.tryDrop(this);
 	}
 }
