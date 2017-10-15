@@ -37,6 +37,7 @@ import ga.scmc.tileentity.TileEntityBlockCharFurnace;
 import ga.scmc.tileentity.TileEntityBlockShakurasFurnace;
 import ga.scmc.tileentity.TileEntityBlockSlaynFurnace;
 import ga.scmc.tileentity.TileEntityGasCollector;
+import ga.scmc.tileentity.TileEntityMovingLightSource;
 import ga.scmc.tileentity.TileEntityWarpGateWormhole;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureType;
@@ -104,8 +105,9 @@ public class EntityHandler {
 		GameRegistry.registerTileEntity(TileEntityBlockSlaynFurnace.class, Library.RL_BASE + "TileEntityBlockSlaynFurnace");
 		GameRegistry.registerTileEntity(TileEntityGasCollector.class, Library.RL_BASE + "TileEntityBlockGasCollector");
 		GameRegistry.registerTileEntity(TileEntityWarpGateWormhole.class, Library.RL_BASE + "TileEntityWarpGateWormhole");
+		GameRegistry.registerTileEntity(TileEntityMovingLightSource.class, Library.RL_BASE + "TileEntityMovingLightSource");
 	}
-
+	
 	/**
 	 * Registers the specified entities.
 	 */

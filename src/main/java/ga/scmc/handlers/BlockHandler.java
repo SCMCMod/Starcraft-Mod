@@ -16,6 +16,7 @@ import ga.scmc.blocks.BlockFurnaceChar;
 import ga.scmc.blocks.BlockFurnaceShakuras;
 import ga.scmc.blocks.BlockFurnaceSlayn;
 import ga.scmc.blocks.BlockKeratinChunk;
+import ga.scmc.blocks.BlockMovingLightSource;
 import ga.scmc.blocks.BlockProtossEnergyChannel;
 import ga.scmc.blocks.BlockProtossEnergyChannelDark;
 import ga.scmc.blocks.BlockProtossEnergyChannelVoid;
@@ -72,6 +73,7 @@ import net.minecraftforge.fml.relauncher.Side;
  */
 public class BlockHandler {
 
+	public static Block LIGHT_SOURCE;
 	public static Block TEST;
 	
 	public static Block ASH_CHAR;
@@ -175,6 +177,8 @@ public class BlockHandler {
 	 * Sets the
 	 */
 	public static void instantiate() {
+		
+		LIGHT_SOURCE = new BlockMovingLightSource();
 		ORE_COPPER_OW = new OreOWCopper();
 		ORE_TITANIUM_OW = new OreOWTitanium();
 
@@ -331,6 +335,8 @@ public class BlockHandler {
 		registerBlock(LIT_FURNACE_CHAR);
 		registerBlock(FURNACE_SLAYN);
 		registerBlock(LIT_FURNACE_SLAYN);
+		
+		registerBlock(LIGHT_SOURCE);
 
 		registerCompleteBlock(KERATIN_CHUNK);
 

@@ -31,6 +31,7 @@ import static ga.scmc.handlers.BlockHandler.PROTOSS_ENERGY_CHANNEL;
 import static ga.scmc.handlers.BlockHandler.PROTOSS_ENERGY_STABILIZER;
 import static ga.scmc.handlers.BlockHandler.PROTOSS_VOID_ENERGY_CHANNEL;
 import static ga.scmc.handlers.BlockHandler.PROTOSS_VOID_ENERGY_STABILIZER;
+import static ga.scmc.handlers.BlockHandler.LIGHT_SOURCE;
 import static ga.scmc.handlers.BlockHandler.WARP_GATE_WORMHOLE;
 import static ga.scmc.handlers.ItemHandler.BULLET;
 import static ga.scmc.handlers.ItemHandler.C14_GAUSS_RIFLE;
@@ -437,6 +438,8 @@ public class RenderingHandler {
 		// Gasses
 		registerBlockModel(GAS_VESPENE);
 		registerBlockModel(GAS_TERRAZINE);
+		
+		registerBlockModel(LIGHT_SOURCE);
 	}
 
 	/**

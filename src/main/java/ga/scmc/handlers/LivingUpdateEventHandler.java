@@ -1,6 +1,14 @@
 package ga.scmc.handlers;
 
+import ga.scmc.blocks.BlockMovingLightSource;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.EnumSkyBlock;
 // import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -14,25 +22,33 @@ public class LivingUpdateEventHandler {
 		if(event.getEntity().motionY > 0 && event.getEntity().dimension == ConfigurationHandler.INT_DIMENSION_CHAR) {
 			event.getEntity().motionY = event.getEntity().motionY * 1.0375;
 		}else if(event.getEntity() instanceof EntityPlayer) {
-			EntityPlayer player = (EntityPlayer) event.getEntity();
+			
+			EntityPlayer player = ((EntityPlayer)event.getEntity());
+			
+			 int i = MathHelper.floor(player.posX);
+	            int j = MathHelper.floor(player.posY);
+	            int k = MathHelper.floor(player.posZ);
+				if (player.getHeldItem(EnumHand.MAIN_HAND) != null)
+		        {
+		            if (player.getHeldItem(EnumHand.MAIN_HAND).getItem() == WeaponHandler.MASTER_PSI_BLADE ||
+		            		player.getHeldItem(EnumHand.MAIN_HAND).getItem() == WeaponHandler.PSI_BLADE ||
+		            		player.getHeldItem(EnumHand.MAIN_HAND).getItem() == WeaponHandler.WARP_BLADE ||
+		            		player.getHeldItem(EnumHand.MAIN_HAND).getItem() == WeaponHandler.BANE_BLADE ||
+		            		player.getHeldItem(EnumHand.MAIN_HAND).getItem() == WeaponHandler.DARK_WARP_BLADE)
+		            {
+		                    BlockPos blockpos = new BlockPos(i, j+1, k);
 
-			//try {
-				//if(player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() instanceof ArmorGhostHelmet
-					//	&& player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() instanceof ArmorGhostChestplate
-				//		&& player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() instanceof ArmorGhostLeggings
-					//	&& player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() instanceof ArmorGhostBoots) {
-				//	player.setInvisible(true);
-				//} else {
-				//	player.setInvisible(false);
-				//}
-			//} catch(NullPointerException e) {
-			//	player.setInvisible(false);
-			//}
-		} 
+		                    if (player.world.getBlockState(blockpos).getMaterial() == Material.AIR)
+		                    {
+		                    	player.world.setBlockState(blockpos, BlockHandler.LIGHT_SOURCE.getDefaultState());
+		                    }
+		            }
+		        }
+	    }
+	} 
 		//TODO: this is disabled until we add cloaking mechanics
 		//else if(event.getEntity() instanceof EntityDarkTemplar && !StarcraftConfig.BOOL_IS_DARK_TEMPLAR_VISIBLE) {
 		//	event.getEntity().setInvisible(false);
 		//}
-	}
 }
 
