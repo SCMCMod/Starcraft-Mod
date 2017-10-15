@@ -2,7 +2,6 @@ package ga.scmc.items.weapons;
 
 import com.arisux.mdx.lib.world.entity.player.inventory.Inventories;
 
-import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.handlers.ItemEnumHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
