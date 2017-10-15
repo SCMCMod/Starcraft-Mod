@@ -1,11 +1,5 @@
 package ga.scmc.blocks;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import ga.scmc.handlers.BlockHandler;
-import ga.scmc.handlers.ItemHandler;
-import ga.scmc.handlers.WeaponHandler;
 import ga.scmc.tileentity.TileEntityMovingLightSource;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
@@ -13,9 +7,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;

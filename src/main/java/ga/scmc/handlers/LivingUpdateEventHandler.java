@@ -1,14 +1,10 @@
 package ga.scmc.handlers;
 
-import ga.scmc.blocks.BlockMovingLightSource;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.EnumSkyBlock;
 // import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;

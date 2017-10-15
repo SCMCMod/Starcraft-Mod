@@ -1,6 +1,5 @@
 package ga.scmc.tileentity;
 
-import ga.scmc.blocks.BlockMovingLightSource;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.WeaponHandler;
 import net.minecraft.block.state.IBlockState;

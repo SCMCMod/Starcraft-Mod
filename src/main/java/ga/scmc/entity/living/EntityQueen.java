@@ -2,7 +2,6 @@ package ga.scmc.entity.living;
 
 import java.util.Random;
 
-import com.arisux.mdx.lib.world.Worlds;
 import com.arisux.mdx.lib.world.entity.ItemDrop;
 import com.google.common.base.Predicate;
 
