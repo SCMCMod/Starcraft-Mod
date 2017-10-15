@@ -2,12 +2,15 @@ package ga.scmc.entity.living;
 
 import java.util.Random;
 
+import com.arisux.mdx.lib.client.entityfx.EntityFXElectricArc;
+import com.arisux.mdx.lib.game.Game;
 import com.google.common.base.Predicate;
 
 import ga.scmc.entity.EntityStarcraftMob;
 import ga.scmc.entity.EntityStarcraftPassive;
 import ga.scmc.entity.EntityTerranMob;
 import ga.scmc.handlers.SoundHandler;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -23,6 +26,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * @author Hypeirochus
@@ -133,5 +138,18 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 	public void onDeath(DamageSource cause) {
 		this.world.createExplosion(this, this.posX, this.posY + 0.20, this.posZ, 1.2F, false);
 		super.onDeath(cause);
+	}
+	
+	@SideOnly(Side.CLIENT)
+    private void spawnElectricArc(double posX, double posY, double posZ) {
+		for(int x = 0; x < 10; x ++) {
+			Game.minecraft().effectRenderer.addEffect(new EntityFXElectricArc(this.world, this.posX, this.posY, this.posZ, posX + this.rand.nextInt(2), posY, posZ + this.rand.nextInt(2), 10, 1.0F, 1, 1, 0xFF00CCEE));
+		}
+    }
+
+	@Override
+	public boolean attackEntityAsMob(Entity entityIn) {
+		this.spawnElectricArc(entityIn.posX, entityIn.posY, entityIn.posZ);
+		return super.attackEntityAsMob(entityIn);
 	}
 }
