@@ -1,5 +1,6 @@
-package ga.scmc.handlers;
+package ga.scmc.events;
 
+import ga.scmc.handlers.ConfigurationHandler;
 import net.minecraft.entity.monster.EntityCaveSpider;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityEnderman;
@@ -14,7 +15,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @EventBusSubscriber
-public class VanillaEntityHandler {
+public class OnVanillaEntitySpawnEvent {
 
 	@SubscribeEvent
 	public static void onEntitySpawn(EntityJoinWorldEvent event) {
