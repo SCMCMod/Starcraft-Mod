@@ -17,9 +17,6 @@ public class WeaponPsiBlade extends ItemSword {
 	
 	public WeaponPsiBlade(ToolMaterial material) {
 		super(material);
-		setUnlocalizedName("psiBlade");
-		setRegistryName("psi_blade");
-		setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 	}
 	
 	@Override

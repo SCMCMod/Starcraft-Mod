@@ -1,6 +1,6 @@
 package ga.scmc.handlers;
 
-import ga.scmc.material.ModMaterialLiquids;
+import ga.scmc.material.FluidMaterials;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 
@@ -23,10 +23,10 @@ public class MaterialHandler {
 	public static Material TERRAZINE_GAS;
 
 	public static void preInit() {
-		ACID = new ModMaterialLiquids(MapColor.GREEN);
-		BLOOD = new ModMaterialLiquids(MapColor.RED);
-		VESPENE = new ModMaterialLiquids(MapColor.GREEN);
-		TERRAZINE = new ModMaterialLiquids(MapColor.PURPLE);
+		ACID = new FluidMaterials(MapColor.GREEN);
+		BLOOD = new FluidMaterials(MapColor.RED);
+		VESPENE = new FluidMaterials(MapColor.GREEN);
+		TERRAZINE = new FluidMaterials(MapColor.PURPLE);
 
 		VESPENE_GAS = new Material(MapColor.GREEN);
 		TERRAZINE_GAS = new Material(MapColor.PURPLE);

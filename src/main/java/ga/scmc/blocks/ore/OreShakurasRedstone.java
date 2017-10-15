@@ -1,4 +1,4 @@
-package ga.scmc.blocks.ore.oreshakuras;
+package ga.scmc.blocks.ore;
 
 import java.util.Random;
 

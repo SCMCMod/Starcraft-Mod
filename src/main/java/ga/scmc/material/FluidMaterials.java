@@ -13,9 +13,9 @@ import net.minecraft.block.state.IBlockState;
  * 
  * NOTE: These do not work as fluids! Do NOT use! If you wish to change the map color, consider using {@link Block#getMapColor(IBlockState)}
  */
-public class ModMaterialLiquids extends Material {
+public class FluidMaterials extends Material {
 
-	public ModMaterialLiquids(MapColor color) {
+	public FluidMaterials(MapColor color) {
 		super(color);
 		this.setReplaceable();
 		this.setNoPushMobility();

@@ -16,9 +16,6 @@ import net.minecraft.world.World;
 public class WeaponWarpBlade extends ItemSword {
 	public WeaponWarpBlade(ToolMaterial material) {
 		super(material);
-		setUnlocalizedName("warpBlade");
-		setRegistryName("warp_blade");
-		setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 	}
 	
 	@Override

@@ -1,6 +1,5 @@
 package ga.scmc.items.tools;
 
-import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemAxe;
