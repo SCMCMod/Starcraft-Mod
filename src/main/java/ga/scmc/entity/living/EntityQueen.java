@@ -36,12 +36,14 @@ import net.minecraft.world.World;
 
 /**
  * Work in progress
+ * 
  * @author Hypeirochus
  */
 public class EntityQueen extends EntityZergMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
 
-	private static final DataParameter<Float> ENERGY = EntityDataManager.createKey(EntityQueen.class, DataSerializers.FLOAT);
-	
+	private static final DataParameter<Float> ENERGY = EntityDataManager.createKey(EntityQueen.class,
+			DataSerializers.FLOAT);
+
 	public EntityQueen(World world) {
 		super(world);
 		setSize(3.0F, 3.0F);
@@ -55,72 +57,71 @@ public class EntityQueen extends EntityZergMob implements IMob, IRangedAttackMob
 		tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
 		tasks.addTask(5, new EntityAILookIdle(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
-		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, false, false, this));
+		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0,
+				false, false, this));
 	}
-	
+
 	@Override
-    protected void entityInit(){
-        super.entityInit();
-        this.getDataManager().register(ENERGY, 50F);
+	protected void entityInit() {
+		super.entityInit();
+		this.getDataManager().register(ENERGY, 50F);
 	}
-	
+
 	@Override
-    public void writeEntityToNBT(NBTTagCompound nbt)
-    {
-        super.writeEntityToNBT(nbt);
+	public void writeEntityToNBT(NBTTagCompound nbt) {
+		super.writeEntityToNBT(nbt);
 
-        nbt.setFloat("Energy", this.getEnergyAmount());
-    }
+		nbt.setFloat("Energy", this.getEnergyAmount());
+	}
 
-    @Override
-    public void readEntityFromNBT(NBTTagCompound nbt)
-    {
-        super.readEntityFromNBT(nbt);
+	@Override
+	public void readEntityFromNBT(NBTTagCompound nbt) {
+		super.readEntityFromNBT(nbt);
 
-        this.setEnergyAmount(nbt.getInteger("Energy"));
-    }
-    
-    public float getEnergyAmount() {
-        return this.getDataManager().get(ENERGY);
-    }
+		this.setEnergyAmount(nbt.getInteger("Energy"));
+	}
 
-    public void setEnergyAmount(float amount) {
-        this.getDataManager().set(ENERGY, amount);
-    }
+	public float getEnergyAmount() {
+		return this.getDataManager().get(ENERGY);
+	}
+
+	public void setEnergyAmount(float amount) {
+		this.getDataManager().set(ENERGY, amount);
+	}
 
 	@Override
 	public boolean apply(EntityLivingBase entity) {
-		if(!entity.isInvisible()) {
-			if(entity instanceof EntityStarcraftMob) {
-				if(entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if(!((EntityStarcraftMob) entity).isFaction(factionTypes.SWARM)) {
-						if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+		if (!entity.isInvisible()) {
+			if (entity instanceof EntityStarcraftMob) {
+				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
+					if (!((EntityStarcraftMob) entity).isFaction(factionTypes.SWARM)) {
+						if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
-						}else {
+						} else {
 							return false;
 						}
-					}else if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+					} else if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityStarcraftPassive) {
-				if(entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if(!((EntityStarcraftPassive) entity).isFaction(factionTypes.SWARM)) {
-						if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
+			} else if (entity instanceof EntityStarcraftPassive) {
+				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
+					if (!((EntityStarcraftPassive) entity).isFaction(factionTypes.SWARM)) {
+						if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
-						}else {
+						} else {
 							return false;
 						}
-					}else if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+					} else if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}
-			}else {
+			} else {
 				return true;
 			}
-		}else if(entity.isInvisible() && this.isType(typeAttributes.DETECTOR)){
+		} else if (entity.isInvisible() && this.isType(typeAttributes.DETECTOR)) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 		return false;
@@ -138,7 +139,8 @@ public class EntityQueen extends EntityZergMob implements IMob, IRangedAttackMob
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float p_82196_2_) {
 		EntityHydraliskSpike spike = new EntityHydraliskSpike(this.world, this);
-		double d0 = target.posY + (double) target.getEyeHeight() - 1.800000023841858D - target.getDistanceSq(target.getPosition());
+		double d0 = target.posY + (double) target.getEyeHeight() - 1.800000023841858D
+				- target.getDistanceSq(target.getPosition());
 		double d1 = target.posX - this.posX;
 		double d2 = d0 - spike.posY;
 		double d3 = target.posZ - this.posZ;
@@ -150,13 +152,16 @@ public class EntityQueen extends EntityZergMob implements IMob, IRangedAttackMob
 
 	/**
 	 * Drop up to 2 items when killed
-	 * @param damagedByPlayer true if the most recent damage was dealt by a
-	 * player
-	 * @param lootingLevel level of Looting on kill weapon
+	 * 
+	 * @param damagedByPlayer
+	 *            true if the most recent damage was dealt by a player
+	 * @param lootingLevel
+	 *            level of Looting on kill weapon
 	 */
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
-		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), ItemEnumHandler.CarapaceType.T2.getID()));
+		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2),
+				ItemEnumHandler.CarapaceType.T2.getID()));
 		drop.tryDrop(this);
 	}
 
@@ -164,18 +169,18 @@ public class EntityQueen extends EntityZergMob implements IMob, IRangedAttackMob
 	public SoundEvent getAmbientSound() {
 		Random rand = new Random();
 
-		switch(rand.nextInt(3)) {
-			case 0:
-				return SoundHandler.ENTITY_HYDRALISK_LIVE1;
-			case 1:
-				return SoundHandler.ENTITY_HYDRALISK_LIVE2;
-			case 2:
-				return SoundHandler.ENTITY_HYDRALISK_LIVE3;
-			default:
-				return SoundHandler.ENTITY_HYDRALISK_LIVE4;
+		switch (rand.nextInt(3)) {
+		case 0:
+			return SoundHandler.ENTITY_HYDRALISK_LIVE1;
+		case 1:
+			return SoundHandler.ENTITY_HYDRALISK_LIVE2;
+		case 2:
+			return SoundHandler.ENTITY_HYDRALISK_LIVE3;
+		default:
+			return SoundHandler.ENTITY_HYDRALISK_LIVE4;
 		}
 	}
-	
+
 	@Override
 	public SoundEvent getDeathSound() {
 		return SoundHandler.ENTITY_HYDRALISK_DEATH;
@@ -193,14 +198,14 @@ public class EntityQueen extends EntityZergMob implements IMob, IRangedAttackMob
 
 	@Override
 	public void onLivingUpdate() {
-		if(ticksExisted % 20 == 0) {
-			if(!(this.getHealth() == this.getMaxHealth())) {
+		if (ticksExisted % 20 == 0) {
+			if (!(this.getHealth() == this.getMaxHealth())) {
 				this.heal(0.27F);
-			}else if(this.getEnergyAmount() < 200) {
+			} else if (this.getEnergyAmount() < 200) {
 				this.setEnergyAmount(this.getEnergyAmount() + 1.4F);
 			}
 		}
 		super.onLivingUpdate();
 	}
-	
+
 }
