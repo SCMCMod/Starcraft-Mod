@@ -19,6 +19,10 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
@@ -27,7 +31,9 @@ import net.minecraft.world.World;
  * @author Hypeirochus
  */
 public class EntityGhost extends EntityTerranMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
-
+	
+	private static final DataParameter<Float> ENERGY = EntityDataManager.createKey(EntityQueen.class, DataSerializers.FLOAT);
+	
 	public EntityGhost(World world) {
 		super(world);
 		setSize(3.0F, 3.0F);
@@ -43,6 +49,36 @@ public class EntityGhost extends EntityTerranMob implements IMob, IRangedAttackM
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, false, false, this));
 	}
+	
+	@Override
+    protected void entityInit(){
+        super.entityInit();
+        this.getDataManager().register(ENERGY, 50F);
+	}
+	
+	@Override
+    public void writeEntityToNBT(NBTTagCompound nbt)
+    {
+        super.writeEntityToNBT(nbt);
+
+        nbt.setFloat("Energy", this.getEnergyAmount());
+    }
+
+    @Override
+    public void readEntityFromNBT(NBTTagCompound nbt)
+    {
+        super.readEntityFromNBT(nbt);
+
+        this.setEnergyAmount(nbt.getInteger("Energy"));
+    }
+    
+    public float getEnergyAmount() {
+        return this.getDataManager().get(ENERGY);
+    }
+
+    public void setEnergyAmount(float amount) {
+        this.getDataManager().set(ENERGY, amount);
+    }
 
 	@Override
 	public boolean apply(EntityLivingBase entity) {
@@ -103,5 +139,15 @@ public class EntityGhost extends EntityTerranMob implements IMob, IRangedAttackM
 	@Override
 	public int getTalkInterval() {
 		return 160;
+	}
+	
+	@Override
+	public void onLivingUpdate() {
+		if(ticksExisted % 20 == 0) {
+			if(this.getEnergyAmount() < 200) {
+				this.setEnergyAmount(this.getEnergyAmount() + 1.4F);
+			}
+		}
+		super.onLivingUpdate();
 	}
 }

@@ -197,7 +197,6 @@ public class EntityQueen extends EntityZergMob implements IMob, IRangedAttackMob
 			if(!(this.getHealth() == this.getMaxHealth())) {
 				this.heal(0.27F);
 			}else if(this.getEnergyAmount() < 200) {
-				System.out.println(this.getEnergyAmount());
 				this.setEnergyAmount(this.getEnergyAmount() + 1.4F);
 			}
 		}
