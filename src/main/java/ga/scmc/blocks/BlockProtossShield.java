@@ -19,6 +19,7 @@ import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -57,6 +58,9 @@ public class BlockProtossShield extends Block {
 	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
+	
+	@Override
+	public void onBlockDestroyedByExplosion(World worldIn, BlockPos pos, Explosion explosionIn) {}
 
 	/**
 	 * Used to determine ambient occlusion and culling when rebuilding chunks for
