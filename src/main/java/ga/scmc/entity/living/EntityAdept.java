@@ -25,7 +25,7 @@ import net.minecraft.world.World;
 
 /**
  * Work in progress
- * @author He of a Former Time
+ * @author Hypeirochus
  */
 public class EntityAdept extends EntityProtossMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
 

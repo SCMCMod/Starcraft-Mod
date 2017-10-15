@@ -24,7 +24,7 @@ import net.minecraft.world.World;
 
 /**
  * Work in progress
- * @author He of a Former Time
+ * @author Hypeirochus
  */
 public class EntityMarauder extends EntityTerranMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
 

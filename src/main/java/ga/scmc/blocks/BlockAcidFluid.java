@@ -14,7 +14,7 @@ import net.minecraftforge.fluids.BlockFluidClassic;
  * Acid fluid. Hurts entities that come into contact<br>
  * Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team
  * 
- * @author He of a Former Time
+ * @author Hypeirochus
  */
 public class BlockAcidFluid extends BlockFluidClassic {
 

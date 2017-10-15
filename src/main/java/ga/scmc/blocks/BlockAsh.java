@@ -15,7 +15,7 @@ import net.minecraft.world.World;
  * Ash block. Thin layer of ash that generates commonly on Char.<br>
  * Copyright 2017 the Starcraft Minecraft mod team
  * 
- * @author He of a Former Time
+ * @author Hypeirochus
  */
 public class BlockAsh extends ModBlockLayered {
 

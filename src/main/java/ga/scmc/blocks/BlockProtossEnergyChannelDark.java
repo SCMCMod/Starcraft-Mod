@@ -14,7 +14,7 @@ import net.minecraft.item.Item;
 /**
  * Dark Protoss Energy Channel block.<br>
  * Copyright 2017 the Starcraft Minecraft (SCMC) mod team
- * @author He of a Former Time
+ * @author Hypeirochus
  */
 public class BlockProtossEnergyChannelDark extends Block {
 

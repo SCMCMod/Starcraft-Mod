@@ -17,7 +17,7 @@ import net.minecraft.item.Item;
  * Char Stone block.<br>
  * Copyright 2017 the Starcraft Minecraft (SCMC) mod team
  * 
- * @author He of a Former Time
+ * @author Hypeirochus
  */
 public class BlockCharStone extends Block {
 

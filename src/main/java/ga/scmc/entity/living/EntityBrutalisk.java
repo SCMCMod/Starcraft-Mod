@@ -30,7 +30,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 /**
- * @author He of a Former Time
+ * @author Hypeirochus
  */
 public class EntityBrutalisk extends EntityZergMob implements IMob, Predicate<EntityLivingBase> {
 

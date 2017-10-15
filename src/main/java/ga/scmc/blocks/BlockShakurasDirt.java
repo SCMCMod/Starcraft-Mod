@@ -10,7 +10,7 @@ import net.minecraft.block.material.Material;
  * Char Dirt block.<br>
  * Copyright 2017 the Starcraft Minecraft (SCMC) mod team
  * 
- * @author He of a Former Time
+ * @author Hypeirochus
  */
 public class BlockShakurasDirt extends Block {
 

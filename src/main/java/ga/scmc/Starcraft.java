@@ -36,7 +36,7 @@ import net.minecraftforge.fml.relauncher.Side;
  * The main Starcraft mod class<br>
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
  * 
- * @author He of a Former Time
+ * @author Hypeirochus
  * @author wundrweapon
  */
 @Mod(modid = Library.MODID, acceptedMinecraftVersions = "[1.10.2]", useMetadata = true, version = "1.5", dependencies = "required-after:mdxlib")

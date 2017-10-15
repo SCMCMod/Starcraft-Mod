@@ -13,7 +13,7 @@ import net.minecraftforge.fluids.BlockFluidClassic;
  * Blood fluid.<br>
  * Copyright 2017 the Starcraft Minecraft mod team
  * 
- * @author He of a Former Time
+ * @author Hypeirochus
  */
 public class BlockBloodFluid extends BlockFluidClassic {
 
