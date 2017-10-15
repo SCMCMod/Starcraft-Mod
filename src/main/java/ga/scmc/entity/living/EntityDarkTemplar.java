@@ -10,6 +10,7 @@ import ga.scmc.handlers.ItemEnumHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
 import ga.scmc.handlers.WeaponHandler;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -100,8 +101,9 @@ public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predica
 	}
 
 	@Override
-	public boolean attackEntityFrom(DamageSource source, float damageDealt) {
-		return super.attackEntityFrom(source, damageDealt);
+	public boolean attackEntityAsMob(Entity entityIn) {
+		this.playSound(SoundHandler.FX_WARPBLADE_ATTACK, 1.0F, 1.0F);
+		return super.attackEntityAsMob(entityIn);
 	}
 	
 	@Override

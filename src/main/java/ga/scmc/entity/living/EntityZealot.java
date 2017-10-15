@@ -12,6 +12,7 @@ import ga.scmc.handlers.ItemEnumHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
 import ga.scmc.handlers.WeaponHandler;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -165,5 +166,11 @@ public class EntityZealot extends EntityProtossMob implements IMob, Predicate<En
 				}
 			}
 		super.onUpdate();
+	}
+	
+	@Override
+	public boolean attackEntityAsMob(Entity entityIn) {
+		this.playSound(SoundHandler.FX_PSIBLADE_ATTACK, 1.0F, 1.0F);
+		return super.attackEntityAsMob(entityIn);
 	}
 }
