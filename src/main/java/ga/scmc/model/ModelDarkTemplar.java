@@ -1,6 +1,7 @@
 package ga.scmc.model;
 
 import ga.scmc.entity.living.EntityDarkTemplar;
+import ga.scmc.entity.living.EntityZealot;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -484,10 +485,17 @@ public class ModelDarkTemplar extends ModelBase {
 	    legLeft1.rotateAngleX = MathHelper.sin(par1 * 0.8662F) * 1 * par2 - 0.5F;
 		legLeft2.rotateAngleX = MathHelper.cos(par1 * 0.6662F) * 1 * par2 + 0.5F;
 		armLeft1.rotateAngleX = MathHelper.cos(par1 * 0.8662F + (float) Math.PI) * 0.5F * par2;
-		armLeft2.rotateAngleX = MathHelper.sin(par1 * 0.6662F + (float) Math.PI) * 0.5F * par2;
 		legRight1.rotateAngleX = MathHelper.cos(par1 * 0.8662F) * 1 * par2 - 0.5F;
 		legRight2.rotateAngleX = MathHelper.sin(par1 * 0.6662F) * 1 * par2 + 0.5F;
 		armRight1.rotateAngleX = MathHelper.sin(par1 * 0.8662F + (float) Math.PI) * 0.5F * par2;
-		armRight1.rotateAngleX = MathHelper.cos(par1 * 0.6662F + (float) Math.PI) * 0.5F * par2;
+		if(par7Entity instanceof EntityDarkTemplar) {
+        	if(((EntityDarkTemplar)par7Entity).canSheathBlades()) {
+        		this.lForearm.rotateAngleX = (float) Math.toRadians(15);
+        		this.rForearm.rotateAngleX = (float) Math.toRadians(15);
+        	}else {
+        		this.lForearm.rotateAngleX = (float) Math.toRadians(65);
+        		this.rForearm.rotateAngleX = (float) Math.toRadians(65);
+        	}
+        }
 	}
 }

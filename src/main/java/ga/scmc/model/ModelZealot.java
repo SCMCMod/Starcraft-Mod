@@ -465,5 +465,15 @@ public class ModelZealot extends ModelBase {
 		legRight1.rotateAngleX = MathHelper.cos(par1 * 0.8662F) * 1 * par2 - 0.5F;
 		legRight2.rotateAngleX = MathHelper.sin(par1 * 0.6662F) * 1 * par2 + 0.5F;
 		armRight1.rotateAngleX = MathHelper.sin(par1 * 0.8662F + (float) Math.PI) * 0.5F * par2;
+		if(par7Entity instanceof EntityZealot) {
+        	if(((EntityZealot)par7Entity).canSheathBlades()) {
+        		this.lForearm.rotateAngleX = (float) Math.toRadians(15);
+        		this.rForearm.rotateAngleX = (float) Math.toRadians(15);
+        	}else {
+        		this.lForearm.rotateAngleX = (float) Math.toRadians(65);
+        		this.rForearm.rotateAngleX = (float) Math.toRadians(65);
+        	}
+        }
+		
 	}
 }
