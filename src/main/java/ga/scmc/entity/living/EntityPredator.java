@@ -147,7 +147,7 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 	@SideOnly(Side.CLIENT)
     private void spawnElectricArc(double posX, double posY, double posZ) {
 		for(int x = 0; x < 10; x ++) {
-			Game.minecraft().effectRenderer.addEffect(new EntityFXElectricArc(this.world, this.posX, this.posY, this.posZ, posX + this.rand.nextInt(2), posY, posZ + this.rand.nextInt(2), 10, 1.0F, 1, 1, 0xFFFFFFFF));
+			Game.minecraft().effectRenderer.addEffect(new EntityFXElectricArc(this.world, this.posX, this.posY, this.posZ, posX + this.rand.nextInt(2), posY, posZ + this.rand.nextInt(2), 10, 2.5F, 0.5F, 0.05F, 0xFF00FFFF));
 		}
     }
 
