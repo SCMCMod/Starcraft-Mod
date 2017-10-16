@@ -9,16 +9,16 @@ import net.minecraft.world.World;
 
 public abstract class EntityStarcraftPassive extends EntityTameable implements StarcraftEnums {
 
-	List<typeAttributes> types = new ArrayList<typeAttributes>(15);
-	List<factionTypes> factions = new ArrayList<factionTypes>(15);
-	teamColors teamColor = teamColors.WHITE;
-	HashMap<typeAttributes, Double> bonusDamage = new HashMap<typeAttributes, Double>();
+	List<TypeAttributes> types = new ArrayList<TypeAttributes>(15);
+	List<FactionTypes> factions = new ArrayList<FactionTypes>(15);
+	TeamColors teamColor = TeamColors.WHITE;
+	HashMap<TypeAttributes, Double> bonusDamage = new HashMap<TypeAttributes, Double>();
 	
 	public EntityStarcraftPassive(World world) {
 		super(world);
 	}
 	
-	public boolean isType(typeAttributes type) {
+	public boolean isType(TypeAttributes type) {
 		for(int x = 0; x < types.size(); x++) {
 			if(this.types.get(x) == type) {
 				return true;
@@ -27,7 +27,7 @@ public abstract class EntityStarcraftPassive extends EntityTameable implements S
 		return false;
 	}
 	
-	public boolean isFaction(factionTypes faction) {
+	public boolean isFaction(FactionTypes faction) {
 		for(int x = 0; x < factions.size(); x++) {
 			if(this.factions.get(x) == faction) {
 				return true;
@@ -36,31 +36,31 @@ public abstract class EntityStarcraftPassive extends EntityTameable implements S
 		return false;
 	}
 	
-	public teamColors getTeamColor() {
+	public TeamColors getTeamColor() {
 		return this.teamColor;
 	}
 	
-	public void setTeam(teamColors team) {
+	public void setTeam(TeamColors team) {
 		this.teamColor = team;
 	}
 	
-	public void setTypes(typeAttributes ... types) {
+	public void setTypes(TypeAttributes ... types) {
 		for(int x = 0; x < types.length; x++) {
 			this.types.add(x, types[x]);
 		}
 	}
 	
-	public void setFactions(factionTypes ... types) {
+	public void setFactions(FactionTypes ... types) {
 		for(int x = 0; x < types.length; x++) {
 			this.factions.add(x, types[x]);
 		}
 	}
 	
-	public void setDamageAgainstType(typeAttributes type, double dmg) {
+	public void setDamageAgainstType(TypeAttributes type, double dmg) {
 		bonusDamage.put(type, dmg);
 	}
 	
-	public double getDamageAgainstType(typeAttributes type) {
+	public double getDamageAgainstType(TypeAttributes type) {
 		return bonusDamage.get(type);
 	}
 }

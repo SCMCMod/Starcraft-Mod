@@ -1,7 +1,7 @@
 package ga.scmc.entity;
 
 public interface StarcraftEnums {
-	public static enum typeAttributes {
+	public static enum TypeAttributes {
 		AIR,
 		ARMORED,
 		BIOLOGICAL,
@@ -19,7 +19,7 @@ public interface StarcraftEnums {
 		PROJECTILE
 	}
 	
-	public static enum factionTypes {
+	public static enum FactionTypes {
 		AMONSFORCES,
 		CONFEDERACY,
 		CRITTER,
@@ -37,7 +37,7 @@ public interface StarcraftEnums {
 		UMOJAN,
 	}
 	
-	public static enum teamColors {
+	public static enum TeamColors {
 		PURPLE,
 		BROWN,
 		PINK,

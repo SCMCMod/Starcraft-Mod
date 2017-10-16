@@ -35,9 +35,9 @@ public class EntityZerglingSC2 extends EntityZergMob implements IMob, Predicate<
 	public EntityZerglingSC2(World world) {
 		super(world);
 		setSize(1.0F, 1.0F);
-		this.setTeam(teamColors.PURPLE);
-		this.setFactions(factionTypes.SWARM);
-		this.setTypes(typeAttributes.LIGHT, typeAttributes.BIOLOGICAL, typeAttributes.GROUND);
+		this.setTeam(TeamColors.PURPLE);
+		this.setFactions(FactionTypes.SWARM);
+		this.setTypes(TypeAttributes.LIGHT, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
 		experienceValue = 23;
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
@@ -53,7 +53,7 @@ public class EntityZerglingSC2 extends EntityZergMob implements IMob, Predicate<
 		if(!entity.isInvisible()) {
 			if(entity instanceof EntityStarcraftMob) {
 				if(entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if(!((EntityStarcraftMob) entity).isFaction(factionTypes.SWARM)) {
+					if(!((EntityStarcraftMob) entity).isFaction(FactionTypes.SWARM)) {
 						if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						}else {
@@ -65,7 +65,7 @@ public class EntityZerglingSC2 extends EntityZergMob implements IMob, Predicate<
 				}
 			}else if(entity instanceof EntityStarcraftPassive) {
 				if(entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if(!((EntityStarcraftPassive) entity).isFaction(factionTypes.SWARM)) {
+					if(!((EntityStarcraftPassive) entity).isFaction(FactionTypes.SWARM)) {
 						if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						}else {
@@ -78,7 +78,7 @@ public class EntityZerglingSC2 extends EntityZergMob implements IMob, Predicate<
 			}else {
 				return true;
 			}
-		}else if(entity.isInvisible() && this.isType(typeAttributes.DETECTOR)){
+		}else if(entity.isInvisible() && this.isType(TypeAttributes.DETECTOR)){
 			return true;
 		}else {
 			return false;

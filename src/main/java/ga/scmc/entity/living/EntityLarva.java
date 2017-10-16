@@ -52,9 +52,9 @@ public class EntityLarva extends EntityZergPassive {
 	public EntityLarva(World world) {
 		super(world);
 		setSize(1.0F, .5F);
-		this.setTeam(teamColors.PURPLE);
-		this.setFactions(factionTypes.SWARM);
-		setTypes(typeAttributes.LIGHT, typeAttributes.BIOLOGICAL, typeAttributes.GROUND);
+		this.setTeam(TeamColors.PURPLE);
+		this.setFactions(FactionTypes.SWARM);
+		setTypes(TypeAttributes.LIGHT, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
 	}
 
 	protected void applyEntityAI() {

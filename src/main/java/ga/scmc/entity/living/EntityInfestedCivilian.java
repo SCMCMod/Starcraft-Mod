@@ -30,9 +30,9 @@ public class EntityInfestedCivilian extends EntityZergMob implements IMob, Predi
 	public EntityInfestedCivilian(World world) {
 		super(world);
 		setSize(1, 2.0F);
-		this.setTeam(teamColors.PURPLE);
-		this.setFactions(factionTypes.SWARM);
-		setTypes(typeAttributes.LIGHT, typeAttributes.BIOLOGICAL, typeAttributes.GROUND);
+		this.setTeam(TeamColors.PURPLE);
+		this.setFactions(FactionTypes.SWARM);
+		setTypes(TypeAttributes.LIGHT, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
 		tasks.addTask(3, new EntityAIWander(this, 1.0D));
@@ -47,7 +47,7 @@ public class EntityInfestedCivilian extends EntityZergMob implements IMob, Predi
 		if(!entity.isInvisible()) {
 			if(entity instanceof EntityStarcraftMob) {
 				if(entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if(!((EntityStarcraftMob) entity).isFaction(factionTypes.SWARM)) {
+					if(!((EntityStarcraftMob) entity).isFaction(FactionTypes.SWARM)) {
 						if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						}else {
@@ -59,7 +59,7 @@ public class EntityInfestedCivilian extends EntityZergMob implements IMob, Predi
 				}
 			}else if(entity instanceof EntityStarcraftPassive) {
 				if(entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if(!((EntityStarcraftPassive) entity).isFaction(factionTypes.SWARM)) {
+					if(!((EntityStarcraftPassive) entity).isFaction(FactionTypes.SWARM)) {
 						if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						}else {
@@ -72,7 +72,7 @@ public class EntityInfestedCivilian extends EntityZergMob implements IMob, Predi
 			}else {
 				return true;
 			}
-		}else if(entity.isInvisible() && this.isType(typeAttributes.DETECTOR)){
+		}else if(entity.isInvisible() && this.isType(TypeAttributes.DETECTOR)){
 			return true;
 		}else {
 			return false;

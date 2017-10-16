@@ -38,9 +38,9 @@ public class EntityBrutalisk extends EntityZergMob implements IMob, Predicate<En
 		super(world);
 		setSize(4.0F, 6.0F);
 		experienceValue = 1000;
-		this.setTeam(teamColors.PURPLE);
-		this.setFactions(factionTypes.SWARM);
-		setTypes(typeAttributes.MASSIVE, typeAttributes.BIOLOGICAL, typeAttributes.GROUND, typeAttributes.ARMORED, typeAttributes.HEROIC);
+		this.setTeam(TeamColors.PURPLE);
+		this.setFactions(FactionTypes.SWARM);
+		setTypes(TypeAttributes.MASSIVE, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND, TypeAttributes.ARMORED, TypeAttributes.HEROIC);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
 		tasks.addTask(2, new EntityAIMoveTowardsRestriction(this, 1.0D));
@@ -56,7 +56,7 @@ public class EntityBrutalisk extends EntityZergMob implements IMob, Predicate<En
 		if(!entity.isInvisible()) {
 			if(entity instanceof EntityStarcraftMob) {
 				if(entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if(!((EntityStarcraftMob) entity).isFaction(factionTypes.SWARM)) {
+					if(!((EntityStarcraftMob) entity).isFaction(FactionTypes.SWARM)) {
 						if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						}else {
@@ -68,7 +68,7 @@ public class EntityBrutalisk extends EntityZergMob implements IMob, Predicate<En
 				}
 			}else if(entity instanceof EntityStarcraftPassive) {
 				if(entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if(!((EntityStarcraftPassive) entity).isFaction(factionTypes.SWARM)) {
+					if(!((EntityStarcraftPassive) entity).isFaction(FactionTypes.SWARM)) {
 						if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						}else {
@@ -81,7 +81,7 @@ public class EntityBrutalisk extends EntityZergMob implements IMob, Predicate<En
 			}else {
 				return true;
 			}
-		}else if(entity.isInvisible() && this.isType(typeAttributes.DETECTOR)){
+		}else if(entity.isInvisible() && this.isType(TypeAttributes.DETECTOR)){
 			return true;
 		}else {
 			return false;

@@ -40,9 +40,9 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 		super(world);
 		setSize(5.0F, 5.0F);
 		experienceValue = 133;
-		this.setTeam(teamColors.LIGHTBLUE);
-		this.setFactions(factionTypes.DAELAAM);
-		setTypes(typeAttributes.MASSIVE, typeAttributes.MECHANICAL, typeAttributes.GROUND, typeAttributes.ARMORED);
+		this.setTeam(TeamColors.LIGHTBLUE);
+		this.setFactions(FactionTypes.DAELAAM);
+		setTypes(TypeAttributes.MASSIVE, TypeAttributes.MECHANICAL, TypeAttributes.GROUND, TypeAttributes.ARMORED);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackRanged(this, 0.25F, 85, 30));
 		tasks.addTask(2, new EntityAIMoveTowardsRestriction(this, 1));
@@ -58,7 +58,7 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 		if(!entity.isInvisible()) {
 			if(entity instanceof EntityStarcraftMob) {
 				if(entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if(!((EntityStarcraftMob) entity).isFaction(factionTypes.DAELAAM)) {
+					if(!((EntityStarcraftMob) entity).isFaction(FactionTypes.DAELAAM)) {
 						if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						}else {
@@ -70,7 +70,7 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 				}
 			}else if(entity instanceof EntityStarcraftPassive) {
 				if(entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if(!((EntityStarcraftPassive) entity).isFaction(factionTypes.DAELAAM)) {
+					if(!((EntityStarcraftPassive) entity).isFaction(FactionTypes.DAELAAM)) {
 						if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						}else {
@@ -86,7 +86,7 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 				}
 				return true;
 			}
-		}else if(entity.isInvisible() && this.isType(typeAttributes.DETECTOR)){
+		}else if(entity.isInvisible() && this.isType(TypeAttributes.DETECTOR)){
 			return true;
 		}else {
 			return false;
@@ -168,7 +168,7 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 	}
 	
 	@Override
-	public void onUpdate() {
+	public void onLivingUpdate() {
 			if(ticksExisted % 20 == 0 && this.getHealth() < this.getMaxHealth()) {
 				if(this.getHealth() < 143.0 - offsetHealth) {
 					offsetHealth = 143.0F - getHealth();
@@ -182,6 +182,6 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 					System.out.println("regenerating ammo!");
 				}
 			}
-		super.onUpdate();
+		super.onLivingUpdate();
 	}
 }

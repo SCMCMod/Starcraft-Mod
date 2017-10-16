@@ -24,9 +24,9 @@ public class EntityDrone extends EntityZergPassive {
 	public EntityDrone(World world) {
 		super(world);
 		setSize(1.0F, 1.5F);
-		this.setTeam(teamColors.PURPLE);
-		this.setFactions(factionTypes.SWARM);
-		setTypes(typeAttributes.LIGHT, typeAttributes.BIOLOGICAL, typeAttributes.GROUND);
+		this.setTeam(TeamColors.PURPLE);
+		this.setFactions(FactionTypes.SWARM);
+		setTypes(TypeAttributes.LIGHT, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAvoidEntity<EntityProtossMob>(this, EntityProtossMob.class, 16.0F, 1.0D, 1.0D));
 		tasks.addTask(2, new EntityAIAvoidEntity<EntityTerranMob>(this, EntityTerranMob.class, 16.0F, 1.0D, 1.0D));

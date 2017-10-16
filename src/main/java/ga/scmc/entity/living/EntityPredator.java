@@ -42,9 +42,9 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 		super(world);
 		setSize(1.5F, 1.5F);
 		experienceValue = 93;
-		this.setTeam(teamColors.BLUE);
-		this.setFactions(factionTypes.RAIDERS);
-		setTypes(typeAttributes.ARMORED, typeAttributes.MECHANICAL, typeAttributes.GROUND);
+		this.setTeam(TeamColors.BLUE);
+		this.setFactions(FactionTypes.RAIDERS);
+		setTypes(TypeAttributes.ARMORED, TypeAttributes.MECHANICAL, TypeAttributes.GROUND);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
 		tasks.addTask(2, new EntityAIWander(this, 1.0D));
@@ -59,7 +59,7 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 		if(!entity.isInvisible()) {
 			if(entity instanceof EntityStarcraftMob) {
 				if(entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if(!((EntityStarcraftMob) entity).isFaction(factionTypes.RAIDERS)) {
+					if(!((EntityStarcraftMob) entity).isFaction(FactionTypes.RAIDERS)) {
 						if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						}else {
@@ -71,7 +71,7 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 				}
 			}else if(entity instanceof EntityStarcraftPassive) {
 				if(entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if(!((EntityStarcraftPassive) entity).isFaction(factionTypes.RAIDERS)) {
+					if(!((EntityStarcraftPassive) entity).isFaction(FactionTypes.RAIDERS)) {
 						if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						}else {
@@ -87,7 +87,7 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 				}
 				return true;
 			}
-		}else if(entity.isInvisible() && this.isType(typeAttributes.DETECTOR)){
+		}else if(entity.isInvisible() && this.isType(TypeAttributes.DETECTOR)){
 			return true;
 		}else {
 			return false;

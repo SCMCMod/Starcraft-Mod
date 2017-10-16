@@ -23,9 +23,9 @@ public class EntitySCV extends EntityTerranPassive {
 	public EntitySCV(World world) {
 		super(world);
 		setSize(1.0F, 2.0F);
-		this.setTeam(teamColors.BLUE);
-		this.setFactions(factionTypes.RAIDERS);
-		setTypes(typeAttributes.LIGHT, typeAttributes.MECHANICAL, typeAttributes.BIOLOGICAL, typeAttributes.GROUND);
+		this.setTeam(TeamColors.BLUE);
+		this.setFactions(FactionTypes.RAIDERS);
+		setTypes(TypeAttributes.LIGHT, TypeAttributes.MECHANICAL, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAvoidEntity<EntityZergMob>(this, EntityZergMob.class, 16.0F, 1.0D, 1.0D));
 		tasks.addTask(2, new EntityAIAvoidEntity<EntityProtossMob>(this, EntityProtossMob.class, 16.0F, 1.0D, 1.0D));

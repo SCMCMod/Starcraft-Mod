@@ -30,9 +30,9 @@ public class EntityDarkProbe extends EntityProtossPassive {
 	public EntityDarkProbe(World world) {
 		super(world);
 		setSize(1.0F, 1.5F);
-		this.setTeam(teamColors.RED);
-		this.setFactions(factionTypes.TALDARIM);
-		setTypes(typeAttributes.LIGHT, typeAttributes.MECHANICAL, typeAttributes.GROUND);
+		this.setTeam(TeamColors.RED);
+		this.setFactions(FactionTypes.TALDARIM);
+		setTypes(TypeAttributes.LIGHT, TypeAttributes.MECHANICAL, TypeAttributes.GROUND);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAvoidEntity<EntityZergMob>(this, EntityZergMob.class, 16.0F, 1.0D, 1.0D));
 		tasks.addTask(2, new EntityAIAvoidEntity<EntityTerranMob>(this, EntityTerranMob.class, 16.0F, 1.0D, 1.0D));
@@ -93,7 +93,7 @@ public class EntityDarkProbe extends EntityProtossPassive {
 	}
 	
 	@Override
-	public void onUpdate() {
+	public void onLivingUpdate() {
 			if(ticksExisted % 20 == 0 && this.getHealth() < this.getMaxHealth()) {
 				if(this.getHealth() < 13.5 - offsetHealth) {
 					offsetHealth = 13.5F - getHealth();
@@ -102,6 +102,6 @@ public class EntityDarkProbe extends EntityProtossPassive {
 					this.heal(2.0F);
 				}
 			}
-		super.onUpdate();
+		super.onLivingUpdate();
 	}
 }

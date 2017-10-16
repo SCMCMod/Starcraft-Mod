@@ -26,9 +26,9 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 	public EntityLarvaCocoon(World world) {
 		super(world);
 		setSize(1.0F, 1.0F);
-		this.setTeam(teamColors.PURPLE);
-		this.setFactions(factionTypes.SWARM);
-		setTypes(typeAttributes.BIOLOGICAL, typeAttributes.GROUND);
+		this.setTeam(TeamColors.PURPLE);
+		this.setFactions(FactionTypes.SWARM);
+		setTypes(TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
 	}
 
 	@Override

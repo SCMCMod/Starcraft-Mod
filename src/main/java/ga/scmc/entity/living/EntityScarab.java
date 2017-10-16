@@ -52,8 +52,8 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 	public EntityScarab(World worldIn) {
 		super(worldIn);
 		setSize(.1F, .1F);
-		this.setTeam(teamColors.LIGHTBLUE);
-		this.setFactions(factionTypes.DAELAAM);
+		this.setTeam(TeamColors.LIGHTBLUE);
+		this.setFactions(FactionTypes.DAELAAM);
 		tasks.addTask(1, new EntityAISwimming(this));
 		tasks.addTask(2, new EntityAIScarabExplode(this));
 		tasks.addTask(3, new EntityAIAttackMelee(this, 1, false));
@@ -67,7 +67,7 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 		if(!entity.isInvisible()) {
 			if(entity instanceof EntityStarcraftMob) {
 				if(entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if(!((EntityStarcraftMob) entity).isFaction(factionTypes.DAELAAM)) {
+					if(!((EntityStarcraftMob) entity).isFaction(FactionTypes.DAELAAM)) {
 						if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						}else {
@@ -79,7 +79,7 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 				}
 			}else if(entity instanceof EntityStarcraftPassive) {
 				if(entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if(!((EntityStarcraftPassive) entity).isFaction(factionTypes.DAELAAM)) {
+					if(!((EntityStarcraftPassive) entity).isFaction(FactionTypes.DAELAAM)) {
 						if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						}else {
@@ -95,7 +95,7 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 				}
 				return true;
 			}
-		}else if(entity.isInvisible() && this.isType(typeAttributes.DETECTOR)){
+		}else if(entity.isInvisible() && this.isType(TypeAttributes.DETECTOR)){
 			return true;
 		}else {
 			return false;
