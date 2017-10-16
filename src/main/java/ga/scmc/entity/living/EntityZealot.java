@@ -176,7 +176,6 @@ public class EntityZealot extends EntityProtossMob implements IMob, Predicate<En
 	@Override
 	public void onUpdate() {
 		if(!world.isRemote) {
-			System.out.println(this.getAttackTarget());
 			if (this.getAttackTarget() != null) {
 				this.setSheathed(true);
 			} else if (this.getAttackTarget() == null) {
