@@ -270,13 +270,13 @@ public class WorldGenerationHandler implements IWorldGenerator {
 					}
 				}
 				if (rnd.nextInt(100) < 2 && world.getWorldInfo().isMapFeaturesEnabled()) {
-					runGenerator(GEYSER, BlockHandler.STONE_CHAR.getDefaultState(), BlockHandler.FLUID_VESPENE.getDefaultState(), world, random, chunkX, chunkZ, 0, -30, 0, 1, 60, 80);
+					runGenerator(GEYSER, BlockHandler.STONE_CHAR.getDefaultState(), BlockHandler.FLUID_VESPENE.getDefaultState(), world, random, chunkX, chunkZ, 0, -34, 0, 1, 60, 80);
 					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
 						LogHelper.logger.info("A Vespene Geyser attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
 					}
 				}
 				if (rnd.nextInt(100) < 1 && world.getWorldInfo().isMapFeaturesEnabled()) {
-					runGenerator(GEYSER, BlockHandler.STONE_CHAR.getDefaultState(), BlockHandler.FLUID_TERRAZINE.getDefaultState(), world, random, chunkX, chunkZ, 0, -30, 0, 1, 60, 80);
+					runGenerator(GEYSER, BlockHandler.STONE_CHAR.getDefaultState(), BlockHandler.FLUID_TERRAZINE.getDefaultState(), world, random, chunkX, chunkZ, 0, -34, 0, 1, 60, 80);
 					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
 						LogHelper.logger.info("A Terrazine Geyser attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
 					}
@@ -328,13 +328,13 @@ public class WorldGenerationHandler implements IWorldGenerator {
 					}
 				}
 				if (rnd.nextInt(100) < 3 && world.getWorldInfo().isMapFeaturesEnabled()) {
-					runGenerator(GEYSER, BlockHandler.STONE_SHAKURAS.getDefaultState(), BlockHandler.FLUID_VESPENE.getDefaultState(), world, random, chunkX, chunkZ, 0, -30, 0, 1, 60, 80);
+					runGenerator(GEYSER, BlockHandler.STONE_SHAKURAS.getDefaultState(), BlockHandler.FLUID_VESPENE.getDefaultState(), world, random, chunkX, chunkZ, 0, -34, 0, 1, 60, 80);
 					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
 						LogHelper.logger.info("A Vespene Geyser attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
 					}
 				}
 				if (rnd.nextInt(100) < 1 && world.getWorldInfo().isMapFeaturesEnabled()) {
-					runGenerator(GEYSER, BlockHandler.STONE_SHAKURAS.getDefaultState(), BlockHandler.FLUID_TERRAZINE.getDefaultState(), world, random, chunkX, chunkZ, 0, -30, 0, 1, 60, 80);
+					runGenerator(GEYSER, BlockHandler.STONE_SHAKURAS.getDefaultState(), BlockHandler.FLUID_TERRAZINE.getDefaultState(), world, random, chunkX, chunkZ, 0, -34, 0, 1, 60, 80);
 					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
 						LogHelper.logger.info("A Terrazine Geyser attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
 					}
