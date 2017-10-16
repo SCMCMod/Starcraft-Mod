@@ -6,7 +6,6 @@ import net.minecraft.item.Item;
 public class ItemCreepResin extends Item {
 
 	public ItemCreepResin() {
-		super();
 		setUnlocalizedName("zergCreepResin");
 		setRegistryName("zerg_creep_resin");
 		setCreativeTab(StarcraftCreativeTabs.ZERG);

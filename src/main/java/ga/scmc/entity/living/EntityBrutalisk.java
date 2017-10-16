@@ -37,7 +37,8 @@ public class EntityBrutalisk extends EntityZergMob implements IMob, Predicate<En
 	public EntityBrutalisk(World world) {
 		super(world);
 		setSize(4.0F, 6.0F);
-		experienceValue = 1000;
+		experienceValue = 750;
+		this.baseHealth = 750;
 		this.setTeam(TeamColors.PURPLE);
 		this.setFactions(FactionTypes.SWARM);
 		setTypes(TypeAttributes.MASSIVE, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND, TypeAttributes.ARMORED, TypeAttributes.HEROIC);
@@ -141,14 +142,6 @@ public class EntityBrutalisk extends EntityZergMob implements IMob, Predicate<En
 	@Override
 	public int getTalkInterval() {
 		return 160;
-	}
-	
-	@Override
-	public void onLivingUpdate() {
-		if(ticksExisted % 20 == 0 && !(this.getHealth() == this.getMaxHealth())) {
-			this.heal(0.27F);
-		}
-		super.onLivingUpdate();
 	}
 	
 	@Override

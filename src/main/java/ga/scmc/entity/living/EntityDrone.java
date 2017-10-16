@@ -54,14 +54,6 @@ public class EntityDrone extends EntityZergPassive {
 	}
 	
 	@Override
-	public void onLivingUpdate() {
-		if(ticksExisted % 20 == 0 && !(this.getHealth() == this.getMaxHealth())) {
-			this.heal(0.27F);
-		}
-		super.onLivingUpdate();
-	}
-	
-	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
 		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), ItemEnumHandler.CarapaceType.T1.getID()));
 		drop.tryDrop(this);

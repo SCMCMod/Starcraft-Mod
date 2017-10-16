@@ -37,6 +37,6 @@ public class RenderHydralisk<T> extends RenderLiving<EntityHydralisk> {
 
 	@Override
 	protected void preRenderCallback(EntityHydralisk entitylivingbaseIn, float partialTickTime) {
-		GlStateManager.scale(1.3F, 1.3F, 1.3F);
+		GlStateManager.scale(1.3F + (entitylivingbaseIn.getBiomass()/60), 1.3F + (entitylivingbaseIn.getBiomass()/60), 1.3F + (entitylivingbaseIn.getBiomass()/60));
 	}
 }

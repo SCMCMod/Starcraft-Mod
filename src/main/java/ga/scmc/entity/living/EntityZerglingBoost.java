@@ -36,6 +36,7 @@ public class EntityZerglingBoost extends EntityZergMob implements IMob, Predicat
 		super(world);
 		setSize(1.0F, 1.0F);
 		experienceValue = 23;
+		this.baseHealth = 25;
 		this.setTeam(TeamColors.PURPLE);
 		this.setFactions(FactionTypes.SWARM);
 		this.setTypes(TypeAttributes.LIGHT, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
@@ -125,14 +126,6 @@ public class EntityZerglingBoost extends EntityZergMob implements IMob, Predicat
 	@Override
 	public SoundEvent getHurtSound() {
 		return SoundHandler.ENTITY_ZERGLING_HURT;
-	}
-	
-	@Override
-	public void onLivingUpdate() {
-		if(ticksExisted % 20 == 0 && !(this.getHealth() == this.getMaxHealth())) {
-			this.heal(0.27F);
-		}
-		super.onLivingUpdate();
 	}
 
 	@Override

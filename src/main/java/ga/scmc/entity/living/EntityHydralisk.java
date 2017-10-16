@@ -39,6 +39,7 @@ public class EntityHydralisk extends EntityZergMob implements IMob, IRangedAttac
 		super(world);
 		setSize(3.0F, 3.0F);
 		experienceValue = 60;
+		this.baseHealth = 60;
 		this.setTeam(TeamColors.PURPLE);
 		this.setFactions(FactionTypes.SWARM);
 		setTypes(TypeAttributes.LIGHT, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
@@ -153,13 +154,4 @@ public class EntityHydralisk extends EntityZergMob implements IMob, IRangedAttac
 	public int getTalkInterval() {
 		return 160;
 	}
-
-	@Override
-	public void onLivingUpdate() {
-		if(ticksExisted % 20 == 0 && !(this.getHealth() == this.getMaxHealth())) {
-			this.heal(0.27F);
-		}
-		super.onLivingUpdate();
-	}
-	
 }

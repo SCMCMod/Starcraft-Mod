@@ -359,6 +359,7 @@ item.emptyContainer.zerg.name=Empty Gas Container (Zerg)
 
 item.zergCreepResin.name=Creep Resin
 item.organicTissue.name=Organic Tissue
+item.biomass.name=Biomass
 
 item.spawnerZergSpawningPool.name=Spawning Pool Spawner
 item.spawnerZergSpire.name=Spire Spawner

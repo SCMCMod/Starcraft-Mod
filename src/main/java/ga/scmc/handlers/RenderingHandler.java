@@ -47,6 +47,7 @@ import static ga.scmc.handlers.ItemHandler.INGOT;
 import static ga.scmc.handlers.ItemHandler.MINERAL_SHARD;
 import static ga.scmc.handlers.ItemHandler.NUCLEAR_MISSILE;
 import static ga.scmc.handlers.ItemHandler.ORGANIC_TISSUE;
+import static ga.scmc.handlers.ItemHandler.BIOMASS;
 import static ga.scmc.handlers.ItemHandler.PROTOSS_INGOT;
 import static ga.scmc.handlers.ItemHandler.PSI_BLADE_FOCUSER_UNCHARGED;
 import static ga.scmc.handlers.ItemHandler.SPAWNER_PROTOSS_CYBERNETICSCORE;
@@ -293,6 +294,7 @@ public class RenderingHandler {
 
 		registerItemRender(CREEP_RESIN);
 		registerItemRender(ORGANIC_TISSUE);
+		registerItemRender(BIOMASS);
 
 		registerItemRender(NUCLEAR_MISSILE);
 		

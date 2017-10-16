@@ -37,6 +37,6 @@ public class RenderZerglingBoost<T> extends RenderLiving<EntityZerglingBoost> {
 
 	@Override
 	protected void preRenderCallback(EntityZerglingBoost entitylivingbaseIn, float partialTickTime) {
-		GlStateManager.scale(1.25F, 1.25F, 1.25F);
+		GlStateManager.scale(1.25F + (entitylivingbaseIn.getBiomass()/60), 1.25F + (entitylivingbaseIn.getBiomass()/60), 1.25F + (entitylivingbaseIn.getBiomass()/60));
 	}
 }

@@ -1,5 +1,6 @@
 package ga.scmc.handlers;
 
+import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.fluids.FluidHandler;
 import ga.scmc.items.ItemC14GaussRifle;
 import ga.scmc.items.ItemCreepResin;
@@ -55,6 +56,7 @@ public class ItemHandler {
 	public static Item ORGANIC_TISSUE;
 	public static Item PSI_BLADE_FOCUSER_UNCHARGED;
 	public static Item ZERG_CARAPACE;
+	public static Item BIOMASS;
 
 	public static Item NUCLEAR_MISSILE;
 
@@ -100,6 +102,7 @@ public class ItemHandler {
 		ZERG_CARAPACE = new ItemZergCarapace();
 		CREEP_RESIN = new ItemCreepResin();
 		ORGANIC_TISSUE = new ItemOrganicTissue();
+		BIOMASS = new Item().setUnlocalizedName("biomass").setRegistryName("biomass").setCreativeTab(StarcraftCreativeTabs.ZERG);
 
 		NUCLEAR_MISSILE = new ItemNuclearMissile();
 
@@ -163,6 +166,7 @@ public class ItemHandler {
 		registerItem(ZERG_CARAPACE);
 		registerItem(CREEP_RESIN);
 		registerItem(ORGANIC_TISSUE);
+		registerItem(BIOMASS);
 
 		registerItem(NUCLEAR_MISSILE);
 

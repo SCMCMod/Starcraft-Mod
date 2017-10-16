@@ -48,6 +48,7 @@ public class EntityQueen extends EntityZergMob implements IMob, IRangedAttackMob
 		super(world);
 		setSize(3.0F, 3.0F);
 		experienceValue = 60;
+		this.baseHealth = 60;
 		this.setTeam(TeamColors.PURPLE);
 		this.setFactions(FactionTypes.SWARM);
 		setTypes(TypeAttributes.PSIONIC, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
@@ -198,9 +199,7 @@ public class EntityQueen extends EntityZergMob implements IMob, IRangedAttackMob
 	@Override
 	public void onLivingUpdate() {
 		if (ticksExisted % 20 == 0) {
-			if (!(this.getHealth() == this.getMaxHealth())) {
-				this.heal(0.27F);
-			} else if (this.getEnergyAmount() < 200) {
+			if(this.getEnergyAmount() < 200) {
 				this.setEnergyAmount(this.getEnergyAmount() + 1.4F);
 			}
 		}

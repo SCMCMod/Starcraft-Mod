@@ -260,9 +260,6 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 
 	@Override
 	public void onUpdate() {
-		if(ticksExisted % 20 == 0 && !(this.getHealth() == this.getMaxHealth())) {
-			this.heal(0.27F);
-		}
 		if(!world.isRemote) {
 			if((ticksExisted > 740)) {
 				int i;

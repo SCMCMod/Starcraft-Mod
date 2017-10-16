@@ -38,6 +38,7 @@ public class EntityZerglingRaptor extends EntityZergMob implements IMob, Predica
 		super(world);
 		setSize(1.0F, 1.0F);
 		experienceValue = 23;
+		this.baseHealth = 25;
 		stepHeight = 5.0F;
 		this.setTeam(TeamColors.PURPLE);
 		this.setFactions(FactionTypes.SWARM);
@@ -140,14 +141,6 @@ public class EntityZerglingRaptor extends EntityZergMob implements IMob, Predica
 	@Override
 	protected float getJumpUpwardsMotion() {
 		return 5.0F;
-	}
-	
-	@Override
-	public void onLivingUpdate() {
-		if(ticksExisted % 20 == 0 && !(this.getHealth() == this.getMaxHealth())) {
-			this.heal(0.27F);
-		}
-		super.onLivingUpdate();
 	}
 
 	@Override

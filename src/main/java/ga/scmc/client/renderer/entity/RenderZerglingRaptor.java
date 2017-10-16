@@ -36,6 +36,6 @@ public class RenderZerglingRaptor<T> extends RenderLiving<EntityZerglingRaptor> 
 
 	@Override
 	protected void preRenderCallback(EntityZerglingRaptor entitylivingbaseIn, float partialTickTime) {
-		GlStateManager.scale(1.25F, 1.25F, 1.25F);
+		GlStateManager.scale(1.25F + (entitylivingbaseIn.getBiomass()/60), 1.25F + (entitylivingbaseIn.getBiomass()/60), 1.25F + (entitylivingbaseIn.getBiomass()/60));
 	}
 }

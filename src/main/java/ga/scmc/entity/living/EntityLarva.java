@@ -420,9 +420,6 @@ public class EntityLarva extends EntityZergPassive {
 
 	@Override
 	public void onUpdate() {
-		if(ticksExisted % 20 == 0 && !(this.getHealth() == this.getMaxHealth())) {
-			this.heal(0.27F);
-		}
 		if(!world.isRemote) {
 			if((ticksExisted + rand.nextInt(1000) > 4000)) {
 				Library.replaceEntity(false, this, new EntityLarvaCocoon(world));

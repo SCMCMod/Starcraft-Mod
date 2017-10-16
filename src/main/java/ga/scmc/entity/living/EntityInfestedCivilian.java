@@ -117,11 +117,8 @@ public class EntityInfestedCivilian extends EntityZergMob implements IMob, Predi
 	}
 	
 	@Override
-	public void onLivingUpdate() {
-		if(ticksExisted % 20 == 0 && !(this.getHealth() == this.getMaxHealth())) {
-			this.heal(0.27F);
-		}
-		super.onLivingUpdate();
+	protected void findBiomass() {
+		;
 	}
 	
 }

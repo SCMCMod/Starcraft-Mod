@@ -108,12 +108,14 @@ public class EntityBroodling extends EntityZergMob implements IMob, Predicate<En
 	
 	@Override
 	public void onLivingUpdate() {
-		if(ticksExisted % 20 == 0 && !(this.getHealth() == this.getMaxHealth())) {
-			this.heal(0.27F);
-		}
 		if(this.ticksExisted > 160) {
 			this.kill();
 		}
 		super.onLivingUpdate();
+	}
+	
+	@Override
+	protected void findBiomass() {
+		;
 	}
 }
