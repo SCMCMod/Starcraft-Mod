@@ -1,5 +1,6 @@
 package ga.scmc.model;
 
+import ga.scmc.entity.living.EntityZealot;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -431,6 +432,15 @@ public class ModelZealot extends ModelBase {
         GlStateManager.popMatrix();
         this.chestUpper.render(f5);
         this.arcRight1_1.render(f5);
+        if(entity instanceof EntityZealot) {
+        	if(((EntityZealot)entity).canSheathBlades()) {
+        		this.bladeLeft3.isHidden = false;
+        		this.bladeRight3.isHidden = false;
+        	}else {
+        		this.bladeLeft3.isHidden = true;
+        		this.bladeRight3.isHidden = true;
+        	}
+        }
     }
 
     /**

@@ -1,5 +1,6 @@
 package ga.scmc.model;
 
+import ga.scmc.entity.living.EntityDarkTemplar;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -455,6 +456,13 @@ public class ModelDarkTemplar extends ModelBase {
         GlStateManager.translate(-this.neck.rotationPointX * f5, -this.neck.rotationPointY * f5, -this.neck.rotationPointZ * f5);
         this.neck.render(f5);
         GlStateManager.popMatrix();
+        if(entity instanceof EntityDarkTemplar) {
+        	if(((EntityDarkTemplar)entity).canSheathBlades()) {
+        		this.bladeLeft3.isHidden = false;
+        	}else {
+        		this.bladeLeft3.isHidden = true;
+        	}
+        }
     }
 
 	/**
