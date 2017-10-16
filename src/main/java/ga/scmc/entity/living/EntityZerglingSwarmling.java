@@ -71,7 +71,7 @@ public class EntityZerglingSwarmling extends EntityZergMob implements IMob, Pred
 						}else {
 							return false;
 						}
-					}else if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+					}else if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}

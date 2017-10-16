@@ -104,7 +104,7 @@ public class EntityGhost extends EntityTerranMob implements IMob, IRangedAttackM
 						} else {
 							return false;
 						}
-					} else if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+					} else if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}

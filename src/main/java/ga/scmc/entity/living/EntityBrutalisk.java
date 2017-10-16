@@ -74,7 +74,7 @@ public class EntityBrutalisk extends EntityZergMob implements IMob, Predicate<En
 						}else {
 							return false;
 						}
-					}else if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+					}else if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}

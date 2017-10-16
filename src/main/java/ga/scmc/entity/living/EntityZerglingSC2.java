@@ -71,7 +71,7 @@ public class EntityZerglingSC2 extends EntityZergMob implements IMob, Predicate<
 						}else {
 							return false;
 						}
-					}else if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+					}else if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}

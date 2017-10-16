@@ -76,7 +76,7 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 						}else {
 							return false;
 						}
-					}else if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+					}else if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}

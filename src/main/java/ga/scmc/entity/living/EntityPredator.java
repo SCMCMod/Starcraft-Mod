@@ -77,7 +77,7 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 						}else {
 							return false;
 						}
-					}else if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+					}else if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}

@@ -74,7 +74,7 @@ public class EntityHydralisk extends EntityZergMob implements IMob, IRangedAttac
 						}else {
 							return false;
 						}
-					}else if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+					}else if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}

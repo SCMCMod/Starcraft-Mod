@@ -93,7 +93,7 @@ public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predica
 						} else {
 							return false;
 						}
-					} else if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+					} else if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}
