@@ -33,7 +33,6 @@ public class ItemShopItems {
 		tab0.add(new Product(new ItemStack(ItemHandler.DUST, 1, ItemEnumHandler.DustType.IRON.getID()), 2, 0));
 		tab0.add(new Product(new ItemStack(ItemHandler.DUST, 1, ItemEnumHandler.DustType.STEEL.getID()), 2, 1));
 		tab0.add(new Product(new ItemStack(ItemHandler.GAS_CONTAINER, 1, ItemEnumHandler.ContainerType.TERRAN.getID()), 1, 0));
-		tab0.add(new Product(new ItemStack(ItemHandler.VESPENE, 1, ItemEnumHandler.VespeneType.TERRAN.getID()), 5, 0));
 		TRADES[0] = tab0.build();
 
 		ImmutableList.Builder<Product> tab1 = ImmutableList.builder();

@@ -37,6 +37,7 @@ import ga.scmc.items.structurespawns.ItemZergSpireSpawner;
 import ga.scmc.lib.LogHelper;
 import net.minecraft.item.Item;
 import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /**
@@ -202,7 +203,7 @@ public class ItemHandler {
 	 *            The item
 	 */
 	public static void registerItem(Item item) {
-		GameRegistry.register(item);
+		ForgeRegistries.ITEMS.register(item);
 		if (ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
 			LogHelper.logger.info("Registered Item: " + item.getUnlocalizedName().substring(5));
 		}

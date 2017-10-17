@@ -2,11 +2,12 @@ package ga.scmc.client.gui;
 
 import java.io.IOException;
 
-import ga.scmc.client.gui.element.GuiButtonLavaLarvaOptions;
+import ga.scmc.client.gui.element.LavaLarvaOption;
 import ga.scmc.lib.GuiUtils;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.text.TextFormatting;
 
 /**
  * @since 5.1
@@ -17,6 +18,9 @@ public class GuiLavaLarva extends BasicGui {
 	/** The player being traded with. */
 	private EntityPlayer customer;
 
+	private LavaLarvaOption base;
+	private LavaLarvaOption test;
+
 	public GuiLavaLarva(EntityPlayer player) {
 		this.customer = player;
 	}
@@ -24,15 +28,16 @@ public class GuiLavaLarva extends BasicGui {
 	@Override
 	public void initGui() {
 		xSize = 136;
-		ySize = 100;
+		ySize = 125;
 		super.initGui();
 
+		base = new LavaLarvaOption(0, 0, guiLeft + 5, guiTop + 5).unlock().setTooltip(TextFormatting.GOLD + "Base,This is the,base of this,system.", ",");
+		test = new LavaLarvaOption(base, 1, 1, guiLeft + 35, guiTop + 5).setTooltip(TextFormatting.GOLD + "Test,Obtain this by,doing jack shit.", ",");
+
 		buttonList.clear();
-		for (int x = 0; x < 5; x++) {
-			for (int y = 0; y < 3; y++) {
-				buttonList.add(new GuiButtonLavaLarvaOptions(x + y * 5, x + y * 5, 4 + guiLeft + 26 * x, 12 + guiTop + 26 * y));
-			}
-		}
+		buttonList.add(base);
+		buttonList.add(test);
+		buttonList.add(new LavaLarvaOption(test, 1, 1, guiLeft + 65, guiTop + 5));
 	}
 
 	@Override
@@ -48,11 +53,26 @@ public class GuiLavaLarva extends BasicGui {
 	}
 
 	@Override
+	protected void drawTooltips(int mouseX, int mouseY) {
+		for (GuiButton b : buttonList) {
+			if (b instanceof LavaLarvaOption) {
+				LavaLarvaOption button = (LavaLarvaOption) b;
+				drawTooltip(button.getTooltip(), button.xPosition, button.yPosition, button.width, button.height, mouseX, mouseY);
+			}
+		}
+	}
+
+	@Override
 	protected void actionPerformed(GuiButton button) throws IOException {
 		switch (button.id) {
 		case 0:
 			break;
 		}
+	}
+
+	@Override
+	public boolean doesGuiPauseGame() {
+		return false;
 	}
 
 	private void bindGuiTexture() {

@@ -34,6 +34,14 @@ public class EntityC14GaussRifleBullet extends EntityThrowable {
 	}
 	
 	@Override
+	public void onEntityUpdate() {
+		super.onEntityUpdate();
+		if(ticksExisted > 100) {
+			setDead();
+		}
+	}
+	
+	@Override
 	protected float getGravityVelocity() {
 		return 0;
 	}

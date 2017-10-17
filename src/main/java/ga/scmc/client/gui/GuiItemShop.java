@@ -55,8 +55,7 @@ public class GuiItemShop extends GuiScreen {
 	private int selectedIndex = -1;
 
 	public GuiItemShop(EntityPlayer player) {
-		this.customer = player;
-		this.displayName = I18n.format("gui.item_shop");
+		this(player, I18n.format("gui.item_shop"));
 	}
 
 	public GuiItemShop(EntityPlayer player, String displayName) {
@@ -64,6 +63,7 @@ public class GuiItemShop extends GuiScreen {
 		this.displayName = displayName;
 	}
 
+	@Override
 	public void initGui() {
 		xSize = 152;
 		ySize = 230;
@@ -87,6 +87,7 @@ public class GuiItemShop extends GuiScreen {
 		buttonList.add(buttonBuy);
 	}
 
+	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
 		this.drawDefaultBackground();
 		int i = this.guiLeft;
@@ -219,6 +220,7 @@ public class GuiItemShop extends GuiScreen {
 		}
 	}
 
+	@Override
 	protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
 		for (int i = 0; i < tabs.size(); i++) {
 			tabs.get(i).onMouseClicked(mouseX, mouseY, mouseButton);
@@ -251,6 +253,7 @@ public class GuiItemShop extends GuiScreen {
 		super.mouseClicked(mouseX, mouseY, mouseButton);
 	}
 
+	@Override
 	public void updateScreen() {
 		if (selectedIndex == -1 || InventoryUtil.getItemAmount(customer, MINERAL) < ItemShopItems.TRADES[tab].get(selectedIndex).getMineralCost() || InventoryUtil.getItemAmount(customer, VESPENE.getItem()) < ItemShopItems.TRADES[tab].get(selectedIndex).getVespeneCost()) {
 			buttonBuy.enabled = false;
@@ -269,6 +272,7 @@ public class GuiItemShop extends GuiScreen {
 		}
 	}
 
+	@Override
 	protected void actionPerformed(GuiButton button) throws IOException {
 		switch (button.id) {
 		case BUTTON_BUY:
@@ -278,6 +282,19 @@ public class GuiItemShop extends GuiScreen {
 				InventoryUtil.removeItemWithAmount(customer, VESPENE.getItem(), ItemShopItems.TRADES[tab].get(selectedIndex).getVespeneCost());
 			}
 			break;
+		}
+	}
+
+	@Override
+	public boolean doesGuiPauseGame() {
+		return false;
+	}
+
+	@Override
+	protected void keyTyped(char typedChar, int keyCode) throws IOException {
+		super.keyTyped(typedChar, keyCode);
+		if (keyCode == 1 || this.mc.gameSettings.keyBindInventory.isActiveAndMatches(keyCode)) {
+			this.mc.player.closeScreen();
 		}
 	}
 
@@ -297,9 +314,5 @@ public class GuiItemShop extends GuiScreen {
 
 	public void bindGuiTexture() {
 		GuiUtils.bindTexture("textures/gui/item_shop.png");
-	}
-
-	public boolean doesGuiPauseGame() {
-		return false;
 	}
 }

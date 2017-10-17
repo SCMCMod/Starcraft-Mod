@@ -7,6 +7,7 @@ import ga.scmc.client.gui.GuiHandler;
 import ga.scmc.entity.EntityProtossMob;
 import ga.scmc.entity.EntityTerranPassive;
 import ga.scmc.entity.EntityZergMob;
+import ga.scmc.entity.ai.EntityAITradePlayer;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAvoidEntity;
@@ -23,7 +24,8 @@ import net.minecraft.world.World;
 
 public class EntityCivilian extends EntityTerranPassive {
 
-	Random random = new Random();
+	private Random random = new Random();
+	private EntityPlayer customer;
 
 	public EntityCivilian(World world) {
 		super(world);
@@ -34,8 +36,9 @@ public class EntityCivilian extends EntityTerranPassive {
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAvoidEntity<EntityZergMob>(this, EntityZergMob.class, 16.0F, 1.0D, 1.0D));
 		tasks.addTask(2, new EntityAIAvoidEntity<EntityProtossMob>(this, EntityProtossMob.class, 16.0F, 1.0D, 1.0D));
-		tasks.addTask(3, new EntityAIWander(this, 1));
+		tasks.addTask(3, new EntityAIWander(this, 0.43000000417232513D));
 		tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 8));
+		tasks.addTask(10, new EntityAITradePlayer(this));
 		tasks.addTask(5, new EntityAILookIdle(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
 	}
@@ -62,6 +65,14 @@ public class EntityCivilian extends EntityTerranPassive {
 	}
 
 	@Override
+	protected void updateAITasks() {
+		super.updateAITasks();
+		if (customer != null) {
+
+		}
+	}
+
+	@Override
 	protected boolean canDespawn() {
 		return false;
 	}
@@ -71,4 +82,11 @@ public class EntityCivilian extends EntityTerranPassive {
 		return null;
 	}
 
+	public EntityPlayer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(EntityPlayer customer) {
+		this.customer = customer;
+	}
 }
