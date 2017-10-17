@@ -5,6 +5,9 @@ import com.google.common.base.Predicate;
 import ga.scmc.entity.EntityStarcraftMob;
 import ga.scmc.entity.EntityStarcraftPassive;
 import ga.scmc.entity.EntityZergMob;
+import ga.scmc.enums.FactionTypes;
+import ga.scmc.enums.TeamColors;
+import ga.scmc.enums.TypeAttributes;
 import ga.scmc.handlers.SoundHandler;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
@@ -27,7 +30,7 @@ public class EntityBroodling extends EntityZergMob implements IMob, Predicate<En
 		super(world);
 		setSize(1.0F, 0.5F);
 		experienceValue = 20;
-		this.setTeam(TeamColors.PURPLE);
+		this.setTeamColor(TeamColors.PURPLE);
 		this.setFactions(FactionTypes.SWARM);
 		setTypes(TypeAttributes.LIGHT, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
 		tasks.addTask(0, new EntityAISwimming(this));

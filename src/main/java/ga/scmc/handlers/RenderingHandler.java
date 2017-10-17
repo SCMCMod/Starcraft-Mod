@@ -33,6 +33,7 @@ import static ga.scmc.handlers.BlockHandler.PROTOSS_ENERGY_STABILIZER;
 import static ga.scmc.handlers.BlockHandler.PROTOSS_VOID_ENERGY_CHANNEL;
 import static ga.scmc.handlers.BlockHandler.PROTOSS_VOID_ENERGY_STABILIZER;
 import static ga.scmc.handlers.BlockHandler.WARP_GATE_WORMHOLE;
+import static ga.scmc.handlers.ItemHandler.BIOMASS;
 import static ga.scmc.handlers.ItemHandler.BULLET;
 import static ga.scmc.handlers.ItemHandler.C14_GAUSS_RIFLE;
 import static ga.scmc.handlers.ItemHandler.C14_PARTS;
@@ -47,7 +48,6 @@ import static ga.scmc.handlers.ItemHandler.INGOT;
 import static ga.scmc.handlers.ItemHandler.MINERAL_SHARD;
 import static ga.scmc.handlers.ItemHandler.NUCLEAR_MISSILE;
 import static ga.scmc.handlers.ItemHandler.ORGANIC_TISSUE;
-import static ga.scmc.handlers.ItemHandler.BIOMASS;
 import static ga.scmc.handlers.ItemHandler.PROTOSS_INGOT;
 import static ga.scmc.handlers.ItemHandler.PSI_BLADE_FOCUSER_UNCHARGED;
 import static ga.scmc.handlers.ItemHandler.SPAWNER_PROTOSS_CYBERNETICSCORE;
@@ -63,6 +63,7 @@ import static ga.scmc.handlers.ItemHandler.SPAWNER_TERRAN_BUNKER;
 import static ga.scmc.handlers.ItemHandler.SPAWNER_ZERG_HYDRALISKDEN;
 import static ga.scmc.handlers.ItemHandler.SPAWNER_ZERG_SPAWNINGPOOL;
 import static ga.scmc.handlers.ItemHandler.SPAWNER_ZERG_SPIRE;
+import static ga.scmc.handlers.ItemHandler.STIMPACK;
 import static ga.scmc.handlers.ItemHandler.TERRAZINE;
 import static ga.scmc.handlers.ItemHandler.VESPENE;
 import static ga.scmc.handlers.ItemHandler.ZERG_CARAPACE;
@@ -297,6 +298,7 @@ public class RenderingHandler {
 		registerItemRender(BIOMASS);
 
 		registerItemRender(NUCLEAR_MISSILE);
+		registerItemRender(STIMPACK);
 		
 		registerItemRender(SPAWNER_PROTOSS_DARK_CYBERNETICSCORE);
 		registerItemRender(SPAWNER_PROTOSS_VOID_CYBERNETICSCORE);

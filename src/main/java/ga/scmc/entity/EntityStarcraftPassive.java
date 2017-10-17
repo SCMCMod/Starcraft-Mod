@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import ga.scmc.enums.FactionTypes;
+import ga.scmc.enums.TeamColors;
+import ga.scmc.enums.TypeAttributes;
 import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.world.World;
 
-public abstract class EntityStarcraftPassive extends EntityTameable implements StarcraftEnums {
+public abstract class EntityStarcraftPassive extends EntityTameable {
 
 	List<TypeAttributes> types = new ArrayList<TypeAttributes>(15);
 	List<FactionTypes> factions = new ArrayList<FactionTypes>(15);

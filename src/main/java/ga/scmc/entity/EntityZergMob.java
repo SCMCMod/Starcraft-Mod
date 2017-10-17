@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import ga.scmc.entity.living.EntityZerglingSC2;
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.ItemHandler;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
@@ -43,21 +42,21 @@ public class EntityZergMob extends EntityStarcraftMob {
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
 
-		nbt.setInteger("Biomass", this.getBiomass());
+		nbt.setInteger("Biomass", this.getColor());
 	}
 
 	@Override
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
 
-		this.setBiomass(nbt.getInteger("Biomass"));
+		this.setColor(nbt.getInteger("Biomass"));
 	}
 
-	public int getBiomass() {
+	public int getColor() {
 		return this.getDataManager().get(BIOMASS);
 	}
 
-	public void setBiomass(int amount) {
+	public void setColor(int amount) {
 		this.getDataManager().set(BIOMASS, amount);
 	}
 	
@@ -89,28 +88,26 @@ public class EntityZergMob extends EntityStarcraftMob {
 	protected void onPickupBiomass(EntityItem entityItem) {
 			this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(this.getMaxHealth() + (entityItem.getEntityItem().stackSize));
 			this.setHealth(this.getHealth() + (entityItem.getEntityItem().stackSize));
-			this.setBiomass(this.getBiomass() + (entityItem.getEntityItem().stackSize));
+			this.setColor(this.getColor() + (entityItem.getEntityItem().stackSize));
 		entityItem.setDead();
 	}
 	
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-		System.out.println(this + " Biomass: " + this.getBiomass());
-		System.out.println(this + " Health: " + this.getHealth() + "/" + this.getMaxHealth());
-		if(this.getBiomass() <= 100) {
+		if(this.getColor() <= 100) {
 			this.findBiomass();
 		}
-		if(this.getBiomass() > 100) {
-			this.setBiomass(100);
-			this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(this.baseHealth + this.getBiomass());
+		if(this.getColor() > 100) {
+			this.setColor(100);
+			this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(this.baseHealth + this.getColor());
 		}
 	}
 	
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
-		if (ticksExisted % 20 == 0 && !(this.getHealth() == this.getMaxHealth() + this.getBiomass())) {
+		if (ticksExisted % 20 == 0 && !(this.getHealth() == this.getMaxHealth() + this.getColor())) {
 			this.heal(0.27F);
 		}
 	}

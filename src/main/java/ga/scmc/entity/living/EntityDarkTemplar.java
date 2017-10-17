@@ -6,6 +6,9 @@ import com.google.common.base.Predicate;
 import ga.scmc.entity.EntityProtossMob;
 import ga.scmc.entity.EntityStarcraftMob;
 import ga.scmc.entity.EntityStarcraftPassive;
+import ga.scmc.enums.FactionTypes;
+import ga.scmc.enums.TeamColors;
+import ga.scmc.enums.TypeAttributes;
 import ga.scmc.handlers.ItemEnumHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
@@ -42,7 +45,7 @@ public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predica
 		super(world);
 		setSize(1.0F, 3.0F);
 		experienceValue = 80;
-		this.setTeam(TeamColors.LIGHTBLUE);
+		this.setTeamColor(TeamColors.LIGHTBLUE);
 		this.setFactions(FactionTypes.DAELAAM);
 		setTypes(TypeAttributes.LIGHT, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND, TypeAttributes.PSIONIC);
 		tasks.addTask(0, new EntityAISwimming(this));

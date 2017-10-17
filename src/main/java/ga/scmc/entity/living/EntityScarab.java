@@ -6,6 +6,9 @@ import ga.scmc.entity.EntityProtossMob;
 import ga.scmc.entity.EntityStarcraftMob;
 import ga.scmc.entity.EntityStarcraftPassive;
 import ga.scmc.entity.ai.EntityAIScarabExplode;
+import ga.scmc.enums.FactionTypes;
+import ga.scmc.enums.TeamColors;
+import ga.scmc.enums.TypeAttributes;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -52,7 +55,7 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 	public EntityScarab(World worldIn) {
 		super(worldIn);
 		setSize(.1F, .1F);
-		this.setTeam(TeamColors.LIGHTBLUE);
+		this.setTeamColor(TeamColors.LIGHTBLUE);
 		this.setFactions(FactionTypes.DAELAAM);
 		tasks.addTask(1, new EntityAISwimming(this));
 		tasks.addTask(2, new EntityAIScarabExplode(this));

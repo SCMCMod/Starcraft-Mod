@@ -8,6 +8,9 @@ import com.google.common.base.Predicate;
 import ga.scmc.entity.EntityStarcraftMob;
 import ga.scmc.entity.EntityStarcraftPassive;
 import ga.scmc.entity.EntityZergMob;
+import ga.scmc.enums.FactionTypes;
+import ga.scmc.enums.TeamColors;
+import ga.scmc.enums.TypeAttributes;
 import ga.scmc.handlers.ItemEnumHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
@@ -37,7 +40,7 @@ public class EntityZerglingBoost extends EntityZergMob implements IMob, Predicat
 		setSize(1.0F, 1.0F);
 		experienceValue = 23;
 		this.baseHealth = 25;
-		this.setTeam(TeamColors.PURPLE);
+		this.setTeamColor(TeamColors.PURPLE);
 		this.setFactions(FactionTypes.SWARM);
 		this.setTypes(TypeAttributes.LIGHT, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
 		tasks.addTask(0, new EntityAISwimming(this));

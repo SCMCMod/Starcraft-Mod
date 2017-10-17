@@ -6,6 +6,9 @@ import com.google.common.base.Predicate;
 import ga.scmc.entity.EntityStarcraftMob;
 import ga.scmc.entity.EntityStarcraftPassive;
 import ga.scmc.entity.EntityZergMob;
+import ga.scmc.enums.FactionTypes;
+import ga.scmc.enums.TeamColors;
+import ga.scmc.enums.TypeAttributes;
 import ga.scmc.handlers.ItemEnumHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
@@ -39,7 +42,7 @@ public class EntityBrutalisk extends EntityZergMob implements IMob, Predicate<En
 		setSize(4.0F, 6.0F);
 		experienceValue = 750;
 		this.baseHealth = 750;
-		this.setTeam(TeamColors.PURPLE);
+		this.setTeamColor(TeamColors.PURPLE);
 		this.setFactions(FactionTypes.SWARM);
 		setTypes(TypeAttributes.MASSIVE, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND, TypeAttributes.ARMORED, TypeAttributes.HEROIC);
 		tasks.addTask(0, new EntityAISwimming(this));

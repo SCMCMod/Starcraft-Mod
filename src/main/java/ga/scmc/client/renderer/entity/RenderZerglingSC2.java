@@ -36,6 +36,6 @@ public class RenderZerglingSC2<T> extends RenderLiving<EntityZerglingSC2> {
 
 	@Override
 	protected void preRenderCallback(EntityZerglingSC2 entitylivingbaseIn, float partialTickTime) {
-			GlStateManager.scale(1.25F + (entitylivingbaseIn.getBiomass()/60), 1.25F + (entitylivingbaseIn.getBiomass()/60), 1.25F + (entitylivingbaseIn.getBiomass()/60));
+			GlStateManager.scale(1.25F + (entitylivingbaseIn.getColor()/60), 1.25F + (entitylivingbaseIn.getColor()/60), 1.25F + (entitylivingbaseIn.getColor()/60));
 	}
 }

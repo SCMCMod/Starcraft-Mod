@@ -1,7 +1,6 @@
 package ga.scmc.model;
 
 import ga.scmc.entity.living.EntityDarkTemplar;
-import ga.scmc.entity.living.EntityZealot;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;

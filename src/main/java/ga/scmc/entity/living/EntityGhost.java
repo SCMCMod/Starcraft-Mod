@@ -6,6 +6,9 @@ import ga.scmc.entity.EntityStarcraftMob;
 import ga.scmc.entity.EntityStarcraftPassive;
 import ga.scmc.entity.EntityTerranMob;
 import ga.scmc.entity.projectiles.EntityC14GaussRifleBullet;
+import ga.scmc.enums.FactionTypes;
+import ga.scmc.enums.TeamColors;
+import ga.scmc.enums.TypeAttributes;
 import ga.scmc.handlers.SoundHandler;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
@@ -40,7 +43,7 @@ public class EntityGhost extends EntityTerranMob implements IMob, IRangedAttackM
 		super(world);
 		setSize(3.0F, 3.0F);
 		experienceValue = 60;
-		this.setTeam(TeamColors.BLUE);
+		this.setTeamColor(TeamColors.BLUE);
 		this.setFactions(FactionTypes.RAIDERS);
 		setTypes(TypeAttributes.LIGHT, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
 		tasks.addTask(1, new EntityAIAttackRanged(this, 1.0D, 17, 16.0F));

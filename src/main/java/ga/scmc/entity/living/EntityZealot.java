@@ -8,6 +8,9 @@ import com.google.common.base.Predicate;
 import ga.scmc.entity.EntityProtossMob;
 import ga.scmc.entity.EntityStarcraftMob;
 import ga.scmc.entity.EntityStarcraftPassive;
+import ga.scmc.enums.FactionTypes;
+import ga.scmc.enums.TeamColors;
+import ga.scmc.enums.TypeAttributes;
 import ga.scmc.handlers.ItemEnumHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
@@ -30,7 +33,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
@@ -45,7 +47,7 @@ public class EntityZealot extends EntityProtossMob implements IMob, Predicate<En
 		super(world);
 		setSize(1.0F, 3.0F);
 		experienceValue = 100;
-		this.setTeam(TeamColors.LIGHTBLUE);
+		this.setTeamColor(TeamColors.LIGHTBLUE);
 		this.setFactions(FactionTypes.DAELAAM);
 		setTypes(TypeAttributes.LIGHT, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
 		tasks.addTask(0, new EntityAISwimming(this));

@@ -8,6 +8,9 @@ import com.google.common.base.Predicate;
 import ga.scmc.entity.EntityProtossMob;
 import ga.scmc.entity.EntityStarcraftMob;
 import ga.scmc.entity.EntityStarcraftPassive;
+import ga.scmc.enums.FactionTypes;
+import ga.scmc.enums.TeamColors;
+import ga.scmc.enums.TypeAttributes;
 import ga.scmc.handlers.ItemEnumHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
@@ -40,7 +43,7 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 		super(world);
 		setSize(5.0F, 5.0F);
 		experienceValue = 133;
-		this.setTeam(TeamColors.LIGHTBLUE);
+		this.setTeamColor(TeamColors.LIGHTBLUE);
 		this.setFactions(FactionTypes.DAELAAM);
 		setTypes(TypeAttributes.MASSIVE, TypeAttributes.MECHANICAL, TypeAttributes.GROUND, TypeAttributes.ARMORED);
 		tasks.addTask(0, new EntityAISwimming(this));

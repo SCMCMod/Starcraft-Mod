@@ -34,6 +34,6 @@ public class RenderBrutalisk extends RenderLiving<EntityBrutalisk> {
 
 	@Override
 	protected void preRenderCallback(EntityBrutalisk entitylivingbaseIn, float partialTickTime) {
-		GlStateManager.scale(3.0F + (entitylivingbaseIn.getBiomass()/60), 3.0F + (entitylivingbaseIn.getBiomass()/60), 3.0F + (entitylivingbaseIn.getBiomass()/60));
+		GlStateManager.scale(3.0F + (entitylivingbaseIn.getColor()/60), 3.0F + (entitylivingbaseIn.getColor()/60), 3.0F + (entitylivingbaseIn.getColor()/60));
 	}
 }

@@ -6,6 +6,9 @@ import ga.scmc.entity.EntityStarcraftMob;
 import ga.scmc.entity.EntityStarcraftPassive;
 import ga.scmc.entity.EntityTerranMob;
 import ga.scmc.entity.projectiles.EntityC14GaussRifleBullet;
+import ga.scmc.enums.FactionTypes;
+import ga.scmc.enums.TeamColors;
+import ga.scmc.enums.TypeAttributes;
 import ga.scmc.handlers.SoundHandler;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
@@ -32,7 +35,7 @@ public class EntityMarauder extends EntityTerranMob implements IMob, IRangedAtta
 		super(world);
 		setSize(3.0F, 3.0F);
 		experienceValue = 60;
-		this.setTeam(TeamColors.BLUE);
+		this.setTeamColor(TeamColors.BLUE);
 		this.setFactions(FactionTypes.RAIDERS);
 		setTypes(TypeAttributes.ARMORED, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
 		this.setDamageAgainstType(TypeAttributes.ARMORED, 5.0D);

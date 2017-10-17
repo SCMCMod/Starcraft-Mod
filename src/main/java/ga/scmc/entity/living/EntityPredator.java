@@ -10,6 +10,9 @@ import com.google.common.base.Predicate;
 import ga.scmc.entity.EntityStarcraftMob;
 import ga.scmc.entity.EntityStarcraftPassive;
 import ga.scmc.entity.EntityTerranMob;
+import ga.scmc.enums.FactionTypes;
+import ga.scmc.enums.TeamColors;
+import ga.scmc.enums.TypeAttributes;
 import ga.scmc.handlers.ItemEnumHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
@@ -42,7 +45,7 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 		super(world);
 		setSize(1.5F, 1.5F);
 		experienceValue = 93;
-		this.setTeam(TeamColors.BLUE);
+		this.setTeamColor(TeamColors.BLUE);
 		this.setFactions(FactionTypes.RAIDERS);
 		setTypes(TypeAttributes.ARMORED, TypeAttributes.MECHANICAL, TypeAttributes.GROUND);
 		tasks.addTask(0, new EntityAISwimming(this));

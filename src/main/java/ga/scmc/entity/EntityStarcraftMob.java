@@ -4,11 +4,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import ga.scmc.enums.FactionTypes;
+import ga.scmc.enums.TeamColors;
+import ga.scmc.enums.TypeAttributes;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.world.World;
 
-public abstract class EntityStarcraftMob extends EntityMob implements StarcraftEnums {
+public abstract class EntityStarcraftMob extends EntityMob {
 
+	private static final DataParameter<Integer> COLOR = EntityDataManager.createKey(EntityStarcraftMob.class, DataSerializers.VARINT);
+	
 	List<TypeAttributes> types = new ArrayList<TypeAttributes>(15);
 	List<FactionTypes> factions = new ArrayList<FactionTypes>(15);
 	TeamColors teamColor = TeamColors.WHITE;
@@ -40,8 +49,9 @@ public abstract class EntityStarcraftMob extends EntityMob implements StarcraftE
 		return this.teamColor;
 	}
 	
-	public void setTeam(TeamColors team) {
+	public void setTeamColor(TeamColors team) {
 		this.teamColor = team;
+		this.setColor(team.ID);
 	}
 	
 	public void setTypes(TypeAttributes ... types) {
@@ -62,5 +72,33 @@ public abstract class EntityStarcraftMob extends EntityMob implements StarcraftE
 	
 	public double getDamageAgainstType(TypeAttributes type) {
 		return bonusDamage.get(type);
+	}
+	
+	@Override
+	protected void entityInit() {
+		super.entityInit();
+		this.getDataManager().register(COLOR, 0);
+	}
+
+	@Override
+	public void writeEntityToNBT(NBTTagCompound nbt) {
+		super.writeEntityToNBT(nbt);
+
+		nbt.setInteger("Color", this.getColor());
+	}
+
+	@Override
+	public void readEntityFromNBT(NBTTagCompound nbt) {
+		super.readEntityFromNBT(nbt);
+
+		this.setColor(nbt.getInteger("Color"));
+	}
+
+	public int getColor() {
+		return this.getDataManager().get(COLOR);
+	}
+
+	public void setColor(int colornum) {
+		this.getDataManager().set(COLOR, colornum);
 	}
 }
