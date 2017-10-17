@@ -96,8 +96,6 @@ public class EntityZergMob extends EntityStarcraftMob {
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-		System.out.println(this + " Biomass: " + this.getBiomass());
-		System.out.println(this + " Health: " + this.getHealth() + "/" + this.getMaxHealth());
 		if(this.getBiomass() <= 100) {
 			this.findBiomass();
 		}

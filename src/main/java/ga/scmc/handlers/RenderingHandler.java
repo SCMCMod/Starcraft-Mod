@@ -46,6 +46,7 @@ import static ga.scmc.handlers.ItemHandler.ICON_ZERG;
 import static ga.scmc.handlers.ItemHandler.INGOT;
 import static ga.scmc.handlers.ItemHandler.MINERAL_SHARD;
 import static ga.scmc.handlers.ItemHandler.NUCLEAR_MISSILE;
+import static ga.scmc.handlers.ItemHandler.STIMPACK;
 import static ga.scmc.handlers.ItemHandler.ORGANIC_TISSUE;
 import static ga.scmc.handlers.ItemHandler.BIOMASS;
 import static ga.scmc.handlers.ItemHandler.PROTOSS_INGOT;
@@ -297,6 +298,7 @@ public class RenderingHandler {
 		registerItemRender(BIOMASS);
 
 		registerItemRender(NUCLEAR_MISSILE);
+		registerItemRender(STIMPACK);
 		
 		registerItemRender(SPAWNER_PROTOSS_DARK_CYBERNETICSCORE);
 		registerItemRender(SPAWNER_PROTOSS_VOID_CYBERNETICSCORE);

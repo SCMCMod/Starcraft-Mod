@@ -9,6 +9,7 @@ import ga.scmc.items.ItemIconTerran;
 import ga.scmc.items.ItemIconZerg;
 import ga.scmc.items.ItemNuclearMissile;
 import ga.scmc.items.ItemOrganicTissue;
+import ga.scmc.items.ItemStimpack;
 import ga.scmc.items.metaitems.ItemBullet;
 import ga.scmc.items.metaitems.ItemC14GaussRifleParts;
 import ga.scmc.items.metaitems.ItemDust;
@@ -59,6 +60,7 @@ public class ItemHandler {
 	public static Item BIOMASS;
 
 	public static Item NUCLEAR_MISSILE;
+	public static Item STIMPACK;
 
 	public static Item GAS_CONTAINER;
 	public static Item VESPENE;
@@ -105,6 +107,7 @@ public class ItemHandler {
 		BIOMASS = new Item().setUnlocalizedName("biomass").setRegistryName("biomass").setCreativeTab(StarcraftCreativeTabs.ZERG);
 
 		NUCLEAR_MISSILE = new ItemNuclearMissile();
+		STIMPACK = new ItemStimpack();
 
 		SPAWNER_PROTOSS_DARK_CYBERNETICSCORE = new ItemProtossDarkCyberneticsCoreSpawner();
 		SPAWNER_PROTOSS_VOID_CYBERNETICSCORE = new ItemProtossVoidCyberneticsCoreSpawner();
@@ -169,6 +172,7 @@ public class ItemHandler {
 		registerItem(BIOMASS);
 
 		registerItem(NUCLEAR_MISSILE);
+		registerItem(STIMPACK);
 
 		registerItem(SPAWNER_PROTOSS_DARK_CYBERNETICSCORE);
 		registerItem(SPAWNER_PROTOSS_VOID_CYBERNETICSCORE);
