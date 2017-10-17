@@ -33,7 +33,7 @@ public class EntityInfestedCivilian extends EntityZergMob implements IMob, Predi
 	public EntityInfestedCivilian(World world) {
 		super(world);
 		setSize(1, 2.0F);
-		this.setTeam(TeamColors.PURPLE);
+		this.setTeamColor(TeamColors.PURPLE);
 		this.setFactions(FactionTypes.SWARM);
 		setTypes(TypeAttributes.LIGHT, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
 		tasks.addTask(0, new EntityAISwimming(this));

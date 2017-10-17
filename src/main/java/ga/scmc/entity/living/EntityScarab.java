@@ -55,7 +55,7 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 	public EntityScarab(World worldIn) {
 		super(worldIn);
 		setSize(.1F, .1F);
-		this.setTeam(TeamColors.LIGHTBLUE);
+		this.setTeamColor(TeamColors.LIGHTBLUE);
 		this.setFactions(FactionTypes.DAELAAM);
 		tasks.addTask(1, new EntityAISwimming(this));
 		tasks.addTask(2, new EntityAIScarabExplode(this));

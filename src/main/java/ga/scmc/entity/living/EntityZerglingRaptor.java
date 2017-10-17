@@ -43,7 +43,7 @@ public class EntityZerglingRaptor extends EntityZergMob implements IMob, Predica
 		experienceValue = 23;
 		this.baseHealth = 25;
 		stepHeight = 5.0F;
-		this.setTeam(TeamColors.PURPLE);
+		this.setTeamColor(TeamColors.PURPLE);
 		this.setFactions(FactionTypes.SWARM);
 		this.setTypes(TypeAttributes.LIGHT, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
 		tasks.addTask(0, new EntityAISwimming(this));

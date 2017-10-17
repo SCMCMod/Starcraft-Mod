@@ -43,7 +43,7 @@ public class EntityHydralisk extends EntityZergMob implements IMob, IRangedAttac
 		setSize(3.0F, 3.0F);
 		experienceValue = 60;
 		this.baseHealth = 60;
-		this.setTeam(TeamColors.PURPLE);
+		this.setTeamColor(TeamColors.PURPLE);
 		this.setFactions(FactionTypes.SWARM);
 		setTypes(TypeAttributes.LIGHT, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
 		tasks.addTask(1, new EntityAIAttackRanged(this, 1.0D, 17, 16.0F));

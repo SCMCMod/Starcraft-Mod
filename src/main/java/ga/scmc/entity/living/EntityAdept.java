@@ -40,7 +40,7 @@ public class EntityAdept extends EntityProtossMob implements IMob, IRangedAttack
 		super(world);
 		setSize(3.0F, 3.0F);
 		experienceValue = 60;
-		this.setTeam(TeamColors.LIGHTBLUE);
+		this.setTeamColor(TeamColors.LIGHTBLUE);
 		this.setFactions(FactionTypes.DAELAAM);
 		setTypes(TypeAttributes.ARMORED, TypeAttributes.MECHANICAL, TypeAttributes.GROUND);
 		tasks.addTask(1, new EntityAIAttackRanged(this, 1.0D, 17, 16.0F));

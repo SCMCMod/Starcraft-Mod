@@ -45,7 +45,7 @@ public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predica
 		super(world);
 		setSize(1.0F, 3.0F);
 		experienceValue = 80;
-		this.setTeam(TeamColors.LIGHTBLUE);
+		this.setTeamColor(TeamColors.LIGHTBLUE);
 		this.setFactions(FactionTypes.DAELAAM);
 		setTypes(TypeAttributes.LIGHT, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND, TypeAttributes.PSIONIC);
 		tasks.addTask(0, new EntityAISwimming(this));

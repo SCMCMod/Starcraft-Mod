@@ -43,7 +43,7 @@ public class EntityGhost extends EntityTerranMob implements IMob, IRangedAttackM
 		super(world);
 		setSize(3.0F, 3.0F);
 		experienceValue = 60;
-		this.setTeam(TeamColors.BLUE);
+		this.setTeamColor(TeamColors.BLUE);
 		this.setFactions(FactionTypes.RAIDERS);
 		setTypes(TypeAttributes.LIGHT, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
 		tasks.addTask(1, new EntityAIAttackRanged(this, 1.0D, 17, 16.0F));

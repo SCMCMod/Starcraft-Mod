@@ -42,7 +42,7 @@ public class EntityBrutalisk extends EntityZergMob implements IMob, Predicate<En
 		setSize(4.0F, 6.0F);
 		experienceValue = 750;
 		this.baseHealth = 750;
-		this.setTeam(TeamColors.PURPLE);
+		this.setTeamColor(TeamColors.PURPLE);
 		this.setFactions(FactionTypes.SWARM);
 		setTypes(TypeAttributes.MASSIVE, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND, TypeAttributes.ARMORED, TypeAttributes.HEROIC);
 		tasks.addTask(0, new EntityAISwimming(this));

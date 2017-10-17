@@ -49,8 +49,9 @@ public abstract class EntityStarcraftMob extends EntityMob {
 		return this.teamColor;
 	}
 	
-	public void setTeam(TeamColors team) {
+	public void setTeamColor(TeamColors team) {
 		this.teamColor = team;
+		this.setColor(team.ID);
 	}
 	
 	public void setTypes(TypeAttributes ... types) {

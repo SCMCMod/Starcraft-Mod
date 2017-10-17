@@ -38,7 +38,7 @@ public class EntityZerglingSC2 extends EntityZergMob implements IMob, Predicate<
 	public EntityZerglingSC2(World world) {
 		super(world);
 		setSize(1.0F, 1.0F);
-		this.setTeam(TeamColors.PURPLE);
+		this.setTeamColor(TeamColors.PURPLE);
 		this.setFactions(FactionTypes.SWARM);
 		this.setTypes(TypeAttributes.LIGHT, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
 		experienceValue = 23;

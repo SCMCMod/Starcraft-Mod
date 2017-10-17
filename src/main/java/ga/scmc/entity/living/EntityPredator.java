@@ -45,7 +45,7 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 		super(world);
 		setSize(1.5F, 1.5F);
 		experienceValue = 93;
-		this.setTeam(TeamColors.BLUE);
+		this.setTeamColor(TeamColors.BLUE);
 		this.setFactions(FactionTypes.RAIDERS);
 		setTypes(TypeAttributes.ARMORED, TypeAttributes.MECHANICAL, TypeAttributes.GROUND);
 		tasks.addTask(0, new EntityAISwimming(this));

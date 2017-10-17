@@ -43,7 +43,7 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 		super(world);
 		setSize(5.0F, 5.0F);
 		experienceValue = 133;
-		this.setTeam(TeamColors.LIGHTBLUE);
+		this.setTeamColor(TeamColors.LIGHTBLUE);
 		this.setFactions(FactionTypes.DAELAAM);
 		setTypes(TypeAttributes.MASSIVE, TypeAttributes.MECHANICAL, TypeAttributes.GROUND, TypeAttributes.ARMORED);
 		tasks.addTask(0, new EntityAISwimming(this));

@@ -47,7 +47,7 @@ public class EntityZealot extends EntityProtossMob implements IMob, Predicate<En
 		super(world);
 		setSize(1.0F, 3.0F);
 		experienceValue = 100;
-		this.setTeam(TeamColors.LIGHTBLUE);
+		this.setTeamColor(TeamColors.LIGHTBLUE);
 		this.setFactions(FactionTypes.DAELAAM);
 		setTypes(TypeAttributes.LIGHT, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
 		tasks.addTask(0, new EntityAISwimming(this));

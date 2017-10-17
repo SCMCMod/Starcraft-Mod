@@ -40,7 +40,7 @@ public class EntityZerglingBoost extends EntityZergMob implements IMob, Predicat
 		setSize(1.0F, 1.0F);
 		experienceValue = 23;
 		this.baseHealth = 25;
-		this.setTeam(TeamColors.PURPLE);
+		this.setTeamColor(TeamColors.PURPLE);
 		this.setFactions(FactionTypes.SWARM);
 		this.setTypes(TypeAttributes.LIGHT, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
 		tasks.addTask(0, new EntityAISwimming(this));
