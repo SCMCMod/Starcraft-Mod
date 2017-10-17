@@ -1,0 +1,19 @@
+package ga.scmc.enums;
+
+public enum TypeAttributes {
+	AIR,
+	ARMORED,
+	BIOLOGICAL,
+	DETECTOR,
+	GROUND,
+	HEROIC,
+	HOVER,
+	LIGHT,
+	MASSIVE,
+	MECHANICAL,
+	OTHER,
+	PSIONIC,
+	ROBOTIC,
+	SUMMONED,
+	PROJECTILE
+}

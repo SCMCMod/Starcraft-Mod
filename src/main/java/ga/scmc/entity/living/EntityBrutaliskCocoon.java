@@ -3,6 +3,9 @@ package ga.scmc.entity.living;
 import java.util.List;
 
 import ga.scmc.entity.EntityZergPassive;
+import ga.scmc.enums.FactionTypes;
+import ga.scmc.enums.TeamColors;
+import ga.scmc.enums.TypeAttributes;
 import ga.scmc.handlers.SoundHandler;
 import ga.scmc.lib.Library;
 import net.minecraft.block.Block;

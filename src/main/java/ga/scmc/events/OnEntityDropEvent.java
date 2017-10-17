@@ -2,7 +2,7 @@ package ga.scmc.events;
 
 import ga.scmc.entity.EntityStarcraftMob;
 import ga.scmc.entity.EntityStarcraftPassive;
-import ga.scmc.entity.StarcraftEnums.TypeAttributes;
+import ga.scmc.enums.TypeAttributes;
 import ga.scmc.handlers.ItemHandler;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
