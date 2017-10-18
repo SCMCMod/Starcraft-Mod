@@ -27,8 +27,6 @@ public class LayerPredatorColor<T extends EntityPredator> implements LayerRender
 
 	public void doRenderLayer(EntityPredator entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		this.cybercatRenderer.bindTexture(CYBERCAT_LAYER_COLOR);
-		GlStateManager.enableBlend();
-		GlStateManager.enableAlpha();
 		GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
 
 		if (entitylivingbaseIn.isInvisible()) {
@@ -39,8 +37,6 @@ public class LayerPredatorColor<T extends EntityPredator> implements LayerRender
 
 		GL11.glColor3f(entitylivingbaseIn.getTeamColor().getR() / 255, entitylivingbaseIn.getTeamColor().getG() / 255, entitylivingbaseIn.getTeamColor().getB() / 255);
 		this.cybercatRenderer.getMainModel().render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-		GlStateManager.disableBlend();
-		GlStateManager.enableAlpha();
 		GlStateManager.resetColor();
 	}
 

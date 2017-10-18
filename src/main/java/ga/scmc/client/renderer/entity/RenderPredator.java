@@ -1,6 +1,5 @@
 package ga.scmc.client.renderer.entity;
 
-import ga.scmc.client.renderer.layers.LayerPredator;
 import ga.scmc.client.renderer.layers.LayerPredatorColor;
 import ga.scmc.client.renderer.layers.LayerPredatorGlow;
 import ga.scmc.entity.living.EntityPredator;
@@ -20,7 +19,6 @@ public class RenderPredator<T> extends RenderLiving<EntityPredator> {
 	public RenderPredator(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		modelEntity = ((ModelPredator) mainModel);
-		addLayer(new LayerPredator(this));
 		addLayer(new LayerPredatorColor(this));
 		addLayer(new LayerPredatorGlow(this));
 	}

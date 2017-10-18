@@ -28,8 +28,8 @@ public class LayerPredatorGlow<T extends EntityPredator> implements LayerRendere
 
 	public void doRenderLayer(EntityPredator entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		this.zealotRenderer.bindTexture(CYBERCAT_LAYER_GLOW);
-		GlStateManager.enableBlend();
 		GlStateManager.enableAlpha();
+		GlStateManager.enableBlend();
 		GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
 
 		if (entitylivingbaseIn.isInvisible()) {
@@ -53,6 +53,7 @@ public class LayerPredatorGlow<T extends EntityPredator> implements LayerRendere
 		this.zealotRenderer.setLightmap(entitylivingbaseIn, partialTicks);
 		GlStateManager.disableBlend();
 		GlStateManager.enableAlpha();
+		GlStateManager.resetColor();
 	}
 
 	@Override
