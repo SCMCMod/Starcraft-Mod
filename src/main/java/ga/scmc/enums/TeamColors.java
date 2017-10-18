@@ -14,7 +14,7 @@ public enum TeamColors {
 	SILVER(8, new Vector3f(187, 187, 191)),
 	CYAN(9, new Vector3f(67, 181, 216)),
 	PURPLE(10, new Vector3f(119, 28, 142)),
-	BLUE(11, new Vector3f(40, 91, 200)),
+	BLUE(11, new Vector3f(56,95,183)),
 	BROWN(12, new Vector3f(117, 77, 43)),
 	GREEN(13, new Vector3f(52, 122, 29)),
 	RED(14, new Vector3f(168, 21, 24)),
