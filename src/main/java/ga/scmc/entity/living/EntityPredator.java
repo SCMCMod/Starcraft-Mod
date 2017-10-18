@@ -114,7 +114,7 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 		ItemStack heldItem = player.getHeldItem(hand);
 		if (heldItem != null && heldItem.getItem() == Items.DYE) {
 			int meta = heldItem.getMetadata();
-			setTeamColor(TeamColors.values()[meta]);
+			setTeamColor(TeamColors.values()[15 - meta]);
 			heldItem.stackSize -= 1;
 			return true;
 		} else {
