@@ -20,11 +20,12 @@ public abstract class EntityStarcraftMob extends EntityMob {
 	
 	List<TypeAttributes> types = new ArrayList<TypeAttributes>(15);
 	List<FactionTypes> factions = new ArrayList<FactionTypes>(15);
-	TeamColors teamColor = TeamColors.WHITE;
+	TeamColors teamColor;
 	HashMap<TypeAttributes, Double> bonusDamage = new HashMap<TypeAttributes, Double>();
 	
 	public EntityStarcraftMob(World world) {
 		super(world);
+		teamColor = TeamColors.WHITE;
 	}
 	
 	public boolean isType(TypeAttributes type) {

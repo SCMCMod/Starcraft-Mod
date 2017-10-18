@@ -1,11 +1,9 @@
 package ga.scmc.client.renderer.layers;
 
-import javax.vecmath.Vector4f;
-
 import org.lwjgl.opengl.GL11;
 
-import ga.scmc.client.renderer.entity.RenderZealot;
-import ga.scmc.entity.living.EntityZealot;
+import ga.scmc.client.renderer.entity.RenderPredator;
+import ga.scmc.entity.living.EntityPredator;
 import ga.scmc.lib.Library;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -19,31 +17,17 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * @author Ocelot5836
  */
 @SideOnly(Side.CLIENT)
-public class LayerZealotGlow<T extends EntityZealot> implements LayerRenderer<T> {
+public class LayerPredatorGlow<T extends EntityPredator> implements LayerRenderer<T> {
 
-	private static final ResourceLocation ZEALOT_LAYER_GLOW = new ResourceLocation(Library.MODID, "textures/entity/zealot_layer_glow.png");
-	private final RenderZealot<T> zealotRenderer;
-	private Vector4f color;
+	private static final ResourceLocation CYBERCAT_LAYER_GLOW = new ResourceLocation(Library.RL_BASE + "textures/entity/cybercat_team_glow.png");
+	private final RenderPredator<T> zealotRenderer;
 
-	public LayerZealotGlow(RenderZealot<T> zealotRendererIn, Vector4f color) {
+	public LayerPredatorGlow(RenderPredator<T> zealotRendererIn) {
 		this.zealotRenderer = zealotRendererIn;
-		this.color = color;
 	}
 
-	public LayerZealotGlow(RenderZealot<T> zealotRendererIn, float r, float g, float b) {
-		this(zealotRendererIn, new Vector4f(r / 255, g / 255, b / 255, 1.0f));
-	}
-
-	public LayerZealotGlow(RenderZealot<T> zealotRendererIn, float r, float g, float b, float alpha) {
-		this(zealotRendererIn, new Vector4f(r / 255, g / 255, b / 255, alpha / 255));
-	}
-
-	public LayerZealotGlow(RenderZealot<T> zealotRendererIn) {
-		this(zealotRendererIn, new Vector4f(0, 0, 0, 0));
-	}
-
-	public void doRenderLayer(EntityZealot entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		this.zealotRenderer.bindTexture(ZEALOT_LAYER_GLOW);
+	public void doRenderLayer(EntityPredator entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		this.zealotRenderer.bindTexture(CYBERCAT_LAYER_GLOW);
 		GlStateManager.enableBlend();
 		GlStateManager.enableAlpha();
 		GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
@@ -54,7 +38,7 @@ public class LayerZealotGlow<T extends EntityZealot> implements LayerRenderer<T>
 			GlStateManager.depthMask(true);
 		}
 
-		GL11.glColor4f(color.x, color.y, color.z, color.w);
+		GL11.glColor3f(entitylivingbaseIn.getTeamColor().getR(), entitylivingbaseIn.getTeamColor().getG(), entitylivingbaseIn.getTeamColor().getB());
 
 		int i = 61680;
 		int j = i % 65536;

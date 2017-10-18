@@ -29,8 +29,10 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -39,7 +41,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 /**
  * @author Hypeirochus
  */
-public class EntityPredator extends EntityTerranMob implements IMob, Predicate<EntityLivingBase>{
+public class EntityPredator extends EntityTerranMob implements IMob, Predicate<EntityLivingBase> {
 
 	public EntityPredator(World world) {
 		super(world);
@@ -59,40 +61,40 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 
 	@Override
 	public boolean apply(EntityLivingBase entity) {
-		if(!entity.isInvisible()) {
-			if(entity instanceof EntityStarcraftMob) {
-				if(entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if(!((EntityStarcraftMob) entity).isFaction(FactionTypes.RAIDERS)) {
-						if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+		if (!entity.isInvisible()) {
+			if (entity instanceof EntityStarcraftMob) {
+				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
+					if (!((EntityStarcraftMob) entity).isFaction(FactionTypes.RAIDERS)) {
+						if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
-						}else {
+						} else {
 							return false;
 						}
-					}else if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+					} else if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityStarcraftPassive) {
-				if(entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if(!((EntityStarcraftPassive) entity).isFaction(FactionTypes.RAIDERS)) {
-						if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
+			} else if (entity instanceof EntityStarcraftPassive) {
+				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
+					if (!((EntityStarcraftPassive) entity).isFaction(FactionTypes.RAIDERS)) {
+						if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
-						}else {
+						} else {
 							return false;
 						}
-					}else if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
+					} else if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}
-			}else {
-				if(entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
+			} else {
+				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
 					return false;
 				}
 				return true;
 			}
-		}else if(entity.isInvisible() && this.isType(TypeAttributes.DETECTOR)){
+		} else if (entity.isInvisible() && this.isType(TypeAttributes.DETECTOR)) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 		return false;
@@ -106,7 +108,20 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(16.0D);
 		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(15.0D);
 	}
-	
+
+	@Override
+	protected boolean processInteract(EntityPlayer player, EnumHand hand, ItemStack stack) {
+		ItemStack heldItem = player.getHeldItem(hand);
+		if (heldItem != null && heldItem.getItem() == Items.DYE) {
+			int meta = heldItem.getMetadata();
+			setTeamColor(TeamColors.values()[meta]);
+			heldItem.stackSize -= 1;
+			return true;
+		} else {
+			return super.processInteract(player, hand, stack);
+		}
+	}
+
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
 		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.INGOT, 1 + this.rand.nextInt(2), ItemEnumHandler.IngotType.STEEL.getID()));
@@ -117,15 +132,15 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 	public SoundEvent getAmbientSound() {
 		Random rand = new Random();
 
-		switch(rand.nextInt(1)) {
-			case 0:
-				return SoundHandler.ENTITY_PREDATOR_LIVE1;
-			default: {
-				return SoundHandler.ENTITY_PREDATOR_LIVE2;
-			}
+		switch (rand.nextInt(1)) {
+		case 0:
+			return SoundHandler.ENTITY_PREDATOR_LIVE1;
+		default: {
+			return SoundHandler.ENTITY_PREDATOR_LIVE2;
+		}
 		}
 	}
-	
+
 	@Override
 	public SoundEvent getDeathSound() {
 		return SoundHandler.ENTITY_PREDATOR_DEATH;
@@ -140,19 +155,19 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 	public int getTalkInterval() {
 		return 160;
 	}
-	
+
 	@Override
 	public void onDeath(DamageSource cause) {
 		this.world.createExplosion(this, this.posX, this.posY + 0.20, this.posZ, 1.2F, false);
 		super.onDeath(cause);
 	}
-	
+
 	@SideOnly(Side.CLIENT)
-    private void spawnElectricArc(double posX, double posY, double posZ) {
-		for(int x = 0; x < 10; x ++) {
+	private void spawnElectricArc(double posX, double posY, double posZ) {
+		for (int x = 0; x < 10; x++) {
 			Game.minecraft().effectRenderer.addEffect(new EntityFXElectricArc(this.world, this.posX, this.posY, this.posZ, posX + this.rand.nextInt(2), posY, posZ + this.rand.nextInt(2), 10, 2.5F, 0.5F, 0.05F, 0xFF00FFFF));
 		}
-    }
+	}
 
 	@Override
 	public boolean attackEntityAsMob(Entity entityIn) {
