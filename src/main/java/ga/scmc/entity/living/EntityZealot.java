@@ -40,8 +40,7 @@ public class EntityZealot extends EntityProtossMob implements IMob, Predicate<En
 
 	public float offsetHealth;
 	public int timeSinceHurt;
-	private static final DataParameter<Boolean> SHEATH = EntityDataManager.createKey(EntityZealot.class,
-			DataSerializers.BOOLEAN);
+	private static final DataParameter<Boolean> SHEATH = EntityDataManager.createKey(EntityZealot.class, DataSerializers.BOOLEAN);
 
 	public EntityZealot(World world) {
 		super(world);
@@ -57,8 +56,7 @@ public class EntityZealot extends EntityProtossMob implements IMob, Predicate<En
 		tasks.addTask(4, new EntityAILookIdle(this));
 		tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
-		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0,
-				false, false, this));
+		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, false, false, this));
 	}
 
 	@Override
@@ -137,8 +135,7 @@ public class EntityZealot extends EntityProtossMob implements IMob, Predicate<En
 	 */
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
-		ItemDrop drop = new ItemDrop(10,
-				new ItemStack(ItemHandler.ENERGY, 1 + this.rand.nextInt(2), ItemEnumHandler.EnergyType.PURE.getID()));
+		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.ENERGY, 1 + this.rand.nextInt(2), ItemEnumHandler.EnergyType.PURE.getID()));
 		ItemDrop drop2 = new ItemDrop(1, new ItemStack(WeaponHandler.PSI_BLADE));
 		drop.tryDrop(this);
 		drop2.tryDrop(this);
@@ -177,7 +174,7 @@ public class EntityZealot extends EntityProtossMob implements IMob, Predicate<En
 
 	@Override
 	public void onUpdate() {
-		if(!world.isRemote) {
+		if (!world.isRemote) {
 			if (this.getAttackTarget() != null) {
 				this.setSheathed(true);
 			} else if (this.getAttackTarget() == null) {

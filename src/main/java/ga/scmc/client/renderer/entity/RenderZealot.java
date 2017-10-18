@@ -1,6 +1,7 @@
 package ga.scmc.client.renderer.entity;
 
 import ga.scmc.client.renderer.layers.LayerZealot;
+import ga.scmc.client.renderer.layers.LayerZealotGlow;
 import ga.scmc.entity.living.EntityZealot;
 import ga.scmc.lib.Library;
 import ga.scmc.model.ModelZealot;
@@ -10,7 +11,7 @@ import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
-//Moar special cases
+// Moar special cases
 public class RenderZealot<T> extends RenderLiving<EntityZealot> {
 	private static final ResourceLocation ZEALOT_TEXTURES = new ResourceLocation(Library.RL_BASE + "textures/entity/zealot.png");
 	protected ModelZealot modelEntity;
@@ -19,15 +20,12 @@ public class RenderZealot<T> extends RenderLiving<EntityZealot> {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		modelEntity = ((ModelZealot) mainModel);
 		addLayer(new LayerZealot(this));
+		addLayer(new LayerZealotGlow(this));
 	}
 
 	@Override
 	public void doRender(EntityZealot entity, double x, double y, double z, float entityYaw, float partialTicks) {
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);
-
-		if(!renderOutlines) {
-			renderLeash(entity, x, y, z, entityYaw, partialTicks);
-		}
 	}
 
 	@Override
