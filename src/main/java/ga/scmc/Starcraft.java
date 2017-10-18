@@ -2,6 +2,7 @@ package ga.scmc;
 
 import ga.scmc.achievement.Achievements;
 import ga.scmc.client.gui.GuiHandler;
+import ga.scmc.events.GuiOverlayEvent;
 import ga.scmc.fluids.FluidHandler;
 import ga.scmc.handlers.BiomeHandler;
 import ga.scmc.handlers.BlockHandler;
@@ -21,6 +22,7 @@ import ga.scmc.proxy.CommonProxy;
 import ga.scmc.recipes.ShapelessRecipes;
 import ga.scmc.recipes.SimpleRecipes;
 import ga.scmc.recipes.SmeltingRecipes;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
@@ -74,6 +76,8 @@ public class Starcraft {
 			FuelHandler.preInit();
 			RenderingHandler.preInit();
 		}
+		
+		MinecraftForge.EVENT_BUS.register(new GuiOverlayEvent());
 	}
 
 	@EventHandler

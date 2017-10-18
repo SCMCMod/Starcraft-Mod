@@ -47,7 +47,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class ItemHandler {
 
 	public static Item BULLET;
-	public static Item C14_GAUSS_RIFLE;
+	public static ItemC14GaussRifle C14_GAUSS_RIFLE;
 	public static Item C14_PARTS;
 	public static Item CREEP_RESIN;
 	public static Item PROTOSS_INGOT;
