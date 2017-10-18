@@ -37,11 +37,11 @@ public class LayerPredatorColor<T extends EntityPredator> implements LayerRender
 			GlStateManager.depthMask(true);
 		}
 
-		GL11.glColor3f(entitylivingbaseIn.getTeamColor().getR()/255, entitylivingbaseIn.getTeamColor().getG()/255, entitylivingbaseIn.getTeamColor().getB()/255);
-		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+		GL11.glColor3f(entitylivingbaseIn.getTeamColor().getR() / 255, entitylivingbaseIn.getTeamColor().getG() / 255, entitylivingbaseIn.getTeamColor().getB() / 255);
 		this.cybercatRenderer.getMainModel().render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		GlStateManager.disableBlend();
 		GlStateManager.enableAlpha();
+		GlStateManager.resetColor();
 	}
 
 	@Override
