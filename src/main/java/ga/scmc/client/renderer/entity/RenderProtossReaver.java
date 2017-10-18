@@ -12,12 +12,12 @@ import net.minecraft.util.ResourceLocation;
 
 
 public class RenderProtossReaver<T> extends RenderLiving<EntityProtossReaver> {
-	private static final ResourceLocation PREAVER_TEXTURES = new ResourceLocation(Library.RL_BASE + "textures/entity/preaver.png");
-	protected ModelProtossReaver modelEntity;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/preaver.png");
+	protected ModelProtossReaver model;
 
 	public RenderProtossReaver(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		modelEntity = ((ModelProtossReaver) mainModel);
+		model = ((ModelProtossReaver) mainModel);
 		addLayer(new LayerProtossReaver(this));
 	}
 
@@ -32,7 +32,7 @@ public class RenderProtossReaver<T> extends RenderLiving<EntityProtossReaver> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityProtossReaver entity) {
-		return PREAVER_TEXTURES;
+		return TEXTURE;
 	}
 
 	@Override

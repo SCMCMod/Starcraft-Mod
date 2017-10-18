@@ -9,12 +9,12 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderBrutaliskCocoon extends RenderLiving<EntityBrutaliskCocoon> {
-	private static final ResourceLocation BRUTALISKCOCOON_TEXTURES = new ResourceLocation(Library.RL_BASE + "textures/entity/brutaliskcocoon.png");
-	protected ModelBrutaliskCocoon modelEntity;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/brutaliskcocoon.png");
+	protected ModelBrutaliskCocoon model;
 
 	public RenderBrutaliskCocoon(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		modelEntity = ((ModelBrutaliskCocoon) mainModel);
+		model = ((ModelBrutaliskCocoon) mainModel);
 	}
 
 	@Override
@@ -28,6 +28,6 @@ public class RenderBrutaliskCocoon extends RenderLiving<EntityBrutaliskCocoon> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityBrutaliskCocoon entity) {
-		return BRUTALISKCOCOON_TEXTURES;
+		return TEXTURE;
 	}
 }

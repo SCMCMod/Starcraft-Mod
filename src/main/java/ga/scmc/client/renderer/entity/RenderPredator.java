@@ -1,7 +1,8 @@
 package ga.scmc.client.renderer.entity;
 
 import ga.scmc.client.renderer.layers.LayerPredatorColor;
-import ga.scmc.client.renderer.layers.LayerPredatorGlow;
+import ga.scmc.client.renderer.layers.LayerPredatorGlowDynamic;
+import ga.scmc.client.renderer.layers.LayerPredatorGlowStatic;
 import ga.scmc.entity.living.EntityPredator;
 import ga.scmc.lib.Library;
 import ga.scmc.model.ModelPredator;
@@ -13,14 +14,15 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderPredator<T> extends RenderLiving<EntityPredator> {
 
-	private static final ResourceLocation PREDATOR_TEXTURES = new ResourceLocation(Library.RL_BASE + "textures/entity/cybercat_base.png");
-	protected ModelPredator modelEntity;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/predator_base.png");
+	protected ModelPredator model;
 
 	public RenderPredator(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		modelEntity = ((ModelPredator) mainModel);
+		model = ((ModelPredator) mainModel);
 		addLayer(new LayerPredatorColor(this));
-		addLayer(new LayerPredatorGlow(this));
+		addLayer(new LayerPredatorGlowDynamic(this));
+		addLayer(new LayerPredatorGlowStatic(this));
 	}
 
 	@Override
@@ -30,7 +32,7 @@ public class RenderPredator<T> extends RenderLiving<EntityPredator> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityPredator entity) {
-		return PREDATOR_TEXTURES;
+		return TEXTURE;
 	}
 
 	@Override

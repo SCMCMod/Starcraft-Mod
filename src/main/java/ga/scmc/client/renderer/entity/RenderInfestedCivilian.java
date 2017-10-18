@@ -10,11 +10,11 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderInfestedCivilian extends RenderLiving<EntityInfestedCivilian> {
-	private static final ResourceLocation INFESTEDCIVILIAN_TEXTURES = new ResourceLocation(Library.RL_BASE + "textures/entity/infestedcivilian.png");
-	protected ModelInfestedCivilian modelEntity;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/infestedcivilian.png");
+	protected ModelInfestedCivilian model;
 	public RenderInfestedCivilian(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		modelEntity = ((ModelInfestedCivilian) mainModel);
+		model = ((ModelInfestedCivilian) mainModel);
 	}
 
 	@Override
@@ -28,7 +28,7 @@ public class RenderInfestedCivilian extends RenderLiving<EntityInfestedCivilian>
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityInfestedCivilian entity) {
-		return INFESTEDCIVILIAN_TEXTURES;
+		return TEXTURE;
 	}
 
 	@Override

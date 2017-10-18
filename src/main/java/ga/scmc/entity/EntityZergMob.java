@@ -42,21 +42,21 @@ public class EntityZergMob extends EntityStarcraftMob {
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
 
-		nbt.setInteger("Biomass", this.getColor());
+		nbt.setInteger("Biomass", this.getBiomass());
 	}
 
 	@Override
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
 
-		this.setColor(nbt.getInteger("Biomass"));
+		this.setBiomass(nbt.getInteger("Biomass"));
 	}
 
-	public int getColor() {
+	public int getBiomass() {
 		return this.getDataManager().get(BIOMASS);
 	}
 
-	public void setColor(int amount) {
+	public void setBiomass(int amount) {
 		this.getDataManager().set(BIOMASS, amount);
 	}
 	
@@ -88,26 +88,26 @@ public class EntityZergMob extends EntityStarcraftMob {
 	protected void onPickupBiomass(EntityItem entityItem) {
 			this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(this.getMaxHealth() + (entityItem.getEntityItem().stackSize));
 			this.setHealth(this.getHealth() + (entityItem.getEntityItem().stackSize));
-			this.setColor(this.getColor() + (entityItem.getEntityItem().stackSize));
+			this.setBiomass(this.getBiomass() + (entityItem.getEntityItem().stackSize));
 		entityItem.setDead();
 	}
 	
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-		if(this.getColor() <= 100) {
+		if(this.getBiomass() <= 100) {
 			this.findBiomass();
 		}
-		if(this.getColor() > 100) {
-			this.setColor(100);
-			this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(this.baseHealth + this.getColor());
+		if(this.getBiomass() > 100) {
+			this.setBiomass(100);
+			this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(this.baseHealth + this.getBiomass());
 		}
 	}
 	
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
-		if (ticksExisted % 20 == 0 && !(this.getHealth() == this.getMaxHealth() + this.getColor())) {
+		if (ticksExisted % 20 == 0 && !(this.getHealth() == this.getMaxHealth() + this.getBiomass())) {
 			this.heal(0.27F);
 		}
 	}

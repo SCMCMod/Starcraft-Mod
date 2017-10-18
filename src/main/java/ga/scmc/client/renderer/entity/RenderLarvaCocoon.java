@@ -10,12 +10,12 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderLarvaCocoon extends RenderLiving<EntityLarvaCocoon> {
-	private static final ResourceLocation LARVA_COCOON_TEXTURES = new ResourceLocation(Library.RL_BASE + "textures/entity/larvacocoon.png");
-	protected ModelLarvaCocoon modelEntity;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/larvacocoon.png");
+	protected ModelLarvaCocoon model;
 
 	public RenderLarvaCocoon(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		modelEntity = ((ModelLarvaCocoon) mainModel);
+		model = ((ModelLarvaCocoon) mainModel);
 	}
 
 	@Override
@@ -29,7 +29,7 @@ public class RenderLarvaCocoon extends RenderLiving<EntityLarvaCocoon> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityLarvaCocoon entity) {
-		return LARVA_COCOON_TEXTURES;
+		return TEXTURE;
 	}
 
 	@Override

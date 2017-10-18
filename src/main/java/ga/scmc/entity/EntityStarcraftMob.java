@@ -52,7 +52,7 @@ public abstract class EntityStarcraftMob extends EntityMob {
 	
 	public void setTeamColor(TeamColors team) {
 		this.teamColor = team;
-		this.setColor(team.ID);
+		this.setBiomass(team.ID);
 	}
 	
 	public void setTypes(TypeAttributes ... types) {
@@ -85,21 +85,21 @@ public abstract class EntityStarcraftMob extends EntityMob {
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
 
-		nbt.setInteger("Color", this.getColor());
+		nbt.setInteger("Color", this.getBiomass());
 	}
 
 	@Override
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
 
-		this.setColor(nbt.getInteger("Color"));
+		this.setBiomass(nbt.getInteger("Color"));
 	}
 
-	public int getColor() {
+	public int getBiomass() {
 		return this.getDataManager().get(COLOR);
 	}
 
-	public void setColor(int colornum) {
+	public void setBiomass(int colornum) {
 		this.getDataManager().set(COLOR, colornum);
 	}
 }

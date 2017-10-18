@@ -12,12 +12,12 @@ import net.minecraft.util.ResourceLocation;
 
 
 public class RenderScarab<T> extends RenderLiving<EntityScarab> {
-	private static final ResourceLocation SCARAB_TEXTURES = new ResourceLocation(Library.RL_BASE + "textures/entity/scarab.png");
-	protected ModelScarab modelEntity;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/scarab.png");
+	protected ModelScarab model;
 
 	public RenderScarab(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		modelEntity = ((ModelScarab) mainModel);
+		model = ((ModelScarab) mainModel);
 		addLayer(new LayerScarab(this));
 	}
 
@@ -32,7 +32,7 @@ public class RenderScarab<T> extends RenderLiving<EntityScarab> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityScarab entity) {
-		return SCARAB_TEXTURES;
+		return TEXTURE;
 	}
 
 	@Override

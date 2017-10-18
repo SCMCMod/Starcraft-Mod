@@ -9,12 +9,12 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderQueen extends RenderLiving<EntityQueen> {
-	private static final ResourceLocation QUEEN_TEXTURES = new ResourceLocation(Library.RL_BASE + "textures/entity/queen.png");
-	protected ModelQueen modelEntity;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/queen.png");
+	protected ModelQueen model;
 
 	public RenderQueen(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		modelEntity = ((ModelQueen) mainModel);
+		model = ((ModelQueen) mainModel);
 	}
 
 	@Override
@@ -28,6 +28,6 @@ public class RenderQueen extends RenderLiving<EntityQueen> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityQueen entity) {
-		return QUEEN_TEXTURES;
+		return TEXTURE;
 	}
 }

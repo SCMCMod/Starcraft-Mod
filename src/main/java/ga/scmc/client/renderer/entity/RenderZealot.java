@@ -1,7 +1,7 @@
 package ga.scmc.client.renderer.entity;
 
 import ga.scmc.client.renderer.layers.LayerZealot;
-import ga.scmc.client.renderer.layers.LayerPredatorGlow;
+import ga.scmc.client.renderer.layers.LayerPredatorGlowDynamic;
 import ga.scmc.entity.living.EntityZealot;
 import ga.scmc.lib.Library;
 import ga.scmc.model.ModelZealot;
@@ -14,12 +14,12 @@ import net.minecraft.util.ResourceLocation;
 // Moar special cases
 public class RenderZealot<T> extends RenderLiving<EntityZealot> {
 
-	private static final ResourceLocation ZEALOT_TEXTURES = new ResourceLocation(Library.RL_BASE + "textures/entity/zealot.png");
-	protected ModelZealot modelEntity;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/zealot.png");
+	protected ModelZealot model;
 
 	public RenderZealot(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		modelEntity = ((ModelZealot) mainModel);
+		model = ((ModelZealot) mainModel);
 		addLayer(new LayerZealot(this));
 	}
 
@@ -30,7 +30,7 @@ public class RenderZealot<T> extends RenderLiving<EntityZealot> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityZealot entity) {
-		return ZEALOT_TEXTURES;
+		return TEXTURE;
 	}
 
 	@Override

@@ -12,17 +12,17 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class LayerVoidProbe<T extends EntityVoidProbe> implements LayerRenderer<T> {
-    private static final ResourceLocation PROBE_LAYER = new ResourceLocation(Library.RL_BASE + "textures/entity/voidprobe_layer.png");
-    private final RenderVoidProbe<T> probeRenderer;
+    private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/voidprobe_layer.png");
+    private final RenderVoidProbe<T> RENDERER;
 
     public LayerVoidProbe(RenderVoidProbe<T> voidprobeRendererIn) {
-        probeRenderer = voidprobeRendererIn;
+        RENDERER = voidprobeRendererIn;
     }
 
     @Override
     public void doRenderLayer(EntityVoidProbe entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
     	if(!entitylivingbaseIn.isInvisible()) {
-    		probeRenderer.bindTexture(PROBE_LAYER);
+    		RENDERER.bindTexture(TEXTURE);
     		GlStateManager.enableBlend();
     		GlStateManager.enableAlpha();
     		GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
@@ -38,12 +38,12 @@ public class LayerVoidProbe<T extends EntityVoidProbe> implements LayerRenderer<
     		int k = i / 65536;
     		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)j, (float)k);
     		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-    		probeRenderer.getMainModel().render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+    		RENDERER.getMainModel().render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
     		i = entitylivingbaseIn.getBrightnessForRender(partialTicks);
     		j = i % 65536;
     		k = i / 65536;
     		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)j, (float)k);
-    		probeRenderer.setLightmap(entitylivingbaseIn, partialTicks);
+    		RENDERER.setLightmap(entitylivingbaseIn, partialTicks);
     		GlStateManager.disableBlend();
     		GlStateManager.enableAlpha();
     	}

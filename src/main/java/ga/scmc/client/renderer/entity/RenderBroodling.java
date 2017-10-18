@@ -9,12 +9,12 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderBroodling extends RenderLiving<EntityBroodling> {
-	private static final ResourceLocation BROODLING_TEXTURES = new ResourceLocation(Library.RL_BASE + "textures/entity/broodling.png");
-	protected ModelBroodling modelEntity;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/broodling.png");
+	protected ModelBroodling model;
 
 	public RenderBroodling(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		modelEntity = ((ModelBroodling) mainModel);
+		model = ((ModelBroodling) mainModel);
 	}
 
 	@Override
@@ -28,6 +28,6 @@ public class RenderBroodling extends RenderLiving<EntityBroodling> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityBroodling entity) {
-		return BROODLING_TEXTURES;
+		return TEXTURE;
 	}
 }

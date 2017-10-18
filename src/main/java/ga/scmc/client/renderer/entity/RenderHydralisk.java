@@ -12,12 +12,12 @@ import net.minecraft.util.ResourceLocation;
 
 //Same reason for special case
 public class RenderHydralisk<T> extends RenderLiving<EntityHydralisk> {
-	private static final ResourceLocation ZERGLING_TEXTURES = new ResourceLocation(Library.RL_BASE + "textures/entity/hydralisk.png");
-	protected ModelHydralisk modelEntity;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/hydralisk.png");
+	protected ModelHydralisk model;
 
 	public RenderHydralisk(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		modelEntity = ((ModelHydralisk) mainModel);
+		model = ((ModelHydralisk) mainModel);
 		addLayer(new LayerHydralisk(this));
 	}
 
@@ -32,11 +32,11 @@ public class RenderHydralisk<T> extends RenderLiving<EntityHydralisk> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityHydralisk entity) {
-		return ZERGLING_TEXTURES;
+		return TEXTURE;
 	}
 
 	@Override
 	protected void preRenderCallback(EntityHydralisk entitylivingbaseIn, float partialTickTime) {
-		GlStateManager.scale(1.3F + (entitylivingbaseIn.getColor()/60), 1.3F + (entitylivingbaseIn.getColor()/60), 1.3F + (entitylivingbaseIn.getColor()/60));
+		GlStateManager.scale(1.3F + (entitylivingbaseIn.getBiomass()/60), 1.3F + (entitylivingbaseIn.getBiomass()/60), 1.3F + (entitylivingbaseIn.getBiomass()/60));
 	}
 }

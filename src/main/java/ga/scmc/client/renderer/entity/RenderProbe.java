@@ -11,12 +11,12 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderProbe<T> extends RenderLiving<EntityProbe> {
-	private static final ResourceLocation PROBE_TEXTURES = new ResourceLocation(Library.RL_BASE + "textures/entity/probe.png");
-	protected ModelProbe modelEntity;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/probe.png");
+	protected ModelProbe model;
 
 	public RenderProbe(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		modelEntity = ((ModelProbe) mainModel);
+		model = ((ModelProbe) mainModel);
 		addLayer(new LayerProbe(this));
 	}
 
@@ -31,7 +31,7 @@ public class RenderProbe<T> extends RenderLiving<EntityProbe> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityProbe entity) {
-		return PROBE_TEXTURES;
+		return TEXTURE;
 	}
 
 	@Override

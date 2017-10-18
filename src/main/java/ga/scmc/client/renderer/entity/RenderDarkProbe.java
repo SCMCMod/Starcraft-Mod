@@ -11,12 +11,12 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderDarkProbe<T> extends RenderLiving<EntityDarkProbe> {
-	private static final ResourceLocation DARK_PROBE_TEXTURES = new ResourceLocation(Library.RL_BASE + "textures/entity/darkprobe.png");
-	protected ModelDarkProbe modelEntity;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/darkprobe.png");
+	protected ModelDarkProbe model;
 
 	public RenderDarkProbe(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		modelEntity = ((ModelDarkProbe) mainModel);
+		model = ((ModelDarkProbe) mainModel);
 		addLayer(new LayerDarkProbe(this));
 	}
 
@@ -31,7 +31,7 @@ public class RenderDarkProbe<T> extends RenderLiving<EntityDarkProbe> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityDarkProbe entity) {
-		return DARK_PROBE_TEXTURES;
+		return TEXTURE;
 	}
 
 	@Override

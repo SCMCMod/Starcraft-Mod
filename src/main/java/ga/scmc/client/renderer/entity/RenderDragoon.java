@@ -9,12 +9,12 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderDragoon extends RenderLiving<EntityDragoon> {
-	private static final ResourceLocation DRAGOON_TEXTURES = new ResourceLocation(Library.RL_BASE + "textures/entity/dragoon.png");
-	protected ModelDragoon modelEntity;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/dragoon.png");
+	protected ModelDragoon model;
 
 	public RenderDragoon(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		modelEntity = ((ModelDragoon) mainModel);
+		model = ((ModelDragoon) mainModel);
 	}
 
 	@Override
@@ -28,6 +28,6 @@ public class RenderDragoon extends RenderLiving<EntityDragoon> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityDragoon entity) {
-		return DRAGOON_TEXTURES;
+		return TEXTURE;
 	}
 }

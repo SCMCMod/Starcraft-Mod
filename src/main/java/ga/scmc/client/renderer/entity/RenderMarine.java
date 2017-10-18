@@ -9,12 +9,12 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderMarine extends RenderLiving<EntityMarine> {
-	private static final ResourceLocation MARINE_TEXTURES = new ResourceLocation(Library.RL_BASE + "textures/entity/marine.png");
-	protected ModelMarine modelEntity;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/marine.png");
+	protected ModelMarine model;
 
 	public RenderMarine(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		modelEntity = ((ModelMarine) mainModel);
+		model = ((ModelMarine) mainModel);
 	}
 
 	@Override
@@ -28,6 +28,6 @@ public class RenderMarine extends RenderLiving<EntityMarine> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityMarine entity) {
-		return MARINE_TEXTURES;
+		return TEXTURE;
 	}
 }

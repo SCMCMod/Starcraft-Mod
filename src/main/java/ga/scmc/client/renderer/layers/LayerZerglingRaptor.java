@@ -13,17 +13,17 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class LayerZerglingRaptor<T extends EntityZerglingRaptor> implements LayerRenderer<T>
 {
-    private static final ResourceLocation ZERGLINGRAPTOR_LAYER = new ResourceLocation(Library.RL_BASE + "textures/entity/zergling_layer.png");
-    private final RenderZerglingRaptor<T> zerglingRaptorRenderer;
+    private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/zergling_layer.png");
+    private final RenderZerglingRaptor<T> RENDERER;
 
     public LayerZerglingRaptor(RenderZerglingRaptor<T> zerglingRaptorRendererIn)
     {
-        this.zerglingRaptorRenderer = zerglingRaptorRendererIn;
+        this.RENDERER = zerglingRaptorRendererIn;
     }
 
     public void doRenderLayer(EntityZerglingRaptor entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
     {
-        this.zerglingRaptorRenderer.bindTexture(ZERGLINGRAPTOR_LAYER);
+        this.RENDERER.bindTexture(TEXTURE);
         GlStateManager.enableBlend();
         GlStateManager.enableAlpha();
         GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
@@ -42,12 +42,12 @@ public class LayerZerglingRaptor<T extends EntityZerglingRaptor> implements Laye
         int k = i / 65536;
         OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)j, (float)k);
         GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-        this.zerglingRaptorRenderer.getMainModel().render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        this.RENDERER.getMainModel().render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
         i = entitylivingbaseIn.getBrightnessForRender(partialTicks);
         j = i % 65536;
         k = i / 65536;
         OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)j, (float)k);
-        this.zerglingRaptorRenderer.setLightmap(entitylivingbaseIn, partialTicks);
+        this.RENDERER.setLightmap(entitylivingbaseIn, partialTicks);
         GlStateManager.disableBlend();
         GlStateManager.enableAlpha();
     }

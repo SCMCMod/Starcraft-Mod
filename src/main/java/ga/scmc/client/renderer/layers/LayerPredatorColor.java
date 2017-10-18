@@ -18,15 +18,15 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class LayerPredatorColor<T extends EntityPredator> implements LayerRenderer<T> {
 
-	private static final ResourceLocation CYBERCAT_LAYER_COLOR = new ResourceLocation(Library.RL_BASE + "textures/entity/cybercat_overlay.png");
-	private final RenderPredator<T> cybercatRenderer;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/predator_overlay.png");
+	private final RenderPredator<T> RENDERER;
 
 	public LayerPredatorColor(RenderPredator<T> cybercatRendererIn) {
-		this.cybercatRenderer = cybercatRendererIn;
+		this.RENDERER = cybercatRendererIn;
 	}
 
 	public void doRenderLayer(EntityPredator entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		this.cybercatRenderer.bindTexture(CYBERCAT_LAYER_COLOR);
+		this.RENDERER.bindTexture(TEXTURE);
 		GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
 
 		if (entitylivingbaseIn.isInvisible()) {
@@ -36,12 +36,12 @@ public class LayerPredatorColor<T extends EntityPredator> implements LayerRender
 		}
 
 		GL11.glColor3f(entitylivingbaseIn.getTeamColor().getR() / 255, entitylivingbaseIn.getTeamColor().getG() / 255, entitylivingbaseIn.getTeamColor().getB() / 255);
-		this.cybercatRenderer.getMainModel().render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		this.RENDERER.getMainModel().render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		GlStateManager.resetColor();
 	}
 
 	@Override
 	public boolean shouldCombineTextures() {
-		return false;
+		return true;
 	}
 }

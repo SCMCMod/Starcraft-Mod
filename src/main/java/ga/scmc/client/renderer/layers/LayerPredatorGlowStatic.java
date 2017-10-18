@@ -1,7 +1,7 @@
 package ga.scmc.client.renderer.layers;
 
-import ga.scmc.client.renderer.entity.RenderProtossReaver;
-import ga.scmc.entity.living.EntityProtossReaver;
+import ga.scmc.client.renderer.entity.RenderPredator;
+import ga.scmc.entity.living.EntityPredator;
 import ga.scmc.lib.Library;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -11,16 +11,16 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class LayerProtossReaver<T extends EntityProtossReaver> implements LayerRenderer<T> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/preaver_layer.png");
-    private final RenderProtossReaver<T> RENDERER;
+public class LayerPredatorGlowStatic<T extends EntityPredator> implements LayerRenderer<T> {
+    private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/predator_glow_static.png");
+    private final RenderPredator<T> RENDERER;
 
-    public LayerProtossReaver(RenderProtossReaver<T> preaverRendererIn) {
-        RENDERER = preaverRendererIn;
+    public LayerPredatorGlowStatic(RenderPredator<T> darkprobeRendererIn) {
+        RENDERER = darkprobeRendererIn;
     }
 
-	@Override
-    public void doRenderLayer(EntityProtossReaver entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+    @Override
+    public void doRenderLayer(EntityPredator entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
     	if(!entitylivingbaseIn.isInvisible()) {
     		RENDERER.bindTexture(TEXTURE);
     		GlStateManager.enableBlend();

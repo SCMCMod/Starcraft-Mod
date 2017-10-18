@@ -9,12 +9,12 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderGhost extends RenderLiving<EntityGhost> {
-	private static final ResourceLocation GHOST_TEXTURES = new ResourceLocation(Library.RL_BASE + "textures/entity/ghost.png");
-	protected ModelGhost modelEntity;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/ghost.png");
+	protected ModelGhost model;
 
 	public RenderGhost(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		modelEntity = ((ModelGhost) mainModel);
+		model = ((ModelGhost) mainModel);
 	}
 
 	@Override
@@ -28,6 +28,6 @@ public class RenderGhost extends RenderLiving<EntityGhost> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityGhost entity) {
-		return GHOST_TEXTURES;
+		return TEXTURE;
 	}
 }

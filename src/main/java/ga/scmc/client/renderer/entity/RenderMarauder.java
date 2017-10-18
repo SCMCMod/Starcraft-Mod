@@ -9,12 +9,12 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderMarauder extends RenderLiving<EntityMarauder> {
-	private static final ResourceLocation MARAUDER_TEXTURES = new ResourceLocation(Library.RL_BASE + "textures/entity/marauder.png");
-	protected ModelMarauder modelEntity;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/marauder.png");
+	protected ModelMarauder model;
 
 	public RenderMarauder(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		modelEntity = ((ModelMarauder) mainModel);
+		model = ((ModelMarauder) mainModel);
 	}
 
 	@Override
@@ -28,6 +28,6 @@ public class RenderMarauder extends RenderLiving<EntityMarauder> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityMarauder entity) {
-		return MARAUDER_TEXTURES;
+		return TEXTURE;
 	}
 }

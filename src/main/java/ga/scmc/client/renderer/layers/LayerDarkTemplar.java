@@ -12,17 +12,17 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class LayerDarkTemplar<T extends EntityDarkTemplar> implements LayerRenderer<T> {
-    private static final ResourceLocation DARKTEMPLAR_LAYER = new ResourceLocation(Library.RL_BASE + "textures/entity/darktemplar_layer.png");
-    private final RenderDarkTemplar<T> darktemplarRenderer;
+    private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/darktemplar_layer.png");
+    private final RenderDarkTemplar<T> renderer;
 
     public LayerDarkTemplar(RenderDarkTemplar<T> darktemplarRendererIn) {
-        darktemplarRenderer = darktemplarRendererIn;
+        renderer = darktemplarRendererIn;
     }
 
     @Override
     public void doRenderLayer(EntityDarkTemplar entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
     	if(!entitylivingbaseIn.isInvisible()) {
-    		darktemplarRenderer.bindTexture(DARKTEMPLAR_LAYER);
+    		renderer.bindTexture(TEXTURE);
     		GlStateManager.enableBlend();
     		GlStateManager.enableAlpha();
     		GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
@@ -38,12 +38,12 @@ public class LayerDarkTemplar<T extends EntityDarkTemplar> implements LayerRende
     		int k = i / 65536;
     		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)j, (float)k);
     		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-    		darktemplarRenderer.getMainModel().render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+    		renderer.getMainModel().render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
     		i = entitylivingbaseIn.getBrightnessForRender(partialTicks);
     		j = i % 65536;
     		k = i / 65536;
     		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)j, (float)k);
-    		darktemplarRenderer.setLightmap(entitylivingbaseIn, partialTicks);
+    		renderer.setLightmap(entitylivingbaseIn, partialTicks);
     		GlStateManager.disableBlend();
     		GlStateManager.enableAlpha();
     	}

@@ -11,12 +11,12 @@ import net.minecraft.util.ResourceLocation;
 
 //And again
 public class RenderLarva<T> extends RenderLiving<EntityLarva> {
-	private static final ResourceLocation LARVA_TEXTURES = new ResourceLocation(Library.RL_BASE + "textures/entity/larva.png");
-	protected ModelLarva modelEntity;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/larva.png");
+	protected ModelLarva model;
 	
 	public RenderLarva(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		modelEntity = ((ModelLarva) mainModel);
+		model = ((ModelLarva) mainModel);
 		addLayer(new LayerLarva(this));
 	}
 
@@ -31,6 +31,6 @@ public class RenderLarva<T> extends RenderLiving<EntityLarva> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityLarva entity) {
-		return LARVA_TEXTURES;
+		return TEXTURE;
 	}
 }

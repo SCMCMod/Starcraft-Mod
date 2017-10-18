@@ -12,16 +12,16 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class LayerLarva<T extends EntityLarva> implements LayerRenderer<T> {
-    private static final ResourceLocation LARVA_LAYER = new ResourceLocation(Library.RL_BASE + "textures/entity/larva_layer.png");
-    private final RenderLarva<T> larvaRenderer;
+    private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/larva_layer.png");
+    private final RenderLarva<T> RENDERER;
 
     public LayerLarva(RenderLarva<T> larvaRendererIn) {
-        larvaRenderer = larvaRendererIn;
+        RENDERER = larvaRendererIn;
     }
 
     @Override
     public void doRenderLayer(EntityLarva entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-        larvaRenderer.bindTexture(LARVA_LAYER);
+        RENDERER.bindTexture(TEXTURE);
         GlStateManager.enableBlend();
         GlStateManager.enableAlpha();
         GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
@@ -37,12 +37,12 @@ public class LayerLarva<T extends EntityLarva> implements LayerRenderer<T> {
         int k = i / 65536;
         OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)j, (float)k);
         GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-        larvaRenderer.getMainModel().render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        RENDERER.getMainModel().render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
         i = entitylivingbaseIn.getBrightnessForRender(partialTicks);
         j = i % 65536;
         k = i / 65536;
         OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)j, (float)k);
-        larvaRenderer.setLightmap(entitylivingbaseIn, partialTicks);
+        RENDERER.setLightmap(entitylivingbaseIn, partialTicks);
         GlStateManager.disableBlend();
         GlStateManager.enableAlpha();
     }

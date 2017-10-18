@@ -17,17 +17,17 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * @author Ocelot5836
  */
 @SideOnly(Side.CLIENT)
-public class LayerPredatorGlow<T extends EntityPredator> implements LayerRenderer<T> {
+public class LayerPredatorGlowDynamic<T extends EntityPredator> implements LayerRenderer<T> {
 
-	private static final ResourceLocation CYBERCAT_LAYER_GLOW = new ResourceLocation(Library.RL_BASE + "textures/entity/cybercat_team_glow.png");
-	private final RenderPredator<T> zealotRenderer;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/predator_glow_dynamic.png");
+	private final RenderPredator<T> RENDERER;
 
-	public LayerPredatorGlow(RenderPredator<T> zealotRendererIn) {
-		this.zealotRenderer = zealotRendererIn;
+	public LayerPredatorGlowDynamic(RenderPredator<T> zealotRendererIn) {
+		this.RENDERER = zealotRendererIn;
 	}
 
 	public void doRenderLayer(EntityPredator entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		this.zealotRenderer.bindTexture(CYBERCAT_LAYER_GLOW);
+		this.RENDERER.bindTexture(TEXTURE);
 		GlStateManager.enableAlpha();
 		GlStateManager.enableBlend();
 		GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
@@ -45,14 +45,15 @@ public class LayerPredatorGlow<T extends EntityPredator> implements LayerRendere
 		int k = i / 65536;
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float) j, (float) k);
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-		this.zealotRenderer.getMainModel().render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		GL11.glColor3f(entitylivingbaseIn.getTeamColor().getR() / 255, entitylivingbaseIn.getTeamColor().getG() / 255, entitylivingbaseIn.getTeamColor().getB() / 255);
+		this.RENDERER.getMainModel().render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		i = entitylivingbaseIn.getBrightnessForRender(partialTicks);
 		j = i % 65536;
 		k = i / 65536;
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float) j, (float) k);
-		this.zealotRenderer.setLightmap(entitylivingbaseIn, partialTicks);
+		this.RENDERER.setLightmap(entitylivingbaseIn, partialTicks);
 		GlStateManager.disableBlend();
-		GlStateManager.enableAlpha();
+		GlStateManager.disableAlpha();
 		GlStateManager.resetColor();
 	}
 

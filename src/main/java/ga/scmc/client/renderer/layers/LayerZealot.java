@@ -12,15 +12,15 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class LayerZealot<T extends EntityZealot> implements LayerRenderer<T> {
-	private static final ResourceLocation ZEALOT_LAYER = new ResourceLocation(Library.MODID, "textures/entity/zealot_layer.png");
-	private final RenderZealot<T> zealotRenderer;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.MODID, "textures/entity/zealot_layer.png");
+	private final RenderZealot<T> RENDERER;
 
 	public LayerZealot(RenderZealot<T> zealotRendererIn) {
-		this.zealotRenderer = zealotRendererIn;
+		this.RENDERER = zealotRendererIn;
 	}
 
 	public void doRenderLayer(EntityZealot entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		this.zealotRenderer.bindTexture(ZEALOT_LAYER);
+		this.RENDERER.bindTexture(TEXTURE);
 		GlStateManager.enableBlend();
 		GlStateManager.enableAlpha();
 		GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
@@ -36,12 +36,12 @@ public class LayerZealot<T extends EntityZealot> implements LayerRenderer<T> {
 		int k = i / 65536;
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float) j, (float) k);
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-		this.zealotRenderer.getMainModel().render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		this.RENDERER.getMainModel().render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		i = entitylivingbaseIn.getBrightnessForRender(partialTicks);
 		j = i % 65536;
 		k = i / 65536;
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float) j, (float) k);
-		this.zealotRenderer.setLightmap(entitylivingbaseIn, partialTicks);
+		this.RENDERER.setLightmap(entitylivingbaseIn, partialTicks);
 		GlStateManager.disableBlend();
 		GlStateManager.enableAlpha();
 	}

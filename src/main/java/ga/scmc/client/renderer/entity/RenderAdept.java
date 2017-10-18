@@ -10,12 +10,12 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderAdept extends RenderLiving<EntityAdept> {
-	private static final ResourceLocation ADEPT_TEXTURES = new ResourceLocation(Library.RL_BASE + "textures/entity/adept.png");
-	protected ModelAdept modelEntity;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/adept.png");
+	protected ModelAdept model;
 
 	public RenderAdept(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		modelEntity = ((ModelAdept) mainModel);
+		model = ((ModelAdept) mainModel);
 	}
 
 	@Override
@@ -29,7 +29,7 @@ public class RenderAdept extends RenderLiving<EntityAdept> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityAdept entity) {
-		return ADEPT_TEXTURES;
+		return TEXTURE;
 	}
 	
 	@Override

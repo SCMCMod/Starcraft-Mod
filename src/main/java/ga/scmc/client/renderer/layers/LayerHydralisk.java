@@ -12,16 +12,16 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class LayerHydralisk<T extends EntityHydralisk> implements LayerRenderer<T> {
-    private static final ResourceLocation HYDRALISK_LAYER = new ResourceLocation(Library.RL_BASE + "textures/entity/hydralisk_layer.png");
-    private final RenderHydralisk<T> hydraliskRenderer;
+    private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/hydralisk_layer.png");
+    private final RenderHydralisk<T> RENDERER;
 
     public LayerHydralisk(RenderHydralisk<T> hydraliskRendererIn) {
-        hydraliskRenderer = hydraliskRendererIn;
+        RENDERER = hydraliskRendererIn;
     }
 
     @Override
     public void doRenderLayer(EntityHydralisk entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-        hydraliskRenderer.bindTexture(HYDRALISK_LAYER);
+        RENDERER.bindTexture(TEXTURE);
         GlStateManager.enableBlend();
         GlStateManager.enableAlpha();
         GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
@@ -37,12 +37,12 @@ public class LayerHydralisk<T extends EntityHydralisk> implements LayerRenderer<
         int k = i / 65536;
         OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)j, (float)k);
         GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-        hydraliskRenderer.getMainModel().render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        RENDERER.getMainModel().render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
         i = entitylivingbaseIn.getBrightnessForRender(partialTicks);
         j = i % 65536;
         k = i / 65536;
         OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)j, (float)k);
-        hydraliskRenderer.setLightmap(entitylivingbaseIn, partialTicks);
+        RENDERER.setLightmap(entitylivingbaseIn, partialTicks);
         GlStateManager.disableBlend();
         GlStateManager.enableAlpha();
     }

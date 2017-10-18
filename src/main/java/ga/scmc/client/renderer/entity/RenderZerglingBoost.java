@@ -12,12 +12,12 @@ import net.minecraft.util.ResourceLocation;
 
 //You know the drill; no more of these comments
 public class RenderZerglingBoost<T> extends RenderLiving<EntityZerglingBoost> {
-	private static final ResourceLocation ZERGLINGBOOST_TEXTURES = new ResourceLocation(Library.RL_BASE + "textures/entity/zerglingboost.png");
-	protected ModelZerglingBoost modelEntity;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/zerglingboost.png");
+	protected ModelZerglingBoost model;
 
 	public RenderZerglingBoost(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		modelEntity = ((ModelZerglingBoost) mainModel);
+		model = ((ModelZerglingBoost) mainModel);
 		addLayer(new LayerZerglingBoost(this));
 	}
 
@@ -32,11 +32,11 @@ public class RenderZerglingBoost<T> extends RenderLiving<EntityZerglingBoost> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityZerglingBoost entity) {
-		return ZERGLINGBOOST_TEXTURES;
+		return TEXTURE;
 	}
 
 	@Override
 	protected void preRenderCallback(EntityZerglingBoost entitylivingbaseIn, float partialTickTime) {
-		GlStateManager.scale(1.25F + (entitylivingbaseIn.getColor()/60), 1.25F + (entitylivingbaseIn.getColor()/60), 1.25F + (entitylivingbaseIn.getColor()/60));
+		GlStateManager.scale(1.25F + (entitylivingbaseIn.getBiomass()/60), 1.25F + (entitylivingbaseIn.getBiomass()/60), 1.25F + (entitylivingbaseIn.getBiomass()/60));
 	}
 }

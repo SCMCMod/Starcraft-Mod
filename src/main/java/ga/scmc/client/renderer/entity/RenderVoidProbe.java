@@ -11,12 +11,12 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderVoidProbe<T> extends RenderLiving<EntityVoidProbe> {
-	private static final ResourceLocation VOID_PROBE_TEXTURES = new ResourceLocation(Library.RL_BASE + "textures/entity/voidprobe.png");
-	protected ModelVoidProbe modelEntity;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/voidprobe.png");
+	protected ModelVoidProbe model;
 
 	public RenderVoidProbe(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		modelEntity = ((ModelVoidProbe) mainModel);
+		model = ((ModelVoidProbe) mainModel);
 		addLayer(new LayerVoidProbe(this));
 	}
 
@@ -31,7 +31,7 @@ public class RenderVoidProbe<T> extends RenderLiving<EntityVoidProbe> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityVoidProbe entity) {
-		return VOID_PROBE_TEXTURES;
+		return TEXTURE;
 	}
 
 	@Override

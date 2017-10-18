@@ -12,12 +12,12 @@ import net.minecraft.util.ResourceLocation;
 
 
 public class RenderDarkTemplar<T> extends RenderLiving<EntityDarkTemplar> {
-	private static final ResourceLocation DARK_TEMPLAR_TEXTURES = new ResourceLocation(Library.RL_BASE + "textures/entity/darktemplar.png");
-	protected ModelDarkTemplar modelEntity;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/darktemplar.png");
+	protected ModelDarkTemplar model;
 
 	public RenderDarkTemplar(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		modelEntity = ((ModelDarkTemplar) mainModel);
+		model = ((ModelDarkTemplar) mainModel);
 		addLayer(new LayerDarkTemplar(this));
 	}
 
@@ -32,7 +32,7 @@ public class RenderDarkTemplar<T> extends RenderLiving<EntityDarkTemplar> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityDarkTemplar entity) {
-		return DARK_TEMPLAR_TEXTURES;
+		return TEXTURE;
 	}
 
 	@Override

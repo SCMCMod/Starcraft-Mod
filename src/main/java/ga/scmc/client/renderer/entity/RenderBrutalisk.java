@@ -10,12 +10,12 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderBrutalisk extends RenderLiving<EntityBrutalisk> {
-	private static final ResourceLocation BRUTALISK_TEXTURES = new ResourceLocation(Library.RL_BASE + "textures/entity/brutalisk.png");
-	protected ModelBrutalisk modelEntity;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/brutalisk.png");
+	protected ModelBrutalisk model;
 
 	public RenderBrutalisk(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		modelEntity = ((ModelBrutalisk) mainModel);
+		model = ((ModelBrutalisk) mainModel);
 	}
 
 	@Override
@@ -29,11 +29,11 @@ public class RenderBrutalisk extends RenderLiving<EntityBrutalisk> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityBrutalisk entity) {
-		return BRUTALISK_TEXTURES;
+		return TEXTURE;
 	}
 
 	@Override
 	protected void preRenderCallback(EntityBrutalisk entitylivingbaseIn, float partialTickTime) {
-		GlStateManager.scale(3.0F + (entitylivingbaseIn.getColor()/60), 3.0F + (entitylivingbaseIn.getColor()/60), 3.0F + (entitylivingbaseIn.getColor()/60));
+		GlStateManager.scale(3.0F + (entitylivingbaseIn.getBiomass()/60), 3.0F + (entitylivingbaseIn.getBiomass()/60), 3.0F + (entitylivingbaseIn.getBiomass()/60));
 	}
 }

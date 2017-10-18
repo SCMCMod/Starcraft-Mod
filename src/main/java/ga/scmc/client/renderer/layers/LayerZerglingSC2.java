@@ -13,17 +13,17 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class LayerZerglingSC2<T extends EntityZerglingSC2> implements LayerRenderer<T>
 {
-    private static final ResourceLocation ZERGLINGSC2_LAYER = new ResourceLocation(Library.RL_BASE + "textures/entity/zergling_layer.png");
-    private final RenderZerglingSC2<T> zerglingSC2Renderer;
+    private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/zergling_layer.png");
+    private final RenderZerglingSC2<T> RENDERER;
 
     public LayerZerglingSC2(RenderZerglingSC2<T> zerglingSC2RendererIn)
     {
-        this.zerglingSC2Renderer = zerglingSC2RendererIn;
+        this.RENDERER = zerglingSC2RendererIn;
     }
 
     public void doRenderLayer(EntityZerglingSC2 entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
     {
-        this.zerglingSC2Renderer.bindTexture(ZERGLINGSC2_LAYER);
+        this.RENDERER.bindTexture(TEXTURE);
         GlStateManager.enableBlend();
         GlStateManager.enableAlpha();
         GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
@@ -42,12 +42,12 @@ public class LayerZerglingSC2<T extends EntityZerglingSC2> implements LayerRende
         int k = i / 65536;
         OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)j, (float)k);
         GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-        this.zerglingSC2Renderer.getMainModel().render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        this.RENDERER.getMainModel().render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
         i = entitylivingbaseIn.getBrightnessForRender(partialTicks);
         j = i % 65536;
         k = i / 65536;
         OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)j, (float)k);
-        this.zerglingSC2Renderer.setLightmap(entitylivingbaseIn, partialTicks);
+        this.RENDERER.setLightmap(entitylivingbaseIn, partialTicks);
         GlStateManager.disableBlend();
         GlStateManager.enableAlpha();
     }

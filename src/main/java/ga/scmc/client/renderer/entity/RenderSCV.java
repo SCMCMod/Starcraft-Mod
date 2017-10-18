@@ -9,12 +9,12 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderSCV extends RenderLiving<EntitySCV> {
-	private static final ResourceLocation SCV_TEXTURES = new ResourceLocation(Library.RL_BASE + "textures/entity/scv.png");
-	protected ModelSCV modelEntity;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/scv.png");
+	protected ModelSCV model;
 
 	public RenderSCV(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		modelEntity = ((ModelSCV) mainModel);
+		model = ((ModelSCV) mainModel);
 	}
 
 	@Override
@@ -28,6 +28,6 @@ public class RenderSCV extends RenderLiving<EntitySCV> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntitySCV entity) {
-		return SCV_TEXTURES;
+		return TEXTURE;
 	}
 }

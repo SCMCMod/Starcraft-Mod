@@ -9,12 +9,12 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderDrone extends RenderLiving<EntityDrone> {
-	private static final ResourceLocation DRONE_TEXTURES = new ResourceLocation(Library.RL_BASE + "textures/entity/drone.png");
-	protected ModelDrone modelEntity;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/drone.png");
+	protected ModelDrone model;
 
 	public RenderDrone(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		modelEntity = ((ModelDrone) mainModel);
+		model = ((ModelDrone) mainModel);
 	}
 
 	@Override
@@ -28,6 +28,6 @@ public class RenderDrone extends RenderLiving<EntityDrone> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityDrone entity) {
-		return DRONE_TEXTURES;
+		return TEXTURE;
 	}
 }

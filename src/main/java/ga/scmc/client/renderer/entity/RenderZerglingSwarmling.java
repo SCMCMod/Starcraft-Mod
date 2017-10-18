@@ -11,12 +11,12 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderZerglingSwarmling<T> extends RenderLiving<EntityZerglingSwarmling> {
-	private static final ResourceLocation ZERGLINGSWARMLING_TEXTURES = new ResourceLocation(Library.RL_BASE + "textures/entity/zerglingswarmling.png");
-	protected ModelZerglingSwarmling modelEntity;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/zerglingswarmling.png");
+	protected ModelZerglingSwarmling model;
 
 	public RenderZerglingSwarmling(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		modelEntity = ((ModelZerglingSwarmling) mainModel);
+		model = ((ModelZerglingSwarmling) mainModel);
 		addLayer(new LayerZerglingSwarmling(this));
 	}
 
@@ -31,11 +31,11 @@ public class RenderZerglingSwarmling<T> extends RenderLiving<EntityZerglingSwarm
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityZerglingSwarmling entity) {
-		return ZERGLINGSWARMLING_TEXTURES;
+		return TEXTURE;
 	}
 
 	@Override
 	protected void preRenderCallback(EntityZerglingSwarmling entitylivingbaseIn, float partialTickTime) {
-		GlStateManager.scale(1.25F + (entitylivingbaseIn.getColor()/60), 1.25F + (entitylivingbaseIn.getColor()/60), 1.25F + (entitylivingbaseIn.getColor()/60));
+		GlStateManager.scale(1.25F + (entitylivingbaseIn.getBiomass()/60), 1.25F + (entitylivingbaseIn.getBiomass()/60), 1.25F + (entitylivingbaseIn.getBiomass()/60));
 	}
 }
