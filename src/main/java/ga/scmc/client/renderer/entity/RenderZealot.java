@@ -1,7 +1,6 @@
 package ga.scmc.client.renderer.entity;
 
 import ga.scmc.client.renderer.layers.LayerZealot;
-import ga.scmc.client.renderer.layers.LayerPredatorGlowDynamic;
 import ga.scmc.entity.living.EntityZealot;
 import ga.scmc.lib.Library;
 import ga.scmc.model.ModelZealot;

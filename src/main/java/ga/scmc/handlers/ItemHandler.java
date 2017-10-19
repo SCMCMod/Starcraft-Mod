@@ -3,12 +3,8 @@ package ga.scmc.handlers;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.fluids.FluidHandler;
 import ga.scmc.items.ItemC14GaussRifle;
-import ga.scmc.items.ItemCreepResin;
-import ga.scmc.items.ItemIconProtoss;
-import ga.scmc.items.ItemIconTerran;
-import ga.scmc.items.ItemIconZerg;
+import ga.scmc.items.ItemFlamethrower;
 import ga.scmc.items.ItemNuclearMissile;
-import ga.scmc.items.ItemOrganicTissue;
 import ga.scmc.items.ItemStimpack;
 import ga.scmc.items.metaitems.ItemBullet;
 import ga.scmc.items.metaitems.ItemC14GaussRifleParts;
@@ -47,6 +43,7 @@ public class ItemHandler {
 
 	public static Item BULLET;
 	public static ItemC14GaussRifle C14_GAUSS_RIFLE;
+	public static ItemFlamethrower FLAMETHROWER;
 	public static Item C14_PARTS;
 	public static Item CREEP_RESIN;
 	public static Item PROTOSS_INGOT;
@@ -99,11 +96,12 @@ public class ItemHandler {
 		PROTOSS_INGOT = new ItemProtossIngot();
 		C14_GAUSS_RIFLE = new ItemC14GaussRifle();
 		C14_PARTS = new ItemC14GaussRifleParts();
+		FLAMETHROWER = new ItemFlamethrower();
 		BULLET = new ItemBullet();
 		PSI_BLADE_FOCUSER_UNCHARGED = new ItemPsiBladeFocuserUncharged();
 		ZERG_CARAPACE = new ItemZergCarapace();
-		CREEP_RESIN = new ItemCreepResin();
-		ORGANIC_TISSUE = new ItemOrganicTissue();
+		CREEP_RESIN = new Item().setUnlocalizedName("zergCreepResin").setRegistryName("zerg_creep_resin").setCreativeTab(StarcraftCreativeTabs.ZERG);;
+		ORGANIC_TISSUE = new Item().setUnlocalizedName("zergOrganicTissue").setRegistryName("zerg_organic_tissue").setCreativeTab(StarcraftCreativeTabs.ZERG);;
 		BIOMASS = new Item().setUnlocalizedName("biomass").setRegistryName("biomass").setCreativeTab(StarcraftCreativeTabs.ZERG);
 
 		NUCLEAR_MISSILE = new ItemNuclearMissile();
@@ -125,9 +123,9 @@ public class ItemHandler {
 		SPAWNER_ZERG_SPIRE = new ItemZergSpireSpawner();
 		SPAWNER_ZERG_HYDRALISKDEN = new ItemZergHydraliskDenSpawner();
 
-		ICON_PROTOSS = new ItemIconProtoss();
-		ICON_TERRAN = new ItemIconTerran();
-		ICON_ZERG = new ItemIconZerg();
+		ICON_PROTOSS = new Item().setUnlocalizedName("iconProtoss").setRegistryName("icon_protoss").setCreativeTab(null);
+		ICON_TERRAN = new Item().setUnlocalizedName("iconTerran").setRegistryName("icon_terran").setCreativeTab(null);
+		ICON_ZERG = new Item().setUnlocalizedName("iconZerg").setRegistryName("icon_zerg").setCreativeTab(null);
 
 		ArmorHandler.init();
 		WeaponHandler.init();
@@ -163,6 +161,7 @@ public class ItemHandler {
 		registerItem(INGOT);
 		registerItem(PROTOSS_INGOT);
 		registerItem(C14_GAUSS_RIFLE);
+		registerItem(FLAMETHROWER);
 		registerItem(C14_PARTS);
 		registerItem(BULLET);
 		registerItem(PSI_BLADE_FOCUSER_UNCHARGED);
