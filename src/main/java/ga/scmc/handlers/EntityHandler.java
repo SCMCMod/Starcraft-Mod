@@ -31,6 +31,7 @@ import ga.scmc.entity.living.EntityZerglingRaptor;
 import ga.scmc.entity.living.EntityZerglingSC2;
 import ga.scmc.entity.living.EntityZerglingSwarmling;
 import ga.scmc.entity.projectiles.EntityC14GaussRifleBullet;
+import ga.scmc.entity.projectiles.EntityFlamethowerFlame;
 import ga.scmc.entity.projectiles.EntityHydraliskSpike;
 import ga.scmc.lib.Library;
 import ga.scmc.tileentity.TileEntityBlockCharFurnace;
@@ -146,6 +147,7 @@ public class EntityHandler {
 
 		registerEntity(EntityC14GaussRifleBullet.class, "c14GaussRifleBullet", 64, 1, true);
 		registerEntity(EntityHydraliskSpike.class, "HydraliskSpike", 64, 1, true);
+		registerEntity(EntityFlamethowerFlame.class, "flamethrowerFlame", 64, 1, true);
 	}
 
 	/**

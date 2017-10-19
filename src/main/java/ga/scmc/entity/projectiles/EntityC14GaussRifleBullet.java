@@ -19,9 +19,7 @@ public class EntityC14GaussRifleBullet extends EntityThrowable {
 	public EntityC14GaussRifleBullet(World worldIn, EntityLivingBase throwerIn) {
 		super(worldIn, throwerIn);
         this.setLocationAndAngles(throwerIn.posX, throwerIn.posY + throwerIn.getEyeHeight(), throwerIn.posZ, throwerIn.rotationYaw, throwerIn.rotationPitch);
-        this.posX -= MathHelper.cos((rotationYaw / 180F) * 3.141593F) * 0.16F;
         this.posY -= 0.1D;
-        this.posZ -= MathHelper.sin((rotationYaw / 180F) * 3.141593F) * 0.16F;
         this.setPosition(this.posX, this.posY, this.posZ);
         this.motionX = -MathHelper.sin((rotationYaw / 180F) * 3.141593F) * MathHelper.cos((rotationPitch / 180F) * 3.141593F);
         this.motionY = -MathHelper.sin((rotationPitch / 180F) * 3.141593F);

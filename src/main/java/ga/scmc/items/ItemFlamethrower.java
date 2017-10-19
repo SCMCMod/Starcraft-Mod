@@ -4,10 +4,12 @@ import com.arisux.mdx.lib.world.entity.player.inventory.Inventories;
 
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.entity.projectiles.EntityC14GaussRifleBullet;
+import ga.scmc.entity.projectiles.EntityFlamethowerFlame;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -30,9 +32,9 @@ public class ItemFlamethrower extends Item {
 	public ActionResult<ItemStack> onItemRightClick(ItemStack itemstack, World world, EntityPlayer player, EnumHand hand) {
 		if (this.hasAmmo(world, player)) {
 			if (!world.isRemote) {
-				EntityC14GaussRifleBullet projectile = new EntityC14GaussRifleBullet(world, player);
+				EntityFlamethowerFlame projectile = new EntityFlamethowerFlame(world, player);
                 projectile.setThrowableHeading(projectile.motionX, projectile.motionY, projectile.motionZ, 5F, 0F);
-				player.world.playSound(null, player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ(), SoundHandler.FX_C14GAUSSRIFLE_FIRING, SoundCategory.PLAYERS, 0.4F, 1.5F);
+				player.world.playSound(null, player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ(), SoundEvents.BLOCK_LAVA_EXTINGUISH, SoundCategory.PLAYERS, 1, 1f);
 				world.spawnEntity(projectile);
 			}
 		} else if (!this.hasAmmo(world, player)) {

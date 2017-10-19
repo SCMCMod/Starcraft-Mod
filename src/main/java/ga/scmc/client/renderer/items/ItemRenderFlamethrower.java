@@ -1,5 +1,8 @@
 package ga.scmc.client.renderer.items;
 
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.input.Mouse;
+
 import ga.scmc.model.ModelFlamethrower;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
@@ -8,13 +11,14 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 
 public class ItemRenderFlamethrower extends ItemRenderer {
-	
+
 	public ItemRenderFlamethrower() {
 		super(new ModelFlamethrower(), ModelFlamethrower.TEXTURE);
 	}
 
 	@Override
 	public void renderFirstPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+		renderFirstPersonRight(itemstack, entity, cameraTransformType);
 	}
 
 	@Override
@@ -33,13 +37,13 @@ public class ItemRenderFlamethrower extends ItemRenderer {
 
 	@Override
 	public void renderThirdPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
-	
+		renderFirstPersonRight(itemstack, entity, cameraTransformType);
 	}
 
 	@Override
 	public void renderThirdPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
 		float scale = .01900059f;
-		
+
 		GlStateManager.pushMatrix();
 		GlStateManager.scale(scale, scale, scale);
 		GlStateManager.rotate(-190, -40, 40, -230);
@@ -51,27 +55,27 @@ public class ItemRenderFlamethrower extends ItemRenderer {
 		getModel().render(null, 0, 0, 0, 0, 0, 1);
 		GlStateManager.popMatrix();
 	}
-	
+
 	@Override
 	public void renderInInventory(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
-		float scale = .019f;
-		
+		float scale = 0.020000659f;
+
 		GlStateManager.pushMatrix();
 		GlStateManager.scale(scale, scale, scale);
 		GlStateManager.rotate(100, 0, 1, 0);
 		GlStateManager.rotate(190, 1.1799998f, -0.69999963f, 3.1599975f);
-		GlStateManager.translate(1, -6.090000042691827, -16.57999962940812);
+		GlStateManager.translate(2.8f, -8, -3.5f);
 		GlStateManager.disableLighting();
 		Minecraft.getMinecraft().renderEngine.bindTexture(getResourceLocation());
 		getModel().render(null, 0, 0, 0, 0, 0, 1);
 		GlStateManager.enableLighting();
 		GlStateManager.popMatrix();
 	}
-	
+
 	@Override
 	public void renderInWorld(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
 		float scale = .01700059f;
-		
+
 		GlStateManager.pushMatrix();
 		GlStateManager.scale(scale, scale, scale);
 		GlStateManager.rotate(-90, 1, 0, 0);
@@ -85,51 +89,51 @@ public class ItemRenderFlamethrower extends ItemRenderer {
 	}
 }
 
-//Keep this code here. It's nice for on-the-fly GL fiddling (if you know how to abuse it), and it's how I got my values
-//if(Keyboard.isKeyDown(Keyboard.KEY_V)) {
-//	scale = 1;
-//}
+// Keep this code here. It's nice for on-the-fly GL fiddling (if you know how to abuse it), and it's how I got my values
+// if(Keyboard.isKeyDown(Keyboard.KEY_V)) {
+// scale = 1;
+// }
 //
-//if(Keyboard.isKeyDown(Keyboard.KEY_B)) {
-//	x = 2.8;
-//}
+// if(Keyboard.isKeyDown(Keyboard.KEY_B)) {
+// x = 2.8;
+// }
 //
-//if(Keyboard.isKeyDown(Keyboard.KEY_N)) {
-//	y = -8;
-//}
+// if(Keyboard.isKeyDown(Keyboard.KEY_N)) {
+// y = -8;
+// }
 //
-//if(Keyboard.isKeyDown(Keyboard.KEY_M)) {
-//	z = -3.5;
-//}
+// if(Keyboard.isKeyDown(Keyboard.KEY_M)) {
+// z = -3.5;
+// }
 //
-//if(Mouse.isButtonDown(0)) {
-//	scale -= .01;
-//	System.out.println("s " + scale);
-//} else if(Mouse.isButtonDown(1)) {
-//	scale += .01;
-//	System.out.println("s " + scale);
-//}
+// if(Mouse.isButtonDown(0)) {
+// scale -= .01;
+// System.out.println("s " + scale);
+// } else if(Mouse.isButtonDown(1)) {
+// scale += .01;
+// System.out.println("s " + scale);
+// }
 //
-//if(Keyboard.isKeyDown(Keyboard.KEY_LEFT)) {
-//	x -= .01;
-//	System.out.println("x " + x);
-//} else if(Keyboard.isKeyDown(Keyboard.KEY_RIGHT)) {
-//	x += .01;
-//	System.out.println("x " + x);
-//}
+// if(Keyboard.isKeyDown(Keyboard.KEY_LEFT)) {
+// x -= .01;
+// System.out.println("x " + x);
+// } else if(Keyboard.isKeyDown(Keyboard.KEY_RIGHT)) {
+// x += .01;
+// System.out.println("x " + x);
+// }
 //
-//if(Keyboard.isKeyDown(Keyboard.KEY_UP)) {
-//	y -= .01;
-//	System.out.println("y " + y);
-//} else if(Keyboard.isKeyDown(Keyboard.KEY_DOWN)) {
-//	y += .01;
-//	System.out.println("y " + y);
-//}
+// if(Keyboard.isKeyDown(Keyboard.KEY_UP)) {
+// y -= .01;
+// System.out.println("y " + y);
+// } else if(Keyboard.isKeyDown(Keyboard.KEY_DOWN)) {
+// y += .01;
+// System.out.println("y " + y);
+// }
 //
-//if(Keyboard.isKeyDown(Keyboard.KEY_LBRACKET)) {
-//	z -= .01;
-//	System.out.println("z " + z);
-//} else if(Keyboard.isKeyDown(Keyboard.KEY_RBRACKET)) {
-//	z += .01;
-//	System.out.println("z " + z);
-//}
+// if(Keyboard.isKeyDown(Keyboard.KEY_LBRACKET)) {
+// z -= .01;
+// System.out.println("z " + z);
+// } else if(Keyboard.isKeyDown(Keyboard.KEY_RBRACKET)) {
+// z += .01;
+// System.out.println("z " + z);
+// }
