@@ -5,6 +5,9 @@ import java.util.Random;
 
 import com.arisux.mdx.lib.world.entity.ItemDrop;
 
+import ga.scmc.Starcraft;
+import ga.scmc.client.gui.GuiHandler;
+import ga.scmc.client.gui.GuiLavaLarva;
 import ga.scmc.entity.EntityProtossMob;
 import ga.scmc.entity.EntityTerranMob;
 import ga.scmc.entity.EntityZergPassive;
@@ -36,9 +39,11 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.ReportedException;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -89,6 +94,20 @@ public class EntityLarva extends EntityZergPassive {
 	protected void dropFewItems(boolean recentlyHit, int looting) {
 		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), ItemEnumHandler.CarapaceType.T1.getID()));
 		drop.tryDrop(this);
+	}
+	
+	@Override
+	public boolean processInteract(EntityPlayer player, EnumHand hand, ItemStack stack) {
+		boolean flag = stack != null && stack.getItem() == Items.SPAWN_EGG;
+
+		if (!flag && this.isEntityAlive() && !this.isChild() && !player.isSneaking()) {
+			if (this.world.isRemote) {
+				GuiLavaLarva.instance.createGui(Starcraft.instance, GuiHandler.SHOP_ID, world, player, (int) player.posX, (int) player.posY, (int) player.posZ, this);
+			}
+			return true;
+		} else {
+			return super.processInteract(player, hand, stack);
+		}
 	}
 
 	@Override
