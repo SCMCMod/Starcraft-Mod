@@ -1,8 +1,5 @@
 package ga.scmc.client.renderer.items;
 
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.input.Mouse;
-
 import ga.scmc.model.ModelFlamethrower;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;

@@ -1,5 +1,6 @@
 package ga.scmc.client.renderer.entity;
 
+import ga.scmc.client.renderer.layers.LayerLarvaCocoonColor;
 import ga.scmc.entity.living.EntityLarvaCocoon;
 import ga.scmc.lib.Library;
 import ga.scmc.model.ModelLarvaCocoon;
@@ -9,13 +10,14 @@ import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderLarvaCocoon extends RenderLiving<EntityLarvaCocoon> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/larvacocoon.png");
+public class RenderLarvaCocoon<T> extends RenderLiving<EntityLarvaCocoon> {
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/larvacocoon_base.png");
 	protected ModelLarvaCocoon model;
 
 	public RenderLarvaCocoon(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelLarvaCocoon) mainModel);
+		addLayer(new LayerLarvaCocoonColor(this));
 	}
 
 	@Override

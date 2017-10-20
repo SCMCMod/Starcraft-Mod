@@ -60,7 +60,7 @@ public class EntityLarva extends EntityZergPassive {
 	public EntityLarva(World world) {
 		super(world);
 		setSize(1.0F, .5F);
-		this.setTeam(TeamColors.PURPLE);
+		this.setTeamColor(TeamColors.PURPLE);
 		this.setFactions(FactionTypes.SWARM);
 		setTypes(TypeAttributes.LIGHT, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
 	}

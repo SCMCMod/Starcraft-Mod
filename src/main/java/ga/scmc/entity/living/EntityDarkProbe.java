@@ -33,7 +33,7 @@ public class EntityDarkProbe extends EntityProtossPassive {
 	public EntityDarkProbe(World world) {
 		super(world);
 		setSize(1.0F, 1.5F);
-		this.setTeam(TeamColors.RED);
+		this.setTeamColor(TeamColors.RED);
 		this.setFactions(FactionTypes.TALDARIM);
 		setTypes(TypeAttributes.LIGHT, TypeAttributes.MECHANICAL, TypeAttributes.GROUND);
 		tasks.addTask(0, new EntityAISwimming(this));

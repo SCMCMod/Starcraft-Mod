@@ -1,6 +1,7 @@
 package ga.scmc.client.renderer.entity;
 
-import ga.scmc.client.renderer.layers.LayerProtossReaver;
+import ga.scmc.client.renderer.layers.LayerProtossReaverColor;
+import ga.scmc.client.renderer.layers.LayerProtossReaverGlowDynamic;
 import ga.scmc.entity.living.EntityProtossReaver;
 import ga.scmc.lib.Library;
 import ga.scmc.model.ModelProtossReaver;
@@ -12,13 +13,14 @@ import net.minecraft.util.ResourceLocation;
 
 
 public class RenderProtossReaver<T> extends RenderLiving<EntityProtossReaver> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/preaver.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/preaver_base.png");
 	protected ModelProtossReaver model;
 
 	public RenderProtossReaver(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelProtossReaver) mainModel);
-		addLayer(new LayerProtossReaver(this));
+		addLayer(new LayerProtossReaverColor(this));
+		addLayer(new LayerProtossReaverGlowDynamic(this));
 	}
 
 	@Override

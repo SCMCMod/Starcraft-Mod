@@ -52,11 +52,11 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 	 */
 	private int timeSinceIgnited;
 
-	public EntityScarab(World worldIn) {
+	public EntityScarab(World worldIn, TeamColors color, FactionTypes faction) {
 		super(worldIn);
 		setSize(.1F, .1F);
-		this.setTeamColor(TeamColors.LIGHTBLUE);
-		this.setFactions(FactionTypes.DAELAAM);
+		this.setTeamColor(color);
+		this.setFactions(faction);
 		tasks.addTask(1, new EntityAISwimming(this));
 		tasks.addTask(2, new EntityAIScarabExplode(this));
 		tasks.addTask(3, new EntityAIAttackMelee(this, 1, false));

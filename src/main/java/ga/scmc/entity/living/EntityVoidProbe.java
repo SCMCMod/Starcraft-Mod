@@ -33,7 +33,7 @@ public class EntityVoidProbe extends EntityProtossPassive {
 	public EntityVoidProbe(World world) {
 		super(world);
 		setSize(1.0F, 1.5F);
-		this.setTeam(TeamColors.LIGHTBLUE);
+		this.setTeamColor(TeamColors.LIGHTBLUE);
 		this.setFactions(FactionTypes.DAELAAM);
 		setTypes(TypeAttributes.LIGHT, TypeAttributes.MECHANICAL, TypeAttributes.GROUND);
 		tasks.addTask(0, new EntityAISwimming(this));

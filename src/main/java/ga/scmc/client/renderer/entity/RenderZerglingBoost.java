@@ -1,6 +1,7 @@
 package ga.scmc.client.renderer.entity;
 
-import ga.scmc.client.renderer.layers.LayerZerglingBoost;
+import ga.scmc.client.renderer.layers.LayerZerglingBoostColor;
+import ga.scmc.client.renderer.layers.LayerZerglingBoostGlowStatic;
 import ga.scmc.entity.living.EntityZerglingBoost;
 import ga.scmc.lib.Library;
 import ga.scmc.model.ModelZerglingBoost;
@@ -12,13 +13,14 @@ import net.minecraft.util.ResourceLocation;
 
 //You know the drill; no more of these comments
 public class RenderZerglingBoost<T> extends RenderLiving<EntityZerglingBoost> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/zerglingboost.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/zerglingboost_base.png");
 	protected ModelZerglingBoost model;
 
 	public RenderZerglingBoost(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelZerglingBoost) mainModel);
-		addLayer(new LayerZerglingBoost(this));
+		addLayer(new LayerZerglingBoostColor(this));
+		addLayer(new LayerZerglingBoostGlowStatic(this));
 	}
 
 	@Override

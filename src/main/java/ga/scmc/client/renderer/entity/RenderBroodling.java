@@ -1,5 +1,6 @@
 package ga.scmc.client.renderer.entity;
 
+import ga.scmc.client.renderer.layers.LayerBroodlingColor;
 import ga.scmc.entity.living.EntityBroodling;
 import ga.scmc.lib.Library;
 import ga.scmc.model.ModelBroodling;
@@ -8,13 +9,14 @@ import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderBroodling extends RenderLiving<EntityBroodling> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/broodling.png");
+public class RenderBroodling<T> extends RenderLiving<EntityBroodling> {
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/broodling_base.png");
 	protected ModelBroodling model;
 
 	public RenderBroodling(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelBroodling) mainModel);
+		addLayer(new LayerBroodlingColor(this));
 	}
 
 	@Override

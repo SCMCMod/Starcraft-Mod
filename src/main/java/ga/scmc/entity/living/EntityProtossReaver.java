@@ -116,7 +116,7 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase entity, float distance) {
 		if(!world.isRemote && this.ammo > 1) {
-			EntityScarab scarab = new EntityScarab(world);
+			EntityScarab scarab = new EntityScarab(world, this.getTeamColor(), FactionTypes.DAELAAM);
 			scarab.setLocationAndAngles(posX, posY, posZ, 0, 0);
 			world.spawnEntity(scarab);
 			ammo--;

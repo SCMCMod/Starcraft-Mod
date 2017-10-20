@@ -1,6 +1,7 @@
 package ga.scmc.client.renderer.entity;
 
-import ga.scmc.client.renderer.layers.LayerZerglingSC2;
+import ga.scmc.client.renderer.layers.LayerZerglingColor;
+import ga.scmc.client.renderer.layers.LayerZerglingSC2GlowStatic;
 import ga.scmc.entity.living.EntityZerglingSC2;
 import ga.scmc.lib.Library;
 import ga.scmc.model.ModelZerglingSC2;
@@ -11,13 +12,14 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderZerglingSC2<T> extends RenderLiving<EntityZerglingSC2> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/zerglingsc2.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/zergling_base.png");
 	protected ModelZerglingSC2 model;
 
 	public RenderZerglingSC2(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelZerglingSC2) mainModel);
-		addLayer(new LayerZerglingSC2(this));
+		addLayer(new LayerZerglingColor(this));
+		addLayer(new LayerZerglingSC2GlowStatic(this));
 	}
 
 	@Override

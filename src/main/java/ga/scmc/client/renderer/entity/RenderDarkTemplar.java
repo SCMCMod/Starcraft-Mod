@@ -1,6 +1,7 @@
 package ga.scmc.client.renderer.entity;
 
-import ga.scmc.client.renderer.layers.LayerDarkTemplar;
+import ga.scmc.client.renderer.layers.LayerDarkTemplarColor;
+import ga.scmc.client.renderer.layers.LayerDarkTemplarGlowStatic;
 import ga.scmc.entity.living.EntityDarkTemplar;
 import ga.scmc.lib.Library;
 import ga.scmc.model.ModelDarkTemplar;
@@ -12,13 +13,14 @@ import net.minecraft.util.ResourceLocation;
 
 
 public class RenderDarkTemplar<T> extends RenderLiving<EntityDarkTemplar> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/darktemplar.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/darktemplar_base.png");
 	protected ModelDarkTemplar model;
 
 	public RenderDarkTemplar(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelDarkTemplar) mainModel);
-		addLayer(new LayerDarkTemplar(this));
+		addLayer(new LayerDarkTemplarColor(this));
+		addLayer(new LayerDarkTemplarGlowStatic(this));
 	}
 
 	@Override

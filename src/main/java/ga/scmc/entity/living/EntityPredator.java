@@ -29,10 +29,8 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -107,19 +105,6 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3804D);
 		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(16.0D);
 		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(15.0D);
-	}
-
-	@Override
-	protected boolean processInteract(EntityPlayer player, EnumHand hand, ItemStack stack) {
-		ItemStack heldItem = player.getHeldItem(hand);
-		if (heldItem != null && heldItem.getItem() == Items.DYE) {
-			int meta = heldItem.getMetadata();
-			setTeamColor(TeamColors.values()[15 - meta]);
-			heldItem.stackSize -= 1;
-			return true;
-		} else {
-			return super.processInteract(player, hand, stack);
-		}
 	}
 
 	@Override

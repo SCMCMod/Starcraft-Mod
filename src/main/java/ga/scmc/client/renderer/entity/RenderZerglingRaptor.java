@@ -1,6 +1,7 @@
 package ga.scmc.client.renderer.entity;
 
-import ga.scmc.client.renderer.layers.LayerZerglingRaptor;
+import ga.scmc.client.renderer.layers.LayerZerglingRaptorColor;
+import ga.scmc.client.renderer.layers.LayerZerglingRaptorGlowStatic;
 import ga.scmc.entity.living.EntityZerglingRaptor;
 import ga.scmc.lib.Library;
 import ga.scmc.model.ModelZerglingRaptor;
@@ -11,13 +12,14 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderZerglingRaptor<T> extends RenderLiving<EntityZerglingRaptor> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/zerglingraptor.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/zerglingraptor_base.png");
 	protected ModelZerglingRaptor model;
 
 	public RenderZerglingRaptor(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelZerglingRaptor) mainModel);
-		addLayer(new LayerZerglingRaptor(this));
+		addLayer(new LayerZerglingRaptorColor(this));
+		addLayer(new LayerZerglingRaptorGlowStatic(this));
 	}
 
 	@Override

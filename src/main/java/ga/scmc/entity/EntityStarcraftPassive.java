@@ -8,6 +8,10 @@ import ga.scmc.enums.FactionTypes;
 import ga.scmc.enums.TeamColors;
 import ga.scmc.enums.TypeAttributes;
 import net.minecraft.entity.passive.EntityTameable;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
 public abstract class EntityStarcraftPassive extends EntityTameable {
@@ -43,7 +47,7 @@ public abstract class EntityStarcraftPassive extends EntityTameable {
 		return this.teamColor;
 	}
 	
-	public void setTeam(TeamColors team) {
+	public void setTeamColor(TeamColors team) {
 		this.teamColor = team;
 	}
 	
@@ -65,5 +69,18 @@ public abstract class EntityStarcraftPassive extends EntityTameable {
 	
 	public double getDamageAgainstType(TypeAttributes type) {
 		return bonusDamage.get(type);
+	}
+	
+	@Override
+	public boolean processInteract(EntityPlayer player, EnumHand hand, ItemStack stack) {
+		ItemStack heldItem = player.getHeldItem(hand);
+		if (heldItem != null && heldItem.getItem() == Items.DYE) {
+			int meta = heldItem.getMetadata();
+			setTeamColor(TeamColors.values()[15 - meta]);
+			heldItem.stackSize -= 1;
+			return true;
+		} else {
+			return super.processInteract(player, hand, stack);
+		}
 	}
 }

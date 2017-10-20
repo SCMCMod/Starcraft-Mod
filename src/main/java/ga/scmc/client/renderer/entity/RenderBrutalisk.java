@@ -1,5 +1,6 @@
 package ga.scmc.client.renderer.entity;
 
+import ga.scmc.client.renderer.layers.LayerBrutaliskColor;
 import ga.scmc.entity.living.EntityBrutalisk;
 import ga.scmc.lib.Library;
 import ga.scmc.model.ModelBrutalisk;
@@ -9,13 +10,14 @@ import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderBrutalisk extends RenderLiving<EntityBrutalisk> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/brutalisk.png");
+public class RenderBrutalisk<T> extends RenderLiving<EntityBrutalisk> {
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/brutalisk_base.png");
 	protected ModelBrutalisk model;
 
 	public RenderBrutalisk(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelBrutalisk) mainModel);
+		addLayer(new LayerBrutaliskColor(this));
 	}
 
 	@Override
