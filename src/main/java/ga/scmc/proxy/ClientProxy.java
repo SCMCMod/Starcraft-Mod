@@ -1,7 +1,9 @@
 package ga.scmc.proxy;
 
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import ga.scmc.client.renderer.armor.ModelZergArmorT1;
+import ga.scmc.client.renderer.armor.ModelZergArmorT2;
+import ga.scmc.client.renderer.armor.ModelZergArmorT3;
+import net.minecraft.client.model.ModelBiped;
 
 /**
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
@@ -14,10 +16,21 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class ClientProxy extends CommonProxy {
 
 	@Override
-	public void preInit(FMLPreInitializationEvent event) {
-	}
-
-	@Override
-	public void init(FMLInitializationEvent event) {
+	public ModelBiped getArmorModel(int id) {
+		switch (id) {
+		case 0:
+			return new ModelZergArmorT1(1.0f);
+		case 1:
+			return new ModelZergArmorT1(0.5f);
+		case 3:
+			return new ModelZergArmorT2(1.0f);
+		case 4:
+			return new ModelZergArmorT2(0.5f);
+		case 5:
+			return new ModelZergArmorT3(1.0f);
+		case 6:
+			return new ModelZergArmorT3(0.5f);
+		}
+		return super.getArmorModel(id);
 	}
 }

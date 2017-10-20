@@ -368,6 +368,19 @@ item.zergCreepResin.name=Creep Resin
 item.organicTissue.name=Organic Tissue
 item.biomass.name=Biomass
 
+item.zerg_t1Helmet.name=Tier 1 Zerg Helmet
+item.zerg_t1Chestplate.name=Tier 1 Zerg Chestplate
+item.zerg_t1Leggings.name=Tier 1 Zerg Leggings
+item.zerg_t1Boots.name=Tier 1 Zerg Boots
+item.zerg_t2Helmet.name=Tier 2 Zerg Helmet
+item.zerg_t2Chestplate.name=Tier 2 Zerg Chestplate
+item.zerg_t2Leggings.name=Tier 2 Zerg Leggings
+item.zerg_t2Boots.name=Tier 2 Zerg Boots
+item.zerg_t3Helmet.name=Tier 3 Zerg Helmet
+item.zerg_t3Chestplate.name=Tier 3 Zerg Chestplate
+item.zerg_t3Leggings.name=Tier 3 Zerg Leggings
+item.zerg_t3Boots.name=Tier 3 Zerg Boots
+
 item.spawnerZergSpawningPool.name=Spawning Pool Spawner
 item.spawnerZergSpire.name=Spire Spawner
 item.spawnerZergHydraliskDen.name=Hydralisk Den Spawner
@@ -387,6 +400,8 @@ item.energy.corrupted.name=Corrupted Energy
 item.energy.void.name=Void Energy
 
 item.terrazine.raw.name=Raw Terrazine
+
+tile.starcraftSkull.test.name=Testing Skull
 ######################################################################
 
 

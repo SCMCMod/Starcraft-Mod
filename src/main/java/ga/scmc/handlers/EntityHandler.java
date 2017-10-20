@@ -1,6 +1,7 @@
 package ga.scmc.handlers;
 
 import ga.scmc.Starcraft;
+import ga.scmc.client.renderer.tileentity.RendererStarcraftSkull;
 import ga.scmc.entity.living.EntityAdept;
 import ga.scmc.entity.living.EntityBroodling;
 import ga.scmc.entity.living.EntityBrutalisk;
@@ -39,10 +40,12 @@ import ga.scmc.tileentity.TileEntityBlockShakurasFurnace;
 import ga.scmc.tileentity.TileEntityBlockSlaynFurnace;
 import ga.scmc.tileentity.TileEntityGasCollector;
 import ga.scmc.tileentity.TileEntityMovingLightSource;
+import ga.scmc.tileentity.TileEntityStarcraftSkull;
 import ga.scmc.tileentity.TileEntityWarpGateWormhole;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Biomes;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -107,8 +110,11 @@ public class EntityHandler {
 		GameRegistry.registerTileEntity(TileEntityGasCollector.class, Library.RL_BASE + "TileEntityBlockGasCollector");
 		GameRegistry.registerTileEntity(TileEntityWarpGateWormhole.class, Library.RL_BASE + "TileEntityWarpGateWormhole");
 		GameRegistry.registerTileEntity(TileEntityMovingLightSource.class, Library.RL_BASE + "TileEntityMovingLightSource");
+		GameRegistry.registerTileEntity(TileEntityStarcraftSkull.class, Library.RL_BASE + "TileEntityStarcraftSkull");
+
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStarcraftSkull.class, new RendererStarcraftSkull());
 	}
-	
+
 	/**
 	 * Registers the specified entities.
 	 */

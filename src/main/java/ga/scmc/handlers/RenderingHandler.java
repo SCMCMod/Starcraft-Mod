@@ -16,6 +16,18 @@ import static ga.scmc.handlers.ArmorHandler.TITANIUM_BOOTS;
 import static ga.scmc.handlers.ArmorHandler.TITANIUM_CHESTPLATE;
 import static ga.scmc.handlers.ArmorHandler.TITANIUM_HELMET;
 import static ga.scmc.handlers.ArmorHandler.TITANIUM_LEGGINGS;
+import static ga.scmc.handlers.ArmorHandler.ZERG_T1_BOOTS;
+import static ga.scmc.handlers.ArmorHandler.ZERG_T1_CHESTPLATE;
+import static ga.scmc.handlers.ArmorHandler.ZERG_T1_HELMET;
+import static ga.scmc.handlers.ArmorHandler.ZERG_T1_LEGGINGS;
+import static ga.scmc.handlers.ArmorHandler.ZERG_T2_BOOTS;
+import static ga.scmc.handlers.ArmorHandler.ZERG_T2_CHESTPLATE;
+import static ga.scmc.handlers.ArmorHandler.ZERG_T2_HELMET;
+import static ga.scmc.handlers.ArmorHandler.ZERG_T2_LEGGINGS;
+import static ga.scmc.handlers.ArmorHandler.ZERG_T3_BOOTS;
+import static ga.scmc.handlers.ArmorHandler.ZERG_T3_CHESTPLATE;
+import static ga.scmc.handlers.ArmorHandler.ZERG_T3_HELMET;
+import static ga.scmc.handlers.ArmorHandler.ZERG_T3_LEGGINGS;
 import static ga.scmc.handlers.BlockHandler.ASH_CHAR;
 import static ga.scmc.handlers.BlockHandler.FLUID_ACID;
 import static ga.scmc.handlers.BlockHandler.FLUID_BLOOD;
@@ -36,6 +48,7 @@ import static ga.scmc.handlers.BlockHandler.PROTOSS_ENERGY_CHANNEL;
 import static ga.scmc.handlers.BlockHandler.PROTOSS_ENERGY_STABILIZER;
 import static ga.scmc.handlers.BlockHandler.PROTOSS_VOID_ENERGY_CHANNEL;
 import static ga.scmc.handlers.BlockHandler.PROTOSS_VOID_ENERGY_STABILIZER;
+import static ga.scmc.handlers.BlockHandler.STARCRAFT_SKULL;
 import static ga.scmc.handlers.BlockHandler.WARP_GATE_WORMHOLE;
 import static ga.scmc.handlers.ItemHandler.BIOMASS;
 import static ga.scmc.handlers.ItemHandler.BULLET;
@@ -282,14 +295,14 @@ public class RenderingHandler {
 		RenderingRegistry.registerEntityRenderingHandler(EntityQueen.class, new RenderQueen(Minecraft.getMinecraft().getRenderManager(), new ModelQueen(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityDrone.class, new RenderDrone(Minecraft.getMinecraft().getRenderManager(), new ModelDrone(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityBrutaliskCocoon.class, new RenderBrutaliskCocoon(Minecraft.getMinecraft().getRenderManager(), new ModelBrutaliskCocoon(), 0.4f));
-		
+
 		RenderingRegistry.registerEntityRenderingHandler(EntityCivilian.class, new RenderCivilian(Minecraft.getMinecraft().getRenderManager(), new ModelCivilian(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityPredator.class, new RenderPredator(Minecraft.getMinecraft().getRenderManager(), new ModelPredator(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntitySCV.class, new RenderSCV(Minecraft.getMinecraft().getRenderManager(), new ModelSCV(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityMarine.class, new RenderMarine(Minecraft.getMinecraft().getRenderManager(), new ModelMarine(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGhost.class, new RenderGhost(Minecraft.getMinecraft().getRenderManager(), new ModelGhost(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityMarauder.class, new RenderMarauder(Minecraft.getMinecraft().getRenderManager(), new ModelMarauder(), 0.4f));
-		
+
 		RenderingRegistry.registerEntityRenderingHandler(EntityC14GaussRifleBullet.class, new RenderC14GaussRifleBullet(Minecraft.getMinecraft().getRenderManager(), new ModelBullet()));
 		RenderingRegistry.registerEntityRenderingHandler(EntityHydraliskSpike.class, new RenderHydraliskSpike(Minecraft.getMinecraft().getRenderManager(), new ModelHydraliskSpike()));
 
@@ -305,7 +318,7 @@ public class RenderingHandler {
 
 		registerItemRender(NUCLEAR_MISSILE);
 		registerItemRender(STIMPACK);
-		
+
 		registerItemRender(SPAWNER_PROTOSS_DARK_CYBERNETICSCORE);
 		registerItemRender(SPAWNER_PROTOSS_VOID_CYBERNETICSCORE);
 		registerItemRender(SPAWNER_PROTOSS_CYBERNETICSCORE);
@@ -414,11 +427,26 @@ public class RenderingHandler {
 		registerItemRender(STEEL_CHESTPLATE);
 		registerItemRender(STEEL_LEGGINGS);
 		registerItemRender(STEEL_BOOTS);
-		
+
 		registerItemRender(MARINE_HELMET);
 		registerItemRender(MARINE_CHESTPLATE);
 		registerItemRender(MARINE_LEGGINGS);
 		registerItemRender(MARINE_BOOTS);
+
+		registerItemRender(ZERG_T1_HELMET);
+		registerItemRender(ZERG_T1_CHESTPLATE);
+		registerItemRender(ZERG_T1_LEGGINGS);
+		registerItemRender(ZERG_T1_BOOTS);
+
+		registerItemRender(ZERG_T2_HELMET);
+		registerItemRender(ZERG_T2_CHESTPLATE);
+		registerItemRender(ZERG_T2_LEGGINGS);
+		registerItemRender(ZERG_T2_BOOTS);
+
+		registerItemRender(ZERG_T3_HELMET);
+		registerItemRender(ZERG_T3_CHESTPLATE);
+		registerItemRender(ZERG_T3_LEGGINGS);
+		registerItemRender(ZERG_T3_BOOTS);
 	}
 
 	private static void registerBlockModels() {
@@ -431,6 +459,9 @@ public class RenderingHandler {
 		registerBlockModel(FURNACE_CHAR);
 		registerBlockModel(FURNACE_SLAYN);
 		registerBlockModel(LIT_FURNACE_SLAYN);
+
+		// Other Stuff
+		registerBlockModel(STARCRAFT_SKULL);
 
 		// Protoss Blocks
 		registerBlockModel(PROTOSS_ENERGY_CHANNEL);
@@ -453,7 +484,7 @@ public class RenderingHandler {
 		// Gasses
 		registerBlockModel(GAS_VESPENE);
 		registerBlockModel(GAS_TERRAZINE);
-		
+
 		registerBlockModel(LIGHT_SOURCE);
 	}
 

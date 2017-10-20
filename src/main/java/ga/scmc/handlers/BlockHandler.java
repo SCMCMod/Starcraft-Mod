@@ -29,6 +29,7 @@ import ga.scmc.blocks.BlockShakurasDirt;
 import ga.scmc.blocks.BlockShakurasGravel;
 import ga.scmc.blocks.BlockShakurasSand;
 import ga.scmc.blocks.BlockShakurasStone;
+import ga.scmc.blocks.BlockStarcraftSkull;
 import ga.scmc.blocks.BlockTerrazineFluid;
 import ga.scmc.blocks.BlockTerrazineGas;
 import ga.scmc.blocks.BlockTest;
@@ -47,6 +48,7 @@ import ga.scmc.blocks.coreblocks.BlockCoreWarpGateDark;
 import ga.scmc.blocks.coreblocks.BlockCoreWarpGateKhalai;
 import ga.scmc.blocks.coreblocks.BlockCoreWarpGateVoid;
 import ga.scmc.blocks.itemblocks.ItemBlockAsh;
+import ga.scmc.blocks.itemblocks.ItemBlockStarcraftSkull;
 import ga.scmc.blocks.ore.BlockCharOre;
 import ga.scmc.blocks.ore.BlockShakurasOre;
 import ga.scmc.blocks.ore.OreCharRedstone;
@@ -75,7 +77,7 @@ public class BlockHandler {
 
 	public static Block LIGHT_SOURCE;
 	public static Block TEST;
-	
+
 	public static Block ASH_CHAR;
 
 	public static Block COBBLESTONE_CHAR;
@@ -104,7 +106,7 @@ public class BlockHandler {
 
 	public static Block GAS_VESPENE;
 	public static Block GAS_TERRAZINE;
-	
+
 	public static Block GRAVEL_CHAR;
 	public static Block KERATIN_CHUNK;
 	public static Block MAGMA_CHAR;
@@ -156,12 +158,14 @@ public class BlockHandler {
 	public static Block WARPGATE_WORMHOLE_OVERWORLD;
 	public static Block WARPGATE_WORMHOLE_SHAKURAS;
 	public static Block ZERG_CREEP;
-	
+
 	public static Block SAND_SLAYN;
 	public static Block STONE_SLAYN;
 	public static Block DIRT_SLAYN;
 	public static Block COBBLESTONE_SLAYN;
 	public static Block GRAVEL_SLAYN;
+
+	public static Block STARCRAFT_SKULL;
 
 	/**
 	 * Instantiates, registers, and initializes the MetaBlocks.
@@ -177,7 +181,7 @@ public class BlockHandler {
 	 * Sets the
 	 */
 	public static void instantiate() {
-		
+
 		LIGHT_SOURCE = new BlockMovingLightSource();
 		ORE_COPPER_OW = new OreOWCopper();
 		ORE_TITANIUM_OW = new OreOWTitanium();
@@ -226,7 +230,6 @@ public class BlockHandler {
 		SAND_SHAKURAS = new BlockShakurasSand();
 		DIM_PORTAL_SHAKURAS = new BlockDimPortalShakuras();
 
-
 		// Protoss Blocks
 		PROTOSS_ENERGY_CHANNEL = new BlockProtossEnergyChannel();
 		PROTOSS_ENERGY_STABILIZER = new BlockProtossEnergyStabilizer();
@@ -251,7 +254,6 @@ public class BlockHandler {
 		ZERG_CREEP = new BlockZergCreep();
 		KERATIN_CHUNK = new BlockKeratinChunk();
 
-		
 		// Core Blocks
 		CORE_CYBERNETICSCORE_VOID = new BlockCoreCyberneticsCoreVoid();
 		CORE_CYBERNETICSCORE_DARK = new BlockCoreCyberneticsCoreDark();
@@ -272,7 +274,9 @@ public class BlockHandler {
 
 		GAS_VESPENE = new BlockVespeneGas();
 		GAS_TERRAZINE = new BlockTerrazineGas();
-		
+
+		STARCRAFT_SKULL = new BlockStarcraftSkull();
+
 		TEST = new BlockTest();
 	}
 
@@ -318,7 +322,7 @@ public class BlockHandler {
 		registerCompleteBlock(COBBLESTONE_SHAKURAS);
 		registerCompleteBlock(SAND_SHAKURAS);
 		registerCompleteBlock(DIM_PORTAL_SHAKURAS);
-		
+
 		registerBlock(PROTOSS_ENERGY_CHANNEL);
 		registerBlock(PROTOSS_ENERGY_STABILIZER);
 		registerBlock(PROTOSS_DARK_ENERGY_CHANNEL);
@@ -335,7 +339,7 @@ public class BlockHandler {
 		registerBlock(LIT_FURNACE_CHAR);
 		registerBlock(FURNACE_SLAYN);
 		registerBlock(LIT_FURNACE_SLAYN);
-		
+
 		registerBlock(LIGHT_SOURCE);
 
 		registerCompleteBlock(KERATIN_CHUNK);
@@ -362,7 +366,9 @@ public class BlockHandler {
 
 		registerCompleteBlock(GAS_VESPENE);
 		registerCompleteBlock(GAS_TERRAZINE);
-		
+
+		registerCompleteBlock(STARCRAFT_SKULL, new ItemBlockStarcraftSkull());
+
 		registerCompleteBlock(TEST);
 	}
 
@@ -378,7 +384,7 @@ public class BlockHandler {
 		ItemBlock item = new ItemBlock(block);
 		item.setRegistryName(block.getRegistryName());
 		ForgeRegistries.ITEMS.register(item);
-		if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
+		if (ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
 			LogHelper.logger.info("Registered Block: " + block.getUnlocalizedName().substring(5));
 		}
 	}
@@ -394,21 +400,31 @@ public class BlockHandler {
 	 */
 	private static void registerBlock(Block block, ItemBlock item) {
 		ForgeRegistries.BLOCKS.register(block);
-		item.setUnlocalizedName(block.getUnlocalizedName()).setRegistryName(block.getRegistryName());
+		item.setRegistryName(block.getRegistryName());
 		ForgeRegistries.ITEMS.register(item);
-		if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
+		if (ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
 			LogHelper.logger.info("Registered Block: " + block.getUnlocalizedName().substring(5));
 		}
 	}
-	
+
 	private static void registerCompleteBlock(Block block) {
-        ForgeRegistries.BLOCKS.register(block);
-        ItemBlock item = new ItemBlock(block);
-        item.setRegistryName(block.getRegistryName());
-        ForgeRegistries.ITEMS.register(item);
-        if (FMLCommonHandler.instance().getSide() == Side.CLIENT){
-            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(block.getRegistryName(), "inventory"));
-            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
-        }
-    }
+		ForgeRegistries.BLOCKS.register(block);
+		ItemBlock item = new ItemBlock(block);
+		item.setRegistryName(block.getRegistryName());
+		ForgeRegistries.ITEMS.register(item);
+		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+			ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(block.getRegistryName(), "inventory"));
+			ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+		}
+	}
+
+	private static void registerCompleteBlock(Block block, ItemBlock item) {
+		ForgeRegistries.BLOCKS.register(block);
+		item.setRegistryName(block.getRegistryName());
+		ForgeRegistries.ITEMS.register(item);
+		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+			ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(block.getRegistryName(), "inventory"));
+			ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+		}
+	}
 }

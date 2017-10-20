@@ -1,6 +1,7 @@
 package ga.scmc.handlers;
 
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
+import ga.scmc.items.armor.ArmorZergArmorT1;
 import ga.scmc.lib.Library;
 import ga.scmc.lib.LogHelper;
 import net.minecraft.creativetab.CreativeTabs;
@@ -70,6 +71,21 @@ public class ArmorHandler {
 	public static Item MARINE_HELMET;
 	public static Item MARINE_LEGGINGS;
 
+	public static Item ZERG_T1_BOOTS;
+	public static Item ZERG_T1_CHESTPLATE;
+	public static Item ZERG_T1_HELMET;
+	public static Item ZERG_T1_LEGGINGS;
+
+	public static Item ZERG_T2_BOOTS;
+	public static Item ZERG_T2_CHESTPLATE;
+	public static Item ZERG_T2_HELMET;
+	public static Item ZERG_T2_LEGGINGS;
+
+	public static Item ZERG_T3_BOOTS;
+	public static Item ZERG_T3_CHESTPLATE;
+	public static Item ZERG_T3_HELMET;
+	public static Item ZERG_T3_LEGGINGS;
+
 	public static void init() {
 		TITANIUM_HELMET = new ItemArmor(TITANIUM_ARMOR_MATERIAL, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("titaniumHelmet").setRegistryName("titanium_helmet").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 		TITANIUM_CHESTPLATE = new ItemArmor(TITANIUM_ARMOR_MATERIAL, 0, EntityEquipmentSlot.CHEST).setUnlocalizedName("titaniumChestplate").setRegistryName("titanium_chestplate").setCreativeTab(StarcraftCreativeTabs.TERRAN);
@@ -91,6 +107,24 @@ public class ArmorHandler {
 		MARINE_LEGGINGS = new ItemArmor(MARINE_ARMOR_MATERIAL, 0, EntityEquipmentSlot.LEGS);
 		MARINE_BOOTS = new ItemArmor(MARINE_ARMOR_MATERIAL, 0, EntityEquipmentSlot.FEET);
 		initArmor(MARINE_HELMET, MARINE_CHESTPLATE, MARINE_LEGGINGS, MARINE_BOOTS, MARINE_ARMOR_MATERIAL, StarcraftCreativeTabs.TERRAN);
+
+		ZERG_T1_HELMET = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.HEAD);
+		ZERG_T1_CHESTPLATE = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.CHEST);
+		ZERG_T1_LEGGINGS = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.LEGS);
+		ZERG_T1_BOOTS = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.FEET);
+		initArmor(ZERG_T1_HELMET, ZERG_T1_CHESTPLATE, ZERG_T1_LEGGINGS, ZERG_T1_BOOTS, ZERG_ARMOR_MATERIAL_T1, StarcraftCreativeTabs.ZERG);
+
+		ZERG_T2_HELMET = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.HEAD);
+		ZERG_T2_CHESTPLATE = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.CHEST);
+		ZERG_T2_LEGGINGS = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.LEGS);
+		ZERG_T2_BOOTS = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.FEET);
+		initArmor(ZERG_T2_HELMET, ZERG_T2_CHESTPLATE, ZERG_T2_LEGGINGS, ZERG_T2_BOOTS, ZERG_ARMOR_MATERIAL_T2, StarcraftCreativeTabs.ZERG);
+
+		ZERG_T3_HELMET = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.HEAD);
+		ZERG_T3_CHESTPLATE = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.CHEST);
+		ZERG_T3_LEGGINGS = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.LEGS);
+		ZERG_T3_BOOTS = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.FEET);
+		initArmor(ZERG_T3_HELMET, ZERG_T3_CHESTPLATE, ZERG_T3_LEGGINGS, ZERG_T3_BOOTS, ZERG_ARMOR_MATERIAL_T3, StarcraftCreativeTabs.ZERG);
 	}
 
 	public static void register() {
@@ -114,6 +148,21 @@ public class ArmorHandler {
 		registerItem(MARINE_CHESTPLATE);
 		registerItem(MARINE_LEGGINGS);
 		registerItem(MARINE_BOOTS);
+
+		registerItem(ZERG_T1_HELMET);
+		registerItem(ZERG_T1_CHESTPLATE);
+		registerItem(ZERG_T1_LEGGINGS);
+		registerItem(ZERG_T1_BOOTS);
+
+		registerItem(ZERG_T2_HELMET);
+		registerItem(ZERG_T2_CHESTPLATE);
+		registerItem(ZERG_T2_LEGGINGS);
+		registerItem(ZERG_T2_BOOTS);
+
+		registerItem(ZERG_T3_HELMET);
+		registerItem(ZERG_T3_CHESTPLATE);
+		registerItem(ZERG_T3_LEGGINGS);
+		registerItem(ZERG_T3_BOOTS);
 	}
 
 	private static void initArmor(Item helmet, Item chestplate, Item leggings, Item boots, ArmorMaterial material, CreativeTabs tab) {
