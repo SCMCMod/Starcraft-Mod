@@ -27,7 +27,7 @@ public class EntityC14GaussRifleBullet extends EntityThrowable {
         this.setThrowableHeading(motionX, motionY, motionZ, 1.8F, 1.0F);
 	}
 
-	public static void registerFixesSnowball(DataFixer fixer) {
+	public static void registerFixes(DataFixer fixer) {
 		EntityThrowable.registerFixesThrowable(fixer, "C14GaussRifleBullet");
 	}
 	

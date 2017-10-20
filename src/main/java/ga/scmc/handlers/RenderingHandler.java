@@ -4,6 +4,10 @@ import static ga.scmc.handlers.ArmorHandler.COPPER_BOOTS;
 import static ga.scmc.handlers.ArmorHandler.COPPER_CHESTPLATE;
 import static ga.scmc.handlers.ArmorHandler.COPPER_HELMET;
 import static ga.scmc.handlers.ArmorHandler.COPPER_LEGGINGS;
+import static ga.scmc.handlers.ArmorHandler.MARINE_BOOTS;
+import static ga.scmc.handlers.ArmorHandler.MARINE_CHESTPLATE;
+import static ga.scmc.handlers.ArmorHandler.MARINE_HELMET;
+import static ga.scmc.handlers.ArmorHandler.MARINE_LEGGINGS;
 import static ga.scmc.handlers.ArmorHandler.STEEL_BOOTS;
 import static ga.scmc.handlers.ArmorHandler.STEEL_CHESTPLATE;
 import static ga.scmc.handlers.ArmorHandler.STEEL_HELMET;
@@ -410,6 +414,11 @@ public class RenderingHandler {
 		registerItemRender(STEEL_CHESTPLATE);
 		registerItemRender(STEEL_LEGGINGS);
 		registerItemRender(STEEL_BOOTS);
+		
+		registerItemRender(MARINE_HELMET);
+		registerItemRender(MARINE_CHESTPLATE);
+		registerItemRender(MARINE_LEGGINGS);
+		registerItemRender(MARINE_BOOTS);
 	}
 
 	private static void registerBlockModels() {

@@ -229,6 +229,11 @@ item.purifierAdeptChestplateT1.name=Purifier Adept Chestplate T1
 item.purifierAdeptLeggingsT1.name=Purifier Adept Leggings T1
 item.purifierAdeptBootsT1.name=Purifier Adept Boots T1
 
+item.marineHelmet.name=Marine Helmet
+item.marineChestplate.name=Marine Chestplate
+item.marineLeggings.name=Marine Leggings
+item.marineBoots.name=Marine Boots
+
 item.purifierAdeptHelmetT2.name=Purifier Adept Helmet T2
 item.purifierAdeptChestplateT2.name=Purifier Adept Chestplate T2
 item.purifierAdeptLeggingsT2.name=Purifier Adept Leggings T2
@@ -327,6 +332,8 @@ item.bulletC14.c14.name=C14 Gauss Rifle Bullet
 item.partC14.barrel.name=C14 Rifle Barrel
 item.partC14.body.name=C14 Rifle Body
 item.partC14.grip.name=C14 Rifle Grip
+
+item.flamethrower.name=Flamethrower
 
 item.ghostHelmet.name=Ghost Helmet
 item.ghostChestplate.name=Ghost Chestplate

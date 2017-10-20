@@ -28,15 +28,15 @@ public class EntityFlamethowerFlame extends EntityThrowable {
 		this.motionZ = MathHelper.cos((rotationYaw / 180F) * 3.141593F) * MathHelper.cos((rotationPitch / 180F) * 3.141593F);
 		this.setThrowableHeading(motionX, motionY, motionZ, getSpeed(), 1.0F);
 	}
-	
+
 	@Override
 	public void onEntityUpdate() {
 		super.onEntityUpdate();
-		
+
 		world.spawnParticle(EnumParticleTypes.FLAME, posX, posY, posZ, 0, 0.1, 0, new int[0]);
 	}
 
-	public static void registerFixesSnowball(DataFixer fixer) {
+	public static void registerFixes(DataFixer fixer) {
 		EntityThrowable.registerFixesThrowable(fixer, "FlamethrowerFlame");
 	}
 
@@ -61,10 +61,13 @@ public class EntityFlamethowerFlame extends EntityThrowable {
 					setDead();
 				}
 			}
-			for (int x = -getFireSize() / 2; x < getFireSize(); x++) {
-				for (int z = -getFireSize() / 2; z < getFireSize(); z++) {
-					if (world.getBlockState(new BlockPos(result.getBlockPos().getX() + x, result.getBlockPos().up().getY(), result.getBlockPos().getZ() + z)) == Blocks.AIR.getDefaultState()) {
-						world.setBlockState(new BlockPos(result.getBlockPos().getX() + x, result.getBlockPos().up().getY(), result.getBlockPos().getZ() + z), Blocks.FIRE.getDefaultState());
+
+			if (result.getBlockPos() != null) {
+				for (int x = -getFireSize() / 2; x < getFireSize(); x++) {
+					for (int z = -getFireSize() / 2; z < getFireSize(); z++) {
+						if (world.getBlockState(new BlockPos(result.getBlockPos().getX() + x, result.getBlockPos().up().getY(), result.getBlockPos().getZ() + z)) == Blocks.AIR.getDefaultState()) {
+							world.setBlockState(new BlockPos(result.getBlockPos().getX() + x, result.getBlockPos().up().getY(), result.getBlockPos().getZ() + z), Blocks.FIRE.getDefaultState());
+						}
 					}
 				}
 			}
