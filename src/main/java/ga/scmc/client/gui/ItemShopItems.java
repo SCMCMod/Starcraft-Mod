@@ -48,6 +48,7 @@ public class ItemShopItems {
 
 		ImmutableList.Builder<Product> tab3 = ImmutableList.builder();
 		tab3.add(new Product(new ItemStack(ItemHandler.C14_GAUSS_RIFLE, 1, 0), 30, 15));
+		tab3.add(new Product(new ItemStack(ItemHandler.FLAMETHROWER, 1, 0), 30, 15));
 		tab3.add(new Product(new ItemStack(WeaponHandler.BALISONG, 1, 0), 16, 0));
 		tab3.add(new Product(new ItemStack(WeaponHandler.MILITARY_KNIFE, 1, 0), 10, 1));
 		tab3.add(new Product(new ItemStack(WeaponHandler.MONOMOLECULAR_BLADE, 1, 0), 32, 8));
@@ -69,6 +70,10 @@ public class ItemShopItems {
 		tab4.add(new Product(new ItemStack(ArmorHandler.STEEL_CHESTPLATE, 1, 0), 8, 0));
 		tab4.add(new Product(new ItemStack(ArmorHandler.STEEL_LEGGINGS, 1, 0), 7, 0));
 		tab4.add(new Product(new ItemStack(ArmorHandler.STEEL_BOOTS, 1, 0), 5, 0));
+		tab4.add(new Product(new ItemStack(ArmorHandler.MARINE_HELMET, 1, 0), 16, 8));
+		tab4.add(new Product(new ItemStack(ArmorHandler.MARINE_CHESTPLATE, 1, 0), 16, 8));
+		tab4.add(new Product(new ItemStack(ArmorHandler.MARINE_LEGGINGS, 1, 0), 16, 8));
+		tab4.add(new Product(new ItemStack(ArmorHandler.MARINE_BOOTS, 1, 0), 16, 8));
 		TRADES[4] = tab4.build();
 
 		ImmutableList.Builder<Product> tab5 = ImmutableList.builder();

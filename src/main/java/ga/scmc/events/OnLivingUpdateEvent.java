@@ -1,11 +1,11 @@
 package ga.scmc.events;
 
+import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.WeaponHandler;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
@@ -41,7 +41,7 @@ public class OnLivingUpdateEvent {
 			}
 
 			ItemStack headItem = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-			if (headItem != null && headItem.getItem() == Items.DIAMOND_HELMET) {
+			if (headItem != null && headItem.getItem() == ArmorHandler.MARINE_HELMET) {
 				GuiOverlayEvent.renderHelmetOverlay = true;
 			} else {
 				GuiOverlayEvent.renderHelmetOverlay = false;

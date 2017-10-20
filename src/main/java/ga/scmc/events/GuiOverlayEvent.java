@@ -46,7 +46,8 @@ public class GuiOverlayEvent {
 				ItemStack stack = mc.player.inventory.armorItemInSlot(i);
 				if (stack != null) {
 					String damage = stack.getMaxDamage() - stack.getItemDamage() + "/" + stack.getMaxDamage();
-					mc.fontRendererObj.drawString(damage, event.getResolution().getScaledWidth() - 18 - mc.fontRendererObj.getStringWidth(damage), event.getResolution().getScaledHeight() - 18 - i * 16, Color.WHITE.getRGB());
+					mc.getRenderItem().renderItemAndEffectIntoGUI(stack, (event.getResolution().getScaledWidth() - 18 - mc.fontRendererObj.getStringWidth(damage)) - 18, (event.getResolution().getScaledHeight() - 20 - i * 18) - i);
+					mc.fontRendererObj.drawString(damage, event.getResolution().getScaledWidth() - 18 - mc.fontRendererObj.getStringWidth(damage), event.getResolution().getScaledHeight() - 18 - i * 18, Color.WHITE.getRGB());
 				}
 			}
 		}

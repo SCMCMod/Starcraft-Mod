@@ -37,7 +37,7 @@ public class ItemRenderFlamethrower extends ItemRenderer {
 
 	@Override
 	public void renderThirdPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
-		renderFirstPersonRight(itemstack, entity, cameraTransformType);
+		renderThirdPersonRight(itemstack, entity, cameraTransformType);
 	}
 
 	@Override
