@@ -9,8 +9,11 @@ import ga.scmc.blocks.BlockCharGravel;
 import ga.scmc.blocks.BlockCharMagma;
 import ga.scmc.blocks.BlockCharStone;
 import ga.scmc.blocks.BlockDimPortalChar;
+import ga.scmc.blocks.BlockDimPortalKaldir;
+import ga.scmc.blocks.BlockDimPortalKorhal;
 import ga.scmc.blocks.BlockDimPortalOverworld;
 import ga.scmc.blocks.BlockDimPortalShakuras;
+import ga.scmc.blocks.BlockDimPortalSlayn;
 import ga.scmc.blocks.BlockEnergy;
 import ga.scmc.blocks.BlockFurnaceChar;
 import ga.scmc.blocks.BlockFurnaceShakuras;
@@ -93,6 +96,9 @@ public class BlockHandler {
 	public static Block DIM_PORTAL_CHAR;
 	public static Block DIM_PORTAL_OVERWORLD;
 	public static Block DIM_PORTAL_SHAKURAS;
+	public static Block DIM_PORTAL_KALDIR;
+	public static Block DIM_PORTAL_KORHAL;
+	public static Block DIM_PORTAL_SLAYN;
 	public static Block DIRT_CHAR;
 	public static Block DIRT_SHAKURAS;
 	public static Block ENERGY_BLOCK;
@@ -163,7 +169,7 @@ public class BlockHandler {
 	public static Block DIRT_SLAYN;
 	public static Block COBBLESTONE_SLAYN;
 	public static Block GRAVEL_SLAYN;
-
+	
 	public static Block STARCRAFT_SKULL;
 
 	/**
@@ -188,6 +194,9 @@ public class BlockHandler {
 		WARP_GATE_WORMHOLE = new BlockWarpGateWormhole();
 
 		DIM_PORTAL_OVERWORLD = new BlockDimPortalOverworld();
+		DIM_PORTAL_KORHAL = new BlockDimPortalKorhal();
+		DIM_PORTAL_SLAYN = new BlockDimPortalSlayn();
+		DIM_PORTAL_KALDIR = new BlockDimPortalKaldir();
 		// DIM_PORTAL_ZERUS = new BlockDimPortalZerus();
 
 		ORE_COAL_CHAR = new BlockCharOre("charOreCoal", "char_ore_coal", 0);
@@ -284,6 +293,9 @@ public class BlockHandler {
 		registerCompleteBlock(ORE_COPPER_OW);
 		registerCompleteBlock(ORE_TITANIUM_OW);
 		registerCompleteBlock(DIM_PORTAL_OVERWORLD);
+		registerCompleteBlock(DIM_PORTAL_KORHAL);
+		registerCompleteBlock(DIM_PORTAL_KALDIR);
+		registerCompleteBlock(DIM_PORTAL_SLAYN);
 
 		registerCompleteBlock(ORE_COAL_CHAR);
 		registerCompleteBlock(ORE_COPPER_CHAR);

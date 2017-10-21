@@ -9,6 +9,7 @@ import ga.scmc.worldgen.dimchar.BiomeGenCharHills;
 import ga.scmc.worldgen.dimchar.BiomeGenCharLavaOcean;
 import ga.scmc.worldgen.dimchar.BiomeGenCharOutskirts;
 import ga.scmc.worldgen.dimchar.BiomeGenCharScar;
+import ga.scmc.worldgen.dimkorhal.BiomeGenKorhalDesert;
 import ga.scmc.worldgen.dimshakuras.BiomeGenShakurasDesert;
 import ga.scmc.worldgen.dimshakuras.BiomeGenShakurasHills;
 import ga.scmc.worldgen.dimshakuras.BiomeGenShakurasMountains;
@@ -38,6 +39,8 @@ public class BiomeHandler extends Biome {
 	public static Biome biomeSlaynHills;
 	public static Biome biomeSlaynOcean;
 	public static Biome biomeSlaynMountains;
+
+	public static Biome biomeKorhalDesert;
 	
 	public static void preInit() {
 		registerBiomes();
@@ -59,6 +62,8 @@ public class BiomeHandler extends Biome {
 		//GameRegistry.register(biomeSlaynHills);
 		//GameRegistry.register(biomeSlaynOcean);
 		//GameRegistry.register(biomeSlaynMountains);
+
+		GameRegistry.register(biomeKorhalDesert);
 	}
 
 	public static void registerBiomes() {
@@ -91,6 +96,9 @@ public class BiomeHandler extends Biome {
 		
 	//	biomeSlaynDesert = new BiomeGenSlaynDesert(
 				//(new Biome.BiomeProperties("Slayn Desert")).setBaseHeight(0.0F).setHeightVariation(0.025F).setTemperature(0.3F).setRainfall(1.0F));
+		
+		biomeKorhalDesert = new BiomeGenKorhalDesert(
+				(new Biome.BiomeProperties("Korhal Desert")).setBaseHeight(0.0F).setHeightVariation(0.025F).setTemperature(0.3F).setRainfall(0.3F));
 		
 		// add or remove spawn biomes here
 

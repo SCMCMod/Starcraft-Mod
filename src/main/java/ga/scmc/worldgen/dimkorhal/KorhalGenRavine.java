@@ -1,4 +1,4 @@
-package ga.scmc.worldgen.dimshakuras;
+package ga.scmc.worldgen.dimkorhal;
 
 import java.util.Random;
 
@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.MapGenBase;
 
-public class ShakurasGenRavine extends MapGenBase
+public class KorhalGenRavine extends MapGenBase
 {
     protected static final IBlockState FLOWING_LAVA = Blocks.FLOWING_LAVA.getDefaultState();
     protected static final IBlockState AIR = Blocks.AIR.getDefaultState();
@@ -226,7 +226,7 @@ public class ShakurasGenRavine extends MapGenBase
     {
         net.minecraft.world.biome.Biome biome = world.getBiome(new BlockPos(x + chunkX * 16, 0, z + chunkZ * 16));
         IBlockState state = data.getBlockState(x, y, z);
-        return (isExceptionBiome(biome) ? state.getBlock() == BlockHandler.SAND_SHAKURAS : state.getBlock() == biome.topBlock);
+        return (isExceptionBiome(biome) ? state.getBlock() == Blocks.SAND : state.getBlock() == biome.topBlock);
     }
 
     /**
@@ -248,10 +248,10 @@ public class ShakurasGenRavine extends MapGenBase
     {
         net.minecraft.world.biome.Biome biome = world.getBiome(new BlockPos(x + chunkX * 16, 0, z + chunkZ * 16));
         IBlockState state = data.getBlockState(x, y, z);
-        IBlockState top = isExceptionBiome(biome) ? BlockHandler.SAND_SHAKURAS.getDefaultState() : biome.topBlock;
-        IBlockState filler = isExceptionBiome(biome) ? BlockHandler.STONE_SHAKURAS.getDefaultState() : biome.fillerBlock;
+        IBlockState top = isExceptionBiome(biome) ? Blocks.SAND.getDefaultState() : biome.topBlock;
+        IBlockState filler = isExceptionBiome(biome) ? Blocks.STONE.getDefaultState() : biome.fillerBlock;
 
-        if (state.getBlock() == BlockHandler.STONE_SHAKURAS || state.getBlock() == top.getBlock() || state.getBlock() == filler.getBlock())
+        if (state.getBlock() == Blocks.STONE || state.getBlock() == top.getBlock() || state.getBlock() == filler.getBlock())
         {
             if (y - 1 < 10)
             {
