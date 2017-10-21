@@ -28,7 +28,7 @@ public enum TeamColors {
 		this.color = color;
 	}
 	
-	int getId() {
+	public int getId() {
 		return ID;
 	}
 	

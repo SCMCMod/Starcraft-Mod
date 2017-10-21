@@ -11,14 +11,20 @@ import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
 public abstract class EntityStarcraftPassive extends EntityTameable {
 
+	private static final DataParameter<Integer> COLOR = EntityDataManager.createKey(EntityStarcraftPassive.class, DataSerializers.VARINT);
+	
 	List<TypeAttributes> types = new ArrayList<TypeAttributes>(15);
 	List<FactionTypes> factions = new ArrayList<FactionTypes>(15);
-	TeamColors teamColor = TeamColors.WHITE;
+	TeamColors teamColor;
 	HashMap<TypeAttributes, Double> bonusDamage = new HashMap<TypeAttributes, Double>();
 	
 	public EntityStarcraftPassive(World world) {
@@ -44,11 +50,17 @@ public abstract class EntityStarcraftPassive extends EntityTameable {
 	}
 	
 	public TeamColors getTeamColor() {
-		return this.teamColor;
+		for(TeamColors color: TeamColors.values()) {
+			if(color.ID == this.getNBTColor()) {
+				return color;
+			}
+		}
+		return null;
 	}
 	
 	public void setTeamColor(TeamColors team) {
 		this.teamColor = team;
+		this.setNBTColor(team.ID);
 	}
 	
 	public void setTypes(TypeAttributes ... types) {
@@ -69,6 +81,35 @@ public abstract class EntityStarcraftPassive extends EntityTameable {
 	
 	public double getDamageAgainstType(TypeAttributes type) {
 		return bonusDamage.get(type);
+	}
+	
+	@Override
+	protected void entityInit() {
+		super.entityInit();
+		
+		this.getDataManager().register(COLOR, 0);
+	}
+
+	@Override
+	public void writeEntityToNBT(NBTTagCompound nbt) {
+		super.writeEntityToNBT(nbt);
+
+		nbt.setInteger("Color", this.getNBTColor());
+	}
+
+	@Override
+	public void readEntityFromNBT(NBTTagCompound nbt) {
+		super.readEntityFromNBT(nbt);
+
+		this.setNBTColor(nbt.getInteger("Color"));
+	}
+
+	public int getNBTColor() {
+		return this.getDataManager().get(COLOR);
+	}
+
+	public void setNBTColor(int colornum) {
+		this.getDataManager().set(COLOR, colornum);
 	}
 	
 	@Override

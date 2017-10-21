@@ -29,7 +29,6 @@ public abstract class EntityStarcraftMob extends EntityMob {
 	
 	public EntityStarcraftMob(World world) {
 		super(world);
-		teamColor = TeamColors.WHITE;
 	}
 	
 	public boolean isType(TypeAttributes type) {
@@ -51,7 +50,12 @@ public abstract class EntityStarcraftMob extends EntityMob {
 	}
 	
 	public TeamColors getTeamColor() {
-		return this.teamColor;
+		for(TeamColors color: TeamColors.values()) {
+			if(color.ID == this.getNBTColor()) {
+				return color;
+			}
+		}
+		return null;
 	}
 	
 	public void setTeamColor(TeamColors team) {
@@ -82,6 +86,7 @@ public abstract class EntityStarcraftMob extends EntityMob {
 	@Override
 	protected void entityInit() {
 		super.entityInit();
+		
 		this.getDataManager().register(COLOR, 0);
 	}
 

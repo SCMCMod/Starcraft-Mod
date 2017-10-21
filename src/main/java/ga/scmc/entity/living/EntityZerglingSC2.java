@@ -137,4 +137,10 @@ public class EntityZerglingSC2 extends EntityZergMob implements IMob, Predicate<
 	public int getTalkInterval() {
 		return 160;
 	}
+	
+	@Override
+	public void onLivingUpdate() {
+		System.out.println(this.getNBTColor());
+		super.onLivingUpdate();
+	}
 }
