@@ -11,15 +11,16 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class EntityFlamethowerFlame extends EntityThrowable {
+public class EntityFlamethrowerFlame extends EntityThrowable {
 
-	public EntityFlamethowerFlame(World worldIn) {
+	public EntityFlamethrowerFlame(World worldIn) {
 		super(worldIn);
-		float size = 0.25f;
+		float size = 1.0f;
 		this.setSize(size, size);
+		this.isInvisible();
 	}
 
-	public EntityFlamethowerFlame(World worldIn, EntityLivingBase throwerIn) {
+	public EntityFlamethrowerFlame(World worldIn, EntityLivingBase throwerIn) {
 		super(worldIn, throwerIn);
 		this.setLocationAndAngles(throwerIn.posX, throwerIn.posY + throwerIn.getEyeHeight(), throwerIn.posZ, throwerIn.rotationYaw, throwerIn.rotationPitch);
 		this.setPosition(this.posX, this.posY, this.posZ);
@@ -34,6 +35,7 @@ public class EntityFlamethowerFlame extends EntityThrowable {
 		super.onEntityUpdate();
 
 		world.spawnParticle(EnumParticleTypes.FLAME, posX, posY, posZ, 0, 0.1, 0, new int[0]);
+		world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, posX, posY, posZ, 0, 0.1, 0, new int[0]);
 	}
 
 	public static void registerFixes(DataFixer fixer) {

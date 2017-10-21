@@ -151,6 +151,7 @@ import ga.scmc.client.renderer.entity.RenderZerglingRaptor;
 import ga.scmc.client.renderer.entity.RenderZerglingSC2;
 import ga.scmc.client.renderer.entity.RenderZerglingSwarmling;
 import ga.scmc.client.renderer.projectiles.RenderC14GaussRifleBullet;
+import ga.scmc.client.renderer.projectiles.RenderFlamethrowerFlame;
 import ga.scmc.client.renderer.projectiles.RenderHydraliskSpike;
 import ga.scmc.client.renderer.tileentity.RendererStarcraftSkull;
 import ga.scmc.client.renderer.tileentity.RendererTest;
@@ -184,6 +185,7 @@ import ga.scmc.entity.living.EntityZerglingRaptor;
 import ga.scmc.entity.living.EntityZerglingSC2;
 import ga.scmc.entity.living.EntityZerglingSwarmling;
 import ga.scmc.entity.projectiles.EntityC14GaussRifleBullet;
+import ga.scmc.entity.projectiles.EntityFlamethrowerFlame;
 import ga.scmc.entity.projectiles.EntityHydraliskSpike;
 import ga.scmc.lib.Library;
 import ga.scmc.model.ModelAdept;
@@ -313,6 +315,7 @@ public class RenderingHandler {
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityC14GaussRifleBullet.class, new RenderC14GaussRifleBullet(Minecraft.getMinecraft().getRenderManager(), new ModelBullet()));
 		RenderingRegistry.registerEntityRenderingHandler(EntityHydraliskSpike.class, new RenderHydraliskSpike(Minecraft.getMinecraft().getRenderManager(), new ModelHydraliskSpike()));
+		RenderingRegistry.registerEntityRenderingHandler(EntityFlamethrowerFlame.class, new RenderFlamethrowerFlame(Minecraft.getMinecraft().getRenderManager(), null));
 	}
 
 	/**
