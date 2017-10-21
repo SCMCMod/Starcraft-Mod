@@ -130,7 +130,7 @@ public class BlockZergStructureFlesh extends Block implements IMetaBlockName {
 			EntityBroodling broodling = new EntityBroodling(worldIn);
 			broodling.setPositionAndRotation(pos.getX(), pos.getY(), pos.getZ(), 0, 0);
 			worldIn.spawnEntity(broodling);
-		} else if (this.RANDOM.nextInt(100) > 90) {
+		} else if (this.RANDOM.nextInt(100) > 99) {
 			BlockPos pos2 = pos;
 			worldIn.setBlockState(pos2, BlockHandler.FLUID_BLOOD.getDefaultState());
 		}
