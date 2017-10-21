@@ -1,6 +1,6 @@
 {
     "parent":"block/cube_all",
     "textures": {
-        "all": "starcraft:blocks/hazard_tape"
+        "all": "blocks/planks_oak"
     }
 }

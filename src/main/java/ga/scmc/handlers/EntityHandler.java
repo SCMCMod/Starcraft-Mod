@@ -61,7 +61,7 @@ public class EntityHandler {
 
 	/** The current entity id */
 	private static int entityID = 0;
-
+	
 	public static void preInit() {
 		registerEntities();
 		registerTileEntities();

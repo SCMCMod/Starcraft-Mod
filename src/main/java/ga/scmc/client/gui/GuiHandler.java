@@ -26,7 +26,7 @@ public class GuiHandler implements IGuiHandler {
 
 	public static final int GAS_COLLECTOR_ID = 0;
 	public static final int SHOP_ID = 1;
-	public static final int LAVA_LARVA_ID = 2;
+	public static final int LARVA_ID = 2;
 
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
@@ -41,7 +41,7 @@ public class GuiHandler implements IGuiHandler {
 			return new GuiGasCollector(player, (TileEntityGasCollector) world.getTileEntity(new BlockPos(x, y, z)));
 		if (ID == SHOP_ID)
 			return new GuiItemShop(player);
-		if (ID == LAVA_LARVA_ID)
+		if (ID == LARVA_ID)
 			return new GuiLavaLarva(player);
 		return null;
 	}

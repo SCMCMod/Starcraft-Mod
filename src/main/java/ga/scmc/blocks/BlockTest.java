@@ -25,10 +25,10 @@ import net.minecraft.world.World;
 public class BlockTest extends BlockContainer {
 
 	public BlockTest() {
-		super(Material.IRON, MapColor.YELLOW);
+		super(Material.ROCK, MapColor.WOOD);
 		setUnlocalizedName("test");
 		setRegistryName("test");
-		setSoundType(SoundType.METAL);
+		setSoundType(SoundType.WOOD);
 		setBlockUnbreakable();
 		setTickRandomly(true);
 		setCreativeTab(null);
@@ -37,7 +37,7 @@ public class BlockTest extends BlockContainer {
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
 		if (world.isRemote)
-			player.openGui(Starcraft.instance, GuiHandler.LAVA_LARVA_ID, world, (int) hitX, (int) hitY, (int) hitZ);
+			player.openGui(Starcraft.instance, GuiHandler.LARVA_ID, world, (int) hitX, (int) hitY, (int) hitZ);
 		return true;
 	}
 
