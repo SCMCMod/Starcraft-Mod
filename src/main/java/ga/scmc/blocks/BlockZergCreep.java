@@ -86,7 +86,6 @@ public class BlockZergCreep extends Block {
 							&& iblockstate.getBlock() != MetaBlockHandler.PROTOSS_METAL_T1 
 							&& iblockstate.getBlock() != MetaBlockHandler.PROTOSS_METAL_T2 
 							&& iblockstate.getBlock() != MetaBlockHandler.PROTOSS_METAL_T3 
-							&& iblockstate.isOpaqueCube() 
 							&& !Library.checkCube(worldIn, Blocks.AIR.getDefaultState(), blockpos, 3).isEmpty()) {
 						worldIn.setBlockState(blockpos, BlockHandler.ZERG_CREEP.getDefaultState());
 					}
