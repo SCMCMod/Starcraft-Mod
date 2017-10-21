@@ -239,7 +239,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class RenderingHandler {
-
+	
 	public static void preInit() {
 		registerStandardItemRenderers();
 		registerArmorItemRenderers();
@@ -343,6 +343,7 @@ public class RenderingHandler {
 	private static void registerStandardItemRenderers() {
 		registerItemRender(C14_GAUSS_RIFLE);
 		registerItemRender(FLAMETHROWER);
+		registerItemRender(ItemHandler.STARCRAFT_SKULL);
 
 		registerItemRender(CREEP_RESIN);
 		registerItemRender(ORGANIC_TISSUE);
@@ -406,9 +407,6 @@ public class RenderingHandler {
 		}
 		for (int i = 0; i < ItemEnumHandler.CarapaceType.values().length; i++) {
 			registerItemRender(ZERG_CARAPACE, i, "zerg_icarapace_" + ItemEnumHandler.CarapaceType.values()[i].getName());
-		}
-		for (int i = 0; i < ItemEnumHandler.SkullType.values().length; i++) {
-			registerItemRender(ItemHandler.STARCRAFT_SKULL, i, "skull_" + ItemEnumHandler.SkullType.values()[i].getName());
 		}
 	}
 
