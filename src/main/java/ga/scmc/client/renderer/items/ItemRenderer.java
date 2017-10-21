@@ -130,6 +130,14 @@ public abstract class ItemRenderer implements IPerspectiveAwareModel, IBakedMode
 			renderInWorld(stack, entity, type);
 		}
 			break;
+		case FIXED: {
+			renderFixed(stack, entity, type);
+		}
+			break;
+		case HEAD: {
+			renderHead(stack, entity, type);
+		}
+			break;
 
 		default:
 			break;
@@ -172,6 +180,12 @@ public abstract class ItemRenderer implements IPerspectiveAwareModel, IBakedMode
 	public abstract void renderThirdPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType);
 
 	public abstract void renderThirdPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType);
+
+	public void renderFixed(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	}
+	
+	public void renderHead(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	}
 
 	private void setEntity(EntityLivingBase entity) {
 		this.entity = entity;

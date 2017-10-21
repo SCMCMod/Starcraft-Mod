@@ -434,7 +434,7 @@ public class ItemEnumHandler {
 	}
 
 	public static enum SkullType implements IStringSerializable {
-		TEST("test", 0);
+		CIVILIAN("civilian", 0);
 
 		private int ID;
 		private String name;

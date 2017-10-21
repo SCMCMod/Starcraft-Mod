@@ -5,6 +5,7 @@ import ga.scmc.fluids.FluidHandler;
 import ga.scmc.items.ItemC14GaussRifle;
 import ga.scmc.items.ItemFlamethrower;
 import ga.scmc.items.ItemNuclearMissile;
+import ga.scmc.items.ItemStarcraftSkull;
 import ga.scmc.items.ItemStimpack;
 import ga.scmc.items.metaitems.ItemBullet;
 import ga.scmc.items.metaitems.ItemC14GaussRifleParts;
@@ -62,6 +63,8 @@ public class ItemHandler {
 	public static Item GAS_CONTAINER;
 	public static Item VESPENE;
 	public static Item TERRAZINE;
+	
+	public static Item STARCRAFT_SKULL;
 
 	public static Item SPAWNER_PROTOSS_DARK_CYBERNETICSCORE;
 	public static Item SPAWNER_PROTOSS_VOID_CYBERNETICSCORE;
@@ -106,6 +109,8 @@ public class ItemHandler {
 
 		NUCLEAR_MISSILE = new ItemNuclearMissile();
 		STIMPACK = new ItemStimpack();
+		
+		STARCRAFT_SKULL = new ItemStarcraftSkull();
 
 		SPAWNER_PROTOSS_DARK_CYBERNETICSCORE = new ItemProtossDarkCyberneticsCoreSpawner();
 		SPAWNER_PROTOSS_VOID_CYBERNETICSCORE = new ItemProtossVoidCyberneticsCoreSpawner();
@@ -172,6 +177,8 @@ public class ItemHandler {
 
 		registerItem(NUCLEAR_MISSILE);
 		registerItem(STIMPACK);
+		
+		registerItem(STARCRAFT_SKULL);
 
 		registerItem(SPAWNER_PROTOSS_DARK_CYBERNETICSCORE);
 		registerItem(SPAWNER_PROTOSS_VOID_CYBERNETICSCORE);

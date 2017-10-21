@@ -49,6 +49,7 @@ import static ga.scmc.handlers.BlockHandler.PROTOSS_ENERGY_STABILIZER;
 import static ga.scmc.handlers.BlockHandler.PROTOSS_VOID_ENERGY_CHANNEL;
 import static ga.scmc.handlers.BlockHandler.PROTOSS_VOID_ENERGY_STABILIZER;
 import static ga.scmc.handlers.BlockHandler.STARCRAFT_SKULL;
+import static ga.scmc.handlers.BlockHandler.TEST;
 import static ga.scmc.handlers.BlockHandler.WARP_GATE_WORMHOLE;
 import static ga.scmc.handlers.ItemHandler.BIOMASS;
 import static ga.scmc.handlers.ItemHandler.BULLET;
@@ -152,6 +153,7 @@ import ga.scmc.client.renderer.entity.RenderZerglingSwarmling;
 import ga.scmc.client.renderer.projectiles.RenderC14GaussRifleBullet;
 import ga.scmc.client.renderer.projectiles.RenderHydraliskSpike;
 import ga.scmc.client.renderer.tileentity.RendererStarcraftSkull;
+import ga.scmc.client.renderer.tileentity.RendererTest;
 import ga.scmc.entity.living.EntityAdept;
 import ga.scmc.entity.living.EntityBroodling;
 import ga.scmc.entity.living.EntityBrutalisk;
@@ -216,6 +218,7 @@ import ga.scmc.model.ModelZerglingRaptor;
 import ga.scmc.model.ModelZerglingSC2;
 import ga.scmc.model.ModelZerglingSwarmling;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
+import ga.scmc.tileentity.TileEntityTest;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -316,11 +319,8 @@ public class RenderingHandler {
 	 * TODO remove the item block for the {@link BlockHandler#STARCRAFT_SKULL} and replace it with an item so I can register the render separately.
 	 */
 	private static void registerTileEntityRenders() {
-		for (int i = 0; i < ItemEnumHandler.SkullType.values().length; i++) {
-			registerBlockModel(STARCRAFT_SKULL, i, ItemEnumHandler.SkullType.values()[i].getName());
-		}
-
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStarcraftSkull.class, new RendererStarcraftSkull());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTest.class, new RendererTest());
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -403,6 +403,9 @@ public class RenderingHandler {
 		}
 		for (int i = 0; i < ItemEnumHandler.CarapaceType.values().length; i++) {
 			registerItemRender(ZERG_CARAPACE, i, "zerg_icarapace_" + ItemEnumHandler.CarapaceType.values()[i].getName());
+		}
+		for (int i = 0; i < ItemEnumHandler.SkullType.values().length; i++) {
+			registerItemRender(ItemHandler.STARCRAFT_SKULL, i, "skull_" + ItemEnumHandler.SkullType.values()[i].getName());
 		}
 	}
 
@@ -488,6 +491,10 @@ public class RenderingHandler {
 		registerBlockModel(FURNACE_CHAR);
 		registerBlockModel(FURNACE_SLAYN);
 		registerBlockModel(LIT_FURNACE_SLAYN);
+
+		// Other
+		registerBlockModel(STARCRAFT_SKULL);
+		registerBlockModel(TEST);
 
 		// Protoss Blocks
 		registerBlockModel(PROTOSS_ENERGY_CHANNEL);

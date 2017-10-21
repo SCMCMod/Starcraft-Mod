@@ -1,5 +1,6 @@
 package ga.scmc.client.renderer.tileentity;
 
+import ga.scmc.lib.Library;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelSkeletonHead;
@@ -12,16 +13,13 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+/**
+ * @author Ocelot5836
+ */
 @SideOnly(Side.CLIENT)
 public class RendererStarcraftSkull extends TileEntitySpecialRenderer<TileEntityStarcraftSkull> {
 
-	private static final ResourceLocation SKELETON_TEXTURES = new ResourceLocation("textures/entity/skeleton/skeleton.png");
-	private static final ResourceLocation WITHER_SKELETON_TEXTURES = new ResourceLocation("textures/entity/skeleton/wither_skeleton.png");
-	private static final ResourceLocation ZOMBIE_TEXTURES = new ResourceLocation("textures/entity/zombie/zombie.png");
-	private static final ResourceLocation CREEPER_TEXTURES = new ResourceLocation("textures/entity/creeper/creeper.png");
-	private static final ResourceLocation DRAGON_TEXTURES = new ResourceLocation("textures/entity/enderdragon/dragon.png");
 	public static RendererStarcraftSkull instance;
-	private final ModelSkeletonHead skeletonHead = new ModelSkeletonHead(0, 0, 64, 32);
 
 	public void renderTileEntityAt(TileEntityStarcraftSkull te, double x, double y, double z, float partialTicks, int destroyStage) {
 		EnumFacing enumfacing = EnumFacing.getFront(te.getBlockMetadata() & 7);
@@ -34,7 +32,7 @@ public class RendererStarcraftSkull extends TileEntitySpecialRenderer<TileEntity
 	}
 
 	public void renderSkull(float x, float y, float z, EnumFacing facing, float rotation, int skullType, int destroyStage) {
-		ModelBase modelbase = this.skeletonHead;
+		ModelBase skullModel = new ModelSkeletonHead(0, 0, 64, 32);
 
 		if (destroyStage >= 0) {
 			this.bindTexture(DESTROY_STAGES[destroyStage]);
@@ -45,12 +43,12 @@ public class RendererStarcraftSkull extends TileEntitySpecialRenderer<TileEntity
 			GlStateManager.matrixMode(5888);
 		} else {
 			switch (skullType) {
-			case 0:
 			default:
-				this.bindTexture(SKELETON_TEXTURES);
+				this.bindTexture(new ResourceLocation("textures/entity/skeleton/skeleton.png"));
 				break;
-			case 1:
-				this.bindTexture(WITHER_SKELETON_TEXTURES);
+			case 0:
+				this.bindTexture(new ResourceLocation(Library.MODID, "textures/entity/civilian.png"));
+				skullModel = new ModelSkeletonHead(0, 0, 64, 64);
 				break;
 			}
 		}
@@ -85,7 +83,7 @@ public class RendererStarcraftSkull extends TileEntitySpecialRenderer<TileEntity
 		GlStateManager.scale(-1.0F, -1.0F, 1.0F);
 		GlStateManager.enableAlpha();
 
-		modelbase.render((Entity) null, 0, 0.0F, 0.0F, rotation, 0.0F, 0.0625F);
+		skullModel.render((Entity) null, 0, 0.0F, 0.0F, rotation, 0.0F, 0.0625F);
 		GlStateManager.popMatrix();
 
 		if (destroyStage >= 0) {

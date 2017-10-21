@@ -1,17 +1,17 @@
-package ga.scmc.blocks.itemblocks;
+package ga.scmc.items;
 
 import java.util.List;
 
 import ga.scmc.blocks.BlockStarcraftSkull;
+import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.handlers.BlockHandler;
-import ga.scmc.handlers.ItemEnumHandler.SkullType;
+import ga.scmc.handlers.ItemEnumHandler;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumActionResult;
@@ -23,11 +23,15 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemBlockStarcraftSkull extends ItemBlock {
+/**
+ * @author Ocelot5836
+ */
+public class ItemStarcraftSkull extends Item {
 
-	public ItemBlockStarcraftSkull() {
-		super(BlockHandler.STARCRAFT_SKULL);
-		this.setCreativeTab(CreativeTabs.DECORATIONS);
+	public ItemStarcraftSkull() {
+		setUnlocalizedName("starcraftSkullItem");
+		setRegistryName("starcraft_skull_item");
+		setCreativeTab(StarcraftCreativeTabs.MISC);
 		setMaxDamage(0);
 		setHasSubtypes(true);
 	}
@@ -89,7 +93,7 @@ public class ItemBlockStarcraftSkull extends ItemBlock {
 	 */
 	@SideOnly(Side.CLIENT)
 	public void getSubItems(Item itemIn, CreativeTabs tab, List<ItemStack> subItems) {
-		for (int i = 0; i < SkullType.values().length; ++i) {
+		for (int i = 0; i < ItemEnumHandler.SkullType.values().length; ++i) {
 			subItems.add(new ItemStack(itemIn, 1, i));
 		}
 	}
@@ -107,10 +111,10 @@ public class ItemBlockStarcraftSkull extends ItemBlock {
 	public String getUnlocalizedName(ItemStack stack) {
 		int i = stack.getMetadata();
 
-		if (i < 0 || i >= SkullType.values().length) {
+		if (i < 0 || i >= ItemEnumHandler.SkullType.values().length) {
 			i = 0;
 		}
 
-		return super.getUnlocalizedName() + "." + SkullType.values()[i];
+		return super.getUnlocalizedName() + "." + ItemEnumHandler.SkullType.values()[i];
 	}
 }

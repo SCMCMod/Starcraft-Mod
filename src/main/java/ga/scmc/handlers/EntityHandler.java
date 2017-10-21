@@ -41,6 +41,7 @@ import ga.scmc.tileentity.TileEntityBlockSlaynFurnace;
 import ga.scmc.tileentity.TileEntityGasCollector;
 import ga.scmc.tileentity.TileEntityMovingLightSource;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
+import ga.scmc.tileentity.TileEntityTest;
 import ga.scmc.tileentity.TileEntityWarpGateWormhole;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -115,6 +116,7 @@ public class EntityHandler {
 		GameRegistry.registerTileEntity(TileEntityWarpGateWormhole.class, Library.RL_BASE + "TileEntityWarpGateWormhole");
 		GameRegistry.registerTileEntity(TileEntityMovingLightSource.class, Library.RL_BASE + "TileEntityMovingLightSource");
 		GameRegistry.registerTileEntity(TileEntityStarcraftSkull.class, Library.RL_BASE + "TileEntityStarcraftSkull");
+		GameRegistry.registerTileEntity(TileEntityTest.class, Library.RL_BASE + "TileEntityTest");
 	}
 
 	/**
