@@ -4,6 +4,7 @@ import java.util.List;
 
 import ga.scmc.blocks.BlockStarcraftSkull;
 import ga.scmc.handlers.BlockHandler;
+import ga.scmc.handlers.ItemEnumHandler.SkullType;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -23,7 +24,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemBlockStarcraftSkull extends ItemBlock {
-	private static final String[] SKULL_TYPES = new String[] { "test" };
 
 	public ItemBlockStarcraftSkull() {
 		super(BlockHandler.STARCRAFT_SKULL);
@@ -89,7 +89,7 @@ public class ItemBlockStarcraftSkull extends ItemBlock {
 	 */
 	@SideOnly(Side.CLIENT)
 	public void getSubItems(Item itemIn, CreativeTabs tab, List<ItemStack> subItems) {
-		for (int i = 0; i < SKULL_TYPES.length; ++i) {
+		for (int i = 0; i < SkullType.values().length; ++i) {
 			subItems.add(new ItemStack(itemIn, 1, i));
 		}
 	}
@@ -107,10 +107,10 @@ public class ItemBlockStarcraftSkull extends ItemBlock {
 	public String getUnlocalizedName(ItemStack stack) {
 		int i = stack.getMetadata();
 
-		if (i < 0 || i >= SKULL_TYPES.length) {
+		if (i < 0 || i >= SkullType.values().length) {
 			i = 0;
 		}
 
-		return super.getUnlocalizedName() + "." + SKULL_TYPES[i];
+		return super.getUnlocalizedName() + "." + SkullType.values()[i];
 	}
 }

@@ -101,9 +101,7 @@ public class ItemHandler {
 		PSI_BLADE_FOCUSER_UNCHARGED = new ItemPsiBladeFocuserUncharged();
 		ZERG_CARAPACE = new ItemZergCarapace();
 		CREEP_RESIN = new Item().setUnlocalizedName("zergCreepResin").setRegistryName("zerg_creep_resin").setCreativeTab(StarcraftCreativeTabs.ZERG);
-		;
 		ORGANIC_TISSUE = new Item().setUnlocalizedName("zergOrganicTissue").setRegistryName("zerg_organic_tissue").setCreativeTab(StarcraftCreativeTabs.ZERG);
-		;
 		BIOMASS = new Item().setUnlocalizedName("biomass").setRegistryName("biomass").setCreativeTab(StarcraftCreativeTabs.ZERG);
 
 		NUCLEAR_MISSILE = new ItemNuclearMissile();

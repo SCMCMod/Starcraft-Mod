@@ -151,6 +151,7 @@ import ga.scmc.client.renderer.entity.RenderZerglingSC2;
 import ga.scmc.client.renderer.entity.RenderZerglingSwarmling;
 import ga.scmc.client.renderer.projectiles.RenderC14GaussRifleBullet;
 import ga.scmc.client.renderer.projectiles.RenderHydraliskSpike;
+import ga.scmc.client.renderer.tileentity.RendererStarcraftSkull;
 import ga.scmc.entity.living.EntityAdept;
 import ga.scmc.entity.living.EntityBroodling;
 import ga.scmc.entity.living.EntityBrutalisk;
@@ -214,6 +215,7 @@ import ga.scmc.model.ModelZerglingBoost;
 import ga.scmc.model.ModelZerglingRaptor;
 import ga.scmc.model.ModelZerglingSC2;
 import ga.scmc.model.ModelZerglingSwarmling;
+import ga.scmc.tileentity.TileEntityStarcraftSkull;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -225,6 +227,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -239,11 +242,13 @@ public class RenderingHandler {
 		registerToolItemRenderers();
 		registerBlockModels();
 		registerBlockMetaRenders();
+		createStateMappers();
 	}
 
 	public static void init() {
 		registerItemModelVariants();
 		registerEntityRenderers();
+		registerTileEntityRenders();
 	}
 
 	private static void registerItemModelVariants() {
@@ -305,7 +310,31 @@ public class RenderingHandler {
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityC14GaussRifleBullet.class, new RenderC14GaussRifleBullet(Minecraft.getMinecraft().getRenderManager(), new ModelBullet()));
 		RenderingRegistry.registerEntityRenderingHandler(EntityHydraliskSpike.class, new RenderHydraliskSpike(Minecraft.getMinecraft().getRenderManager(), new ModelHydraliskSpike()));
+	}
 
+	/**
+	 * TODO remove the item block for the {@link BlockHandler#STARCRAFT_SKULL} and replace it with an item so I can register the render separately.
+	 */
+	private static void registerTileEntityRenders() {
+		for (int i = 0; i < ItemEnumHandler.SkullType.values().length; i++) {
+			registerBlockModel(STARCRAFT_SKULL, i, ItemEnumHandler.SkullType.values()[i].getName());
+		}
+
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStarcraftSkull.class, new RendererStarcraftSkull());
+	}
+
+	@SideOnly(Side.CLIENT)
+	public static void createStateMappers() {
+		ModelLoader.setCustomStateMapper(STARCRAFT_SKULL, getNormalVariant(STARCRAFT_SKULL.getRegistryName()));
+	}
+
+	private static StateMapperBase getNormalVariant(final ResourceLocation location) {
+		return new StateMapperBase() {
+			@Override
+			protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
+				return new ModelResourceLocation(location, "normal");
+			}
+		};
 	}
 
 	private static void registerStandardItemRenderers() {
@@ -459,9 +488,6 @@ public class RenderingHandler {
 		registerBlockModel(FURNACE_CHAR);
 		registerBlockModel(FURNACE_SLAYN);
 		registerBlockModel(LIT_FURNACE_SLAYN);
-
-		// Other Stuff
-		registerBlockModel(STARCRAFT_SKULL);
 
 		// Protoss Blocks
 		registerBlockModel(PROTOSS_ENERGY_CHANNEL);

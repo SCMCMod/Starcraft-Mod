@@ -6,7 +6,6 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import ga.scmc.blocks.itemblocks.IMetaBlockName;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
@@ -25,6 +24,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
@@ -33,7 +33,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockStarcraftSkull extends BlockContainer implements IMetaBlockName {
+public class BlockStarcraftSkull extends BlockContainer {
 
 	public static final PropertyDirection FACING = BlockDirectional.FACING;
 	public static final PropertyBool NODROP = PropertyBool.create("nodrop");
@@ -58,14 +58,17 @@ public class BlockStarcraftSkull extends BlockContainer implements IMetaBlockNam
 	/**
 	 * Used to determine ambient occlusion and culling when rebuilding chunks for render
 	 */
+	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
 
+	@Override
 	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
 
+	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		switch ((EnumFacing) state.getValue(FACING)) {
 		case UP:
@@ -85,6 +88,7 @@ public class BlockStarcraftSkull extends BlockContainer implements IMetaBlockNam
 	/**
 	 * Called by ItemBlocks just before a block is actually set in the world, to allow for adjustments to the IBlockstate
 	 */
+	@Override
 	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
 		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing()).withProperty(NODROP, Boolean.valueOf(false));
 	}
@@ -92,10 +96,12 @@ public class BlockStarcraftSkull extends BlockContainer implements IMetaBlockNam
 	/**
 	 * Returns a new instance of a block's tile entity class. Called on placing the block.
 	 */
+	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
 		return new TileEntityStarcraftSkull();
 	}
 
+	@Override
 	public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
 		int i = 0;
 		TileEntity tileentity = worldIn.getTileEntity(pos);
@@ -107,6 +113,7 @@ public class BlockStarcraftSkull extends BlockContainer implements IMetaBlockNam
 		return new ItemStack(BlockHandler.STARCRAFT_SKULL, 1, i);
 	}
 
+	@Override
 	public void onBlockHarvested(World worldIn, BlockPos pos, IBlockState state, EntityPlayer player) {
 		if (player.capabilities.isCreativeMode) {
 			state = state.withProperty(NODROP, Boolean.valueOf(true));
@@ -120,10 +127,12 @@ public class BlockStarcraftSkull extends BlockContainer implements IMetaBlockNam
 	/**
 	 * Called serverside after this block is replaced with another in Chunk, but before the Tile Entity is updated
 	 */
+	@Override
 	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
 		super.breakBlock(worldIn, pos, state);
 	}
 
+	@Override
 	public List<ItemStack> getDrops(IBlockAccess worldIn, BlockPos pos, IBlockState state, int fortune) {
 		List<ItemStack> ret = new ArrayList<ItemStack>();
 		{
@@ -144,6 +153,7 @@ public class BlockStarcraftSkull extends BlockContainer implements IMetaBlockNam
 	 * Get the Item that this Block should drop when harvested.
 	 */
 	@Nullable
+	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
 		return Item.getItemFromBlock(BlockHandler.STARCRAFT_SKULL);
 	}
@@ -151,6 +161,7 @@ public class BlockStarcraftSkull extends BlockContainer implements IMetaBlockNam
 	/**
 	 * Convert the given metadata into a BlockState for this Block
 	 */
+	@Override
 	public IBlockState getStateFromMeta(int meta) {
 		return this.getDefaultState().withProperty(FACING, EnumFacing.getFront(meta & 7)).withProperty(NODROP, Boolean.valueOf((meta & 8) > 0));
 	}
@@ -158,6 +169,7 @@ public class BlockStarcraftSkull extends BlockContainer implements IMetaBlockNam
 	/**
 	 * Convert the BlockState into the correct metadata value
 	 */
+	@Override
 	public int getMetaFromState(IBlockState state) {
 		int i = 0;
 		i = i | ((EnumFacing) state.getValue(FACING)).getIndex();
@@ -172,6 +184,7 @@ public class BlockStarcraftSkull extends BlockContainer implements IMetaBlockNam
 	/**
 	 * Returns the blockstate with the given rotation from the passed blockstate. If inapplicable, returns the passed blockstate.
 	 */
+	@Override
 	public IBlockState withRotation(IBlockState state, Rotation rot) {
 		return state.withProperty(FACING, rot.rotate((EnumFacing) state.getValue(FACING)));
 	}
@@ -179,16 +192,13 @@ public class BlockStarcraftSkull extends BlockContainer implements IMetaBlockNam
 	/**
 	 * Returns the blockstate with the given mirror of the passed blockstate. If inapplicable, returns the passed blockstate.
 	 */
+	@Override
 	public IBlockState withMirror(IBlockState state, Mirror mirrorIn) {
 		return state.withRotation(mirrorIn.toRotation((EnumFacing) state.getValue(FACING)));
 	}
 
+	@Override
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, new IProperty[] { FACING, NODROP });
-	}
-
-	@Override
-	public String getSpecialName(ItemStack stack) {
-		return null;
 	}
 }

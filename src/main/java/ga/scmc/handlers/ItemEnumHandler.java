@@ -432,4 +432,30 @@ public class ItemEnumHandler {
 			return getName();
 		}
 	}
+
+	public static enum SkullType implements IStringSerializable {
+		TEST("test", 0);
+
+		private int ID;
+		private String name;
+
+		private SkullType(String name, int ID) {
+			this.ID = ID;
+			this.name = name;
+		}
+
+		public int getID() {
+			return ID;
+		}
+
+		@Override
+		public String getName() {
+			return name;
+		}
+
+		@Override
+		public String toString() {
+			return getName();
+		}
+	}
 }

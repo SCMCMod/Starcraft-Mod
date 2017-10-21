@@ -42,9 +42,13 @@ import ga.scmc.tileentity.TileEntityGasCollector;
 import ga.scmc.tileentity.TileEntityMovingLightSource;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
 import ga.scmc.tileentity.TileEntityWarpGateWormhole;
+import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Biomes;
+import net.minecraft.item.Item;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -111,8 +115,6 @@ public class EntityHandler {
 		GameRegistry.registerTileEntity(TileEntityWarpGateWormhole.class, Library.RL_BASE + "TileEntityWarpGateWormhole");
 		GameRegistry.registerTileEntity(TileEntityMovingLightSource.class, Library.RL_BASE + "TileEntityMovingLightSource");
 		GameRegistry.registerTileEntity(TileEntityStarcraftSkull.class, Library.RL_BASE + "TileEntityStarcraftSkull");
-
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStarcraftSkull.class, new RendererStarcraftSkull());
 	}
 
 	/**
