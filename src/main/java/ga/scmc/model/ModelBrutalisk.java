@@ -8,7 +8,7 @@ import net.minecraft.util.math.MathHelper;
 /**
  * brutalisk - cybercat5555 Created using Tabula 5.1.0
  */
-public class ModelBrutalisk extends ModelBase {
+public class ModelBrutalisk extends ModelBase implements IModelSkull {
 
 	public ModelRenderer armour1;
 	public ModelRenderer armour2;
@@ -848,7 +848,7 @@ public class ModelBrutalisk extends ModelBase {
 		modelRenderer.rotateAngleY = y;
 		modelRenderer.rotateAngleZ = z;
 	}
-	
+
 	@Override
 	public void setRotationAngles(float par1, float par2, float par3, float par4, float par5, float par6, Entity par7Entity) {
 		super.setRotationAngles(par1, par2, par3, par4, par5, par6, par7Entity);
@@ -872,5 +872,10 @@ public class ModelBrutalisk extends ModelBase {
 		this.rcLeg1.rotateAngleX = (MathHelper.sin(par1 * 0.5F) / 4.1F) * 2.0F * par2;
 		this.rcLeg1.rotateAngleY = (MathHelper.sin(par1 * 0.5F) / 4.1F) * 2.0F * par2;
 		this.jawLower.rotateAngleX = MathHelper.sin(par1 * 0.01F) * 0.667F * par2 + 0.30F;
+	}
+
+	@Override
+	public void renderSkull(float scale) {
+		head.render(scale);
 	}
 }

@@ -2,13 +2,14 @@ package ga.scmc.model;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
 /**
  * zerglingSC2 - cybercat5555 Created using Tabula 5.1.0
  */
-public class ModelZerglingSC2 extends ModelBase {
+public class ModelZerglingSC2 extends ModelBase implements IModelSkull {
 
 	public ModelRenderer chest;
 	public ModelRenderer head1;
@@ -600,7 +601,7 @@ public class ModelZerglingSC2 extends ModelBase {
 		// super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks,
 		// netHeadYaw, headPitch, scaleFactor, entityIn);
 		neck.rotateAngleX = par5 * 0.017453292F;
-	    neck.rotateAngleY = par4 * 0.017453292F;
+		neck.rotateAngleY = par4 * 0.017453292F;
 		lArm1.rotateAngleX = MathHelper.sin(par1 * 1.1F) * 0.667F * par2;
 		lThigh.rotateAngleX = MathHelper.sin(par1 * 1.1F) * 0.667F * par2 - 0.5F;
 		rArm1.rotateAngleX = MathHelper.cos(par1 * 1.1F) * 0.667F * par2;
@@ -611,5 +612,12 @@ public class ModelZerglingSC2 extends ModelBase {
 		tail2.rotateAngleY = (MathHelper.sin(par1 * -0.5F) / 10.1F) * 2.0F * par2;
 		tail3.rotateAngleY = (MathHelper.sin(par1 * -0.5F) / 10.1F) * 2.0F * par2;
 		tail4.rotateAngleY = (MathHelper.sin(par1 * -0.5F) / 10.1F) * 2.0F * par2;
+	}
+
+	@Override
+	public void renderSkull(float scale) {
+		GlStateManager.translate(0, -0.2, 0.2);
+		head1.render(scale);
+		head2.render(scale);
 	}
 }

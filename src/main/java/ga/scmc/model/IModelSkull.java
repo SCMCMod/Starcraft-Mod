@@ -9,6 +9,6 @@ public interface IModelSkull {
 	/**
 	 * This method needs to only contain the head render code so the skull block can render correctly.
 	 */
-	void renderSkull();
+	void renderSkull(float scale);
 
 }

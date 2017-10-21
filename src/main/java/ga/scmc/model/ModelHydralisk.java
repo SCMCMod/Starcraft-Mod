@@ -8,7 +8,7 @@ import net.minecraft.util.math.MathHelper;
 /**
  * hydralisk - cybercat5555 Created using Tabula 5.1.0
  */
-public class ModelHydralisk extends ModelBase {
+public class ModelHydralisk extends ModelBase implements IModelSkull {
 
 	public ModelRenderer backArmour01;
 	public ModelRenderer chest;
@@ -780,8 +780,8 @@ public class ModelHydralisk extends ModelBase {
 		// super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks,
 		// netHeadYaw, headPitch, scaleFactor, entityIn);
 		head.rotateAngleX = par5 * 0.017453292F + 7.0F;
-	    head.rotateAngleY = par4 * 0.017453292F;
-	    neck.rotateAngleX = MathHelper.sin(par1 * 0.5F) * 0.167F * par2;
+		head.rotateAngleY = par4 * 0.017453292F;
+		neck.rotateAngleX = MathHelper.sin(par1 * 0.5F) * 0.167F * par2;
 		tail02.rotateAngleY = MathHelper.sin(par1 * 0.5F) * 0.337F * par2;
 		tail03.rotateAngleY = MathHelper.cos(par1 * 0.5F) * 0.337F * par2;
 		tail04.rotateAngleY = MathHelper.sin(par1 * 0.5F) * 0.337F * par2;
@@ -797,6 +797,11 @@ public class ModelHydralisk extends ModelBase {
 		lMandible1.rotateAngleX = MathHelper.cos(par1 * 0.1F) * 0.667F * par2;
 		rMandible1.rotateAngleX = MathHelper.cos(par1 * 0.1F) * 0.667F * par2;
 		lowerJaw1.rotateAngleX = MathHelper.sin(par1 * 0.01F) * 0.667F * par2 + 0.4F;
-		//lowerJaw1.offsetZ = MathHelper.sin(par1);
+		// lowerJaw1.offsetZ = MathHelper.sin(par1);
+	}
+
+	@Override
+	public void renderSkull(float scale) {
+		head.render(scale);
 	}
 }

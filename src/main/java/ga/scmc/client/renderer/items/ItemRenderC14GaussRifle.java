@@ -7,6 +7,7 @@ import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformT
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHandSide;
+import net.minecraftforge.event.terraingen.BiomeEvent.GetWaterColor;
 
 public class ItemRenderC14GaussRifle extends ItemRenderer {
 

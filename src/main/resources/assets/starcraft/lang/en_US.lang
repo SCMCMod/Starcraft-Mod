@@ -402,6 +402,9 @@ item.energy.void.name=Void Energy
 item.terrazine.raw.name=Raw Terrazine
 
 item.starcraftSkullItem.civilian.name=Civilian Head
+item.starcraftSkullItem.zergling_sc2.name=Zergling Head
+item.starcraftSkullItem.hydralisk.name=Hydralisk Head
+item.starcraftSkullItem.brutalisk.name=Brutalisk Head
 ######################################################################
 
 

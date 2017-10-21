@@ -12,6 +12,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemSkull;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumActionResult;
@@ -26,7 +27,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 /**
  * @author Ocelot5836
  */
-public class ItemStarcraftSkull extends Item {
+public class ItemStarcraftSkull extends ItemSkull {
 
 	public ItemStarcraftSkull() {
 		setUnlocalizedName("starcraftSkullItem");
@@ -96,13 +97,6 @@ public class ItemStarcraftSkull extends Item {
 		for (int i = 0; i < ItemEnumHandler.SkullType.values().length; ++i) {
 			subItems.add(new ItemStack(itemIn, 1, i));
 		}
-	}
-
-	/**
-	 * Converts the given ItemStack damage value into a metadata value to be placed in the world when this Item is placed as a Block (mostly used with ItemBlocks).
-	 */
-	public int getMetadata(int damage) {
-		return damage;
 	}
 
 	/**
