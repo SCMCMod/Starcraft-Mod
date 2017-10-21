@@ -24,9 +24,8 @@ public class ItemRenderFlamethrower extends ItemRenderer {
 
 		GlStateManager.pushMatrix();
 		GlStateManager.scale(scale, scale, scale);
-		GlStateManager.rotate(-20, 0, 1, 0);
-		GlStateManager.rotate(180, .13f, .04f, .8200002f);
-		GlStateManager.translate(1.9199999794363976, -9.480000011622906, 0);
+		GlStateManager.rotate(180, -.313f, .04f, .2700002f);
+		GlStateManager.translate(1.9199999794363976, -11.480000011622906, 0);
 		Minecraft.getMinecraft().renderEngine.bindTexture(getResourceLocation());
 		getModel().render(null, 0, 0, 0, 0, 0, 1);
 		GlStateManager.popMatrix();
@@ -39,14 +38,12 @@ public class ItemRenderFlamethrower extends ItemRenderer {
 
 	@Override
 	public void renderThirdPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
-		float scale = .01900059f;
+		float scale = .0250059f;
 
 		GlStateManager.pushMatrix();
 		GlStateManager.scale(scale, scale, scale);
-		GlStateManager.rotate(-190, -40, 40, -230);
-		GlStateManager.rotate(-93, 0, 0, 1);
-		GlStateManager.rotate(-90, .1999999999999993f, -.19000000000000006f, -2.209999999999997f);
-		GlStateManager.translate(1.0, -15, -30.379999999999875);
+		GlStateManager.rotate(-180, -0.5f, 0f, 0.5f);
+		GlStateManager.translate(1.0, -16, 0.0f);
 		GlStateManager.color(1, 1, 1);
 		Minecraft.getMinecraft().renderEngine.bindTexture(getResourceLocation());
 		getModel().render(null, 0, 0, 0, 0, 0, 1);
@@ -55,13 +52,13 @@ public class ItemRenderFlamethrower extends ItemRenderer {
 
 	@Override
 	public void renderInInventory(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
-		float scale = 0.020000659f;
+		float scale = .025f;
 
 		GlStateManager.pushMatrix();
 		GlStateManager.scale(scale, scale, scale);
-		GlStateManager.rotate(100, 0, 1, 0);
-		GlStateManager.rotate(190, 1.1799998f, -0.69999963f, 3.1599975f);
-		GlStateManager.translate(2.8f, -8, -3.5f);
+		GlStateManager.rotate(-50, 0, 1, 0);
+		GlStateManager.rotate(-190, 3.2799998f, .29999963f, 3.1599975f);
+		GlStateManager.translate(1, -10.090000042691827, 0.57999962940812);
 		GlStateManager.disableLighting();
 		Minecraft.getMinecraft().renderEngine.bindTexture(getResourceLocation());
 		getModel().render(null, 0, 0, 0, 0, 0, 1);
@@ -71,14 +68,14 @@ public class ItemRenderFlamethrower extends ItemRenderer {
 
 	@Override
 	public void renderInWorld(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
-		float scale = .01700059f;
+		float scale = .02500059f;
 
 		GlStateManager.pushMatrix();
 		GlStateManager.scale(scale, scale, scale);
 		GlStateManager.rotate(-90, 1, 0, 0);
 		GlStateManager.rotate(-90, 0, 0, 1);
 		GlStateManager.rotate(-90, 1, 0, 0);
-		GlStateManager.translate(.7300000462681062, -11.259999882429838, -19.649999560788274);
+		GlStateManager.translate(0, -12.259999882429838, 0);
 		GlStateManager.color(1, 1, 1);
 		Minecraft.getMinecraft().renderEngine.bindTexture(getResourceLocation());
 		getModel().render(null, 0, 0, 0, 0, 0, 1);
