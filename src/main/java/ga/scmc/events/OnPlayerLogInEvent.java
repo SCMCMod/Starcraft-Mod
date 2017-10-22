@@ -15,7 +15,7 @@ public class OnPlayerLogInEvent {
 
 		IColor color = player.getCapability(ColorProvider.COLOR, null);
 
-		String message = String.format("Hello there, your team ID is §7%d§r.", color.getColor());
+		String message = "Hello there, your team ID is " + color.getColor() + ".";
 
 		player.sendMessage(new TextComponentString(message));
 	}

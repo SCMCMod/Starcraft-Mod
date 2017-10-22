@@ -55,12 +55,10 @@ public class ItemPledge extends Item {
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn,
 			EnumHand hand) {
-		if (!playerIn.world.isRemote) {
 			IColor color = playerIn.getCapability(ColorProvider.COLOR, null);
 			color.set(itemStackIn.getItemDamage());
-			String message = String.format("Your team color is now §7%d§r.", color.getColor());
+			String message = "Your team color is now " + color.getColor() + ".";
 			playerIn.sendMessage(new TextComponentString(message));
-		}
 		return super.onItemRightClick(itemStackIn, worldIn, playerIn, hand);
 	}
 }
