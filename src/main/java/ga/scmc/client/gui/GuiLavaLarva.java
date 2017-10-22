@@ -48,7 +48,7 @@ public class GuiLavaLarva extends BasicGui {
 	}
 	
 	public void openGUI(EntityPlayer player, Object mod, int guiID, World world, int x, int y, int z, EntityLarva larva) {
-		player.openGui(Starcraft.instance, GuiHandler.LARVA_ID, world, x, y, z);
+		player.openGui(Starcraft.instance, guiID, world, x, y, z);
 		this.larva = larva;
 	}
 
