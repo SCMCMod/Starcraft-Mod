@@ -468,11 +468,6 @@ public class RenderingHandler {
 		registerItemRender(STEEL_LEGGINGS);
 		registerItemRender(STEEL_BOOTS);
 
-		registerItemRender(MARINE_HELMET);
-		registerItemRender(MARINE_CHESTPLATE);
-		registerItemRender(MARINE_LEGGINGS);
-		registerItemRender(MARINE_BOOTS);
-
 		registerItemRender(ZERG_T1_HELMET);
 		registerItemRender(ZERG_T1_CHESTPLATE);
 		registerItemRender(ZERG_T1_LEGGINGS);
