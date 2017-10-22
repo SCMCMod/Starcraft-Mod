@@ -27,29 +27,29 @@ public class ArmorHandler {
 	 * CLOTH(5, new int[]{1, 3, 2, 1}, 15), CHAIN(15, new int[]{2, 5, 4, 1}, 12), IRON(15, new int[]{2, 6, 5, 2}, 9), GOLD(7, new int[]{2, 5, 3, 1}, 25), DIAMOND(33, new int[]{3, 8, 6, 3}, 10);
 	 */
 
-	public static final ItemArmor.ArmorMaterial ADEPT_ARMOR_MATERIAL_T1 = EnumHelper.addArmorMaterial("adeptArmorMaterialT1", Library.RL_BASE + "adept_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
-	public static final ItemArmor.ArmorMaterial ADEPT_ARMOR_MATERIAL_T2 = EnumHelper.addArmorMaterial("adeptArmorMaterialT2", Library.RL_BASE + "adept_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
-	public static final ItemArmor.ArmorMaterial ADEPT_ARMOR_MATERIAL_T3 = EnumHelper.addArmorMaterial("adeptArmorMaterialT3", Library.RL_BASE + "adept_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial ADEPT_ARMOR_MATERIAL_T1 = EnumHelper.addArmorMaterial("adeptArmorMaterialT1", Library.RL_BASE + "adept_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial ADEPT_ARMOR_MATERIAL_T2 = EnumHelper.addArmorMaterial("adeptArmorMaterialT2", Library.RL_BASE + "adept_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial ADEPT_ARMOR_MATERIAL_T3 = EnumHelper.addArmorMaterial("adeptArmorMaterialT3", Library.RL_BASE + "adept_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 
-	public static final ItemArmor.ArmorMaterial COPPER_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("copperArmorMaterial", Library.RL_BASE + "copper", 11, new int[] { 2, 5, 4, 1 }, 12, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0f);
+	public static final ArmorMaterial COPPER_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("copperArmorMaterial", Library.RL_BASE + "copper", 11, new int[] { 2, 5, 4, 1 }, 12, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0f);
 
-	public static final ItemArmor.ArmorMaterial GHOST_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("ghostArmourMaterial", Library.RL_BASE + "ghost_invis", 20, new int[] { 2, 6, 4, 2 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial GHOST_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("ghostArmourMaterial", Library.RL_BASE + "ghost_invis", 20, new int[] { 2, 6, 4, 2 }, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 
-	public static final ItemArmor.ArmorMaterial KHAYDARIN_AMULET_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("khaydarinAmuletArmorMaterial", Library.RL_BASE + "khaydarin_amulet", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial KHAYDARIN_AMULET_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("khaydarinAmuletArmorMaterial", Library.RL_BASE + "khaydarin_amulet", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 
-	public static final ItemArmor.ArmorMaterial STEEL_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("steelArmorMaterial", Library.RL_BASE + "steel", 29, new int[] { 3, 7, 5, 3 }, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0f);
+	public static final ArmorMaterial STEEL_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("steelArmorMaterial", Library.RL_BASE + "steel", 29, new int[] { 3, 7, 5, 3 }, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0f);
 
-	public static final ItemArmor.ArmorMaterial TITANIUM_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("titaniumArmorMaterial", Library.RL_BASE + "titanium", 21, new int[] { 3, 6, 5, 2 }, 30, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial TITANIUM_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("titaniumArmorMaterial", Library.RL_BASE + "titanium", 21, new int[] { 3, 6, 5, 2 }, 30, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0f);
 
-	public static final ItemArmor.ArmorMaterial MARINE_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("marineArmorMaterial", Library.RL_BASE + "marine", 21, new int[] { 3, 6, 5, 2 }, 30, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0f);
+	public static final ArmorMaterial MARINE_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("marineArmorMaterial", Library.RL_BASE + "marine", 21, new int[] { 3, 6, 5, 2 }, 30, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0f);
 
-	public static final ItemArmor.ArmorMaterial ZEALOT_ARMOR_MATERIAL_T1 = EnumHelper.addArmorMaterial("zealotArmorMaterialT1", Library.RL_BASE + "zealot_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
-	public static final ItemArmor.ArmorMaterial ZEALOT_ARMOR_MATERIAL_T2 = EnumHelper.addArmorMaterial("zealotArmorMaterialT2", Library.RL_BASE + "zealot_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
-	public static final ItemArmor.ArmorMaterial ZEALOT_ARMOR_MATERIAL_T3 = EnumHelper.addArmorMaterial("zealotArmorMaterialT3", Library.RL_BASE + "zealot_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial ZEALOT_ARMOR_MATERIAL_T1 = EnumHelper.addArmorMaterial("zealotArmorMaterialT1", Library.RL_BASE + "zealot_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial ZEALOT_ARMOR_MATERIAL_T2 = EnumHelper.addArmorMaterial("zealotArmorMaterialT2", Library.RL_BASE + "zealot_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial ZEALOT_ARMOR_MATERIAL_T3 = EnumHelper.addArmorMaterial("zealotArmorMaterialT3", Library.RL_BASE + "zealot_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 
-	public static final ItemArmor.ArmorMaterial ZERG_ARMOR_MATERIAL_T1 = EnumHelper.addArmorMaterial("zergArmorMaterialT1", Library.RL_BASE + "zerg_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
-	public static final ItemArmor.ArmorMaterial ZERG_ARMOR_MATERIAL_T2 = EnumHelper.addArmorMaterial("zergArmorMaterialT2", Library.RL_BASE + "zerg_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
-	public static final ItemArmor.ArmorMaterial ZERG_ARMOR_MATERIAL_T3 = EnumHelper.addArmorMaterial("zergArmorMaterialT3", Library.RL_BASE + "zerg_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial ZERG_ARMOR_MATERIAL_T1 = EnumHelper.addArmorMaterial("zergArmorMaterialT1", Library.RL_BASE + "zerg_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial ZERG_ARMOR_MATERIAL_T2 = EnumHelper.addArmorMaterial("zergArmorMaterialT2", Library.RL_BASE + "zerg_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial ZERG_ARMOR_MATERIAL_T3 = EnumHelper.addArmorMaterial("zergArmorMaterialT3", Library.RL_BASE + "zerg_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 
 	public static Item COPPER_BOOTS;
 	public static Item COPPER_CHESTPLATE;
@@ -106,25 +106,21 @@ public class ArmorHandler {
 		MARINE_CHESTPLATE = new ItemArmor(MARINE_ARMOR_MATERIAL, 0, EntityEquipmentSlot.CHEST);
 		MARINE_LEGGINGS = new ItemArmor(MARINE_ARMOR_MATERIAL, 0, EntityEquipmentSlot.LEGS);
 		MARINE_BOOTS = new ItemArmor(MARINE_ARMOR_MATERIAL, 0, EntityEquipmentSlot.FEET);
-		initArmor(MARINE_HELMET, MARINE_CHESTPLATE, MARINE_LEGGINGS, MARINE_BOOTS, MARINE_ARMOR_MATERIAL, StarcraftCreativeTabs.TERRAN);
 
-		ZERG_T1_HELMET = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.HEAD);
-		ZERG_T1_CHESTPLATE = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.CHEST);
-		ZERG_T1_LEGGINGS = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.LEGS);
-		ZERG_T1_BOOTS = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.FEET);
-		initArmor(ZERG_T1_HELMET, ZERG_T1_CHESTPLATE, ZERG_T1_LEGGINGS, ZERG_T1_BOOTS, ZERG_ARMOR_MATERIAL_T1, StarcraftCreativeTabs.ZERG);
+		ZERG_T1_HELMET = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("zergHelmetT1").setRegistryName("zerg_helmet_t1").setCreativeTab(StarcraftCreativeTabs.ZERG);
+		ZERG_T1_CHESTPLATE = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.CHEST).setUnlocalizedName("zergChestplateT1").setRegistryName("zerg_chestplate_t1").setCreativeTab(StarcraftCreativeTabs.ZERG);
+		ZERG_T1_LEGGINGS = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.LEGS).setUnlocalizedName("zergLeggingsT1").setRegistryName("zerg_leggings_t1").setCreativeTab(StarcraftCreativeTabs.ZERG);
+		ZERG_T1_BOOTS = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.FEET).setUnlocalizedName("zergBootsT1").setRegistryName("zerg_boots_t1").setCreativeTab(StarcraftCreativeTabs.ZERG);
 
-		ZERG_T2_HELMET = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.HEAD);
-		ZERG_T2_CHESTPLATE = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.CHEST);
-		ZERG_T2_LEGGINGS = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.LEGS);
-		ZERG_T2_BOOTS = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.FEET);
-		initArmor(ZERG_T2_HELMET, ZERG_T2_CHESTPLATE, ZERG_T2_LEGGINGS, ZERG_T2_BOOTS, ZERG_ARMOR_MATERIAL_T2, StarcraftCreativeTabs.ZERG);
+		ZERG_T2_HELMET = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("zergHelmetT2").setRegistryName("zerg_helmet_t2").setCreativeTab(StarcraftCreativeTabs.ZERG);
+		ZERG_T2_CHESTPLATE = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.CHEST).setUnlocalizedName("zergChestplateT2").setRegistryName("zerg_chestplate_t2").setCreativeTab(StarcraftCreativeTabs.ZERG);
+		ZERG_T2_LEGGINGS = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.LEGS).setUnlocalizedName("zergLeggingsT2").setRegistryName("zerg_leggings_t2").setCreativeTab(StarcraftCreativeTabs.ZERG);
+		ZERG_T2_BOOTS = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.FEET).setUnlocalizedName("zergBootsT2").setRegistryName("zerg_boots_t2").setCreativeTab(StarcraftCreativeTabs.ZERG);
 
-		ZERG_T3_HELMET = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.HEAD);
-		ZERG_T3_CHESTPLATE = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.CHEST);
-		ZERG_T3_LEGGINGS = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.LEGS);
-		ZERG_T3_BOOTS = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.FEET);
-		initArmor(ZERG_T3_HELMET, ZERG_T3_CHESTPLATE, ZERG_T3_LEGGINGS, ZERG_T3_BOOTS, ZERG_ARMOR_MATERIAL_T3, StarcraftCreativeTabs.ZERG);
+		ZERG_T3_HELMET = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("zergHelmetT3").setRegistryName("zerg_helmet_t3").setCreativeTab(StarcraftCreativeTabs.ZERG);
+		ZERG_T3_CHESTPLATE = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.CHEST).setUnlocalizedName("zergChestplateT3").setRegistryName("zerg_chestplate_t3").setCreativeTab(StarcraftCreativeTabs.ZERG);
+		ZERG_T3_LEGGINGS = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.LEGS).setUnlocalizedName("zergLeggingsT3").setRegistryName("zerg_leggings_t3").setCreativeTab(StarcraftCreativeTabs.ZERG);
+		ZERG_T3_BOOTS = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.FEET).setUnlocalizedName("zergBootsT3").setRegistryName("zerg_boots_t3").setCreativeTab(StarcraftCreativeTabs.ZERG);
 	}
 
 	public static void register() {
@@ -144,10 +140,10 @@ public class ArmorHandler {
 		registerItem(STEEL_LEGGINGS);
 		registerItem(STEEL_BOOTS);
 
-		registerItem(MARINE_HELMET);
-		registerItem(MARINE_CHESTPLATE);
-		registerItem(MARINE_LEGGINGS);
-		registerItem(MARINE_BOOTS);
+		//registerItem(MARINE_HELMET);
+		//registerItem(MARINE_CHESTPLATE);
+	//	registerItem(MARINE_LEGGINGS);
+		//registerItem(MARINE_BOOTS);
 
 		registerItem(ZERG_T1_HELMET);
 		registerItem(ZERG_T1_CHESTPLATE);
@@ -163,13 +159,6 @@ public class ArmorHandler {
 		registerItem(ZERG_T3_CHESTPLATE);
 		registerItem(ZERG_T3_LEGGINGS);
 		registerItem(ZERG_T3_BOOTS);
-	}
-
-	private static void initArmor(Item helmet, Item chestplate, Item leggings, Item boots, ArmorMaterial material, CreativeTabs tab) {
-		helmet.setUnlocalizedName(material.getName().substring(Library.RL_BASE.length()) + "Helmet").setRegistryName(material.getName().substring(Library.RL_BASE.length()) + "_helmet").setCreativeTab(tab);
-		chestplate.setUnlocalizedName(material.getName().substring(Library.RL_BASE.length()) + "Chestplate").setRegistryName(material.getName().substring(Library.RL_BASE.length()) + "_chestplate").setCreativeTab(tab);
-		leggings.setUnlocalizedName(material.getName().substring(Library.RL_BASE.length()) + "Leggings").setRegistryName(material.getName().substring(Library.RL_BASE.length()) + "_leggings").setCreativeTab(tab);
-		boots.setUnlocalizedName(material.getName().substring(Library.RL_BASE.length()) + "Boots").setRegistryName(material.getName().substring(Library.RL_BASE.length()) + "_boots").setCreativeTab(tab);
 	}
 
 	private static void registerItem(Item item) {
