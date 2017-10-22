@@ -22,46 +22,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockDimPortalShakuras extends Block {
+public class BlockDimPortalShakuras extends BlockDimPortal {
 
 	private int dim = ConfigurationHandler.INT_DIMENSION_SHAKURAS;
 
 	public BlockDimPortalShakuras() {
-		super(Material.PORTAL, MapColor.BLACK);
-		setLightLevel(1.0F);
-		setBlockUnbreakable();
 		setUnlocalizedName("shakurasDimPortal");
 		setRegistryName("shakuras_dim_portal");
-		setCreativeTab(StarcraftCreativeTabs.MISC);
-	}
-
-	@Override
-	public EnumBlockRenderType getRenderType(IBlockState state) {
-		return EnumBlockRenderType.INVISIBLE;
-	}
-
-	@Override
-	public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn) {
-	}
-
-	@Override
-	public boolean canSilkHarvest(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
-		return false;
-	}
-
-	@Override
-	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		return null;
-	}
-
-	@Override
-	public MapColor getMapColor(IBlockState state) {
-		return MapColor.OBSIDIAN;
-	}
-
-	@Override
-	public boolean isNormalCube(IBlockState state, IBlockAccess world, BlockPos pos) {
-		return false;
 	}
 
 	/**
