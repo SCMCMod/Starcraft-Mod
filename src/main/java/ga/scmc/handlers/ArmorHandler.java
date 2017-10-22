@@ -4,7 +4,6 @@ import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.items.armor.ArmorZergArmorT1;
 import ga.scmc.lib.Library;
 import ga.scmc.lib.LogHelper;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;

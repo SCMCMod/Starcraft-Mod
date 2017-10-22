@@ -2,7 +2,6 @@ package ga.scmc.worldgen.dimkorhal;
 
 import java.util.Random;
 
-import ga.scmc.handlers.BlockHandler;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;

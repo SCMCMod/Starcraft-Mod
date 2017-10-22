@@ -3,8 +3,6 @@ package ga.scmc.client.gui.element;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.lwjgl.util.vector.Vector2f;
-
 /**
  * This class is an option for the lava larva GUI.
  * 

@@ -1,7 +1,5 @@
 package ga.scmc.debugging;
 
-import ga.scmc.enums.TeamColors;
-
 /**
  * 
  * Mana capability

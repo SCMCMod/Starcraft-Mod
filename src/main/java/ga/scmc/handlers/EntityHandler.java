@@ -1,7 +1,6 @@
 package ga.scmc.handlers;
 
 import ga.scmc.Starcraft;
-import ga.scmc.client.renderer.tileentity.RendererStarcraftSkull;
 import ga.scmc.entity.living.EntityAdept;
 import ga.scmc.entity.living.EntityBroodling;
 import ga.scmc.entity.living.EntityBrutalisk;
@@ -43,14 +42,9 @@ import ga.scmc.tileentity.TileEntityMovingLightSource;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
 import ga.scmc.tileentity.TileEntityTest;
 import ga.scmc.tileentity.TileEntityWarpGateWormhole;
-import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Biomes;
-import net.minecraft.item.Item;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 

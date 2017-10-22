@@ -1,7 +1,5 @@
 package ga.scmc.handlers;
 
-import org.lwjgl.util.vector.Vector3f;
-
 import net.minecraft.util.IStringSerializable;
 
 /***

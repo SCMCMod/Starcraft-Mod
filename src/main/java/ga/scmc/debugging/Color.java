@@ -1,7 +1,5 @@
 package ga.scmc.debugging;
 
-import ga.scmc.enums.TeamColors;
-
 /**
  * 
  * Default implementation of IMana
