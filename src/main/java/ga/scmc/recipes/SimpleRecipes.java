@@ -167,6 +167,27 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.STEEL_LEGGINGS), "SSS", "S S", "S S", 'S', new ItemStack(ItemHandler.INGOT, 1, ItemEnumHandler.IngotType.STEEL.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.STEEL_BOOTS), "   ", "S S", "S S", 'S', new ItemStack(ItemHandler.INGOT, 1, ItemEnumHandler.IngotType.STEEL.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.STEEL_BOOTS), "S S", "S S", "  ", 'S', new ItemStack(ItemHandler.INGOT, 1, ItemEnumHandler.IngotType.STEEL.getID()));
+		
+		// T1 zerg armorset
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T1_HELMET), "CCC", "C C", "   ", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, ItemEnumHandler.CarapaceType.T1.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T1_CHESTPLATE), "C C", "CCC", "CCC", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, ItemEnumHandler.CarapaceType.T1.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T1_LEGGINGS), "CCC", "C C", "C C", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, ItemEnumHandler.CarapaceType.T1.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T1_BOOTS), "   ", "C C", "C C", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, ItemEnumHandler.CarapaceType.T1.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T1_BOOTS), "C C", "C C", "  ", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, ItemEnumHandler.CarapaceType.T1.getID()));
+		
+		// T2 zerg armorset
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T2_HELMET), "CCC", "C C", "   ", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, ItemEnumHandler.CarapaceType.T2.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T2_CHESTPLATE), "C C", "CCC", "CCC", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, ItemEnumHandler.CarapaceType.T2.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T2_LEGGINGS), "CCC", "C C", "C C", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, ItemEnumHandler.CarapaceType.T2.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T2_BOOTS), "   ", "C C", "C C", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, ItemEnumHandler.CarapaceType.T2.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T2_BOOTS), "C C", "C C", "  ", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, ItemEnumHandler.CarapaceType.T2.getID()));
+		
+		// T3 zerg armorset
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T3_HELMET), "CCC", "C C", "   ", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, ItemEnumHandler.CarapaceType.T3.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T3_CHESTPLATE), "C C", "CCC", "CCC", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, ItemEnumHandler.CarapaceType.T3.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T3_LEGGINGS), "CCC", "C C", "C C", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, ItemEnumHandler.CarapaceType.T3.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T3_BOOTS), "   ", "C C", "C C", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, ItemEnumHandler.CarapaceType.T3.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T3_BOOTS), "C C", "C C", "  ", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, ItemEnumHandler.CarapaceType.T3.getID()));
 
 		// Removed these recipes because we can simply use ore dictionary instead and it works better @Ocelot5836
 		// // Cobblestone tools from Char cobblestone
