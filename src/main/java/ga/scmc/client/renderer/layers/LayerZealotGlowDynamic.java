@@ -47,6 +47,7 @@ public class LayerZealotGlowDynamic<T extends EntityZealot> implements LayerRend
 		this.RENDERER.setLightmap(entitylivingbaseIn, partialTicks);
 		GlStateManager.disableBlend();
 		GlStateManager.enableAlpha();
+		GlStateManager.resetColor();
 	}
 
 	@Override
