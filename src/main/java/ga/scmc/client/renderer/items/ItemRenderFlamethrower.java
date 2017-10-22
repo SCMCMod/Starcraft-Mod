@@ -91,6 +91,7 @@ public class ItemRenderFlamethrower extends ItemRenderer {
 		GlStateManager.rotate(-90, 1, 0, 0);
 		GlStateManager.rotate(-90, 0, 0, 1);
 		GlStateManager.rotate(-90, 1, 0, 0);
+		GlStateManager.rotate(90, 0, 1, 0);
 		GlStateManager.translate(0, -12.259999882429838, 0);
 		GlStateManager.color(1, 1, 1);
 		Minecraft.getMinecraft().renderEngine.bindTexture(getResourceLocation());

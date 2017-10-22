@@ -102,7 +102,7 @@ public class EntityLarva extends EntityZergPassive {
 
 		if (!flag && this.isEntityAlive() && !this.isChild() && !player.isSneaking()) {
 			if (this.world.isRemote) {
-				GuiLavaLarva.instance.createGui(Starcraft.instance, GuiHandler.SHOP_ID, world, player, (int) player.posX, (int) player.posY, (int) player.posZ, this);
+				player.openGui(Starcraft.instance, GuiHandler.SHOP_ID, world, (int) player.posX, (int) player.posY, (int) player.posZ);
 			}
 			return true;
 		} else {

@@ -2,6 +2,7 @@ package ga.scmc.client.gui;
 
 import com.google.common.collect.ImmutableList;
 
+import ga.scmc.client.gui.element.LarvaOption;
 import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.BlockEnumHandler.NeosteelMetalType;
 import ga.scmc.handlers.BlockEnumHandler.ParisteelMetalType;
@@ -13,9 +14,10 @@ import ga.scmc.handlers.WeaponHandler;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
-public class ItemShopItems {
+public class GuiStuff {
 
 	public static final ImmutableList<Product>[] TRADES;
+	public static final ImmutableList<LarvaOption> LARVA_OPTIONS;
 
 	static {
 		TRADES = new ImmutableList[10];
@@ -70,10 +72,6 @@ public class ItemShopItems {
 		tab4.add(new Product(new ItemStack(ArmorHandler.STEEL_CHESTPLATE, 1, 0), 8, 0));
 		tab4.add(new Product(new ItemStack(ArmorHandler.STEEL_LEGGINGS, 1, 0), 7, 0));
 		tab4.add(new Product(new ItemStack(ArmorHandler.STEEL_BOOTS, 1, 0), 5, 0));
-		tab4.add(new Product(new ItemStack(ArmorHandler.MARINE_HELMET, 1, 0), 16, 8));
-		tab4.add(new Product(new ItemStack(ArmorHandler.MARINE_CHESTPLATE, 1, 0), 16, 8));
-		tab4.add(new Product(new ItemStack(ArmorHandler.MARINE_LEGGINGS, 1, 0), 16, 8));
-		tab4.add(new Product(new ItemStack(ArmorHandler.MARINE_BOOTS, 1, 0), 16, 8));
 		TRADES[4] = tab4.build();
 
 		ImmutableList.Builder<Product> tab5 = ImmutableList.builder();
@@ -90,6 +88,17 @@ public class ItemShopItems {
 		tab5.add(new Product(new ItemStack(ToolHandler.STEEL_SHOVEL, 1, 0), 12, 2));
 		tab5.add(new Product(new ItemStack(ToolHandler.STEEL_HOE, 1, 0), 12, 2));
 		TRADES[5] = tab5.build();
+
+		ImmutableList.Builder<LarvaOption> larvaOptions = ImmutableList.builder();
+		larvaOptions.add(new LarvaOption(0).setTooltip("Drone,Testing", ","));
+		larvaOptions.add(new LarvaOption(1).setTooltip("Overlord,Testing2", ","));
+		larvaOptions.add(new LarvaOption(2).setTooltip("Zergling,Testing3", ","));
+		larvaOptions.add(new LarvaOption(3).setTooltip("Roach,Testing4", ","));
+		larvaOptions.add(new LarvaOption(4).setTooltip("Hydralisk,Testing5", ","));
+		larvaOptions.add(new LarvaOption(5).setTooltip("Investor,Testing6", ","));
+		larvaOptions.add(new LarvaOption(6).setTooltip("Swarm Host,Testing6", ","));
+		larvaOptions.add(new LarvaOption(7).setTooltip("Mutalisk,Testing6", ","));
+		LARVA_OPTIONS = larvaOptions.build();
 	}
 
 	public static class Product {

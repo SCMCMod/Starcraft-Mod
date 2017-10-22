@@ -51,7 +51,7 @@ public abstract class EntityStarcraftPassive extends EntityTameable {
 	
 	public TeamColors getTeamColor() {
 		for(TeamColors color: TeamColors.values()) {
-			if(color.ID == this.getNBTColor()) {
+			if(color.getId() == this.getNBTColor()) {
 				return color;
 			}
 		}
@@ -60,7 +60,7 @@ public abstract class EntityStarcraftPassive extends EntityTameable {
 	
 	public void setTeamColor(TeamColors team) {
 		this.teamColor = team;
-		this.setNBTColor(team.ID);
+		this.setNBTColor(team.getId());
 	}
 	
 	public void setTypes(TypeAttributes ... types) {

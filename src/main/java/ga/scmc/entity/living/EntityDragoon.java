@@ -42,7 +42,7 @@ public class EntityDragoon extends EntityProtossMob implements IMob, IRangedAtta
 		super(world);
 		setSize(3.0F, 3.0F);
 		experienceValue = 60;
-		this.setTeamColor(TeamColors.LIGHTBLUE);
+		this.setTeamColor(TeamColors.LIGHT_BLUE);
 		this.setFactions(FactionTypes.DAELAAM);
 		setTypes(TypeAttributes.ARMORED, TypeAttributes.MECHANICAL, TypeAttributes.GROUND);
 		tasks.addTask(1, new EntityAIAttackRanged(this, 1.0D, 17, 16.0F));

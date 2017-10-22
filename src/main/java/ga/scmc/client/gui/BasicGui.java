@@ -76,14 +76,24 @@ public class BasicGui extends GuiScreen {
 			this.mc.player.closeScreen();
 		}
 	}
-	
+
 	public void drawTooltip(List<String> lines, int posX, int posY, int width, int height, int mouseX, int mouseY) {
+		if (lines == null) {
+			drawHoveringText(new ArrayList<String>(), mouseX, mouseY);
+			return;
+		}
+		
 		if (mouseX >= posX && mouseX <= (posX + width) && mouseY >= posY && mouseY < (posY + height)) {
 			drawHoveringText(lines, mouseX, mouseY);
 		}
 	}
 
 	public void drawTooltip(String line, float posX, float posY, float width, float height, int mouseX, int mouseY) {
+		if (line == null) {
+			drawHoveringText(new ArrayList<String>(), mouseX, mouseY);
+			return;
+		}
+		
 		if (mouseX >= posX && mouseX <= (posX + width) && mouseY >= posY && mouseY < (posY + height)) {
 			List<String> lines = new ArrayList<String>();
 			lines.add(line);
