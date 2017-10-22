@@ -126,7 +126,19 @@ public class ItemRenderC14GaussRifle extends ItemRenderer {
 	
 	@Override
 	public void renderFixed(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
-		super.renderFixed(itemstack, entity, cameraTransformType);
+		float scale = .01750059f;
+
+		GlStateManager.pushMatrix();
+		GlStateManager.scale(scale, scale, scale);
+		GlStateManager.rotate(-90, 1, 0, 0);
+		GlStateManager.rotate(-90, 0, 0, 1);
+		GlStateManager.rotate(-90, 1, 0, 0);
+		GlStateManager.rotate(0, 0, 1, 0);
+		GlStateManager.translate(0, -8.259999882429838, -20);
+		GlStateManager.color(1, 1, 1);
+		Minecraft.getMinecraft().renderEngine.bindTexture(getResourceLocation());
+		getModel().render(null, 0, 0, 0, 0, 0, 1);
+		GlStateManager.popMatrix();
 	}
 
 	public boolean isAiming() {

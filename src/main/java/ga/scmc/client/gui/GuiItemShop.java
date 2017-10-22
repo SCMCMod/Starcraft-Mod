@@ -155,8 +155,8 @@ public class GuiItemShop extends GuiScreen {
 		for (int i = 0; i < 7; i++) {
 			for (int j = 0; j < 4; j++) {
 				int index = 4 * i + j;
-				if (index < ItemShopItems.TRADES[tab].size()) {
-					if (index != selectedIndex && (InventoryUtil.getItemAmount(customer, MINERAL) < ItemShopItems.TRADES[tab].get(index).getMineralCost() || InventoryUtil.getItemAmount(customer, VESPENE.getItem()) < ItemShopItems.TRADES[tab].get(index).getVespeneCost())) {
+				if (index < GuiStuff.TRADES[tab].size()) {
+					if (index != selectedIndex && (InventoryUtil.getItemAmount(customer, MINERAL) < GuiStuff.TRADES[tab].get(index).getMineralCost() || InventoryUtil.getItemAmount(customer, VESPENE.getItem()) < GuiStuff.TRADES[tab].get(index).getVespeneCost())) {
 						int selectedX = index % 4;
 						int selectedY = index / 4;
 						GlStateManager.color(0.1F, 0.1F, 0.1F, 0.1F);
@@ -164,8 +164,8 @@ public class GuiItemShop extends GuiScreen {
 						int yOffset = 25;
 						drawRect(xOffset + selectedX * 18, yOffset + selectedY * 22, xOffset + (selectedX * 18) + 16, yOffset + (selectedY * 22) + 16, NO_FUNDS_COLOR);
 					}
-					Minecraft.getMinecraft().getRenderItem().renderItemAndEffectIntoGUI(ItemShopItems.TRADES[tab].get(index).getStack(), 25 + j * 18, 25 + i * 22);
-					Minecraft.getMinecraft().getRenderItem().renderItemOverlays(mc.fontRendererObj, ItemShopItems.TRADES[tab].get(index).getStack(), 25 + j * 18, 25 + i * 22);
+					Minecraft.getMinecraft().getRenderItem().renderItemAndEffectIntoGUI(GuiStuff.TRADES[tab].get(index).getStack(), 25 + j * 18, 25 + i * 22);
+					Minecraft.getMinecraft().getRenderItem().renderItemOverlays(mc.fontRendererObj, GuiStuff.TRADES[tab].get(index).getStack(), 25 + j * 18, 25 + i * 22);
 				}
 			}
 		}
@@ -197,11 +197,11 @@ public class GuiItemShop extends GuiScreen {
 		for (int i = 0; i < 7; i++) {
 			for (int j = 0; j < 4; j++) {
 				int index = 4 * i + j;
-				if (index < ItemShopItems.TRADES[tab].size()) {
-					List<String> tooltip = ItemShopItems.TRADES[tab].get(index).getStack().getTooltip(customer, this.mc.gameSettings.advancedItemTooltips);
+				if (index < GuiStuff.TRADES[tab].size()) {
+					List<String> tooltip = GuiStuff.TRADES[tab].get(index).getStack().getTooltip(customer, this.mc.gameSettings.advancedItemTooltips);
 					tooltip.add("");
-					tooltip.add(TextFormatting.GRAY + I18n.format("gui.item_shop.tooltip.mineral_cost", ItemShopItems.TRADES[tab].get(index).getMineralCost()));
-					tooltip.add(TextFormatting.GRAY + I18n.format("gui.item_shop.tooltip.vespene_cost", ItemShopItems.TRADES[tab].get(index).getVespeneCost()));
+					tooltip.add(TextFormatting.GRAY + I18n.format("gui.item_shop.tooltip.mineral_cost", GuiStuff.TRADES[tab].get(index).getMineralCost()));
+					tooltip.add(TextFormatting.GRAY + I18n.format("gui.item_shop.tooltip.vespene_cost", GuiStuff.TRADES[tab].get(index).getVespeneCost()));
 					drawTooltip(tooltip, guiLeft + 25 + j * 18, guiTop + 25 + i * 22, 16, 16, mouseX, mouseY);
 				}
 			}
@@ -237,7 +237,7 @@ public class GuiItemShop extends GuiScreen {
 			for (int y = 0; y < 7; y++) {
 				for (int x = 0; x < 4; x++) {
 					int index = 4 * y + x;
-					if (index < ItemShopItems.TRADES[tab].size()) {
+					if (index < GuiStuff.TRADES[tab].size()) {
 						if (GuiUtils.isMouseInside(guiLeft + 25 + x * 18, guiTop + 25 + y * 22, 16, 16, mouseX, mouseY)) {
 							this.selectedIndex = index;
 							GuiUtils.playButtonClick();
@@ -255,7 +255,7 @@ public class GuiItemShop extends GuiScreen {
 
 	@Override
 	public void updateScreen() {
-		if (selectedIndex == -1 || InventoryUtil.getItemAmount(customer, MINERAL) < ItemShopItems.TRADES[tab].get(selectedIndex).getMineralCost() || InventoryUtil.getItemAmount(customer, VESPENE.getItem()) < ItemShopItems.TRADES[tab].get(selectedIndex).getVespeneCost()) {
+		if (selectedIndex == -1 || InventoryUtil.getItemAmount(customer, MINERAL) < GuiStuff.TRADES[tab].get(selectedIndex).getMineralCost() || InventoryUtil.getItemAmount(customer, VESPENE.getItem()) < GuiStuff.TRADES[tab].get(selectedIndex).getVespeneCost()) {
 			buttonBuy.enabled = false;
 		} else {
 			buttonBuy.enabled = true;
@@ -276,10 +276,10 @@ public class GuiItemShop extends GuiScreen {
 	protected void actionPerformed(GuiButton button) throws IOException {
 		switch (button.id) {
 		case BUTTON_BUY:
-			if (selectedIndex != -1 && InventoryUtil.getItemAmount(customer, MINERAL) >= ItemShopItems.TRADES[tab].get(selectedIndex).getMineralCost() && InventoryUtil.getItemAmount(customer, VESPENE.getItem()) >= ItemShopItems.TRADES[tab].get(selectedIndex).getVespeneCost()) {
-				NetworkHandler.sendToServer(new MessageSpawnItem(ItemShopItems.TRADES[tab].get(selectedIndex).getStack()));
-				InventoryUtil.removeItemWithAmount(customer, MINERAL.getItem(), ItemShopItems.TRADES[tab].get(selectedIndex).getMineralCost());
-				InventoryUtil.removeItemWithAmount(customer, VESPENE.getItem(), ItemShopItems.TRADES[tab].get(selectedIndex).getVespeneCost());
+			if (selectedIndex != -1 && InventoryUtil.getItemAmount(customer, MINERAL) >= GuiStuff.TRADES[tab].get(selectedIndex).getMineralCost() && InventoryUtil.getItemAmount(customer, VESPENE.getItem()) >= GuiStuff.TRADES[tab].get(selectedIndex).getVespeneCost()) {
+				NetworkHandler.sendToServer(new MessageSpawnItem(GuiStuff.TRADES[tab].get(selectedIndex).getStack()));
+				InventoryUtil.removeItemWithAmount(customer, MINERAL.getItem(), GuiStuff.TRADES[tab].get(selectedIndex).getMineralCost());
+				InventoryUtil.removeItemWithAmount(customer, VESPENE.getItem(), GuiStuff.TRADES[tab].get(selectedIndex).getVespeneCost());
 			}
 			break;
 		}

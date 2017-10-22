@@ -1,10 +1,13 @@
 package ga.scmc.entity.projectiles;
 
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -67,11 +70,15 @@ public class EntityFlamethrowerFlame extends EntityThrowable {
 			if (result.getBlockPos() != null) {
 				for (int x = -getFireSize() / 2; x < getFireSize(); x++) {
 					for (int z = -getFireSize() / 2; z < getFireSize(); z++) {
-						if (world.getBlockState(new BlockPos(result.getBlockPos().getX() + x, result.getBlockPos().up().getY(), result.getBlockPos().getZ() + z)) == Blocks.AIR.getDefaultState()) {
-							world.setBlockState(new BlockPos(result.getBlockPos().getX() + x, result.getBlockPos().up().getY(), result.getBlockPos().getZ() + z), Blocks.FIRE.getDefaultState());
+						BlockPos pos = new BlockPos(result.getBlockPos().getX() + x, result.getBlockPos().up().getY(), result.getBlockPos().getZ() + z);
+						pos = pos.offset(result.sideHit);
+						if (world.isAirBlock(pos)) {
+							world.playSound((EntityPlayer) null, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F, 0.8F);
+							world.setBlockState(pos, Blocks.FIRE.getDefaultState(), 11);
 						}
 					}
 				}
+				setDead();
 			}
 		}
 	}

@@ -4,12 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import ga.scmc.debugging.ColorProvider;
-import ga.scmc.debugging.IColor;
 import ga.scmc.enums.FactionTypes;
 import ga.scmc.enums.TeamColors;
 import ga.scmc.enums.TypeAttributes;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -24,72 +21,72 @@ import net.minecraft.world.World;
 public abstract class EntityStarcraftMob extends EntityMob {
 
 	private static final DataParameter<Integer> COLOR = EntityDataManager.createKey(EntityStarcraftMob.class, DataSerializers.VARINT);
-	
+
 	List<TypeAttributes> types = new ArrayList<TypeAttributes>(15);
 	List<FactionTypes> factions = new ArrayList<FactionTypes>(15);
 	TeamColors teamColor;
 	HashMap<TypeAttributes, Double> bonusDamage = new HashMap<TypeAttributes, Double>();
-	
+
 	public EntityStarcraftMob(World world) {
 		super(world);
 	}
-	
+
 	public boolean isType(TypeAttributes type) {
-		for(int x = 0; x < types.size(); x++) {
-			if(this.types.get(x) == type) {
+		for (int x = 0; x < types.size(); x++) {
+			if (this.types.get(x) == type) {
 				return true;
 			}
 		}
 		return false;
 	}
-	
+
 	public boolean isFaction(FactionTypes faction) {
-		for(int x = 0; x < factions.size(); x++) {
-			if(this.factions.get(x) == faction) {
+		for (int x = 0; x < factions.size(); x++) {
+			if (this.factions.get(x) == faction) {
 				return true;
 			}
 		}
 		return false;
 	}
-	
+
 	public TeamColors getTeamColor() {
-		for(TeamColors color: TeamColors.values()) {
-			if(color.ID == this.getNBTColor()) {
+		for (TeamColors color : TeamColors.values()) {
+			if (color.getId() == this.getNBTColor()) {
 				return color;
 			}
 		}
 		return null;
 	}
-	
+
 	public void setTeamColor(TeamColors team) {
 		this.teamColor = team;
-		this.setNBTColor(team.ID);
+		this.setNBTColor(team.getId());
 	}
-	
-	public void setTypes(TypeAttributes ... types) {
-		for(int x = 0; x < types.length; x++) {
+
+	public void setTypes(TypeAttributes... types) {
+		for (int x = 0; x < types.length; x++) {
 			this.types.add(x, types[x]);
 		}
 	}
-	
-	public void setFactions(FactionTypes ... types) {
-		for(int x = 0; x < types.length; x++) {
+
+	public void setFactions(FactionTypes... types) {
+		for (int x = 0; x < types.length; x++) {
 			this.factions.add(x, types[x]);
 		}
 	}
-	
+
 	public void setDamageAgainstType(TypeAttributes type, double dmg) {
 		bonusDamage.put(type, dmg);
 	}
-	
+
 	public double getDamageAgainstType(TypeAttributes type) {
 		return bonusDamage.get(type);
 	}
-	
+
 	@Override
 	protected void entityInit() {
 		super.entityInit();
-		
+
 		this.getDataManager().register(COLOR, 0);
 	}
 
@@ -114,7 +111,7 @@ public abstract class EntityStarcraftMob extends EntityMob {
 	public void setNBTColor(int colornum) {
 		this.getDataManager().set(COLOR, colornum);
 	}
-	
+
 	@Override
 	protected boolean processInteract(EntityPlayer player, EnumHand hand, ItemStack stack) {
 		ItemStack heldItem = player.getHeldItem(hand);
@@ -125,20 +122,6 @@ public abstract class EntityStarcraftMob extends EntityMob {
 			return true;
 		} else {
 			return super.processInteract(player, hand, stack);
-		}
-	}
-	
-	@Override
-	public void setAttackTarget(EntityLivingBase entitylivingbaseIn) {
-		if(entitylivingbaseIn instanceof EntityPlayer) {
-			IColor color = ((EntityPlayer) entitylivingbaseIn).getCapability(ColorProvider.COLOR, null);
-			if(color.getColor() == this.getTeamColor().getId()) {
-				//Do nothing
-			}else {
-				super.setAttackTarget(entitylivingbaseIn);
-			}
-		}else {
-			super.setAttackTarget(entitylivingbaseIn);
 		}
 	}
 }

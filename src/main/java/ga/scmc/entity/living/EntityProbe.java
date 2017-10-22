@@ -33,7 +33,7 @@ public class EntityProbe extends EntityProtossPassive {
 	public EntityProbe(World world) {
 		super(world);
 		setSize(1.0F, 1.5F);
-		this.setTeamColor(TeamColors.LIGHTBLUE);
+		this.setTeamColor(TeamColors.LIGHT_BLUE);
 		this.setFactions(FactionTypes.DAELAAM);
 		setTypes(TypeAttributes.LIGHT, TypeAttributes.MECHANICAL, TypeAttributes.GROUND);
 		tasks.addTask(0, new EntityAISwimming(this));

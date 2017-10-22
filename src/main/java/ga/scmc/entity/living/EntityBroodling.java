@@ -26,15 +26,24 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityBroodling extends EntityZergMob implements IMob, Predicate<EntityLivingBase>{
+public class EntityBroodling extends EntityZergMob implements IMob, Predicate<EntityLivingBase> {
 
 	public EntityBroodling(World world) {
+		this(world, TeamColors.PURPLE);
+	}
+
+	public EntityBroodling(World world, TeamColors color) {
 		super(world);
 		setSize(1.0F, 0.5F);
 		experienceValue = 20;
-		this.setTeamColor(TeamColors.PURPLE);
+		this.setTeamColor(color);
 		this.setFactions(FactionTypes.SWARM);
 		setTypes(TypeAttributes.LIGHT, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
+	}
+
+	@Override
+	protected void initEntityAI() {
+		super.initEntityAI();
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
 		tasks.addTask(2, new EntityAIWander(this, 1.0D));
@@ -43,52 +52,52 @@ public class EntityBroodling extends EntityZergMob implements IMob, Predicate<En
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, false, false, this));
 	}
-	
+
 	@Override
 	public boolean apply(EntityLivingBase entity) {
-		if(!entity.isInvisible()) {
-			if(entity instanceof EntityStarcraftMob) {
-				if(entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if(!((EntityStarcraftMob) entity).isFaction(FactionTypes.SWARM)) {
-						if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+		if (!entity.isInvisible()) {
+			if (entity instanceof EntityStarcraftMob) {
+				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
+					if (!((EntityStarcraftMob) entity).isFaction(FactionTypes.SWARM)) {
+						if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
-						}else {
+						} else {
 							return false;
 						}
-					}else if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+					} else if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityStarcraftPassive) {
-				if(entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if(!((EntityStarcraftPassive) entity).isFaction(FactionTypes.SWARM)) {
-						if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
+			} else if (entity instanceof EntityStarcraftPassive) {
+				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
+					if (!((EntityStarcraftPassive) entity).isFaction(FactionTypes.SWARM)) {
+						if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
-						}else {
+						} else {
 							return false;
 						}
-					}else if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
+					} else if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityPlayer) {
+			} else if (entity instanceof EntityPlayer) {
 				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
-				if(color.getColor() == this.getTeamColor().getId()) {
+				if (color.getColor() == this.getTeamColor().getId()) {
 					return false;
-				}else {
+				} else {
 					return true;
 				}
 			} else {
 				return true;
 			}
-		}else if(entity.isInvisible() && this.isType(TypeAttributes.DETECTOR)){
+		} else if (entity.isInvisible() && this.isType(TypeAttributes.DETECTOR)) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 		return false;
 	}
-	
+
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
@@ -102,7 +111,7 @@ public class EntityBroodling extends EntityZergMob implements IMob, Predicate<En
 	public SoundEvent getAmbientSound() {
 		return SoundHandler.ENTITY_BROODLING_LIVE1;
 	}
-	
+
 	@Override
 	public SoundEvent getDeathSound() {
 		return SoundHandler.ENTITY_BROODLING_DEATH;
@@ -117,15 +126,15 @@ public class EntityBroodling extends EntityZergMob implements IMob, Predicate<En
 	public int getTalkInterval() {
 		return 160;
 	}
-	
+
 	@Override
 	public void onLivingUpdate() {
-		if(this.ticksExisted > 160) {
+		if (this.ticksExisted > 160) {
 			this.kill();
 		}
 		super.onLivingUpdate();
 	}
-	
+
 	@Override
 	protected void findBiomass() {
 		;
