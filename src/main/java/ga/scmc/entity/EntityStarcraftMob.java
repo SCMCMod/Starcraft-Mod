@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import ga.scmc.debugging.ColorProvider;
+import ga.scmc.debugging.IColor;
 import ga.scmc.enums.FactionTypes;
 import ga.scmc.enums.TeamColors;
 import ga.scmc.enums.TypeAttributes;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -122,6 +125,20 @@ public abstract class EntityStarcraftMob extends EntityMob {
 			return true;
 		} else {
 			return super.processInteract(player, hand, stack);
+		}
+	}
+	
+	@Override
+	public void setAttackTarget(EntityLivingBase entitylivingbaseIn) {
+		if(entitylivingbaseIn instanceof EntityPlayer) {
+			IColor color = ((EntityPlayer) entitylivingbaseIn).getCapability(ColorProvider.COLOR, null);
+			if(color.getColor() == this.getTeamColor().getId()) {
+				//Do nothing
+			}else {
+				super.setAttackTarget(entitylivingbaseIn);
+			}
+		}else {
+			super.setAttackTarget(entitylivingbaseIn);
 		}
 	}
 }

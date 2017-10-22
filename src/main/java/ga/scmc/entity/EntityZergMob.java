@@ -2,11 +2,15 @@ package ga.scmc.entity;
 
 import java.util.ArrayList;
 
+import ga.scmc.debugging.ColorProvider;
+import ga.scmc.debugging.IColor;
 import ga.scmc.entity.living.EntityZerglingSC2;
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.ItemHandler;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
