@@ -1,4 +1,4 @@
-package ga.scmc.client.renderer.armor;
+package ga.scmc.client.renderer.model.armor;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
@@ -16,17 +16,17 @@ import net.minecraft.util.math.MathHelper;
 public abstract class ModelArmorBase extends ModelBiped {
 
 	/** The right arm of the biped. */
-	protected final ModelRenderer rArm;
+	public final ModelRenderer rArm;
 	/** The right leg of the biped. */
-	protected final ModelRenderer rLeg;
+	public final ModelRenderer rLeg;
 	/** The head of the biped. */
-	protected final ModelRenderer head;
+	public final ModelRenderer head;
 	/** The body of the biped. */
-	protected final ModelRenderer body;
+	public final ModelRenderer body;
 	/** The left arm of the biped. */
-	protected final ModelRenderer lArm;
+	public final ModelRenderer lArm;
 	/** The left leg of the biped. */
-	protected final ModelRenderer lLeg;
+	public final ModelRenderer lLeg;
 
 	/**
 	 * This sets the model scale and texture dimensions.
@@ -241,6 +241,10 @@ public abstract class ModelArmorBase extends ModelBiped {
 			this.rArm.rotateAngleX = -((float) Math.PI / 2F) + this.head.rotateAngleX;
 			this.lArm.rotateAngleX = -((float) Math.PI / 2F) + this.head.rotateAngleX;
 		}
+	}
+
+	protected ModelRenderer getArmForSide(EnumHandSide side) {
+		return side == EnumHandSide.LEFT ? this.lArm : this.rArm;
 	}
 
 	/**

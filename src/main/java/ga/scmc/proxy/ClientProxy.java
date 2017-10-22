@@ -1,9 +1,9 @@
 package ga.scmc.proxy;
 
-import ga.scmc.client.renderer.armor.ModelZergArmorT1;
-import ga.scmc.client.renderer.armor.ModelZergArmorT2;
-import ga.scmc.client.renderer.armor.ModelZergArmorT3;
-import net.minecraft.client.model.ModelBiped;
+import ga.scmc.client.renderer.model.armor.ModelArmorBase;
+import ga.scmc.client.renderer.model.armor.ModelZergArmorT1;
+import ga.scmc.client.renderer.model.armor.ModelZergArmorT2;
+import ga.scmc.client.renderer.model.armor.ModelZergArmorT3;
 
 /**
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
@@ -16,7 +16,7 @@ import net.minecraft.client.model.ModelBiped;
 public class ClientProxy extends CommonProxy {
 
 	@Override
-	public ModelBiped getArmorModel(int id) {
+	public ModelArmorBase getArmorModel(int id) {
 		switch (id) {
 		case 0:
 			return new ModelZergArmorT1(1.0f);

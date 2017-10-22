@@ -1,4 +1,4 @@
-package ga.scmc.client.renderer.armor;
+package ga.scmc.client.renderer.model.armor;
 
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -499,14 +499,5 @@ public class ModelZergArmorT3 extends ModelArmorBase {
 		GlStateManager.translate(-this.rArm.rotationPointX * scale, -this.rArm.rotationPointY * scale, -this.rArm.rotationPointZ * scale);
 		this.rArm.render(scale);
 		GlStateManager.popMatrix();
-	}
-
-	/**
-	 * This is a helper function from Tabula to set the rotation of model parts
-	 */
-	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-		modelRenderer.rotateAngleX = x;
-		modelRenderer.rotateAngleY = y;
-		modelRenderer.rotateAngleZ = z;
 	}
 }

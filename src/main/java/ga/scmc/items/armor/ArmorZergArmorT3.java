@@ -1,6 +1,7 @@
 package ga.scmc.items.armor;
 
 import ga.scmc.Starcraft;
+import ga.scmc.client.renderer.model.armor.ModelArmorBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -23,7 +24,7 @@ public class ArmorZergArmorT3 extends ItemArmor {
 			if (this instanceof ItemArmor) {
 
 				EntityEquipmentSlot type = armorType;
-				ModelBiped armorModel = null;
+				ModelArmorBase armorModel = null;
 				switch (type) {
 				case HEAD:
 				case LEGS:
@@ -37,13 +38,12 @@ public class ArmorZergArmorT3 extends ItemArmor {
 					break;
 				}
 
-				armorModel.bipedHead.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-				armorModel.bipedHeadwear.showModel = armorSlot == EntityEquipmentSlot.HEAD;
-				armorModel.bipedBody.showModel = (armorSlot == EntityEquipmentSlot.CHEST) || (armorSlot == EntityEquipmentSlot.CHEST);
-				armorModel.bipedRightArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-				armorModel.bipedLeftArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
-				armorModel.bipedRightLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS) || (armorSlot == EntityEquipmentSlot.FEET);
-				armorModel.bipedLeftLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS) || (armorSlot == EntityEquipmentSlot.FEET);
+				armorModel.head.showModel = armorSlot == EntityEquipmentSlot.HEAD;
+				armorModel.body.showModel = (armorSlot == EntityEquipmentSlot.CHEST) || (armorSlot == EntityEquipmentSlot.CHEST);
+				armorModel.rArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+				armorModel.lArm.showModel = armorSlot == EntityEquipmentSlot.CHEST;
+				armorModel.rLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS) || (armorSlot == EntityEquipmentSlot.FEET);
+				armorModel.lLeg.showModel = (armorSlot == EntityEquipmentSlot.LEGS) || (armorSlot == EntityEquipmentSlot.FEET);
 
 				armorModel.isSneak = defaultModel.isSneak;
 				armorModel.isRiding = defaultModel.isRiding;

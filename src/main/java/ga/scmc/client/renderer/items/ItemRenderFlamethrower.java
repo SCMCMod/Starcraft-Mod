@@ -81,6 +81,22 @@ public class ItemRenderFlamethrower extends ItemRenderer {
 		getModel().render(null, 0, 0, 0, 0, 0, 1);
 		GlStateManager.popMatrix();
 	}
+	
+	@Override
+	public void renderFixed(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+		float scale = .02500059f;
+
+		GlStateManager.pushMatrix();
+		GlStateManager.scale(scale, scale, scale);
+		GlStateManager.rotate(-90, 1, 0, 0);
+		GlStateManager.rotate(-90, 0, 0, 1);
+		GlStateManager.rotate(-90, 1, 0, 0);
+		GlStateManager.translate(0, -12.259999882429838, 0);
+		GlStateManager.color(1, 1, 1);
+		Minecraft.getMinecraft().renderEngine.bindTexture(getResourceLocation());
+		getModel().render(null, 0, 0, 0, 0, 0, 1);
+		GlStateManager.popMatrix();
+	}
 }
 
 // Keep this code here. It's nice for on-the-fly GL fiddling (if you know how to abuse it), and it's how I got my values

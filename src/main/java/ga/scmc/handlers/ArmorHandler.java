@@ -2,10 +2,9 @@ package ga.scmc.handlers;
 
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.items.armor.ArmorZergArmorT1;
-import ga.scmc.items.armor.ArmorZergArmorT2;
-import ga.scmc.items.armor.ArmorZergArmorT3;
 import ga.scmc.lib.Library;
 import ga.scmc.lib.LogHelper;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
@@ -113,15 +112,15 @@ public class ArmorHandler {
 		ZERG_T1_LEGGINGS = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.LEGS).setUnlocalizedName("zergLeggingsT1").setRegistryName("zerg_leggings_t1").setCreativeTab(StarcraftCreativeTabs.ZERG);
 		ZERG_T1_BOOTS = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.FEET).setUnlocalizedName("zergBootsT1").setRegistryName("zerg_boots_t1").setCreativeTab(StarcraftCreativeTabs.ZERG);
 
-		ZERG_T2_HELMET = new ArmorZergArmorT2(ZERG_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("zergHelmetT2").setRegistryName("zerg_helmet_t2").setCreativeTab(StarcraftCreativeTabs.ZERG);
-		ZERG_T2_CHESTPLATE = new ArmorZergArmorT2(ZERG_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.CHEST).setUnlocalizedName("zergChestplateT2").setRegistryName("zerg_chestplate_t2").setCreativeTab(StarcraftCreativeTabs.ZERG);
-		ZERG_T2_LEGGINGS = new ArmorZergArmorT2(ZERG_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.LEGS).setUnlocalizedName("zergLeggingsT2").setRegistryName("zerg_leggings_t2").setCreativeTab(StarcraftCreativeTabs.ZERG);
-		ZERG_T2_BOOTS = new ArmorZergArmorT2(ZERG_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.FEET).setUnlocalizedName("zergBootsT2").setRegistryName("zerg_boots_t2").setCreativeTab(StarcraftCreativeTabs.ZERG);
+		ZERG_T2_HELMET = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("zergHelmetT2").setRegistryName("zerg_helmet_t2").setCreativeTab(StarcraftCreativeTabs.ZERG);
+		ZERG_T2_CHESTPLATE = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.CHEST).setUnlocalizedName("zergChestplateT2").setRegistryName("zerg_chestplate_t2").setCreativeTab(StarcraftCreativeTabs.ZERG);
+		ZERG_T2_LEGGINGS = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.LEGS).setUnlocalizedName("zergLeggingsT2").setRegistryName("zerg_leggings_t2").setCreativeTab(StarcraftCreativeTabs.ZERG);
+		ZERG_T2_BOOTS = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.FEET).setUnlocalizedName("zergBootsT2").setRegistryName("zerg_boots_t2").setCreativeTab(StarcraftCreativeTabs.ZERG);
 
-		ZERG_T3_HELMET = new ArmorZergArmorT3(ZERG_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("zergHelmetT3").setRegistryName("zerg_helmet_t3").setCreativeTab(StarcraftCreativeTabs.ZERG);
-		ZERG_T3_CHESTPLATE = new ArmorZergArmorT3(ZERG_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.CHEST).setUnlocalizedName("zergChestplateT3").setRegistryName("zerg_chestplate_t3").setCreativeTab(StarcraftCreativeTabs.ZERG);
-		ZERG_T3_LEGGINGS = new ArmorZergArmorT3(ZERG_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.LEGS).setUnlocalizedName("zergLeggingsT3").setRegistryName("zerg_leggings_t3").setCreativeTab(StarcraftCreativeTabs.ZERG);
-		ZERG_T3_BOOTS = new ArmorZergArmorT3(ZERG_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.FEET).setUnlocalizedName("zergBootsT3").setRegistryName("zerg_boots_t3").setCreativeTab(StarcraftCreativeTabs.ZERG);
+		ZERG_T3_HELMET = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("zergHelmetT3").setRegistryName("zerg_helmet_t3").setCreativeTab(StarcraftCreativeTabs.ZERG);
+		ZERG_T3_CHESTPLATE = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.CHEST).setUnlocalizedName("zergChestplateT3").setRegistryName("zerg_chestplate_t3").setCreativeTab(StarcraftCreativeTabs.ZERG);
+		ZERG_T3_LEGGINGS = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.LEGS).setUnlocalizedName("zergLeggingsT3").setRegistryName("zerg_leggings_t3").setCreativeTab(StarcraftCreativeTabs.ZERG);
+		ZERG_T3_BOOTS = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.FEET).setUnlocalizedName("zergBootsT3").setRegistryName("zerg_boots_t3").setCreativeTab(StarcraftCreativeTabs.ZERG);
 	}
 
 	public static void register() {

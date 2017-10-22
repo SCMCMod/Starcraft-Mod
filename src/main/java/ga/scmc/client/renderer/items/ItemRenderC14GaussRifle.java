@@ -123,6 +123,11 @@ public class ItemRenderC14GaussRifle extends ItemRenderer {
 		getModel().render(null, 0, 0, 0, 0, 0, 1);
 		GlStateManager.popMatrix();
 	}
+	
+	@Override
+	public void renderFixed(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+		super.renderFixed(itemstack, entity, cameraTransformType);
+	}
 
 	public boolean isAiming() {
 		return aiming;

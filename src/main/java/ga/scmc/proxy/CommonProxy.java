@@ -1,6 +1,6 @@
 package ga.scmc.proxy;
 
-import net.minecraft.client.model.ModelBiped;
+import ga.scmc.client.renderer.model.armor.ModelArmorBase;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -26,7 +26,7 @@ public abstract class CommonProxy {
 	public void postInit(FMLPostInitializationEvent event) {
 	}
 
-	public ModelBiped getArmorModel(int id) {
+	public ModelArmorBase getArmorModel(int id) {
 		return null;
 	}
 }

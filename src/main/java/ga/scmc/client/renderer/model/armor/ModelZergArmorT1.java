@@ -1,17 +1,14 @@
-package ga.scmc.client.renderer.armor;
+package ga.scmc.client.renderer.model.armor;
 
-import net.minecraft.client.model.ModelBiped;
+import ga.scmc.client.renderer.model.IModelItem;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.EnumHandSide;
-import net.minecraft.util.math.MathHelper;
 
 /**
  * zergArmorT1 v3 - cybercat5555 Created using Tabula 5.1.0
  */
-public class ModelZergArmorT1 extends ModelArmorBase {
+public class ModelZergArmorT1 extends ModelArmorBase implements IModelItem {
 
 	public ModelRenderer chestplate_rArmCarapace;
 	public ModelRenderer chestplate_rKnuckle01;
@@ -356,7 +353,7 @@ public class ModelZergArmorT1 extends ModelArmorBase {
 		this.chestplate_lHookArm03.addChild(this.chestplate_lHookClaw01a);
 		this.chestplate_chestCarapace01.addChild(this.chestplate_chestCarapace02);
 	}
-	
+
 	@Override
 	protected void renderArmorModel(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		GlStateManager.scale(0.75F, 0.75F, 0.75F);
@@ -399,15 +396,38 @@ public class ModelZergArmorT1 extends ModelArmorBase {
 		GlStateManager.translate(-this.rLeg.offsetX, -this.rLeg.offsetY, -this.rLeg.offsetZ);
 		GlStateManager.translate(-this.rLeg.rotationPointX * scale, -this.rLeg.rotationPointY * scale, -this.rLeg.rotationPointZ * scale);
 		this.rLeg.render(scale);
-		GlStateManager.popMatrix();		
+		GlStateManager.popMatrix();
 	}
-	
-	/**
-	 * This is a helper function from Tabula to set the rotation of model parts
-	 */
-	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-		modelRenderer.rotateAngleX = x;
-		modelRenderer.rotateAngleY = y;
-		modelRenderer.rotateAngleZ = z;
+
+	@Override
+	public void renderHelmet(Entity entity, float scale) {
+		GlStateManager.pushMatrix();
+		head.render(scale);
+		GlStateManager.popMatrix();
+	}
+
+	@Override
+	public void renderChestplate(Entity entity, float scale) {
+		GlStateManager.pushMatrix();
+		body.render(scale);
+		lArm.render(scale);
+		rArm.render(scale);
+		GlStateManager.popMatrix();
+	}
+
+	@Override
+	public void renderLeggings(Entity entity, float scale) {
+		GlStateManager.pushMatrix();
+		lLeg.render(scale);
+		rLeg.render(scale);
+		GlStateManager.popMatrix();
+	}
+
+	@Override
+	public void renderBoots(Entity entity, float scale) {
+		GlStateManager.pushMatrix();
+		lLeg.render(scale);
+		rLeg.render(scale);
+		GlStateManager.popMatrix();
 	}
 }
