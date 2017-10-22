@@ -10,9 +10,7 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 public class OnPlayerLogInEvent {
 
 	@SubscribeEvent
-	public void onPlayerLogsIn(PlayerLoggedInEvent event)
-
-	{
+	public void onPlayerLogsIn(PlayerLoggedInEvent event) {
 		EntityPlayer player = event.player;
 
 		IColor color = player.getCapability(ColorProvider.COLOR, null);
@@ -20,6 +18,5 @@ public class OnPlayerLogInEvent {
 		String message = String.format("Hello there, your team ID is §7%d§r.", color.getColor());
 
 		player.sendMessage(new TextComponentString(message));
-
 	}
 }

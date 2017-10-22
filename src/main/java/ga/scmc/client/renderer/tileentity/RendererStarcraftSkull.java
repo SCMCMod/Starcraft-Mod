@@ -56,15 +56,12 @@ public class RendererStarcraftSkull extends TileEntitySpecialRenderer<TileEntity
 				skullModel = new ModelSkeletonHead(0, 0, 64, 64);
 				break;
 			case 1:
-				this.bindTexture(new ResourceLocation(Library.MODID, "textures/entity/zergling_base.png"));
 				skullModel = new ModelZerglingSC2();
 				break;
 			case 2:
-				this.bindTexture(new ResourceLocation(Library.MODID, "textures/entity/hydralisk_base.png"));
 				skullModel = new ModelHydralisk();
 				break;
 			case 3:
-				this.bindTexture(new ResourceLocation(Library.MODID, "textures/entity/brutalisk_base.png"));
 				skullModel = new ModelBrutalisk();
 				break;
 			}
@@ -100,37 +97,28 @@ public class RendererStarcraftSkull extends TileEntitySpecialRenderer<TileEntity
 		GlStateManager.rotate(rotation, 0, 1, 0);
 		GlStateManager.enableAlpha();
 
-		switch (skullType) {
-		default:
+		if (skullModel instanceof IModelSkull) {
+			switch (skullType) {
+			default:
+				break;
+			case 1:
+				RenderUtil.bindTexture(new ResourceLocation(Library.MODID, "textures/entity/zergling_base.png"));
+				((IModelSkull) skullModel).renderSkull(0.0625f);
+				GlStateManager.translate(0, 0.2, -0.2);
+				RenderUtil.bindTexture(new ResourceLocation(Library.MODID, "textures/entity/zergling_overlay.png"));
+				((IModelSkull) skullModel).renderSkull(0.0625f);
+				break;
+			case 2:
+				RenderUtil.bindTexture(new ResourceLocation(Library.MODID, "textures/entity/hydralisk_base.png"));
+				((IModelSkull) skullModel).renderSkull(0.0625f);
+				break;
+			case 3:
+				RenderUtil.bindTexture(new ResourceLocation(Library.MODID, "textures/entity/brutalisk_base.png"));
+				((IModelSkull) skullModel).renderSkull(0.0625f);
+				break;
+			}
+		} else {
 			skullModel.render((Entity) null, 0, 0.0F, 0.0F, 0, 0.0F, 0.0625F);
-			break;
-		case 1:
-			if (skullModel instanceof IModelSkull) {
-				RenderUtil.bindTexture(new ResourceLocation(Library.MODID, "textures/entity/zergling_base.png"));
-				((IModelSkull) skullModel).renderSkull(0.0625f);
-				GlStateManager.translate(0, 0.2, -0.2);
-				RenderUtil.bindTexture(new ResourceLocation(Library.MODID, "textures/entity/zergling_overlay.png"));
-				((IModelSkull) skullModel).renderSkull(0.0625f);
-			}
-			break;
-		case 2:
-			if (skullModel instanceof IModelSkull) {
-				RenderUtil.bindTexture(new ResourceLocation(Library.MODID, "textures/entity/zergling_base.png"));
-				((IModelSkull) skullModel).renderSkull(0.0625f);
-				GlStateManager.translate(0, 0.2, -0.2);
-				RenderUtil.bindTexture(new ResourceLocation(Library.MODID, "textures/entity/zergling_overlay.png"));
-				((IModelSkull) skullModel).renderSkull(0.0625f);
-			}
-			break;
-		case 3:
-			if (skullModel instanceof IModelSkull) {
-				RenderUtil.bindTexture(new ResourceLocation(Library.MODID, "textures/entity/zergling_base.png"));
-				((IModelSkull) skullModel).renderSkull(0.0625f);
-				GlStateManager.translate(0, 0.2, -0.2);
-				RenderUtil.bindTexture(new ResourceLocation(Library.MODID, "textures/entity/zergling_overlay.png"));
-				((IModelSkull) skullModel).renderSkull(0.0625f);
-			}
-			break;
 		}
 
 		GlStateManager.popMatrix();

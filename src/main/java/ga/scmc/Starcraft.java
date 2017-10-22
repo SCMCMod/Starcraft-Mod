@@ -83,8 +83,6 @@ public class Starcraft {
 			FuelHandler.preInit();
 			RenderingHandler.preInit();
 		}
-		
-		MinecraftForge.EVENT_BUS.register(new GuiOverlayEvent());
 	}
 
 	@EventHandler
@@ -95,11 +93,12 @@ public class Starcraft {
 		ShapelessRecipes.init();
 		SmeltingRecipes.init();
 		GuiHandler.init();
-		 CapabilityManager.INSTANCE.register(IColor.class, new ColorStorage(), Color.class);
+		CapabilityManager.INSTANCE.register(IColor.class, new ColorStorage(), Color.class);
 
-        MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
-        MinecraftForge.EVENT_BUS.register(new OnPlayerCloneEvent());
-        MinecraftForge.EVENT_BUS.register(new OnPlayerLogInEvent());
+		MinecraftForge.EVENT_BUS.register(new GuiOverlayEvent());
+		MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
+		MinecraftForge.EVENT_BUS.register(new OnPlayerCloneEvent());
+		MinecraftForge.EVENT_BUS.register(new OnPlayerLogInEvent());
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 			RenderingHandler.init();
 		}

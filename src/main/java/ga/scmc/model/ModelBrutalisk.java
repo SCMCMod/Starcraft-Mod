@@ -2,6 +2,7 @@ package ga.scmc.model;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
@@ -876,6 +877,7 @@ public class ModelBrutalisk extends ModelBase implements IModelSkull {
 
 	@Override
 	public void renderSkull(float scale) {
-		head.render(scale);
+		GlStateManager.translate(0, -0.15, 0.925);
+		neck.render(scale);
 	}
 }

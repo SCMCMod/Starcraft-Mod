@@ -12,10 +12,7 @@ import net.minecraftforge.common.capabilities.ICapabilitySerializable;
  *
  * 
  * 
- * This class is responsible for providing a capability. Other modders may
- * attach their own provider with implementation that returns another
- * implementation of IMana to the target's (Entity, TE, ItemStack, etc.)
- * disposal.
+ * This class is responsible for providing a capability. Other modders may attach their own provider with implementation that returns another implementation of IMana to the target's (Entity, TE, ItemStack, etc.) disposal.
  * 
  */
 
@@ -24,49 +21,27 @@ public class ColorProvider implements ICapabilitySerializable<NBTBase>
 {
 
 	@CapabilityInject(IColor.class)
-
 	public static final Capability<IColor> COLOR = null;
 
 	private IColor instance = COLOR.getDefaultInstance();
 
 	@Override
-
-	public boolean hasCapability(Capability<?> capability, EnumFacing facing)
-
-	{
-
+	public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
 		return capability == COLOR;
-
 	}
 
 	@Override
-
-	public <T> T getCapability(Capability<T> capability, EnumFacing facing)
-
-	{
-
+	public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
 		return capability == COLOR ? COLOR.<T>cast(this.instance) : null;
-
 	}
 
 	@Override
-
-	public NBTBase serializeNBT()
-
-	{
-
+	public NBTBase serializeNBT() {
 		return COLOR.getStorage().writeNBT(COLOR, this.instance, null);
-
 	}
 
 	@Override
-
-	public void deserializeNBT(NBTBase nbt)
-
-	{
-
+	public void deserializeNBT(NBTBase nbt) {
 		COLOR.getStorage().readNBT(COLOR, this.instance, null, nbt);
-
 	}
-
 }
