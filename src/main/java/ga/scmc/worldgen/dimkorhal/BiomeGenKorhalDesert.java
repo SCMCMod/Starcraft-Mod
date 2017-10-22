@@ -17,8 +17,8 @@ public class BiomeGenKorhalDesert extends BiomeHandler {
 
 		setRegistryName("korhal_desert");
 
-		topBlock = Blocks.SAND.getDefaultState();
-		fillerBlock = Blocks.SANDSTONE.getDefaultState();
+		topBlock = Blocks.SAND.getStateFromMeta(1);
+		fillerBlock = Blocks.RED_SANDSTONE.getDefaultState();
 
 		spawnableMonsterList.clear();
 		spawnableCreatureList.clear();
