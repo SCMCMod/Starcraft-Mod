@@ -262,28 +262,6 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 	}
 
 	@Override
-	public void onUpdate() {
-		if(!world.isRemote) {
-			if((ticksExisted > 740)) {
-				int i;
-				i = rand.nextInt(100);
-				if(i <= 20) {
-					Library.replaceEntity(false, this, new EntityZerglingSwarmling(world), new EntityZerglingSwarmling(world), new EntityZerglingSwarmling(world));
-				} else if(i > 20 && i <= 30) {
-					Library.replaceEntity(false, this, new EntityZerglingRaptor(world), new EntityZerglingRaptor(world));
-				} else if(i > 30 && i <= 40) {
-					Library.replaceEntity(false, this, new EntityZerglingSC2(world), new EntityZerglingSC2(world));
-				} else if(i > 40 && i <= 50) {
-					Library.replaceEntity(false, this, new EntityZerglingBoost(world), new EntityZerglingBoost(world));
-				} else {
-					Library.replaceEntity(false, this, new EntityHydralisk(world));
-				}
-			}
-		}
-		super.onUpdate();
-	}
-
-	@Override
 	protected void setRotation(float par1, float par2) {
 		rotationYaw = 0;
 		rotationPitch = 0;

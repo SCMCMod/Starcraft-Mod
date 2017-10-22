@@ -439,14 +439,4 @@ public class EntityLarva extends EntityZergPassive {
 			world.theProfiler.endSection();
 		}
 	}
-
-	@Override
-	public void onUpdate() {
-		if(!world.isRemote) {
-			if((ticksExisted + rand.nextInt(1000) > 4000)) {
-				Library.replaceEntity(false, this, new EntityLarvaCocoon(world));
-			}
-		}
-		super.onUpdate();
-	}
 }
