@@ -65,6 +65,7 @@ import static ga.scmc.handlers.ItemHandler.ICON_TERRAN;
 import static ga.scmc.handlers.ItemHandler.ICON_ZERG;
 import static ga.scmc.handlers.ItemHandler.INGOT;
 import static ga.scmc.handlers.ItemHandler.MINERAL_SHARD;
+import static ga.scmc.handlers.ItemHandler.PLEDGE;
 import static ga.scmc.handlers.ItemHandler.NUCLEAR_MISSILE;
 import static ga.scmc.handlers.ItemHandler.ORGANIC_TISSUE;
 import static ga.scmc.handlers.ItemHandler.PROTOSS_INGOT;
@@ -261,6 +262,7 @@ public class RenderingHandler {
 		ModelBakery.registerItemVariants(ItemHandler.VESPENE, new ResourceLocation(Library.MODID, "vespene_raw"), new ResourceLocation(Library.MODID, "vespene_protoss"), new ResourceLocation(Library.MODID, "vespene_terran"), new ResourceLocation(Library.MODID, "vespene_zerg"));
 		ModelBakery.registerItemVariants(ItemHandler.ENERGY, new ResourceLocation(Library.MODID, "energy_pure"), new ResourceLocation(Library.MODID, "energy_corrupted"), new ResourceLocation(Library.MODID, "energy_void"));
 		ModelBakery.registerItemVariants(ItemHandler.DUST, new ResourceLocation(Library.MODID, "dust_iron"), new ResourceLocation(Library.MODID, "dust_steel"), new ResourceLocation(Library.MODID, "dust_carbon"));
+		ModelBakery.registerItemVariants(ItemHandler.PLEDGE, new ResourceLocation(Library.MODID, "pledge_white"), new ResourceLocation(Library.MODID, "pledge_orange"), new ResourceLocation(Library.MODID, "pledge_magenta"), new ResourceLocation(Library.MODID, "pledge_lightblue"), new ResourceLocation(Library.MODID, "pledge_yellow"), new ResourceLocation(Library.MODID, "pledge_lime"), new ResourceLocation(Library.MODID, "pledge_pink"), new ResourceLocation(Library.MODID, "pledge_gray"), new ResourceLocation(Library.MODID, "pledge_silver"), new ResourceLocation(Library.MODID, "pledge_cyan"), new ResourceLocation(Library.MODID, "pledge_purple"), new ResourceLocation(Library.MODID, "pledge_blue"), new ResourceLocation(Library.MODID, "pledge_brown"), new ResourceLocation(Library.MODID, "pledge_green"), new ResourceLocation(Library.MODID, "pledge_red"), new ResourceLocation(Library.MODID, "pledge_black"));
 		ModelBakery.registerItemVariants(ItemHandler.INGOT, new ResourceLocation(Library.MODID, "ingot_copper"), new ResourceLocation(Library.MODID, "ingot_titanium"), new ResourceLocation(Library.MODID, "ingot_steel"));
 		ModelBakery.registerItemVariants(ItemHandler.PROTOSS_INGOT, new ResourceLocation(Library.MODID, "pingot_khalai"), new ResourceLocation(Library.MODID, "pingot_dark"));
 		ModelBakery.registerItemVariants(ItemHandler.PSI_BLADE_FOCUSER_UNCHARGED, new ResourceLocation(Library.MODID, "protoss_psiblade_focuser_uncharged_aiur"), new ResourceLocation(Library.MODID, "protoss_psiblade_focuser_uncharged_dark"));
@@ -373,6 +375,9 @@ public class RenderingHandler {
 
 		for (int i = 0; i < ItemEnumHandler.MineralType.values().length; i++) {
 			registerItemRender(MINERAL_SHARD, i, "shard_" + ItemEnumHandler.MineralType.values()[i].getName());
+		}
+		for (int i = 0; i < ItemEnumHandler.PledgeType.values().length; i++) {
+			registerItemRender(PLEDGE, i, "pledge_" + ItemEnumHandler.PledgeType.values()[i].getName());
 		}
 		for (int i = 0; i < ItemEnumHandler.VespeneType.values().length; i++) {
 			registerItemRender(VESPENE, i, "vespene_" + ItemEnumHandler.VespeneType.values()[i].getName());

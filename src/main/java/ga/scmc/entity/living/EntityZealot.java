@@ -5,6 +5,8 @@ import java.util.Random;
 import com.arisux.mdx.lib.world.entity.ItemDrop;
 import com.google.common.base.Predicate;
 
+import ga.scmc.debugging.ColorProvider;
+import ga.scmc.debugging.IColor;
 import ga.scmc.entity.EntityProtossMob;
 import ga.scmc.entity.EntityStarcraftMob;
 import ga.scmc.entity.EntityStarcraftPassive;
@@ -101,7 +103,14 @@ public class EntityZealot extends EntityProtossMob implements IMob, Predicate<En
 						return true;
 					}
 				}
-			} else {
+			}else if(entity instanceof EntityPlayer) {
+				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
+				if(color.getColor() == this.getTeamColor().getId()) {
+					return false;
+				}else {
+					return true;
+				}
+			}else {
 				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
 					return false;
 				}

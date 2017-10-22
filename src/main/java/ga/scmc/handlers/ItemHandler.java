@@ -14,6 +14,7 @@ import ga.scmc.items.metaitems.ItemEnergy;
 import ga.scmc.items.metaitems.ItemGasContainer;
 import ga.scmc.items.metaitems.ItemIngot;
 import ga.scmc.items.metaitems.ItemMineralShard;
+import ga.scmc.items.metaitems.ItemPledge;
 import ga.scmc.items.metaitems.ItemProtossIngot;
 import ga.scmc.items.metaitems.ItemPsiBladeFocuserUncharged;
 import ga.scmc.items.metaitems.ItemTerrazine;
@@ -49,6 +50,7 @@ public class ItemHandler {
 	public static Item CREEP_RESIN;
 	public static Item PROTOSS_INGOT;
 	public static Item DUST;
+	public static Item PLEDGE;
 	public static Item ENERGY;
 	public static Item INGOT;
 	public static Item MINERAL_SHARD;
@@ -95,6 +97,7 @@ public class ItemHandler {
 
 		ENERGY = new ItemEnergy();
 		DUST = new ItemDust();
+		PLEDGE = new ItemPledge();
 		INGOT = new ItemIngot();
 		PROTOSS_INGOT = new ItemProtossIngot();
 		C14_GAUSS_RIFLE = new ItemC14GaussRifle();
@@ -163,6 +166,7 @@ public class ItemHandler {
 
 		registerItem(ENERGY);
 		registerItem(DUST);
+		registerItem(PLEDGE);
 		registerItem(INGOT);
 		registerItem(PROTOSS_INGOT);
 		registerItem(C14_GAUSS_RIFLE);

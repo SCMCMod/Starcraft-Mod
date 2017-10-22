@@ -2,6 +2,8 @@ package ga.scmc.entity.living;
 
 import com.google.common.base.Predicate;
 
+import ga.scmc.debugging.ColorProvider;
+import ga.scmc.debugging.IColor;
 import ga.scmc.entity.EntityProtossMob;
 import ga.scmc.entity.EntityStarcraftMob;
 import ga.scmc.entity.EntityStarcraftPassive;
@@ -79,8 +81,15 @@ public class EntityDragoon extends EntityProtossMob implements IMob, IRangedAtta
 						return true;
 					}
 				}
+			}else if(entity instanceof EntityPlayer) {
+				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
+				if(color.getColor() == this.getTeamColor().getId()) {
+					return false;
+				}else {
+					return true;
+				}
 			}else {
-				if(entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
+				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
 					return false;
 				}
 				return true;

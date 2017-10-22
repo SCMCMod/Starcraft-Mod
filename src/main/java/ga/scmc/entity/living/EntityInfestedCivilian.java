@@ -3,6 +3,8 @@ package ga.scmc.entity.living;
 import com.arisux.mdx.lib.world.entity.ItemDrop;
 import com.google.common.base.Predicate;
 
+import ga.scmc.debugging.ColorProvider;
+import ga.scmc.debugging.IColor;
 import ga.scmc.entity.EntityStarcraftMob;
 import ga.scmc.entity.EntityStarcraftPassive;
 import ga.scmc.entity.EntityZergMob;
@@ -72,7 +74,14 @@ public class EntityInfestedCivilian extends EntityZergMob implements IMob, Predi
 						return true;
 					}
 				}
-			}else {
+			}else if(entity instanceof EntityPlayer) {
+				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
+				if(color.getColor() == this.getTeamColor().getId()) {
+					return false;
+				}else {
+					return true;
+				}
+			} else {
 				return true;
 			}
 		}else if(entity.isInvisible() && this.isType(TypeAttributes.DETECTOR)){

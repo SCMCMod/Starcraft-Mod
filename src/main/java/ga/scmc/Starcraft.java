@@ -2,7 +2,13 @@ package ga.scmc;
 
 import ga.scmc.achievement.Achievements;
 import ga.scmc.client.gui.GuiHandler;
+import ga.scmc.debugging.CapabilityHandler;
+import ga.scmc.debugging.Color;
+import ga.scmc.debugging.ColorStorage;
+import ga.scmc.debugging.IColor;
 import ga.scmc.events.GuiOverlayEvent;
+import ga.scmc.events.OnPlayerCloneEvent;
+import ga.scmc.events.OnPlayerLogInEvent;
 import ga.scmc.fluids.FluidHandler;
 import ga.scmc.handlers.BiomeHandler;
 import ga.scmc.handlers.BlockHandler;
@@ -23,6 +29,7 @@ import ga.scmc.recipes.ShapelessRecipes;
 import ga.scmc.recipes.SimpleRecipes;
 import ga.scmc.recipes.SmeltingRecipes;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
@@ -88,7 +95,11 @@ public class Starcraft {
 		ShapelessRecipes.init();
 		SmeltingRecipes.init();
 		GuiHandler.init();
+		 CapabilityManager.INSTANCE.register(IColor.class, new ColorStorage(), Color.class);
 
+        MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
+        MinecraftForge.EVENT_BUS.register(new OnPlayerCloneEvent());
+        MinecraftForge.EVENT_BUS.register(new OnPlayerLogInEvent());
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 			RenderingHandler.init();
 		}
