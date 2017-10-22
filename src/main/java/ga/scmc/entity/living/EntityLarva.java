@@ -76,14 +76,6 @@ public class EntityLarva extends EntityZergPassive {
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(.19241212312);
 		getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(20.0D);
 	}
-
-	@Override
-	public boolean attackEntityFrom(DamageSource source, float damageDealt) {
-		if(rand.nextInt(100) < 21) {
-			Library.replaceEntity(false, this, new EntityLarvaCocoon(world));
-		}
-		return super.attackEntityFrom(source, damageDealt);
-	}
 	
 	@Override
 	public EntityAgeable createChild(EntityAgeable p_90011_1_) {
@@ -102,7 +94,7 @@ public class EntityLarva extends EntityZergPassive {
 
 		if (!flag && this.isEntityAlive() && !this.isChild() && !player.isSneaking()) {
 			if (this.world.isRemote) {
-				player.openGui(Starcraft.instance, GuiHandler.SHOP_ID, world, (int) player.posX, (int) player.posY, (int) player.posZ);
+				GuiLavaLarva.INSTANCE.openGUI(player, Starcraft.instance, GuiHandler.SHOP_ID, world, (int) player.posX, (int) player.posY, (int) player.posZ, this);
 			}
 			return true;
 		} else {

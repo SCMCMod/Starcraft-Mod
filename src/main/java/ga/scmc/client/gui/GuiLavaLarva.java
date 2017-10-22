@@ -3,23 +3,30 @@ package ga.scmc.client.gui;
 import java.io.IOException;
 import java.util.List;
 
+import ga.scmc.Starcraft;
 import ga.scmc.client.gui.element.LarvaOption;
+import ga.scmc.entity.living.EntityLarva;
 import ga.scmc.lib.GuiUtils;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.world.World;
 
 /**
  * @since 5.1
  * @author Ocelot5836
  */
 public class GuiLavaLarva extends BasicGui {
-
+	
+	public static final GuiLavaLarva INSTANCE = new GuiLavaLarva();
 	/** The player being traded with. */
 	private EntityPlayer customer;
+	private EntityLarva larva;
 
 	public GuiLavaLarva(EntityPlayer player) {
 		this.customer = player;
 	}
+	
+	public GuiLavaLarva() {}
 
 	@Override
 	public void initGui() {
@@ -38,6 +45,11 @@ public class GuiLavaLarva extends BasicGui {
 	@Override
 	protected void drawCenterLayer(int mouseX, int mouseY) {
 
+	}
+	
+	public void openGUI(EntityPlayer player, Object mod, int guiID, World world, int x, int y, int z, EntityLarva larva) {
+		player.openGui(Starcraft.instance, GuiHandler.LARVA_ID, world, x, y, z);
+		this.larva = larva;
 	}
 
 	@Override
