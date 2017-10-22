@@ -4,22 +4,23 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.util.EnumHandSide;
+import net.minecraft.util.math.MathHelper;
 
 /**
- * ZergArmorT1 v3. Created using Tabula 5.1.0
- * 
- * @author cybercat5555
+ * zergArmorT1 v3 - cybercat5555 Created using Tabula 5.1.0
  */
-public class ModelZergArmorT1 extends ModelBiped {
+public class ModelZergArmorT1 extends ModelArmorBase {
 
-	public ModelRenderer chestplate_bipedRightArmCarapace;
+	public ModelRenderer chestplate_rArmCarapace;
 	public ModelRenderer chestplate_rKnuckle01;
 	public ModelRenderer chestplate_rKnuckle02;
 	public ModelRenderer chestplate_rShoulderCarapace;
 	public ModelRenderer chestplate_rClaws;
-	public ModelRenderer chestplate_bipedRightArmCarapace_1;
+	public ModelRenderer chestplate_rArmCarapace_1;
 	public ModelRenderer boots_rFlesh01;
-	public ModelRenderer leggings_bipedRightLegCarapace;
+	public ModelRenderer leggings_rLegCarapace;
 	public ModelRenderer boots_rClaw01a;
 	public ModelRenderer boots_rClaw02a;
 	public ModelRenderer boots_rClaw01a_1;
@@ -41,8 +42,8 @@ public class ModelZergArmorT1 extends ModelBiped {
 	public ModelRenderer chestplate_spine;
 	public ModelRenderer chestplate_rHookArm01;
 	public ModelRenderer chestplate_chestCarapace01;
-	public ModelRenderer chestplate_rbipedBodyCarapace;
-	public ModelRenderer chestplate_lbipedBodyCarapace;
+	public ModelRenderer chestplate_rBodyCarapace;
+	public ModelRenderer chestplate_lBodyCarapace;
 	public ModelRenderer chestplate_lHookArm02;
 	public ModelRenderer chestplate_lHookArm03;
 	public ModelRenderer chestplate_lHookClaw01a;
@@ -57,23 +58,23 @@ public class ModelZergArmorT1 extends ModelBiped {
 	public ModelRenderer chestplate_chestCarapace02;
 	public ModelRenderer chestplate_lKnuckle01;
 	public ModelRenderer chestplate_lKnuckle02;
-	public ModelRenderer chestplate_bipedLeftArmCarapace;
+	public ModelRenderer chestplate_lArmCarapace;
 	public ModelRenderer chestplate_lShoulderCarapace;
 	public ModelRenderer chestplate_lClaws;
-	public ModelRenderer chestplate_bipedLeftArmCarapace_1;
+	public ModelRenderer chestplate_lArmCarapace_1;
 	public ModelRenderer boots_lFlesh01;
-	public ModelRenderer leggings_bipedLeftLegCarapace;
+	public ModelRenderer leggings_lLegCarapace;
 	public ModelRenderer boots_lClaw01a;
 	public ModelRenderer boots_lClaw02a;
 	public ModelRenderer boots_lClaw01a_1;
 	public ModelRenderer boots_lClaw02a_1;
 
 	public ModelZergArmorT1(float modelSize) {
-		super(modelSize, 0, 128, 64);
-		this.chestplate_lbipedBodyCarapace = new ModelRenderer(this, 107, 24);
-		this.chestplate_lbipedBodyCarapace.setRotationPoint(0.0F, 2.4F, 0.0F);
-		this.chestplate_lbipedBodyCarapace.addBox(-0.9F, -2.1F, -2.5F, 5, 8, 5, 0.0F);
-		this.setRotateAngle(chestplate_lbipedBodyCarapace, 0.0F, -0.091106186954104F, -0.091106186954104F);
+		super(modelSize, 128, 64);
+		this.chestplate_lBodyCarapace = new ModelRenderer(this, 107, 24);
+		this.chestplate_lBodyCarapace.setRotationPoint(0.0F, 2.4F, 0.0F);
+		this.chestplate_lBodyCarapace.addBox(-0.9F, -2.1F, -2.5F, 5, 8, 5, 0.0F);
+		this.setRotateAngle(chestplate_lBodyCarapace, 0.0F, -0.091106186954104F, -0.091106186954104F);
 		this.helmet_rCrest02 = new ModelRenderer(this, 100, 56);
 		this.helmet_rCrest02.mirror = true;
 		this.helmet_rCrest02.setRotationPoint(0.5F, 1.2F, 1.7F);
@@ -119,10 +120,10 @@ public class ModelZergArmorT1 extends ModelBiped {
 		this.chestplate_lShoulderCarapace.mirror = true;
 		this.chestplate_lShoulderCarapace.setRotationPoint(0.0F, -0.1F, 0.0F);
 		this.chestplate_lShoulderCarapace.addBox(-1.7F, -2.0F, -2.5F, 5, 3, 5, 0.0F);
-		this.chestplate_bipedLeftArmCarapace = new ModelRenderer(this, 103, 14);
-		this.chestplate_bipedLeftArmCarapace.setRotationPoint(1.6F, 8.5F, 0.6F);
-		this.chestplate_bipedLeftArmCarapace.addBox(-1.5F, -6.0F, -1.5F, 3, 6, 3, 0.0F);
-		this.setRotateAngle(chestplate_bipedLeftArmCarapace, -0.22759093446006054F, 0.0F, 0.136659280431156F);
+		this.chestplate_lArmCarapace = new ModelRenderer(this, 103, 14);
+		this.chestplate_lArmCarapace.setRotationPoint(1.6F, 8.5F, 0.6F);
+		this.chestplate_lArmCarapace.addBox(-1.5F, -6.0F, -1.5F, 3, 6, 3, 0.0F);
+		this.setRotateAngle(chestplate_lArmCarapace, -0.22759093446006054F, 0.0F, 0.136659280431156F);
 		this.boots_lClaw01a = new ModelRenderer(this, 50, 38);
 		this.boots_lClaw01a.setRotationPoint(1.6F, 1.9F, -1.2F);
 		this.boots_lClaw01a.addBox(-0.9F, -1.0F, -2.1F, 2, 2, 2, 0.0F);
@@ -136,9 +137,9 @@ public class ModelZergArmorT1 extends ModelBiped {
 		this.chestplate_lClaws.setRotationPoint(0.5F, 0.5F, 0.0F);
 		this.chestplate_lClaws.addBox(0.0F, -0.6F, -2.0F, 0, 2, 4, 0.0F);
 		this.setRotateAngle(chestplate_lClaws, 0.0F, 0.0F, 0.27314402793711257F);
-		this.chestplate_bipedRightArmCarapace_1 = new ModelRenderer(this, 109, 4);
-		this.chestplate_bipedRightArmCarapace_1.setRotationPoint(0.0F, 0.0F, 0.0F);
-		this.chestplate_bipedRightArmCarapace_1.addBox(-3.2F, 0.4F, -2.5F, 1, 3, 5, 0.0F);
+		this.chestplate_rArmCarapace_1 = new ModelRenderer(this, 109, 4);
+		this.chestplate_rArmCarapace_1.setRotationPoint(0.0F, 0.0F, 0.0F);
+		this.chestplate_rArmCarapace_1.addBox(-3.2F, 0.4F, -2.5F, 1, 3, 5, 0.0F);
 		this.helmet_crestVisor02 = new ModelRenderer(this, 71, 3);
 		this.helmet_crestVisor02.setRotationPoint(0.0F, 0.8F, -0.0F);
 		this.helmet_crestVisor02.addBox(-2.5F, 0.0F, -0.5F, 5, 1, 1, 0.0F);
@@ -154,10 +155,11 @@ public class ModelZergArmorT1 extends ModelBiped {
 		this.boots_lFlesh01 = new ModelRenderer(this, 93, 0);
 		this.boots_lFlesh01.setRotationPoint(-0.2F, 8.5F, 0.0F);
 		this.boots_lFlesh01.addBox(-2.5F, 0.0F, -2.5F, 5, 3, 5, 0.0F);
-		this.leggings_bipedLeftLegCarapace = new ModelRenderer(this, 103, 14);
-		this.leggings_bipedLeftLegCarapace.setRotationPoint(0.5F, 7.8F, 0.5F);
-		this.leggings_bipedLeftLegCarapace.addBox(-1.5F, -6.0F, -1.5F, 3, 6, 3, 0.0F);
-		this.setRotateAngle(leggings_bipedLeftLegCarapace, -0.22759093446006054F, 0.0F, 0.136659280431156F);
+		this.setRotateAngle(lArm, 0.0F, 0.0F, -0.10000736613927509F);
+		this.leggings_lLegCarapace = new ModelRenderer(this, 103, 14);
+		this.leggings_lLegCarapace.setRotationPoint(0.5F, 7.8F, 0.5F);
+		this.leggings_lLegCarapace.addBox(-1.5F, -6.0F, -1.5F, 3, 6, 3, 0.0F);
+		this.setRotateAngle(leggings_lLegCarapace, -0.22759093446006054F, 0.0F, 0.136659280431156F);
 		this.chestplate_rShoulderCarapace = new ModelRenderer(this, 95, 38);
 		this.chestplate_rShoulderCarapace.setRotationPoint(0.0F, -0.1F, 0.0F);
 		this.chestplate_rShoulderCarapace.addBox(-3.3F, -2.0F, -2.5F, 5, 3, 5, 0.0F);
@@ -186,11 +188,11 @@ public class ModelZergArmorT1 extends ModelBiped {
 		this.chestplate_spine02.setRotationPoint(-0.3F, 4.7F, 0.3F);
 		this.chestplate_spine02.addBox(-1.0F, 0.0F, -1.0F, 2, 6, 2, 0.0F);
 		this.setRotateAngle(chestplate_spine02, -0.136659280431156F, 0.0F, -0.18203784098300857F);
-		this.chestplate_bipedRightArmCarapace = new ModelRenderer(this, 103, 14);
-		this.chestplate_bipedRightArmCarapace.mirror = true;
-		this.chestplate_bipedRightArmCarapace.setRotationPoint(-1.6F, 8.5F, 0.6F);
-		this.chestplate_bipedRightArmCarapace.addBox(-1.5F, -6.0F, -1.5F, 3, 6, 3, 0.0F);
-		this.setRotateAngle(chestplate_bipedRightArmCarapace, -0.22759093446006054F, 0.0F, -0.136659280431156F);
+		this.chestplate_rArmCarapace = new ModelRenderer(this, 103, 14);
+		this.chestplate_rArmCarapace.mirror = true;
+		this.chestplate_rArmCarapace.setRotationPoint(-1.6F, 8.5F, 0.6F);
+		this.chestplate_rArmCarapace.addBox(-1.5F, -6.0F, -1.5F, 3, 6, 3, 0.0F);
+		this.setRotateAngle(chestplate_rArmCarapace, -0.22759093446006054F, 0.0F, -0.136659280431156F);
 		this.chestplate_chestCarapace01 = new ModelRenderer(this, 0, 48);
 		this.chestplate_chestCarapace01.setRotationPoint(0.0F, 3.8F, -1.3F);
 		this.chestplate_chestCarapace01.addBox(-1.5F, -3.0F, -1.5F, 3, 4, 3, 0.0F);
@@ -229,11 +231,11 @@ public class ModelZergArmorT1 extends ModelBiped {
 		this.chestplate_rHookArm03.setRotationPoint(0.0F, -2.8F, -0.1F);
 		this.chestplate_rHookArm03.addBox(-2.0F, -7.0F, -2.0F, 4, 7, 4, 0.0F);
 		this.setRotateAngle(chestplate_rHookArm03, 0.40980330836826856F, 0.0F, 0.0F);
-		this.leggings_bipedRightLegCarapace = new ModelRenderer(this, 103, 14);
-		this.leggings_bipedRightLegCarapace.mirror = true;
-		this.leggings_bipedRightLegCarapace.setRotationPoint(-0.5F, 7.8F, 0.5F);
-		this.leggings_bipedRightLegCarapace.addBox(-1.5F, -6.0F, -1.5F, 3, 6, 3, 0.0F);
-		this.setRotateAngle(leggings_bipedRightLegCarapace, -0.22759093446006054F, 0.0F, -0.136659280431156F);
+		this.leggings_rLegCarapace = new ModelRenderer(this, 103, 14);
+		this.leggings_rLegCarapace.mirror = true;
+		this.leggings_rLegCarapace.setRotationPoint(-0.5F, 7.8F, 0.5F);
+		this.leggings_rLegCarapace.addBox(-1.5F, -6.0F, -1.5F, 3, 6, 3, 0.0F);
+		this.setRotateAngle(leggings_rLegCarapace, -0.22759093446006054F, 0.0F, -0.136659280431156F);
 		this.chestplate_lKnuckle01 = new ModelRenderer(this, 83, 17);
 		this.chestplate_lKnuckle01.setRotationPoint(2.3F, 9.3F, -0.1F);
 		this.chestplate_lKnuckle01.addBox(0.0F, -1.0F, -2.0F, 1, 2, 4, 0.0F);
@@ -276,14 +278,15 @@ public class ModelZergArmorT1 extends ModelBiped {
 		this.chestplate_rHookArm01.setRotationPoint(-2.8F, 1.9F, 0.2F);
 		this.chestplate_rHookArm01.addBox(-1.0F, -8.0F, 0.0F, 2, 8, 2, 0.0F);
 		this.setRotateAngle(chestplate_rHookArm01, -0.6373942428283291F, -0.40980330836826856F, -0.36425021489121656F);
-		this.chestplate_bipedLeftArmCarapace_1 = new ModelRenderer(this, 109, 4);
-		this.chestplate_bipedLeftArmCarapace_1.mirror = true;
-		this.chestplate_bipedLeftArmCarapace_1.setRotationPoint(0.0F, 0.0F, 0.0F);
-		this.chestplate_bipedLeftArmCarapace_1.addBox(2.2F, 0.4F, -2.5F, 1, 3, 5, 0.0F);
-		this.chestplate_rbipedBodyCarapace = new ModelRenderer(this, 85, 24);
-		this.chestplate_rbipedBodyCarapace.setRotationPoint(0.0F, 2.4F, 0.0F);
-		this.chestplate_rbipedBodyCarapace.addBox(-4.1F, -2.1F, -2.5F, 5, 8, 5, 0.0F);
-		this.setRotateAngle(chestplate_rbipedBodyCarapace, 0.0F, 0.091106186954104F, 0.091106186954104F);
+		this.setRotateAngle(rArm, 0.0F, 0.0F, 0.10000736613927509F);
+		this.chestplate_lArmCarapace_1 = new ModelRenderer(this, 109, 4);
+		this.chestplate_lArmCarapace_1.mirror = true;
+		this.chestplate_lArmCarapace_1.setRotationPoint(0.0F, 0.0F, 0.0F);
+		this.chestplate_lArmCarapace_1.addBox(2.2F, 0.4F, -2.5F, 1, 3, 5, 0.0F);
+		this.chestplate_rBodyCarapace = new ModelRenderer(this, 85, 24);
+		this.chestplate_rBodyCarapace.setRotationPoint(0.0F, 2.4F, 0.0F);
+		this.chestplate_rBodyCarapace.addBox(-4.1F, -2.1F, -2.5F, 5, 8, 5, 0.0F);
+		this.setRotateAngle(chestplate_rBodyCarapace, 0.0F, 0.091106186954104F, 0.091106186954104F);
 		this.chestplate_rKnuckle01 = new ModelRenderer(this, 83, 17);
 		this.chestplate_rKnuckle01.mirror = true;
 		this.chestplate_rKnuckle01.setRotationPoint(-2.7F, 9.6F, -0.1F);
@@ -297,37 +300,37 @@ public class ModelZergArmorT1 extends ModelBiped {
 		this.chestplate_chestCarapace02.setRotationPoint(0.3F, 0.4F, -0.2F);
 		this.chestplate_chestCarapace02.addBox(-1.0F, 0.0F, -1.0F, 2, 3, 2, 0.0F);
 		this.setRotateAngle(chestplate_chestCarapace02, 0.22759093446006054F, 0.0F, 0.27314402793711257F);
-		this.bipedBody.addChild(this.chestplate_lbipedBodyCarapace);
+		this.body.addChild(this.chestplate_lBodyCarapace);
 		this.helmet_rCrest01.addChild(this.helmet_rCrest02);
 		this.boots_rFlesh01.addChild(this.boots_rClaw01a);
 		this.helmet_crest01.addChild(this.helmet_crestVisor01);
 		this.chestplate_lHookArm01.addChild(this.chestplate_lHookArm02);
 		this.chestplate_rHookArm03.addChild(this.chestplate_rHookClaw02a);
 		this.helmet_crest03.addChild(this.helmet_crestSupport);
-		this.bipedHead.addChild(this.helmet_crest01);
+		this.head.addChild(this.helmet_crest01);
 		this.boots_rClaw01a.addChild(this.boots_rClaw01a_1);
-		this.bipedBody.addChild(this.chestplate_spine);
+		this.body.addChild(this.chestplate_spine);
 		this.boots_lClaw02a.addChild(this.boots_lClaw02a_1);
-		this.bipedLeftArm.addChild(this.chestplate_lShoulderCarapace);
-		this.bipedLeftArm.addChild(this.chestplate_bipedLeftArmCarapace);
+		this.lArm.addChild(this.chestplate_lShoulderCarapace);
+		this.lArm.addChild(this.chestplate_lArmCarapace);
 		this.boots_lFlesh01.addChild(this.boots_lClaw01a);
 		this.chestplate_rKnuckle01.addChild(this.chestplate_rClaws);
 		this.chestplate_lKnuckle01.addChild(this.chestplate_lClaws);
-		this.chestplate_rShoulderCarapace.addChild(this.chestplate_bipedRightArmCarapace_1);
+		this.chestplate_rShoulderCarapace.addChild(this.chestplate_rArmCarapace_1);
 		this.helmet_crestVisor01.addChild(this.helmet_crestVisor02);
-		this.bipedBody.addChild(this.chestplate_lHookArm01);
+		this.body.addChild(this.chestplate_lHookArm01);
 		this.chestplate_lHookArm03.addChild(this.chestplate_lHookClaw02a);
-		this.bipedLeftLeg.addChild(this.boots_lFlesh01);
-		this.bipedLeftLeg.addChild(this.leggings_bipedLeftLegCarapace);
-		this.bipedRightArm.addChild(this.chestplate_rShoulderCarapace);
+		this.lLeg.addChild(this.boots_lFlesh01);
+		this.lLeg.addChild(this.leggings_lLegCarapace);
+		this.rArm.addChild(this.chestplate_rShoulderCarapace);
 		this.boots_rFlesh01.addChild(this.boots_rClaw02a);
-		this.bipedRightArm.addChild(this.chestplate_rKnuckle02);
+		this.rArm.addChild(this.chestplate_rKnuckle02);
 		this.helmet_lCrest01.addChild(this.helmet_lCrest02);
 		this.helmet_rCrest02.addChild(this.helmet_rCrest03);
 		this.chestplate_lHookClaw01a.addChild(this.chestplate_lHookClaw01b);
 		this.chestplate_spine.addChild(this.chestplate_spine02);
-		this.bipedRightArm.addChild(this.chestplate_bipedRightArmCarapace);
-		this.bipedBody.addChild(this.chestplate_chestCarapace01);
+		this.rArm.addChild(this.chestplate_rArmCarapace);
+		this.body.addChild(this.chestplate_chestCarapace01);
 		this.chestplate_rHookArm03.addChild(this.chestplate_rHookClaw01a);
 		this.boots_lClaw01a.addChild(this.boots_lClaw01a_1);
 		this.boots_lFlesh01.addChild(this.boots_lClaw02a);
@@ -336,30 +339,69 @@ public class ModelZergArmorT1 extends ModelBiped {
 		this.boots_rClaw02a.addChild(this.boots_rClaw02a_1);
 		this.helmet_crest01.addChild(this.helmet_crest03);
 		this.chestplate_rHookArm02.addChild(this.chestplate_rHookArm03);
-		this.bipedRightLeg.addChild(this.leggings_bipedRightLegCarapace);
-		this.bipedRightArm.addChild(this.chestplate_lKnuckle01);
+		this.rLeg.addChild(this.leggings_rLegCarapace);
+		this.lArm.addChild(this.chestplate_lKnuckle01);
 		this.chestplate_rHookClaw01a.addChild(this.chestplate_rHookClaw01b);
-		this.bipedRightLeg.addChild(this.boots_rFlesh01);
+		this.rLeg.addChild(this.boots_rFlesh01);
 		this.helmet_crest03.addChild(this.helmet_lCrest01);
 		this.helmet_crestVisor02.addChild(this.helmet_crestVisor03);
-		this.bipedRightArm.addChild(this.chestplate_lKnuckle02);
+		this.lArm.addChild(this.chestplate_lKnuckle02);
 		this.chestplate_lHookArm02.addChild(this.chestplate_lHookArm03);
 		this.helmet_lCrest02.addChild(this.helmet_lCrest03);
 		this.helmet_crest03.addChild(this.helmet_rCrest01);
-		this.bipedBody.addChild(this.chestplate_rHookArm01);
-		this.chestplate_lShoulderCarapace.addChild(this.chestplate_bipedLeftArmCarapace_1);
-		this.bipedBody.addChild(this.chestplate_rbipedBodyCarapace);
-		this.bipedRightArm.addChild(this.chestplate_rKnuckle01);
+		this.body.addChild(this.chestplate_rHookArm01);
+		this.chestplate_lShoulderCarapace.addChild(this.chestplate_lArmCarapace_1);
+		this.body.addChild(this.chestplate_rBodyCarapace);
+		this.rArm.addChild(this.chestplate_rKnuckle01);
 		this.chestplate_lHookArm03.addChild(this.chestplate_lHookClaw01a);
 		this.chestplate_chestCarapace01.addChild(this.chestplate_chestCarapace02);
 	}
-
+	
 	@Override
-	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netbipedHeadYaw, float bipedHeadPitch, float scale) {
-		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netbipedHeadYaw, bipedHeadPitch, scale);
-		setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netbipedHeadYaw, bipedHeadPitch, scale, entity);
-	}
+	protected void renderArmorModel(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		GlStateManager.scale(0.75F, 0.75F, 0.75F);
+		GlStateManager.translate(0.0F, 16.0F * scale, 0.0F);
+		this.head.render(scale);
+		GlStateManager.popMatrix();
+		GlStateManager.pushMatrix();
+		GlStateManager.scale(0.5F, 0.5F, 0.5F);
+		GlStateManager.translate(0.0F, 24.0F * scale, 0.0F);
 
+		GlStateManager.pushMatrix();
+		GlStateManager.translate(this.lArm.offsetX, this.lArm.offsetY, this.lArm.offsetZ);
+		GlStateManager.translate(this.lArm.rotationPointX * scale, this.lArm.rotationPointY * scale, this.lArm.rotationPointZ * scale);
+		GlStateManager.scale(1.05D, 1.05D, 1.05D);
+		GlStateManager.translate(-this.lArm.offsetX, -this.lArm.offsetY, -this.lArm.offsetZ);
+		GlStateManager.translate(-this.lArm.rotationPointX * scale, -this.lArm.rotationPointY * scale, -this.lArm.rotationPointZ * scale);
+		this.lArm.render(scale);
+		GlStateManager.popMatrix();
+		this.body.render(scale);
+		GlStateManager.pushMatrix();
+		GlStateManager.translate(this.lLeg.offsetX, this.lLeg.offsetY, this.lLeg.offsetZ);
+		GlStateManager.translate(this.lLeg.rotationPointX * scale, this.lLeg.rotationPointY * scale, this.lLeg.rotationPointZ * scale);
+		GlStateManager.scale(1.05D, 1.05D, 1.05D);
+		GlStateManager.translate(-this.lLeg.offsetX, -this.lLeg.offsetY, -this.lLeg.offsetZ);
+		GlStateManager.translate(-this.lLeg.rotationPointX * scale, -this.lLeg.rotationPointY * scale, -this.lLeg.rotationPointZ * scale);
+		this.lLeg.render(scale);
+		GlStateManager.popMatrix();
+		GlStateManager.pushMatrix();
+		GlStateManager.translate(this.rArm.offsetX, this.rArm.offsetY, this.rArm.offsetZ);
+		GlStateManager.translate(this.rArm.rotationPointX * scale, this.rArm.rotationPointY * scale, this.rArm.rotationPointZ * scale);
+		GlStateManager.scale(1.05D, 1.05D, 1.05D);
+		GlStateManager.translate(-this.rArm.offsetX, -this.rArm.offsetY, -this.rArm.offsetZ);
+		GlStateManager.translate(-this.rArm.rotationPointX * scale, -this.rArm.rotationPointY * scale, -this.rArm.rotationPointZ * scale);
+		this.rArm.render(scale);
+		GlStateManager.popMatrix();
+		GlStateManager.pushMatrix();
+		GlStateManager.translate(this.rLeg.offsetX, this.rLeg.offsetY, this.rLeg.offsetZ);
+		GlStateManager.translate(this.rLeg.rotationPointX * scale, this.rLeg.rotationPointY * scale, this.rLeg.rotationPointZ * scale);
+		GlStateManager.scale(1.05D, 1.05D, 1.05D);
+		GlStateManager.translate(-this.rLeg.offsetX, -this.rLeg.offsetY, -this.rLeg.offsetZ);
+		GlStateManager.translate(-this.rLeg.rotationPointX * scale, -this.rLeg.rotationPointY * scale, -this.rLeg.rotationPointZ * scale);
+		this.rLeg.render(scale);
+		GlStateManager.popMatrix();		
+	}
+	
 	/**
 	 * This is a helper function from Tabula to set the rotation of model parts
 	 */

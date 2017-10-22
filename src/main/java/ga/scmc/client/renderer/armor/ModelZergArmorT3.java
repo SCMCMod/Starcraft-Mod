@@ -1,15 +1,13 @@
 package ga.scmc.client.renderer.armor;
 
-import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 
 /**
- * ZergArmorT3 v3. Created using Tabula 5.1.0
- * 
- * @author cybercat5555
+ * zergArmorT3 v3 - cybercat5555 Created using Tabula 5.1.0
  */
-public class ModelZergArmorT3 extends ModelBiped {
+public class ModelZergArmorT3 extends ModelArmorBase {
 
 	public ModelRenderer chestplate_spike01a;
 	public ModelRenderer chestplate_spike02a;
@@ -81,8 +79,8 @@ public class ModelZergArmorT3 extends ModelBiped {
 	public ModelRenderer chestplate_spike03b;
 	public ModelRenderer chestplate_spike04b;
 
-	public ModelZergArmorT3(float scale) {
-		super(scale, 0, 128, 64);
+	public ModelZergArmorT3(float modelSize) {
+		super(modelSize, 128, 64);
 		this.helmet_crest01 = new ModelRenderer(this, 23, 48);
 		this.helmet_crest01.setRotationPoint(0.0F, -5.7F, 1.9F);
 		this.helmet_crest01.addBox(-4.0F, -3.8F, -5.2F, 8, 2, 7, 0.0F);
@@ -366,11 +364,11 @@ public class ModelZergArmorT3 extends ModelBiped {
 		this.chestplate_rHookClaw02a.setRotationPoint(0.0F, -2.8F, -1.0F);
 		this.chestplate_rHookClaw02a.addBox(-1.0F, -1.0F, -3.0F, 2, 2, 3, 0.0F);
 		this.setRotateAngle(chestplate_rHookClaw02a, 0.0F, 0.0F, 0.7853981633974483F);
-		this.bipedHead.addChild(this.helmet_crest01);
+		this.head.addChild(this.helmet_crest01);
 		this.helmet_crest03.addChild(this.helmet_lCrest01);
 		this.helmet_crestVisor01.addChild(this.helmet_crestVisor02);
-		this.bipedBody.addChild(this.chestplate_lHookArm01);
-		this.bipedLeftArm.addChild(this.chestplate_lKnuckle01);
+		this.body.addChild(this.chestplate_lHookArm01);
+		this.lArm.addChild(this.chestplate_lKnuckle01);
 		this.chestplate_lShoulderCarapace.addChild(this.chestplate_lArmCarapace_1);
 		this.chestplate_lHookArm03.addChild(this.chestplate_lHookClaw01a);
 		this.chestplate_rHookArm03.addChild(this.chestplate_rHookClaw01a);
@@ -381,61 +379,126 @@ public class ModelZergArmorT3 extends ModelBiped {
 		this.boots_lClaw02a.addChild(this.boots_lClaw02a_1);
 		this.chestplate_lHookClaw01b.addChild(this.chestplate_lHookClaw01c);
 		this.chestplate_rHookArm02.addChild(this.chestplate_rHookArm03);
-		this.bipedBody.addChild(this.chestplate_spike01b);
+		this.body.addChild(this.chestplate_spike01b);
 		this.chestplate_lHookArm01.addChild(this.chestplate_lHookArm02);
 		this.chestplate_rShoulderCarapace.addChild(this.chestplate_rArmCarapace_1);
-		this.bipedLeftLeg.addChild(this.leggings_lLegCarapace);
+		this.lLeg.addChild(this.leggings_lLegCarapace);
 		this.boots_lFlesh01.addChild(this.boots_lClaw02a);
 		this.boots_lClaw01a.addChild(this.boots_lClaw01a_1);
-		this.bipedLeftArm.addChild(this.chestplate_lKnuckle02);
-		this.bipedRightArm.addChild(this.chestplate_rShoulderCarapace);
+		this.lArm.addChild(this.chestplate_lKnuckle02);
+		this.rArm.addChild(this.chestplate_rShoulderCarapace);
 		this.chestplate_lHookArm03.addChild(this.chestplate_lHookClaw02a);
 		this.chestplate_rHookClaw02a.addChild(this.chestplate_rHookClaw02b);
 		this.boots_rFlesh01.addChild(this.boots_rClaw01a);
-		this.bipedLeftArm.addChild(this.chestplate_lShoulderCarapace);
+		this.lArm.addChild(this.chestplate_lShoulderCarapace);
 		this.boots_lFlesh01.addChild(this.boots_lClaw01a);
 		this.helmet_crest03.addChild(this.helmet_crestSupport);
 		this.helmet_crest01.addChild(this.helmet_crest03);
 		this.chestplate_lHookArm03.addChild(this.chestplate_lHookClaw03);
-		this.bipedBody.addChild(this.chestplate_rHookArm01);
+		this.body.addChild(this.chestplate_rHookArm01);
 		this.chestplate_lHookClaw01a.addChild(this.chestplate_lHookClaw01b);
 		this.helmet_lCrest02.addChild(this.helmet_lCrest03);
 		this.chestplate_rHookArm03.addChild(this.chestplate_rHookClaw03);
 		this.chestplate_lKnuckle01.addChild(this.chestplate_lClaws);
 		this.chestplate_spike04a.addChild(this.chestplate_spike04b);
-		this.bipedRightLeg.addChild(this.boots_rFlesh01);
-		this.bipedBody.addChild(this.chestplate_chestCarapace01);
-		this.bipedLeftLeg.addChild(this.leggings_rLegCarapace);
+		this.rLeg.addChild(this.boots_rFlesh01);
+		this.body.addChild(this.chestplate_chestCarapace01);
+		this.rLeg.addChild(this.leggings_rLegCarapace);
 		this.helmet_crest03.addChild(this.helmet_rCrest01);
 		this.chestplate_chestCarapace01.addChild(this.chestplate_chestCarapace02);
 		this.helmet_crestVisor02.addChild(this.helmet_crestVisor03);
-		this.bipedBody.addChild(this.chestplate_rBodyCarapace);
+		this.body.addChild(this.chestplate_rBodyCarapace);
 		this.helmet_crest01.addChild(this.helmet_crestVisor01);
-		this.bipedRightArm.addChild(this.chestplate_rKnuckle01);
+		this.rArm.addChild(this.chestplate_rKnuckle01);
 		this.helmet_rCrest01.addChild(this.helmet_rCrest02);
 		this.chestplate_spike03a.addChild(this.chestplate_spike03b);
 		this.helmet_lCrest01.addChild(this.helmet_lCrest02);
 		this.chestplate_lHookClaw02a.addChild(this.chestplate_lHookClaw02b);
-		this.bipedLeftLeg.addChild(this.boots_lFlesh01);
-		this.bipedBody.addChild(this.chestplate_lBodyCarapace);
+		this.lLeg.addChild(this.boots_lFlesh01);
+		this.body.addChild(this.chestplate_lBodyCarapace);
 		this.chestplate_spine.addChild(this.chestplate_spine02);
-		this.bipedLeftArm.addChild(this.chestplate_lArmCarapace);
+		this.lArm.addChild(this.chestplate_lArmCarapace);
 		this.helmet_rCrest02.addChild(this.helmet_rCrest03);
 		this.boots_rClaw01a.addChild(this.boots_rClaw01a_1);
 		this.chestplate_rKnuckle01.addChild(this.chestplate_rClaws);
-		this.bipedRightArm.addChild(this.chestplate_rArmCarapace);
+		this.rArm.addChild(this.chestplate_rArmCarapace);
 		this.chestplate_rHookClaw01a.addChild(this.chestplate_rHookClaw01b);
 		this.helmet_crest01.addChild(this.helmet_crest02);
-		this.bipedBody.addChild(this.chestplate_spine);
+		this.body.addChild(this.chestplate_spine);
 		this.chestplate_rHookClaw01b.addChild(this.chestplate_rHookClaw01c);
-		this.bipedRightArm.addChild(this.chestplate_rKnuckle02);
+		this.rArm.addChild(this.chestplate_rKnuckle02);
 		this.chestplate_spike02a.addChild(this.chestplate_spike02b);
 		this.chestplate_rHookArm03.addChild(this.chestplate_rHookClaw02a);
 	}
 
 	@Override
-	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+	protected void renderArmorModel(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		GlStateManager.pushMatrix();
+		GlStateManager.translate(this.lArm.offsetX, this.lArm.offsetY, this.lArm.offsetZ);
+		GlStateManager.translate(this.lArm.rotationPointX * scale, this.lArm.rotationPointY * scale, this.lArm.rotationPointZ * scale);
+		GlStateManager.scale(1.05D, 1.05D, 1.05D);
+		GlStateManager.translate(-this.lArm.offsetX, -this.lArm.offsetY, -this.lArm.offsetZ);
+		GlStateManager.translate(-this.lArm.rotationPointX * scale, -this.lArm.rotationPointY * scale, -this.lArm.rotationPointZ * scale);
+		this.lArm.render(scale);
+		GlStateManager.popMatrix();
+		GlStateManager.pushMatrix();
+		GlStateManager.translate(this.chestplate_spike04a.offsetX, this.chestplate_spike04a.offsetY, this.chestplate_spike04a.offsetZ);
+		GlStateManager.translate(this.chestplate_spike04a.rotationPointX * scale, this.chestplate_spike04a.rotationPointY * scale, this.chestplate_spike04a.rotationPointZ * scale);
+		GlStateManager.scale(0.4D, 0.4D, 0.4D);
+		GlStateManager.translate(-this.chestplate_spike04a.offsetX, -this.chestplate_spike04a.offsetY, -this.chestplate_spike04a.offsetZ);
+		GlStateManager.translate(-this.chestplate_spike04a.rotationPointX * scale, -this.chestplate_spike04a.rotationPointY * scale, -this.chestplate_spike04a.rotationPointZ * scale);
+		this.chestplate_spike04a.render(scale);
+		GlStateManager.popMatrix();
+		this.head.render(scale);
+		GlStateManager.pushMatrix();
+		GlStateManager.translate(this.rLeg.offsetX, this.rLeg.offsetY, this.rLeg.offsetZ);
+		GlStateManager.translate(this.rLeg.rotationPointX * scale, this.rLeg.rotationPointY * scale, this.rLeg.rotationPointZ * scale);
+		GlStateManager.scale(1.05D, 1.05D, 1.05D);
+		GlStateManager.translate(-this.rLeg.offsetX, -this.rLeg.offsetY, -this.rLeg.offsetZ);
+		GlStateManager.translate(-this.rLeg.rotationPointX * scale, -this.rLeg.rotationPointY * scale, -this.rLeg.rotationPointZ * scale);
+		this.rLeg.render(scale);
+		GlStateManager.popMatrix();
+		GlStateManager.pushMatrix();
+		GlStateManager.translate(this.lLeg.offsetX, this.lLeg.offsetY, this.lLeg.offsetZ);
+		GlStateManager.translate(this.lLeg.rotationPointX * scale, this.lLeg.rotationPointY * scale, this.lLeg.rotationPointZ * scale);
+		GlStateManager.scale(1.05D, 1.05D, 1.05D);
+		GlStateManager.translate(-this.lLeg.offsetX, -this.lLeg.offsetY, -this.lLeg.offsetZ);
+		GlStateManager.translate(-this.lLeg.rotationPointX * scale, -this.lLeg.rotationPointY * scale, -this.lLeg.rotationPointZ * scale);
+		this.lLeg.render(scale);
+		GlStateManager.popMatrix();
+		GlStateManager.pushMatrix();
+		GlStateManager.translate(this.chestplate_spike01a.offsetX, this.chestplate_spike01a.offsetY, this.chestplate_spike01a.offsetZ);
+		GlStateManager.translate(this.chestplate_spike01a.rotationPointX * scale, this.chestplate_spike01a.rotationPointY * scale, this.chestplate_spike01a.rotationPointZ * scale);
+		GlStateManager.scale(0.8D, 0.8D, 0.9D);
+		GlStateManager.translate(-this.chestplate_spike01a.offsetX, -this.chestplate_spike01a.offsetY, -this.chestplate_spike01a.offsetZ);
+		GlStateManager.translate(-this.chestplate_spike01a.rotationPointX * scale, -this.chestplate_spike01a.rotationPointY * scale, -this.chestplate_spike01a.rotationPointZ * scale);
+		this.chestplate_spike01a.render(scale);
+		GlStateManager.popMatrix();
+		GlStateManager.pushMatrix();
+		GlStateManager.translate(this.chestplate_spike02a.offsetX, this.chestplate_spike02a.offsetY, this.chestplate_spike02a.offsetZ);
+		GlStateManager.translate(this.chestplate_spike02a.rotationPointX * scale, this.chestplate_spike02a.rotationPointY * scale, this.chestplate_spike02a.rotationPointZ * scale);
+		GlStateManager.scale(0.6D, 0.6D, 0.6D);
+		GlStateManager.translate(-this.chestplate_spike02a.offsetX, -this.chestplate_spike02a.offsetY, -this.chestplate_spike02a.offsetZ);
+		GlStateManager.translate(-this.chestplate_spike02a.rotationPointX * scale, -this.chestplate_spike02a.rotationPointY * scale, -this.chestplate_spike02a.rotationPointZ * scale);
+		this.chestplate_spike02a.render(scale);
+		GlStateManager.popMatrix();
+		GlStateManager.pushMatrix();
+		GlStateManager.translate(this.chestplate_spike03a.offsetX, this.chestplate_spike03a.offsetY, this.chestplate_spike03a.offsetZ);
+		GlStateManager.translate(this.chestplate_spike03a.rotationPointX * scale, this.chestplate_spike03a.rotationPointY * scale, this.chestplate_spike03a.rotationPointZ * scale);
+		GlStateManager.scale(0.5D, 0.5D, 0.5D);
+		GlStateManager.translate(-this.chestplate_spike03a.offsetX, -this.chestplate_spike03a.offsetY, -this.chestplate_spike03a.offsetZ);
+		GlStateManager.translate(-this.chestplate_spike03a.rotationPointX * scale, -this.chestplate_spike03a.rotationPointY * scale, -this.chestplate_spike03a.rotationPointZ * scale);
+		this.chestplate_spike03a.render(scale);
+		GlStateManager.popMatrix();
+		this.body.render(scale);
+		GlStateManager.pushMatrix();
+		GlStateManager.translate(this.rArm.offsetX, this.rArm.offsetY, this.rArm.offsetZ);
+		GlStateManager.translate(this.rArm.rotationPointX * scale, this.rArm.rotationPointY * scale, this.rArm.rotationPointZ * scale);
+		GlStateManager.scale(1.05D, 1.05D, 1.05D);
+		GlStateManager.translate(-this.rArm.offsetX, -this.rArm.offsetY, -this.rArm.offsetZ);
+		GlStateManager.translate(-this.rArm.rotationPointX * scale, -this.rArm.rotationPointY * scale, -this.rArm.rotationPointZ * scale);
+		this.rArm.render(scale);
+		GlStateManager.popMatrix();
 	}
 
 	/**
