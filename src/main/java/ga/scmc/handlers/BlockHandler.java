@@ -19,6 +19,7 @@ import ga.scmc.blocks.BlockFurnaceChar;
 import ga.scmc.blocks.BlockFurnaceShakuras;
 import ga.scmc.blocks.BlockFurnaceSlayn;
 import ga.scmc.blocks.BlockKeratinChunk;
+import ga.scmc.blocks.BlockKorhalCityStone;
 import ga.scmc.blocks.BlockMovingLightSource;
 import ga.scmc.blocks.BlockProtossEnergyChannel;
 import ga.scmc.blocks.BlockProtossEnergyChannelDark;
@@ -162,6 +163,8 @@ public class BlockHandler {
 	public static Block WARPGATE_WORMHOLE_OVERWORLD;
 	public static Block WARPGATE_WORMHOLE_SHAKURAS;
 	public static Block ZERG_CREEP;
+	
+	public static Block CITY_STONE_KORHAL;
 
 	public static Block SAND_SLAYN;
 	public static Block STONE_SLAYN;
@@ -283,6 +286,9 @@ public class BlockHandler {
 		GAS_TERRAZINE = new BlockTerrazineGas();
 
 		STARCRAFT_SKULL = new BlockStarcraftSkull();
+		
+
+		CITY_STONE_KORHAL = new BlockKorhalCityStone();
 
 		TEST = new BlockTest();
 	}
@@ -333,6 +339,8 @@ public class BlockHandler {
 		registerCompleteBlock(SAND_SHAKURAS);
 		registerCompleteBlock(DIM_PORTAL_SHAKURAS);
 
+		registerCompleteBlock(CITY_STONE_KORHAL);
+		
 		registerBlock(PROTOSS_ENERGY_CHANNEL);
 		registerBlock(PROTOSS_ENERGY_STABILIZER);
 		registerBlock(PROTOSS_DARK_ENERGY_CHANNEL);

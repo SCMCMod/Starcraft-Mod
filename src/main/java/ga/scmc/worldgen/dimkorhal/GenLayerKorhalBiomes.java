@@ -7,7 +7,7 @@ import net.minecraft.world.gen.layer.IntCache;
 
 public class GenLayerKorhalBiomes extends GenLayer {
 
-	public Biome[] dimBiomes = { BiomeHandler.biomeKorhalDesert};
+	public Biome[] dimBiomes = { BiomeHandler.biomeKorhalDesert, BiomeHandler.biomeKorhalCity};
 
 	public GenLayerKorhalBiomes(long par1) {
 		super(par1);

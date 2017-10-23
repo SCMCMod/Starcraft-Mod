@@ -2,6 +2,7 @@ package ga.scmc.worldgen.structure;
 
 import java.util.Random;
 
+import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.ItemEnumHandler;
 import ga.scmc.handlers.ItemHandler;
@@ -397,7 +398,7 @@ public class StructureTerranBunkerTemplate extends SCWorldGenerator {
 	}
 
 	protected Block[] GetValidSpawnBlocks() {
-		return new Block[] { Blocks.GRASS, Blocks.STONE, Blocks.DIRT, Blocks.SAND};
+		return new Block[] { Blocks.GRASS, Blocks.STONE, Blocks.DIRT, Blocks.SAND, BlockHandler.CITY_STONE_KORHAL};
 	}
 
 	public boolean LocationIsValidSpawn(World world, BlockPos pos) {

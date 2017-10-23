@@ -386,19 +386,19 @@ public class WorldGenerationHandler implements IWorldGenerator {
 				runGenerator(DIRT_KORHAL, world, random, chunkX, chunkZ, 20, 0, 128);
 				runGenerator(GRAVEL_KORHAL, world, random, chunkX, chunkZ, 10, 0, 128);
 				
-				if (rnd.nextInt(100) < 75 && world.getWorldInfo().isMapFeaturesEnabled()) {
+				if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiomeForCoordsBody(new BlockPos(chunkX + 8, 0, chunkZ + 8)) == BiomeHandler.biomeKorhalCity) {
 					runGenerator(TERRAN_BUNKER, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100);
 					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
 						LogHelper.logger.info("A Bunker attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
 					}
 				}
-				if (rnd.nextInt(100) < 2 && world.getWorldInfo().isMapFeaturesEnabled()) {
+				if (rnd.nextInt(100) < 2 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiomeForCoordsBody(new BlockPos(chunkX + 8, 0, chunkZ + 8)) == BiomeHandler.biomeKorhalDesert) {
 					runGenerator(GEYSER, Blocks.RED_SANDSTONE.getDefaultState(), BlockHandler.FLUID_VESPENE.getDefaultState(), world, random, chunkX, chunkZ, 0, -34, 0, 1, 60, 80);
 					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
 						LogHelper.logger.info("A Vespene Geyser attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
 					}
 				}
-				if (rnd.nextInt(100) < 1 && world.getWorldInfo().isMapFeaturesEnabled()) {
+				if (rnd.nextInt(100) < 1 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiomeForCoordsBody(new BlockPos(chunkX + 8, 0, chunkZ + 8)) == BiomeHandler.biomeKorhalDesert) {
 					runGenerator(GEYSER, Blocks.RED_SANDSTONE.getDefaultState(), BlockHandler.FLUID_TERRAZINE.getDefaultState(), world, random, chunkX, chunkZ, 0, -34, 0, 1, 60, 80);
 					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
 						LogHelper.logger.info("A Terrazine Geyser attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
