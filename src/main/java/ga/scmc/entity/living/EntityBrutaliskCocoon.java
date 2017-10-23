@@ -3,9 +3,9 @@ package ga.scmc.entity.living;
 import java.util.List;
 
 import ga.scmc.entity.EntityZergPassive;
-import ga.scmc.enums.FactionTypes;
-import ga.scmc.enums.TeamColors;
-import ga.scmc.enums.TypeAttributes;
+import ga.scmc.enums.EnumFactionTypes;
+import ga.scmc.enums.EnumTeamColors;
+import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.SoundHandler;
 import ga.scmc.lib.Library;
 import net.minecraft.block.Block;
@@ -29,9 +29,9 @@ public class EntityBrutaliskCocoon extends EntityZergPassive {
 	public EntityBrutaliskCocoon(World world) {
 		super(world);
 		setSize(1.0F, 1.0F);
-		this.setTeamColor(TeamColors.PURPLE);
-		this.setFactions(FactionTypes.SWARM);
-		setTypes(TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
+		this.setTeamColor(EnumTeamColors.PURPLE);
+		this.setFactions(EnumFactionTypes.SWARM);
+		setTypes(EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
 	}
 
 	@Override

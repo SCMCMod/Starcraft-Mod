@@ -8,9 +8,9 @@ import ga.scmc.entity.EntityProtossMob;
 import ga.scmc.entity.EntityStarcraftMob;
 import ga.scmc.entity.EntityStarcraftPassive;
 import ga.scmc.entity.ai.EntityAIScarabExplode;
-import ga.scmc.enums.FactionTypes;
-import ga.scmc.enums.TeamColors;
-import ga.scmc.enums.TypeAttributes;
+import ga.scmc.enums.EnumFactionTypes;
+import ga.scmc.enums.EnumTeamColors;
+import ga.scmc.enums.EnumTypeAttributes;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -55,7 +55,7 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 	 */
 	private int timeSinceIgnited;
 
-	public EntityScarab(World worldIn, TeamColors color, FactionTypes faction) {
+	public EntityScarab(World worldIn, EnumTeamColors color, EnumFactionTypes faction) {
 		super(worldIn);
 		setSize(.1F, .1F);
 		this.setTeamColor(color);
@@ -73,7 +73,7 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 		if(!entity.isInvisible()) {
 			if(entity instanceof EntityStarcraftMob) {
 				if(entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if(!((EntityStarcraftMob) entity).isFaction(FactionTypes.DAELAAM)) {
+					if(!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.DAELAAM)) {
 						if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						}else {
@@ -85,7 +85,7 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 				}
 			}else if(entity instanceof EntityStarcraftPassive) {
 				if(entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if(!((EntityStarcraftPassive) entity).isFaction(FactionTypes.DAELAAM)) {
+					if(!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.DAELAAM)) {
 						if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						}else {
@@ -108,7 +108,7 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 				}
 				return true;
 			}
-		}else if(entity.isInvisible() && this.isType(TypeAttributes.DETECTOR)){
+		}else if(entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)){
 			return true;
 		}else {
 			return false;

@@ -12,9 +12,9 @@ import ga.scmc.debugging.IColor;
 import ga.scmc.entity.EntityStarcraftMob;
 import ga.scmc.entity.EntityStarcraftPassive;
 import ga.scmc.entity.EntityTerranMob;
-import ga.scmc.enums.FactionTypes;
-import ga.scmc.enums.TeamColors;
-import ga.scmc.enums.TypeAttributes;
+import ga.scmc.enums.EnumFactionTypes;
+import ga.scmc.enums.EnumTeamColors;
+import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.ItemEnumHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
@@ -47,9 +47,9 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 		super(world);
 		setSize(1.5F, 1.5F);
 		experienceValue = 93;
-		this.setTeamColor(TeamColors.BLUE);
-		this.setFactions(FactionTypes.RAIDERS);
-		setTypes(TypeAttributes.ARMORED, TypeAttributes.MECHANICAL, TypeAttributes.GROUND);
+		this.setTeamColor(EnumTeamColors.BLUE);
+		this.setFactions(EnumFactionTypes.RAIDERS);
+		setTypes(EnumTypeAttributes.ARMORED, EnumTypeAttributes.MECHANICAL, EnumTypeAttributes.GROUND);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
 		tasks.addTask(2, new EntityAIWander(this, 1.0D));
@@ -64,7 +64,7 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 		if (!entity.isInvisible()) {
 			if (entity instanceof EntityStarcraftMob) {
 				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if (!((EntityStarcraftMob) entity).isFaction(FactionTypes.RAIDERS)) {
+					if (!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.RAIDERS)) {
 						if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						} else {
@@ -76,7 +76,7 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 				}
 			} else if (entity instanceof EntityStarcraftPassive) {
 				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if (!((EntityStarcraftPassive) entity).isFaction(FactionTypes.RAIDERS)) {
+					if (!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.RAIDERS)) {
 						if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						} else {
@@ -99,7 +99,7 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 				}
 				return true;
 			}
-		} else if (entity.isInvisible() && this.isType(TypeAttributes.DETECTOR)) {
+		} else if (entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)) {
 			return true;
 		} else {
 			return false;

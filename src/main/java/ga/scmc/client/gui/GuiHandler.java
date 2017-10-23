@@ -42,7 +42,7 @@ public class GuiHandler implements IGuiHandler {
 		if (ID == SHOP_ID)
 			return new GuiItemShop(player);
 		if (ID == LARVA_ID)
-			return new GuiLarva(player);
+			return new GuiLarvaMorph(player);
 		return null;
 	}
 

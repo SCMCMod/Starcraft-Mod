@@ -10,9 +10,9 @@ import ga.scmc.debugging.IColor;
 import ga.scmc.entity.EntityProtossMob;
 import ga.scmc.entity.EntityStarcraftMob;
 import ga.scmc.entity.EntityStarcraftPassive;
-import ga.scmc.enums.FactionTypes;
-import ga.scmc.enums.TeamColors;
-import ga.scmc.enums.TypeAttributes;
+import ga.scmc.enums.EnumFactionTypes;
+import ga.scmc.enums.EnumTeamColors;
+import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.ItemEnumHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
@@ -48,9 +48,9 @@ public class EntityZealot extends EntityProtossMob implements IMob, Predicate<En
 		super(world);
 		setSize(1.0F, 3.0F);
 		experienceValue = 100;
-		this.setTeamColor(TeamColors.LIGHT_BLUE);
-		this.setFactions(FactionTypes.DAELAAM);
-		setTypes(TypeAttributes.LIGHT, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
+		this.setTeamColor(EnumTeamColors.LIGHT_BLUE);
+		this.setFactions(EnumFactionTypes.DAELAAM);
+		setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
 		tasks.addTask(2, new EntityAIWander(this, 1.0D));
@@ -81,7 +81,7 @@ public class EntityZealot extends EntityProtossMob implements IMob, Predicate<En
 		if (!entity.isInvisible()) {
 			if (entity instanceof EntityStarcraftMob) {
 				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if (!((EntityStarcraftMob) entity).isFaction(FactionTypes.DAELAAM)) {
+					if (!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.DAELAAM)) {
 						if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						} else {
@@ -93,7 +93,7 @@ public class EntityZealot extends EntityProtossMob implements IMob, Predicate<En
 				}
 			} else if (entity instanceof EntityStarcraftPassive) {
 				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if (!((EntityStarcraftPassive) entity).isFaction(FactionTypes.DAELAAM)) {
+					if (!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.DAELAAM)) {
 						if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						} else {
@@ -116,7 +116,7 @@ public class EntityZealot extends EntityProtossMob implements IMob, Predicate<En
 				}
 				return true;
 			}
-		} else if (entity.isInvisible() && this.isType(TypeAttributes.DETECTOR)) {
+		} else if (entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)) {
 			return true;
 		} else {
 			return false;

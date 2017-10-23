@@ -15,18 +15,18 @@ import net.minecraft.world.World;
  * @since 5.1
  * @author Ocelot5836
  */
-public class GuiLarva extends BasicGui {
+public class GuiLarvaMorph extends BasicGui {
 
-	public static final GuiLarva INSTANCE = new GuiLarva();
+	public static final GuiLarvaMorph INSTANCE = new GuiLarvaMorph();
 	/** The player being traded with. */
 	private EntityPlayer customer;
 	private EntityLarva larva;
 
-	public GuiLarva(EntityPlayer player) {
+	public GuiLarvaMorph(EntityPlayer player) {
 		this.customer = player;
 	}
 
-	public GuiLarva() {
+	public GuiLarvaMorph() {
 	}
 
 	@Override
@@ -58,8 +58,8 @@ public class GuiLarva extends BasicGui {
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 5; j++) {
 				int index = 5 * i + j;
-				if (index < GuiStuff.LARVA_OPTIONS.size()) {
-					LarvaOption option = GuiStuff.LARVA_OPTIONS.get(index);
+				if (index < GuiTerranShopList.LARVA_OPTIONS.size()) {
+					LarvaOption option = GuiTerranShopList.LARVA_OPTIONS.get(index);
 					bindIconTexture();
 					drawTexturedModalRect(8 + j * 18, 8 + i * 18, (option.getIconId() % 16) * 16, (option.getIconId() / 16) * 16, 16, 16);
 				}
@@ -72,8 +72,8 @@ public class GuiLarva extends BasicGui {
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 5; j++) {
 				int index = 5 * i + j;
-				if (index < GuiStuff.LARVA_OPTIONS.size()) {
-					List<String> tooltip = GuiStuff.LARVA_OPTIONS.get(index).getTooltip();
+				if (index < GuiTerranShopList.LARVA_OPTIONS.size()) {
+					List<String> tooltip = GuiTerranShopList.LARVA_OPTIONS.get(index).getTooltip();
 					drawTooltip(tooltip, guiLeft + 7 + j * 18, guiTop + 7 + i * 18, 17, 18, mouseX, mouseY);
 				}
 			}
@@ -88,7 +88,7 @@ public class GuiLarva extends BasicGui {
 			for (int y = 0; y < 3; y++) {
 				for (int x = 0; x < 5; x++) {
 					int index = 5 * y + x;
-					if (index < GuiStuff.LARVA_OPTIONS.size()) {
+					if (index < GuiTerranShopList.LARVA_OPTIONS.size()) {
 						if (GuiUtils.isMouseInside(guiLeft + 7 + x * 18, guiTop + 7 + y * 18, 17, 18, mouseX, mouseY)) {
 							GuiUtils.playButtonClick();
 							// NetworkHandler.sendToServer(new MessageEditEntity(index));

@@ -11,9 +11,9 @@ import ga.scmc.entity.EntityStarcraftMob;
 import ga.scmc.entity.EntityStarcraftPassive;
 import ga.scmc.entity.EntityZergMob;
 import ga.scmc.entity.ai.EntityAIRaptorLeapAtTarget;
-import ga.scmc.enums.FactionTypes;
-import ga.scmc.enums.TeamColors;
-import ga.scmc.enums.TypeAttributes;
+import ga.scmc.enums.EnumFactionTypes;
+import ga.scmc.enums.EnumTeamColors;
+import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.ItemEnumHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
@@ -45,9 +45,9 @@ public class EntityZerglingRaptor extends EntityZergMob implements IMob, Predica
 		experienceValue = 23;
 		this.baseHealth = 25;
 		stepHeight = 5.0F;
-		this.setTeamColor(TeamColors.PURPLE);
-		this.setFactions(FactionTypes.SWARM);
-		this.setTypes(TypeAttributes.LIGHT, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
+		this.setTeamColor(EnumTeamColors.PURPLE);
+		this.setFactions(EnumFactionTypes.SWARM);
+		this.setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
 		tasks.addTask(0, new EntityAISwimming(this));
         tasks.addTask(1, new EntityAIRaptorLeapAtTarget(this, 0.6F));
 		tasks.addTask(2, new EntityAIAttackMelee(this, 1.0D, false));
@@ -69,7 +69,7 @@ public class EntityZerglingRaptor extends EntityZergMob implements IMob, Predica
 		if(!entity.isInvisible()) {
 			if(entity instanceof EntityStarcraftMob) {
 				if(entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if(!((EntityStarcraftMob) entity).isFaction(FactionTypes.SWARM)) {
+					if(!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.SWARM)) {
 						if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						}else {
@@ -81,7 +81,7 @@ public class EntityZerglingRaptor extends EntityZergMob implements IMob, Predica
 				}
 			}else if(entity instanceof EntityStarcraftPassive) {
 				if(entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if(!((EntityStarcraftPassive) entity).isFaction(FactionTypes.SWARM)) {
+					if(!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.SWARM)) {
 						if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						}else {
@@ -101,7 +101,7 @@ public class EntityZerglingRaptor extends EntityZergMob implements IMob, Predica
 			} else {
 				return true;
 			}
-		}else if(entity.isInvisible() && this.isType(TypeAttributes.DETECTOR)){
+		}else if(entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)){
 			return true;
 		}else {
 			return false;

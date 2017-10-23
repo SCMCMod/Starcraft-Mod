@@ -14,7 +14,7 @@ import ga.scmc.handlers.WeaponHandler;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
-public class GuiStuff {
+public class GuiTerranShopList {
 
 	public static final ImmutableList<Product>[] TRADES;
 	public static final ImmutableList<LarvaOption> LARVA_OPTIONS;

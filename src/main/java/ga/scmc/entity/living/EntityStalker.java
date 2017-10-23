@@ -8,9 +8,9 @@ import ga.scmc.entity.EntityProtossMob;
 import ga.scmc.entity.EntityStarcraftMob;
 import ga.scmc.entity.EntityStarcraftPassive;
 import ga.scmc.entity.projectiles.EntityC14GaussRifleBullet;
-import ga.scmc.enums.FactionTypes;
-import ga.scmc.enums.TeamColors;
-import ga.scmc.enums.TypeAttributes;
+import ga.scmc.enums.EnumFactionTypes;
+import ga.scmc.enums.EnumTeamColors;
+import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.SoundHandler;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
@@ -42,9 +42,9 @@ public class EntityStalker extends EntityProtossMob implements IMob, IRangedAtta
 		super(world);
 		setSize(3.0F, 3.0F);
 		experienceValue = 60;
-		this.setTeamColor(TeamColors.LIGHT_BLUE);
-		this.setFactions(FactionTypes.DAELAAM);
-		setTypes(TypeAttributes.ARMORED, TypeAttributes.MECHANICAL, TypeAttributes.GROUND);
+		this.setTeamColor(EnumTeamColors.LIGHT_BLUE);
+		this.setFactions(EnumFactionTypes.DAELAAM);
+		setTypes(EnumTypeAttributes.ARMORED, EnumTypeAttributes.MECHANICAL, EnumTypeAttributes.GROUND);
 		tasks.addTask(1, new EntityAIAttackRanged(this, 1.0D, 17, 16.0F));
 		tasks.addTask(2, new EntityAISwimming(this));
 		tasks.addTask(3, new EntityAIWander(this, 1.0D));
@@ -59,7 +59,7 @@ public class EntityStalker extends EntityProtossMob implements IMob, IRangedAtta
 		if(!entity.isInvisible()) {
 			if(entity instanceof EntityStarcraftMob) {
 				if(entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if(!((EntityStarcraftMob) entity).isFaction(FactionTypes.DAELAAM)) {
+					if(!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.DAELAAM)) {
 						if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						}else {
@@ -71,7 +71,7 @@ public class EntityStalker extends EntityProtossMob implements IMob, IRangedAtta
 				}
 			}else if(entity instanceof EntityStarcraftPassive) {
 				if(entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if(!((EntityStarcraftPassive) entity).isFaction(FactionTypes.DAELAAM)) {
+					if(!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.DAELAAM)) {
 						if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						}else {
@@ -94,7 +94,7 @@ public class EntityStalker extends EntityProtossMob implements IMob, IRangedAtta
 				}
 				return true;
 			}
-		}else if(entity.isInvisible() && this.isType(TypeAttributes.DETECTOR)){
+		}else if(entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)){
 			return true;
 		}else {
 			return false;

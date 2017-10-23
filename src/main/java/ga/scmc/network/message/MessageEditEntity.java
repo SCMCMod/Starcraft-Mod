@@ -3,9 +3,8 @@ package ga.scmc.network.message;
 import ga.scmc.entity.living.EntityDrone;
 import ga.scmc.entity.living.EntityHydralisk;
 import ga.scmc.entity.living.EntityLarva;
-import ga.scmc.entity.living.EntityQueen;
 import ga.scmc.entity.living.EntityZerglingSC2;
-import ga.scmc.enums.LarvaGuiEntities;
+import ga.scmc.enums.EnumLarvaGuiEntities;
 import ga.scmc.lib.Library;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
@@ -24,12 +23,12 @@ public class MessageEditEntity implements IMessage, IMessageHandler<MessageEditE
 	public MessageEditEntity() {
 	}
 	
-	public MessageEditEntity(LarvaGuiEntities replaceEntity) {
+	public MessageEditEntity(EnumLarvaGuiEntities replaceEntity) {
 		this.id = -1;
 		this.replaceId = (short) replaceEntity.getId();
 	}
 
-	public MessageEditEntity(EntityLarva larva, LarvaGuiEntities replaceEntity) {
+	public MessageEditEntity(EntityLarva larva, EnumLarvaGuiEntities replaceEntity) {
 		this.id = larva.getEntityId();
 		this.replaceId = (short) replaceEntity.getId();
 	}

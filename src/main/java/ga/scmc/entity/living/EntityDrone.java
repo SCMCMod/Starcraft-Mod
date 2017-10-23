@@ -5,9 +5,9 @@ import com.arisux.mdx.lib.world.entity.ItemDrop;
 import ga.scmc.entity.EntityProtossMob;
 import ga.scmc.entity.EntityTerranMob;
 import ga.scmc.entity.EntityZergPassive;
-import ga.scmc.enums.FactionTypes;
-import ga.scmc.enums.TeamColors;
-import ga.scmc.enums.TypeAttributes;
+import ga.scmc.enums.EnumFactionTypes;
+import ga.scmc.enums.EnumTeamColors;
+import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.ItemEnumHandler;
 import ga.scmc.handlers.ItemHandler;
 import net.minecraft.entity.EntityAgeable;
@@ -27,9 +27,9 @@ public class EntityDrone extends EntityZergPassive {
 	public EntityDrone(World world) {
 		super(world);
 		setSize(1.0F, 1.5F);
-		this.setTeamColor(TeamColors.PURPLE);
-		this.setFactions(FactionTypes.SWARM);
-		setTypes(TypeAttributes.LIGHT, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
+		this.setTeamColor(EnumTeamColors.PURPLE);
+		this.setFactions(EnumFactionTypes.SWARM);
+		setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAvoidEntity<EntityProtossMob>(this, EntityProtossMob.class, 16.0F, 1.0D, 1.0D));
 		tasks.addTask(2, new EntityAIAvoidEntity<EntityTerranMob>(this, EntityTerranMob.class, 16.0F, 1.0D, 1.0D));

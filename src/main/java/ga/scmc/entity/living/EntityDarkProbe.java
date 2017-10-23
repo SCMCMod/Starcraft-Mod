@@ -5,9 +5,9 @@ import com.arisux.mdx.lib.world.entity.ItemDrop;
 import ga.scmc.entity.EntityProtossPassive;
 import ga.scmc.entity.EntityTerranMob;
 import ga.scmc.entity.EntityZergMob;
-import ga.scmc.enums.FactionTypes;
-import ga.scmc.enums.TeamColors;
-import ga.scmc.enums.TypeAttributes;
+import ga.scmc.enums.EnumFactionTypes;
+import ga.scmc.enums.EnumTeamColors;
+import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.ItemEnumHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
@@ -33,9 +33,9 @@ public class EntityDarkProbe extends EntityProtossPassive {
 	public EntityDarkProbe(World world) {
 		super(world);
 		setSize(1.0F, 1.5F);
-		this.setTeamColor(TeamColors.RED);
-		this.setFactions(FactionTypes.TALDARIM);
-		setTypes(TypeAttributes.LIGHT, TypeAttributes.MECHANICAL, TypeAttributes.GROUND);
+		this.setTeamColor(EnumTeamColors.RED);
+		this.setFactions(EnumFactionTypes.TALDARIM);
+		setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.MECHANICAL, EnumTypeAttributes.GROUND);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAvoidEntity<EntityZergMob>(this, EntityZergMob.class, 16.0F, 1.0D, 1.0D));
 		tasks.addTask(2, new EntityAIAvoidEntity<EntityTerranMob>(this, EntityTerranMob.class, 16.0F, 1.0D, 1.0D));

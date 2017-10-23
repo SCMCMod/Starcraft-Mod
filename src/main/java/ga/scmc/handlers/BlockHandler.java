@@ -52,10 +52,9 @@ import ga.scmc.blocks.coreblocks.BlockCoreWarpGateKhalai;
 import ga.scmc.blocks.coreblocks.BlockCoreWarpGateVoid;
 import ga.scmc.blocks.itemblocks.ItemBlockAsh;
 import ga.scmc.blocks.ore.BlockCharOre;
+import ga.scmc.blocks.ore.BlockOverworldOre;
 import ga.scmc.blocks.ore.BlockShakurasOre;
 import ga.scmc.blocks.ore.OreCharRedstone;
-import ga.scmc.blocks.ore.OreOWCopper;
-import ga.scmc.blocks.ore.OreOWTitanium;
 import ga.scmc.blocks.ore.OreShakurasRedstone;
 import ga.scmc.lib.LogHelper;
 import net.minecraft.block.Block;
@@ -188,8 +187,8 @@ public class BlockHandler {
 	public static void instantiate() {
 
 		LIGHT_SOURCE = new BlockMovingLightSource();
-		ORE_COPPER_OW = new OreOWCopper();
-		ORE_TITANIUM_OW = new OreOWTitanium();
+		ORE_COPPER_OW = new BlockOverworldOre("overworldOreCopper", "overworld_ore_copper", 1);
+		ORE_TITANIUM_OW = new BlockOverworldOre("overworldOreTitanium", "overworld_ore_titanium", 2);
 
 		WARP_GATE_WORMHOLE = new BlockWarpGateWormhole();
 

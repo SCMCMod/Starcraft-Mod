@@ -8,9 +8,9 @@ import ga.scmc.entity.EntityStarcraftMob;
 import ga.scmc.entity.EntityStarcraftPassive;
 import ga.scmc.entity.EntityTerranMob;
 import ga.scmc.entity.projectiles.EntityC14GaussRifleBullet;
-import ga.scmc.enums.FactionTypes;
-import ga.scmc.enums.TeamColors;
-import ga.scmc.enums.TypeAttributes;
+import ga.scmc.enums.EnumFactionTypes;
+import ga.scmc.enums.EnumTeamColors;
+import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.SoundHandler;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
@@ -37,10 +37,10 @@ public class EntityMarauder extends EntityTerranMob implements IMob, IRangedAtta
 		super(world);
 		setSize(3.0F, 3.0F);
 		experienceValue = 60;
-		this.setTeamColor(TeamColors.BLUE);
-		this.setFactions(FactionTypes.RAIDERS);
-		setTypes(TypeAttributes.ARMORED, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
-		this.setDamageAgainstType(TypeAttributes.ARMORED, 5.0D);
+		this.setTeamColor(EnumTeamColors.BLUE);
+		this.setFactions(EnumFactionTypes.RAIDERS);
+		setTypes(EnumTypeAttributes.ARMORED, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
+		this.setDamageAgainstType(EnumTypeAttributes.ARMORED, 5.0D);
 		tasks.addTask(1, new EntityAIAttackRanged(this, 1.0D, 17, 16.0F));
 		tasks.addTask(2, new EntityAISwimming(this));
 		tasks.addTask(3, new EntityAIWander(this, 1.0D));
@@ -55,7 +55,7 @@ public class EntityMarauder extends EntityTerranMob implements IMob, IRangedAtta
 		if(!entity.isInvisible()) {
 			if(entity instanceof EntityStarcraftMob) {
 				if(entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if(!((EntityStarcraftMob) entity).isFaction(FactionTypes.RAIDERS)) {
+					if(!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.RAIDERS)) {
 						if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						}else {
@@ -67,7 +67,7 @@ public class EntityMarauder extends EntityTerranMob implements IMob, IRangedAtta
 				}
 			}else if(entity instanceof EntityStarcraftPassive) {
 				if(entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if(!((EntityStarcraftPassive) entity).isFaction(FactionTypes.RAIDERS)) {
+					if(!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.RAIDERS)) {
 						if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						}else {
@@ -90,7 +90,7 @@ public class EntityMarauder extends EntityTerranMob implements IMob, IRangedAtta
 				}
 				return true;
 			}
-		}else if(entity.isInvisible() && this.isType(TypeAttributes.DETECTOR)){
+		}else if(entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)){
 			return true;
 		}else {
 			return false;

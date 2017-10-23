@@ -1,6 +1,6 @@
 package ga.scmc.enums;
 
-public enum TypeAttributes {
+public enum EnumTypeAttributes {
 	AIR,
 	ARMORED,
 	BIOLOGICAL,

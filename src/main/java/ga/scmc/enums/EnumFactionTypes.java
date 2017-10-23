@@ -1,6 +1,6 @@
 package ga.scmc.enums;
 
-public enum FactionTypes {
+public enum EnumFactionTypes {
 	AMONSFORCES,
 	CONFEDERACY,
 	CRITTER,

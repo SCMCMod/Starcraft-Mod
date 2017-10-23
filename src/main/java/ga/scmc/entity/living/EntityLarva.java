@@ -7,13 +7,13 @@ import com.arisux.mdx.lib.world.entity.ItemDrop;
 
 import ga.scmc.Starcraft;
 import ga.scmc.client.gui.GuiHandler;
-import ga.scmc.client.gui.GuiLarva;
+import ga.scmc.client.gui.GuiLarvaMorph;
 import ga.scmc.entity.EntityProtossMob;
 import ga.scmc.entity.EntityTerranMob;
 import ga.scmc.entity.EntityZergPassive;
-import ga.scmc.enums.FactionTypes;
-import ga.scmc.enums.TeamColors;
-import ga.scmc.enums.TypeAttributes;
+import ga.scmc.enums.EnumFactionTypes;
+import ga.scmc.enums.EnumTeamColors;
+import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ItemEnumHandler;
 import ga.scmc.handlers.ItemHandler;
@@ -58,9 +58,9 @@ public class EntityLarva extends EntityZergPassive {
 	public EntityLarva(World world) {
 		super(world);
 		setSize(1.0F, .5F);
-		this.setTeamColor(TeamColors.PURPLE);
-		this.setFactions(FactionTypes.SWARM);
-		setTypes(TypeAttributes.LIGHT, TypeAttributes.BIOLOGICAL, TypeAttributes.GROUND);
+		this.setTeamColor(EnumTeamColors.PURPLE);
+		this.setFactions(EnumFactionTypes.SWARM);
+		setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
 	}
 
 	protected void applyEntityAI() {
@@ -92,7 +92,7 @@ public class EntityLarva extends EntityZergPassive {
 
 		if (!flag && this.isEntityAlive() && !this.isChild() && !player.isSneaking()) {
 			if (this.world.isRemote) {
-				GuiLarva.INSTANCE.openGUI(player, Starcraft.instance, GuiHandler.LARVA_ID, world, (int) player.posX, (int) player.posY, (int) player.posZ, this);
+				GuiLarvaMorph.INSTANCE.openGUI(player, Starcraft.instance, GuiHandler.LARVA_ID, world, (int) player.posX, (int) player.posY, (int) player.posZ, this);
 			}
 			return true;
 		} else {

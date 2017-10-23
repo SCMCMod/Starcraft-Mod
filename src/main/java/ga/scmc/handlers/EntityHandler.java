@@ -44,7 +44,6 @@ import ga.scmc.tileentity.TileEntityTest;
 import ga.scmc.tileentity.TileEntityWarpGateWormhole;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.init.Biomes;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 

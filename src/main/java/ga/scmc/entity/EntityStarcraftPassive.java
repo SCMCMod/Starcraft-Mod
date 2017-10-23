@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import ga.scmc.enums.FactionTypes;
-import ga.scmc.enums.TeamColors;
-import ga.scmc.enums.TypeAttributes;
+import ga.scmc.enums.EnumFactionTypes;
+import ga.scmc.enums.EnumTeamColors;
+import ga.scmc.enums.EnumTypeAttributes;
 import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -22,16 +22,16 @@ public abstract class EntityStarcraftPassive extends EntityTameable {
 
 	private static final DataParameter<Integer> COLOR = EntityDataManager.createKey(EntityStarcraftPassive.class, DataSerializers.VARINT);
 	
-	List<TypeAttributes> types = new ArrayList<TypeAttributes>(15);
-	List<FactionTypes> factions = new ArrayList<FactionTypes>(15);
-	TeamColors teamColor;
-	HashMap<TypeAttributes, Double> bonusDamage = new HashMap<TypeAttributes, Double>();
+	List<EnumTypeAttributes> types = new ArrayList<EnumTypeAttributes>(15);
+	List<EnumFactionTypes> factions = new ArrayList<EnumFactionTypes>(15);
+	EnumTeamColors teamColor;
+	HashMap<EnumTypeAttributes, Double> bonusDamage = new HashMap<EnumTypeAttributes, Double>();
 	
 	public EntityStarcraftPassive(World world) {
 		super(world);
 	}
 	
-	public boolean isType(TypeAttributes type) {
+	public boolean isType(EnumTypeAttributes type) {
 		for(int x = 0; x < types.size(); x++) {
 			if(this.types.get(x) == type) {
 				return true;
@@ -40,7 +40,7 @@ public abstract class EntityStarcraftPassive extends EntityTameable {
 		return false;
 	}
 	
-	public boolean isFaction(FactionTypes faction) {
+	public boolean isFaction(EnumFactionTypes faction) {
 		for(int x = 0; x < factions.size(); x++) {
 			if(this.factions.get(x) == faction) {
 				return true;
@@ -49,8 +49,8 @@ public abstract class EntityStarcraftPassive extends EntityTameable {
 		return false;
 	}
 	
-	public TeamColors getTeamColor() {
-		for(TeamColors color: TeamColors.values()) {
+	public EnumTeamColors getTeamColor() {
+		for(EnumTeamColors color: EnumTeamColors.values()) {
 			if(color.getId() == this.getNBTColor()) {
 				return color;
 			}
@@ -58,28 +58,28 @@ public abstract class EntityStarcraftPassive extends EntityTameable {
 		return null;
 	}
 	
-	public void setTeamColor(TeamColors team) {
+	public void setTeamColor(EnumTeamColors team) {
 		this.teamColor = team;
 		this.setNBTColor(team.getId());
 	}
 	
-	public void setTypes(TypeAttributes ... types) {
+	public void setTypes(EnumTypeAttributes ... types) {
 		for(int x = 0; x < types.length; x++) {
 			this.types.add(x, types[x]);
 		}
 	}
 	
-	public void setFactions(FactionTypes ... types) {
+	public void setFactions(EnumFactionTypes ... types) {
 		for(int x = 0; x < types.length; x++) {
 			this.factions.add(x, types[x]);
 		}
 	}
 	
-	public void setDamageAgainstType(TypeAttributes type, double dmg) {
+	public void setDamageAgainstType(EnumTypeAttributes type, double dmg) {
 		bonusDamage.put(type, dmg);
 	}
 	
-	public double getDamageAgainstType(TypeAttributes type) {
+	public double getDamageAgainstType(EnumTypeAttributes type) {
 		return bonusDamage.get(type);
 	}
 	
@@ -117,7 +117,7 @@ public abstract class EntityStarcraftPassive extends EntityTameable {
 		ItemStack heldItem = player.getHeldItem(hand);
 		if (heldItem != null && heldItem.getItem() == Items.DYE) {
 			int meta = heldItem.getMetadata();
-			setTeamColor(TeamColors.values()[15 - meta]);
+			setTeamColor(EnumTeamColors.values()[15 - meta]);
 			heldItem.stackSize -= 1;
 			return true;
 		} else {
