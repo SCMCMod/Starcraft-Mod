@@ -16,6 +16,7 @@ import ga.scmc.worldgen.structure.StructureZergHydraliskDenTemplate;
 import ga.scmc.worldgen.structure.StructureZergSpawningPoolTemplate;
 import ga.scmc.worldgen.structure.StructureZergSpireTemplate;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkGenerator;
@@ -134,6 +135,17 @@ public class WorldGenerationHandler implements IWorldGenerator {
 	private WorldGenerator GRAVEL_SHAKURAS;
 	private WorldGenerator IRON_CHAR;
 	private WorldGenerator IRON_SHAKURAS;
+	
+	private WorldGenerator COAL_KORHAL;
+	private WorldGenerator IRON_KORHAL;
+	private WorldGenerator GOLD_KORHAL;
+	private WorldGenerator DIAMOND_KORHAL;
+	private WorldGenerator LAPIS_KORHAL;
+	private WorldGenerator COPPER_KORHAL;
+	private WorldGenerator TITANIUM_KORHAL;
+	private WorldGenerator DIRT_KORHAL;
+	private WorldGenerator GRAVEL_KORHAL;
+	private WorldGenerator REDSTONE_KORHAL;
 
 	private WorldGenerator LAPIS_CHAR;
 	private WorldGenerator LAPIS_SHAKURAS;
@@ -188,9 +200,22 @@ public class WorldGenerationHandler implements IWorldGenerator {
 		MINERAL_SHAKURAS = new ShakurasWorldGenMinable(BlockHandler.ORE_MINERAL_SHAKURAS.getDefaultState(), 8);
 		REDSTONE_SHAKURAS = new ShakurasWorldGenMinable(BlockHandler.ORE_REDSTONE_SHAKURAS.getDefaultState(), 8);
 		RICHMINERAL_SHAKURAS = new ShakurasWorldGenMinable(BlockHandler.ORE_RICHMINERAL_SHAKURAS.getDefaultState(), 8);
-		TITANIUM_SHAKURAS = new ShakurasWorldGenMinable(BlockHandler.ORE_TITANIUM_SHAKURAS.getDefaultState(), 8);
-		DIRT_SHAKURAS = new CharWorldGenMinable(BlockHandler.DIRT_SHAKURAS.getDefaultState(), 33);
-		GRAVEL_SHAKURAS = new CharWorldGenMinable(BlockHandler.GRAVEL_SHAKURAS.getDefaultState(), 33);
+		DIRT_SHAKURAS = new ShakurasWorldGenMinable(BlockHandler.DIRT_SHAKURAS.getDefaultState(), 33);
+		GRAVEL_SHAKURAS = new ShakurasWorldGenMinable(BlockHandler.GRAVEL_SHAKURAS.getDefaultState(), 33);
+		
+		TITANIUM_KORHAL = new WorldGenMinable(BlockHandler.ORE_TITANIUM_OW.getDefaultState(), 8);
+		COAL_KORHAL = new WorldGenMinable(Blocks.COAL_ORE.getDefaultState(), 16);
+		COPPER_KORHAL = new WorldGenMinable(BlockHandler.ORE_COPPER_OW.getDefaultState(), 8);
+		DIAMOND_KORHAL = new WorldGenMinable(Blocks.DIAMOND_ORE.getDefaultState(), 8);
+		GOLD_KORHAL = new WorldGenMinable(Blocks.GOLD_ORE.getDefaultState(), 8);
+		IRON_KORHAL = new WorldGenMinable(Blocks.IRON_ORE.getDefaultState(), 8);
+		LAPIS_KORHAL = new WorldGenMinable(BlockHandler.ORE_LAPIS_SHAKURAS.getDefaultState(), 8);
+		//MINERAL_KORHAL = new WorldGenMinable(BlockHandler.ORE_MINERAL_SHAKURAS.getDefaultState(), 8);
+		REDSTONE_KORHAL = new WorldGenMinable(Blocks.REDSTONE_ORE.getDefaultState(), 8);
+		//RICHMINERAL_KORHAL = new WorldGenMinable(BlockHandler.ORE_RICHMINERAL_SHAKURAS.getDefaultState(), 8);
+		TITANIUM_KORHAL = new WorldGenMinable(BlockHandler.ORE_TITANIUM_OW.getDefaultState(), 8);
+		DIRT_KORHAL = new WorldGenMinable(Blocks.DIRT.getDefaultState(), 33);
+		GRAVEL_KORHAL = new WorldGenMinable(Blocks.GRAVEL.getDefaultState(), 33);
 
 		SPAWNING_POOL = new StructureZergSpawningPoolTemplate();
 		ZERG_HYDRALISK_DEN = new StructureZergHydraliskDenTemplate();
@@ -213,12 +238,6 @@ public class WorldGenerationHandler implements IWorldGenerator {
 		case 0: // Overworld
 			runGenerator(COPPER_OVERWORLD, world, random, chunkX, chunkZ, 15, 4, 64);
 			runGenerator(TITANIUM_OVERWORLD, world, random, chunkX, chunkZ, 3, 4, 28);
-			if (rnd.nextInt(100) < 25 && world.getWorldInfo().isMapFeaturesEnabled()) {
-				runGenerator(TERRAN_BUNKER, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
-				if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-					LogHelper.logger.info("A Bunker attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
-				}
-			}
 			if (rnd.nextInt(100) < 25 && world.getWorldInfo().isMapFeaturesEnabled()) {
 				runGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
 				if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
@@ -352,9 +371,39 @@ public class WorldGenerationHandler implements IWorldGenerator {
 					}
 				}
 			}else if (world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_SLAYN) {
-
+				
 			}else if (world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_KORHAL) {
-
+				runGenerator(COAL_KORHAL, world, random, chunkX, chunkZ, 20, 0, 128);
+				runGenerator(COPPER_KORHAL, world, random, chunkX, chunkZ, 15, 4, 64);
+				runGenerator(DIAMOND_KORHAL, world, random, chunkX, chunkZ, 1, 0, 16);
+				runGenerator(GOLD_KORHAL, world, random, chunkX, chunkZ, 2, 0, 32);
+				runGenerator(IRON_KORHAL, world, random, chunkX, chunkZ, 20, 0, 64);
+				runGenerator(LAPIS_KORHAL, world, random, chunkX, chunkZ, 1, 0, 16);
+				//runGenerator(MINERAL_KORHAL, world, random, chunkX, chunkZ, 12, 28, 50);
+				runGenerator(REDSTONE_KORHAL, world, random, chunkX, chunkZ, 8, 0, 16);
+				//runGenerator(RICHMINERAL_KORHAL, world, random, chunkX, chunkZ, 6, 4, 28);
+				runGenerator(TITANIUM_KORHAL, world, random, chunkX, chunkZ, 3, 4, 28);
+				runGenerator(DIRT_KORHAL, world, random, chunkX, chunkZ, 20, 0, 128);
+				runGenerator(GRAVEL_KORHAL, world, random, chunkX, chunkZ, 10, 0, 128);
+				
+				if (rnd.nextInt(100) < 75 && world.getWorldInfo().isMapFeaturesEnabled()) {
+					runGenerator(TERRAN_BUNKER, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100);
+					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
+						LogHelper.logger.info("A Bunker attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
+					}
+				}
+				if (rnd.nextInt(100) < 2 && world.getWorldInfo().isMapFeaturesEnabled()) {
+					runGenerator(GEYSER, Blocks.RED_SANDSTONE.getDefaultState(), BlockHandler.FLUID_VESPENE.getDefaultState(), world, random, chunkX, chunkZ, 0, -34, 0, 1, 60, 80);
+					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
+						LogHelper.logger.info("A Vespene Geyser attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
+					}
+				}
+				if (rnd.nextInt(100) < 1 && world.getWorldInfo().isMapFeaturesEnabled()) {
+					runGenerator(GEYSER, Blocks.RED_SANDSTONE.getDefaultState(), BlockHandler.FLUID_TERRAZINE.getDefaultState(), world, random, chunkX, chunkZ, 0, -34, 0, 1, 60, 80);
+					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
+						LogHelper.logger.info("A Terrazine Geyser attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
+					}
+				}
 			}else if (world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_KALDIR) {
 
 			}

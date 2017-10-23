@@ -160,7 +160,7 @@ public class EntityHandler {
 	public static void registerSpawns() {
 		EntityRegistry.addSpawn(EntityZealot.class, 25, 1, 2, EnumCreatureType.MONSTER, BiomeHandler.biomeShakurasDesert, BiomeHandler.biomeShakurasHills);
 		EntityRegistry.addSpawn(EntityProbe.class, 7, 1, 3, EnumCreatureType.CREATURE, BiomeHandler.biomeShakurasDesert, BiomeHandler.biomeShakurasHills);
-		EntityRegistry.addSpawn(EntityProtossReaver.class, 1, 1, 1, EnumCreatureType.CREATURE, BiomeHandler.biomeShakurasDesert, BiomeHandler.biomeShakurasHills);
+		EntityRegistry.addSpawn(EntityProtossReaver.class, 1, 1, 1, EnumCreatureType.MONSTER, BiomeHandler.biomeShakurasDesert, BiomeHandler.biomeShakurasHills);
 		EntityRegistry.addSpawn(EntityDarkTemplar.class, 15, 1, 1, EnumCreatureType.MONSTER, BiomeHandler.biomeShakurasDesert, BiomeHandler.biomeShakurasHills);
 		EntityRegistry.addSpawn(EntityVoidProbe.class, 7, 1, 3, EnumCreatureType.CREATURE, BiomeHandler.biomeShakurasDesert, BiomeHandler.biomeShakurasHills);
 		EntityRegistry.addSpawn(EntityDarkProbe.class, 7, 1, 3, EnumCreatureType.CREATURE, BiomeHandler.biomeShakurasDesert, BiomeHandler.biomeShakurasHills);
@@ -175,8 +175,8 @@ public class EntityHandler {
 		EntityRegistry.addSpawn(EntityLarvaCocoon.class, 5, 1, 5, EnumCreatureType.CREATURE, BiomeHandler.biomeCharCreepInfestation);
 		EntityRegistry.addSpawn(EntityInfestedCivilian.class, 15, 1, 3, EnumCreatureType.MONSTER, BiomeHandler.biomeCharCreepInfestation);
 
-		EntityRegistry.addSpawn(EntityCivilian.class, 40, 1, 3, EnumCreatureType.CREATURE, Biomes.BEACH, Biomes.FOREST, Biomes.FOREST_HILLS);
-		EntityRegistry.addSpawn(EntityPredator.class, 40, 1, 3, EnumCreatureType.CREATURE, Biomes.BEACH, Biomes.FOREST, Biomes.FOREST_HILLS);
+		EntityRegistry.addSpawn(EntityCivilian.class, 40, 1, 3, EnumCreatureType.CREATURE, BiomeHandler.biomeKorhalDesert);
+		EntityRegistry.addSpawn(EntityPredator.class, 40, 1, 3, EnumCreatureType.MONSTER, BiomeHandler.biomeKorhalDesert);
 	}
 
 	/**

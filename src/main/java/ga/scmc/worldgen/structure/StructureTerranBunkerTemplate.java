@@ -397,7 +397,7 @@ public class StructureTerranBunkerTemplate extends SCWorldGenerator {
 	}
 
 	protected Block[] GetValidSpawnBlocks() {
-		return new Block[] { Blocks.GRASS, Blocks.STONE, Blocks.DIRT };
+		return new Block[] { Blocks.GRASS, Blocks.STONE, Blocks.DIRT, Blocks.SAND};
 	}
 
 	public boolean LocationIsValidSpawn(World world, BlockPos pos) {

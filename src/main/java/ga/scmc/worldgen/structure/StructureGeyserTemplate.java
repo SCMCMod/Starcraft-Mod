@@ -1637,7 +1637,7 @@ public class StructureGeyserTemplate extends SCWorldGenerator {
 	}
 	
 	protected Block[] GetValidSpawnBlocks() {
-		return new Block[] { Blocks.GRASS, BlockHandler.STONE_CHAR, Blocks.DIRT, BlockHandler.DIRT_CHAR, BlockHandler.STONE_CHAR, BlockHandler.SAND_SHAKURAS, BlockHandler.STONE_SHAKURAS };
+		return new Block[] { Blocks.GRASS, BlockHandler.STONE_CHAR, Blocks.DIRT, BlockHandler.DIRT_CHAR, BlockHandler.STONE_CHAR, BlockHandler.SAND_SHAKURAS, BlockHandler.STONE_SHAKURAS, Blocks.SAND, Blocks.RED_SANDSTONE };
 	}
 
 	public boolean LocationIsValidSpawn(World world, BlockPos pos) {
