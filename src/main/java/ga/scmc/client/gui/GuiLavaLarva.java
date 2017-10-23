@@ -16,7 +16,7 @@ import net.minecraft.world.World;
  * @author Ocelot5836
  */
 public class GuiLavaLarva extends BasicGui {
-	
+
 	public static final GuiLavaLarva INSTANCE = new GuiLavaLarva();
 	/** The player being traded with. */
 	private EntityPlayer customer;
@@ -25,8 +25,9 @@ public class GuiLavaLarva extends BasicGui {
 	public GuiLavaLarva(EntityPlayer player) {
 		this.customer = player;
 	}
-	
-	public GuiLavaLarva() {}
+
+	public GuiLavaLarva() {
+	}
 
 	@Override
 	public void initGui() {
@@ -46,7 +47,7 @@ public class GuiLavaLarva extends BasicGui {
 	protected void drawCenterLayer(int mouseX, int mouseY) {
 
 	}
-	
+
 	public void openGUI(EntityPlayer player, Object mod, int guiID, World world, int x, int y, int z, EntityLarva larva) {
 		player.openGui(Starcraft.instance, guiID, world, x, y, z);
 		this.larva = larva;
@@ -82,6 +83,20 @@ public class GuiLavaLarva extends BasicGui {
 	@Override
 	protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
 		super.mouseClicked(mouseX, mouseY, mouseButton);
+
+		if (mouseButton == 0) {
+			for (int y = 0; y < 3; y++) {
+				for (int x = 0; x < 5; x++) {
+					int index = 5 * y + x;
+					if (index < GuiStuff.LARVA_OPTIONS.size()) {
+						if (GuiUtils.isMouseInside(guiLeft + 7 + x * 18, guiTop + 7 + y * 18, 17, 18, mouseX, mouseY)) {
+							GuiUtils.playButtonClick();
+							return;
+						}
+					}
+				}
+			}
+		}
 	}
 
 	@Override

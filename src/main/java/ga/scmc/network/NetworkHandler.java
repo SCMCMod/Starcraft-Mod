@@ -1,6 +1,7 @@
 package ga.scmc.network;
 
 import ga.scmc.lib.Library;
+import ga.scmc.network.message.MessageEditEntity;
 import ga.scmc.network.message.MessageSpawnItem;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
@@ -13,6 +14,7 @@ public class NetworkHandler {
 
 	public static void init() {
 		INSTANCE.registerMessage(new MessageSpawnItem(), MessageSpawnItem.class, 0, Side.SERVER);
+		INSTANCE.registerMessage(new MessageEditEntity(), MessageEditEntity.class, 0, Side.SERVER);
 	}
 
 	public static void sendToServer(IMessage message) {
