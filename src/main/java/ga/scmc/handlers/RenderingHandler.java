@@ -4,6 +4,18 @@ import static ga.scmc.handlers.ArmorHandler.COPPER_BOOTS;
 import static ga.scmc.handlers.ArmorHandler.COPPER_CHESTPLATE;
 import static ga.scmc.handlers.ArmorHandler.COPPER_HELMET;
 import static ga.scmc.handlers.ArmorHandler.COPPER_LEGGINGS;
+import static ga.scmc.handlers.ArmorHandler.PROTOSS_T1_BOOTS;
+import static ga.scmc.handlers.ArmorHandler.PROTOSS_T1_CHESTPLATE;
+import static ga.scmc.handlers.ArmorHandler.PROTOSS_T1_HELMET;
+import static ga.scmc.handlers.ArmorHandler.PROTOSS_T1_LEGGINGS;
+import static ga.scmc.handlers.ArmorHandler.PROTOSS_T2_BOOTS;
+import static ga.scmc.handlers.ArmorHandler.PROTOSS_T2_CHESTPLATE;
+import static ga.scmc.handlers.ArmorHandler.PROTOSS_T2_HELMET;
+import static ga.scmc.handlers.ArmorHandler.PROTOSS_T2_LEGGINGS;
+import static ga.scmc.handlers.ArmorHandler.PROTOSS_T3_BOOTS;
+import static ga.scmc.handlers.ArmorHandler.PROTOSS_T3_CHESTPLATE;
+import static ga.scmc.handlers.ArmorHandler.PROTOSS_T3_HELMET;
+import static ga.scmc.handlers.ArmorHandler.PROTOSS_T3_LEGGINGS;
 import static ga.scmc.handlers.ArmorHandler.STEEL_BOOTS;
 import static ga.scmc.handlers.ArmorHandler.STEEL_CHESTPLATE;
 import static ga.scmc.handlers.ArmorHandler.STEEL_HELMET;
@@ -316,12 +328,9 @@ public class RenderingHandler {
 		RenderingRegistry.registerEntityRenderingHandler(EntityFlamethrowerFlame.class, new RenderFlamethrowerFlame(Minecraft.getMinecraft().getRenderManager(), null));
 	}
 
-	/**
-	 * TODO remove the item block for the {@link BlockHandler#STARCRAFT_SKULL} and replace it with an item so I can register the render separately.
-	 */
 	private static void registerTileEntityRenders() {
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStarcraftSkull.class, new RendererStarcraftSkull());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTest.class, new RendererTest());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStarcraftSkull.class, new RendererStarcraftSkull());
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -478,6 +487,21 @@ public class RenderingHandler {
 		registerItemRender(ZERG_T3_CHESTPLATE);
 		registerItemRender(ZERG_T3_LEGGINGS);
 		registerItemRender(ZERG_T3_BOOTS);
+		
+		registerItemRender(PROTOSS_T1_HELMET);
+		registerItemRender(PROTOSS_T1_CHESTPLATE);
+		registerItemRender(PROTOSS_T1_LEGGINGS);
+		registerItemRender(PROTOSS_T1_BOOTS);
+
+		registerItemRender(PROTOSS_T2_HELMET);
+		registerItemRender(PROTOSS_T2_CHESTPLATE);
+		registerItemRender(PROTOSS_T2_LEGGINGS);
+		registerItemRender(PROTOSS_T2_BOOTS);
+
+		registerItemRender(PROTOSS_T3_HELMET);
+		registerItemRender(PROTOSS_T3_CHESTPLATE);
+		registerItemRender(PROTOSS_T3_LEGGINGS);
+		registerItemRender(PROTOSS_T3_BOOTS);
 	}
 
 	private static void registerBlockModels() {

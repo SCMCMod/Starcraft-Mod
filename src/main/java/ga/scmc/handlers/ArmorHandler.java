@@ -1,6 +1,7 @@
 package ga.scmc.handlers;
 
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
+import ga.scmc.items.armor.ArmorProtossT1;
 import ga.scmc.items.armor.ArmorZergArmorT1;
 import ga.scmc.items.armor.ArmorZergArmorT2;
 import ga.scmc.items.armor.ArmorZergArmorT3;
@@ -52,6 +53,10 @@ public class ArmorHandler {
 	public static final ArmorMaterial ZERG_ARMOR_MATERIAL_T2 = EnumHelper.addArmorMaterial("zergArmorMaterialT2", Library.RL_BASE + "zerg_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 	public static final ArmorMaterial ZERG_ARMOR_MATERIAL_T3 = EnumHelper.addArmorMaterial("zergArmorMaterialT3", Library.RL_BASE + "zerg_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 
+	public static final ArmorMaterial PROTOSS_ARMOR_MATERIAL_T1 = EnumHelper.addArmorMaterial("zergArmorMaterialT1", Library.RL_BASE + "zerg_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial PROTOSS_ARMOR_MATERIAL_T2 = EnumHelper.addArmorMaterial("zergArmorMaterialT2", Library.RL_BASE + "zerg_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial PROTOSS_ARMOR_MATERIAL_T3 = EnumHelper.addArmorMaterial("zergArmorMaterialT3", Library.RL_BASE + "zerg_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+
 	public static Item COPPER_BOOTS;
 	public static Item COPPER_CHESTPLATE;
 	public static Item COPPER_HELMET;
@@ -86,6 +91,21 @@ public class ArmorHandler {
 	public static Item ZERG_T3_CHESTPLATE;
 	public static Item ZERG_T3_HELMET;
 	public static Item ZERG_T3_LEGGINGS;
+
+	public static Item PROTOSS_T1_BOOTS;
+	public static Item PROTOSS_T1_CHESTPLATE;
+	public static Item PROTOSS_T1_HELMET;
+	public static Item PROTOSS_T1_LEGGINGS;
+
+	public static Item PROTOSS_T2_BOOTS;
+	public static Item PROTOSS_T2_CHESTPLATE;
+	public static Item PROTOSS_T2_HELMET;
+	public static Item PROTOSS_T2_LEGGINGS;
+
+	public static Item PROTOSS_T3_BOOTS;
+	public static Item PROTOSS_T3_CHESTPLATE;
+	public static Item PROTOSS_T3_HELMET;
+	public static Item PROTOSS_T3_LEGGINGS;
 
 	public static void init() {
 		TITANIUM_HELMET = new ItemArmor(TITANIUM_ARMOR_MATERIAL, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("titaniumHelmet").setRegistryName("titanium_helmet").setCreativeTab(StarcraftCreativeTabs.TERRAN);
@@ -122,6 +142,21 @@ public class ArmorHandler {
 		ZERG_T3_CHESTPLATE = new ArmorZergArmorT3(ZERG_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.CHEST).setUnlocalizedName("zergChestplateT3").setRegistryName("zerg_chestplate_t3").setCreativeTab(StarcraftCreativeTabs.ZERG);
 		ZERG_T3_LEGGINGS = new ArmorZergArmorT3(ZERG_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.LEGS).setUnlocalizedName("zergLeggingsT3").setRegistryName("zerg_leggings_t3").setCreativeTab(StarcraftCreativeTabs.ZERG);
 		ZERG_T3_BOOTS = new ArmorZergArmorT3(ZERG_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.FEET).setUnlocalizedName("zergBootsT3").setRegistryName("zerg_boots_t3").setCreativeTab(StarcraftCreativeTabs.ZERG);
+
+		PROTOSS_T1_HELMET = new ArmorProtossT1(PROTOSS_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("protossHelmetT1").setRegistryName("protoss_helmet_t1").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PROTOSS_T1_CHESTPLATE = new ArmorProtossT1(PROTOSS_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.CHEST).setUnlocalizedName("protossChestplateT1").setRegistryName("protoss_chestplate_t1").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PROTOSS_T1_LEGGINGS = new ArmorProtossT1(PROTOSS_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.LEGS).setUnlocalizedName("protossLeggingsT1").setRegistryName("protoss_leggings_t1").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PROTOSS_T1_BOOTS = new ArmorProtossT1(PROTOSS_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.FEET).setUnlocalizedName("protossBootsT1").setRegistryName("protoss_boots_t1").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+
+		PROTOSS_T2_HELMET = new ArmorProtossT1(PROTOSS_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("protossHelmetT2").setRegistryName("protoss_helmet_t2").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PROTOSS_T2_CHESTPLATE = new ArmorProtossT1(PROTOSS_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.CHEST).setUnlocalizedName("protossChestplateT2").setRegistryName("protoss_chestplate_t2").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PROTOSS_T2_LEGGINGS = new ArmorProtossT1(PROTOSS_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.LEGS).setUnlocalizedName("protossLeggingsT2").setRegistryName("protoss_leggings_t2").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PROTOSS_T2_BOOTS = new ArmorProtossT1(PROTOSS_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.FEET).setUnlocalizedName("protossBootsT2").setRegistryName("protoss_boots_t2").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+
+		PROTOSS_T3_HELMET = new ArmorProtossT1(PROTOSS_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("protossHelmetT3").setRegistryName("protoss_helmet_t3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PROTOSS_T3_CHESTPLATE = new ArmorProtossT1(PROTOSS_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.CHEST).setUnlocalizedName("protossChestplateT3").setRegistryName("protoss_chestplate_t3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PROTOSS_T3_LEGGINGS = new ArmorProtossT1(PROTOSS_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.LEGS).setUnlocalizedName("protossLeggingsT3").setRegistryName("protoss_leggings_t3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PROTOSS_T3_BOOTS = new ArmorProtossT1(PROTOSS_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.FEET).setUnlocalizedName("protossBootsT3").setRegistryName("protoss_boots_t3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 	}
 
 	public static void register() {
@@ -141,10 +176,10 @@ public class ArmorHandler {
 		registerItem(STEEL_LEGGINGS);
 		registerItem(STEEL_BOOTS);
 
-		//registerItem(MARINE_HELMET);
-		//registerItem(MARINE_CHESTPLATE);
-	//	registerItem(MARINE_LEGGINGS);
-		//registerItem(MARINE_BOOTS);
+		// registerItem(MARINE_HELMET);
+		// registerItem(MARINE_CHESTPLATE);
+		// registerItem(MARINE_LEGGINGS);
+		// registerItem(MARINE_BOOTS);
 
 		registerItem(ZERG_T1_HELMET);
 		registerItem(ZERG_T1_CHESTPLATE);
@@ -160,6 +195,21 @@ public class ArmorHandler {
 		registerItem(ZERG_T3_CHESTPLATE);
 		registerItem(ZERG_T3_LEGGINGS);
 		registerItem(ZERG_T3_BOOTS);
+		
+		registerItem(PROTOSS_T1_HELMET);
+		registerItem(PROTOSS_T1_CHESTPLATE);
+		registerItem(PROTOSS_T1_LEGGINGS);
+		registerItem(PROTOSS_T1_BOOTS);
+
+		registerItem(PROTOSS_T2_HELMET);
+		registerItem(PROTOSS_T2_CHESTPLATE);
+		registerItem(PROTOSS_T2_LEGGINGS);
+		registerItem(PROTOSS_T2_BOOTS);
+
+		registerItem(PROTOSS_T3_HELMET);
+		registerItem(PROTOSS_T3_CHESTPLATE);
+		registerItem(PROTOSS_T3_LEGGINGS);
+		registerItem(PROTOSS_T3_BOOTS);
 	}
 
 	private static void registerItem(Item item) {

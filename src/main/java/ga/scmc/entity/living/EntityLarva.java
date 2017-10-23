@@ -7,7 +7,7 @@ import com.arisux.mdx.lib.world.entity.ItemDrop;
 
 import ga.scmc.Starcraft;
 import ga.scmc.client.gui.GuiHandler;
-import ga.scmc.client.gui.GuiLavaLarva;
+import ga.scmc.client.gui.GuiLarva;
 import ga.scmc.entity.EntityProtossMob;
 import ga.scmc.entity.EntityTerranMob;
 import ga.scmc.entity.EntityZergPassive;
@@ -92,7 +92,7 @@ public class EntityLarva extends EntityZergPassive {
 
 		if (!flag && this.isEntityAlive() && !this.isChild() && !player.isSneaking()) {
 			if (this.world.isRemote) {
-				GuiLavaLarva.INSTANCE.openGUI(player, Starcraft.instance, GuiHandler.LARVA_ID, world, (int) player.posX, (int) player.posY, (int) player.posZ, this);
+				GuiLarva.INSTANCE.openGUI(player, Starcraft.instance, GuiHandler.LARVA_ID, world, (int) player.posX, (int) player.posY, (int) player.posZ, this);
 			}
 			return true;
 		} else {

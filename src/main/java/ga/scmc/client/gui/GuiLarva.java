@@ -15,18 +15,18 @@ import net.minecraft.world.World;
  * @since 5.1
  * @author Ocelot5836
  */
-public class GuiLavaLarva extends BasicGui {
+public class GuiLarva extends BasicGui {
 
-	public static final GuiLavaLarva INSTANCE = new GuiLavaLarva();
+	public static final GuiLarva INSTANCE = new GuiLarva();
 	/** The player being traded with. */
 	private EntityPlayer customer;
 	private EntityLarva larva;
 
-	public GuiLavaLarva(EntityPlayer player) {
+	public GuiLarva(EntityPlayer player) {
 		this.customer = player;
 	}
 
-	public GuiLavaLarva() {
+	public GuiLarva() {
 	}
 
 	@Override
@@ -91,12 +91,17 @@ public class GuiLavaLarva extends BasicGui {
 					if (index < GuiStuff.LARVA_OPTIONS.size()) {
 						if (GuiUtils.isMouseInside(guiLeft + 7 + x * 18, guiTop + 7 + y * 18, 17, 18, mouseX, mouseY)) {
 							GuiUtils.playButtonClick();
+							// NetworkHandler.sendToServer(new MessageEditEntity(index));
 							return;
 						}
 					}
 				}
 			}
 		}
+	}
+
+	public EntityLarva getLarva() {
+		return larva;
 	}
 
 	@Override

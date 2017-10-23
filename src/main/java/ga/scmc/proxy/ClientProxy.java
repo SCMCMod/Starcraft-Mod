@@ -18,19 +18,20 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public ModelArmorBase getArmorModel(int id) {
 		switch (id) {
+		default:
+			return super.getArmorModel(id);
 		case 0:
 			return new ModelZergArmorT1(1.0f);
 		case 1:
 			return new ModelZergArmorT1(0.5f);
-		case 3:
+		case 2:
 			return new ModelZergArmorT2(1.0f);
-		case 4:
+		case 3:
 			return new ModelZergArmorT2(0.5f);
-		case 5:
+		case 4:
 			return new ModelZergArmorT3(1.0f);
-		case 6:
+		case 5:
 			return new ModelZergArmorT3(0.5f);
 		}
-		return super.getArmorModel(id);
 	}
 }
