@@ -135,6 +135,8 @@ public class WorldGenerationHandler implements IWorldGenerator {
 	private WorldGenerator GRAVEL_SHAKURAS;
 	private WorldGenerator IRON_CHAR;
 	private WorldGenerator IRON_SHAKURAS;
+	private WorldGenerator URANIUM_CHAR;
+	private WorldGenerator URANIUM_SHAKURAS;
 	
 	private WorldGenerator COAL_KORHAL;
 	private WorldGenerator IRON_KORHAL;
@@ -177,6 +179,7 @@ public class WorldGenerationHandler implements IWorldGenerator {
 		TITANIUM_OVERWORLD = new WorldGenMinable(BlockHandler.ORE_TITANIUM_OW.getDefaultState(), 8);
 
 		TITANIUM_CHAR = new CharWorldGenMinable(BlockHandler.ORE_TITANIUM_CHAR.getDefaultState(), 8);
+		URANIUM_CHAR = new ShakurasWorldGenMinable(BlockHandler.ORE_URANIUM_CHAR.getDefaultState(), 1);
 		COAL_CHAR = new CharWorldGenMinable(BlockHandler.ORE_COAL_CHAR.getDefaultState(), 16);
 		COPPER_CHAR = new CharWorldGenMinable(BlockHandler.ORE_COPPER_CHAR.getDefaultState(), 8);
 		DIAMOND_CHAR = new CharWorldGenMinable(BlockHandler.ORE_DIAMOND_CHAR.getDefaultState(), 8);
@@ -191,6 +194,7 @@ public class WorldGenerationHandler implements IWorldGenerator {
 		GRAVEL_CHAR = new CharWorldGenMinable(BlockHandler.GRAVEL_CHAR.getDefaultState(), 33);
 
 		TITANIUM_SHAKURAS = new ShakurasWorldGenMinable(BlockHandler.ORE_TITANIUM_SHAKURAS.getDefaultState(), 8);
+		URANIUM_SHAKURAS = new ShakurasWorldGenMinable(BlockHandler.ORE_URANIUM_SHAKURAS.getDefaultState(), 1);
 		COAL_SHAKURAS = new ShakurasWorldGenMinable(BlockHandler.ORE_COAL_SHAKURAS.getDefaultState(), 16);
 		COPPER_SHAKURAS = new ShakurasWorldGenMinable(BlockHandler.ORE_COPPER_SHAKURAS.getDefaultState(), 8);
 		DIAMOND_SHAKURAS = new ShakurasWorldGenMinable(BlockHandler.ORE_DIAMOND_SHAKURAS.getDefaultState(), 8);
@@ -261,6 +265,7 @@ public class WorldGenerationHandler implements IWorldGenerator {
 				runGenerator(REDSTONE_CHAR, world, random, chunkX, chunkZ, 8, 0, 16);
 				runGenerator(RICHMINERAL_CHAR, world, random, chunkX, chunkZ, 6, 4, 28);
 				runGenerator(TITANIUM_CHAR, world, random, chunkX, chunkZ, 3, 4, 28);
+				runGenerator(URANIUM_CHAR, world, random, chunkX, chunkZ, 1, 4, 20);
 				runGenerator(DIRT_CHAR, world, random, chunkX, chunkZ, 20, 0, 128);
 				runGenerator(GRAVEL_CHAR, world, random, chunkX, chunkZ, 10, 0, 128);
 
@@ -325,6 +330,7 @@ public class WorldGenerationHandler implements IWorldGenerator {
 				runGenerator(REDSTONE_SHAKURAS, world, random, chunkX, chunkZ, 8, 0, 16);
 				runGenerator(RICHMINERAL_SHAKURAS, world, random, chunkX, chunkZ, 6, 4, 28);
 				runGenerator(TITANIUM_SHAKURAS, world, random, chunkX, chunkZ, 3, 4, 28);
+				runGenerator(URANIUM_SHAKURAS, world, random, chunkX, chunkZ, 1, 4, 20);
 				runGenerator(DIRT_SHAKURAS, world, random, chunkX, chunkZ, 20, 0, 128);
 				runGenerator(GRAVEL_SHAKURAS, world, random, chunkX, chunkZ, 10, 0, 128);
 

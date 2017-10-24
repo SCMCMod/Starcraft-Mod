@@ -132,12 +132,16 @@ public class BlockHandler {
 	public static Block ORE_LAPIS_SHAKURAS;
 	public static Block ORE_MINERAL_CHAR;
 	public static Block ORE_MINERAL_SHAKURAS;
+	public static Block ORE_PHOSPHORUS_CHAR;
+	public static Block ORE_PHOSPHORUS_SHAKURAS;
 	public static Block ORE_REDSTONE_CHAR;
 	public static Block ORE_REDSTONE_LIT_CHAR;
 	public static Block ORE_REDSTONE_SHAKURAS;
 	public static Block ORE_REDSTONE_LIT_SHAKURAS;
 	public static Block ORE_RICHMINERAL_CHAR;
 	public static Block ORE_RICHMINERAL_SHAKURAS;
+	public static Block ORE_URANIUM_CHAR;
+	public static Block ORE_URANIUM_SHAKURAS;
 	public static Block ORE_TITANIUM_CHAR;
 	public static Block ORE_TITANIUM_OW;
 	public static Block ORE_TITANIUM_SHAKURAS;
@@ -212,6 +216,7 @@ public class BlockHandler {
 		ORE_REDSTONE_LIT_CHAR = new OreCharRedstone(true);
 		ORE_RICHMINERAL_CHAR = new BlockCharOre("charOreMineralRich", "char_ore_mineral_rich", 1);
 		ORE_TITANIUM_CHAR = new BlockCharOre("charOreTitanium", "char_ore_titanium", 2);
+		ORE_URANIUM_CHAR = new BlockCharOre("charOreUranium", "char_ore_uranium", 1);
 
 		STONE_CHAR = new BlockCharStone();
 		COBBLESTONE_CHAR = new BlockCharCobblestone();
@@ -232,6 +237,7 @@ public class BlockHandler {
 		ORE_REDSTONE_LIT_SHAKURAS = new OreShakurasRedstone(true);
 		ORE_RICHMINERAL_SHAKURAS = new BlockShakurasOre("shakurasOreMineralRich", "shakuras_ore_mineral_rich", 1);
 		ORE_TITANIUM_SHAKURAS = new BlockShakurasOre("shakurasOreTitanium", "shakuras_ore_titanium", 2);
+		ORE_URANIUM_SHAKURAS = new BlockShakurasOre("shakurasOreUranium", "shakuras_ore_uranium", 1);
 
 		DIRT_SHAKURAS = new BlockShakurasDirt();
 		STONE_SHAKURAS = new BlockShakurasStone();
@@ -309,10 +315,12 @@ public class BlockHandler {
 		registerCompleteBlock(ORE_IRON_CHAR);
 		registerCompleteBlock(ORE_LAPIS_CHAR);
 		registerCompleteBlock(ORE_MINERAL_CHAR);
+		registerCompleteBlock(ORE_PHOSPHORUS_CHAR);
 		registerCompleteBlock(ORE_REDSTONE_CHAR);
 		registerCompleteBlock(ORE_REDSTONE_LIT_CHAR);
 		registerCompleteBlock(ORE_RICHMINERAL_CHAR);
 		registerCompleteBlock(ORE_TITANIUM_CHAR);
+		registerCompleteBlock(ORE_URANIUM_CHAR);
 		registerCompleteBlock(STONE_CHAR);
 		registerCompleteBlock(COBBLESTONE_CHAR);
 		registerCompleteBlock(MAGMA_CHAR);
@@ -328,10 +336,12 @@ public class BlockHandler {
 		registerCompleteBlock(ORE_IRON_SHAKURAS);
 		registerCompleteBlock(ORE_LAPIS_SHAKURAS);
 		registerCompleteBlock(ORE_MINERAL_SHAKURAS);
+		registerCompleteBlock(ORE_PHOSPHORUS_SHAKURAS);
 		registerCompleteBlock(ORE_REDSTONE_SHAKURAS);
 		registerCompleteBlock(ORE_REDSTONE_LIT_SHAKURAS);
 		registerCompleteBlock(ORE_RICHMINERAL_SHAKURAS);
 		registerCompleteBlock(ORE_TITANIUM_SHAKURAS);
+		registerCompleteBlock(ORE_URANIUM_SHAKURAS);
 		registerCompleteBlock(DIRT_SHAKURAS);
 		registerCompleteBlock(STONE_SHAKURAS);
 		registerCompleteBlock(GRAVEL_SHAKURAS);
