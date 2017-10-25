@@ -32,11 +32,11 @@ public class SmeltingRecipes {
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.COBBLESTONE_CHAR), new ItemStack(BlockHandler.STONE_CHAR, 1, 0), 0);
 
 		// These are all of the various smelting recipes for the various ores. Self explanatory
-		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_TITANIUM_OW), new ItemStack(ItemHandler.INGOT, 1,  ItemEnumHandler.IngotType.TITANIUM.getID()), 0.8F);
+		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_TITANIUM_OW), new ItemStack(ItemHandler.INGOT, 1, ItemEnumHandler.IngotType.TITANIUM.getID()), 0.8F);
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_COPPER_OW), new ItemStack(ItemHandler.INGOT, 1, ItemEnumHandler.IngotType.COPPER.getID()), 0.5F);
 
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_COAL_CHAR), new ItemStack(Items.COAL, 1, 0), 0);
-		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_IRON_CHAR), new ItemStack(Items.IRON_INGOT, 1, 0),  0.7F);
+		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_IRON_CHAR), new ItemStack(Items.IRON_INGOT, 1, 0), 0.7F);
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_GOLD_CHAR), new ItemStack(Items.GOLD_INGOT, 1, 0), 1.0F);
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_REDSTONE_CHAR), new ItemStack(Items.REDSTONE, 1, 0), 1.0F);
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_LAPIS_CHAR), new ItemStack(Items.DYE, 1, 4), 0);

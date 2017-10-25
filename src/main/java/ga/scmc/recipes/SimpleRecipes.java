@@ -13,6 +13,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 /**
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
@@ -24,8 +25,7 @@ import net.minecraftforge.oredict.OreDictionary;
  */
 public class SimpleRecipes {
 
-	public static void init() {
-
+	public static void init() {		
 		// Charcoal from Carbon Grain x9
 		GameRegistry.addRecipe(new ItemStack(Items.COAL, 1, 1), "CCC", "CCC", "CCC", 'C', new ItemStack(ItemHandler.DUST, 1, ItemEnumHandler.DustType.CARBON.getID()));
 
@@ -174,14 +174,14 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T1_LEGGINGS), "CCC", "C C", "C C", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, ItemEnumHandler.CarapaceType.T1.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T1_BOOTS), "   ", "C C", "C C", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, ItemEnumHandler.CarapaceType.T1.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T1_BOOTS), "C C", "C C", "  ", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, ItemEnumHandler.CarapaceType.T1.getID()));
-		
+
 		// T2 zerg armorset
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T2_HELMET), "CCC", "C C", "   ", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, ItemEnumHandler.CarapaceType.T2.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T2_CHESTPLATE), "C C", "CCC", "CCC", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, ItemEnumHandler.CarapaceType.T2.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T2_LEGGINGS), "CCC", "C C", "C C", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, ItemEnumHandler.CarapaceType.T2.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T2_BOOTS), "   ", "C C", "C C", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, ItemEnumHandler.CarapaceType.T2.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T2_BOOTS), "C C", "C C", "  ", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, ItemEnumHandler.CarapaceType.T2.getID()));
-		
+
 		// T3 zerg armorset
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T3_HELMET), "CCC", "C C", "   ", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, ItemEnumHandler.CarapaceType.T3.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T3_CHESTPLATE), "C C", "CCC", "CCC", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, ItemEnumHandler.CarapaceType.T3.getID()));
@@ -189,7 +189,6 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T3_BOOTS), "   ", "C C", "C C", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, ItemEnumHandler.CarapaceType.T3.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T3_BOOTS), "C C", "C C", "  ", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, ItemEnumHandler.CarapaceType.T3.getID()));
 
-				
 		// Removed these recipes because we can simply use ore dictionary instead and it works better @Ocelot5836
 		// // Cobblestone tools from Char cobblestone
 		// GameRegistry.addRecipe(new ItemStack(Items.STONE_SHOVEL), " C ", " I ", " I ", 'C', new ItemStack(BlockHandler.COBBLESTONE_CHAR), 'I', Items.STICK);
@@ -246,7 +245,7 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(WeaponHandler.BALISONG, 1), " I ", " I ", " L ", 'I', new ItemStack(Items.IRON_INGOT, 1), 'L', new ItemStack(Items.LEATHER, 1));
 
 		// Military Knife
-		GameRegistry.addRecipe(new ItemStack(WeaponHandler.MILITARY_KNIFE, 1), "   ", " I ", " S ", 'S', new ItemStack(ItemHandler.INGOT, 1, ItemEnumHandler.IngotType.STEEL.getID()), 'I', new ItemStack(Items.IRON_INGOT, 1));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(WeaponHandler.MILITARY_KNIFE, 1), "   ", " I ", " S ", 'S', new ItemStack(ItemHandler.INGOT, 1, ItemEnumHandler.IngotType.STEEL.getID()), 'I', "ingotIron"));
 
 		// Military Knife
 		GameRegistry.addRecipe(new ItemStack(WeaponHandler.MONOMOLECULAR_BLADE, 1), " E ", " E ", " S ", 'E', new ItemStack(ItemHandler.ENERGY, 1, ItemEnumHandler.EnergyType.PURE.getID()), 'S', new ItemStack(ItemHandler.INGOT, 1, ItemEnumHandler.IngotType.STEEL.getID()));
@@ -269,15 +268,5 @@ public class SimpleRecipes {
 		// Dark Energy Stabilizer
 		GameRegistry.addRecipe(new ItemStack(BlockHandler.PROTOSS_DARK_ENERGY_STABILIZER), "IEI", "III", "III", 'I', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, ItemEnumHandler.ProtossIngotType.DARK.getID()), 'E', new ItemStack(ItemHandler.ENERGY, 1, ItemEnumHandler.EnergyType.VOID.getID()));
 
-		registerOreDictionary();
-	}
-
-	public static void registerOreDictionary() {
-		OreDictionary.registerOre("cobblestone", BlockHandler.COBBLESTONE_CHAR);
-		OreDictionary.registerOre("cobblestone", BlockHandler.COBBLESTONE_SHAKURAS);
-		OreDictionary.registerOre("cobblestone", BlockHandler.COBBLESTONE_SLAYN);
-		OreDictionary.registerOre("stone", BlockHandler.STONE_CHAR);
-		OreDictionary.registerOre("stone", BlockHandler.STONE_SHAKURAS);
-		OreDictionary.registerOre("stone", BlockHandler.STONE_SLAYN);
 	}
 }

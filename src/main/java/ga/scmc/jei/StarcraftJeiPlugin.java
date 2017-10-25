@@ -8,6 +8,7 @@ import mezz.jei.api.ISubtypeRegistry;
 import mezz.jei.api.JEIPlugin;
 import mezz.jei.api.ingredients.IModIngredientRegistration;
 import mezz.jei.api.recipe.VanillaRecipeCategoryUid;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 /**
@@ -25,9 +26,6 @@ import net.minecraft.item.ItemStack;
 @JEIPlugin
 public class StarcraftJeiPlugin implements IModPlugin {
 
-	public StarcraftJeiPlugin() {
-	}
-
 	@Override
 	public void register(IModRegistry registry) {
 		registry.addRecipeCategoryCraftingItem(new ItemStack(BlockHandler.FURNACE_SHAKURAS), VanillaRecipeCategoryUid.SMELTING);
@@ -36,6 +34,20 @@ public class StarcraftJeiPlugin implements IModPlugin {
 		registry.addRecipeCategoryCraftingItem(new ItemStack(BlockHandler.FURNACE_SHAKURAS), VanillaRecipeCategoryUid.FUEL);
 		registry.addRecipeCategoryCraftingItem(new ItemStack(BlockHandler.FURNACE_CHAR), VanillaRecipeCategoryUid.FUEL);
 		registry.addRecipeCategoryCraftingItem(new ItemStack(BlockHandler.FURNACE_SLAYN), VanillaRecipeCategoryUid.FUEL);
+		
+		for (int i = 0; i < Item.REGISTRY.getKeys().size(); i++) {
+			Item item = Item.REGISTRY.getObjectById(i);
+			if (item instanceof IJeiTooltip) {
+				System.out.println(item.getUnlocalizedName());
+				IJeiTooltip tooltip = (IJeiTooltip) item;
+				for (int j = 0; j < 16; j++) {
+					System.out.println(tooltip.getTooltip(j) + "\n");
+					if (tooltip.getTooltip(j) != null) {
+						registry.addDescription(new ItemStack(item, 1, 0), tooltip.getTooltip(j));
+					}
+				}
+			}
+		}
 	}
 
 	@Override

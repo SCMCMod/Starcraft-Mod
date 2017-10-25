@@ -15,6 +15,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+/**
+ * This class is the base class for any type of dim portal. It only handles the basics so the only thing you need to handle is the actual portal mechanics.
+ * 
+ * @author Ocelot5836
+ */
 public class BlockDimPortal extends Block {
 
 	public BlockDimPortal() {
@@ -34,7 +39,13 @@ public class BlockDimPortal extends Block {
 		return NULL_AABB;
 	}
 
+	@Override
 	public boolean isFullCube(IBlockState state) {
+		return false;
+	}
+
+	@Override
+	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
 

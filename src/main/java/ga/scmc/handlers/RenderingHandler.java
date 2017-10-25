@@ -75,6 +75,7 @@ import static ga.scmc.handlers.ItemHandler.INGOT;
 import static ga.scmc.handlers.ItemHandler.MINERAL_SHARD;
 import static ga.scmc.handlers.ItemHandler.NUCLEAR_MISSILE;
 import static ga.scmc.handlers.ItemHandler.ORGANIC_TISSUE;
+import static ga.scmc.handlers.ItemHandler.PHOSPHORUS;
 import static ga.scmc.handlers.ItemHandler.PLEDGE;
 import static ga.scmc.handlers.ItemHandler.PROTOSS_INGOT;
 import static ga.scmc.handlers.ItemHandler.PSI_BLADE_FOCUSER_UNCHARGED;
@@ -248,7 +249,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class RenderingHandler {
-	
+
 	public static void preInit() {
 		registerStandardItemRenderers();
 		registerArmorItemRenderers();
@@ -357,6 +358,8 @@ public class RenderingHandler {
 
 		registerItemRender(NUCLEAR_MISSILE);
 		registerItemRender(STIMPACK);
+
+		registerItemRender(PHOSPHORUS);
 
 		registerItemRender(SPAWNER_PROTOSS_DARK_CYBERNETICSCORE);
 		registerItemRender(SPAWNER_PROTOSS_VOID_CYBERNETICSCORE);
@@ -487,7 +490,7 @@ public class RenderingHandler {
 		registerItemRender(ZERG_T3_CHESTPLATE);
 		registerItemRender(ZERG_T3_LEGGINGS);
 		registerItemRender(ZERG_T3_BOOTS);
-		
+
 		registerItemRender(PROTOSS_T1_HELMET);
 		registerItemRender(PROTOSS_T1_CHESTPLATE);
 		registerItemRender(PROTOSS_T1_LEGGINGS);

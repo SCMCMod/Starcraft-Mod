@@ -5,6 +5,7 @@ import ga.scmc.fluids.FluidHandler;
 import ga.scmc.items.ItemC14GaussRifle;
 import ga.scmc.items.ItemFlamethrower;
 import ga.scmc.items.ItemNuclearMissile;
+import ga.scmc.items.ItemPhosphorus;
 import ga.scmc.items.ItemStarcraftSkull;
 import ga.scmc.items.ItemStimpack;
 import ga.scmc.items.metaitems.ItemBullet;
@@ -54,6 +55,7 @@ public class ItemHandler {
 	public static Item ENERGY;
 	public static Item INGOT;
 	public static Item MINERAL_SHARD;
+	public static Item PHOSPHORUS;
 	public static Item ORGANIC_TISSUE;
 	public static Item PSI_BLADE_FOCUSER_UNCHARGED;
 	public static Item ZERG_CARAPACE;
@@ -90,6 +92,7 @@ public class ItemHandler {
 
 	public static void preInit() {
 		MINERAL_SHARD = new ItemMineralShard();
+		PHOSPHORUS = new ItemPhosphorus();
 
 		GAS_CONTAINER = new ItemGasContainer();
 		VESPENE = new ItemVespene();
@@ -159,6 +162,7 @@ public class ItemHandler {
 		FluidRegistry.addBucketForFluid(FluidHandler.terrazine);
 
 		registerItem(MINERAL_SHARD);
+		registerItem(PHOSPHORUS);
 
 		registerItem(GAS_CONTAINER);
 		registerItem(VESPENE);

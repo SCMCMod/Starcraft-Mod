@@ -80,8 +80,8 @@ public class ItemRenderTable extends ItemRenderer {
 	}
 
 	public void renderModel(double x, double y, double z, double scale) {
-		ModelTable model = new ModelTable();
 		GlStateManager.pushMatrix();
+		ModelTable model = new ModelTable();
 		GlStateManager.translate(x + 0.5, y + 1.5, z + 0.5);
 		GlStateManager.rotate(180, 0, 0, 1);
 		RenderUtil.bindTexture(TEXTURE);

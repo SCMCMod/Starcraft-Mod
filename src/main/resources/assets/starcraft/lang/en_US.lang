@@ -122,15 +122,23 @@ tile.zergKeratinChunk.name=Keratin Chunk
 
 ### Ores ###
 ######################################################################
-tile.charOreMineral.name=Mineral Ore
 tile.overworldOreTitanium.name=Titanium Ore
 tile.overworldOreUranium.name=Uranium Ore
 tile.overworldOreCopper.name=Copper Ore
 
+tile.charOreCoal.name=Coal Ore
+tile.charOreIron.name=Iron Ore
+tile.charOreGold.name=Gold Ore
+tile.charOreDiamond.name=Diamond Ore
+tile.charOreRedstone.name=Redstone Ore
+tile.charOreRedstoneLit.name=Redstone Ore
+tile.charOreLapis.name=Lapis Lazuli Ore
+tile.charOreMineral.name=Mineral Ore
 tile.charOreMineralRich.name=Rich Mineral Ore
 tile.charOreTitanium.name=Titanium Ore
 tile.charOreUranium.name=Uranium Ore
 tile.charOreCopper.name=Copper Ore
+tile.charOrePhosphorus.name=Phosphorus Ore
 
 tile.shakurasOreCoal.name=Coal Ore
 tile.shakurasOreIron.name=Iron Ore
@@ -144,12 +152,15 @@ tile.shakurasOreMineralRich.name=Rich Mineral Ore
 tile.shakurasOreTitanium.name=Titanium Ore
 tile.shakurasOreUranium.name=Uranium Ore
 tile.shakurasOreCopper.name=Copper Ore
+tile.shakurasOrePhosphorus.name=Phosphorus Ore
 ######################################################################
 
 
 
 ### Miscellaneous ###
 ######################################################################
+item.phosphorus.name=Phosphorus
+
 tile.blockEnergy.name=Block Of Energy
 tile.voidEnergy.name=Block Of Void Energy
 
@@ -438,6 +449,9 @@ tile.aiurDimPortal.name=Aiur Portal
 tile.charDimPortal.name=Char Portal
 tile.overworldDimPortal.name=Overworld Portal
 tile.shakurasDimPortal.name=Shakuras Portal
+tile.kaldirDimPortal.name=Kaldir Portal
+tile.slaynDimPortal.name=Slayn Portal
+tile.korhalDimPortal.name=Korhal Portal
 ######################################################################
 
 
@@ -576,13 +590,6 @@ tile.furnaceChar.name=Furnace
 tile.furnaceCharLit.name=Lit Furnace
 
 tile.charMagma.name=Magma
-tile.charOreCoal.name=Coal Ore
-tile.charOreIron.name=Iron Ore
-tile.charOreGold.name=Gold Ore
-tile.charOreDiamond.name=Diamond Ore
-tile.charOreRedstone.name=Redstone Ore
-tile.charOreRedstoneLit.name=Redstone Ore
-tile.charOreLapis.name=Lapis Lazuli Ore
 ######################################################################
 
 

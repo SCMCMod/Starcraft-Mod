@@ -25,6 +25,7 @@ import ga.scmc.handlers.WorldGenerationHandler;
 import ga.scmc.lib.Library;
 import ga.scmc.network.NetworkHandler;
 import ga.scmc.proxy.CommonProxy;
+import ga.scmc.recipes.OreDictionaryHandler;
 import ga.scmc.recipes.ShapelessRecipes;
 import ga.scmc.recipes.SimpleRecipes;
 import ga.scmc.recipes.SmeltingRecipes;
@@ -89,6 +90,7 @@ public class Starcraft {
 	public void init(FMLInitializationEvent event) {
 		EntityHandler.init();
 		Achievements.init();
+		OreDictionaryHandler.init();
 		SimpleRecipes.init();
 		ShapelessRecipes.init();
 		SmeltingRecipes.init();
@@ -106,7 +108,6 @@ public class Starcraft {
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
-
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 		}
 	}

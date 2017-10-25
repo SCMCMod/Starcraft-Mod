@@ -217,6 +217,7 @@ public class BlockHandler {
 		ORE_RICHMINERAL_CHAR = new BlockCharOre("charOreMineralRich", "char_ore_mineral_rich", 1);
 		ORE_TITANIUM_CHAR = new BlockCharOre("charOreTitanium", "char_ore_titanium", 2);
 		ORE_URANIUM_CHAR = new BlockCharOre("charOreUranium", "char_ore_uranium", 1);
+		ORE_PHOSPHORUS_CHAR = new BlockCharOre("charOrePhosphorus", "char_ore_phosphorus", 1);
 
 		STONE_CHAR = new BlockCharStone();
 		COBBLESTONE_CHAR = new BlockCharCobblestone();
@@ -238,7 +239,8 @@ public class BlockHandler {
 		ORE_RICHMINERAL_SHAKURAS = new BlockShakurasOre("shakurasOreMineralRich", "shakuras_ore_mineral_rich", 1);
 		ORE_TITANIUM_SHAKURAS = new BlockShakurasOre("shakurasOreTitanium", "shakuras_ore_titanium", 2);
 		ORE_URANIUM_SHAKURAS = new BlockShakurasOre("shakurasOreUranium", "shakuras_ore_uranium", 1);
-
+		ORE_PHOSPHORUS_SHAKURAS = new BlockShakurasOre("shakurasOrePhosphorus", "shakuras_ore_phosphorus", 1);
+		
 		DIRT_SHAKURAS = new BlockShakurasDirt();
 		STONE_SHAKURAS = new BlockShakurasStone();
 		GRAVEL_SHAKURAS = new BlockShakurasGravel();
@@ -292,7 +294,6 @@ public class BlockHandler {
 		GAS_TERRAZINE = new BlockTerrazineGas();
 
 		STARCRAFT_SKULL = new BlockStarcraftSkull();
-		
 
 		CITY_STONE_KORHAL = new BlockKorhalCityStone();
 
