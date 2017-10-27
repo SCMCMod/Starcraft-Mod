@@ -1,22 +1,18 @@
 package ga.scmc.handlers;
 
 import ga.scmc.Starcraft;
-import ga.scmc.entity.living.EntityAdept;
 import ga.scmc.entity.living.EntityBroodling;
 import ga.scmc.entity.living.EntityBrutalisk;
 import ga.scmc.entity.living.EntityBrutaliskCocoon;
 import ga.scmc.entity.living.EntityCivilian;
 import ga.scmc.entity.living.EntityDarkProbe;
 import ga.scmc.entity.living.EntityDarkTemplar;
-import ga.scmc.entity.living.EntityDragoon;
 import ga.scmc.entity.living.EntityDrone;
-import ga.scmc.entity.living.EntityGhost;
 import ga.scmc.entity.living.EntityHydralisk;
 import ga.scmc.entity.living.EntityInfestedCivilian;
 import ga.scmc.entity.living.EntityKakaru;
 import ga.scmc.entity.living.EntityLarva;
 import ga.scmc.entity.living.EntityLarvaCocoon;
-import ga.scmc.entity.living.EntityMarauder;
 import ga.scmc.entity.living.EntityMarine;
 import ga.scmc.entity.living.EntityPredator;
 import ga.scmc.entity.living.EntityProbe;
@@ -24,7 +20,6 @@ import ga.scmc.entity.living.EntityProtossReaver;
 import ga.scmc.entity.living.EntityQueen;
 import ga.scmc.entity.living.EntitySCV;
 import ga.scmc.entity.living.EntityScarab;
-import ga.scmc.entity.living.EntityStalker;
 import ga.scmc.entity.living.EntityVoidProbe;
 import ga.scmc.entity.living.EntityZealot;
 import ga.scmc.entity.living.EntityZerglingBoost;
@@ -73,9 +68,9 @@ public class EntityHandler {
 		EntityRegistry.registerEgg(EntityZealot.class, 13022529, 2412228);
 		EntityRegistry.registerEgg(EntityProbe.class, 13022529, 2412228);
 		EntityRegistry.registerEgg(EntityProtossReaver.class, 13022529, 2412228);
-		EntityRegistry.registerEgg(EntityAdept.class, 13022529, 2412228);
-		EntityRegistry.registerEgg(EntityStalker.class, 13022529, 2412228);
-		EntityRegistry.registerEgg(EntityDragoon.class, 13022529, 2412228);
+		//EntityRegistry.registerEgg(EntityAdept.class, 13022529, 2412228);
+		//EntityRegistry.registerEgg(EntityStalker.class, 13022529, 2412228);
+		//EntityRegistry.registerEgg(EntityDragoon.class, 13022529, 2412228);
 		EntityRegistry.registerEgg(EntityDarkTemplar.class, 5066061, 45824);
 		EntityRegistry.registerEgg(EntityVoidProbe.class, 1447446, 45824);
 		EntityRegistry.registerEgg(EntityDarkProbe.class, 1447446, 13369344);
@@ -97,8 +92,8 @@ public class EntityHandler {
 		EntityRegistry.registerEgg(EntityCivilian.class, 7566195, 16639);
 		EntityRegistry.registerEgg(EntityPredator.class, 7566195, 16639);
 		EntityRegistry.registerEgg(EntityMarine.class, 7566195, 16639);
-		EntityRegistry.registerEgg(EntityGhost.class, 7566195, 16639);
-		EntityRegistry.registerEgg(EntityMarauder.class, 7566195, 16639);
+		//EntityRegistry.registerEgg(EntityGhost.class, 7566195, 16639);
+		//EntityRegistry.registerEgg(EntityMarauder.class, 7566195, 16639);
 		EntityRegistry.registerEgg(EntitySCV.class, 7566195, 16639);
 		
 		EntityRegistry.registerEgg(EntityKakaru.class, 6632556, 14183716);
@@ -126,9 +121,9 @@ public class EntityHandler {
 		registerEntity(EntityDarkTemplar.class, "darkTemplar", 64, 1, true);
 		registerEntity(EntityVoidProbe.class, "voidProbe", 64, 1, true);
 		registerEntity(EntityDarkProbe.class, "darkProbe", 64, 1, true);
-		registerEntity(EntityAdept.class, "adept", 64, 1, true);
-		registerEntity(EntityStalker.class, "stalker", 64, 1, true);
-		registerEntity(EntityDragoon.class, "dragoon", 64, 1, true);
+		//registerEntity(EntityAdept.class, "adept", 64, 1, true);
+		//registerEntity(EntityStalker.class, "stalker", 64, 1, true);
+		//registerEntity(EntityDragoon.class, "dragoon", 64, 1, true);
 
 		registerEntity(EntityBrutalisk.class, "brutalisk", 64, 1, true);
 		registerEntity(EntityHydralisk.class, "hydralisk", 64, 1, true);
@@ -148,8 +143,8 @@ public class EntityHandler {
 		registerEntity(EntityPredator.class, "predator", 64, 1, true);
 		registerEntity(EntitySCV.class, "scv", 64, 1, true);
 		registerEntity(EntityMarine.class, "marine", 64, 1, true);
-		registerEntity(EntityGhost.class, "ghost", 64, 1, true);
-		registerEntity(EntityMarauder.class, "marauder", 64, 1, true);
+		//registerEntity(EntityGhost.class, "ghost", 64, 1, true);
+		//registerEntity(EntityMarauder.class, "marauder", 64, 1, true);
 
 		registerEntity(EntityC14GaussRifleBullet.class, "c14GaussRifleBullet", 64, 1, true);
 		registerEntity(EntityHydraliskSpike.class, "HydraliskSpike", 64, 1, true);
