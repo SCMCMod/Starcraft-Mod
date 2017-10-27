@@ -11,6 +11,7 @@ import ga.scmc.worldgen.dimchar.BiomeGenCharOutskirts;
 import ga.scmc.worldgen.dimchar.BiomeGenCharScar;
 import ga.scmc.worldgen.dimkorhal.BiomeGenKorhalCity;
 import ga.scmc.worldgen.dimkorhal.BiomeGenKorhalDesert;
+import ga.scmc.worldgen.dimshakuras.BiomeGenShakurasCity;
 import ga.scmc.worldgen.dimshakuras.BiomeGenShakurasDesert;
 import ga.scmc.worldgen.dimshakuras.BiomeGenShakurasHills;
 import ga.scmc.worldgen.dimshakuras.BiomeGenShakurasMountains;
@@ -35,6 +36,7 @@ public class BiomeHandler extends Biome {
 	public static Biome biomeShakurasHills;
 	public static Biome biomeShakurasOcean;
 	public static Biome biomeShakurasMountains;
+	public static Biome biomeShakurasCity;
 	
 	public static Biome biomeSlaynDesert;
 	public static Biome biomeSlaynHills;
@@ -96,6 +98,8 @@ public class BiomeHandler extends Biome {
 		biomeShakurasOcean = new BiomeGenShakurasOcean((new Biome.BiomeProperties("Shakuras Deep Ocean")).setBaseHeight(-1.5F).setHeightVariation(0.35F).setTemperature(0.3F));
 		biomeShakurasMountains = new BiomeGenShakurasMountains(
 				(new Biome.BiomeProperties("Shakuras Mountains")).setBaseHeight(1.0F).setHeightVariation(0.55F).setTemperature(0.3F).setRainfall(0.3F));
+		biomeShakurasCity = new BiomeGenShakurasCity(
+				(new Biome.BiomeProperties("Shakuras City")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(0.3F).setRainfall(0.3F));
 		
 	//	biomeSlaynDesert = new BiomeGenSlaynDesert(
 				//(new Biome.BiomeProperties("Slayn Desert")).setBaseHeight(0.0F).setHeightVariation(0.025F).setTemperature(0.3F).setRainfall(1.0F));
@@ -113,7 +117,7 @@ public class BiomeHandler extends Biome {
 		BiomeManager.addSpawnBiome(BiomeHandler.biomeShakurasHills);
 		BiomeManager.addSpawnBiome(BiomeHandler.biomeKorhalCity);
 
-		BiomeManager.removeSpawnBiome(BiomeHandler.biomeShakurasDesert);
+		BiomeManager.removeSpawnBiome(BiomeHandler.biomeShakurasCity);
 		BiomeManager.removeSpawnBiome(BiomeHandler.biomeKorhalDesert);
 		BiomeManager.removeSpawnBiome(BiomeHandler.biomeShakurasOcean);
 		BiomeManager.removeSpawnBiome(BiomeHandler.biomeLavaOcean);
