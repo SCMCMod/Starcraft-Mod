@@ -1,8 +1,8 @@
 package ga.scmc.client.renderer.entity;
 
+import ga.scmc.client.renderer.model.ModelBrutaliskCocoon;
 import ga.scmc.entity.living.EntityBrutaliskCocoon;
 import ga.scmc.lib.Library;
-import ga.scmc.model.ModelBrutaliskCocoon;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;

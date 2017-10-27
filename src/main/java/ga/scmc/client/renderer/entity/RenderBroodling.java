@@ -1,9 +1,9 @@
 package ga.scmc.client.renderer.entity;
 
 import ga.scmc.client.renderer.layers.LayerBroodlingColor;
+import ga.scmc.client.renderer.model.ModelBroodling;
 import ga.scmc.entity.living.EntityBroodling;
 import ga.scmc.lib.Library;
-import ga.scmc.model.ModelBroodling;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;

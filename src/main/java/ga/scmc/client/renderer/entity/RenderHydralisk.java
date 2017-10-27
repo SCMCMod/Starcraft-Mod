@@ -2,9 +2,9 @@ package ga.scmc.client.renderer.entity;
 
 import ga.scmc.client.renderer.layers.LayerHydraliskColor;
 import ga.scmc.client.renderer.layers.LayerHydraliskGlowStatic;
+import ga.scmc.client.renderer.model.ModelHydralisk;
 import ga.scmc.entity.living.EntityHydralisk;
 import ga.scmc.lib.Library;
-import ga.scmc.model.ModelHydralisk;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;

@@ -2,9 +2,9 @@ package ga.scmc.client.renderer.entity;
 
 import ga.scmc.client.renderer.layers.LayerDarkTemplarColor;
 import ga.scmc.client.renderer.layers.LayerDarkTemplarGlowStatic;
+import ga.scmc.client.renderer.model.ModelDarkTemplar;
 import ga.scmc.entity.living.EntityDarkTemplar;
 import ga.scmc.lib.Library;
-import ga.scmc.model.ModelDarkTemplar;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;

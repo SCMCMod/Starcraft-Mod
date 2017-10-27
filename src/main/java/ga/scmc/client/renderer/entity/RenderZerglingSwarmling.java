@@ -2,9 +2,9 @@ package ga.scmc.client.renderer.entity;
 
 import ga.scmc.client.renderer.layers.LayerZerglingSwarmlingColor;
 import ga.scmc.client.renderer.layers.LayerZerglingSwarmlingGlowStatic;
+import ga.scmc.client.renderer.model.ModelZerglingSwarmling;
 import ga.scmc.entity.living.EntityZerglingSwarmling;
 import ga.scmc.lib.Library;
-import ga.scmc.model.ModelZerglingSwarmling;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;

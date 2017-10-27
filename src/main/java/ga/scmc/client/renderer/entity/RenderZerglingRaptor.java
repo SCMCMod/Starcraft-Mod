@@ -2,9 +2,9 @@ package ga.scmc.client.renderer.entity;
 
 import ga.scmc.client.renderer.layers.LayerZerglingRaptorColor;
 import ga.scmc.client.renderer.layers.LayerZerglingRaptorGlowStatic;
+import ga.scmc.client.renderer.model.ModelZerglingRaptor;
 import ga.scmc.entity.living.EntityZerglingRaptor;
 import ga.scmc.lib.Library;
-import ga.scmc.model.ModelZerglingRaptor;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;

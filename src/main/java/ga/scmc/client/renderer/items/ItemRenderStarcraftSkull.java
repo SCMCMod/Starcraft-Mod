@@ -2,11 +2,11 @@ package ga.scmc.client.renderer.items;
 
 import ga.scmc.client.renderer.RenderUtil;
 import ga.scmc.client.renderer.block.ModelTable;
+import ga.scmc.client.renderer.model.IModelSkull;
+import ga.scmc.client.renderer.model.ModelBrutalisk;
+import ga.scmc.client.renderer.model.ModelHydralisk;
+import ga.scmc.client.renderer.model.ModelZerglingSC2;
 import ga.scmc.lib.Library;
-import ga.scmc.model.IModelSkull;
-import ga.scmc.model.ModelBrutalisk;
-import ga.scmc.model.ModelHydralisk;
-import ga.scmc.model.ModelZerglingSC2;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelSkeletonHead;
 import net.minecraft.client.renderer.GlStateManager;

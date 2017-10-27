@@ -2,9 +2,9 @@ package ga.scmc.client.renderer.entity;
 
 import ga.scmc.client.renderer.layers.LayerProbeColor;
 import ga.scmc.client.renderer.layers.LayerProbeGlowDynamic;
+import ga.scmc.client.renderer.model.ModelProbe;
 import ga.scmc.entity.living.EntityProbe;
 import ga.scmc.lib.Library;
-import ga.scmc.model.ModelProbe;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;

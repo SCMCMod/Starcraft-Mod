@@ -1,6 +1,6 @@
 package ga.scmc.client.renderer.items;
 
-import ga.scmc.model.ModelC14GaussRifle;
+import ga.scmc.client.renderer.model.ModelC14GaussRifle;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;

@@ -1,8 +1,8 @@
 package ga.scmc.client.renderer.entity;
 
+import ga.scmc.client.renderer.model.ModelMarauder;
 import ga.scmc.entity.living.EntityMarauder;
 import ga.scmc.lib.Library;
-import ga.scmc.model.ModelMarauder;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;

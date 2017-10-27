@@ -1,9 +1,9 @@
 package ga.scmc.client.renderer.entity;
 
 import ga.scmc.client.renderer.layers.LayerBrutaliskColor;
+import ga.scmc.client.renderer.model.ModelBrutalisk;
 import ga.scmc.entity.living.EntityBrutalisk;
 import ga.scmc.lib.Library;
-import ga.scmc.model.ModelBrutalisk;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;

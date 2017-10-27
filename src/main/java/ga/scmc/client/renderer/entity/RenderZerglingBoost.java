@@ -2,9 +2,9 @@ package ga.scmc.client.renderer.entity;
 
 import ga.scmc.client.renderer.layers.LayerZerglingBoostColor;
 import ga.scmc.client.renderer.layers.LayerZerglingBoostGlowStatic;
+import ga.scmc.client.renderer.model.ModelZerglingBoost;
 import ga.scmc.entity.living.EntityZerglingBoost;
 import ga.scmc.lib.Library;
-import ga.scmc.model.ModelZerglingBoost;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;

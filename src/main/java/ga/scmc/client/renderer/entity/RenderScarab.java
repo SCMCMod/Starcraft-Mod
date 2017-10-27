@@ -1,9 +1,9 @@
 package ga.scmc.client.renderer.entity;
 
 import ga.scmc.client.renderer.layers.LayerScarab;
+import ga.scmc.client.renderer.model.ModelScarab;
 import ga.scmc.entity.living.EntityScarab;
 import ga.scmc.lib.Library;
-import ga.scmc.model.ModelScarab;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;

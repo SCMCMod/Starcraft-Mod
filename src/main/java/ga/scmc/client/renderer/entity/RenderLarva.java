@@ -2,9 +2,9 @@ package ga.scmc.client.renderer.entity;
 
 import ga.scmc.client.renderer.layers.LayerLarvaColor;
 import ga.scmc.client.renderer.layers.LayerLarvaGlowStatic;
+import ga.scmc.client.renderer.model.ModelLarva;
 import ga.scmc.entity.living.EntityLarva;
 import ga.scmc.lib.Library;
-import ga.scmc.model.ModelLarva;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
