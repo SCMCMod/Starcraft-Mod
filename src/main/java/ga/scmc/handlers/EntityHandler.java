@@ -181,8 +181,8 @@ public class EntityHandler {
 		
 		EntityRegistry.addSpawn(EntityKakaru.class, 7, 1, 1, EnumCreatureType.CREATURE, BiomeHandler.biomeShakurasHills, BiomeHandler.biomeShakurasMountains);
 
-		EntityRegistry.addSpawn(EntityCivilian.class, 40, 1, 3, EnumCreatureType.CREATURE, BiomeHandler.biomeKorhalCity);
-		EntityRegistry.addSpawn(EntityPredator.class, 40, 1, 3, EnumCreatureType.MONSTER, BiomeHandler.biomeKorhalCity);
+		EntityRegistry.addSpawn(EntityCivilian.class, 10, 1, 3, EnumCreatureType.CREATURE, BiomeHandler.biomeKorhalCity);
+		EntityRegistry.addSpawn(EntityPredator.class, 10, 1, 3, EnumCreatureType.MONSTER, BiomeHandler.biomeKorhalCity);
 	}
 
 	/**
