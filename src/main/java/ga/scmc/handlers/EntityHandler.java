@@ -101,7 +101,7 @@ public class EntityHandler {
 		EntityRegistry.registerEgg(EntityMarauder.class, 7566195, 16639);
 		EntityRegistry.registerEgg(EntitySCV.class, 7566195, 16639);
 		
-		EntityRegistry.registerEgg(EntityKakaru.class, 7566195, 16639);
+		EntityRegistry.registerEgg(EntityKakaru.class, 6632556, 14183716);
 	}
 
 	private static void registerTileEntities() {
