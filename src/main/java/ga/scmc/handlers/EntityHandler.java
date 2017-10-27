@@ -179,7 +179,7 @@ public class EntityHandler {
 		EntityRegistry.addSpawn(EntityLarvaCocoon.class, 5, 1, 5, EnumCreatureType.CREATURE, BiomeHandler.biomeCharCreepInfestation);
 		EntityRegistry.addSpawn(EntityInfestedCivilian.class, 15, 1, 3, EnumCreatureType.MONSTER, BiomeHandler.biomeCharCreepInfestation);
 		
-		EntityRegistry.addSpawn(EntityKakaru.class, 7, 1, 3, EnumCreatureType.CREATURE, BiomeHandler.biomeShakurasHills, BiomeHandler.biomeShakurasMountains);
+		EntityRegistry.addSpawn(EntityKakaru.class, 7, 1, 1, EnumCreatureType.CREATURE, BiomeHandler.biomeShakurasHills, BiomeHandler.biomeShakurasMountains);
 
 		EntityRegistry.addSpawn(EntityCivilian.class, 40, 1, 3, EnumCreatureType.CREATURE, BiomeHandler.biomeKorhalCity);
 		EntityRegistry.addSpawn(EntityPredator.class, 40, 1, 3, EnumCreatureType.MONSTER, BiomeHandler.biomeKorhalCity);
