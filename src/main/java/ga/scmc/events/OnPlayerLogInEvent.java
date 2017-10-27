@@ -1,7 +1,5 @@
 package ga.scmc.events;
 
-import ga.scmc.debugging.ColorProvider;
-import ga.scmc.debugging.IColor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentString;

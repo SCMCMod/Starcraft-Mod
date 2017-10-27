@@ -61,6 +61,7 @@ public class BiomeHandler extends Biome {
 		GameRegistry.register(biomeShakurasHills);
 		GameRegistry.register(biomeShakurasOcean);
 		GameRegistry.register(biomeShakurasMountains);
+		GameRegistry.register(biomeShakurasCity);
 		
 		//GameRegistry.register(biomeSlaynDesert);
 		//GameRegistry.register(biomeSlaynHills);
@@ -117,7 +118,7 @@ public class BiomeHandler extends Biome {
 		BiomeManager.addSpawnBiome(BiomeHandler.biomeShakurasHills);
 		BiomeManager.addSpawnBiome(BiomeHandler.biomeKorhalCity);
 
-		BiomeManager.removeSpawnBiome(BiomeHandler.biomeShakurasCity);
+		BiomeManager.addSpawnBiome(BiomeHandler.biomeShakurasCity);
 		BiomeManager.removeSpawnBiome(BiomeHandler.biomeKorhalDesert);
 		BiomeManager.removeSpawnBiome(BiomeHandler.biomeShakurasOcean);
 		BiomeManager.removeSpawnBiome(BiomeHandler.biomeLavaOcean);
