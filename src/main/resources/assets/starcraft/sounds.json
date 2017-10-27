@@ -474,5 +474,33 @@
 			"name": "starcraft:mob/predator/predator-death",
 			"stream": false
 		}]
-	}
+	},
+	"mob.kakaru.live1": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/kakaru/kakaru-live1",
+            "stream": false
+        }]
+    },
+    "mob.kakaru.live2": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/kakaru/kakaru-live2",
+            "stream": false
+        }]
+    },
+    "mob.kakaru.hurt": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/kakaru/kakaru-hurt",
+            "stream": false
+        }]
+    },
+    "mob.kakaru.death": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/kakaru/kakaru-death",
+            "stream": false
+        }]
+    }
 }

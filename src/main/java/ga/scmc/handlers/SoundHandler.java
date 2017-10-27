@@ -89,6 +89,11 @@ public class SoundHandler {
 	public static SoundEvent FX_WARPBLADE_ATTACK;
 	public static SoundEvent FX_C14GAUSSRIFLE_FIRING;
 	public static SoundEvent FX_C14GAUSSRIFLE_OUT;
+	
+	public static SoundEvent ENTITY_KAKARU_LIVE1;
+	public static SoundEvent ENTITY_KAKARU_LIVE2;
+	public static SoundEvent ENTITY_KAKARU_HURT;
+	public static SoundEvent ENTITY_KAKARU_DEATH;
 
 	/** @author Ocelot5836 */
 	public static SoundEvent BLOCK_FLESH_BREAK;
@@ -200,6 +205,11 @@ public class SoundHandler {
 		BLOCK_FLESH_HIT = registerSound("block.flesh.hit");
 		BLOCK_FLESH_FALL = registerSound("block.flesh.fall");
 
+		ENTITY_KAKARU_LIVE1 = registerSound("mob.kakaru.live1");
+		ENTITY_KAKARU_LIVE2 = registerSound("mob.kakaru.live2");
+		ENTITY_KAKARU_HURT = registerSound("mob.kakaru.hurt");
+		ENTITY_KAKARU_DEATH = registerSound("mob.kakaru.death");
+		
 		BLOCK_GAS_COLLECTOR_PROTOSS = registerSound("block.gas_collector.protoss");
 		BLOCK_GAS_COLLECTOR_TERRAN = registerSound("block.gas_collector.terran");
 		BLOCK_GAS_COLLECTOR_ZERG = registerSound("block.gas_collector.zerg");

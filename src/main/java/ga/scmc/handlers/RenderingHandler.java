@@ -143,6 +143,7 @@ import ga.scmc.client.renderer.entity.RenderDrone;
 import ga.scmc.client.renderer.entity.RenderGhost;
 import ga.scmc.client.renderer.entity.RenderHydralisk;
 import ga.scmc.client.renderer.entity.RenderInfestedCivilian;
+import ga.scmc.client.renderer.entity.RenderKakaru;
 import ga.scmc.client.renderer.entity.RenderLarva;
 import ga.scmc.client.renderer.entity.RenderLarvaCocoon;
 import ga.scmc.client.renderer.entity.RenderMarauder;
@@ -177,6 +178,7 @@ import ga.scmc.entity.living.EntityDrone;
 import ga.scmc.entity.living.EntityGhost;
 import ga.scmc.entity.living.EntityHydralisk;
 import ga.scmc.entity.living.EntityInfestedCivilian;
+import ga.scmc.entity.living.EntityKakaru;
 import ga.scmc.entity.living.EntityLarva;
 import ga.scmc.entity.living.EntityLarvaCocoon;
 import ga.scmc.entity.living.EntityMarauder;
@@ -212,6 +214,7 @@ import ga.scmc.model.ModelGhost;
 import ga.scmc.model.ModelHydralisk;
 import ga.scmc.model.ModelHydraliskSpike;
 import ga.scmc.model.ModelInfestedCivilian;
+import ga.scmc.model.ModelKakaru;
 import ga.scmc.model.ModelLarva;
 import ga.scmc.model.ModelLarvaCocoon;
 import ga.scmc.model.ModelMarauder;
@@ -324,6 +327,8 @@ public class RenderingHandler {
 		RenderingRegistry.registerEntityRenderingHandler(EntityGhost.class, new RenderGhost(Minecraft.getMinecraft().getRenderManager(), new ModelGhost(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityMarauder.class, new RenderMarauder(Minecraft.getMinecraft().getRenderManager(), new ModelMarauder(), 0.4f));
 
+		RenderingRegistry.registerEntityRenderingHandler(EntityKakaru.class, new RenderKakaru(Minecraft.getMinecraft().getRenderManager(), new ModelKakaru(), 0.4f));
+		
 		RenderingRegistry.registerEntityRenderingHandler(EntityC14GaussRifleBullet.class, new RenderC14GaussRifleBullet(Minecraft.getMinecraft().getRenderManager(), new ModelBullet()));
 		RenderingRegistry.registerEntityRenderingHandler(EntityHydraliskSpike.class, new RenderHydraliskSpike(Minecraft.getMinecraft().getRenderManager(), new ModelHydraliskSpike()));
 		RenderingRegistry.registerEntityRenderingHandler(EntityFlamethrowerFlame.class, new RenderFlamethrowerFlame(Minecraft.getMinecraft().getRenderManager(), null));
