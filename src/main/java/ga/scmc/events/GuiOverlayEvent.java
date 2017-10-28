@@ -7,10 +7,12 @@ import ga.scmc.lib.GuiUtils;
 import ga.scmc.lib.InventoryUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiIngame;
+import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -22,9 +24,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * @since 1.6
  * @author Ocelot5836
  */
-public class GuiOverlayEvent {
+@EventBusSubscriber
+public class GuiRenderEvent {
 
 	public static boolean renderHelmetOverlay = true;
+	public static double shieldLevel = 10;
 
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
@@ -50,6 +54,31 @@ public class GuiOverlayEvent {
 					mc.fontRendererObj.drawString(damage, event.getResolution().getScaledWidth() - 18 - mc.fontRendererObj.getStringWidth(damage), event.getResolution().getScaledHeight() - 18 - i * 18, Color.WHITE.getRGB());
 				}
 			}
+		}
+
+		if (event.getType() == ElementType.TEXT) {
+			GlStateManager.enableBlend();
+			GlStateManager.color(1, 1, 1, 1);
+			GuiUtils.bindTexture("textures/gui/icons.png");
+			ScaledResolution resolution = event.getResolution();
+			int x = resolution.getScaledWidth() * resolution.getScaleFactor() / 2;
+			int y = resolution.getScaledHeight() * resolution.getScaleFactor() / 2;
+			for (int i = 0; i < 10; i++) {
+				gui.drawTexturedModalRect(x + i * 9, y, 0, 0, 9, 9);
+			}
+
+			shieldLevel = 0;
+			for (int i = 0; i < 10; i++) {
+				if (i < shieldLevel) {
+					if (Double.toString(shieldLevel).substring(Double.toString(shieldLevel).length() - 2).equalsIgnoreCase(".5") && shieldLevel != 0 && i == shieldLevel - 0.5) {
+						gui.drawTexturedModalRect(x + i * 9, y, 18, 0, 9, 9);
+					} else {
+						gui.drawTexturedModalRect(x + i * 9, y, 9, 0, 9, 9);
+					}
+				}
+			}
+
+			GlStateManager.disableBlend();
 		}
 	}
 }

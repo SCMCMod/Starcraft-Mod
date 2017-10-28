@@ -26,7 +26,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 
 /**
- * @since 5.1
  * @author Ocelot5836
  */
 public class GuiItemShop extends GuiScreen {
@@ -61,6 +60,7 @@ public class GuiItemShop extends GuiScreen {
 	public GuiItemShop(EntityPlayer player, String displayName) {
 		this.customer = player;
 		this.displayName = displayName;
+		tab = 0;
 	}
 
 	@Override
@@ -80,7 +80,6 @@ public class GuiItemShop extends GuiScreen {
 		tabs.add(new Tab(new ItemStack(ItemHandler.C14_GAUSS_RIFLE, 1, 0), I18n.format("itemGroup.terran.weapons"), 3, guiLeft - 29, guiTop + 94, tabWidth, tabHeight));
 		tabs.add(new Tab(new ItemStack(ArmorHandler.COPPER_HELMET, 1, 0), I18n.format("itemGroup.terran.armors"), 4, guiLeft - 29, guiTop + 124, tabWidth, tabHeight));
 		tabs.add(new Tab(new ItemStack(ToolHandler.COPPER_PICKAXE, 1, 0), I18n.format("itemGroup.terran.tools"), 5, guiLeft - 29, guiTop + 154, tabWidth, tabHeight));
-		tab = 0;
 
 		buttonList.clear();
 		buttonBuy = new GuiButton(0, guiLeft + 105, guiTop + 120, 30, 20, I18n.format("gui.buy"));
@@ -98,7 +97,6 @@ public class GuiItemShop extends GuiScreen {
 		GlStateManager.disableLighting();
 		GlStateManager.disableDepth();
 		super.drawScreen(mouseX, mouseY, partialTicks);
-		RenderHelper.enableGUIStandardItemLighting();
 		GlStateManager.pushMatrix();
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 		GlStateManager.enableRescaleNormal();
@@ -107,9 +105,10 @@ public class GuiItemShop extends GuiScreen {
 
 		for (Tab tab : tabs) {
 			tab.renderLit(mouseX, mouseY);
+			RenderHelper.enableGUIStandardItemLighting();
 			tab.renderIcon();
 		}
-
+		
 		GlStateManager.translate((float) i, (float) j, 0.0F);
 		drawCenterLayer(mouseX, mouseY);
 		RenderHelper.disableStandardItemLighting();
