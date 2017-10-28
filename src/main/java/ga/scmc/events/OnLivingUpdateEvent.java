@@ -3,7 +3,9 @@ package ga.scmc.events;
 import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ConfigurationHandler;
+import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.WeaponHandler;
+import ga.scmc.lib.InventoryUtil;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -39,15 +41,13 @@ public class OnLivingUpdateEvent {
 					}
 				}
 			}
-
-			ItemStack headItem = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-			if (headItem != null && headItem.getItem() == ArmorHandler.MARINE_HELMET) {
-				GuiOverlayEvent.renderHelmetOverlay = true;
-			} else {
-				GuiOverlayEvent.renderHelmetOverlay = false;
+			
+			if(GuiOverlayEvent.shieldLevel < GuiOverlayEvent.getMaxShieldLevel()) { 
+				if(InventoryUtil.hasItemAndAmount(player, ItemHandler.ENERGY, 1, 0));
 			}
 		}
 	}
+	
 	// TODO: this is disabled until we add cloaking mechanics
 	// else if(event.getEntity() instanceof EntityDarkTemplar && !StarcraftConfig.BOOL_IS_DARK_TEMPLAR_VISIBLE) {
 	// event.getEntity().setInvisible(false);
