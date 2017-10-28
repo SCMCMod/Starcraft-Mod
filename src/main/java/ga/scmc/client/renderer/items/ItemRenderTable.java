@@ -62,6 +62,11 @@ public class ItemRenderTable extends ItemRenderer {
 		renderModel(0, 0, 0, 0.0625 * 0.5);
 		GlStateManager.popMatrix();
 	}
+	
+	@Override
+	public void renderHead(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+		
+	}
 
 	@Override
 	public void renderThirdPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {

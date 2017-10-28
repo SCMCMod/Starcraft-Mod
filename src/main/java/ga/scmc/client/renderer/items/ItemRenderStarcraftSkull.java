@@ -43,7 +43,7 @@ public class ItemRenderStarcraftSkull extends ItemRenderer {
 			GlStateManager.translate(0.1, -0.2, 0);
 		}
 		if (type == 2) {
-			GlStateManager.translate(0.3, -0.1, 0);
+			GlStateManager.translate(0.2, -0.1, 0);
 			scale = 0.5;
 		}
 		if (type == 3) {
@@ -67,7 +67,7 @@ public class ItemRenderStarcraftSkull extends ItemRenderer {
 			GlStateManager.translate(-0.1, -0.2, 0);
 		}
 		if (type == 2) {
-			GlStateManager.translate(-0.3, -0.1, 0);
+			GlStateManager.translate(-0.2, -0.1, 0);
 			scale = 0.5;
 		}
 		if (type == 3) {
@@ -107,7 +107,7 @@ public class ItemRenderStarcraftSkull extends ItemRenderer {
 		GlStateManager.pushMatrix();
 		GlStateManager.rotate(45, 0, 1, 0);
 		GlStateManager.translate(-0.5, -1.3, -0.5);
-		
+
 		if (type == 0) {
 			GlStateManager.translate(0.5, 1.2, 0.5);
 		}
@@ -120,7 +120,7 @@ public class ItemRenderStarcraftSkull extends ItemRenderer {
 		if (type == 3) {
 			GlStateManager.translate(0.5, 1.1, 0);
 		}
-		
+
 		renderSkull(type, 0.0625 * scale);
 		GlStateManager.popMatrix();
 	}
@@ -148,7 +148,7 @@ public class ItemRenderStarcraftSkull extends ItemRenderer {
 			scale = 0.5;
 			GlStateManager.translate(0.25, 0.1, -0.2);
 		}
-		
+
 		GlStateManager.rotate(45, 1, 0, 0);
 		GlStateManager.rotate(-45, 0, 1, 0);
 		GlStateManager.translate(-0.09, -0.125, -0.1);
@@ -169,12 +169,30 @@ public class ItemRenderStarcraftSkull extends ItemRenderer {
 			scale = 0.5;
 			GlStateManager.translate(-0.25, 0.1, -0.2);
 		}
-		
+
 		GlStateManager.rotate(45, 1, 0, 0);
 		GlStateManager.rotate(45, 0, 1, 0);
 		GlStateManager.translate(0.09, -0.125, -0.1);
 		renderSkull(type, 0.0625 * scale);
 		GlStateManager.popMatrix();
+	}
+
+	@Override
+	public void renderHead(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+		double scale = 2;
+		if (type == 0) {
+			GlStateManager.translate(0, -0.45, 0);
+		}
+		if (type == 1) {
+			GlStateManager.translate(0, 0.45, 0);
+		}
+		if (type == 2) {
+			GlStateManager.translate(0, -0.2, 1);
+		}
+		if (type == 3) {
+			GlStateManager.translate(0, -0.3, 1);
+		}
+		renderSkull(type, 0.0625 * scale);
 	}
 
 	public void renderSkull(int skullType, double scale) {

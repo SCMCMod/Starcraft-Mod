@@ -105,6 +105,7 @@ public class GuiItemShop extends GuiScreen {
 
 		for (Tab tab : tabs) {
 			tab.renderLit(mouseX, mouseY);
+			GlStateManager.enableDepth();
 			RenderHelper.enableGUIStandardItemLighting();
 			tab.renderIcon();
 		}
@@ -116,6 +117,7 @@ public class GuiItemShop extends GuiScreen {
 		GlStateManager.popMatrix();
 		GlStateManager.enableLighting();
 		GlStateManager.enableDepth();
+		GlStateManager.disableDepth();
 		RenderHelper.enableStandardItemLighting();
 
 		drawTooltips(mouseX, mouseY);

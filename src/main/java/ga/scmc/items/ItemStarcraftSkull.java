@@ -10,6 +10,7 @@ import ga.scmc.tileentity.TileEntityStarcraftSkull;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
@@ -41,6 +42,11 @@ public class ItemStarcraftSkull extends ItemSkull {
 	@SideOnly(Side.CLIENT)
 	public EntityEquipmentSlot getEquipmentSlot() {
 		return EntityEquipmentSlot.HEAD;
+	}
+
+	@Override
+	public boolean isValidArmor(ItemStack stack, EntityEquipmentSlot armorType, Entity entity) {
+		return armorType == getEquipmentSlot();
 	}
 
 	/**

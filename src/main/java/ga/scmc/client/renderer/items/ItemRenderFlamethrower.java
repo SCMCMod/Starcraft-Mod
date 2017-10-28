@@ -98,6 +98,11 @@ public class ItemRenderFlamethrower extends ItemRenderer {
 		getModel().render(null, 0, 0, 0, 0, 0, 1);
 		GlStateManager.popMatrix();
 	}
+	
+	@Override
+	public void renderHead(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+		
+	}
 }
 
 // Keep this code here. It's nice for on-the-fly GL fiddling (if you know how to abuse it), and it's how I got my values

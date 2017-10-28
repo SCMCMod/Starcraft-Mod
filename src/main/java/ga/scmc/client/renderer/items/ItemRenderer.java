@@ -9,11 +9,9 @@ import org.apache.commons.lang3.tuple.Pair;
 
 import com.google.common.collect.Lists;
 
-import ga.scmc.client.renderer.RenderUtil;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
@@ -21,7 +19,6 @@ import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformT
 import net.minecraft.client.renderer.block.model.ItemOverride;
 import net.minecraft.client.renderer.block.model.ItemOverrideList;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
@@ -184,16 +181,9 @@ public abstract class ItemRenderer implements IPerspectiveAwareModel, IBakedMode
 
 	public abstract void renderThirdPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType);
 
-	public void renderFixed(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
-		GlStateManager.pushMatrix();
-		GlStateManager.translate(0, -0.2, 0);
-		RenderUtil.bindTexture(getResourceLocation());
-		model.render((Entity) null, 0, 0.0F, 0.0F, 0, 0.0F, 1);
-		GlStateManager.popMatrix();
-	}
+	public abstract void renderFixed(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType);
 
-	public void renderHead(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
-	}
+	public abstract void renderHead(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType);
 
 	private void setEntity(EntityLivingBase entity) {
 		this.entity = entity;
