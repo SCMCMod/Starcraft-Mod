@@ -11,6 +11,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemSkull;
 import net.minecraft.item.ItemStack;
@@ -35,6 +36,11 @@ public class ItemStarcraftSkull extends ItemSkull {
 		setCreativeTab(StarcraftCreativeTabs.MISC);
 		setMaxDamage(0);
 		setHasSubtypes(true);
+	}
+
+	@SideOnly(Side.CLIENT)
+	public EntityEquipmentSlot getEquipmentSlot() {
+		return EntityEquipmentSlot.HEAD;
 	}
 
 	/**
