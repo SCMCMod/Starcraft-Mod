@@ -40,11 +40,11 @@ public class GuiUtils {
 		return false;
 	}
 
-	public static void bindTexture(String path, String domain) {
+	public static void bindTexture(String domain, String path) {
 		RenderUtil.bindTexture(new ResourceLocation(domain, path));
 	}
 
 	public static void bindTexture(String path) {
-		bindTexture(path, Library.MODID);
+		bindTexture(Library.MODID, path);
 	}
 }

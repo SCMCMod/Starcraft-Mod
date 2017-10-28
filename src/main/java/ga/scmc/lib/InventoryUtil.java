@@ -97,6 +97,28 @@ public class InventoryUtil {
 	 * @param player
 	 *            The player to check
 	 * @param item
+	 *            The item to search for
+	 * @param amount
+	 *            The amount to search for
+	 * @param meta
+	 *            The metadata to search for
+	 * @return If the amount of items is in the player's inventory
+	 */
+	public static boolean hasItemAndAmount(EntityPlayer player, Item item, int amount, int meta) {
+		int count = 0;
+		for (ItemStack stack : player.inventory.mainInventory) {
+			if (stack != null && stack.getItem() == item && stack.getMetadata() == meta) {
+				count += stack.stackSize;
+			}
+		}
+		return amount <= count;
+	}
+
+	/**
+	 * 
+	 * @param player
+	 *            The player to check
+	 * @param item
 	 *            The item to remove
 	 * @param amount
 	 *            The amount to remove
