@@ -1,11 +1,5 @@
 package ga.scmc.debugging;
 
-/**
- * 
- * Mana capability
- * 
- */
-
 public interface IColor
 
 {

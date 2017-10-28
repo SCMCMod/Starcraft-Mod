@@ -18,12 +18,14 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class CapabilityHandler {
 
 	public static final ResourceLocation COLOR = new ResourceLocation(Library.MODID, "color");
+	public static final ResourceLocation SHIELD = new ResourceLocation(Library.MODID, "shield");
 
 	@SubscribeEvent
 	public void attachCapability(AttachCapabilitiesEvent.Entity event) {
 		if (!(event.getEntity() instanceof EntityPlayer))
 			return;
 		
+		event.addCapability(SHIELD, new ShieldProvider());
 		event.addCapability(COLOR, new ColorProvider());
 	}
 }

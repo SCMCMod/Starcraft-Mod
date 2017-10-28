@@ -1,11 +1,5 @@
 package ga.scmc.debugging;
 
-/**
- * 
- * Default implementation of IMana
- * 
- */
-
 public class Color implements IColor
 
 {

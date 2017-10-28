@@ -7,32 +7,32 @@ import net.minecraftforge.common.capabilities.CapabilityInject;
 import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 
 
-public class ColorProvider implements ICapabilitySerializable<NBTBase>
+public class ShieldProvider implements ICapabilitySerializable<NBTBase>
 
 {
 
-	@CapabilityInject(IColor.class)
-	public static final Capability<IColor> COLOR = null;
+	@CapabilityInject(IShield.class)
+	public static final Capability<IShield> SHIELD = null;
 
-	private IColor instance = COLOR.getDefaultInstance();
+	private IShield instance = SHIELD.getDefaultInstance();
 
 	@Override
 	public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
-		return capability == COLOR;
+		return capability == SHIELD;
 	}
 
 	@Override
 	public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
-		return capability == COLOR ? COLOR.<T>cast(this.instance) : null;
+		return capability == SHIELD ? SHIELD.<T>cast(this.instance) : null;
 	}
 
 	@Override
 	public NBTBase serializeNBT() {
-		return COLOR.getStorage().writeNBT(COLOR, this.instance, null);
+		return SHIELD.getStorage().writeNBT(SHIELD, this.instance, null);
 	}
 
 	@Override
 	public void deserializeNBT(NBTBase nbt) {
-		COLOR.getStorage().readNBT(COLOR, this.instance, null, nbt);
+		SHIELD.getStorage().readNBT(SHIELD, this.instance, null, nbt);
 	}
 }
