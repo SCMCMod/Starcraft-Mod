@@ -6,11 +6,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityInject;
 import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 
-
-public class ShieldProvider implements ICapabilitySerializable<NBTBase>
-
-{
-
+public class ShieldProvider implements ICapabilitySerializable<NBTBase> {
 	@CapabilityInject(IShield.class)
 	public static final Capability<IShield> SHIELD = null;
 

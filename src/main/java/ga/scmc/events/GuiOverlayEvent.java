@@ -70,28 +70,26 @@ public class GuiOverlayEvent extends Gui {
 				}
 			}
 
-			if (event.getType() == ElementType.HOTBAR && mc.playerController.shouldDrawHUD()) {
-				GlStateManager.color(1, 1, 1, 1);
-				GuiUtils.bindTexture("textures/gui/icons.png");
-				ScaledResolution resolution = event.getResolution();
-				float x = resolution.getScaledWidth() / 2 - 91;
-				float y = resolution.getScaledHeight() - 39;
+            if (event.getType() == ElementType.HOTBAR && mc.playerController.shouldDrawHUD()) {
+                GlStateManager.color(1, 1, 1, 1);
+                GuiUtils.bindTexture("textures/gui/icons.png");
+                ScaledResolution resolution = event.getResolution();
+                float x = resolution.getScaledWidth() / 2 - 91;
+                float y = resolution.getScaledHeight() - 39;
 
-				boolean flag = Double.toString(shieldLevel).substring(Double.toString(shieldLevel).length() - 2).equalsIgnoreCase(".5");
-				flag = shieldLevel - (int) shieldLevel >= 0.5;
-				for (int i = 0; i < maxShieldLevel; i++) {
-					if (i < shieldLevel) {
-						if (flag && shieldLevel != 0 && i == (int) shieldLevel) {
-							drawTexturedModalRect(x + i * 8, y, 9, 0, 9, 9);
-						} else {
-							if (i < (int) shieldLevel) {
-								drawTexturedModalRect(x + i * 8, y, 0, 0, 9, 9);
-							}
-						}
-					}
-				}
+                for (int i = 0; i < maxShieldLevel; i++) {
+                    if (i < shieldLevel) {
+                        if (shieldLevel - (int) shieldLevel >= 0.5 && shieldLevel != 0 && i == (int) shieldLevel) {
+                            drawTexturedModalRect(x + i * 8, y, 9, 0, 9, 9);
+                        } else {
+                            if (i < (int) shieldLevel) {
+                                drawTexturedModalRect(x + i * 8, y, 0, 0, 9, 9);
+                            }
+                        }
+                    }
+                }
 
-				GuiUtils.bindTexture("minecraft", "textures/gui/icons.png");
+                GuiUtils.bindTexture("minecraft", "textures/gui/icons.png");
 			}
 		}
 	}
