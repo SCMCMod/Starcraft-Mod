@@ -6,6 +6,9 @@ import ga.scmc.debugging.CapabilityHandler;
 import ga.scmc.debugging.Color;
 import ga.scmc.debugging.ColorStorage;
 import ga.scmc.debugging.IColor;
+import ga.scmc.debugging.IShield;
+import ga.scmc.debugging.Shield;
+import ga.scmc.debugging.ShieldStorage;
 import ga.scmc.events.GuiOverlayEvent;
 import ga.scmc.events.OnPlayerCloneEvent;
 import ga.scmc.events.OnPlayerLogInEvent;
@@ -96,6 +99,7 @@ public class Starcraft {
 		SmeltingRecipes.init();
 		GuiHandler.init();
 		CapabilityManager.INSTANCE.register(IColor.class, new ColorStorage(), Color.class);
+		CapabilityManager.INSTANCE.register(IShield.class, new ShieldStorage(), Shield.class);
 
 		MinecraftForge.EVENT_BUS.register(new GuiOverlayEvent());
 		MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
