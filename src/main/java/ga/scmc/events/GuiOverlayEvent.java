@@ -13,10 +13,10 @@ import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
-import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -126,11 +126,26 @@ public class GuiOverlayEvent extends Gui {
 	 * TODO add the checking of whether the player is wearing the armor or not
 	 */
 	public static boolean isWearingFullProtossArmor(EntityPlayer player) {
-		boolean head = true;
-		boolean chestplate = true;
-		boolean leggings = true;
-		boolean boots = true;
-
+		boolean head = false;
+		boolean chestplate = false;
+		boolean leggings = false;
+		boolean boots = false;
+		try {
+			if(player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() == ArmorHandler.PROTOSS_T1_HELMET) {
+				head = true;
+			}
+			if(player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == ArmorHandler.PROTOSS_T1_CHESTPLATE) {
+				chestplate = true;
+			}
+			if(player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() == ArmorHandler.PROTOSS_T1_LEGGINGS) {
+				leggings = true;
+			}
+			if(player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == ArmorHandler.PROTOSS_T1_BOOTS) {
+				boots = true;
+			}
+		}catch(NullPointerException e) {
+			
+		}
 		return head && chestplate && leggings && boots;
 	}
 
