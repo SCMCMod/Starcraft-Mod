@@ -32,7 +32,7 @@ public class ItemPledge extends Item {
 	 */
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> items) {
-		for(int i = 0; i < PledgeType.values().length; i++) {
+		for (int i = 0; i < PledgeType.values().length; i++) {
 			items.add(new ItemStack(item, 1, i));
 		}
 	}
@@ -42,8 +42,8 @@ public class ItemPledge extends Item {
 	 */
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		for(int i = 0; i < PledgeType.values().length; i++) {
-			if(stack.getItemDamage() == i) {
+		for (int i = 0; i < PledgeType.values().length; i++) {
+			if (stack.getItemDamage() == i) {
 				return getUnlocalizedName() + "." + PledgeType.values()[i].getName();
 			} else {
 				continue;
@@ -51,14 +51,13 @@ public class ItemPledge extends Item {
 		}
 		return getUnlocalizedName() + "." + PledgeType.WHITE.getName();
 	}
-	
+
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn,
-			EnumHand hand) {
-			IColor color = playerIn.getCapability(ColorProvider.COLOR, null);
-			color.set(itemStackIn.getItemDamage());
-			String message = "Your team color is now " + color.getColor() + ".";
-			playerIn.sendMessage(new TextComponentString(message));
+	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
+		IColor color = playerIn.getCapability(ColorProvider.COLOR, null);
+		color.set(itemStackIn.getItemDamage());
+		String message = "Your team color is now " + color.getColor() + ".";
+		playerIn.sendMessage(new TextComponentString(message));
 		return super.onItemRightClick(itemStackIn, worldIn, playerIn, hand);
 	}
 }

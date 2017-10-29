@@ -1,6 +1,5 @@
 package ga.scmc.events;
 
-import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.ItemHandler;
@@ -8,8 +7,6 @@ import ga.scmc.handlers.WeaponHandler;
 import ga.scmc.lib.InventoryUtil;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -41,13 +38,15 @@ public class OnLivingUpdateEvent {
 					}
 				}
 			}
-			
-			if(GuiOverlayEvent.shieldLevel < GuiOverlayEvent.getMaxShieldLevel()) { 
-				if(InventoryUtil.hasItemAndAmount(player, ItemHandler.ENERGY, 1, 0));
+
+			if (GuiOverlayEvent.getShield(player) < GuiOverlayEvent.getMaxShieldLevel()) {
+				if (InventoryUtil.removeItemWithAmount(player, ItemHandler.ENERGY, 1, 0)) {
+					GuiOverlayEvent.addShield(player, 1);
+				}
 			}
 		}
 	}
-	
+
 	// TODO: this is disabled until we add cloaking mechanics
 	// else if(event.getEntity() instanceof EntityDarkTemplar && !StarcraftConfig.BOOL_IS_DARK_TEMPLAR_VISIBLE) {
 	// event.getEntity().setInvisible(false);

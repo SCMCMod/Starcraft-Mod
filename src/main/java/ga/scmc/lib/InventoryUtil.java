@@ -101,7 +101,7 @@ public class InventoryUtil {
 	 * @param amount
 	 *            The amount to search for
 	 * @param meta
-	 *            The metadata to search for
+	 *            The meta data of the item to search for
 	 * @return If the amount of items is in the player's inventory
 	 */
 	public static boolean hasItemAndAmount(EntityPlayer player, Item item, int amount, int meta) {
@@ -129,6 +129,38 @@ public class InventoryUtil {
 			for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
 				ItemStack stack = player.inventory.getStackInSlot(i);
 				if (stack != null && stack.getItem() == item) {
+					if (amount - stack.stackSize < 0) {
+						stack.stackSize -= amount;
+						return true;
+					} else {
+						amount = stack.stackSize;
+						player.inventory.mainInventory[i] = null;
+						if (amount == 0)
+							return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * 
+	 * @param player
+	 *            The player to check
+	 * @param item
+	 *            The item to remove
+	 * @param amount
+	 *            The amount to remove
+	 * @param The
+	 *            meta data of the item to remove
+	 * @return If the player has and removed the items specified
+	 */
+	public static boolean removeItemWithAmount(EntityPlayer player, Item item, int amount, int meta) {
+		if (hasItemAndAmount(player, item, amount, meta)) {
+			for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
+				ItemStack stack = player.inventory.getStackInSlot(i);
+				if (stack != null && stack.getItem() == item && stack.getMetadata() == meta) {
 					if (amount - stack.stackSize < 0) {
 						stack.stackSize -= amount;
 						return true;

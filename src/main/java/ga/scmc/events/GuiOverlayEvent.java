@@ -2,10 +2,13 @@ package ga.scmc.events;
 
 import java.awt.Color;
 
+import ga.scmc.debugging.ShieldProvider;
 import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.lib.GuiUtils;
 import ga.scmc.lib.InventoryUtil;
+import ga.scmc.network.NetworkHandler;
+import ga.scmc.network.message.MessageSyncPlayerShield;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
@@ -33,8 +36,6 @@ public class GuiOverlayEvent extends Gui {
 
 	/** The determines whether or not the helmet overlay should be rendered. */
 	public static boolean renderHelmetOverlay = true;
-	/** This is the amount of shield the player has. */
-	public static double shieldLevel = 10;
 	/** This is the maximum amount of shield the player has. */
 	private static int maxShieldLevel = 10;
 
@@ -54,7 +55,7 @@ public class GuiOverlayEvent extends Gui {
 
 			ItemStack itemstack = player.inventory.armorItemInSlot(3);
 			if (mc.gameSettings.thirdPersonView == 0 && itemstack != null && itemstack.getItem() == ArmorHandler.COPPER_HELMET && renderHelmetOverlay && event.getType() == ElementType.TEXT) {
-				this.renderHelmetOverlay(scaledresolution);
+				renderHelmetOverlay(scaledresolution);
 				String ammo = "Ammo: " + InventoryUtil.getItemAmount(mc.player, ItemHandler.C14_GAUSS_RIFLE.getAmmo());
 				if (mc.player.isCreative())
 					ammo = "Ammo: Infinite";
@@ -70,26 +71,27 @@ public class GuiOverlayEvent extends Gui {
 				}
 			}
 
-            if (event.getType() == ElementType.HOTBAR && mc.playerController.shouldDrawHUD()) {
-                GlStateManager.color(1, 1, 1, 1);
-                GuiUtils.bindTexture("textures/gui/icons.png");
-                ScaledResolution resolution = event.getResolution();
-                float x = resolution.getScaledWidth() / 2 - 91;
-                float y = resolution.getScaledHeight() - 39;
+			if (event.getType() == ElementType.HOTBAR && mc.playerController.shouldDrawHUD()) {
+				GlStateManager.color(1, 1, 1, 1);
+				GuiUtils.bindTexture("textures/gui/icons.png");
+				ScaledResolution resolution = event.getResolution();
+				float x = resolution.getScaledWidth() / 2 - 91;
+				float y = resolution.getScaledHeight() - 39;
+				double shieldLevel = getShield(player);
 
-                for (int i = 0; i < maxShieldLevel; i++) {
-                    if (i < shieldLevel) {
-                        if (shieldLevel - (int) shieldLevel >= 0.5 && shieldLevel != 0 && i == (int) shieldLevel) {
-                            drawTexturedModalRect(x + i * 8, y, 9, 0, 9, 9);
-                        } else {
-                            if (i < (int) shieldLevel) {
-                                drawTexturedModalRect(x + i * 8, y, 0, 0, 9, 9);
-                            }
-                        }
-                    }
-                }
+				for (int i = 0; i < maxShieldLevel; i++) {
+					if (i < shieldLevel) {
+						if (shieldLevel - (int) shieldLevel >= 0.5 && shieldLevel != 0 && i == (int) shieldLevel) {
+							drawTexturedModalRect(x + i * 8, y, 9, 0, 9, 9);
+						} else {
+							if (i < (int) shieldLevel) {
+								drawTexturedModalRect(x + i * 8, y, 0, 0, 9, 9);
+							}
+						}
+					}
+				}
 
-                GuiUtils.bindTexture("minecraft", "textures/gui/icons.png");
+				GuiUtils.bindTexture("minecraft", "textures/gui/icons.png");
 			}
 		}
 	}
@@ -104,22 +106,40 @@ public class GuiOverlayEvent extends Gui {
 
 	@SubscribeEvent
 	public void onHitEvent(LivingHurtEvent event) {
-		shieldLevel = 10;
 		if (event.getEntity() instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) event.getEntityLiving();
-			if (shieldLevel * 2 >= event.getAmount()) {
-				shieldLevel -= event.getAmount() / 2;
+			setShield(player, 10);
+			if (getShield(player) * 2 >= event.getAmount()) {
+				removeShield(player, event.getAmount() / 2);
 				event.setCanceled(true);
 				return;
 			} else {
 				float damage = event.getAmount();
-				damage -= shieldLevel * 2;
-				shieldLevel = 0;
+				damage -= getShield(player) * 2;
+				setShield(player, 0);
 				event.setAmount(damage);
 				event.setCanceled(false);
 				return;
 			}
 		}
+	}
+
+	public static double getShield(EntityPlayer player) {
+		return player.getCapability(ShieldProvider.SHIELD, null).getShield();
+	}
+
+	public static void setShield(EntityPlayer player, double amount) {
+//		player.getCapability(ShieldProvider.SHIELD, null).set(amount);
+		NetworkHandler.sendToServer(new MessageSyncPlayerShield(amount));
+		System.out.println(getShield(player));
+	}
+
+	public static void addShield(EntityPlayer player, double amount) {
+		player.getCapability(ShieldProvider.SHIELD, null).set(player.getCapability(ShieldProvider.SHIELD, null).getShield() + amount);
+	}
+
+	public static void removeShield(EntityPlayer player, double amount) {
+		addShield(player, -amount);
 	}
 
 	public static int getMaxShieldLevel() {
