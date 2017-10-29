@@ -10,6 +10,7 @@ import ga.scmc.debugging.IColor;
 import ga.scmc.entity.EntityStarcraftMob;
 import ga.scmc.entity.EntityStarcraftPassive;
 import ga.scmc.entity.EntityZergMob;
+import ga.scmc.entity.ai.EntityAIFollowTeamLeader;
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
@@ -50,6 +51,7 @@ public class EntityZerglingSC2 extends EntityZergMob implements IMob, Predicate<
 		tasks.addTask(2, new EntityAIWander(this, 1.0D));
 		tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
 		tasks.addTask(4, new EntityAILookIdle(this));
+		tasks.addTask(5, new EntityAIFollowTeamLeader(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0,
 				false, false, this));
