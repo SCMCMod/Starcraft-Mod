@@ -2,13 +2,11 @@ package ga.scmc.events;
 
 import java.awt.Color;
 
-import ga.scmc.debugging.ShieldProvider;
 import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.ItemHandler;
+import ga.scmc.lib.CapabilityUtils;
 import ga.scmc.lib.GuiUtils;
 import ga.scmc.lib.InventoryUtil;
-import ga.scmc.network.NetworkHandler;
-import ga.scmc.network.message.MessageSyncPlayerShield;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
@@ -52,7 +50,6 @@ public class GuiOverlayEvent extends Gui {
 		GlStateManager.enableAlpha();
 
 		if (!player.isSpectator()) {
-
 			ItemStack itemstack = player.inventory.armorItemInSlot(3);
 			if (mc.gameSettings.thirdPersonView == 0 && itemstack != null && itemstack.getItem() == ArmorHandler.COPPER_HELMET && renderHelmetOverlay && event.getType() == ElementType.TEXT) {
 				renderHelmetOverlay(scaledresolution);
@@ -71,13 +68,13 @@ public class GuiOverlayEvent extends Gui {
 				}
 			}
 
-			if (event.getType() == ElementType.HOTBAR && mc.playerController.shouldDrawHUD()) {
+			if (event.getType() == ElementType.HOTBAR && mc.playerController.shouldDrawHUD() && isWearingFullProtossArmor(player)) {
 				GlStateManager.color(1, 1, 1, 1);
 				GuiUtils.bindTexture("textures/gui/icons.png");
 				ScaledResolution resolution = event.getResolution();
 				float x = resolution.getScaledWidth() / 2 - 91;
 				float y = resolution.getScaledHeight() - 39;
-				double shieldLevel = getShield(player);
+				double shieldLevel = CapabilityUtils.getShield(player);
 
 				for (int i = 0; i < maxShieldLevel; i++) {
 					if (i < shieldLevel) {
@@ -108,38 +105,23 @@ public class GuiOverlayEvent extends Gui {
 	public void onHitEvent(LivingHurtEvent event) {
 		if (event.getEntity() instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) event.getEntityLiving();
-			setShield(player, 10);
-			if (getShield(player) * 2 >= event.getAmount()) {
-				removeShield(player, event.getAmount() / 2);
-				event.setCanceled(true);
-				return;
-			} else {
-				float damage = event.getAmount();
-				damage -= getShield(player) * 2;
-				setShield(player, 0);
-				event.setAmount(damage);
-				event.setCanceled(false);
-				return;
+			if (isWearingFullProtossArmor(player)) {
+				if (CapabilityUtils.getShield(player) * 2 >= event.getAmount()) {
+					CapabilityUtils.removeShield(player, event.getAmount() / 2);
+					event.setCanceled(true);
+					return;
+				}
 			}
 		}
 	}
 
-	public static double getShield(EntityPlayer player) {
-		return player.getCapability(ShieldProvider.SHIELD, null).getShield();
-	}
-
-	public static void setShield(EntityPlayer player, double amount) {
-//		player.getCapability(ShieldProvider.SHIELD, null).set(amount);
-		NetworkHandler.sendToServer(new MessageSyncPlayerShield(amount));
-		System.out.println(getShield(player));
-	}
-
-	public static void addShield(EntityPlayer player, double amount) {
-		player.getCapability(ShieldProvider.SHIELD, null).set(player.getCapability(ShieldProvider.SHIELD, null).getShield() + amount);
-	}
-
-	public static void removeShield(EntityPlayer player, double amount) {
-		addShield(player, -amount);
+	public static boolean isWearingFullProtossArmor(EntityPlayer player) {
+		boolean head = true;
+		boolean chestplate = true;
+		boolean leggings = true;
+		boolean boots = true;
+		
+		return head && chestplate && leggings && boots;
 	}
 
 	public static int getMaxShieldLevel() {

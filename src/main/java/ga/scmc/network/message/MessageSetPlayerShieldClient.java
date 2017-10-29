@@ -1,21 +1,25 @@
 package ga.scmc.network.message;
 
+import ga.scmc.debugging.ShieldProvider;
 import ga.scmc.events.GuiOverlayEvent;
 import io.netty.buffer.ByteBuf;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class MessageSyncPlayerShield implements IMessage, IMessageHandler<MessageSyncPlayerShield, IMessage> {
+public class MessageSetPlayerShieldClient implements IMessage, IMessageHandler<MessageSetPlayerShieldClient, IMessage> {
 
 	private double shield;
 
-	public MessageSyncPlayerShield() {
+	public MessageSetPlayerShieldClient() {
 	}
 
-	public MessageSyncPlayerShield(double shield) {
+	public MessageSetPlayerShieldClient(double shield) {
 		this.shield = shield;
 	}
 
@@ -30,16 +34,10 @@ public class MessageSyncPlayerShield implements IMessage, IMessageHandler<Messag
 	}
 
 	@Override
-	public IMessage onMessage(MessageSyncPlayerShield message, MessageContext ctx) {
-		if (message.shield != -1) {
-			EntityPlayer player = ctx.getServerHandler().playerEntity;
-			World world = player.world;
-			if (world.isRemote) {
-				GuiOverlayEvent.setShield(player, shield);
-			} else {
-				GuiOverlayEvent.setShield(player, shield);
-			}
-		}
+	public IMessage onMessage(MessageSetPlayerShieldClient message, MessageContext ctx) {
+		Minecraft mc = Minecraft.getMinecraft();
+		EntityPlayer player = mc.player;
+		player.getCapability(ShieldProvider.SHIELD, null).set(message.shield);
 		return null;
 	}
 }

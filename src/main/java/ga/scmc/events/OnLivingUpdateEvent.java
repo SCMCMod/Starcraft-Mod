@@ -4,6 +4,7 @@ import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.WeaponHandler;
+import ga.scmc.lib.CapabilityUtils;
 import ga.scmc.lib.InventoryUtil;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -39,9 +40,9 @@ public class OnLivingUpdateEvent {
 				}
 			}
 
-			if (GuiOverlayEvent.getShield(player) < GuiOverlayEvent.getMaxShieldLevel()) {
+			if (CapabilityUtils.getShield(player) < GuiOverlayEvent.getMaxShieldLevel() && GuiOverlayEvent.isWearingFullProtossArmor(player)) {
 				if (InventoryUtil.removeItemWithAmount(player, ItemHandler.ENERGY, 1, 0)) {
-					GuiOverlayEvent.addShield(player, 1);
+					CapabilityUtils.addShield(player, 1);
 				}
 			}
 		}
