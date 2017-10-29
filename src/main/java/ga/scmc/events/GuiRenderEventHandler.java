@@ -25,14 +25,12 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
- * This class renders anything like text on the screen as an overlay.<br>
- * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
+ * This class renders anything like text on the screen as an overlay.
  * 
- * @since 1.6
  * @author Ocelot5836
  */
 @EventBusSubscriber
-public class GuiOverlayEvent extends Gui {
+public class GuiRenderEventHandler extends Gui {
 
 	/** The determines whether or not the helmet overlay should be rendered. */
 	public static boolean renderHelmetOverlay = true;
@@ -122,31 +120,30 @@ public class GuiOverlayEvent extends Gui {
 		CapabilityUtils.setShield(event.player, CapabilityUtils.getShield(event.player));
 	}
 
-	/**
-	 * TODO add the checking of whether the player is wearing the armor or not
-	 */
 	public static boolean isWearingFullProtossArmor(EntityPlayer player) {
-		boolean head = false;
+		boolean helmet = false;
 		boolean chestplate = false;
 		boolean leggings = false;
 		boolean boots = false;
-		try {
-			if(player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() == ArmorHandler.PROTOSS_T1_HELMET) {
-				head = true;
-			}
-			if(player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == ArmorHandler.PROTOSS_T1_CHESTPLATE) {
-				chestplate = true;
-			}
-			if(player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() == ArmorHandler.PROTOSS_T1_LEGGINGS) {
-				leggings = true;
-			}
-			if(player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == ArmorHandler.PROTOSS_T1_BOOTS) {
-				boots = true;
-			}
-		}catch(NullPointerException e) {
-			
+		ItemStack head = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+		ItemStack chest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+		ItemStack legs = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
+		ItemStack feet = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
+
+		if (head != null && head.getItem() == ArmorHandler.PROTOSS_T1_HELMET) {
+			helmet = true;
 		}
-		return head && chestplate && leggings && boots;
+		if (chest != null && chest.getItem() == ArmorHandler.PROTOSS_T1_CHESTPLATE) {
+			chestplate = true;
+		}
+		if (legs != null && legs.getItem() == ArmorHandler.PROTOSS_T1_LEGGINGS) {
+			leggings = true;
+		}
+		if (feet != null && feet.getItem() == ArmorHandler.PROTOSS_T1_BOOTS) {
+			boots = true;
+		}
+
+		return helmet && chestplate && leggings && boots;
 	}
 
 	public static int getMaxShieldLevel() {

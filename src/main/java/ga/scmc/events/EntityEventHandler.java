@@ -10,8 +10,13 @@ import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+/**
+ * This class handles events that involve the entity events.
+ * 
+ * @author Ocelot5836
+ */
 @EventBusSubscriber
-public class OnEntityDropEvent {
+public class EntityEventHandler {
 
 	private static Random random = new Random();
 
