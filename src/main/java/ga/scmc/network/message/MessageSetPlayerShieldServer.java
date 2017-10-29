@@ -33,7 +33,6 @@ public class MessageSetPlayerShieldServer implements IMessage, IMessageHandler<M
 		EntityPlayer player = ctx.getServerHandler().playerEntity;
 		if (!player.world.isRemote) {
 			player.getCapability(ShieldProvider.SHIELD, null).set(message.shield);
-			System.out.println(message.shield);
 		}
 		return null;
 	}

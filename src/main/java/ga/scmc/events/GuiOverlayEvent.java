@@ -16,9 +16,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -115,12 +117,20 @@ public class GuiOverlayEvent extends Gui {
 		}
 	}
 
+	@SubscribeEvent
+	public void onPlayerRespawnEvent(PlayerEvent.PlayerRespawnEvent event) {
+		CapabilityUtils.setShield(event.player, CapabilityUtils.getShield(event.player));
+	}
+
+	/**
+	 * TODO add the checking of whether the player is wearing the armor or not
+	 */
 	public static boolean isWearingFullProtossArmor(EntityPlayer player) {
 		boolean head = true;
 		boolean chestplate = true;
 		boolean leggings = true;
 		boolean boots = true;
-		
+
 		return head && chestplate && leggings && boots;
 	}
 

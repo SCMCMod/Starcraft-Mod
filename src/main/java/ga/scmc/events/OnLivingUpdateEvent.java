@@ -40,9 +40,12 @@ public class OnLivingUpdateEvent {
 				}
 			}
 
-			if (CapabilityUtils.getShield(player) < GuiOverlayEvent.getMaxShieldLevel() && GuiOverlayEvent.isWearingFullProtossArmor(player)) {
-				if (InventoryUtil.removeItemWithAmount(player, ItemHandler.ENERGY, 1, 0)) {
-					CapabilityUtils.addShield(player, 1);
+			if (!player.world.isRemote) {
+				if (CapabilityUtils.getShield(player) < GuiOverlayEvent.getMaxShieldLevel() && GuiOverlayEvent.isWearingFullProtossArmor(player)) {
+					if (InventoryUtil.hasItemAndAmount(player, ItemHandler.ENERGY, 1, 0)) {
+						CapabilityUtils.addShield(player, 1);
+						InventoryUtil.removeItemWithAmount(player, ItemHandler.ENERGY, 1, 0);
+					}
 				}
 			}
 		}
