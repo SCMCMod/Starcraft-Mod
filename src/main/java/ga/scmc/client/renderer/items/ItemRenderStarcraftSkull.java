@@ -1,7 +1,7 @@
 package ga.scmc.client.renderer.items;
 
 import ga.scmc.client.renderer.RenderUtil;
-import ga.scmc.client.renderer.block.ModelTable;
+import ga.scmc.client.renderer.blocks.ModelTable;
 import ga.scmc.client.renderer.model.IModelSkull;
 import ga.scmc.client.renderer.model.ModelBrutalisk;
 import ga.scmc.client.renderer.model.ModelHydralisk;

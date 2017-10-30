@@ -1,6 +1,7 @@
 package ga.scmc.items;
 
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
+import ga.scmc.jei.IJeiTooltip;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -18,10 +19,9 @@ public class ItemStimpack extends Item {
 		this.setMaxStackSize(1);
 		setCreativeTab(StarcraftCreativeTabs.TERRAN);
 	}
-	
+
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer player,
-			EnumHand hand) {
+	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer player, EnumHand hand) {
 		player.addPotionEffect(new PotionEffect(Potion.getPotionById(1), 750));
 		player.addPotionEffect(new PotionEffect(Potion.getPotionById(7), 1));
 		player.inventory.decrStackSize(player.inventory.getSlotFor(itemStackIn), 1);

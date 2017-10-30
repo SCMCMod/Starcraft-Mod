@@ -34,14 +34,11 @@ public class StarcraftJeiPlugin implements IModPlugin {
 		registry.addRecipeCategoryCraftingItem(new ItemStack(BlockHandler.FURNACE_SHAKURAS), VanillaRecipeCategoryUid.FUEL);
 		registry.addRecipeCategoryCraftingItem(new ItemStack(BlockHandler.FURNACE_CHAR), VanillaRecipeCategoryUid.FUEL);
 		registry.addRecipeCategoryCraftingItem(new ItemStack(BlockHandler.FURNACE_SLAYN), VanillaRecipeCategoryUid.FUEL);
-		
-		for (int i = 0; i < Item.REGISTRY.getKeys().size(); i++) {
-			Item item = Item.REGISTRY.getObjectById(i);
-			if (item instanceof IJeiTooltip) {
-				System.out.println(item.getUnlocalizedName());
+
+		for (Item item : Item.REGISTRY) {
+			if (item != null && item instanceof IJeiTooltip) {
 				IJeiTooltip tooltip = (IJeiTooltip) item;
 				for (int j = 0; j < 16; j++) {
-					System.out.println(tooltip.getTooltip(j) + "\n");
 					if (tooltip.getTooltip(j) != null) {
 						registry.addDescription(new ItemStack(item, 1, 0), tooltip.getTooltip(j));
 					}

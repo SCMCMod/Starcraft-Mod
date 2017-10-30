@@ -53,9 +53,9 @@ public class LivingEventHandler {
 				}
 			}
 
-			if (CapabilityUtils.getShield(player) < GuiRenderEventHandler.getMaxShieldLevel() && GuiRenderEventHandler.isWearingFullProtossArmor(player)) {
-				if (InventoryUtil.hasItemAndAmount(player, ItemHandler.ENERGY, 1, 0) && CapabilityUtils.getShield(player) <= 5) {
-					if (!player.world.isRemote) {
+			if (!player.world.isRemote) {
+				if (CapabilityUtils.getShield(player) < GuiRenderEventHandler.getMaxShieldLevel() && GuiRenderEventHandler.isWearingFullProtossArmor(player)) {
+					if (InventoryUtil.hasItemAndAmount(player, ItemHandler.ENERGY, 1, 0) && CapabilityUtils.getShield(player) <= 5) {
 						CapabilityUtils.addShield(player, 5);
 						InventoryUtil.removeItemWithAmount(player, ItemHandler.ENERGY, 1, 0);
 						player.world.playSound(null, player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ(), SoundHandler.FX_WARPBLADE_ATTACK, SoundCategory.PLAYERS, 1, 1);

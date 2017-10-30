@@ -32,15 +32,6 @@ public class PlayerEventHandler {
 	}
 
 	@SubscribeEvent
-	public void onPlayerLoggedInEvent(PlayerLoggedInEvent event) {
-		EntityPlayer player = event.player;
-		String message = "Running SCMC version 1.6.";
-		player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.RED)));
-
-		CapabilityUtils.setShield(event.player, CapabilityUtils.getShield(event.player));
-	}
-
-	@SubscribeEvent
 	public static void onPlayerChangedDimensionEvent(PlayerEvent.PlayerChangedDimensionEvent e) {
 		if (e.toDim == ConfigurationHandler.INT_DIMENSION_CHAR) {
 			e.player.addStat(Achievements.achievementEnterChar, 1);

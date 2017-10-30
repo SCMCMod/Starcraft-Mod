@@ -1,8 +1,8 @@
 package ga.scmc.client.renderer.entity;
 
-import ga.scmc.client.renderer.layers.LayerZealotColor;
-import ga.scmc.client.renderer.layers.LayerZealotGlowDynamic;
-import ga.scmc.client.renderer.layers.LayerZealotGlowStatic;
+import ga.scmc.client.renderer.entity.layers.LayerZealotColor;
+import ga.scmc.client.renderer.entity.layers.LayerZealotGlowDynamic;
+import ga.scmc.client.renderer.entity.layers.LayerZealotGlowStatic;
 import ga.scmc.client.renderer.model.ModelZealot;
 import ga.scmc.entity.living.EntityZealot;
 import ga.scmc.lib.Library;

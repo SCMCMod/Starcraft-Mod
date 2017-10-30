@@ -1,7 +1,7 @@
 package ga.scmc.client.renderer.entity;
 
-import ga.scmc.client.renderer.layers.LayerHydraliskColor;
-import ga.scmc.client.renderer.layers.LayerHydraliskGlowStatic;
+import ga.scmc.client.renderer.entity.layers.LayerHydraliskColor;
+import ga.scmc.client.renderer.entity.layers.LayerHydraliskGlowStatic;
 import ga.scmc.client.renderer.model.ModelHydralisk;
 import ga.scmc.entity.living.EntityHydralisk;
 import ga.scmc.lib.Library;
@@ -27,7 +27,7 @@ public class RenderHydralisk<T> extends RenderLiving<EntityHydralisk> {
 	public void doRender(EntityHydralisk entity, double x, double y, double z, float entityYaw, float partialTicks) {
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 
-		if(!renderOutlines) {
+		if (!renderOutlines) {
 			renderLeash(entity, x, y, z, entityYaw, partialTicks);
 		}
 	}
@@ -39,6 +39,6 @@ public class RenderHydralisk<T> extends RenderLiving<EntityHydralisk> {
 
 	@Override
 	protected void preRenderCallback(EntityHydralisk entitylivingbaseIn, float partialTickTime) {
-		GlStateManager.scale(1.3F + (entitylivingbaseIn.getBiomass()/60), 1.3F + (entitylivingbaseIn.getBiomass()/60), 1.3F + (entitylivingbaseIn.getBiomass()/60));
+		GlStateManager.scale(1.3F + (entitylivingbaseIn.getBiomass() / 60), 1.3F + (entitylivingbaseIn.getBiomass() / 60), 1.3F + (entitylivingbaseIn.getBiomass() / 60));
 	}
 }

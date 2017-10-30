@@ -1,6 +1,6 @@
 package ga.scmc.client.renderer.entity;
 
-import ga.scmc.client.renderer.layers.LayerBrutaliskColor;
+import ga.scmc.client.renderer.entity.layers.LayerBrutaliskColor;
 import ga.scmc.client.renderer.model.ModelBrutalisk;
 import ga.scmc.entity.living.EntityBrutalisk;
 import ga.scmc.lib.Library;
@@ -24,7 +24,7 @@ public class RenderBrutalisk<T> extends RenderLiving<EntityBrutalisk> {
 	public void doRender(EntityBrutalisk entity, double x, double y, double z, float entityYaw, float partialTicks) {
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 
-		if(!renderOutlines) {
+		if (!renderOutlines) {
 			renderLeash(entity, x, y, z, entityYaw, partialTicks);
 		}
 	}
@@ -36,6 +36,6 @@ public class RenderBrutalisk<T> extends RenderLiving<EntityBrutalisk> {
 
 	@Override
 	protected void preRenderCallback(EntityBrutalisk entitylivingbaseIn, float partialTickTime) {
-		GlStateManager.scale(3.0F + (entitylivingbaseIn.getBiomass()/60), 3.0F + (entitylivingbaseIn.getBiomass()/60), 3.0F + (entitylivingbaseIn.getBiomass()/60));
+		GlStateManager.scale(3.0F + (entitylivingbaseIn.getBiomass() / 60), 3.0F + (entitylivingbaseIn.getBiomass() / 60), 3.0F + (entitylivingbaseIn.getBiomass() / 60));
 	}
 }

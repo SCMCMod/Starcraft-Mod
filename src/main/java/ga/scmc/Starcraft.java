@@ -2,24 +2,21 @@ package ga.scmc;
 
 import ga.scmc.achievement.Achievements;
 import ga.scmc.client.gui.GuiHandler;
+import ga.scmc.debugging.CapabilityHandler;
 import ga.scmc.debugging.Color;
 import ga.scmc.debugging.ColorStorage;
 import ga.scmc.debugging.IColor;
 import ga.scmc.debugging.IShield;
 import ga.scmc.debugging.Shield;
 import ga.scmc.debugging.ShieldStorage;
-import ga.scmc.events.EntityEventHandler;
 import ga.scmc.events.GuiRenderEventHandler;
-import ga.scmc.events.ItemEventHandler;
-import ga.scmc.events.LivingEventHandler;
-import ga.scmc.events.PlayerEventHandler;
-import ga.scmc.events.StarcraftEventHandler;
-import ga.scmc.fluids.FluidHandler;
+import ga.scmc.events.OnPlayerLoggedInEvent;
 import ga.scmc.handlers.BiomeHandler;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.DimensionHandler;
 import ga.scmc.handlers.EntityHandler;
+import ga.scmc.handlers.FluidHandler;
 import ga.scmc.handlers.FuelHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.MaterialHandler;
@@ -103,12 +100,9 @@ public class Starcraft {
 		CapabilityManager.INSTANCE.register(IColor.class, new ColorStorage(), Color.class);
 		CapabilityManager.INSTANCE.register(IShield.class, new ShieldStorage(), Shield.class);
 
-		MinecraftForge.EVENT_BUS.register(new EntityEventHandler());
 		MinecraftForge.EVENT_BUS.register(new GuiRenderEventHandler());
-		MinecraftForge.EVENT_BUS.register(new StarcraftEventHandler());
-		MinecraftForge.EVENT_BUS.register(new ItemEventHandler());
-		MinecraftForge.EVENT_BUS.register(new LivingEventHandler());
-		MinecraftForge.EVENT_BUS.register(new PlayerEventHandler());
+		MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
+		MinecraftForge.EVENT_BUS.register(new OnPlayerLoggedInEvent());
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 			RenderingHandler.init();
 		}

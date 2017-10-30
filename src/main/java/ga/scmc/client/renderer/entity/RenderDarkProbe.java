@@ -1,7 +1,7 @@
 package ga.scmc.client.renderer.entity;
 
-import ga.scmc.client.renderer.layers.LayerDarkProbeColor;
-import ga.scmc.client.renderer.layers.LayerDarkProbeGlowDynamic;
+import ga.scmc.client.renderer.entity.layers.LayerDarkProbeColor;
+import ga.scmc.client.renderer.entity.layers.LayerDarkProbeGlowDynamic;
 import ga.scmc.client.renderer.model.ModelDarkProbe;
 import ga.scmc.entity.living.EntityDarkProbe;
 import ga.scmc.lib.Library;

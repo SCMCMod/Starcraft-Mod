@@ -1,7 +1,7 @@
 package ga.scmc.client.renderer.entity;
 
-import ga.scmc.client.renderer.layers.LayerProbeColor;
-import ga.scmc.client.renderer.layers.LayerProbeGlowDynamic;
+import ga.scmc.client.renderer.entity.layers.LayerProbeColor;
+import ga.scmc.client.renderer.entity.layers.LayerProbeGlowDynamic;
 import ga.scmc.client.renderer.model.ModelProbe;
 import ga.scmc.entity.living.EntityProbe;
 import ga.scmc.lib.Library;

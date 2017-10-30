@@ -1,7 +1,7 @@
 package ga.scmc.client.renderer.entity;
 
-import ga.scmc.client.renderer.layers.LayerLarvaColor;
-import ga.scmc.client.renderer.layers.LayerLarvaGlowStatic;
+import ga.scmc.client.renderer.entity.layers.LayerLarvaColor;
+import ga.scmc.client.renderer.entity.layers.LayerLarvaGlowStatic;
 import ga.scmc.client.renderer.model.ModelLarva;
 import ga.scmc.entity.living.EntityLarva;
 import ga.scmc.lib.Library;
@@ -14,7 +14,7 @@ import net.minecraft.util.ResourceLocation;
 public class RenderLarva<T> extends RenderLiving<EntityLarva> {
 	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/larva_base.png");
 	protected ModelLarva model;
-	
+
 	public RenderLarva(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelLarva) mainModel);
@@ -26,7 +26,7 @@ public class RenderLarva<T> extends RenderLiving<EntityLarva> {
 	public void doRender(EntityLarva entity, double x, double y, double z, float entityYaw, float partialTicks) {
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 
-		if(!renderOutlines) {
+		if (!renderOutlines) {
 			renderLeash(entity, x, y, z, entityYaw, partialTicks);
 		}
 	}

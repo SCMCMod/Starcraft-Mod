@@ -1,7 +1,7 @@
 package ga.scmc.client.renderer.entity;
 
-import ga.scmc.client.renderer.layers.LayerVoidProbeColor;
-import ga.scmc.client.renderer.layers.LayerVoidProbeGlowDynamic;
+import ga.scmc.client.renderer.entity.layers.LayerVoidProbeColor;
+import ga.scmc.client.renderer.entity.layers.LayerVoidProbeGlowDynamic;
 import ga.scmc.client.renderer.model.ModelVoidProbe;
 import ga.scmc.entity.living.EntityVoidProbe;
 import ga.scmc.lib.Library;

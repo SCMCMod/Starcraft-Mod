@@ -1,7 +1,7 @@
 package ga.scmc.client.renderer.entity;
 
-import ga.scmc.client.renderer.layers.LayerZerglingSwarmlingColor;
-import ga.scmc.client.renderer.layers.LayerZerglingSwarmlingGlowStatic;
+import ga.scmc.client.renderer.entity.layers.LayerZerglingSwarmlingColor;
+import ga.scmc.client.renderer.entity.layers.LayerZerglingSwarmlingGlowStatic;
 import ga.scmc.client.renderer.model.ModelZerglingSwarmling;
 import ga.scmc.entity.living.EntityZerglingSwarmling;
 import ga.scmc.lib.Library;
@@ -38,6 +38,6 @@ public class RenderZerglingSwarmling<T> extends RenderLiving<EntityZerglingSwarm
 
 	@Override
 	protected void preRenderCallback(EntityZerglingSwarmling entitylivingbaseIn, float partialTickTime) {
-		GlStateManager.scale(1.25F + (entitylivingbaseIn.getBiomass()/60), 1.25F + (entitylivingbaseIn.getBiomass()/60), 1.25F + (entitylivingbaseIn.getBiomass()/60));
+		GlStateManager.scale(1.25F + (entitylivingbaseIn.getBiomass() / 60), 1.25F + (entitylivingbaseIn.getBiomass() / 60), 1.25F + (entitylivingbaseIn.getBiomass() / 60));
 	}
 }

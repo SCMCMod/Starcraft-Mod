@@ -1,7 +1,6 @@
 package ga.scmc.handlers;
 
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
-import ga.scmc.fluids.FluidHandler;
 import ga.scmc.items.ItemC14GaussRifle;
 import ga.scmc.items.ItemFlamethrower;
 import ga.scmc.items.ItemNuclearMissile;

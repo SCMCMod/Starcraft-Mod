@@ -1,6 +1,6 @@
 package ga.scmc.client.renderer.tileentity;
 
-import ga.scmc.client.renderer.block.ModelTable;
+import ga.scmc.client.renderer.blocks.ModelTable;
 import ga.scmc.lib.Library;
 import ga.scmc.tileentity.TileEntityTest;
 import net.minecraft.client.renderer.GlStateManager;

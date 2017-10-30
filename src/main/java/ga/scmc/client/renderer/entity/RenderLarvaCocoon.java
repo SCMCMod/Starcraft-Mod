@@ -1,6 +1,6 @@
 package ga.scmc.client.renderer.entity;
 
-import ga.scmc.client.renderer.layers.LayerLarvaCocoonColor;
+import ga.scmc.client.renderer.entity.layers.LayerLarvaCocoonColor;
 import ga.scmc.client.renderer.model.ModelLarvaCocoon;
 import ga.scmc.entity.living.EntityLarvaCocoon;
 import ga.scmc.lib.Library;
@@ -24,7 +24,7 @@ public class RenderLarvaCocoon<T> extends RenderLiving<EntityLarvaCocoon> {
 	public void doRender(EntityLarvaCocoon entity, double x, double y, double z, float entityYaw, float partialTicks) {
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 
-		if(!renderOutlines) {
+		if (!renderOutlines) {
 			renderLeash(entity, x, y, z, entityYaw, partialTicks);
 		}
 	}

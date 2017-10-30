@@ -1,7 +1,7 @@
 package ga.scmc.client.renderer.entity;
 
-import ga.scmc.client.renderer.layers.LayerZerglingRaptorColor;
-import ga.scmc.client.renderer.layers.LayerZerglingRaptorGlowStatic;
+import ga.scmc.client.renderer.entity.layers.LayerZerglingRaptorColor;
+import ga.scmc.client.renderer.entity.layers.LayerZerglingRaptorGlowStatic;
 import ga.scmc.client.renderer.model.ModelZerglingRaptor;
 import ga.scmc.entity.living.EntityZerglingRaptor;
 import ga.scmc.lib.Library;
@@ -26,7 +26,7 @@ public class RenderZerglingRaptor<T> extends RenderLiving<EntityZerglingRaptor> 
 	public void doRender(EntityZerglingRaptor entity, double x, double y, double z, float entityYaw, float partialTicks) {
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 
-		if(!renderOutlines) {
+		if (!renderOutlines) {
 			renderLeash(entity, x, y, z, entityYaw, partialTicks);
 		}
 	}
@@ -38,6 +38,6 @@ public class RenderZerglingRaptor<T> extends RenderLiving<EntityZerglingRaptor> 
 
 	@Override
 	protected void preRenderCallback(EntityZerglingRaptor entitylivingbaseIn, float partialTickTime) {
-		GlStateManager.scale(1.25F + (entitylivingbaseIn.getBiomass()/60), 1.25F + (entitylivingbaseIn.getBiomass()/60), 1.25F + (entitylivingbaseIn.getBiomass()/60));
+		GlStateManager.scale(1.25F + (entitylivingbaseIn.getBiomass() / 60), 1.25F + (entitylivingbaseIn.getBiomass() / 60), 1.25F + (entitylivingbaseIn.getBiomass() / 60));
 	}
 }

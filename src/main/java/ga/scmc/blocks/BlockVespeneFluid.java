@@ -3,8 +3,8 @@ package ga.scmc.blocks;
 import java.util.Random;
 
 import ga.scmc.StarcraftDamageSources;
-import ga.scmc.fluids.FluidHandler;
 import ga.scmc.handlers.BlockHandler;
+import ga.scmc.handlers.FluidHandler;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

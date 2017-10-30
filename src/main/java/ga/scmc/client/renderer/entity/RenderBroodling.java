@@ -1,6 +1,6 @@
 package ga.scmc.client.renderer.entity;
 
-import ga.scmc.client.renderer.layers.LayerBroodlingColor;
+import ga.scmc.client.renderer.entity.layers.LayerBroodlingColor;
 import ga.scmc.client.renderer.model.ModelBroodling;
 import ga.scmc.entity.living.EntityBroodling;
 import ga.scmc.lib.Library;
@@ -23,7 +23,7 @@ public class RenderBroodling<T> extends RenderLiving<EntityBroodling> {
 	public void doRender(EntityBroodling entity, double x, double y, double z, float entityYaw, float partialTicks) {
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 
-		if(!renderOutlines) {
+		if (!renderOutlines) {
 			renderLeash(entity, x, y, z, entityYaw, partialTicks);
 		}
 	}

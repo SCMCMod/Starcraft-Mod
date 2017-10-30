@@ -1,7 +1,7 @@
 package ga.scmc.client.renderer.entity;
 
-import ga.scmc.client.renderer.layers.LayerZerglingBoostColor;
-import ga.scmc.client.renderer.layers.LayerZerglingBoostGlowStatic;
+import ga.scmc.client.renderer.entity.layers.LayerZerglingBoostColor;
+import ga.scmc.client.renderer.entity.layers.LayerZerglingBoostGlowStatic;
 import ga.scmc.client.renderer.model.ModelZerglingBoost;
 import ga.scmc.entity.living.EntityZerglingBoost;
 import ga.scmc.lib.Library;
@@ -27,7 +27,7 @@ public class RenderZerglingBoost<T> extends RenderLiving<EntityZerglingBoost> {
 	public void doRender(EntityZerglingBoost entity, double x, double y, double z, float entityYaw, float partialTicks) {
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 
-		if(!renderOutlines) {
+		if (!renderOutlines) {
 			renderLeash(entity, x, y, z, entityYaw, partialTicks);
 		}
 	}
@@ -39,6 +39,6 @@ public class RenderZerglingBoost<T> extends RenderLiving<EntityZerglingBoost> {
 
 	@Override
 	protected void preRenderCallback(EntityZerglingBoost entitylivingbaseIn, float partialTickTime) {
-		GlStateManager.scale(1.25F + (entitylivingbaseIn.getBiomass()/60), 1.25F + (entitylivingbaseIn.getBiomass()/60), 1.25F + (entitylivingbaseIn.getBiomass()/60));
+		GlStateManager.scale(1.25F + (entitylivingbaseIn.getBiomass() / 60), 1.25F + (entitylivingbaseIn.getBiomass() / 60), 1.25F + (entitylivingbaseIn.getBiomass() / 60));
 	}
 }

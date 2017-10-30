@@ -1,8 +1,8 @@
 package ga.scmc.client.renderer.entity;
 
-import ga.scmc.client.renderer.layers.LayerPredatorColor;
-import ga.scmc.client.renderer.layers.LayerPredatorGlowDynamic;
-import ga.scmc.client.renderer.layers.LayerPredatorGlowStatic;
+import ga.scmc.client.renderer.entity.layers.LayerPredatorColor;
+import ga.scmc.client.renderer.entity.layers.LayerPredatorGlowDynamic;
+import ga.scmc.client.renderer.entity.layers.LayerPredatorGlowStatic;
 import ga.scmc.client.renderer.model.ModelPredator;
 import ga.scmc.entity.living.EntityPredator;
 import ga.scmc.lib.Library;
