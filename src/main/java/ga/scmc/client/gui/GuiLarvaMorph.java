@@ -7,6 +7,10 @@ import ga.scmc.Starcraft;
 import ga.scmc.client.gui.element.LarvaOption;
 import ga.scmc.entity.living.EntityLarva;
 import ga.scmc.lib.GuiUtils;
+import ga.scmc.network.NetworkHandler;
+import ga.scmc.network.message.MessageMorphLarva;
+import ga.scmc.network.message.MessageSyncLarvaGui;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -50,7 +54,8 @@ public class GuiLarvaMorph extends BasicGui {
 
 	public void openGUI(EntityPlayer player, Object mod, int guiID, World world, int x, int y, int z, EntityLarva larva) {
 		player.openGui(Starcraft.instance, guiID, world, x, y, z);
-		this.larva = larva;
+		setLarva(larva);
+		NetworkHandler.sendToClient(new MessageSyncLarvaGui(larva));
 	}
 
 	@Override
@@ -91,7 +96,7 @@ public class GuiLarvaMorph extends BasicGui {
 					if (index < GuiLists.LARVA_OPTIONS.size()) {
 						if (GuiUtils.isMouseInside(guiLeft + 7 + x * 18, guiTop + 7 + y * 18, 17, 18, mouseX, mouseY)) {
 							GuiUtils.playButtonClick();
-							// NetworkHandler.sendToServer(new MessageEditEntity(index));
+							NetworkHandler.sendToServer(new MessageMorphLarva(larva, index));
 							return;
 						}
 					}
@@ -100,8 +105,11 @@ public class GuiLarvaMorph extends BasicGui {
 		}
 	}
 
-	public EntityLarva getLarva() {
-		return larva;
+	@Override
+	public void updateScreen() {
+		if (larva.isDead) {
+			Minecraft.getMinecraft().player.closeScreen();
+		}
 	}
 
 	@Override
@@ -115,5 +123,13 @@ public class GuiLarvaMorph extends BasicGui {
 
 	private void bindIconTexture() {
 		GuiUtils.bindTexture("textures/gui/larva_icons.png");
+	}
+
+	public EntityLarva getLarva() {
+		return larva;
+	}
+
+	public void setLarva(EntityLarva larva) {
+		this.larva = larva;
 	}
 }

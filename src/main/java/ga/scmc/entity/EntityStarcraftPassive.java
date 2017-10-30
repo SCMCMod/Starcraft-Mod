@@ -21,72 +21,76 @@ import net.minecraft.world.World;
 public abstract class EntityStarcraftPassive extends EntityTameable {
 
 	private static final DataParameter<Integer> COLOR = EntityDataManager.createKey(EntityStarcraftPassive.class, DataSerializers.VARINT);
-	
+
 	List<EnumTypeAttributes> types = new ArrayList<EnumTypeAttributes>(15);
 	List<EnumFactionTypes> factions = new ArrayList<EnumFactionTypes>(15);
 	EnumTeamColors teamColor;
 	HashMap<EnumTypeAttributes, Double> bonusDamage = new HashMap<EnumTypeAttributes, Double>();
-	
+
 	public EntityStarcraftPassive(World world) {
 		super(world);
 	}
-	
+
+	public int secondsToTicks(int seconds) {
+		return seconds * 20;
+	}
+
 	public boolean isType(EnumTypeAttributes type) {
-		for(int x = 0; x < types.size(); x++) {
-			if(this.types.get(x) == type) {
+		for (int x = 0; x < types.size(); x++) {
+			if (this.types.get(x) == type) {
 				return true;
 			}
 		}
 		return false;
 	}
-	
+
 	public boolean isFaction(EnumFactionTypes faction) {
-		for(int x = 0; x < factions.size(); x++) {
-			if(this.factions.get(x) == faction) {
+		for (int x = 0; x < factions.size(); x++) {
+			if (this.factions.get(x) == faction) {
 				return true;
 			}
 		}
 		return false;
 	}
-	
+
 	public EnumTeamColors getTeamColor() {
-		for(EnumTeamColors color: EnumTeamColors.values()) {
-			if(color.getId() == this.getNBTColor()) {
+		for (EnumTeamColors color : EnumTeamColors.values()) {
+			if (color.getId() == this.getNBTColor()) {
 				return color;
 			}
 		}
 		return null;
 	}
-	
+
 	public void setTeamColor(EnumTeamColors team) {
 		this.teamColor = team;
 		this.setNBTColor(team.getId());
 	}
-	
-	public void setTypes(EnumTypeAttributes ... types) {
-		for(int x = 0; x < types.length; x++) {
+
+	public void setTypes(EnumTypeAttributes... types) {
+		for (int x = 0; x < types.length; x++) {
 			this.types.add(x, types[x]);
 		}
 	}
-	
-	public void setFactions(EnumFactionTypes ... types) {
-		for(int x = 0; x < types.length; x++) {
+
+	public void setFactions(EnumFactionTypes... types) {
+		for (int x = 0; x < types.length; x++) {
 			this.factions.add(x, types[x]);
 		}
 	}
-	
+
 	public void setDamageAgainstType(EnumTypeAttributes type, double dmg) {
 		bonusDamage.put(type, dmg);
 	}
-	
+
 	public double getDamageAgainstType(EnumTypeAttributes type) {
 		return bonusDamage.get(type);
 	}
-	
+
 	@Override
 	protected void entityInit() {
 		super.entityInit();
-		
+
 		this.getDataManager().register(COLOR, 0);
 	}
 
@@ -111,7 +115,7 @@ public abstract class EntityStarcraftPassive extends EntityTameable {
 	public void setNBTColor(int colornum) {
 		this.getDataManager().set(COLOR, colornum);
 	}
-	
+
 	@Override
 	public boolean processInteract(EntityPlayer player, EnumHand hand, ItemStack stack) {
 		ItemStack heldItem = player.getHeldItem(hand);

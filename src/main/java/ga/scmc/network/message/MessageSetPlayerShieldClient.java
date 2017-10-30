@@ -26,7 +26,7 @@ public class MessageSetPlayerShieldClient implements IMessage, IMessageHandler<M
 
 	@Override
 	public void fromBytes(ByteBuf buf) {
-		shield = buf.getDouble(0);
+		shield = buf.readDouble();
 	}
 
 	@Override
