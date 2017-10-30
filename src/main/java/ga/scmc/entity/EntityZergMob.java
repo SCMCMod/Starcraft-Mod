@@ -16,22 +16,21 @@ import net.minecraft.world.World;
 
 public class EntityZergMob extends EntityStarcraftMob {
 
-	private static final DataParameter<Integer> BIOMASS = EntityDataManager.createKey(EntityZerglingSC2.class,
-			DataSerializers.VARINT);
+	private static final DataParameter<Integer> BIOMASS = EntityDataManager.createKey(EntityZerglingSC2.class, DataSerializers.VARINT);
 	public int baseHealth;
-	
+
 	public EntityZergMob(World world) {
 		super(world);
 	}
-	
+
 	@Override
 	public boolean getCanSpawnHere() {
-		if(this.world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_CHAR) {
+		if (this.world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_CHAR) {
 			return true;
 		}
 		return false;
 	}
-	
+
 	@Override
 	protected void entityInit() {
 		super.entityInit();
@@ -59,11 +58,10 @@ public class EntityZergMob extends EntityStarcraftMob {
 	public void setBiomass(int amount) {
 		this.getDataManager().set(BIOMASS, amount);
 	}
-	
+
 	protected void findBiomass() {
 		if (!this.world.isRemote && this.world.getWorldTime() % 40 == 0) {
-			ArrayList<EntityItem> entityItemList = (ArrayList<EntityItem>) world.getEntitiesWithinAABB(EntityItem.class,
-					this.getEntityBoundingBox().expand(8, 8, 8));
+			ArrayList<EntityItem> entityItemList = (ArrayList<EntityItem>) world.getEntitiesWithinAABB(EntityItem.class, this.getEntityBoundingBox().expand(8, 8, 8));
 
 			for (EntityItem entityItem : entityItemList) {
 				if (!entityItem.cannotPickup()) {
@@ -86,28 +84,28 @@ public class EntityZergMob extends EntityStarcraftMob {
 	}
 
 	protected void onPickupBiomass(EntityItem entityItem) {
-			this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(this.getMaxHealth() + (entityItem.getEntityItem().stackSize));
-			this.setHealth(this.getHealth() + (entityItem.getEntityItem().stackSize));
-			this.setBiomass(this.getBiomass() + (entityItem.getEntityItem().stackSize));
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(this.getMaxHealth() + (entityItem.getEntityItem().stackSize));
+		this.setHealth(this.getHealth() + (entityItem.getEntityItem().stackSize));
+		this.setBiomass(this.getBiomass() + (entityItem.getEntityItem().stackSize));
 		entityItem.setDead();
 	}
-	
+
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-		if(this.getBiomass() <= 100) {
+		if (this.getBiomass() <= 100) {
 			this.findBiomass();
 		}
-		if(this.getBiomass() > 100) {
+		if (this.getBiomass() > 100) {
 			this.setBiomass(100);
 			this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(this.baseHealth + this.getBiomass());
 		}
 	}
-	
+
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
-		if (ticksExisted % 20 == 0 && !(this.getHealth() == this.getMaxHealth() + this.getBiomass())) {
+		if (ticksExisted % 20 == 0 && !(this.getHealth() == this.getMaxHealth() + this.getBiomass()) && !this.isDead) {
 			this.heal(0.27F);
 		}
 	}

@@ -12,6 +12,7 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
@@ -51,7 +52,7 @@ public class GuiRenderEventHandler extends Gui {
 
 		if (!player.isSpectator()) {
 			ItemStack itemstack = player.inventory.armorItemInSlot(3);
-			if (mc.gameSettings.thirdPersonView == 0 && itemstack != null && itemstack.getItem() == ArmorHandler.COPPER_HELMET && renderHelmetOverlay && event.getType() == ElementType.TEXT) {
+			if (mc.gameSettings.thirdPersonView == 0 && itemstack != null && itemstack.getItem() == ArmorHandler.MARINE_HELMET && renderHelmetOverlay && event.getType() == ElementType.TEXT) {
 				renderHelmetOverlay(scaledresolution);
 				String ammo = "Ammo: " + InventoryUtil.getItemAmount(mc.player, ItemHandler.C14_GAUSS_RIFLE.getAmmo());
 				if (mc.player.isCreative())
@@ -62,7 +63,9 @@ public class GuiRenderEventHandler extends Gui {
 					ItemStack stack = mc.player.inventory.armorItemInSlot(i);
 					if (stack != null) {
 						String damage = stack.getMaxDamage() - stack.getItemDamage() + "/" + stack.getMaxDamage();
+						RenderHelper.enableGUIStandardItemLighting();
 						mc.getRenderItem().renderItemAndEffectIntoGUI(stack, (event.getResolution().getScaledWidth() - 18 - mc.fontRendererObj.getStringWidth(damage)) - 18, (event.getResolution().getScaledHeight() - 20 - i * 18) - i);
+						RenderHelper.disableStandardItemLighting();
 						fontRenderer.drawString(damage, event.getResolution().getScaledWidth() - 18 - mc.fontRendererObj.getStringWidth(damage), event.getResolution().getScaledHeight() - 18 - i * 18, Color.WHITE.getRGB());
 					}
 				}

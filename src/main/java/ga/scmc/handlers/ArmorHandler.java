@@ -123,10 +123,10 @@ public class ArmorHandler {
 		STEEL_LEGGINGS = new ItemArmor(STEEL_ARMOR_MATERIAL, 0, EntityEquipmentSlot.LEGS).setUnlocalizedName("steelLeggings").setRegistryName("steel_leggings").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 		STEEL_BOOTS = new ItemArmor(STEEL_ARMOR_MATERIAL, 0, EntityEquipmentSlot.FEET).setUnlocalizedName("steelBoots").setRegistryName("steel_boots").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 
-		MARINE_HELMET = new ItemArmor(MARINE_ARMOR_MATERIAL, 0, EntityEquipmentSlot.HEAD);
-		MARINE_CHESTPLATE = new ItemArmor(MARINE_ARMOR_MATERIAL, 0, EntityEquipmentSlot.CHEST);
-		MARINE_LEGGINGS = new ItemArmor(MARINE_ARMOR_MATERIAL, 0, EntityEquipmentSlot.LEGS);
-		MARINE_BOOTS = new ItemArmor(MARINE_ARMOR_MATERIAL, 0, EntityEquipmentSlot.FEET);
+		MARINE_HELMET = new ItemArmor(MARINE_ARMOR_MATERIAL, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("marineHelmet").setRegistryName("marine_helmet").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		MARINE_CHESTPLATE = new ItemArmor(MARINE_ARMOR_MATERIAL, 0, EntityEquipmentSlot.CHEST).setUnlocalizedName("marineChestplate").setRegistryName("marine_chestplate").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		MARINE_LEGGINGS = new ItemArmor(MARINE_ARMOR_MATERIAL, 0, EntityEquipmentSlot.LEGS).setUnlocalizedName("marineLeggings").setRegistryName("marine_leggings").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		MARINE_BOOTS = new ItemArmor(MARINE_ARMOR_MATERIAL, 0, EntityEquipmentSlot.FEET).setUnlocalizedName("marineBoots").setRegistryName("marine_boots").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 
 		ZERG_T1_HELMET = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("zergHelmetT1").setRegistryName("zerg_helmet_t1").setCreativeTab(StarcraftCreativeTabs.ZERG);
 		ZERG_T1_CHESTPLATE = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.CHEST).setUnlocalizedName("zergChestplateT1").setRegistryName("zerg_chestplate_t1").setCreativeTab(StarcraftCreativeTabs.ZERG);
@@ -176,10 +176,10 @@ public class ArmorHandler {
 		registerItem(STEEL_LEGGINGS);
 		registerItem(STEEL_BOOTS);
 
-		// registerItem(MARINE_HELMET);
-		// registerItem(MARINE_CHESTPLATE);
-		// registerItem(MARINE_LEGGINGS);
-		// registerItem(MARINE_BOOTS);
+		registerItem(MARINE_HELMET);
+		registerItem(MARINE_CHESTPLATE);
+		registerItem(MARINE_LEGGINGS);
+		registerItem(MARINE_BOOTS);
 
 		registerItem(ZERG_T1_HELMET);
 		registerItem(ZERG_T1_CHESTPLATE);

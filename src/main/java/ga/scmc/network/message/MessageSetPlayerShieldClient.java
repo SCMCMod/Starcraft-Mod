@@ -33,7 +33,9 @@ public class MessageSetPlayerShieldClient implements IMessage, IMessageHandler<M
 	public IMessage onMessage(MessageSetPlayerShieldClient message, MessageContext ctx) {
 		Minecraft mc = Minecraft.getMinecraft();
 		EntityPlayer player = mc.player;
-		player.getCapability(ShieldProvider.SHIELD, null).set(message.shield);
+		if (player.getCapability(ShieldProvider.SHIELD, null) != null) {
+			player.getCapability(ShieldProvider.SHIELD, null).set(message.shield);
+		}
 		return null;
 	}
 }
