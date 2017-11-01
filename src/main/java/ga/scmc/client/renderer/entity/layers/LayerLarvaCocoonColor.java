@@ -2,9 +2,9 @@ package ga.scmc.client.renderer.entity.layers;
 
 import org.lwjgl.opengl.GL11;
 
+import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.entity.RenderLarvaCocoon;
 import ga.scmc.entity.living.EntityLarvaCocoon;
-import ga.scmc.lib.Library;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
@@ -18,7 +18,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class LayerLarvaCocoonColor<T extends EntityLarvaCocoon> implements LayerRenderer<T> {
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/larvacocoon_overlay.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.LARVA_COCOON_OVERLAY);
 	private final RenderLarvaCocoon<T> RENDERER;
 	
 	public LayerLarvaCocoonColor(RenderLarvaCocoon<T> rendererIn) {

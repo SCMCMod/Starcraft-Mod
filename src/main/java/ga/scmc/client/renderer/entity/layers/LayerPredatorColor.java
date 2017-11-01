@@ -2,9 +2,9 @@ package ga.scmc.client.renderer.entity.layers;
 
 import org.lwjgl.opengl.GL11;
 
+import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.entity.RenderPredator;
 import ga.scmc.entity.living.EntityPredator;
-import ga.scmc.lib.Library;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
@@ -18,7 +18,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class LayerPredatorColor<T extends EntityPredator> implements LayerRenderer<T> {
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/predator_overlay.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.PREDATOR_OVERLAY);
 	private final RenderPredator<T> RENDERER;
 
 	public LayerPredatorColor(RenderPredator<T> cybercatRendererIn) {

@@ -33,7 +33,6 @@ import ga.scmc.items.structurespawns.ItemTerranBunkerSpawner;
 import ga.scmc.items.structurespawns.ItemZergHydraliskDenSpawner;
 import ga.scmc.items.structurespawns.ItemZergSpawningPoolSpawner;
 import ga.scmc.items.structurespawns.ItemZergSpireSpawner;
-import ga.scmc.lib.LogHelper;
 import net.minecraft.item.Item;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -220,8 +219,5 @@ public class ItemHandler {
 	 */
 	public static void registerItem(Item item) {
 		ForgeRegistries.ITEMS.register(item);
-		if (ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-			LogHelper.logger.info("Registered Item: " + item.getUnlocalizedName().substring(5));
-		}
 	}
 }

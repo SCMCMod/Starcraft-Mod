@@ -2,7 +2,7 @@ package ga.scmc.recipes;
 
 import javax.annotation.Nullable;
 
-import ga.scmc.handlers.ItemEnumHandler;
+import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.items.metaitems.ItemDust;
 import net.minecraft.inventory.InventoryCrafting;
@@ -31,7 +31,7 @@ public class SteelDust implements IRecipe {
 	@Override
 	@Nullable
 	public ItemStack getCraftingResult(InventoryCrafting grid) {
-		return new ItemStack(ItemHandler.DUST, 1, ItemEnumHandler.DustType.STEEL.getID());
+		return new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.STEEL.getID());
 	}
 
 	/**
@@ -42,7 +42,7 @@ public class SteelDust implements IRecipe {
 	@Override
 	@Nullable
 	public ItemStack getRecipeOutput() {
-		return new ItemStack(ItemHandler.DUST, 1, ItemEnumHandler.DustType.STEEL.getID());
+		return new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.STEEL.getID());
 	}
 
 	/**

@@ -6,7 +6,6 @@ import ga.scmc.items.armor.ArmorZergArmorT1;
 import ga.scmc.items.armor.ArmorZergArmorT2;
 import ga.scmc.items.armor.ArmorZergArmorT3;
 import ga.scmc.lib.Library;
-import ga.scmc.lib.LogHelper;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
@@ -214,8 +213,5 @@ public class ArmorHandler {
 
 	private static void registerItem(Item item) {
 		GameRegistry.register(item);
-		if (ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED) {
-			LogHelper.logger.info("Registered Armor: " + item.getUnlocalizedName().substring(5));
-		}
 	}
 }

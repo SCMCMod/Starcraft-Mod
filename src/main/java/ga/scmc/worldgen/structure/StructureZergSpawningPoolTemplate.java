@@ -6,9 +6,7 @@ package ga.scmc.worldgen.structure;
 import java.util.Random;
 
 import ga.scmc.handlers.BlockHandler;
-import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.MetaBlockHandler;
-import ga.scmc.lib.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -30,12 +28,6 @@ public class StructureZergSpawningPoolTemplate extends SCWorldGenerator {
 				return false;
 			}
 		}
-		
-		if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-			LogHelper.logger.info("A Spawning Pool is spawning!");
-		}
-
-		// First level
 		world.setBlockState(pos.add(8, 0 + offsetY, 1), MetaBlockHandler.ZERG_FLESH.getDefaultState(), 2);
 		world.setBlockState(pos.add(9, 0 + offsetY, 2), MetaBlockHandler.ZERG_FLESH.getDefaultState(), 2);
 		world.setBlockState(pos.add(1, 0 + offsetY, 3), MetaBlockHandler.ZERG_FLESH.getDefaultState(), 2);

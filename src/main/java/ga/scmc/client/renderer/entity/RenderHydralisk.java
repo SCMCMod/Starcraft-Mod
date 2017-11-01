@@ -1,10 +1,10 @@
 package ga.scmc.client.renderer.entity;
 
+import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.entity.layers.LayerHydraliskColor;
 import ga.scmc.client.renderer.entity.layers.LayerHydraliskGlowStatic;
 import ga.scmc.client.renderer.model.ModelHydralisk;
 import ga.scmc.entity.living.EntityHydralisk;
-import ga.scmc.lib.Library;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -13,7 +13,7 @@ import net.minecraft.util.ResourceLocation;
 
 //Same reason for special case
 public class RenderHydralisk<T> extends RenderLiving<EntityHydralisk> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/hydralisk_base.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.HYDRALISK_BASE);
 	protected ModelHydralisk model;
 
 	public RenderHydralisk(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {

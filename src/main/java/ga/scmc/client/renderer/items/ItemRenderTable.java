@@ -1,8 +1,8 @@
 package ga.scmc.client.renderer.items;
 
+import ga.scmc.api.GuiUtils;
 import ga.scmc.client.renderer.RenderUtil;
 import ga.scmc.client.renderer.blocks.ModelTable;
-import ga.scmc.lib.GuiUtils;
 import ga.scmc.lib.Library;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;

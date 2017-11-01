@@ -1,6 +1,9 @@
 package ga.scmc.handlers;
 
 import ga.scmc.Starcraft;
+import ga.scmc.entity.EntityC14GaussRifleBullet;
+import ga.scmc.entity.EntityFlamethrowerFlame;
+import ga.scmc.entity.EntityHydraliskSpike;
 import ga.scmc.entity.living.EntityBroodling;
 import ga.scmc.entity.living.EntityBrutalisk;
 import ga.scmc.entity.living.EntityBrutaliskCocoon;
@@ -22,13 +25,10 @@ import ga.scmc.entity.living.EntitySCV;
 import ga.scmc.entity.living.EntityScarab;
 import ga.scmc.entity.living.EntityVoidProbe;
 import ga.scmc.entity.living.EntityZealot;
+import ga.scmc.entity.living.EntityZergling;
 import ga.scmc.entity.living.EntityZerglingBoost;
 import ga.scmc.entity.living.EntityZerglingRaptor;
-import ga.scmc.entity.living.EntityZerglingSC2;
 import ga.scmc.entity.living.EntityZerglingSwarmling;
-import ga.scmc.entity.projectiles.EntityC14GaussRifleBullet;
-import ga.scmc.entity.projectiles.EntityFlamethrowerFlame;
-import ga.scmc.entity.projectiles.EntityHydraliskSpike;
 import ga.scmc.lib.Library;
 import ga.scmc.tileentity.TileEntityBlockCharFurnace;
 import ga.scmc.tileentity.TileEntityBlockShakurasFurnace;
@@ -77,7 +77,7 @@ public class EntityHandler {
 
 		EntityRegistry.registerEgg(EntityBrutalisk.class, 11403519, 7684608);
 		EntityRegistry.registerEgg(EntityHydralisk.class, 11403519, 7684608);
-		EntityRegistry.registerEgg(EntityZerglingSC2.class, 11403519, 7684608);
+		EntityRegistry.registerEgg(EntityZergling.class, 11403519, 7684608);
 		EntityRegistry.registerEgg(EntityZerglingRaptor.class, 11403519, 7684608);
 		EntityRegistry.registerEgg(EntityZerglingSwarmling.class, 11403519, 7684608);
 		EntityRegistry.registerEgg(EntityZerglingBoost.class, 11403519, 7684608);
@@ -127,7 +127,7 @@ public class EntityHandler {
 
 		registerEntity(EntityBrutalisk.class, "brutalisk", 64, 1, true);
 		registerEntity(EntityHydralisk.class, "hydralisk", 64, 1, true);
-		registerEntity(EntityZerglingSC2.class, "zerglingSC2", 64, 1, true);
+		registerEntity(EntityZergling.class, "zerglingSC2", 64, 1, true);
 		registerEntity(EntityZerglingRaptor.class, "zerglingRaptor", 64, 1, true);
 		registerEntity(EntityZerglingSwarmling.class, "zerglingSwarmling", 64, 1, true);
 		registerEntity(EntityZerglingBoost.class, "zerglingBoost", 64, 1, true);
@@ -166,7 +166,7 @@ public class EntityHandler {
 
 		EntityRegistry.addSpawn(EntityBrutalisk.class, 1, 1, 1, EnumCreatureType.MONSTER, BiomeHandler.biomeCharCreepInfestation);
 		EntityRegistry.addSpawn(EntityHydralisk.class, 9, 1, 3, EnumCreatureType.MONSTER, BiomeHandler.biomeCharCreepInfestation);
-		EntityRegistry.addSpawn(EntityZerglingSC2.class, 25, 1, 5, EnumCreatureType.MONSTER, BiomeHandler.biomeCharCreepInfestation);
+		EntityRegistry.addSpawn(EntityZergling.class, 25, 1, 5, EnumCreatureType.MONSTER, BiomeHandler.biomeCharCreepInfestation);
 		EntityRegistry.addSpawn(EntityZerglingRaptor.class, 10, 1, 5, EnumCreatureType.MONSTER, BiomeHandler.biomeCharCreepInfestation);
 		EntityRegistry.addSpawn(EntityZerglingSwarmling.class, 10, 1, 5, EnumCreatureType.MONSTER, BiomeHandler.biomeCharCreepInfestation);
 		EntityRegistry.addSpawn(EntityZerglingBoost.class, 10, 1, 5, EnumCreatureType.MONSTER, BiomeHandler.biomeCharCreepInfestation);

@@ -1,11 +1,11 @@
 package ga.scmc.client.renderer.entity;
 
+import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.entity.layers.LayerZealotColor;
 import ga.scmc.client.renderer.entity.layers.LayerZealotGlowDynamic;
 import ga.scmc.client.renderer.entity.layers.LayerZealotGlowStatic;
 import ga.scmc.client.renderer.model.ModelZealot;
 import ga.scmc.entity.living.EntityZealot;
-import ga.scmc.lib.Library;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -15,7 +15,7 @@ import net.minecraft.util.ResourceLocation;
 // Moar special cases
 public class RenderZealot<T> extends RenderLiving<EntityZealot> {
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/zealot_base.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.ZEALOT_BASE);
 	protected ModelZealot model;
 
 	public RenderZealot(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {

@@ -5,7 +5,6 @@ import java.util.Random;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.MetaBlockHandler;
-import ga.scmc.lib.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -70,10 +69,6 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 					|| !LocationIsValidSpawn(world, pos.add(0, 0, 14))) {
 				return false;
 			}
-		}
-		
-		if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-			LogHelper.logger.info("A Warp Gate is spawning!");
 		}
 		world.setBlockState(pos.add(1, 1 + offsetY, 1), MetaBlockHandler.PROTOSS_METAL_T1.getStateFromMeta(metaPrimColor));
 		world.setBlockState(pos.add(2, 1 + offsetY, 1), MetaBlockHandler.PROTOSS_METAL_T1.getStateFromMeta(metaPrimColor));

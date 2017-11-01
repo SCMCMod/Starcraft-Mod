@@ -1,11 +1,11 @@
 package ga.scmc.client.renderer.entity;
 
+import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.entity.layers.LayerPredatorColor;
 import ga.scmc.client.renderer.entity.layers.LayerPredatorGlowDynamic;
 import ga.scmc.client.renderer.entity.layers.LayerPredatorGlowStatic;
 import ga.scmc.client.renderer.model.ModelPredator;
 import ga.scmc.entity.living.EntityPredator;
-import ga.scmc.lib.Library;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -14,7 +14,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderPredator<T> extends RenderLiving<EntityPredator> {
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/predator_base.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.PREDATOR_BASE);
 	protected ModelPredator model;
 
 	public RenderPredator(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {

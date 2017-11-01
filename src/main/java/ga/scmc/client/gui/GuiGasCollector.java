@@ -3,10 +3,10 @@ package ga.scmc.client.gui;
 import java.util.ArrayList;
 import java.util.List;
 
+import ga.scmc.api.GuiUtils;
 import ga.scmc.container.ContainerGasCollector;
-import ga.scmc.handlers.BlockEnumHandler.GasCollectorType;
+import ga.scmc.enums.EnumMetaBlock.GasCollectorType;
 import ga.scmc.handlers.ItemHandler;
-import ga.scmc.lib.GuiUtils;
 import ga.scmc.tileentity.TileEntityGasCollector;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;

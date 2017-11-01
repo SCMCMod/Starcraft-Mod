@@ -2,10 +2,10 @@ package ga.scmc.items;
 
 import java.util.List;
 
-import ga.scmc.blocks.BlockStarcraftSkull;
+import ga.scmc.blocks.skulls.BlockStarcraftSkull;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
+import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.handlers.BlockHandler;
-import ga.scmc.handlers.ItemEnumHandler;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -106,7 +106,7 @@ public class ItemStarcraftSkull extends ItemSkull {
 	 */
 	@SideOnly(Side.CLIENT)
 	public void getSubItems(Item itemIn, CreativeTabs tab, List<ItemStack> subItems) {
-		for (int i = 0; i < ItemEnumHandler.SkullType.values().length; ++i) {
+		for (int i = 0; i < EnumMetaItem.SkullType.values().length; ++i) {
 			subItems.add(new ItemStack(itemIn, 1, i));
 		}
 	}
@@ -117,10 +117,10 @@ public class ItemStarcraftSkull extends ItemSkull {
 	public String getUnlocalizedName(ItemStack stack) {
 		int i = stack.getMetadata();
 
-		if (i < 0 || i >= ItemEnumHandler.SkullType.values().length) {
+		if (i < 0 || i >= EnumMetaItem.SkullType.values().length) {
 			i = 0;
 		}
 
-		return super.getUnlocalizedName() + "." + ItemEnumHandler.SkullType.values()[i];
+		return super.getUnlocalizedName() + "." + EnumMetaItem.SkullType.values()[i];
 	}
 }

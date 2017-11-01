@@ -1,8 +1,8 @@
 package ga.scmc.client.renderer.entity.layers;
 
+import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.entity.RenderHydralisk;
 import ga.scmc.entity.living.EntityHydralisk;
-import ga.scmc.lib.Library;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
@@ -12,7 +12,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class LayerHydraliskGlowStatic<T extends EntityHydralisk> implements LayerRenderer<T> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/hydralisk_glow_static.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.HYDRALISK_GLOW_STATIC);
     private final RenderHydralisk<T> RENDERER;
 
     public LayerHydraliskGlowStatic(RenderHydralisk<T> hydraliskRendererIn) {

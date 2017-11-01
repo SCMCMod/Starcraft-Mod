@@ -1,15 +1,15 @@
 package ga.scmc.client.renderer.entity;
 
+import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.model.ModelCivilian;
 import ga.scmc.entity.living.EntityCivilian;
-import ga.scmc.lib.Library;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderCivilian extends RenderLiving<EntityCivilian> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/civilian.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.CIVILIAN);
 	protected ModelCivilian model;
 
 	public RenderCivilian(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {

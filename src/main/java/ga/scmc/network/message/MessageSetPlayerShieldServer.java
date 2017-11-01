@@ -1,6 +1,6 @@
 package ga.scmc.network.message;
 
-import ga.scmc.debugging.ShieldProvider;
+import ga.scmc.capabilities.ShieldProvider;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;

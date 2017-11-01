@@ -2,9 +2,9 @@ package ga.scmc.client.renderer.entity.layers;
 
 import org.lwjgl.opengl.GL11;
 
-import ga.scmc.client.renderer.entity.RenderZerglingSC2;
-import ga.scmc.entity.living.EntityZerglingSC2;
-import ga.scmc.lib.Library;
+import ga.scmc.client.renderer.Resources;
+import ga.scmc.client.renderer.entity.RenderZergling;
+import ga.scmc.entity.living.EntityZergling;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
@@ -16,16 +16,16 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * @author Ocelot5836
  */
 @SideOnly(Side.CLIENT)
-public class LayerZerglingColor<T extends EntityZerglingSC2> implements LayerRenderer<T> {
+public class LayerZerglingColor<T extends EntityZergling> implements LayerRenderer<T> {
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/zergling_overlay.png");
-	private final RenderZerglingSC2<T> RENDERER;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.ZERGLING_OVERLAY);
+	private final RenderZergling<T> RENDERER;
 
-	public LayerZerglingColor(RenderZerglingSC2<T> rendererIn) {
+	public LayerZerglingColor(RenderZergling<T> rendererIn) {
 		this.RENDERER = rendererIn;
 	}
 
-	public void doRenderLayer(EntityZerglingSC2 entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+	public void doRenderLayer(EntityZergling entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		this.RENDERER.bindTexture(TEXTURE);
 		GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
 

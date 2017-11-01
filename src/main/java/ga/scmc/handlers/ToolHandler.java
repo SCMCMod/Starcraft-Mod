@@ -5,7 +5,6 @@ import ga.scmc.items.tools.ToolAxe;
 import ga.scmc.items.tools.ToolHoe;
 import ga.scmc.items.tools.ToolPickaxe;
 import ga.scmc.items.tools.ToolShovel;
-import ga.scmc.lib.LogHelper;
 import ga.scmc.material.ToolMaterials;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -71,8 +70,5 @@ public class ToolHandler {
 
 	public static void registerItem(Item item) {
 		GameRegistry.register(item);
-		if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-			LogHelper.logger.info("Registered Tool: " + item.getUnlocalizedName().substring(5));
-		}
 	}
 }

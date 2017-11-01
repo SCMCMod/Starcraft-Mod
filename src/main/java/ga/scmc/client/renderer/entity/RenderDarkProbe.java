@@ -1,10 +1,10 @@
 package ga.scmc.client.renderer.entity;
 
+import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.entity.layers.LayerDarkProbeColor;
 import ga.scmc.client.renderer.entity.layers.LayerDarkProbeGlowDynamic;
 import ga.scmc.client.renderer.model.ModelDarkProbe;
 import ga.scmc.entity.living.EntityDarkProbe;
-import ga.scmc.lib.Library;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +12,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderDarkProbe<T> extends RenderLiving<EntityDarkProbe> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/darkprobe_base.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.DARKPROBE_BASE);
 	protected ModelDarkProbe model;
 
 	public RenderDarkProbe(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {

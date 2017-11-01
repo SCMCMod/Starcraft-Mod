@@ -1,0 +1,7 @@
+{
+	"parent":"block/cube_all",
+	"textures": {
+		"all": "starcraft:blocks/fluid.acid.still",
+		"flowing": "starcraft:blocks/fluid.acid.flowing"
+	}
+}

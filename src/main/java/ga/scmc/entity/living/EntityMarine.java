@@ -2,12 +2,9 @@ package ga.scmc.entity.living;
 
 import com.google.common.base.Predicate;
 
-import ga.scmc.debugging.ColorProvider;
-import ga.scmc.debugging.IColor;
-import ga.scmc.entity.EntityStarcraftMob;
-import ga.scmc.entity.EntityStarcraftPassive;
-import ga.scmc.entity.EntityTerranMob;
-import ga.scmc.entity.projectiles.EntityC14GaussRifleBullet;
+import ga.scmc.capabilities.ColorProvider;
+import ga.scmc.capabilities.IColor;
+import ga.scmc.entity.EntityC14GaussRifleBullet;
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;

@@ -5,8 +5,6 @@ package ga.scmc.lib;
  * @author Hypeirochus
  */
 public class FactorySettings {
-
-	public static boolean BOOL_DEBUG_MODE_ENABLED = false;
 			
 	public static boolean BOOL_VANILLA_MOB_SPAWNING_DISABLED = false;
 

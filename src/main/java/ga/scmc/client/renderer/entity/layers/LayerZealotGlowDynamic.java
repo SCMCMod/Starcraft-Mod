@@ -2,9 +2,9 @@ package ga.scmc.client.renderer.entity.layers;
 
 import org.lwjgl.opengl.GL11;
 
+import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.entity.RenderZealot;
 import ga.scmc.entity.living.EntityZealot;
-import ga.scmc.lib.Library;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
@@ -14,7 +14,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class LayerZealotGlowDynamic<T extends EntityZealot> implements LayerRenderer<T> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.MODID, "textures/entity/zealot_glow_dynamic.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.ZEALOT_GLOW_DYNAMIC);
 	private final RenderZealot<T> RENDERER;
 
 	public LayerZealotGlowDynamic(RenderZealot<T> zealotRendererIn) {

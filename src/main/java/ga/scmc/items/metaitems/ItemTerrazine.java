@@ -3,8 +3,8 @@ package ga.scmc.items.metaitems;
 import java.util.List;
 
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
-import ga.scmc.handlers.ItemEnumHandler;
-import ga.scmc.handlers.ItemEnumHandler.TerrazineType;
+import ga.scmc.enums.EnumMetaItem;
+import ga.scmc.enums.EnumMetaItem.TerrazineType;
 import ga.scmc.handlers.ItemHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -63,11 +63,11 @@ public class ItemTerrazine extends Item {
 		player.addPotionEffect(new PotionEffect(Potion.getPotionById(5), 750));
 		player.addPotionEffect(new PotionEffect(Potion.getPotionById(9), 750));
 		if(this.getMetadata(itemStackIn) == 1) {
-			player.inventory.addItemStackToInventory(new ItemStack(ItemHandler.GAS_CONTAINER, 1, ItemEnumHandler.ContainerType.PROTOSS.getID()));
+			player.inventory.addItemStackToInventory(new ItemStack(ItemHandler.GAS_CONTAINER, 1, EnumMetaItem.ContainerType.PROTOSS.getID()));
 		}else if(this.getMetadata(itemStackIn) == 2) {
-			player.inventory.addItemStackToInventory(new ItemStack(ItemHandler.GAS_CONTAINER, 1, ItemEnumHandler.ContainerType.TERRAN.getID()));
+			player.inventory.addItemStackToInventory(new ItemStack(ItemHandler.GAS_CONTAINER, 1, EnumMetaItem.ContainerType.TERRAN.getID()));
 		}else if(this.getMetadata(itemStackIn) == 3) {
-			player.inventory.addItemStackToInventory(new ItemStack(ItemHandler.GAS_CONTAINER, 1, ItemEnumHandler.ContainerType.ZERG.getID()));
+			player.inventory.addItemStackToInventory(new ItemStack(ItemHandler.GAS_CONTAINER, 1, EnumMetaItem.ContainerType.ZERG.getID()));
 		}
 		player.inventory.decrStackSize(player.inventory.getSlotFor(itemStackIn), 1);
 		return super.onItemRightClick(itemStackIn, worldIn, player, hand);

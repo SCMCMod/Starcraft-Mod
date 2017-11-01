@@ -3,7 +3,7 @@ package ga.scmc.items.metaitems;
 import java.util.List;
 
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
-import ga.scmc.handlers.ItemEnumHandler.C14PartType;
+import ga.scmc.enums.EnumMetaItem.C14PartType;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

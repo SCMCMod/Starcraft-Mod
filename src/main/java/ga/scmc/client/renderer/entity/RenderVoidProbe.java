@@ -1,10 +1,10 @@
 package ga.scmc.client.renderer.entity;
 
+import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.entity.layers.LayerVoidProbeColor;
 import ga.scmc.client.renderer.entity.layers.LayerVoidProbeGlowDynamic;
 import ga.scmc.client.renderer.model.ModelVoidProbe;
 import ga.scmc.entity.living.EntityVoidProbe;
-import ga.scmc.lib.Library;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +12,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderVoidProbe<T> extends RenderLiving<EntityVoidProbe> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/voidprobe_base.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.VOID_PROBE_BASE);
 	protected ModelVoidProbe model;
 
 	public RenderVoidProbe(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {

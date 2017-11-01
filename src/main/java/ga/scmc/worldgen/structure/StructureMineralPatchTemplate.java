@@ -3,9 +3,7 @@ package ga.scmc.worldgen.structure;
 import java.util.Random;
 
 import ga.scmc.handlers.BlockHandler;
-import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.MetaBlockHandler;
-import ga.scmc.lib.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -45,9 +43,6 @@ public class StructureMineralPatchTemplate extends SCWorldGenerator {
 	public boolean generate_r0(World world, int meta, BlockPos pos) {
 		if (!LocationIsValidSpawn(world, pos) || !LocationIsValidSpawn(world, pos.add(24, 0, 0)) || !LocationIsValidSpawn(world, pos.add(46, 0, 12)) || !LocationIsValidSpawn(world, pos.add(0, 0, 12))) {
 			return false;
-		}
-		if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-			LogHelper.logger.info("A Mineral Patch is spawning!");
 		}
 		world.setBlockState(pos.add(24, 1, 10), MetaBlockHandler.COMP_MINERAL.getStateFromMeta(meta));
 		world.setBlockState(pos.add(24, 1, 11), MetaBlockHandler.COMP_MINERAL.getStateFromMeta(meta));

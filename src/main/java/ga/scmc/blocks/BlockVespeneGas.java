@@ -8,7 +8,7 @@ import org.lwjgl.util.vector.Vector3f;
 
 import ga.scmc.StarcraftDamageSources;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
-import ga.scmc.handlers.ItemEnumHandler;
+import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.MaterialHandler;
 import net.minecraft.block.state.IBlockState;
@@ -73,7 +73,7 @@ public class BlockVespeneGas extends BlockGas {
 		if(heldItem != null) {
 			if(heldItem.getItem() == ItemHandler.GAS_CONTAINER) {
 				int meta = heldItem.getMetadata();
-				for(int i = 0; i < ItemEnumHandler.ContainerType.values().length; i++) {
+				for(int i = 0; i < EnumMetaItem.ContainerType.values().length; i++) {
 					if(meta == i) {
 						if(!player.isCreative()) {
 							world.destroyBlock(pos, false);

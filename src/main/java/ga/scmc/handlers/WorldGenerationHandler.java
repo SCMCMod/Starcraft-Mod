@@ -2,7 +2,6 @@ package ga.scmc.handlers;
 
 import java.util.Random;
 
-import ga.scmc.lib.LogHelper;
 import ga.scmc.worldgen.dimchar.CharWorldGenMinable;
 import ga.scmc.worldgen.dimshakuras.ShakurasWorldGenMinable;
 import ga.scmc.worldgen.structure.SCWorldGenerator;
@@ -244,9 +243,6 @@ public class WorldGenerationHandler implements IWorldGenerator {
 			runGenerator(TITANIUM_OVERWORLD, world, random, chunkX, chunkZ, 3, 4, 28);
 			if (rnd.nextInt(100) < 25 && world.getWorldInfo().isMapFeaturesEnabled()) {
 				runGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100, true);
-				if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-					LogHelper.logger.info("A Warp Gate attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
-				}
 			}
 	
 		case -1: // Nether
@@ -271,51 +267,27 @@ public class WorldGenerationHandler implements IWorldGenerator {
 
 				if (rnd.nextInt(100) < 20 && world.getWorldInfo().isMapFeaturesEnabled()) {
 					runGenerator(SPAWNING_POOL, world, random, chunkX, chunkZ, 0, 1, 0, 1, 0, 100, true);
-					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-						LogHelper.logger.info("A Spawning Pool attempted to spawn at " + chunkX + "," + chunkZ + "!");
-					}
 				}
 				if (rnd.nextInt(100) < 15 && world.getWorldInfo().isMapFeaturesEnabled()) {
 					runGenerator(ZERG_SPIRE, world, random, chunkX, chunkZ, 0, 1, 0, 1, 0, 100, true);
-					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-						LogHelper.logger.info("A Spire attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
-					}
 				}
 				if (rnd.nextInt(100) < 15 && world.getWorldInfo().isMapFeaturesEnabled()) {
 					runGenerator(ZERG_HYDRALISK_DEN, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100, true);
-					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-						LogHelper.logger.info("A Hydralisk Den attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
-					}
 				}
 				if (rnd.nextInt(100) < 10 && world.getWorldInfo().isMapFeaturesEnabled()) {
 					runGenerator(PROTOSS_WARPGATE, 1, 2, world, random, chunkX, chunkZ, 0, -1, 0, 1, 0, 100, true);
-					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-						LogHelper.logger.info("A Warp Gate attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
-					}
 				}
 				if (rnd.nextInt(100) < 2 && world.getWorldInfo().isMapFeaturesEnabled()) {
 					runGenerator(GEYSER, BlockHandler.STONE_CHAR.getDefaultState(), BlockHandler.FLUID_VESPENE.getDefaultState(), world, random, chunkX, chunkZ, 0, -34, 0, 1, 60, 80, true);
-					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-						LogHelper.logger.info("A Vespene Geyser attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
-					}
 				}
 				if (rnd.nextInt(100) < 1 && world.getWorldInfo().isMapFeaturesEnabled()) {
 					runGenerator(GEYSER, BlockHandler.STONE_CHAR.getDefaultState(), BlockHandler.FLUID_TERRAZINE.getDefaultState(), world, random, chunkX, chunkZ, 0, -34, 0, 1, 60, 80, true);
-					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-						LogHelper.logger.info("A Terrazine Geyser attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
-					}
 				}
 				if (rnd.nextInt(100) < 10 && world.getWorldInfo().isMapFeaturesEnabled()) {
 					runGenerator(MINERAL_PATCH, 0, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
-					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-						LogHelper.logger.info("A Mineral Patch attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
-					}
 				}
 				if (rnd.nextInt(100) < 5 && world.getWorldInfo().isMapFeaturesEnabled()) {
 					runGenerator(MINERAL_PATCH, 1, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
-					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-						LogHelper.logger.info("A Rich Mineral Patch attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
-					}
 				}
 				runGenerator(MAGMA_CHAR, world, random, chunkX, chunkZ, 25, 0, 128);
 
@@ -336,45 +308,24 @@ public class WorldGenerationHandler implements IWorldGenerator {
 
 				if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiomeForCoordsBody(new BlockPos(chunkX + 8, 0, chunkZ + 8)) == BiomeHandler.biomeShakurasCity) {
 					runGenerator(PROTOSS_PYLON, 1, 2, world, random, chunkX, chunkZ, 0, 3, 0, 3, 0, 100, true);
-					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-						LogHelper.logger.info("A Pylon attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
-					}
 				}
 				if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiomeForCoordsBody(new BlockPos(chunkX + 8, 0, chunkZ + 8)) == BiomeHandler.biomeShakurasCity) {
 					runGenerator(PROTOSS_WARPGATE, 1, 2, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
-					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-						LogHelper.logger.info("A Warp Gate attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
-					}
 				}
 				if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiomeForCoordsBody(new BlockPos(chunkX + 8, 0, chunkZ + 8)) == BiomeHandler.biomeShakurasCity) {
 					runGenerator(PROTOSS_CYBERNETICS_CORE, 1, 2, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
-					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-						LogHelper.logger.info("A Cybernetics Core attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
-					}
 				}
 				if (rnd.nextInt(100) < 3 && world.getWorldInfo().isMapFeaturesEnabled()) {
 					runGenerator(GEYSER, BlockHandler.STONE_SHAKURAS.getDefaultState(), BlockHandler.FLUID_VESPENE.getDefaultState(), world, random, chunkX, chunkZ, 0, -34, 0, 1, 60, 80, true);
-					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-						LogHelper.logger.info("A Vespene Geyser attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
-					}
 				}
 				if (rnd.nextInt(100) < 1 && world.getWorldInfo().isMapFeaturesEnabled()) {
 					runGenerator(GEYSER, BlockHandler.STONE_SHAKURAS.getDefaultState(), BlockHandler.FLUID_TERRAZINE.getDefaultState(), world, random, chunkX, chunkZ, 0, -34, 0, 1, 60, 80, true);
-					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-						LogHelper.logger.info("A Terrazine Geyser attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
-					}
 				}
 				if (rnd.nextInt(100) < 10 && world.getWorldInfo().isMapFeaturesEnabled()) {
 					runGenerator(MINERAL_PATCH, 0, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
-					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-						LogHelper.logger.info("A Mineral Patch attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
-					}
 				}
 				if (rnd.nextInt(100) < 5 && world.getWorldInfo().isMapFeaturesEnabled()) {
 					runGenerator(MINERAL_PATCH, 1, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
-					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-						LogHelper.logger.info("A Rich Mineral Patch attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
-					}
 				}
 			}else if (world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_SLAYN) {
 				
@@ -394,21 +345,12 @@ public class WorldGenerationHandler implements IWorldGenerator {
 				
 				if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiomeForCoordsBody(new BlockPos(chunkX + 8, 0, chunkZ + 8)) == BiomeHandler.biomeKorhalCity) {
 					runGenerator(TERRAN_BUNKER, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
-					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-						LogHelper.logger.info("A Bunker attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
-					}
 				}
 				if (rnd.nextInt(100) < 2 && world.getWorldInfo().isMapFeaturesEnabled()) {
 					runGenerator(GEYSER, Blocks.RED_SANDSTONE.getDefaultState(), BlockHandler.FLUID_VESPENE.getDefaultState(), world, random, chunkX, chunkZ, 0, -34, 0, 1, 60, 80, true);
-					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-						LogHelper.logger.info("A Vespene Geyser attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
-					}
 				}
 				if (rnd.nextInt(100) < 1 && world.getWorldInfo().isMapFeaturesEnabled()) {
 					runGenerator(GEYSER, Blocks.RED_SANDSTONE.getDefaultState(), BlockHandler.FLUID_TERRAZINE.getDefaultState(), world, random, chunkX, chunkZ, 0, -34, 0, 1, 60, 80, true);
-					if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-						LogHelper.logger.info("A Terrazine Geyser attempted to spawn at chunk " + chunkX + "," + chunkZ + "!");
-					}
 				}
 			}else if (world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_KALDIR) {
 

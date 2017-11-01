@@ -3,8 +3,8 @@ package ga.scmc.items.metaitems;
 import java.util.List;
 
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
-import ga.scmc.handlers.ItemEnumHandler.IngotType;
-import ga.scmc.handlers.ItemEnumHandler.ProtossIngotType;
+import ga.scmc.enums.EnumMetaItem.IngotType;
+import ga.scmc.enums.EnumMetaItem.ProtossIngotType;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

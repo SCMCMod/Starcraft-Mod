@@ -8,14 +8,11 @@ import com.arisux.mdx.lib.world.entity.ItemDrop;
 import ga.scmc.Starcraft;
 import ga.scmc.client.gui.GuiHandler;
 import ga.scmc.client.gui.GuiLarvaMorph;
-import ga.scmc.entity.EntityProtossMob;
-import ga.scmc.entity.EntityTerranMob;
-import ga.scmc.entity.EntityZergPassive;
 import ga.scmc.enums.EnumFactionTypes;
+import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.BlockHandler;
-import ga.scmc.handlers.ItemEnumHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.MetaBlockHandler;
 import ga.scmc.handlers.SoundHandler;
@@ -82,7 +79,7 @@ public class EntityLarva extends EntityZergPassive {
 
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
-		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), ItemEnumHandler.CarapaceType.T1.getID()));
+		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), EnumMetaItem.CarapaceType.T1.getID()));
 		drop.tryDrop(this);
 	}
 	

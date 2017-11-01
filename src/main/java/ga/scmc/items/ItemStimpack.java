@@ -1,7 +1,6 @@
 package ga.scmc.items;
 
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
-import ga.scmc.jei.IJeiTooltip;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

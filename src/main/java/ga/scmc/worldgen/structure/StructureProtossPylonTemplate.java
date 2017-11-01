@@ -6,9 +6,7 @@ package ga.scmc.worldgen.structure;
 import java.util.Random;
 
 import ga.scmc.handlers.BlockHandler;
-import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.MetaBlockHandler;
-import ga.scmc.lib.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -28,10 +26,6 @@ public class StructureProtossPylonTemplate extends SCWorldGenerator {
 			if(!LocationIsValidSpawn(world, pos) || !LocationIsValidSpawn(world, pos.add(7, 0, 0)) || !LocationIsValidSpawn(world, pos.add(7, 0, 8)) || !LocationIsValidSpawn(world, pos.add(0, 0, 8))) {
 				return false;
 			}
-		}
-		
-		if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-			LogHelper.logger.info("A Pylon is spawning!");
 		}
 		world.setBlockState(pos.add(4, 2 + offsetY, 2), MetaBlockHandler.PROTOSS_METAL_T1.getStateFromMeta(metaPrimColor));
 		world.setBlockState(pos.add(2, 2 + offsetY, 4), MetaBlockHandler.PROTOSS_METAL_T1.getStateFromMeta(metaPrimColor));

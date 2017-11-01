@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "type=protoss": { "model": "starcraft:gas_collector_protoss" },
-		"type=terran": { "model": "starcraft:gas_collector_terran" },
-        "type=zerg": { "model": "starcraft:gas_collector_zerg" }
-    }
-}

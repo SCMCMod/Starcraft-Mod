@@ -1,8 +1,8 @@
 package ga.scmc.client.renderer.entity.layers;
 
+import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.entity.RenderZerglingRaptor;
 import ga.scmc.entity.living.EntityZerglingRaptor;
-import ga.scmc.lib.Library;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
@@ -13,7 +13,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class LayerZerglingRaptorGlowStatic<T extends EntityZerglingRaptor> implements LayerRenderer<T>
 {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/zergling_glow_static.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.ZERGLING_GLOW_STATIC);
     private final RenderZerglingRaptor<T> RENDERER;
 
     public LayerZerglingRaptorGlowStatic(RenderZerglingRaptor<T> zerglingRaptorRendererIn)

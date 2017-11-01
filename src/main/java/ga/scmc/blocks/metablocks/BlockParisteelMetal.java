@@ -4,7 +4,7 @@ import java.util.List;
 
 import ga.scmc.blocks.itemblocks.IMetaBlockName;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
-import ga.scmc.handlers.BlockEnumHandler.ParisteelMetalType;
+import ga.scmc.enums.EnumMetaBlock.ParisteelMetalType;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;

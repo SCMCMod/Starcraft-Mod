@@ -2,10 +2,10 @@ package ga.scmc.items.metaitems;
 
 import java.util.List;
 
+import ga.scmc.capabilities.ColorProvider;
+import ga.scmc.capabilities.IColor;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
-import ga.scmc.debugging.ColorProvider;
-import ga.scmc.debugging.IColor;
-import ga.scmc.handlers.ItemEnumHandler.PledgeType;
+import ga.scmc.enums.EnumMetaItem.PledgeType;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;

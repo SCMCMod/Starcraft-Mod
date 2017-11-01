@@ -1,10 +1,10 @@
 package ga.scmc.client.renderer.entity;
 
+import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.entity.layers.LayerProbeColor;
 import ga.scmc.client.renderer.entity.layers.LayerProbeGlowDynamic;
 import ga.scmc.client.renderer.model.ModelProbe;
 import ga.scmc.entity.living.EntityProbe;
-import ga.scmc.lib.Library;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,7 +12,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderProbe<T> extends RenderLiving<EntityProbe> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/probe_base.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.PROBE_BASE);
 	protected ModelProbe model;
 
 	public RenderProbe(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {

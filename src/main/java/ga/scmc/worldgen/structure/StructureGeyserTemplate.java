@@ -3,8 +3,6 @@ package ga.scmc.worldgen.structure;
 import java.util.Random;
 
 import ga.scmc.handlers.BlockHandler;
-import ga.scmc.handlers.ConfigurationHandler;
-import ga.scmc.lib.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -25,9 +23,6 @@ public class StructureGeyserTemplate extends SCWorldGenerator {
 			if(!LocationIsValidSpawn(world, pos) || !LocationIsValidSpawn(world, pos.add(16, 0, 0)) || !LocationIsValidSpawn(world, pos.add(16, 0, 16)) || !LocationIsValidSpawn(world, pos.add(0, 0, 16))) {
 				return false;
 			}
-		}
-		if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-			LogHelper.logger.info("A Geyser is spawning!");
 		}
 		int x = offsetX;
 		int y = offsetY;

@@ -2,7 +2,6 @@ package ga.scmc.entity.living;
 
 import java.util.List;
 
-import ga.scmc.entity.EntityZergPassive;
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
@@ -293,7 +292,7 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 		case 0:
 			return new EntityDrone(world);
 		case 2:
-			return new EntityZerglingSC2(world);
+			return new EntityZergling(world);
 		case 4:
 			return new EntityHydralisk(world);
 		}

@@ -1,18 +1,13 @@
 package ga.scmc.events;
 
 import ga.scmc.achievement.Achievements;
-import ga.scmc.debugging.ColorProvider;
-import ga.scmc.debugging.IColor;
+import ga.scmc.capabilities.ColorProvider;
+import ga.scmc.capabilities.IColor;
 import ga.scmc.handlers.ConfigurationHandler;
-import ga.scmc.lib.CapabilityUtils;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.text.Style;
-import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
-import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 
 /**
  * This class handles events that involve the player.

@@ -2,9 +2,9 @@ package ga.scmc.client.renderer.entity.layers;
 
 import org.lwjgl.opengl.GL11;
 
+import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.entity.RenderProbe;
 import ga.scmc.entity.living.EntityProbe;
-import ga.scmc.lib.Library;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
@@ -19,7 +19,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class LayerProbeGlowDynamic<T extends EntityProbe> implements LayerRenderer<T> {
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/probe_glow_dynamic.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.PROBE_GLOW_DYNAMIC);
 	private final RenderProbe<T> RENDERER;
 
 	public LayerProbeGlowDynamic(RenderProbe<T> zealotRendererIn) {

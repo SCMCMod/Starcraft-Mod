@@ -3,9 +3,7 @@ package ga.scmc.worldgen.structure;
 import java.util.Random;
 
 import ga.scmc.handlers.BlockHandler;
-import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.MetaBlockHandler;
-import ga.scmc.lib.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -25,9 +23,6 @@ public class StructureProtossCyberneticsCoreTemplate extends SCWorldGenerator {
 			if(!LocationIsValidSpawn(world, pos) || !LocationIsValidSpawn(world, pos.add(25, 0, 0)) || !LocationIsValidSpawn(world, pos.add(25, 0, 22)) || !LocationIsValidSpawn(world, pos.add(0, 0, 22))) {
 				return false;
 			}
-		}
-		if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-			LogHelper.logger.info("A Cybernetics Core is spawning!");
 		}
 		int x = offsetX;
 		int y = offsetY;

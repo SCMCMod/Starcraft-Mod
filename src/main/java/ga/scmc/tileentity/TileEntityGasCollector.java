@@ -2,13 +2,13 @@ package ga.scmc.tileentity;
 
 import com.mojang.authlib.GameProfile;
 
+import ga.scmc.api.BaseUtils;
 import ga.scmc.blocks.BlockGas;
 import ga.scmc.blocks.BlockTerrazineGas;
 import ga.scmc.blocks.BlockVespeneGas;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.MetaBlockHandler;
 import ga.scmc.handlers.SoundHandler;
-import ga.scmc.lib.BaseUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDynamicLiquid;
 import net.minecraft.block.BlockStaticLiquid;

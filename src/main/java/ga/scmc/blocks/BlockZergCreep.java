@@ -3,8 +3,8 @@ package ga.scmc.blocks;
 import java.util.Random;
 
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
-import ga.scmc.entity.EntityZergMob;
-import ga.scmc.entity.EntityZergPassive;
+import ga.scmc.entity.living.EntityZergMob;
+import ga.scmc.entity.living.EntityZergPassive;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.ItemHandler;

@@ -2,9 +2,9 @@ package ga.scmc.client.renderer.entity.layers;
 
 import org.lwjgl.opengl.GL11;
 
+import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.entity.RenderZerglingBoost;
 import ga.scmc.entity.living.EntityZerglingBoost;
-import ga.scmc.lib.Library;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
@@ -18,7 +18,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class LayerZerglingBoostColor<T extends EntityZerglingBoost> implements LayerRenderer<T> {
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/zergling_overlay.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.ZERGLING_OVERLAY);
 	private final RenderZerglingBoost<T> RENDERER;
 
 	public LayerZerglingBoostColor(RenderZerglingBoost<T> rendererIn) {

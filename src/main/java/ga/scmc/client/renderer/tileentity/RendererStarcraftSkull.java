@@ -4,7 +4,7 @@ import ga.scmc.client.renderer.RenderUtil;
 import ga.scmc.client.renderer.model.IModelSkull;
 import ga.scmc.client.renderer.model.ModelBrutalisk;
 import ga.scmc.client.renderer.model.ModelHydralisk;
-import ga.scmc.client.renderer.model.ModelZerglingSC2;
+import ga.scmc.client.renderer.model.ModelZergling;
 import ga.scmc.lib.Library;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
 import net.minecraft.client.model.ModelBase;
@@ -56,7 +56,7 @@ public class RendererStarcraftSkull extends TileEntitySpecialRenderer<TileEntity
 				skullModel = new ModelSkeletonHead(0, 0, 64, 64);
 				break;
 			case 1:
-				skullModel = new ModelZerglingSC2();
+				skullModel = new ModelZergling();
 				break;
 			case 2:
 				skullModel = new ModelHydralisk();

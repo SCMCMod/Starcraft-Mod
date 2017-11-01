@@ -3,12 +3,12 @@ package ga.scmc.blocks.metablocks;
 import java.util.List;
 
 import ga.scmc.Starcraft;
+import ga.scmc.api.BaseUtils;
 import ga.scmc.blocks.itemblocks.IMetaBlockName;
 import ga.scmc.client.gui.GuiHandler;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
-import ga.scmc.handlers.BlockEnumHandler.GasCollectorType;
+import ga.scmc.enums.EnumMetaBlock.GasCollectorType;
 import ga.scmc.handlers.SoundHandler.SoundTypes;
-import ga.scmc.lib.BaseUtils;
 import ga.scmc.tileentity.TileEntityGasCollector;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;

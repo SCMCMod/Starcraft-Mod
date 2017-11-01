@@ -1,9 +1,9 @@
 package ga.scmc.client.renderer.entity;
 
+import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.entity.layers.LayerScarab;
 import ga.scmc.client.renderer.model.ModelScarab;
 import ga.scmc.entity.living.EntityScarab;
-import ga.scmc.lib.Library;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderScarab<T> extends RenderLiving<EntityScarab> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/scarab.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.SCARAB);
 	protected ModelScarab model;
 
 	public RenderScarab(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {

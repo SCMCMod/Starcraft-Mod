@@ -1,6 +1,6 @@
 package ga.scmc.client.renderer.projectiles;
 
-import ga.scmc.entity.projectiles.EntityFlamethrowerFlame;
+import ga.scmc.entity.EntityFlamethrowerFlame;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;

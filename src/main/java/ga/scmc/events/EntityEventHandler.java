@@ -2,8 +2,8 @@ package ga.scmc.events;
 
 import java.util.Random;
 
-import ga.scmc.entity.EntityStarcraftMob;
-import ga.scmc.entity.EntityStarcraftPassive;
+import ga.scmc.entity.living.EntityStarcraftMob;
+import ga.scmc.entity.living.EntityStarcraftPassive;
 import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.ItemHandler;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;

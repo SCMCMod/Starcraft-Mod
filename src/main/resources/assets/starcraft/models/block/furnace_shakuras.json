@@ -1,8 +1,0 @@
-{
-    "parent": "block/orientable",
-    "textures": {
-        "top": "starcraft:blocks/shakuras_furnace_top",
-        "front": "starcraft:blocks/shakuras_furnace_front_off",
-        "side": "starcraft:blocks/shakuras_furnace_side"
-    }
-}

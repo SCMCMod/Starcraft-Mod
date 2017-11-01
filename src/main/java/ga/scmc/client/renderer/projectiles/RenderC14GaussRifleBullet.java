@@ -1,7 +1,7 @@
 package ga.scmc.client.renderer.projectiles;
 
 import ga.scmc.client.renderer.model.ModelBullet;
-import ga.scmc.entity.projectiles.EntityC14GaussRifleBullet;
+import ga.scmc.entity.EntityC14GaussRifleBullet;
 import ga.scmc.lib.Library;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;

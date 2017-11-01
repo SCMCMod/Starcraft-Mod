@@ -2,7 +2,6 @@ package ga.scmc.entity.living;
 
 import java.util.List;
 
-import ga.scmc.entity.EntityZergPassive;
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;

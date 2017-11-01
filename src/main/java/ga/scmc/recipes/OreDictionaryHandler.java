@@ -1,7 +1,7 @@
 package ga.scmc.recipes;
 
+import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.handlers.BlockHandler;
-import ga.scmc.handlers.ItemEnumHandler;
 import ga.scmc.handlers.ItemHandler;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
@@ -30,8 +30,8 @@ public class OreDictionaryHandler {
 		OreDictionary.registerOre("oreCopper", BlockHandler.ORE_COPPER_CHAR);
 		OreDictionary.registerOre("oreCopper", BlockHandler.ORE_COPPER_SHAKURAS);
 		
-		OreDictionary.registerOre("dustSteel", new ItemStack(ItemHandler.DUST, 1, ItemEnumHandler.DustType.STEEL.getID()));
-		OreDictionary.registerOre("ingotCopper", new ItemStack(ItemHandler.INGOT, 1, ItemEnumHandler.IngotType.COPPER.getID()));
-		OreDictionary.registerOre("ingotSteel", new ItemStack(ItemHandler.INGOT, 1, ItemEnumHandler.IngotType.STEEL.getID()));
+		OreDictionary.registerOre("dustSteel", new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.STEEL.getID()));
+		OreDictionary.registerOre("ingotCopper", new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()));
+		OreDictionary.registerOre("ingotSteel", new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()));
 	}
 }

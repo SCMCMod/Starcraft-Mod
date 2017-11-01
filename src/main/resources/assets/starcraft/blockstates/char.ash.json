@@ -1,0 +1,14 @@
+{
+	"forge_marker": 1,
+    "variants": {
+    	"normal": { "model": "starcraft:char.ash.2" },
+        "layers=1": { "model": "starcraft:char.ash.2" },
+        "layers=2": { "model": "starcraft:char.ash.4" },
+        "layers=3": { "model": "starcraft:char.ash.6" },
+        "layers=4": { "model": "starcraft:char.ash.8" },
+        "layers=5": { "model": "starcraft:char.ash.10" },
+        "layers=6": { "model": "starcraft:char.ash.12" },
+        "layers=7": { "model": "starcraft:char.ash.14" },
+        "layers=8": { "model": "starcraft:char_ash" }
+    }
+}

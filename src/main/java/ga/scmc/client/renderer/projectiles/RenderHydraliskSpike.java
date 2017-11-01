@@ -1,7 +1,7 @@
 package ga.scmc.client.renderer.projectiles;
 
 import ga.scmc.client.renderer.model.ModelHydraliskSpike;
-import ga.scmc.entity.projectiles.EntityHydraliskSpike;
+import ga.scmc.entity.EntityHydraliskSpike;
 import ga.scmc.lib.Library;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;

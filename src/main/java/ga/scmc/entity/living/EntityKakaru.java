@@ -4,8 +4,8 @@ import java.util.Random;
 
 import com.arisux.mdx.lib.world.entity.ItemDrop;
 
+import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.handlers.ConfigurationHandler;
-import ga.scmc.handlers.ItemEnumHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
 import net.minecraft.entity.EntityFlying;
@@ -80,7 +80,7 @@ public class EntityKakaru extends EntityFlying {
 	
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
-		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.PROTOSS_INGOT, 1 + this.rand.nextInt(2), ItemEnumHandler.ProtossIngotType.DARK.getID()));
+		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.PROTOSS_INGOT, 1 + this.rand.nextInt(2), EnumMetaItem.ProtossIngotType.DARK.getID()));
 		drop.tryDrop(this);
 	}
 	

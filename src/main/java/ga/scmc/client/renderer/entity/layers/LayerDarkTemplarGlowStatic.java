@@ -1,8 +1,8 @@
 package ga.scmc.client.renderer.entity.layers;
 
+import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.entity.RenderDarkTemplar;
 import ga.scmc.entity.living.EntityDarkTemplar;
-import ga.scmc.lib.Library;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
@@ -12,7 +12,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class LayerDarkTemplarGlowStatic<T extends EntityDarkTemplar> implements LayerRenderer<T> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/darktemplar_glow_static.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.DARKTEMPLAR_GLOW_STATIC);
     private final RenderDarkTemplar<T> renderer;
 
     public LayerDarkTemplarGlowStatic(RenderDarkTemplar<T> darktemplarRendererIn) {

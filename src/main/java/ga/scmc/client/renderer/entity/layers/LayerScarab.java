@@ -1,8 +1,8 @@
 package ga.scmc.client.renderer.entity.layers;
 
+import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.entity.RenderScarab;
 import ga.scmc.entity.living.EntityScarab;
-import ga.scmc.lib.Library;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
@@ -13,7 +13,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class LayerScarab<T extends EntityScarab> implements LayerRenderer<T>
 {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/scarab_layer.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.SCARAB);
     private final RenderScarab RENDERER;
 
     public LayerScarab(RenderScarab scarabRenderer)

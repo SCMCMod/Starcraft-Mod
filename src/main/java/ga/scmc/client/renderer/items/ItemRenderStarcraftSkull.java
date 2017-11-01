@@ -5,7 +5,7 @@ import ga.scmc.client.renderer.blocks.ModelTable;
 import ga.scmc.client.renderer.model.IModelSkull;
 import ga.scmc.client.renderer.model.ModelBrutalisk;
 import ga.scmc.client.renderer.model.ModelHydralisk;
-import ga.scmc.client.renderer.model.ModelZerglingSC2;
+import ga.scmc.client.renderer.model.ModelZergling;
 import ga.scmc.lib.Library;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelSkeletonHead;
@@ -208,7 +208,7 @@ public class ItemRenderStarcraftSkull extends ItemRenderer {
 			skullModel = new ModelSkeletonHead(0, 0, 64, 64);
 			break;
 		case 1:
-			skullModel = new ModelZerglingSC2();
+			skullModel = new ModelZergling();
 			break;
 		case 2:
 			skullModel = new ModelHydralisk();

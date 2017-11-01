@@ -3,15 +3,12 @@ package ga.scmc.entity.living;
 import com.arisux.mdx.lib.world.entity.ItemDrop;
 import com.google.common.base.Predicate;
 
-import ga.scmc.debugging.ColorProvider;
-import ga.scmc.debugging.IColor;
-import ga.scmc.entity.EntityStarcraftMob;
-import ga.scmc.entity.EntityStarcraftPassive;
-import ga.scmc.entity.EntityZergMob;
+import ga.scmc.capabilities.ColorProvider;
+import ga.scmc.capabilities.IColor;
 import ga.scmc.enums.EnumFactionTypes;
+import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
-import ga.scmc.handlers.ItemEnumHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
 import net.minecraft.block.Block;
@@ -132,7 +129,7 @@ public class EntityBrutalisk extends EntityZergMob implements IMob, Predicate<En
 	 */
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
-		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), ItemEnumHandler.CarapaceType.T3.getID()));
+		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), EnumMetaItem.CarapaceType.T3.getID()));
 		drop.tryDrop(this);
 	}
 

@@ -3,10 +3,10 @@ package ga.scmc.client.gui;
 import com.google.common.collect.ImmutableList;
 
 import ga.scmc.client.gui.element.LarvaOption;
+import ga.scmc.enums.EnumMetaBlock.NeosteelMetalType;
+import ga.scmc.enums.EnumMetaBlock.ParisteelMetalType;
+import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.handlers.ArmorHandler;
-import ga.scmc.handlers.BlockEnumHandler.NeosteelMetalType;
-import ga.scmc.handlers.BlockEnumHandler.ParisteelMetalType;
-import ga.scmc.handlers.ItemEnumHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.MetaBlockHandler;
 import ga.scmc.handlers.ToolHandler;
@@ -31,10 +31,10 @@ public class GuiLists {
 		tab0.add(new Product(new ItemStack(ItemHandler.INGOT, 1, 0), 1, 0));
 		tab0.add(new Product(new ItemStack(ItemHandler.INGOT, 1, 1), 2, 0));
 		tab0.add(new Product(new ItemStack(ItemHandler.INGOT, 1, 2), 3, 1));
-		tab0.add(new Product(new ItemStack(ItemHandler.DUST, 1, ItemEnumHandler.DustType.CARBON.getID()), 1, 0));
-		tab0.add(new Product(new ItemStack(ItemHandler.DUST, 1, ItemEnumHandler.DustType.IRON.getID()), 2, 0));
-		tab0.add(new Product(new ItemStack(ItemHandler.DUST, 1, ItemEnumHandler.DustType.STEEL.getID()), 2, 1));
-		tab0.add(new Product(new ItemStack(ItemHandler.GAS_CONTAINER, 1, ItemEnumHandler.ContainerType.TERRAN.getID()), 1, 0));
+		tab0.add(new Product(new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.CARBON.getID()), 1, 0));
+		tab0.add(new Product(new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.IRON.getID()), 2, 0));
+		tab0.add(new Product(new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.STEEL.getID()), 2, 1));
+		tab0.add(new Product(new ItemStack(ItemHandler.GAS_CONTAINER, 1, EnumMetaItem.ContainerType.TERRAN.getID()), 1, 0));
 		TRADES[0] = tab0.build();
 
 		ImmutableList.Builder<Product> tab1 = ImmutableList.builder();

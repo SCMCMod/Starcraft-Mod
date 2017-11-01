@@ -157,9 +157,9 @@ import ga.scmc.client.renderer.entity.RenderScarab;
 import ga.scmc.client.renderer.entity.RenderStalker;
 import ga.scmc.client.renderer.entity.RenderVoidProbe;
 import ga.scmc.client.renderer.entity.RenderZealot;
+import ga.scmc.client.renderer.entity.RenderZergling;
 import ga.scmc.client.renderer.entity.RenderZerglingBoost;
 import ga.scmc.client.renderer.entity.RenderZerglingRaptor;
-import ga.scmc.client.renderer.entity.RenderZerglingSC2;
 import ga.scmc.client.renderer.entity.RenderZerglingSwarmling;
 import ga.scmc.client.renderer.model.ModelAdept;
 import ga.scmc.client.renderer.model.ModelBroodling;
@@ -189,15 +189,18 @@ import ga.scmc.client.renderer.model.ModelScarab;
 import ga.scmc.client.renderer.model.ModelStalker;
 import ga.scmc.client.renderer.model.ModelVoidProbe;
 import ga.scmc.client.renderer.model.ModelZealot;
+import ga.scmc.client.renderer.model.ModelZergling;
 import ga.scmc.client.renderer.model.ModelZerglingBoost;
 import ga.scmc.client.renderer.model.ModelZerglingRaptor;
-import ga.scmc.client.renderer.model.ModelZerglingSC2;
 import ga.scmc.client.renderer.model.ModelZerglingSwarmling;
 import ga.scmc.client.renderer.projectiles.RenderC14GaussRifleBullet;
 import ga.scmc.client.renderer.projectiles.RenderFlamethrowerFlame;
 import ga.scmc.client.renderer.projectiles.RenderHydraliskSpike;
 import ga.scmc.client.renderer.tileentity.RendererStarcraftSkull;
 import ga.scmc.client.renderer.tileentity.RendererTest;
+import ga.scmc.entity.EntityC14GaussRifleBullet;
+import ga.scmc.entity.EntityFlamethrowerFlame;
+import ga.scmc.entity.EntityHydraliskSpike;
 import ga.scmc.entity.living.EntityAdept;
 import ga.scmc.entity.living.EntityBroodling;
 import ga.scmc.entity.living.EntityBrutalisk;
@@ -224,13 +227,12 @@ import ga.scmc.entity.living.EntityScarab;
 import ga.scmc.entity.living.EntityStalker;
 import ga.scmc.entity.living.EntityVoidProbe;
 import ga.scmc.entity.living.EntityZealot;
+import ga.scmc.entity.living.EntityZergling;
 import ga.scmc.entity.living.EntityZerglingBoost;
 import ga.scmc.entity.living.EntityZerglingRaptor;
-import ga.scmc.entity.living.EntityZerglingSC2;
 import ga.scmc.entity.living.EntityZerglingSwarmling;
-import ga.scmc.entity.projectiles.EntityC14GaussRifleBullet;
-import ga.scmc.entity.projectiles.EntityFlamethrowerFlame;
-import ga.scmc.entity.projectiles.EntityHydraliskSpike;
+import ga.scmc.enums.EnumMetaBlock;
+import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.lib.Library;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
 import ga.scmc.tileentity.TileEntityTest;
@@ -308,7 +310,7 @@ public class RenderingHandler {
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityBrutalisk.class, new RenderBrutalisk(Minecraft.getMinecraft().getRenderManager(), new ModelBrutalisk(), 3.0f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityHydralisk.class, new RenderHydralisk<Object>(Minecraft.getMinecraft().getRenderManager(), new ModelHydralisk(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityZerglingSC2.class, new RenderZerglingSC2<Object>(Minecraft.getMinecraft().getRenderManager(), new ModelZerglingSC2(), 0.4f));
+		RenderingRegistry.registerEntityRenderingHandler(EntityZergling.class, new RenderZergling<Object>(Minecraft.getMinecraft().getRenderManager(), new ModelZergling(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityZerglingRaptor.class, new RenderZerglingRaptor<Object>(Minecraft.getMinecraft().getRenderManager(), new ModelZerglingRaptor(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityZerglingSwarmling.class, new RenderZerglingSwarmling<Object>(Minecraft.getMinecraft().getRenderManager(), new ModelZerglingSwarmling(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityZerglingBoost.class, new RenderZerglingBoost<Object>(Minecraft.getMinecraft().getRenderManager(), new ModelZerglingBoost(), 0.4f));
@@ -386,46 +388,46 @@ public class RenderingHandler {
 		registerItemRender(ICON_TERRAN);
 		registerItemRender(ICON_ZERG);
 
-		for (int i = 0; i < ItemEnumHandler.MineralType.values().length; i++) {
-			registerItemRender(MINERAL_SHARD, i, "shard_" + ItemEnumHandler.MineralType.values()[i].getName());
+		for (int i = 0; i < EnumMetaItem.MineralType.values().length; i++) {
+			registerItemRender(MINERAL_SHARD, i, "shard_" + EnumMetaItem.MineralType.values()[i].getName());
 		}
-		for (int i = 0; i < ItemEnumHandler.PledgeType.values().length; i++) {
-			registerItemRender(PLEDGE, i, "pledge_" + ItemEnumHandler.PledgeType.values()[i].getName());
+		for (int i = 0; i < EnumMetaItem.PledgeType.values().length; i++) {
+			registerItemRender(PLEDGE, i, "pledge_" + EnumMetaItem.PledgeType.values()[i].getName());
 		}
-		for (int i = 0; i < ItemEnumHandler.VespeneType.values().length; i++) {
-			registerItemRender(VESPENE, i, "vespene_" + ItemEnumHandler.VespeneType.values()[i].getName());
+		for (int i = 0; i < EnumMetaItem.VespeneType.values().length; i++) {
+			registerItemRender(VESPENE, i, "vespene_" + EnumMetaItem.VespeneType.values()[i].getName());
 		}
-		for (int i = 0; i < ItemEnumHandler.TerrazineType.values().length; i++) {
-			registerItemRender(TERRAZINE, i, "terrazine_" + ItemEnumHandler.TerrazineType.values()[i].getName());
+		for (int i = 0; i < EnumMetaItem.TerrazineType.values().length; i++) {
+			registerItemRender(TERRAZINE, i, "terrazine_" + EnumMetaItem.TerrazineType.values()[i].getName());
 		}
-		for (int i = 0; i < ItemEnumHandler.ContainerType.values().length; i++) {
-			registerItemRender(GAS_CONTAINER, i, "empty_container_" + ItemEnumHandler.ContainerType.values()[i].getName());
+		for (int i = 0; i < EnumMetaItem.ContainerType.values().length; i++) {
+			registerItemRender(GAS_CONTAINER, i, "empty_container_" + EnumMetaItem.ContainerType.values()[i].getName());
 		}
-		for (int i = 0; i < ItemEnumHandler.EnergyType.values().length; i++) {
-			registerItemRender(ENERGY, i, "energy_" + ItemEnumHandler.EnergyType.values()[i].getName());
+		for (int i = 0; i < EnumMetaItem.EnergyType.values().length; i++) {
+			registerItemRender(ENERGY, i, "energy_" + EnumMetaItem.EnergyType.values()[i].getName());
 		}
-		for (int i = 0; i < ItemEnumHandler.DustType.values().length; i++) {
-			registerItemRender(DUST, i, "dust_" + ItemEnumHandler.DustType.values()[i].getName());
+		for (int i = 0; i < EnumMetaItem.DustType.values().length; i++) {
+			registerItemRender(DUST, i, "dust_" + EnumMetaItem.DustType.values()[i].getName());
 		}
-		for (int i = 0; i < ItemEnumHandler.IngotType.values().length; i++) {
-			registerItemRender(INGOT, i, "ingot_" + ItemEnumHandler.IngotType.values()[i].getName());
+		for (int i = 0; i < EnumMetaItem.IngotType.values().length; i++) {
+			registerItemRender(INGOT, i, "ingot_" + EnumMetaItem.IngotType.values()[i].getName());
 		}
-		for (int i = 0; i < ItemEnumHandler.ProtossIngotType.values().length; i++) {
-			registerItemRender(PROTOSS_INGOT, i, "pingot_" + ItemEnumHandler.ProtossIngotType.values()[i].getName());
+		for (int i = 0; i < EnumMetaItem.ProtossIngotType.values().length; i++) {
+			registerItemRender(PROTOSS_INGOT, i, "pingot_" + EnumMetaItem.ProtossIngotType.values()[i].getName());
 		}
-		for (int i = 0; i < ItemEnumHandler.BulletType.values().length; i++) {
-			registerItemRender(BULLET, i, "bullet_" + ItemEnumHandler.BulletType.values()[i].getName());
+		for (int i = 0; i < EnumMetaItem.BulletType.values().length; i++) {
+			registerItemRender(BULLET, i, "bullet_" + EnumMetaItem.BulletType.values()[i].getName());
 		}
-		for (int i = 0; i < ItemEnumHandler.C14PartType.values().length; i++) {
-			registerItemRender(C14_PARTS, i, "part_c14_gauss_" + ItemEnumHandler.C14PartType.values()[i].getName());
+		for (int i = 0; i < EnumMetaItem.C14PartType.values().length; i++) {
+			registerItemRender(C14_PARTS, i, "part_c14_gauss_" + EnumMetaItem.C14PartType.values()[i].getName());
 		}
-		for (int i = 0; i < ItemEnumHandler.FocuserType.values().length; i++) {
-			registerItemRender(PSI_BLADE_FOCUSER_UNCHARGED, i, "protoss_psiblade_focuser_uncharged_" + ItemEnumHandler.FocuserType.values()[i].getName());
+		for (int i = 0; i < EnumMetaItem.FocuserType.values().length; i++) {
+			registerItemRender(PSI_BLADE_FOCUSER_UNCHARGED, i, "protoss_psiblade_focuser_uncharged_" + EnumMetaItem.FocuserType.values()[i].getName());
 		}
-		for (int i = 0; i < ItemEnumHandler.CarapaceType.values().length; i++) {
-			registerItemRender(ZERG_CARAPACE, i, "zerg_icarapace_" + ItemEnumHandler.CarapaceType.values()[i].getName());
+		for (int i = 0; i < EnumMetaItem.CarapaceType.values().length; i++) {
+			registerItemRender(ZERG_CARAPACE, i, "zerg_icarapace_" + EnumMetaItem.CarapaceType.values()[i].getName());
 		}
-		for (int i = 0; i < ItemEnumHandler.SkullType.values().length; i++) {
+		for (int i = 0; i < EnumMetaItem.SkullType.values().length; i++) {
 			registerItemRender(ItemHandler.STARCRAFT_SKULL, i, ItemHandler.STARCRAFT_SKULL.getRegistryName().getResourcePath());
 		}
 	}
@@ -556,34 +558,34 @@ public class RenderingHandler {
 	 * Register the renders for the meta blocks.
 	 */
 	public static void registerBlockMetaRenders() {
-		for (int i = 0; i < BlockEnumHandler.ProtossMetalType.values().length; i++) {
-			registerBlockModel(PROTOSS_METAL_T1, i, "protoss_metal_t1_" + BlockEnumHandler.ProtossMetalType.values()[i].getName());
-			registerBlockModel(PROTOSS_METAL_T2, i, "protoss_metal_t2_" + BlockEnumHandler.ProtossMetalType.values()[i].getName());
-			registerBlockModel(PROTOSS_METAL_T3, i, "protoss_metal_t3_" + BlockEnumHandler.ProtossMetalType.values()[i].getName());
+		for (int i = 0; i < EnumMetaBlock.ProtossMetalType.values().length; i++) {
+			registerBlockModel(PROTOSS_METAL_T1, i, "protoss_metal_t1_" + EnumMetaBlock.ProtossMetalType.values()[i].getName());
+			registerBlockModel(PROTOSS_METAL_T2, i, "protoss_metal_t2_" + EnumMetaBlock.ProtossMetalType.values()[i].getName());
+			registerBlockModel(PROTOSS_METAL_T3, i, "protoss_metal_t3_" + EnumMetaBlock.ProtossMetalType.values()[i].getName());
 		}
-		for (int i = 0; i < BlockEnumHandler.ZergFleshType.values().length; i++) {
-			registerBlockModel(ZERG_FLESH, i, "zerg_flesh_" + BlockEnumHandler.ZergFleshType.values()[i].getName());
+		for (int i = 0; i < EnumMetaBlock.ZergFleshType.values().length; i++) {
+			registerBlockModel(ZERG_FLESH, i, "zerg_flesh_" + EnumMetaBlock.ZergFleshType.values()[i].getName());
 		}
-		for (int i = 0; i < BlockEnumHandler.ParisteelMetalType.values().length; i++) {
-			registerBlockModel(PARISTEEL_METAL, i, "paristeel_" + BlockEnumHandler.ParisteelMetalType.values()[i].getName());
+		for (int i = 0; i < EnumMetaBlock.ParisteelMetalType.values().length; i++) {
+			registerBlockModel(PARISTEEL_METAL, i, "paristeel_" + EnumMetaBlock.ParisteelMetalType.values()[i].getName());
 		}
-		for (int i = 0; i < BlockEnumHandler.PylonCrystalType.values().length; i++) {
-			registerBlockModel(PYLON_CRYSTAL, i, "pcrystal_" + BlockEnumHandler.PylonCrystalType.values()[i].getName());
+		for (int i = 0; i < EnumMetaBlock.PylonCrystalType.values().length; i++) {
+			registerBlockModel(PYLON_CRYSTAL, i, "pcrystal_" + EnumMetaBlock.PylonCrystalType.values()[i].getName());
 		}
-		for (int i = 0; i < BlockEnumHandler.ZergStructureCarapaceType.values().length; i++) {
-			registerBlockModel(ZERG_CARAPACE_BLOCK, i, "zerg_carapace_" + BlockEnumHandler.ZergStructureCarapaceType.values()[i].getName());
+		for (int i = 0; i < EnumMetaBlock.ZergStructureCarapaceType.values().length; i++) {
+			registerBlockModel(ZERG_CARAPACE_BLOCK, i, "zerg_carapace_" + EnumMetaBlock.ZergStructureCarapaceType.values()[i].getName());
 		}
-		for (int i = 0; i < BlockEnumHandler.CompressedMetalType.values().length; i++) {
-			registerBlockModel(COMP_METAL_T1, i, "comp_metal_" + BlockEnumHandler.CompressedMetalType.values()[i].getName());
+		for (int i = 0; i < EnumMetaBlock.CompressedMetalType.values().length; i++) {
+			registerBlockModel(COMP_METAL_T1, i, "comp_metal_" + EnumMetaBlock.CompressedMetalType.values()[i].getName());
 		}
-		for (int i = 0; i < BlockEnumHandler.NeosteelMetalType.values().length; i++) {
-			registerBlockModel(NEOSTEEL_METAL, i, "neosteel_" + BlockEnumHandler.NeosteelMetalType.values()[i].getName());
+		for (int i = 0; i < EnumMetaBlock.NeosteelMetalType.values().length; i++) {
+			registerBlockModel(NEOSTEEL_METAL, i, "neosteel_" + EnumMetaBlock.NeosteelMetalType.values()[i].getName());
 		}
-		for (int i = 0; i < BlockEnumHandler.CompressedMineralType.values().length; i++) {
-			registerBlockModel(COMP_MINERAL, i, "comp_mineral_" + BlockEnumHandler.CompressedMineralType.values()[i].getName());
+		for (int i = 0; i < EnumMetaBlock.CompressedMineralType.values().length; i++) {
+			registerBlockModel(COMP_MINERAL, i, "comp_mineral_" + EnumMetaBlock.CompressedMineralType.values()[i].getName());
 		}
-		for (int i = 0; i < BlockEnumHandler.GasCollectorType.values().length; i++) {
-			registerBlockModel(GAS_COLLECTOR, i, "gas_collector_" + BlockEnumHandler.GasCollectorType.values()[i].getName());
+		for (int i = 0; i < EnumMetaBlock.GasCollectorType.values().length; i++) {
+			registerBlockModel(GAS_COLLECTOR, i, "gas_collector_" + EnumMetaBlock.GasCollectorType.values()[i].getName());
 		}
 	}
 

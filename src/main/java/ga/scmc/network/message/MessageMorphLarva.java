@@ -1,14 +1,10 @@
 package ga.scmc.network.message;
 
-import ga.scmc.entity.living.EntityDrone;
-import ga.scmc.entity.living.EntityHydralisk;
 import ga.scmc.entity.living.EntityLarva;
 import ga.scmc.entity.living.EntityLarvaCocoon;
-import ga.scmc.entity.living.EntityZerglingSC2;
 import ga.scmc.lib.Library;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;

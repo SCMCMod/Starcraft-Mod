@@ -5,13 +5,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import ga.scmc.api.GuiUtils;
+import ga.scmc.api.InventoryUtil;
 import ga.scmc.client.gui.element.Tab;
 import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.MetaBlockHandler;
 import ga.scmc.handlers.ToolHandler;
-import ga.scmc.lib.GuiUtils;
-import ga.scmc.lib.InventoryUtil;
 import ga.scmc.network.NetworkHandler;
 import ga.scmc.network.message.MessageSpawnItem;
 import net.minecraft.client.Minecraft;

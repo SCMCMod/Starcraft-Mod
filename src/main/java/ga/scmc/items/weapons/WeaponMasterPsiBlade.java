@@ -3,7 +3,7 @@ package ga.scmc.items.weapons;
 import com.arisux.mdx.lib.world.entity.player.inventory.Inventories;
 
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
-import ga.scmc.handlers.ItemEnumHandler;
+import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
 import net.minecraft.entity.Entity;
@@ -30,7 +30,7 @@ public class WeaponMasterPsiBlade extends ItemSword {
 	
 	public void checkCanReplace(EntityPlayer player, ItemStack stack) {
 		Inventories.consumeItem(player, stack.getItem());
-		player.inventory.addItemStackToInventory(new ItemStack(ItemHandler.PSI_BLADE_FOCUSER_UNCHARGED, 1, ItemEnumHandler.FocuserType.AIUR.getID()));
+		player.inventory.addItemStackToInventory(new ItemStack(ItemHandler.PSI_BLADE_FOCUSER_UNCHARGED, 1, EnumMetaItem.FocuserType.AIUR.getID()));
 	}
 	
 	@Override

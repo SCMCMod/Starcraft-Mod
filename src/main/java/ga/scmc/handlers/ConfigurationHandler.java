@@ -15,7 +15,6 @@ import net.minecraftforge.common.config.Configuration;
  */
 public class ConfigurationHandler {
 
-	public static boolean BOOL_DEBUG_MODE_ENABLED = FactorySettings.BOOL_DEBUG_MODE_ENABLED;
 	public static boolean BOOL_CREEP_CAN_SPREAD = FactorySettings.BOOL_CREEP_CAN_SPREAD;
 	public static boolean BOOL_VANILLA_MOB_SPAWNING_DISABLED = FactorySettings.BOOL_VANILLA_MOB_SPAWNING_DISABLED;
 
@@ -31,8 +30,6 @@ public class ConfigurationHandler {
 
 		// General
 		config.setCategoryComment("General", "General settings.");
-		BOOL_DEBUG_MODE_ENABLED = config.get("General", "Debugging Is Enabled", FactorySettings.BOOL_DEBUG_MODE_ENABLED).getBoolean(FactorySettings.BOOL_DEBUG_MODE_ENABLED);
-
 		BOOL_CREEP_CAN_SPREAD = config.get("General", "Zerg - Creep Can Spread", FactorySettings.BOOL_CREEP_CAN_SPREAD).getBoolean(FactorySettings.BOOL_CREEP_CAN_SPREAD);
 		INT_CREEP_SPREAD_BASE_VALUE = config.getInt("Creep Spread Base Value", "General", FactorySettings.INT_CREEP_SPREAD_BASE_VALUE, 0, 16, "Base value for Creep Spread. WARNING, DO NOT SET THIS HIGH");
 

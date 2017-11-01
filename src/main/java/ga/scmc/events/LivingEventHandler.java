@@ -2,13 +2,13 @@ package ga.scmc.events;
 
 import java.util.Random;
 
+import ga.scmc.api.CapabilityUtils;
+import ga.scmc.api.InventoryUtil;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
 import ga.scmc.handlers.WeaponHandler;
-import ga.scmc.lib.CapabilityUtils;
-import ga.scmc.lib.InventoryUtil;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumHand;

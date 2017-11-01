@@ -5,7 +5,7 @@ import java.util.Random;
 
 import ga.scmc.blocks.itemblocks.IMetaBlockName;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
-import ga.scmc.handlers.BlockEnumHandler.CompressedMineralType;
+import ga.scmc.enums.EnumMetaBlock.CompressedMineralType;
 import ga.scmc.handlers.ItemHandler;
 import net.minecraft.block.BlockGlass;
 import net.minecraft.block.SoundType;

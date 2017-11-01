@@ -5,15 +5,12 @@ import java.util.Random;
 import com.arisux.mdx.lib.world.entity.ItemDrop;
 import com.google.common.base.Predicate;
 
-import ga.scmc.debugging.ColorProvider;
-import ga.scmc.debugging.IColor;
-import ga.scmc.entity.EntityProtossMob;
-import ga.scmc.entity.EntityStarcraftMob;
-import ga.scmc.entity.EntityStarcraftPassive;
+import ga.scmc.capabilities.ColorProvider;
+import ga.scmc.capabilities.IColor;
 import ga.scmc.enums.EnumFactionTypes;
+import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
-import ga.scmc.handlers.ItemEnumHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
 import net.minecraft.entity.EntityLivingBase;
@@ -108,7 +105,7 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 	
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
-		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.PROTOSS_INGOT, 1 + this.rand.nextInt(2), ItemEnumHandler.ProtossIngotType.KHALAI.getID()));
+		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.PROTOSS_INGOT, 1 + this.rand.nextInt(2), EnumMetaItem.ProtossIngotType.KHALAI.getID()));
 		drop.tryDrop(this);
 	}
 	

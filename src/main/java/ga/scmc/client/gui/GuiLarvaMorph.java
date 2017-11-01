@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.util.List;
 
 import ga.scmc.Starcraft;
+import ga.scmc.api.GuiUtils;
 import ga.scmc.client.gui.element.LarvaOption;
 import ga.scmc.entity.living.EntityLarva;
-import ga.scmc.lib.GuiUtils;
 import ga.scmc.network.NetworkHandler;
 import ga.scmc.network.message.MessageMorphLarva;
 import ga.scmc.network.message.MessageSyncLarvaGui;

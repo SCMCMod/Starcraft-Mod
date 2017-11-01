@@ -12,7 +12,6 @@ import ga.scmc.blocks.metablocks.BlockProtossMetalT3;
 import ga.scmc.blocks.metablocks.BlockPylonCrystal;
 import ga.scmc.blocks.metablocks.BlockZergStructureCarapace;
 import ga.scmc.blocks.metablocks.BlockZergStructureFlesh;
-import ga.scmc.lib.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -103,8 +102,5 @@ public class MetaBlockHandler {
 	public static void registerBlock(Block block, ItemBlock itemBlock) {
 		ForgeRegistries.BLOCKS.register(block);
 		ForgeRegistries.ITEMS.register(itemBlock.setRegistryName(block.getRegistryName()));
-		if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-			LogHelper.logger.info("Registered Meta Block: " + block.getUnlocalizedName().substring(5));
-		}
 	}
 }

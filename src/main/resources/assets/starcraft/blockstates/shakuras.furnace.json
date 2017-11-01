@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "starcraft:shakuras.furnace" },
+        "facing=south": { "model": "starcraft:shakuras.furnace", "y": 180 },
+        "facing=west":  { "model": "starcraft:shakuras.furnace", "y": 270 },
+        "facing=east":  { "model": "starcraft:shakuras.furnace", "y": 90 }
+    }
+}

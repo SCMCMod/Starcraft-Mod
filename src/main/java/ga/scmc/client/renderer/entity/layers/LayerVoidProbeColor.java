@@ -2,9 +2,9 @@ package ga.scmc.client.renderer.entity.layers;
 
 import org.lwjgl.opengl.GL11;
 
+import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.entity.RenderVoidProbe;
 import ga.scmc.entity.living.EntityVoidProbe;
-import ga.scmc.lib.Library;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
@@ -18,7 +18,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class LayerVoidProbeColor<T extends EntityVoidProbe> implements LayerRenderer<T> {
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/voidprobe_overlay.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.VOID_PROBE_OVERLAY);
 	private final RenderVoidProbe<T> RENDERER;
 
 	public LayerVoidProbeColor(RenderVoidProbe<T> rendererIn) {

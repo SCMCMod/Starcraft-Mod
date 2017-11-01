@@ -2,9 +2,9 @@ package ga.scmc.client.renderer.entity.layers;
 
 import org.lwjgl.opengl.GL11;
 
+import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.entity.RenderDarkProbe;
 import ga.scmc.entity.living.EntityDarkProbe;
-import ga.scmc.lib.Library;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
@@ -18,7 +18,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class LayerDarkProbeColor<T extends EntityDarkProbe> implements LayerRenderer<T> {
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/darkprobe_overlay.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.DARKPROBE_OVERLAY);
 	private final RenderDarkProbe<T> RENDERER;
 
 	public LayerDarkProbeColor(RenderDarkProbe<T> rendererIn) {

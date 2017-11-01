@@ -1,14 +1,14 @@
 package ga.scmc;
 
 import ga.scmc.achievement.Achievements;
+import ga.scmc.capabilities.CapabilityHandler;
+import ga.scmc.capabilities.Color;
+import ga.scmc.capabilities.ColorStorage;
+import ga.scmc.capabilities.IColor;
+import ga.scmc.capabilities.IShield;
+import ga.scmc.capabilities.Shield;
+import ga.scmc.capabilities.ShieldStorage;
 import ga.scmc.client.gui.GuiHandler;
-import ga.scmc.debugging.CapabilityHandler;
-import ga.scmc.debugging.Color;
-import ga.scmc.debugging.ColorStorage;
-import ga.scmc.debugging.IColor;
-import ga.scmc.debugging.IShield;
-import ga.scmc.debugging.Shield;
-import ga.scmc.debugging.ShieldStorage;
 import ga.scmc.events.GuiRenderEventHandler;
 import ga.scmc.events.OnPlayerLoggedInEvent;
 import ga.scmc.handlers.BiomeHandler;

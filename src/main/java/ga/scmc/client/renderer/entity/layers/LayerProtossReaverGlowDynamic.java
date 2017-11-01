@@ -2,9 +2,9 @@ package ga.scmc.client.renderer.entity.layers;
 
 import org.lwjgl.opengl.GL11;
 
+import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.entity.RenderProtossReaver;
 import ga.scmc.entity.living.EntityProtossReaver;
-import ga.scmc.lib.Library;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
@@ -19,7 +19,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class LayerProtossReaverGlowDynamic<T extends EntityProtossReaver> implements LayerRenderer<T> {
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/preaver_glow_dynamic.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.PREAVER_GLOW_DYNAMIC);
 	private final RenderProtossReaver<T> RENDERER;
 
 	public LayerProtossReaverGlowDynamic(RenderProtossReaver<T> zealotRendererIn) {

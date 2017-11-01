@@ -4,9 +4,6 @@ import java.util.Random;
 
 import ga.scmc.Starcraft;
 import ga.scmc.client.gui.GuiHandler;
-import ga.scmc.entity.EntityProtossMob;
-import ga.scmc.entity.EntityTerranPassive;
-import ga.scmc.entity.EntityZergMob;
 import ga.scmc.entity.ai.EntityAITradePlayer;
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumTeamColors;

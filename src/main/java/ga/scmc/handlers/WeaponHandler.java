@@ -7,7 +7,6 @@ import ga.scmc.items.weapons.WeaponBase;
 import ga.scmc.items.weapons.WeaponMasterPsiBlade;
 import ga.scmc.items.weapons.WeaponPsiBlade;
 import ga.scmc.items.weapons.WeaponWarpBlade;
-import ga.scmc.lib.LogHelper;
 import ga.scmc.material.WeaponMaterials;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -67,8 +66,5 @@ public class WeaponHandler {
 
 	public static void registerItem(Item item) {
 		GameRegistry.register(item);
-		if(ConfigurationHandler.BOOL_DEBUG_MODE_ENABLED == true) {
-			LogHelper.logger.info("Registered Weapon: " + item.getUnlocalizedName().substring(5));
-		}
 	}
 }

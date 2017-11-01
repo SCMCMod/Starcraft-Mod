@@ -1,6 +1,6 @@
 package ga.scmc.events;
 
-import ga.scmc.lib.CapabilityUtils;
+import ga.scmc.api.CapabilityUtils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentString;
@@ -15,8 +15,8 @@ public class OnPlayerLoggedInEvent {
 	@SubscribeEvent
 	public void onPlayerLoggedInEvent(PlayerLoggedInEvent event) {
 		EntityPlayer player = event.player;
-		String message = "Running SCMC version 1.6.";
-		player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.RED)));
+		String message = "Running SCMC version 1.6!";
+		player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.BLUE)));
 
 		CapabilityUtils.setShield(event.player, CapabilityUtils.getShield(event.player));
 	}

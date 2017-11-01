@@ -1,8 +1,8 @@
 package ga.scmc.client.renderer.entity;
 
+import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.model.ModelKakaru;
 import ga.scmc.entity.living.EntityKakaru;
-import ga.scmc.lib.Library;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -10,7 +10,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderKakaru<T> extends RenderLiving<EntityKakaru> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/entity/kakaru.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.KAKARU);
 	protected ModelKakaru model;
 
 	public RenderKakaru(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {

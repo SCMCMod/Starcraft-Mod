@@ -2,9 +2,6 @@ package ga.scmc.entity.living;
 
 import java.util.Random;
 
-import ga.scmc.entity.EntityProtossMob;
-import ga.scmc.entity.EntityTerranPassive;
-import ga.scmc.entity.EntityZergMob;
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;

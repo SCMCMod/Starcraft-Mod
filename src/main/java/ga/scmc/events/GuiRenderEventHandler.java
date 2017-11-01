@@ -2,11 +2,11 @@ package ga.scmc.events;
 
 import java.awt.Color;
 
+import ga.scmc.api.CapabilityUtils;
+import ga.scmc.api.GuiUtils;
+import ga.scmc.api.InventoryUtil;
 import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.ItemHandler;
-import ga.scmc.lib.CapabilityUtils;
-import ga.scmc.lib.GuiUtils;
-import ga.scmc.lib.InventoryUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;

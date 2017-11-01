@@ -7,15 +7,12 @@ import com.arisux.mdx.lib.game.Game;
 import com.arisux.mdx.lib.world.entity.ItemDrop;
 import com.google.common.base.Predicate;
 
-import ga.scmc.debugging.ColorProvider;
-import ga.scmc.debugging.IColor;
-import ga.scmc.entity.EntityStarcraftMob;
-import ga.scmc.entity.EntityStarcraftPassive;
-import ga.scmc.entity.EntityTerranMob;
+import ga.scmc.capabilities.ColorProvider;
+import ga.scmc.capabilities.IColor;
 import ga.scmc.enums.EnumFactionTypes;
+import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
-import ga.scmc.handlers.ItemEnumHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
 import net.minecraft.entity.Entity;
@@ -118,7 +115,7 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
-		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.INGOT, 1 + this.rand.nextInt(2), ItemEnumHandler.IngotType.STEEL.getID()));
+		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.INGOT, 1 + this.rand.nextInt(2), EnumMetaItem.IngotType.STEEL.getID()));
 		drop.tryDrop(this);
 	}
 
