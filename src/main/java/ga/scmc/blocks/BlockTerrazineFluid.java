@@ -27,8 +27,8 @@ public class BlockTerrazineFluid extends BlockFluidClassic {
 	public BlockTerrazineFluid() {
 		super(FluidHandler.terrazine, Material.WATER);
 		setCreativeTab(null);
-		setUnlocalizedName("fluidTerrazine");
-		setRegistryName("fluid_terrazine");
+		setUnlocalizedName("fluid.terrazine");
+		setRegistryName("fluid.terrazine");
 	}
 
 	@Override

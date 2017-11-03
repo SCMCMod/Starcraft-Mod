@@ -37,8 +37,8 @@ public class BlockProtossShield extends Block {
 
 	public BlockProtossShield() {
 		super(Material.AIR, MapColor.LIGHT_BLUE);
-		setUnlocalizedName("protossShield");
-		setRegistryName("protoss_shield");
+		setUnlocalizedName("protoss.shield");
+		setRegistryName("protoss.shield");
 	}
 
 	@SideOnly(Side.CLIENT)

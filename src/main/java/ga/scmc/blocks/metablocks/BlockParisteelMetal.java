@@ -40,8 +40,8 @@ public class BlockParisteelMetal extends Block implements IMetaBlockName {
 	public BlockParisteelMetal() {
 		super(Material.IRON);
 		setSoundType(SoundType.METAL);
-		setUnlocalizedName("paristeel");
-		setRegistryName("paristeel");
+		setUnlocalizedName("terran.paristeel");
+		setRegistryName("terran.paristeel");
 		setHardness(10.0F);
 		setResistance(10.0F);
 		setDefaultState(blockState.getBaseState().withProperty(TYPE, ParisteelMetalType.WHITE));

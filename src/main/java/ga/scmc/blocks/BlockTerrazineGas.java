@@ -32,8 +32,8 @@ public class BlockTerrazineGas extends BlockGas {
 
 	public BlockTerrazineGas() {
 		super(MaterialHandler.VESPENE_GAS);
-		setUnlocalizedName("gasTerrazine");
-		setRegistryName("gas_terrazine");
+		setUnlocalizedName("gas.terrazine");
+		setRegistryName("gas.terrazine");
 		setCreativeTab(StarcraftCreativeTabs.MISC);
 	}
 

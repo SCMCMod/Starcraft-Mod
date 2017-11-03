@@ -16,8 +16,8 @@ public class BlockProtossEnergyStabilizerVoid extends Block {
 
 	public BlockProtossEnergyStabilizerVoid() {
 		super(Material.IRON, MapColor.LIME);
-		setUnlocalizedName("protossVoidEnergyStabilizer");
-		setRegistryName("protoss_void_energy_stabilizer");
+		setUnlocalizedName("protoss.stabilizer.void");
+		setRegistryName("protoss.stabilizer.void");
 		setSoundType(SoundType.METAL);
 		setHardness(15.0F);
 		setLightLevel(1.0F);

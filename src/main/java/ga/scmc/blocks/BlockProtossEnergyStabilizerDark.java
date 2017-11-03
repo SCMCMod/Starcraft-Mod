@@ -16,8 +16,8 @@ public class BlockProtossEnergyStabilizerDark extends Block {
 
 	public BlockProtossEnergyStabilizerDark() {
 		super(Material.IRON, MapColor.BLACK);
-		setUnlocalizedName("protossDarkEnergyStabilizer");
-		setRegistryName("protoss_dark_energy_stabilizer");
+		setUnlocalizedName("protoss.stabilizer.dark");
+		setRegistryName("protoss.stabilizer.dark");
 		setSoundType(SoundType.METAL);
 		setHardness(15.0F);
 		setLightLevel(1.0F);

@@ -40,8 +40,8 @@ public class BlockProtossMetalT3 extends Block implements IMetaBlockName {
 	public BlockProtossMetalT3() {
 		super(Material.IRON);
 		setSoundType(SoundType.METAL);
-		setUnlocalizedName("protossMetalT3");
-		setRegistryName("protoss_metal_t3");
+		setUnlocalizedName("protoss.metal.3");
+		setRegistryName("protoss.metal.3");
 		setHardness(25.0F);
 		setResistance(25.0F);
 		setHarvestLevel("pickaxe", 3);

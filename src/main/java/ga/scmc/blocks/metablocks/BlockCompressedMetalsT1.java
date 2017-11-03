@@ -40,8 +40,8 @@ public class BlockCompressedMetalsT1 extends Block implements IMetaBlockName {
 	public BlockCompressedMetalsT1() {
 		super(Material.IRON);
 		setSoundType(SoundType.METAL);
-		setUnlocalizedName("compMetalT1");
-		setRegistryName("comp_metal_t1");
+		setUnlocalizedName("terran.metal");
+		setRegistryName("terran.metal");
 		setHardness(5.0F); // Sets how hard the block is to break
 		setResistance(10.0F); // Sets the blocks blast resistance to explosions
 		setDefaultState(blockState.getBaseState().withProperty(TYPE, CompressedMetalType.COPPER)); // Default state

@@ -37,8 +37,8 @@ public class BlockCharMagma extends Block {
 		setTickRandomly(true);
 		setHarvestLevel("pickaxe", 1);
 		setCreativeTab(StarcraftCreativeTabs.MISC);
-		setUnlocalizedName("charMagma");
-		setRegistryName("char_magma");
+		setUnlocalizedName("char.magma");
+		setRegistryName("char.magma");
 	}
 
 	@Override

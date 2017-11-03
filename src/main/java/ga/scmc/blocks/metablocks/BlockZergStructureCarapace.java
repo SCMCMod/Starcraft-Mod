@@ -40,8 +40,8 @@ public class BlockZergStructureCarapace extends Block implements IMetaBlockName 
 	 */
 	public BlockZergStructureCarapace() {
 		super(Material.ROCK);
-		setUnlocalizedName("zergCarapace");
-		setRegistryName("zerg_carapace");
+		setUnlocalizedName("zerg.carapace");
+		setRegistryName("zerg.carapace");
 		setHardness(15.0F);
 		setResistance(15.0F);
 		setDefaultState(blockState.getBaseState().withProperty(TYPE, ZergStructureCarapaceType.T1)); // Default state

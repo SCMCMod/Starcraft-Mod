@@ -13,8 +13,8 @@ public class BlockDimPortalChar extends BlockDimPortal {
 	private int dim = ConfigurationHandler.INT_DIMENSION_CHAR;
 
 	public BlockDimPortalChar() {
-		setUnlocalizedName("charDimPortal");
-		setRegistryName("char_dim_portal");
+		setUnlocalizedName("char.portal");
+		setRegistryName("char.portal");
 	}
 
 	/**

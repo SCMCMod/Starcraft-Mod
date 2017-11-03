@@ -21,8 +21,8 @@ public class BlockAsh extends ModBlockLayered {
 
 	public BlockAsh() {
 		super(Material.CARPET, MapColor.BLACK);
-		setUnlocalizedName("charAsh");
-		setRegistryName("char_ash");
+		setUnlocalizedName("char.ash");
+		setRegistryName("char.ash");
 		setSoundType(SoundType.SNOW);
 		setHardness(0.1F);
 		setResistance(0.5f);

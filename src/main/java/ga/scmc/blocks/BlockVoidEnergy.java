@@ -15,8 +15,8 @@ public class BlockVoidEnergy extends Block {
 
 	public BlockVoidEnergy() {
 		super(Material.REDSTONE_LIGHT, MapColor.RED);
-		setUnlocalizedName("voidEnergy");
-		setRegistryName("void_energy");
+		setUnlocalizedName("block.energy.void");
+		setRegistryName("block.energy.void");
 		setSoundType(SoundType.STONE);
 		setHardness(5.0F);
 		setResistance(3.0F);

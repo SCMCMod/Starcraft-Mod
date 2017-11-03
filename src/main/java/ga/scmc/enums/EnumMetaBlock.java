@@ -238,7 +238,7 @@ public class EnumMetaBlock {
 	}
 
 	public static enum ZergStructureCarapaceType implements IStringSerializable {
-		T1("t1", 0, MapColor.BROWN), T2("t2", 1, MapColor.BROWN), T3("t3", 2, MapColor.BROWN);
+		T1("1", 0, MapColor.BROWN), T2("2", 1, MapColor.BROWN), T3("3", 2, MapColor.BROWN);
 
 		private int ID;
 		private String name;

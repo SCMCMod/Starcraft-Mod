@@ -13,8 +13,8 @@ public class BlockDimPortalKaldir extends BlockDimPortal {
 	private int dim = ConfigurationHandler.INT_DIMENSION_KALDIR;
 
 	public BlockDimPortalKaldir() {
-		setUnlocalizedName("kaldirDimPortal");
-		setRegistryName("kaldir_dim_portal");
+		setUnlocalizedName("kaldir.portal");
+		setRegistryName("kaldir.portal");
 	}
 
 	/**

@@ -49,12 +49,12 @@ public class BlockFurnaceChar extends BlockContainer {
 		super(Material.ROCK, MapColor.BLACK);
 		this.isBurning = isBurning;
 		if (isBurning) {
-			this.setUnlocalizedName("furnaceCharLit");
-			this.setRegistryName("furnace_char_lit");
+			this.setUnlocalizedName("char.furnace.lit");
+			this.setRegistryName("char.furnace.lit");
 			this.setCreativeTab(null);
 		} else {
-			this.setUnlocalizedName("furnaceChar");
-			this.setRegistryName("furnace_char");
+			this.setUnlocalizedName("char.furnace");
+			this.setRegistryName("char.furnace");
 			this.setCreativeTab(StarcraftCreativeTabs.MISC);
 		}
 		setSoundType(SoundType.STONE);

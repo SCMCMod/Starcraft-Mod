@@ -46,8 +46,8 @@ public class BlockCompressedMinerals extends BlockGlass implements IMetaBlockNam
 	public BlockCompressedMinerals() {
 		super(Material.ROCK, true);
 		setSoundType(SoundType.STONE);
-		setUnlocalizedName("compMineral");
-		setRegistryName("comp_mineral");
+		setUnlocalizedName("mineral.compressed");
+		setRegistryName("mineral.compressed");
 		setHardness(10.0F); // Sets how hard the block is to break
 		setResistance(10.0F); // Sets the blocks blast resistance to explosions
 		setDefaultState(blockState.getBaseState().withProperty(TYPE, CompressedMineralType.BLUE));

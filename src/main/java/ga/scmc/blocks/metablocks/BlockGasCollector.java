@@ -55,8 +55,8 @@ public class BlockGasCollector extends Block implements IMetaBlockName, ITileEnt
 	 */
 	public BlockGasCollector() {
 		super(Material.IRON);
-		setUnlocalizedName("gasCollector");
-		setRegistryName("gas_collector");
+		setUnlocalizedName("gas.collector");
+		setRegistryName("gas.collector");
 		setHardness(5.0f);
 		setResistance(15.0f);
 		setDefaultState(blockState.getBaseState().withProperty(TYPE, GasCollectorType.PROTOSS));

@@ -13,8 +13,8 @@ public class BlockDimPortalKorhal extends BlockDimPortal {
 	private int dim = ConfigurationHandler.INT_DIMENSION_KORHAL;
 
 	public BlockDimPortalKorhal() {
-		setUnlocalizedName("korhalDimPortal");
-		setRegistryName("korhal_dim_portal");
+		setUnlocalizedName("korhal.portal");
+		setRegistryName("korhal.portal");
 	}
 
 	/**

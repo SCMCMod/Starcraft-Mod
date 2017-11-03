@@ -13,8 +13,8 @@ public class BlockDimPortalShakuras extends BlockDimPortal {
 	private int dim = ConfigurationHandler.INT_DIMENSION_SHAKURAS;
 
 	public BlockDimPortalShakuras() {
-		setUnlocalizedName("shakurasDimPortal");
-		setRegistryName("shakuras_dim_portal");
+		setUnlocalizedName("shakuras.portal");
+		setRegistryName("shakuras.portal");
 	}
 
 	/**

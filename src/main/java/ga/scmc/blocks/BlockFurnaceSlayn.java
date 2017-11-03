@@ -50,12 +50,12 @@ public class BlockFurnaceSlayn extends BlockContainer {
 		super(Material.ROCK, MapColor.BLACK);
 		this.isBurning = isBurning;
 		if (isBurning) {
-			this.setUnlocalizedName("furnaceSlaynLit");
-			this.setRegistryName("furnace_slayn_lit");
+			this.setUnlocalizedName("slayn.furnace.lit");
+			this.setRegistryName("slayn.furnace.lit");
 			this.setCreativeTab(null);
 		} else {
-			this.setUnlocalizedName("furnaceSlayn");
-			this.setRegistryName("furnace_slayn");
+			this.setUnlocalizedName("slayn.furnace");
+			this.setRegistryName("slayn.furnace");
 			this.setCreativeTab(StarcraftCreativeTabs.MISC);
 		}
 		setSoundType(SoundType.STONE);

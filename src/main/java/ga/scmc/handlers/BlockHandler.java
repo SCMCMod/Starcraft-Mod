@@ -15,7 +15,7 @@ import ga.scmc.blocks.BlockEnergy;
 import ga.scmc.blocks.BlockFurnaceChar;
 import ga.scmc.blocks.BlockFurnaceShakuras;
 import ga.scmc.blocks.BlockFurnaceSlayn;
-import ga.scmc.blocks.BlockKeratinChunk;
+import ga.scmc.blocks.BlockZergKeratin;
 import ga.scmc.blocks.BlockKorhalCityStone;
 import ga.scmc.blocks.BlockMovingLightSource;
 import ga.scmc.blocks.BlockOverworldOre;
@@ -33,7 +33,7 @@ import ga.scmc.blocks.BlockTest;
 import ga.scmc.blocks.BlockVespeneFluid;
 import ga.scmc.blocks.BlockVespeneGas;
 import ga.scmc.blocks.BlockVoidEnergy;
-import ga.scmc.blocks.BlockWarpGateWormhole;
+import ga.scmc.blocks.BlockProtossWormhole;
 import ga.scmc.blocks.BlockZergCreep;
 import ga.scmc.blocks.OreCharRedstone;
 import ga.scmc.blocks.OreShakurasRedstone;
@@ -250,7 +250,7 @@ public class BlockHandler {
 		
 		/** zerg blocks **/
 		ZERG_CREEP 						= new BlockZergCreep();
-		KERATIN_CHUNK 					= new BlockKeratinChunk();
+		KERATIN_CHUNK 					= new BlockZergKeratin();
 
 		/** core blocks **/
 		CORE_CYBERNETICSCORE_VOID 		= new StarcraftProtossCoreBlock("protoss.cyberneticscorecore.void", RegistryType.FULL, Material.IRON, MapColor.GREEN).setDomeSize(24, 24, 3);
@@ -280,7 +280,7 @@ public class BlockHandler {
 		ENERGY_BLOCK 					= new BlockEnergy();
 		VOID_ENERGY 					= new BlockVoidEnergy();
 		LIGHT_SOURCE 					= new BlockMovingLightSource();
-		WARP_GATE_WORMHOLE 				= new BlockWarpGateWormhole();
+		WARP_GATE_WORMHOLE 				= new BlockProtossWormhole();
 	}
 
 	public static void register() {

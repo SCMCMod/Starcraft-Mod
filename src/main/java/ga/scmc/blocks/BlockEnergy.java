@@ -15,8 +15,8 @@ public class BlockEnergy extends Block {
 
 	public BlockEnergy() {
 		super(Material.REDSTONE_LIGHT, MapColor.LIGHT_BLUE);
-		setUnlocalizedName("blockEnergy");
-		setRegistryName("block_energy");
+		setUnlocalizedName("block.energy");
+		setRegistryName("block.energy");
 		setSoundType(SoundType.STONE);
 		setHardness(5.0F);
 		setResistance(3.0F);

@@ -12,8 +12,8 @@ public class BlockDimPortalOverworld extends BlockDimPortal {
 	private int dim = 0;
 
 	public BlockDimPortalOverworld() {
-		setUnlocalizedName("overworldDimPortal");
-		setRegistryName("overworld_dim_portal");
+		setUnlocalizedName("overworld.portal");
+		setRegistryName("overworld.portal");
 	}
 
 	/**

@@ -46,8 +46,8 @@ public class BlockZergStructureFlesh extends Block implements IMetaBlockName {
 	public BlockZergStructureFlesh() {
 		super(Material.CLAY);
 		setSoundType(SoundTypes.ZERG_FLESH);
-		setUnlocalizedName("zergFlesh");
-		setRegistryName("zerg_flesh");
+		setUnlocalizedName("zerg.flesh");
+		setRegistryName("zerg.flesh");
 		setResistance(5.0F);
 		setHardness(5.0F);
 		setHarvestLevel("axe", 2);

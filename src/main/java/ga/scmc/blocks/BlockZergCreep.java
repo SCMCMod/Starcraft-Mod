@@ -30,8 +30,8 @@ public class BlockZergCreep extends Block {
 
 	public BlockZergCreep() {
 		super(Material.GROUND, MapColor.BLACK);
-		setUnlocalizedName("zergCreep");
-		setRegistryName("zerg_creep");
+		setUnlocalizedName("zerg.creep");
+		setRegistryName("zerg.creep");
 		setSoundType(SoundTypes.ZERG_FLESH);
 		setHardness(5.0F);
 		setResistance(5.0F);

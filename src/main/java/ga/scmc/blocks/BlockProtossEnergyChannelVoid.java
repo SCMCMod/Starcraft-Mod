@@ -21,8 +21,8 @@ public class BlockProtossEnergyChannelVoid extends Block {
 
 	public BlockProtossEnergyChannelVoid() {
 		super(Material.IRON, MapColor.LIME);
-		setUnlocalizedName("protossVoidEnergyChannel");
-		setRegistryName("protoss_void_energy_channel");
+		setUnlocalizedName("protoss.energychannel.void");
+		setRegistryName("protoss.energychannel.void");
 		setSoundType(SoundType.METAL);
 		setHardness(15.0F);
 		setLightLevel(1.0F);

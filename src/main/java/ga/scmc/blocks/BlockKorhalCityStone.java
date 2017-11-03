@@ -15,8 +15,8 @@ public class BlockKorhalCityStone extends Block {
 
 	public BlockKorhalCityStone() {
 		super(Material.ROCK, MapColor.BLACK);
-		setUnlocalizedName("korhalCityStone");
-		setRegistryName("korhal_city_stone");
+		setUnlocalizedName("korhal.stone.city");
+		setRegistryName("korhal.stone.city");
 		setSoundType(SoundType.STONE);
 		setHardness(2.0F);
 		setResistance(30.0F);

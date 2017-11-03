@@ -20,8 +20,8 @@ public class BlockProtossEnergyChannelDark extends Block {
 
 	public BlockProtossEnergyChannelDark() {
 		super(Material.IRON, MapColor.BLACK);
-		setUnlocalizedName("protossDarkEnergyChannel");
-		setRegistryName("protoss_dark_energy_channel");
+		setUnlocalizedName("protoss.energychannel.dark");
+		setRegistryName("protoss.energychannel.dark");
 		setSoundType(SoundType.METAL);
 		setHardness(15.0F);
 		setLightLevel(1.0F);

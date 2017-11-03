@@ -49,12 +49,12 @@ public class BlockFurnaceShakuras extends BlockContainer {
 		super(Material.ROCK, MapColor.LIGHT_BLUE);
 		this.isBurning = isBurning;
 		if (isBurning) {
-			this.setUnlocalizedName("furnaceShakurasLit");
-			this.setRegistryName("furnace_shakuras_lit");
+			this.setUnlocalizedName("shakuras.furnace.lit");
+			this.setRegistryName("shakuras.furnace.lit");
 			this.setCreativeTab(null);
 		} else {
-			this.setUnlocalizedName("furnaceShakuras");
-			this.setRegistryName("furnace_shakuras");
+			this.setUnlocalizedName("shakuras.furnace");
+			this.setRegistryName("shakuras.furnace");
 			this.setCreativeTab(StarcraftCreativeTabs.MISC);
 		}
 		setSoundType(SoundType.STONE);

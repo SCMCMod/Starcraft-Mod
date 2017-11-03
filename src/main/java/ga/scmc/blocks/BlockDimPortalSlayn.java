@@ -13,8 +13,8 @@ public class BlockDimPortalSlayn extends BlockDimPortal {
 	private int dim = ConfigurationHandler.INT_DIMENSION_SLAYN;
 
 	public BlockDimPortalSlayn() {
-		setUnlocalizedName("slaynDimPortal");
-		setRegistryName("slayn_dim_portal");
+		setUnlocalizedName("slayn.portal");
+		setRegistryName("slayn.portal");
 	}
 
 	/**

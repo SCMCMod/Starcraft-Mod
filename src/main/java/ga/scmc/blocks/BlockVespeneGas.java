@@ -31,8 +31,8 @@ public class BlockVespeneGas extends BlockGas {
 	
 	public BlockVespeneGas() {
 		super(MaterialHandler.VESPENE_GAS);
-		setUnlocalizedName("gasVespene");
-		setRegistryName("gas_vespene");
+		setUnlocalizedName("gas.vespene");
+		setRegistryName("gas.vespene");
 		setCreativeTab(StarcraftCreativeTabs.MISC);
 	}
 	

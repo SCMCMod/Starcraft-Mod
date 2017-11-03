@@ -19,8 +19,8 @@ public class BlockBloodFluid extends BlockFluidClassic {
 
 	public BlockBloodFluid() {
 		super(FluidHandler.blood, Material.WATER);
-		setUnlocalizedName("fluidBlood");
-		setRegistryName("fluid_blood");
+		setUnlocalizedName("fluid.blood");
+		setRegistryName("fluid.blood");
 		setCreativeTab(null);
 	}
 

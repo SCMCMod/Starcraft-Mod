@@ -40,8 +40,8 @@ public class BlockPylonCrystal extends Block implements IMetaBlockName {
 	public BlockPylonCrystal() {
 		super(Material.ROCK);
 		setSoundType(SoundType.STONE);
-		setUnlocalizedName("pylonCrystal");
-		setRegistryName("pylon_crystal");
+		setUnlocalizedName("protoss.pyloncrystal");
+		setRegistryName("protoss.pyloncrystal");
 		setHardness(10.0F);
 		setResistance(10.0F);
 		setLightLevel(4.0F);

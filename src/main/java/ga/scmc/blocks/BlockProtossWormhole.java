@@ -18,12 +18,12 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class BlockWarpGateWormhole extends Block implements ITileEntityProvider {
+public class BlockProtossWormhole extends Block implements ITileEntityProvider {
 
-	public BlockWarpGateWormhole() {
+	public BlockProtossWormhole() {
 		super(Material.ROCK, MapColor.BLACK);
-		setUnlocalizedName("warpGateWormhole");
-		setRegistryName("warp_gate_wormhole");
+		setUnlocalizedName("protoss.wormhole");
+		setRegistryName("protoss.wormhole");
 		setSoundType(SoundType.STONE);
 		setBlockUnbreakable();
 		setTickRandomly(true);

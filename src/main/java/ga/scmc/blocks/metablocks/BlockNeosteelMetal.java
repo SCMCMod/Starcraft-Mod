@@ -40,8 +40,8 @@ public class BlockNeosteelMetal extends Block implements IMetaBlockName {
 	public BlockNeosteelMetal() {
 		super(Material.IRON);
 		setSoundType(SoundType.METAL);
-		setUnlocalizedName("neosteel");
-		setRegistryName("neosteel");
+		setUnlocalizedName("terran.neosteel");
+		setRegistryName("terran.neosteel");
 		setHardness(10.0F);
 		setResistance(10.0F);
 		setDefaultState(blockState.getBaseState().withProperty(TYPE, NeosteelMetalType.BASE));

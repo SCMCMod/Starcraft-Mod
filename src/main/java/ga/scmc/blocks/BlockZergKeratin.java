@@ -11,12 +11,12 @@ import net.minecraft.block.material.Material;
  * Copyright 2017 the Starcraft Minecraft mod team
  * @author Hypeirochus
  */
-public class BlockKeratinChunk extends Block {
+public class BlockZergKeratin extends Block {
 
-	public BlockKeratinChunk() {
+	public BlockZergKeratin() {
 		super(Material.GROUND, MapColor.SNOW);
-		setUnlocalizedName("zergKeratinChunk");
-		setRegistryName("zerg_keratin_chunk");
+		setUnlocalizedName("zerg.keratin");
+		setRegistryName("zerg.keratin");
 		setSoundType(SoundType.STONE);
 		setHardness(10.0F);
 		setResistance(10.0F);
