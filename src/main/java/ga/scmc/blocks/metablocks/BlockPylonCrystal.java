@@ -48,7 +48,7 @@ public class BlockPylonCrystal extends Block implements IMetaBlockName {
 		setTickRandomly(true);
 		setHarvestLevel("pickaxe", 2);
 		setDefaultState(blockState.getBaseState().withProperty(TYPE, PylonCrystalType.PURE));
-		setCreativeTab(StarcraftCreativeTabs.MISC);
+		setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 	}
 
 	@Override
