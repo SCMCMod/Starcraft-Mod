@@ -1,5 +1,6 @@
 package ga.scmc.entity.living;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import com.arisux.mdx.lib.client.entityfx.EntityFXElectricArc;
@@ -16,6 +17,7 @@ import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -26,6 +28,7 @@ import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -155,7 +158,7 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 
 	@SideOnly(Side.CLIENT)
 	private void spawnElectricArc(double posX, double posY, double posZ) {
-		for (int x = 0; x < 10; x++) {
+		for (int x = 0; x < 5; x++) {
 			Game.minecraft().effectRenderer.addEffect(new EntityFXElectricArc(this.world, this.posX, this.posY, this.posZ, posX + this.rand.nextInt(2), posY, posZ + this.rand.nextInt(2), 10, 2.5F, 0.5F, 0.05F, 0xFF00FFFF));
 		}
 	}
@@ -163,6 +166,29 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 	@Override
 	public boolean attackEntityAsMob(Entity entityIn) {
 		this.spawnElectricArc(entityIn.posX, entityIn.posY, entityIn.posZ);
+		ArrayList<EntityLiving> entityList = (ArrayList<EntityLiving>) world.getEntitiesWithinAABB(EntityLiving.class, this.getEntityBoundingBox().expand(2, 2, 2));
+		for (EntityLiving entity : entityList) {
+			if(entity != this && entity != null && entity != entityIn) {
+				if(entity instanceof EntityStarcraftMob) {
+					if(((EntityStarcraftMob)entity).teamColor == this.teamColor) {
+						break;
+					}else {
+						this.spawnElectricArc(entity.posX, entity.posY, entity.posZ);
+						entity.attackEntityFrom(DamageSource.causeIndirectDamage(this, null), 3.5F);
+					}
+				}else if(entity instanceof EntityStarcraftPassive) {
+					if(((EntityStarcraftPassive)entity).teamColor == this.teamColor) {
+						break;
+					}else {
+						this.spawnElectricArc(entity.posX, entity.posY, entity.posZ);
+						entity.attackEntityFrom(DamageSource.causeIndirectDamage(this, null), 3.5F);
+					}
+				}else {
+					this.spawnElectricArc(entity.posX, entity.posY, entity.posZ);
+					entity.attackEntityFrom(DamageSource.causeIndirectDamage(this, null), 3.5F);
+				}
+			}
+		}
 		return super.attackEntityAsMob(entityIn);
 	}
 }
