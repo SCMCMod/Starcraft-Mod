@@ -73,7 +73,7 @@ public class BlockCompressedMinerals extends BlockGlass implements IMetaBlockNam
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, new IProperty[] { TYPE });
 	}
-
+	
 	/**
 	 * Makes sure the block drops the correct version of itself
 	 */

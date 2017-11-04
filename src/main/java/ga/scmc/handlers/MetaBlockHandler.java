@@ -1,7 +1,7 @@
 package ga.scmc.handlers;
 
 import ga.scmc.blocks.itemblocks.ItemBlockMeta;
-import ga.scmc.blocks.metablocks.BlockCompressedMetalsT1;
+import ga.scmc.blocks.metablocks.BlockTerranMetal;
 import ga.scmc.blocks.metablocks.BlockCompressedMinerals;
 import ga.scmc.blocks.metablocks.BlockGasCollector;
 import ga.scmc.blocks.metablocks.BlockNeosteelMetal;
@@ -56,7 +56,7 @@ public class MetaBlockHandler {
 		PYLON_CRYSTAL = new BlockPylonCrystal();
 		ZERG_CARAPACE_BLOCK = new BlockZergStructureCarapace();
 		ZERG_FLESH = new BlockZergStructureFlesh();
-		COMP_METAL_T1 = new BlockCompressedMetalsT1();
+		COMP_METAL_T1 = new BlockTerranMetal();
 		NEOSTEEL_METAL = new BlockNeosteelMetal();
 		PARISTEEL_METAL = new BlockParisteelMetal();
 		COMP_MINERAL = new BlockCompressedMinerals();
@@ -89,18 +89,5 @@ public class MetaBlockHandler {
 	public static void registerBlock(Block block) {
 		ForgeRegistries.BLOCKS.register(block);
 		ForgeRegistries.ITEMS.register(new ItemBlockMeta(block).setRegistryName(block.getRegistryName()));
-	}
-
-	/**
-	 * Registers the block with a custom {@link ItemBlock}.
-	 * 
-	 * @param block
-	 *            The block
-	 * @param itemBlock
-	 *            The {@link ItemBlock}
-	 */
-	public static void registerBlock(Block block, ItemBlock itemBlock) {
-		ForgeRegistries.BLOCKS.register(block);
-		ForgeRegistries.ITEMS.register(itemBlock.setRegistryName(block.getRegistryName()));
 	}
 }

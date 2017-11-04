@@ -24,7 +24,7 @@ import net.minecraft.world.World;
 /**
  * This block has three variants. Refer to {@link CompressedMetalType}
  */
-public class BlockCompressedMetalsT1 extends Block implements IMetaBlockName {
+public class BlockTerranMetal extends Block implements IMetaBlockName {
 
 	/** The type property */
 	public static final PropertyEnum<CompressedMetalType> TYPE = PropertyEnum.create("type", CompressedMetalType.class);
@@ -37,7 +37,7 @@ public class BlockCompressedMetalsT1 extends Block implements IMetaBlockName {
 	 * @param registryName
 	 *            The block's registry name - defaultly the unlocalized name
 	 */
-	public BlockCompressedMetalsT1() {
+	public BlockTerranMetal() {
 		super(Material.IRON);
 		setSoundType(SoundType.METAL);
 		setUnlocalizedName("terran.metal");
