@@ -52,7 +52,7 @@ public class GuiRenderEventHandler extends Gui {
 
 		if (!player.isSpectator()) {
 			ItemStack itemstack = player.inventory.armorItemInSlot(3);
-			if (mc.gameSettings.thirdPersonView == 0 && itemstack != null && itemstack.getItem() == ArmorHandler.MARINE_HELMET && renderHelmetOverlay && event.getType() == ElementType.TEXT) {
+			if (mc.gameSettings.thirdPersonView == 0 && itemstack != null && itemstack.getItem() == ArmorHandler.TERRAN_MARINE_T1_HELMET && renderHelmetOverlay && event.getType() == ElementType.TEXT) {
 				renderHelmetOverlay(scaledresolution);
 				String ammo = "Ammo: " + InventoryUtil.getItemAmount(mc.player, ItemHandler.C14_GAUSS_RIFLE.getAmmo());
 				if (mc.player.isCreative())

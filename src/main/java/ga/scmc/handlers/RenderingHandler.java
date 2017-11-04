@@ -20,6 +20,18 @@ import static ga.scmc.handlers.ArmorHandler.STEEL_BOOTS;
 import static ga.scmc.handlers.ArmorHandler.STEEL_CHESTPLATE;
 import static ga.scmc.handlers.ArmorHandler.STEEL_HELMET;
 import static ga.scmc.handlers.ArmorHandler.STEEL_LEGGINGS;
+import static ga.scmc.handlers.ArmorHandler.TERRAN_MARINE_T1_BOOTS;
+import static ga.scmc.handlers.ArmorHandler.TERRAN_MARINE_T1_CHESTPLATE;
+import static ga.scmc.handlers.ArmorHandler.TERRAN_MARINE_T1_HELMET;
+import static ga.scmc.handlers.ArmorHandler.TERRAN_MARINE_T1_LEGGINGS;
+import static ga.scmc.handlers.ArmorHandler.TERRAN_MARINE_T2_BOOTS;
+import static ga.scmc.handlers.ArmorHandler.TERRAN_MARINE_T2_CHESTPLATE;
+import static ga.scmc.handlers.ArmorHandler.TERRAN_MARINE_T2_HELMET;
+import static ga.scmc.handlers.ArmorHandler.TERRAN_MARINE_T2_LEGGINGS;
+import static ga.scmc.handlers.ArmorHandler.TERRAN_MARINE_T3_BOOTS;
+import static ga.scmc.handlers.ArmorHandler.TERRAN_MARINE_T3_CHESTPLATE;
+import static ga.scmc.handlers.ArmorHandler.TERRAN_MARINE_T3_HELMET;
+import static ga.scmc.handlers.ArmorHandler.TERRAN_MARINE_T3_LEGGINGS;
 import static ga.scmc.handlers.ArmorHandler.TITANIUM_BOOTS;
 import static ga.scmc.handlers.ArmorHandler.TITANIUM_CHESTPLATE;
 import static ga.scmc.handlers.ArmorHandler.TITANIUM_HELMET;
@@ -497,6 +509,21 @@ public class RenderingHandler {
 		registerItemRender(ZERG_T3_CHESTPLATE);
 		registerItemRender(ZERG_T3_LEGGINGS);
 		registerItemRender(ZERG_T3_BOOTS);
+
+		registerItemRender(TERRAN_MARINE_T1_HELMET);
+		registerItemRender(TERRAN_MARINE_T1_CHESTPLATE);
+		registerItemRender(TERRAN_MARINE_T1_LEGGINGS);
+		registerItemRender(TERRAN_MARINE_T1_BOOTS);
+
+		registerItemRender(TERRAN_MARINE_T2_HELMET);
+		registerItemRender(TERRAN_MARINE_T2_CHESTPLATE);
+		registerItemRender(TERRAN_MARINE_T2_LEGGINGS);
+		registerItemRender(TERRAN_MARINE_T2_BOOTS);
+
+		registerItemRender(TERRAN_MARINE_T3_HELMET);
+		registerItemRender(TERRAN_MARINE_T3_CHESTPLATE);
+		registerItemRender(TERRAN_MARINE_T3_LEGGINGS);
+		registerItemRender(TERRAN_MARINE_T3_BOOTS);
 
 		registerItemRender(PROTOSS_T1_HELMET);
 		registerItemRender(PROTOSS_T1_CHESTPLATE);
