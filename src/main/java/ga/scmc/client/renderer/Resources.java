@@ -30,7 +30,7 @@ public class Resources {
 	public static final String PREAVER_BASE		 				= Library.RL_BASE + "textures/entity/preaver_base.png";
 	public static final String PREAVER_GLOW_DYNAMIC				= Library.RL_BASE + "textures/entity/preaver_glow_dynamic.png";
 	public static final String PREAVER_OVERLAY 					= Library.RL_BASE + "textures/entity/preaver_overlay.png";
-	public static final String PREDATOR_BASE 					= Library.RL_BASE + "textures/entity/preaver_base.png";
+	public static final String PREDATOR_BASE 					= Library.RL_BASE + "textures/entity/predator_base.png";
 	public static final String PREDATOR_GLOW_DYNAMIC 			= Library.RL_BASE + "textures/entity/predator_glow_dynamic.png";
 	public static final String PREDATOR_GLOW_STATIC 			= Library.RL_BASE + "textures/entity/predator_glow_static.png";
 	public static final String PREDATOR_OVERLAY 				= Library.RL_BASE + "textures/entity/predator_overlay.png";
