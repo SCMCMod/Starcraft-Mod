@@ -16,11 +16,11 @@ import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.oredict.OreDictionary;
 
 /**
+ * <em><b>Edited by Ocelot5836 for the SCMC mod.</b></em> <br>
+ * </br>
+ * 
  * This is where some useful methods will be.
  * 
- * <br>
- * 
- * Edited by Ocelot5836 for SCMC mod.
  * 
  * @author CJMinecraft
  */
@@ -109,6 +109,19 @@ public class BaseUtils {
 		return remainder;
 	}
 
+	/**
+	 * Takes the chosen item stack from a specified slot to the inventory
+	 * 
+	 * @param handler
+	 *            The holder of the items
+	 * @param maxSlot
+	 *            The max slot to take from
+	 * @param amount
+	 *            The amount to take
+	 * @param simulate
+	 *            Is the task a simulation?
+	 * @return The remainder left if the slot was full
+	 */
 	public static ItemStack removeStackFromInventory(IItemHandler handler, int maxSlot, int amount, boolean simulate) {
 		ItemStack remainder = null;
 		for (int slot = 0; slot < maxSlot; slot++) {
@@ -161,7 +174,7 @@ public class BaseUtils {
 	 *            The {@link ItemStack} to test
 	 * @return The {@link EnumDyeColor} of the {@link ItemStack} to test. If the stack is not registered as a dye, the {@link EnumDyeColor#WHITE} will be used
 	 */
-	public static EnumDyeColor getColourFromDye(ItemStack stack) {
+	public static EnumDyeColor getColorFromDye(ItemStack stack) {
 		for (int id : OreDictionary.getOreIDs(stack)) {
 			if (id == OreDictionary.getOreID("dyeBlack"))
 				return EnumDyeColor.BLACK;

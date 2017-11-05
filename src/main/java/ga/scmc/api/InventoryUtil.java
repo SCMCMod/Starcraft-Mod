@@ -39,16 +39,16 @@ public class InventoryUtil {
 	 * 
 	 * @param player
 	 *            The player to check
-	 * @param s
+	 * @param stack
 	 *            The item stack to be searched for. Can be used for meta searching as well as item searching
 	 * @return The amount of items found
 	 */
-	public static int getItemAmount(EntityPlayer player, ItemStack s) {
+	public static int getItemAmount(EntityPlayer player, ItemStack stack) {
 		int amount = 0;
 		for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
-			ItemStack stack = player.inventory.getStackInSlot(i);
-			if (stack != null && stack.getItem() == s.getItem() && stack.getMetadata() == s.getMetadata()) {
-				amount += stack.stackSize;
+			ItemStack tempStack = player.inventory.getStackInSlot(i);
+			if (tempStack != null && tempStack.getItem() == stack.getItem() && tempStack.getMetadata() == stack.getMetadata()) {
+				amount += tempStack.stackSize;
 			}
 		}
 		return amount;
