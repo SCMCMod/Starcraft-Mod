@@ -2,11 +2,11 @@ package ga.scmc.client.gui.element;
 
 import java.io.IOException;
 
-import ga.scmc.api.GuiUtils;
-import ga.scmc.api.TextureUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.item.ItemStack;
+import ocelot.api.utils.GuiUtils;
+import ocelot.api.utils.TextureUtils;
 
 /**
  * @since 5.1

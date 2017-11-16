@@ -1,6 +1,7 @@
 package ga.scmc.events;
 
 import ga.scmc.achievement.Achievements;
+import ga.scmc.achievement.EnumAchievements;
 import ga.scmc.capabilities.ColorProvider;
 import ga.scmc.capabilities.IColor;
 import ga.scmc.handlers.ConfigurationHandler;
@@ -29,12 +30,12 @@ public class PlayerEventHandler {
 	@SubscribeEvent
 	public static void onPlayerChangedDimensionEvent(PlayerEvent.PlayerChangedDimensionEvent e) {
 		if (e.toDim == ConfigurationHandler.INT_DIMENSION_CHAR) {
-			e.player.addStat(Achievements.achievementEnterChar, 1);
+			e.player.addStat(Achievements.getRegisteredAchievement(Achievements.ENTER_CHAR), 1);
 			// add sound here
 		}
 
 		if (e.toDim == ConfigurationHandler.INT_DIMENSION_SHAKURAS) {
-			e.player.addStat(Achievements.achievementEnterShakuras, 1);
+			e.player.addStat(Achievements.getRegisteredAchievement(Achievements.ENTER_SHAKURAS), 1);
 			// add sound here
 		}
 	}

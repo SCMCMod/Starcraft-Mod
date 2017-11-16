@@ -16,11 +16,12 @@ import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.oredict.OreDictionary;
 
 /**
- * <em><b>Edited by Ocelot5836 for the SCMC mod.</b></em> <br>
+ * <em><b>Edited by Ocelot5836 for the SCMC mod.</b></em>
+ * 
+ * <br>
  * </br>
  * 
  * This is where some useful methods will be.
- * 
  * 
  * @author CJMinecraft
  */

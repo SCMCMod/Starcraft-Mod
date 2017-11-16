@@ -3,8 +3,6 @@ package ga.scmc.client.gui;
 import java.util.ArrayList;
 import java.util.List;
 
-import ga.scmc.api.GuiUtils;
-import ga.scmc.api.TextureUtils;
 import ga.scmc.container.ContainerGasCollector;
 import ga.scmc.enums.EnumMetaBlock.GasCollectorType;
 import ga.scmc.handlers.ItemHandler;
@@ -19,6 +17,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
+import ocelot.api.utils.GuiUtils;
+import ocelot.api.utils.TextureUtils;
 
 /**
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>

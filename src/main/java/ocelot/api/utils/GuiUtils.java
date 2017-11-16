@@ -1,46 +1,25 @@
-package ga.scmc.api;
+package ocelot.api.utils;
 
 import java.util.List;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.audio.PositionedSoundRecord;
-import net.minecraft.init.SoundEvents;
 
 /**
- * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
+ * <em><b>Copyright (c) 2017 Ocelot5836.</b></em>
  * 
  * @author Ocelot5836
  */
 public class GuiUtils {
 
-	private static Minecraft mc = Minecraft.getMinecraft();
+	private static final Minecraft MC = Minecraft.getMinecraft();
 
 	/**
 	 * Plays the default minecraft button click sound.
+	 * 
+	 * @deprecated Please use {@link SoundUtils#playButtonClick()} instead because this will lbe removed soon
 	 */
 	public static void playButtonClick() {
-		mc.getSoundHandler().playSound(PositionedSoundRecord.getMasterRecord(SoundEvents.UI_BUTTON_CLICK, 1.0F));
-	}
-
-	/**
-	 * Stops all currently playing sounds.
-	 */
-	public static void stopAllSounds() {
-		mc.getSoundHandler().stopSounds();
-	}
-
-	/**
-	 * Pauses all currently playing sounds.
-	 */
-	public static void pauseAllSounds() {
-		mc.getSoundHandler().pauseSounds();
-	}
-
-	/**
-	 * Resumes all currently playing sounds.
-	 */
-	public static void resumeAllSounds() {
-		mc.getSoundHandler().resumeSounds();
+		SoundUtils.playButtonClick();
 	}
 
 	/**
@@ -57,7 +36,7 @@ public class GuiUtils {
 	 */
 	public static void drawLines(List<String> lines, int posX, int posY, int color) {
 		for (int i = 0; i < lines.size(); i++) {
-			mc.fontRendererObj.drawString(lines.get(i), posX, posY + (i * 8), color);
+			MC.fontRendererObj.drawString(lines.get(i), posX, posY + (i * 8), color);
 		}
 	}
 

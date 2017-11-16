@@ -4,7 +4,7 @@ import java.awt.Color;
 
 import org.lwjgl.util.vector.Vector3f;
 
-import ga.scmc.api.StarcraftUtils;
+import ocelot.api.utils.StarcraftUtils;
 
 /**
  * This holds all the possible team colors for entities.

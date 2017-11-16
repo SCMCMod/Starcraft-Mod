@@ -3,7 +3,6 @@ package ga.scmc.events;
 import java.util.Random;
 
 import ga.scmc.api.CapabilityUtils;
-import ga.scmc.api.InventoryUtil;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.ItemHandler;
@@ -18,6 +17,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import ocelot.api.utils.InventoryUtils;
 
 /**
  * This class handles events that involve living entities.
@@ -55,9 +55,9 @@ public class LivingEventHandler {
 
 			if (!player.world.isRemote) {
 				if (CapabilityUtils.getShield(player) < GuiRenderEventHandler.getMaxShieldLevel() && GuiRenderEventHandler.isWearingFullProtossArmor(player)) {
-					if (InventoryUtil.hasItemAndAmount(player, ItemHandler.ENERGY, 1, 0) && CapabilityUtils.getShield(player) <= 5) {
+					if (InventoryUtils.hasItemAndAmount(player, ItemHandler.ENERGY, 1, 0) && CapabilityUtils.getShield(player) <= 5) {
 						CapabilityUtils.addShield(player, 5);
-						InventoryUtil.removeItemWithAmount(player, ItemHandler.ENERGY, 1, 0);
+						InventoryUtils.removeItemWithAmount(player, ItemHandler.ENERGY, 1, 0);
 						player.world.playSound(null, player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ(), SoundHandler.FX_WARPBLADE_ATTACK, SoundCategory.PLAYERS, 1, 1);
 					}
 				}

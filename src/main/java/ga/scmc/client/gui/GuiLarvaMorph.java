@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.util.List;
 
 import ga.scmc.Starcraft;
-import ga.scmc.api.GuiUtils;
-import ga.scmc.api.TextureUtils;
 import ga.scmc.client.gui.element.LarvaOption;
 import ga.scmc.entity.living.EntityLarva;
 import ga.scmc.network.NetworkHandler;
@@ -15,6 +13,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
+import ocelot.api.utils.GuiUtils;
+import ocelot.api.utils.TextureUtils;
 
 /**
  * @since 5.1

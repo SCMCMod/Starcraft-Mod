@@ -16,14 +16,14 @@ public class NetworkHandler {
 
 	public static final SimpleNetworkWrapper INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel(Library.MODID);
 
-	private static int nextId;
+	private static int nextId = 0;
 
 	public static void init() {
-		INSTANCE.registerMessage(new MessageSpawnItem(), MessageSpawnItem.class, 0, Side.SERVER);
-		INSTANCE.registerMessage(new MessageMorphLarva(), MessageMorphLarva.class, 1, Side.SERVER);
-		INSTANCE.registerMessage(new MessageSetPlayerShieldServer(), MessageSetPlayerShieldServer.class, 2, Side.SERVER);
-		INSTANCE.registerMessage(new MessageSetPlayerShieldClient(), MessageSetPlayerShieldClient.class, 3, Side.CLIENT);
-		INSTANCE.registerMessage(new MessageSyncLarvaGui(), MessageSyncLarvaGui.class, 4, Side.CLIENT);
+		registerMessage(new MessageMorphLarva(), MessageMorphLarva.class, Side.SERVER);
+		registerMessage(new MessageSetPlayerShieldServer(), MessageSetPlayerShieldServer.class, Side.SERVER);
+		registerMessage(new MessageSetPlayerShieldClient(), MessageSetPlayerShieldClient.class, Side.CLIENT);
+		registerMessage(new MessageSyncLarvaGui(), MessageSyncLarvaGui.class, Side.CLIENT);
+		registerMessage(new MessageSpawnItem(), MessageSpawnItem.class, Side.SERVER);
 	}
 
 	private static void registerMessage(IMessageHandler messageHandler, Class requestMessageType, Side side) {

@@ -1,11 +1,11 @@
-package ga.scmc.api;
+package ocelot.api.utils;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 /**
- * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
+ * <em><b>Copyright (c) 2017 Ocelot5836.</b></em>
  * 
  * <br>
  * </br>
@@ -14,7 +14,7 @@ import net.minecraft.item.ItemStack;
  * 
  * @author Ocelot5836
  */
-public class InventoryUtil {
+public class InventoryUtils {
 
 	/**
 	 * 

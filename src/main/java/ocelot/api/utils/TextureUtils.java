@@ -1,4 +1,4 @@
-package ga.scmc.api;
+package ocelot.api.utils;
 
 import java.awt.image.BufferedImage;
 
@@ -6,10 +6,17 @@ import ga.scmc.client.renderer.RenderUtil;
 import ga.scmc.lib.Library;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.DynamicTexture;
+import net.minecraft.client.renderer.texture.ITextureObject;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.util.ResourceLocation;
 
 /**
- * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
+ * <em><b>Copyright (c) 2017 Ocelot5836.</b></em>
+ * 
+ * <br>
+ * </br>
+ * 
+ * This class holds methods to manage textures easily.
  * 
  * @author Ocelot5836
  */
@@ -27,22 +34,22 @@ public class TextureUtils {
 	public static ResourceLocation createBufferedImageTexture(BufferedImage image) {
 		return MC.getTextureManager().getDynamicTextureLocation(" ", new DynamicTexture(image));
 	}
-
+	
 	/**
-	 * Deletes the specified image from memory.
+	 * Deletes the specified texture from memory.
 	 * 
-	 * @param image
-	 *            The image to delete
+	 * @param texture
+	 *            The texture to delete
 	 */
 	public static void deleteTexture(ResourceLocation texture) {
 		MC.getTextureManager().deleteTexture(texture);
 	}
 
 	/**
-	 * Binds the specified image.
+	 * Binds the specified texture.
 	 * 
-	 * @param image
-	 *            The image to bind
+	 * @param texture
+	 *            The texture to bind
 	 */
 	public static void bindTexture(ResourceLocation texture) {
 		RenderUtil.bindTexture(texture);
@@ -68,5 +75,12 @@ public class TextureUtils {
 	 */
 	public static void bindTexture(String path) {
 		bindTexture(Library.MODID, path);
+	}
+	
+	/**
+	 * @return The default missing image texture
+	 */
+	public static TextureAtlasSprite getMissingSprite() {
+		return MC.getTextureMapBlocks().getMissingSprite();
 	}
 }

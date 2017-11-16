@@ -1,7 +1,5 @@
 package ga.scmc.client.renderer.items;
 
-import ga.scmc.api.GuiUtils;
-import ga.scmc.api.TextureUtils;
 import ga.scmc.client.renderer.RenderUtil;
 import ga.scmc.client.renderer.blocks.ModelTable;
 import ga.scmc.lib.Library;
@@ -10,6 +8,8 @@ import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformT
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import ocelot.api.utils.GuiUtils;
+import ocelot.api.utils.TextureUtils;
 
 public class ItemRenderTable extends ItemRenderer {
 

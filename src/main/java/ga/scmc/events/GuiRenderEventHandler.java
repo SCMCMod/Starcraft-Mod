@@ -3,9 +3,6 @@ package ga.scmc.events;
 import java.awt.Color;
 
 import ga.scmc.api.CapabilityUtils;
-import ga.scmc.api.GuiUtils;
-import ga.scmc.api.InventoryUtil;
-import ga.scmc.api.TextureUtils;
 import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.ItemHandler;
 import net.minecraft.client.Minecraft;
@@ -25,6 +22,9 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import ocelot.api.utils.GuiUtils;
+import ocelot.api.utils.InventoryUtils;
+import ocelot.api.utils.TextureUtils;
 
 /**
  * This class renders anything like text on the screen as an overlay.
@@ -55,7 +55,7 @@ public class GuiRenderEventHandler extends Gui {
 			ItemStack itemstack = player.inventory.armorItemInSlot(3);
 			if (mc.gameSettings.thirdPersonView == 0 && itemstack != null && itemstack.getItem() == ArmorHandler.TERRAN_MARINE_T1_HELMET && renderHelmetOverlay && event.getType() == ElementType.TEXT) {
 				renderHelmetOverlay(scaledresolution);
-				String ammo = "Ammo: " + InventoryUtil.getItemAmount(mc.player, ItemHandler.C14_GAUSS_RIFLE.getAmmo());
+				String ammo = "Ammo: " + InventoryUtils.getItemAmount(mc.player, ItemHandler.C14_GAUSS_RIFLE.getAmmo());
 				if (mc.player.isCreative())
 					ammo = "Ammo: Infinite";
 				fontRenderer.drawString(ammo, 15, event.getResolution().getScaledHeight() - 18, Color.WHITE.getRGB());

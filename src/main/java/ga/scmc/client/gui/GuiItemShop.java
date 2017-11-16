@@ -5,9 +5,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import ga.scmc.api.GuiUtils;
-import ga.scmc.api.InventoryUtil;
-import ga.scmc.api.TextureUtils;
 import ga.scmc.client.gui.element.Tab;
 import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.ItemHandler;
@@ -25,6 +22,9 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
+import ocelot.api.utils.GuiUtils;
+import ocelot.api.utils.InventoryUtils;
+import ocelot.api.utils.TextureUtils;
 
 /**
  * @author Ocelot5836
@@ -158,7 +158,7 @@ public class GuiItemShop extends GuiScreen {
 			for (int j = 0; j < 4; j++) {
 				int index = 4 * i + j;
 				if (index < GuiLists.TRADES[tab].size()) {
-					if (index != selectedIndex && (InventoryUtil.getItemAmount(customer, MINERAL) < GuiLists.TRADES[tab].get(index).getMineralCost() || InventoryUtil.getItemAmount(customer, VESPENE.getItem()) < GuiLists.TRADES[tab].get(index).getVespeneCost())) {
+					if (index != selectedIndex && (InventoryUtils.getItemAmount(customer, MINERAL) < GuiLists.TRADES[tab].get(index).getMineralCost() || InventoryUtils.getItemAmount(customer, VESPENE.getItem()) < GuiLists.TRADES[tab].get(index).getVespeneCost())) {
 						int selectedX = index % 4;
 						int selectedY = index / 4;
 						GlStateManager.color(0.1F, 0.1F, 0.1F, 0.1F);
@@ -177,8 +177,8 @@ public class GuiItemShop extends GuiScreen {
 		this.fontRendererObj.drawString(displayName, xSize / 2 - this.fontRendererObj.getStringWidth(displayName) / 2, 8, 4210752);
 		this.fontRendererObj.drawString(I18n.format("gui.item_shop.money"), 123 - this.fontRendererObj.getStringWidth(I18n.format("gui.item_shop.money")) / 2, 75, 4210752);
 
-		MINERAL.stackSize = InventoryUtil.getItemAmount(customer, MINERAL);
-		VESPENE.stackSize = InventoryUtil.getItemAmount(customer, VESPENE);
+		MINERAL.stackSize = InventoryUtils.getItemAmount(customer, MINERAL);
+		VESPENE.stackSize = InventoryUtils.getItemAmount(customer, VESPENE);
 
 		if (MINERAL.stackSize > 0) {
 			Minecraft.getMinecraft().getRenderItem().renderItemAndEffectIntoGUI(MINERAL, 105, 91);
@@ -257,7 +257,7 @@ public class GuiItemShop extends GuiScreen {
 
 	@Override
 	public void updateScreen() {
-		if (selectedIndex == -1 || InventoryUtil.getItemAmount(customer, MINERAL) < GuiLists.TRADES[tab].get(selectedIndex).getMineralCost() || InventoryUtil.getItemAmount(customer, VESPENE.getItem()) < GuiLists.TRADES[tab].get(selectedIndex).getVespeneCost()) {
+		if (selectedIndex == -1 || InventoryUtils.getItemAmount(customer, MINERAL) < GuiLists.TRADES[tab].get(selectedIndex).getMineralCost() || InventoryUtils.getItemAmount(customer, VESPENE.getItem()) < GuiLists.TRADES[tab].get(selectedIndex).getVespeneCost()) {
 			buttonBuy.enabled = false;
 		} else {
 			buttonBuy.enabled = true;
@@ -278,10 +278,10 @@ public class GuiItemShop extends GuiScreen {
 	protected void actionPerformed(GuiButton button) throws IOException {
 		switch (button.id) {
 		case BUTTON_BUY:
-			if (selectedIndex != -1 && InventoryUtil.getItemAmount(customer, MINERAL) >= GuiLists.TRADES[tab].get(selectedIndex).getMineralCost() && InventoryUtil.getItemAmount(customer, VESPENE.getItem()) >= GuiLists.TRADES[tab].get(selectedIndex).getVespeneCost()) {
+			if (selectedIndex != -1 && InventoryUtils.getItemAmount(customer, MINERAL) >= GuiLists.TRADES[tab].get(selectedIndex).getMineralCost() && InventoryUtils.getItemAmount(customer, VESPENE.getItem()) >= GuiLists.TRADES[tab].get(selectedIndex).getVespeneCost()) {
 				NetworkHandler.sendToServer(new MessageSpawnItem(GuiLists.TRADES[tab].get(selectedIndex).getStack()));
-				InventoryUtil.removeItemWithAmount(customer, MINERAL.getItem(), GuiLists.TRADES[tab].get(selectedIndex).getMineralCost());
-				InventoryUtil.removeItemWithAmount(customer, VESPENE.getItem(), GuiLists.TRADES[tab].get(selectedIndex).getVespeneCost());
+				InventoryUtils.removeItemWithAmount(customer, MINERAL.getItem(), GuiLists.TRADES[tab].get(selectedIndex).getMineralCost());
+				InventoryUtils.removeItemWithAmount(customer, VESPENE.getItem(), GuiLists.TRADES[tab].get(selectedIndex).getVespeneCost());
 			}
 			break;
 		}
