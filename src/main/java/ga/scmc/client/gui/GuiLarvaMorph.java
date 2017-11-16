@@ -5,6 +5,7 @@ import java.util.List;
 
 import ga.scmc.Starcraft;
 import ga.scmc.api.GuiUtils;
+import ga.scmc.api.TextureUtils;
 import ga.scmc.client.gui.element.LarvaOption;
 import ga.scmc.entity.living.EntityLarva;
 import ga.scmc.network.NetworkHandler;
@@ -118,11 +119,11 @@ public class GuiLarvaMorph extends BasicGui {
 	}
 
 	private void bindGuiTexture() {
-		GuiUtils.bindTexture("textures/gui/larva.png");
+		TextureUtils.bindTexture("textures/gui/larva.png");
 	}
 
 	private void bindIconTexture() {
-		GuiUtils.bindTexture("textures/gui/larva_icons.png");
+		TextureUtils.bindTexture("textures/gui/larva_icons.png");
 	}
 
 	public EntityLarva getLarva() {

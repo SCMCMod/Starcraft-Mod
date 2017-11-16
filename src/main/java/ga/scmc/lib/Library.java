@@ -29,7 +29,7 @@ public class Library {
 	public static final String MODID = "starcraft";
 	public static final String RL_BASE = MODID + ":";
 	public static final String UN_BASE = MODID + "_";
-	
+
 	/**
 	 * Makes a cube out of {@code blockState} anchored at the bottom-middle. NOTE: this ignores the anchor. Also, make sure the side length is an odd natural number, else you'll break something
 	 * 

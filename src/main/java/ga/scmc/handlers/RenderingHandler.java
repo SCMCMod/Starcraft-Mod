@@ -49,6 +49,7 @@ import static ga.scmc.handlers.ArmorHandler.ZERG_T3_CHESTPLATE;
 import static ga.scmc.handlers.ArmorHandler.ZERG_T3_HELMET;
 import static ga.scmc.handlers.ArmorHandler.ZERG_T3_LEGGINGS;
 import static ga.scmc.handlers.BlockHandler.ASH_CHAR;
+import static ga.scmc.handlers.BlockHandler.CORE_BARRACKS;
 import static ga.scmc.handlers.BlockHandler.FLUID_ACID;
 import static ga.scmc.handlers.BlockHandler.FLUID_BLOOD;
 import static ga.scmc.handlers.BlockHandler.FLUID_TERRAZINE;
@@ -68,9 +69,9 @@ import static ga.scmc.handlers.BlockHandler.PROTOSS_ENERGY_CHANNEL;
 import static ga.scmc.handlers.BlockHandler.PROTOSS_ENERGY_STABILIZER;
 import static ga.scmc.handlers.BlockHandler.PROTOSS_VOID_ENERGY_CHANNEL;
 import static ga.scmc.handlers.BlockHandler.PROTOSS_VOID_ENERGY_STABILIZER;
+import static ga.scmc.handlers.BlockHandler.PROTOSS_WARPGATE_WORMHOLE;
 import static ga.scmc.handlers.BlockHandler.STARCRAFT_SKULL;
 import static ga.scmc.handlers.BlockHandler.TEST;
-import static ga.scmc.handlers.BlockHandler.WARP_GATE_WORMHOLE;
 import static ga.scmc.handlers.ItemHandler.BIOMASS;
 import static ga.scmc.handlers.ItemHandler.BULLET;
 import static ga.scmc.handlers.ItemHandler.C14_GAUSS_RIFLE;
@@ -542,7 +543,7 @@ public class RenderingHandler {
 	}
 
 	private static void registerBlockModels() {
-		registerBlockModel(WARP_GATE_WORMHOLE);
+		registerBlockModel(PROTOSS_WARPGATE_WORMHOLE);
 
 		// Furnaces
 		registerBlockModel(LIT_FURNACE_SHAKURAS);
@@ -564,6 +565,8 @@ public class RenderingHandler {
 		registerBlockModel(PROTOSS_VOID_ENERGY_CHANNEL);
 		registerBlockModel(PROTOSS_VOID_ENERGY_STABILIZER);
 
+		registerBlockModel(CORE_BARRACKS);
+		
 		registerBlockModel(ASH_CHAR);
 		// Layer Registration
 		registerLayered(ASH_CHAR);

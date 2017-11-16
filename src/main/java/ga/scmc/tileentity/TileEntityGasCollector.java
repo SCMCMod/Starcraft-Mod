@@ -2,7 +2,7 @@ package ga.scmc.tileentity;
 
 import com.mojang.authlib.GameProfile;
 
-import ga.scmc.api.BaseUtils;
+import ga.scmc.api.Utils;
 import ga.scmc.blocks.BlockGas;
 import ga.scmc.blocks.BlockTerrazineGas;
 import ga.scmc.blocks.BlockVespeneGas;
@@ -73,7 +73,7 @@ public class TileEntityGasCollector extends TileEntity implements ITickable, ICa
 					breakBlock(EnumFacing.DOWN);
 			}
 
-			if (BaseUtils.checkSurroundingBlocks(world, Blocks.UNPOWERED_COMPARATOR.getDefaultState()) && BaseUtils.checkSurroundingBlocks(world, Blocks.POWERED_COMPARATOR.getDefaultState())) {
+			if (Utils.checkSurroundingBlocks(world, Blocks.UNPOWERED_COMPARATOR.getDefaultState()) && Utils.checkSurroundingBlocks(world, Blocks.POWERED_COMPARATOR.getDefaultState())) {
 				this.markDirty();
 			}
 		}
@@ -103,11 +103,11 @@ public class TileEntityGasCollector extends TileEntity implements ITickable, ICa
 					block.harvestBlock(world, player, newPos, state, this, null);
 
 					if (block instanceof BlockVespeneGas)
-						BaseUtils.addStackToInventory(this.items, 9, new ItemStack(ItemHandler.VESPENE, 1, type + 1), false);
+						Utils.addStackToInventory(this.items, 9, new ItemStack(ItemHandler.VESPENE, 1, type + 1), false);
 					if (block instanceof BlockTerrazineGas)
-						BaseUtils.addStackToInventory(this.items, 9, new ItemStack(ItemHandler.TERRAZINE, 1, type + 1), false);
+						Utils.addStackToInventory(this.items, 9, new ItemStack(ItemHandler.TERRAZINE, 1, type + 1), false);
 
-					if (!BaseUtils.isInventoryFull(this.items, 9)) {
+					if (!Utils.isInventoryFull(this.items, 9)) {
 						world.playEvent(2001, newPos, Block.getStateId(state));
 						if (getType() == 0)
 							world.playSound(null, pos, SoundHandler.BLOCK_GAS_COLLECTOR_PROTOSS, SoundCategory.BLOCKS, 1, 1);

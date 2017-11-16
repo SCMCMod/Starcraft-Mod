@@ -5,6 +5,7 @@ import java.awt.Color;
 import ga.scmc.api.CapabilityUtils;
 import ga.scmc.api.GuiUtils;
 import ga.scmc.api.InventoryUtil;
+import ga.scmc.api.TextureUtils;
 import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.ItemHandler;
 import net.minecraft.client.Minecraft;
@@ -73,7 +74,7 @@ public class GuiRenderEventHandler extends Gui {
 
 			if (event.getType() == ElementType.HOTBAR && mc.playerController.shouldDrawHUD() && isWearingFullProtossArmor(player)) {
 				GlStateManager.color(1, 1, 1, 1);
-				GuiUtils.bindTexture("textures/gui/icons.png");
+				TextureUtils.bindTexture("textures/gui/icons.png");
 				ScaledResolution resolution = event.getResolution();
 				float x = resolution.getScaledWidth() / 2 - 91;
 				float y = resolution.getScaledHeight() - 39;
@@ -91,7 +92,7 @@ public class GuiRenderEventHandler extends Gui {
 					}
 				}
 
-				GuiUtils.bindTexture("minecraft", "textures/gui/icons.png");
+				TextureUtils.bindTexture("minecraft", "textures/gui/icons.png");
 			}
 		}
 	}
@@ -99,7 +100,7 @@ public class GuiRenderEventHandler extends Gui {
 	public void renderHelmetOverlay(ScaledResolution scaledRes) {
 		GlStateManager.disableDepth();
 		GlStateManager.color(1, 1, 1, 1);
-		GuiUtils.bindTexture("textures/gui/helmet_overlay.png");
+		TextureUtils.bindTexture("textures/gui/helmet_overlay.png");
 		drawModalRectWithCustomSizedTexture(0, 0, 0, 0, scaledRes.getScaledWidth(), scaledRes.getScaledHeight(), scaledRes.getScaledWidth(), scaledRes.getScaledHeight());
 		GlStateManager.enableDepth();
 	}

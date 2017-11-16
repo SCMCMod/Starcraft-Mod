@@ -125,14 +125,6 @@ public class BlockStarcraftSkull extends BlockContainer {
 		super.onBlockHarvested(worldIn, pos, state, player);
 	}
 
-	/**
-	 * Called serverside after this block is replaced with another in Chunk, but before the Tile Entity is updated
-	 */
-	@Override
-	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
-		super.breakBlock(worldIn, pos, state);
-	}
-
 	@Override
 	public List<ItemStack> getDrops(IBlockAccess worldIn, BlockPos pos, IBlockState state, int fortune) {
 		List<ItemStack> ret = new ArrayList<ItemStack>();

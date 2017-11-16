@@ -3,7 +3,7 @@ package ga.scmc.blocks.metablocks;
 import java.util.List;
 
 import ga.scmc.Starcraft;
-import ga.scmc.api.BaseUtils;
+import ga.scmc.api.Utils;
 import ga.scmc.blocks.itemblocks.IMetaBlockName;
 import ga.scmc.client.gui.GuiHandler;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
@@ -172,6 +172,6 @@ public class BlockGasCollector extends Block implements IMetaBlockName, ITileEnt
 	public int getComparatorInputOverride(IBlockState blockState, World world, BlockPos pos) {
 		TileEntityGasCollector te = (TileEntityGasCollector) world.getTileEntity(pos);
 		ItemStackHandler handler = (ItemStackHandler) te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
-		return BaseUtils.calculateRedstone(handler);
+		return Utils.calculateRedstone(handler);
 	}
 }

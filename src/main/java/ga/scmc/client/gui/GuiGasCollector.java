@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ga.scmc.api.GuiUtils;
+import ga.scmc.api.TextureUtils;
 import ga.scmc.container.ContainerGasCollector;
 import ga.scmc.enums.EnumMetaBlock.GasCollectorType;
 import ga.scmc.handlers.ItemHandler;
@@ -103,7 +104,7 @@ public class GuiGasCollector extends GuiContainer {
 	}
 
 	private void bindTexture() {
-		GuiUtils.bindTexture("textures/gui/container/gas_collector_" + GasCollectorType.values()[te.getType()].getName() + ".png");
+		TextureUtils.bindTexture("textures/gui/container/gas_collector_" + GasCollectorType.values()[te.getType()].getName() + ".png");
 	}
 
 	public void drawTooltip(List<String> lines, int posX, int posY, int width, int height, int mouseX, int mouseY) {

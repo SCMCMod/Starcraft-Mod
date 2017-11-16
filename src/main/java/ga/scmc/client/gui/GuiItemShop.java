@@ -7,6 +7,7 @@ import java.util.List;
 
 import ga.scmc.api.GuiUtils;
 import ga.scmc.api.InventoryUtil;
+import ga.scmc.api.TextureUtils;
 import ga.scmc.client.gui.element.Tab;
 import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.ItemHandler;
@@ -109,7 +110,7 @@ public class GuiItemShop extends GuiScreen {
 			RenderHelper.enableGUIStandardItemLighting();
 			tab.renderIcon();
 		}
-		
+
 		GlStateManager.translate((float) i, (float) j, 0.0F);
 		drawCenterLayer(mouseX, mouseY);
 		RenderHelper.disableStandardItemLighting();
@@ -314,6 +315,6 @@ public class GuiItemShop extends GuiScreen {
 	}
 
 	public void bindGuiTexture() {
-		GuiUtils.bindTexture("textures/gui/item_shop.png");
+		TextureUtils.bindTexture("textures/gui/item_shop.png");
 	}
 }

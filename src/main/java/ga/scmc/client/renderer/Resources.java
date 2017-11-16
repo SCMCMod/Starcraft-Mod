@@ -53,4 +53,6 @@ public class Resources {
 	public static final String ZERGLINGRAPTOR_BASE 				= Library.RL_BASE + "textures/entity/zerglingraptor_base.png";
 	public static final String ZERGLINGSWARMLING_BASE 			= Library.RL_BASE + "textures/entity/zerglingswarmling_base.png";
 	public static final String ZERGLINGSWARMLING_GLOW_STATIC 	= Library.RL_BASE + "textures/entity/zerglingswarmling_glow_static.png";
+	public static final String MARINE_BASE                      = Library.RL_BASE + "textures/entity/marine/marine_base.png";
+	public static final String MARINE_OVERLAY                   = Library.RL_BASE + "textures/entity/marine/marine_overlay.png";
 }

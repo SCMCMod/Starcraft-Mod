@@ -741,7 +741,7 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 		world.setBlockState(pos.add(8, 8 + offsetY, 8), dimBlock.getDefaultState());
 
 		world.setBlockState(pos.add(6, 8 + offsetY, 7), dimBlock.getDefaultState());
-		world.setBlockState(pos.add(7, 8 + offsetY, 7), BlockHandler.WARP_GATE_WORMHOLE.getDefaultState());
+		world.setBlockState(pos.add(7, 8 + offsetY, 7), BlockHandler.PROTOSS_WARPGATE_WORMHOLE.getDefaultState());
 		world.setBlockState(pos.add(8, 8 + offsetY, 7), dimBlock.getDefaultState());
 
 		world.setBlockState(pos.add(6, 8 + offsetY, 6), dimBlock.getDefaultState());

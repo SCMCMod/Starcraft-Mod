@@ -8,12 +8,15 @@ import ga.scmc.network.message.MessageSpawnItem;
 import ga.scmc.network.message.MessageSyncLarvaGui;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 
 public class NetworkHandler {
 
 	public static final SimpleNetworkWrapper INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel(Library.MODID);
+
+	private static int nextId;
 
 	public static void init() {
 		INSTANCE.registerMessage(new MessageSpawnItem(), MessageSpawnItem.class, 0, Side.SERVER);
@@ -23,6 +26,14 @@ public class NetworkHandler {
 		INSTANCE.registerMessage(new MessageSyncLarvaGui(), MessageSyncLarvaGui.class, 4, Side.CLIENT);
 	}
 
+	private static void registerMessage(IMessageHandler messageHandler, Class requestMessageType, Side side) {
+		INSTANCE.registerMessage(messageHandler, requestMessageType, nextId++, side);
+	}
+
+	private static void registerMessage(Class messageHandler, Class requestMessageType, Side side) {
+		INSTANCE.registerMessage(messageHandler, requestMessageType, nextId++, side);
+	}
+	
 	public static void sendToServer(IMessage message) {
 		INSTANCE.sendToServer(message);
 	}

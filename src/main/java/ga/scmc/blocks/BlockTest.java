@@ -1,7 +1,5 @@
 package ga.scmc.blocks;
 
-import ga.scmc.Starcraft;
-import ga.scmc.client.gui.GuiHandler;
 import ga.scmc.tileentity.TileEntityTest;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.SoundType;
@@ -36,8 +34,9 @@ public class BlockTest extends BlockContainer {
 
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
-		if (world.isRemote)
-			player.openGui(Starcraft.instance, GuiHandler.LARVA_ID, world, (int) hitX, (int) hitY, (int) hitZ);
+		if (world.isRemote) {
+		} else {
+		}
 		return true;
 	}
 

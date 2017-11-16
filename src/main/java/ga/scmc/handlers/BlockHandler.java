@@ -81,6 +81,7 @@ public class BlockHandler {
 	public static Block CORE_WARPGATE_DARK;
 	public static Block CORE_WARPGATE_KHALAI;
 	public static Block CORE_WARPGATE_VOID;
+	public static Block CORE_BARRACKS;
 	public static Block DIM_PORTAL_CHAR;
 	public static Block DIM_PORTAL_OVERWORLD;
 	public static Block DIM_PORTAL_SHAKURAS;
@@ -90,7 +91,7 @@ public class BlockHandler {
 	public static Block DIRT_CHAR;
 	public static Block DIRT_SHAKURAS;
 	public static Block ENERGY_BLOCK;
-	public static Block WARP_GATE_WORMHOLE;
+	public static Block PROTOSS_WARPGATE_WORMHOLE;
 
 	public static Block FLUID_ACID;
 	public static Block FLUID_BLOOD;
@@ -262,6 +263,7 @@ public class BlockHandler {
 		CORE_WARPGATE_VOID 				= new StarcraftProtossCoreBlock("protoss.warpgatecore.void", RegistryType.FULL, Material.IRON, MapColor.GREEN).setDomeSize(16, 13, 3);
 		CORE_WARPGATE_DARK 				= new StarcraftProtossCoreBlock("protoss.warpgatecore.dark", RegistryType.FULL, Material.IRON, MapColor.BLACK).setDomeSize(16, 13, 3);
 		CORE_WARPGATE_KHALAI 			= new StarcraftProtossCoreBlock("protoss.warpgatecore.khalai", RegistryType.FULL, Material.IRON, MapColor.YELLOW).setDomeSize(16, 13, 3);
+		CORE_BARRACKS 					= new StarcraftProtossCoreBlock("protoss.barrackscore", RegistryType.FULL, Material.IRON, MapColor.BLUE).setDomeSize(16, 13, 3);
 
 		/** fluids **/
 		FLUID_ACID 						= new BlockAcidFluid();
@@ -280,7 +282,7 @@ public class BlockHandler {
 		ENERGY_BLOCK 					= new BlockEnergy();
 		VOID_ENERGY 					= new BlockVoidEnergy();
 		LIGHT_SOURCE 					= new BlockMovingLightSource();
-		WARP_GATE_WORMHOLE 				= new BlockProtossWormhole();
+		PROTOSS_WARPGATE_WORMHOLE 		= new BlockProtossWormhole();
 	}
 
 	public static void register() {
@@ -313,7 +315,7 @@ public class BlockHandler {
 		registerBlock(PROTOSS_VOID_ENERGY_CHANNEL);
 		registerBlock(PROTOSS_VOID_ENERGY_STABILIZER);
 		registerCompleteBlock(ZERG_CREEP);
-
+		
 		// Furnaces
 		registerBlock(FURNACE_SHAKURAS);
 		registerBlock(LIT_FURNACE_SHAKURAS);
@@ -326,7 +328,7 @@ public class BlockHandler {
 
 		registerCompleteBlock(KERATIN_CHUNK);
 
-		registerBlock(WARP_GATE_WORMHOLE);
+		registerBlock(PROTOSS_WARPGATE_WORMHOLE);
 
 		registerCompleteBlock(ENERGY_BLOCK);
 		registerCompleteBlock(VOID_ENERGY);
