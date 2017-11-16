@@ -24,7 +24,7 @@ import net.minecraftforge.oredict.OreDictionary;
  * 
  * @author CJMinecraft
  */
-public class BaseUtils {
+public class Utils {
 
 	/**
 	 * Makes the variables which will be initialized when there getter method is called

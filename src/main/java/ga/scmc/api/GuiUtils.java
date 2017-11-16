@@ -2,12 +2,9 @@ package ga.scmc.api;
 
 import java.util.List;
 
-import ga.scmc.client.renderer.RenderUtil;
-import ga.scmc.lib.Library;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.util.ResourceLocation;
 
 /**
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
@@ -23,6 +20,27 @@ public class GuiUtils {
 	 */
 	public static void playButtonClick() {
 		mc.getSoundHandler().playSound(PositionedSoundRecord.getMasterRecord(SoundEvents.UI_BUTTON_CLICK, 1.0F));
+	}
+
+	/**
+	 * Stops all currently playing sounds.
+	 */
+	public static void stopAllSounds() {
+		mc.getSoundHandler().stopSounds();
+	}
+
+	/**
+	 * Pauses all currently playing sounds.
+	 */
+	public static void pauseAllSounds() {
+		mc.getSoundHandler().pauseSounds();
+	}
+
+	/**
+	 * Resumes all currently playing sounds.
+	 */
+	public static void resumeAllSounds() {
+		mc.getSoundHandler().resumeSounds();
 	}
 
 	/**
@@ -65,27 +83,5 @@ public class GuiUtils {
 			return true;
 		}
 		return false;
-	}
-
-	/**
-	 * Binds a texture using the specified domain and path.
-	 * 
-	 * @param domain
-	 *            The domain of the texture
-	 * @param path
-	 *            The path to the texture
-	 */
-	public static void bindTexture(String domain, String path) {
-		RenderUtil.bindTexture(new ResourceLocation(domain, path));
-	}
-
-	/**
-	 * Binds a texture using the specified path.
-	 * 
-	 * @param path
-	 *            The path to the texture
-	 */
-	public static void bindTexture(String path) {
-		bindTexture(Library.MODID, path);
 	}
 }
