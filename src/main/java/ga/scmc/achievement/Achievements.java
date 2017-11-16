@@ -3,12 +3,10 @@ package ga.scmc.achievement;
 import java.util.ArrayList;
 import java.util.List;
 
-import ga.scmc.handlers.BlockHandler;
-import ga.scmc.handlers.ItemHandler;
-import ga.scmc.handlers.WeaponHandler;
-import net.minecraft.item.ItemStack;
+import javax.annotation.Nullable;
+
+import net.minecraft.client.resources.I18n;
 import net.minecraft.stats.Achievement;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.common.AchievementPage;
 
 /**
@@ -21,93 +19,80 @@ import net.minecraftforge.common.AchievementPage;
  * 
  * @author Ocelot5836
  * 
+ * @see EnumAchievements
  * @see Achievement
  * @see AchievementPage
  */
 public class Achievements {
 
-	public static Achievement achievementEnterChar;
-	public static Achievement achievementEnterShakuras;
-	public static Achievement achievementGetC14GaussRifle;
-	public static Achievement achievementGetMasterPsiBlade;
-	public static Achievement achievementGetPsiBlade;
-	public static Achievement achievementGetPsiBladeDark;
-	public static Achievement achievementGetPsiBladeFocuser;
-	public static Achievement achievementGetPsiBladeFocuserDark;
-	public static Achievement achievementGetWarpBlade;
-	public static Achievement achievementMinedMinerals;
+	public static final String PAGE_UNLOCALIZED_NAME = "pageStarcraft";
+	public static final String MINED_MINERALS = "mineMinerals";
+	public static final String MINED_RICH_MINERALS = "mineRichMinerals";
+	public static final String MINED_VESPENE = "mineVespene";
+	public static final String GET_C14_GAUSS_RIFLE = "getC14GaussRifle";
+	public static final String GET_PSI_BLADE_FOCUSER = "getPsiBladeFocuser";
+	public static final String GET_PSI_BLADE = "getPsiBlade";
+	public static final String GET_PSI_BLADE_FOCUSER_DARK = "getPsiBladeFocuserDark";
+	public static final String GET_PSI_BLADE_DARK = "getPsiBladeDark";
+	public static final String GET_WARP_BLADE = "getWarpBlade";
+	public static final String GET_MASTER_PSI_BLADE = "getMasterPsiBlade";
+	public static final String ENTER_CHAR = "enterChar";
+	public static final String ENTER_SHAKURAS = "enterShakuras";
 
-	public static Achievement achievementMinedRichMinerals;
-	public static Achievement achievementMinedVespene;
-
-	/** The array that holds all the achievements to be added to the page */
-	private static List<Achievement> achievements;
+	private static List<Achievement> achievements = new ArrayList<Achievement>();
 
 	/**
-	 * Sets all the achievements to their respective ids.
+	 * Returns a registered achievement from the achievements array.
+	 * 
+	 * @param unlocalizedName
+	 *            The name of the parent achievement
+	 * @return The achievement found with that name
 	 */
-	public static void initAchievements() {
-		achievementMinedMinerals = createAchievement("mineMinerals", 0, 0, new ItemStack(ItemHandler.MINERAL_SHARD, 1, 0), null);
+	@Nullable
+	public static Achievement getRegisteredAchievement(String unlocalizedName) {
+		for (Achievement achievement : achievements) {
+			System.out.println(achievement.statId + ", " + unlocalizedName);
+			if (achievement.statId.equalsIgnoreCase("achievement." + unlocalizedName)) {
+				return achievement;
+			}
+		}
 
-		achievementMinedRichMinerals = createAchievement("mineRichMinerals", 1, 0, new ItemStack(ItemHandler.MINERAL_SHARD, 1, 1), achievementMinedMinerals);
+		return null;
+	}
 
-		achievementMinedVespene = createAchievement("mineVespene", 0, 1, new ItemStack(ItemHandler.VESPENE, 0, 3), null);
-
-		achievementGetC14GaussRifle = createAchievement("getC14GaussRifle", 6, 0, new ItemStack(ItemHandler.C14_GAUSS_RIFLE), null).setSpecial();
-
-		// Protoss Achievements
-		achievementGetPsiBladeFocuser = createAchievement("getPsiBladeFocuser", 3, 0, new ItemStack(ItemHandler.PSI_BLADE_FOCUSER_UNCHARGED), null);
-
-		achievementGetPsiBladeFocuserDark = createAchievement("getPsiBladeFocuserDark", 4, 0, new ItemStack(ItemHandler.PSI_BLADE_FOCUSER_UNCHARGED, 1, 1), null);
-
-		achievementGetPsiBladeDark = createAchievement("getPsiBladeDark", 4, 1, new ItemStack(WeaponHandler.BANE_BLADE), achievementGetPsiBladeFocuserDark);
-
-		achievementGetPsiBlade = createAchievement("getPsiBlade", 3, 1, new ItemStack(WeaponHandler.PSI_BLADE), achievementGetPsiBladeFocuser);
-
-		achievementGetWarpBlade = createAchievement("getWarpBlade", 3, 2, new ItemStack(WeaponHandler.WARP_BLADE), achievementGetPsiBladeFocuser);
-
-		achievementGetMasterPsiBlade = createAchievement("getMasterPsiBlade", 3, 3, new ItemStack(WeaponHandler.MASTER_PSI_BLADE), achievementGetPsiBladeFocuser);
-
-		// Dimension Achievements
-		achievementEnterChar = createAchievement("enterChar", -3, 0, new ItemStack(BlockHandler.STONE_CHAR), null);
-
-		achievementEnterShakuras = createAchievement("enterShakuras", -2, 0, new ItemStack(BlockHandler.STONE_SHAKURAS), null);
+	/**
+	 * Gets a registered achievement from the achievements array.
+	 *
+	 * @param achievement
+	 *            The achievement to get the parent achievement from
+	 * @return The achievement found with that name, which can be null if not found
+	 * @deprecated Do not use this. Use {@link #getRegisteredAchievement(String)} instead.
+	 */
+	@Nullable
+	public static Achievement getRegisteredAchievement(EnumAchievements achievement) {
+		return getRegisteredAchievement(achievement.getParentUnlocalizedName());
 	}
 
 	/**
 	 * Initializes the achievements and the achievement page. It adds all the currently created achievements to the page.
 	 */
 	public static void init() {
-		achievements = new ArrayList<Achievement>();
-		initAchievements();
-		Achievement[] achievementArray = new Achievement[achievements.size()];
+		for (int i = 0; i < EnumAchievements.values().length; i++) {
+			EnumAchievements a = EnumAchievements.values()[i];
+			Achievement achievement = new Achievement("achievement." + a.getUnlocalizedName(), a.getUnlocalizedName(), (int) a.getPosition().x, (int) a.getPosition().y, a.getIcon(), getRegisteredAchievement(a.getParentUnlocalizedName()));
 
-		for (int i = 0; i < achievements.size(); i++) {
-			achievementArray[i] = achievements.get(i);
+			if (a.isSpecial())
+				achievement.setSpecial();
+			if (a.getParentUnlocalizedName() == null)
+				achievement.initIndependentStat();
+
+			achievements.add(achievement.registerStat());
 		}
-		
-		AchievementPage.registerAchievementPage(new AchievementPage(I18n.translateToLocal("achievement.pageStarcraft"), achievementArray));
-	}
 
-	/**
-	 * Creates a new achievement and adds it to the achievement page automatically.
-	 * 
-	 * @param unlocalized
-	 *            The unlocalized name of the achievement
-	 * @param collumn
-	 *            The collumn of the achievement
-	 * @param row
-	 *            The row of the achievement
-	 * @param icon
-	 *            The {@link ItemStack} that the icon will be
-	 * @param parent
-	 *            The parent achievement
-	 * @return The new achievement created
-	 */
-	private static Achievement createAchievement(String unlocalized, int collumn, int row, ItemStack icon, Achievement parent) {
-		/** The achievement to be added to the array */
-		Achievement achievement = new Achievement("achivement." + unlocalized, unlocalized, collumn, row, icon, parent).initIndependentStat().registerStat();
-		achievements.add(achievement);
-		return achievement;
+		Achievement[] achievementsArray = new Achievement[achievements.size()];
+		for (int i = 0; i < achievements.size(); i++)
+			achievementsArray[i] = achievements.get(i);
+
+		AchievementPage.registerAchievementPage(new AchievementPage(I18n.format("achievement." + PAGE_UNLOCALIZED_NAME), achievementsArray));
 	}
 }
