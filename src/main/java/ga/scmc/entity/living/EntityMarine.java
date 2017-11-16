@@ -32,7 +32,7 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 
 	public EntityMarine(World world) {
 		super(world);
-		setSize(3.0F, 3.0F);
+		setSize(0.8F, 2.2F);
 		experienceValue = 60;
 		this.setTeamColor(EnumTeamColors.BLUE);
 		this.setFactions(EnumFactionTypes.RAIDERS);
