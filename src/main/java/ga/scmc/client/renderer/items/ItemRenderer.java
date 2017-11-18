@@ -65,7 +65,7 @@ public abstract class ItemRenderer implements IPerspectiveAwareModel, IBakedMode
 	private final Pair<? extends IBakedModel, Matrix4f> selfPair;
 
 	protected ItemStack stack;
-
+	
 	public ItemRenderer(ModelBase model, ResourceLocation resource) {
 		this.overrides = new ItemRenderList();
 		this.selfPair = Pair.of(this, null);

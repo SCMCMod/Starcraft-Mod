@@ -1,14 +1,13 @@
 package ga.scmc.client.renderer.model;
 
-import net.minecraft.entity.Entity;
+import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.ItemStack;
 
 public interface IModelItem {
 
-	void renderHelmet(Entity entity, float scale);
+	void renderItem(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType);
 
-	void renderChestplate(Entity entity, float scale);
-
-	void renderLeggings(Entity entity, float scale);
-
-	void renderBoots(Entity entity, float scale);
+	ModelBase getModel();
 }
