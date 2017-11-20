@@ -23,7 +23,7 @@ public class BlockAsh extends ModBlockLayered {
 		super(Material.CARPET, MapColor.BLACK);
 		setUnlocalizedName("char.ash");
 		setRegistryName("char.ash");
-		setSoundType(SoundType.SNOW);
+		setSoundType(SoundType.SAND);
 		setHardness(0.1F);
 		setResistance(0.5f);
 		setCreativeTab(StarcraftCreativeTabs.MISC);

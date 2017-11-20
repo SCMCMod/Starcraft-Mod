@@ -36,8 +36,12 @@ public class Achievements {
 	public static final String GET_PSI_BLADE_DARK = "getPsiBladeDark";
 	public static final String GET_WARP_BLADE = "getWarpBlade";
 	public static final String GET_MASTER_PSI_BLADE = "getMasterPsiBlade";
+	
 	public static final String ENTER_CHAR = "enterChar";
 	public static final String ENTER_SHAKURAS = "enterShakuras";
+	public static final String ENTER_SLAYN = "enterSlayn";
+	public static final String ENTER_KORHAL = "enterKorhal";
+	public static final String ENTER_KALDIR = "enterKaldir";
 
 	private static List<Achievement> achievements = new ArrayList<Achievement>();
 
@@ -51,7 +55,6 @@ public class Achievements {
 	@Nullable
 	public static Achievement getRegisteredAchievement(String unlocalizedName) {
 		for (Achievement achievement : achievements) {
-			System.out.println(achievement.statId + ", " + unlocalizedName);
 			if (achievement.statId.equalsIgnoreCase("achievement." + unlocalizedName)) {
 				return achievement;
 			}

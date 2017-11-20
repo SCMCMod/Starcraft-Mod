@@ -25,7 +25,7 @@ import net.minecraftforge.fluids.BlockFluidClassic;
 public class BlockTerrazineFluid extends BlockFluidClassic {
 
 	public BlockTerrazineFluid() {
-		super(FluidHandler.terrazine, Material.WATER);
+		super(FluidHandler.TERRAZINE, Material.WATER);
 		setCreativeTab(null);
 		setUnlocalizedName("fluid.terrazine");
 		setRegistryName("fluid.terrazine");

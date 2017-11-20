@@ -43,6 +43,38 @@ public class EnumMetaItem {
 		}
 	}
 
+	public enum BulletMagazineType implements IStringSerializable {
+		C14("c14", 0, 32);
+
+		private int bulletCount;
+		private int ID;
+		private String name;
+
+		BulletMagazineType(String name, int ID, int bulletCount) {
+			this.bulletCount = bulletCount;
+			this.ID = ID;
+			this.name = name;
+		}
+		
+		public int getBulletCount() {
+			return bulletCount;
+		}
+
+		public int getID() {
+			return ID;
+		}
+
+		@Override
+		public String getName() {
+			return name;
+		}
+
+		@Override
+		public String toString() {
+			return getName();
+		}
+	}
+
 	public static enum C14PartType implements IStringSerializable {
 		BARREL("barrel", 0), BODY("body", 1), GRIP("grip", 2);
 
@@ -146,24 +178,9 @@ public class EnumMetaItem {
 			return getName();
 		}
 	}
-	
+
 	public static enum PledgeType implements IStringSerializable {
-		WHITE("white", 0),
-		ORANGE("orange", 1),
-		MAGENTA("magenta", 2),
-		LIGHTBLUE("lightblue", 3),
-		YELLOW("yellow", 4),
-		LIME("lime", 5),
-		PINK("pink", 6),
-		GRAY("gray", 7),
-		SILVER("silver", 8),
-		CYAN("cyan", 9),
-		PURPLE("purple", 10),
-		BLUE("blue", 11),
-		BROWN("brown", 12),
-		GREEN("green", 13),
-		RED("red", 14),
-		BLACK("black", 15);
+		WHITE("white", 0), ORANGE("orange", 1), MAGENTA("magenta", 2), LIGHTBLUE("lightblue", 3), YELLOW("yellow", 4), LIME("lime", 5), PINK("pink", 6), GRAY("gray", 7), SILVER("silver", 8), CYAN("cyan", 9), PURPLE("purple", 10), BLUE("blue", 11), BROWN("brown", 12), GREEN("green", 13), RED("red", 14), BLACK("black", 15);
 
 		private int ID;
 		private String name;
@@ -455,32 +472,6 @@ public class EnumMetaItem {
 		private String name;
 
 		private ContainerType(String name, int ID) {
-			this.ID = ID;
-			this.name = name;
-		}
-
-		public int getID() {
-			return ID;
-		}
-
-		@Override
-		public String getName() {
-			return name;
-		}
-
-		@Override
-		public String toString() {
-			return getName();
-		}
-	}
-
-	public static enum SkullType implements IStringSerializable {
-		CIVILIAN("civilian", 0), ZERGLING_SC2("zergling_sc2", 1), HYDRALISK("hydralisk", 2), BRUTALISK("brutalisk", 3);
-
-		private int ID;
-		private String name;
-
-		private SkullType(String name, int ID) {
 			this.ID = ID;
 			this.name = name;
 		}

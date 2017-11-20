@@ -11,8 +11,8 @@ public class ItemNuclearMissile extends Item {
 
 	public ItemNuclearMissile() {
 		super();
-		setUnlocalizedName("nuclearMissile");
-		setRegistryName("nuclear_missile");
+		setUnlocalizedName("missile.nuclear");
+		setRegistryName("missile.nuclear");
 		setCreativeTab(StarcraftCreativeTabs.MISC);
 	}
 }

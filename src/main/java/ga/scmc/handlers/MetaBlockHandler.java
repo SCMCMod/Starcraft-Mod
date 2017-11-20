@@ -26,30 +26,29 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
  */
 public class MetaBlockHandler {
 
-	public static Block COMP_METAL_T1;
-	public static Block COMP_MINERAL;
-	public static Block NEOSTEEL_METAL;
-	public static Block PARISTEEL_METAL;
-	public static Block PROTOSS_METAL_T1;
-	public static Block PROTOSS_METAL_T2;
-	public static Block PROTOSS_METAL_T3;
-	public static Block PYLON_CRYSTAL;
-	public static Block ZERG_CARAPACE_BLOCK;
-	public static Block ZERG_FLESH;
-	public static Block GAS_COLLECTOR;
+	public static final Block COMP_METAL_T1;
+	public static final Block COMP_MINERAL;
+	public static final Block NEOSTEEL_METAL;
+	public static final Block PARISTEEL_METAL;
+	public static final Block PROTOSS_METAL_T1;
+	public static final Block PROTOSS_METAL_T2;
+	public static final Block PROTOSS_METAL_T3;
+	public static final Block PYLON_CRYSTAL;
+	public static final Block ZERG_CARAPACE_BLOCK;
+	public static final Block ZERG_FLESH;
+	public static final Block GAS_COLLECTOR;
 
 	/**
 	 * Instantiates and registers the blocks and items.
 	 */
 	public static void init() {
-		instantiate();
 		register();
 	}
 
 	/**
 	 * Sets all the ItemBlocks to their respective classes.
 	 */
-	private static void instantiate() {
+	static {
 		PROTOSS_METAL_T1 = new BlockProtossMetalT1();
 		PROTOSS_METAL_T2 = new BlockProtossMetalT2();
 		PROTOSS_METAL_T3 = new BlockProtossMetalT3();

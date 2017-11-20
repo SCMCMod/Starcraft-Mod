@@ -44,15 +44,16 @@ public class BlockCompressedMinerals extends BlockGlass implements IMetaBlockNam
 	 *            The block's registry name - defaultly the unlocalized name
 	 */
 	public BlockCompressedMinerals() {
-		super(Material.ROCK, true);
+		super(Material.ROCK, false);
 		setSoundType(SoundType.STONE);
 		setUnlocalizedName("mineral.compressed");
 		setRegistryName("mineral.compressed");
+		setHarvestLevel("pickaxe", 2);
 		setHardness(10.0F); // Sets how hard the block is to break
 		setResistance(10.0F); // Sets the blocks blast resistance to explosions
+		setSoundType(SoundType.GLASS);
 		setDefaultState(blockState.getBaseState().withProperty(TYPE, CompressedMineralType.BLUE));
 		setCreativeTab(StarcraftCreativeTabs.MISC);
-		setHarvestLevel("pickaxe", 2);
 	}
 
 	@Override

@@ -23,7 +23,7 @@ import net.minecraftforge.fluids.BlockFluidClassic;
 public class BlockVespeneFluid extends BlockFluidClassic {
 
 	public BlockVespeneFluid() {
-		super(FluidHandler.vespene, Material.WATER);
+		super(FluidHandler.VESPENE, Material.WATER);
 		setCreativeTab(null);
 		setUnlocalizedName("fluid.vespene");
 		setRegistryName("fluid.vespene");

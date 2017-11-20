@@ -10,28 +10,9 @@ import net.minecraft.world.World;
 
 public class BlockDimPortalKaldir extends BlockDimPortal {
 
-	private int dim = ConfigurationHandler.INT_DIMENSION_KALDIR;
-
 	public BlockDimPortalKaldir() {
+		super(ConfigurationHandler.INT_DIMENSION_KALDIR);
 		setUnlocalizedName("kaldir.portal");
 		setRegistryName("kaldir.portal");
-	}
-
-	/**
-	 * Triggered whenever an entity collides with this block (enters into the block). Args: world, x, y, z, entity
-	 */
-	@Override
-	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
-		if (!entity.isRiding() && !entity.isBeingRidden() && !world.isRemote) {
-
-			try {
-				EntityPlayerMP player = (EntityPlayerMP) entity;
-				if (player.dimension != dim) {
-					player.getServer().getPlayerList().transferPlayerToDimension(player, dim, new TeleporterHandler(player.mcServer.worldServerForDimension(dim), player.posX, player.posY, player.posZ));
-				}
-			} catch (ClassCastException e) {
-				return; // Not a player
-			}
-		}
 	}
 }

@@ -9,28 +9,9 @@ import net.minecraft.world.World;
 
 public class BlockDimPortalOverworld extends BlockDimPortal {
 
-	private int dim = 0;
-
 	public BlockDimPortalOverworld() {
+		super(0);
 		setUnlocalizedName("overworld.portal");
 		setRegistryName("overworld.portal");
-	}
-
-	/**
-	 * Triggered whenever an entity collides with this block (enters into the block). Args: world, x, y, z, entity
-	 */
-	@Override
-	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
-		if (!entity.isRiding() && !entity.isBeingRidden() && !world.isRemote) {
-
-			try {
-				EntityPlayerMP player = (EntityPlayerMP) entity;
-				if (player.dimension != dim) {
-					player.getServer().getPlayerList().transferPlayerToDimension(player, dim, new TeleporterHandler(player.mcServer.worldServerForDimension(dim), player.posX, player.posY, player.posZ));
-				}
-			} catch (ClassCastException e) {
-				return; // Not a player
-			}
-		}
 	}
 }

@@ -2,6 +2,7 @@ package ga.scmc.blocks;
 
 import ga.scmc.lib.Library;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -84,5 +85,10 @@ public class StarcraftBlock extends Block {
 	public void setNames(String name) {
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
+	}
+	
+	public StarcraftBlock setBlockSoundType(SoundType sound) {
+		this.setSoundType(sound);
+		return this;
 	}
 }

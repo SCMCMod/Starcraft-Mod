@@ -36,7 +36,7 @@ public class ShapelessRecipes {
 		GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.STEEL.getID()), new ItemStack(ItemHandler.DUST, 3, EnumMetaItem.DustType.CARBON.getID()), new ItemStack(ItemHandler.DUST, 3, EnumMetaItem.DustType.CARBON.getID()), new ItemStack(ItemHandler.DUST, 3, EnumMetaItem.DustType.IRON.getID()), new ItemStack(ItemHandler.DUST, 3, EnumMetaItem.DustType.IRON.getID()));
 
 		// 1 Dark Protoss Ingot (using Dye on a normal Protoss Ingot)
-		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()), "dyeBlack", new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.ProtossIngotType.KHALAI.getID())));
+		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()), "dyeBlack", new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.KHALAI.getID())));
 
 		// 4 Creep Resin
 		GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.CREEP_RESIN, 4), BlockHandler.ZERG_CREEP);

@@ -35,20 +35,20 @@ public class ToolHandler {
 	public static Item TITANIUM_SHOVEL;
 
 	public static void init() {
-		COPPER_PICKAXE = new ToolPickaxe(ToolMaterials.COPPER).setUnlocalizedName("copperPickaxe").setRegistryName("copper_pickaxe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		COPPER_AXE = new ToolAxe(ToolMaterials.COPPER, 8, -3.2f).setUnlocalizedName("copperAxe").setRegistryName("copper_axe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		COPPER_SHOVEL = new ToolShovel(ToolMaterials.COPPER).setUnlocalizedName("copperShovel").setRegistryName("copper_shovel").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		COPPER_HOE = new ToolHoe(ToolMaterials.COPPER).setUnlocalizedName("copperHoe").setRegistryName("copper_hoe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		COPPER_PICKAXE = new ToolPickaxe(ToolMaterials.COPPER).setUnlocalizedName("copper.pickaxe").setRegistryName("copper.pickaxe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		COPPER_AXE = new ToolAxe(ToolMaterials.COPPER, 8, -3.2f).setUnlocalizedName("copper.axe").setRegistryName("copper.axe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		COPPER_SHOVEL = new ToolShovel(ToolMaterials.COPPER).setUnlocalizedName("copper.shovel").setRegistryName("copper.shovel").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		COPPER_HOE = new ToolHoe(ToolMaterials.COPPER).setUnlocalizedName("copper.hoe").setRegistryName("copper.hoe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 
-		TITANIUM_PICKAXE = new ToolPickaxe(ToolMaterials.TITANIUM).setUnlocalizedName("titaniumPickaxe").setRegistryName("titanium_pickaxe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		TITANIUM_AXE = new ToolAxe(ToolMaterials.TITANIUM, 8, -3.2f).setUnlocalizedName("titaniumAxe").setRegistryName("titanium_axe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		TITANIUM_SHOVEL = new ToolShovel(ToolMaterials.TITANIUM).setUnlocalizedName("titaniumShovel").setRegistryName("titanium_shovel").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		TITANIUM_HOE = new ToolHoe(ToolMaterials.TITANIUM).setUnlocalizedName("titaniumHoe").setRegistryName("titanium_hoe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		TITANIUM_PICKAXE = new ToolPickaxe(ToolMaterials.TITANIUM).setUnlocalizedName("titanium.pickaxe").setRegistryName("titanium.pickaxe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		TITANIUM_AXE = new ToolAxe(ToolMaterials.TITANIUM, 8, -3.2f).setUnlocalizedName("titanium.axe").setRegistryName("titanium.axe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		TITANIUM_SHOVEL = new ToolShovel(ToolMaterials.TITANIUM).setUnlocalizedName("titanium.shovel").setRegistryName("titanium.shovel").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		TITANIUM_HOE = new ToolHoe(ToolMaterials.TITANIUM).setUnlocalizedName("titanium.hoe").setRegistryName("titanium.hoe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 
-		STEEL_PICKAXE = new ToolPickaxe(ToolMaterials.STEEL).setUnlocalizedName("steelPickaxe").setRegistryName("steel_pickaxe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		STEEL_AXE = new ToolAxe(ToolMaterials.STEEL, 7, -3.1f).setUnlocalizedName("steelAxe").setRegistryName("steel_axe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		STEEL_SHOVEL = new ToolShovel(ToolMaterials.STEEL).setUnlocalizedName("steelShovel").setRegistryName("steel_shovel").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		STEEL_HOE = new ToolHoe(ToolMaterials.STEEL).setUnlocalizedName("steelHoe").setRegistryName("steel_hoe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STEEL_PICKAXE = new ToolPickaxe(ToolMaterials.STEEL).setUnlocalizedName("steel.pickaxe").setRegistryName("steel.pickaxe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STEEL_AXE = new ToolAxe(ToolMaterials.STEEL, 7, -3.1f).setUnlocalizedName("steel.axe").setRegistryName("steel.axe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STEEL_SHOVEL = new ToolShovel(ToolMaterials.STEEL).setUnlocalizedName("steel.shovel").setRegistryName("steel.shovel").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STEEL_HOE = new ToolHoe(ToolMaterials.STEEL).setUnlocalizedName("steel.hoe").setRegistryName("steel.hoe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 	}
 
 	public static void register() {

@@ -14,15 +14,6 @@ public class GuiUtils {
 	private static final Minecraft MC = Minecraft.getMinecraft();
 
 	/**
-	 * Plays the default minecraft button click sound.
-	 * 
-	 * @deprecated Please use {@link SoundUtils#playButtonClick()} instead because this will lbe removed soon
-	 */
-	public static void playButtonClick() {
-		SoundUtils.playButtonClick();
-	}
-
-	/**
 	 * Draws an array of lines to a gui.
 	 * 
 	 * @param lines

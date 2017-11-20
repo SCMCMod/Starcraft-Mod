@@ -15,12 +15,10 @@ import net.minecraftforge.fluids.FluidRegistry;
  */
 public class FluidHandler {
 
-	public static Fluid acid = new Fluid("fluid_acid", new ResourceLocation(Library.RL_BASE + "blocks/acid_fluid_still"), new ResourceLocation(Library.RL_BASE + "blocks/acid_fluid_flowing")).setBlock(BlockHandler.FLUID_ACID);
-	public static Fluid blood = new Fluid("fluid_blood", new ResourceLocation(Library.RL_BASE + "blocks/blood_fluid_still"), new ResourceLocation(Library.RL_BASE + "blocks/blood_fluid_flowing")).setBlock(BlockHandler.FLUID_BLOOD);
-	/** @author Ocelot5836 */
-	public static Fluid vespene = new Fluid("fluid_vespene", new ResourceLocation(Library.RL_BASE + "blocks/vespene_fluid_still"), new ResourceLocation(Library.RL_BASE + "blocks/vespene_fluid_flowing")).setBlock(BlockHandler.FLUID_VESPENE);
-	/** @author Ocelot5836 */
-	public static Fluid terrazine = new Fluid("fluid_terrazine", new ResourceLocation(Library.RL_BASE + "blocks/terrazine_fluid_still"), new ResourceLocation(Library.RL_BASE + "blocks/terrazine_fluid_flowing")).setBlock(BlockHandler.FLUID_TERRAZINE);
+	public static final Fluid ACID = new Fluid("fluid.acid", new ResourceLocation(Library.RL_BASE + "blocks/fluid.acid.still"), new ResourceLocation(Library.RL_BASE + "blocks/fluid.acid.flowing")).setBlock(BlockHandler.FLUID_ACID);
+	public static final  Fluid BLOOD = new Fluid("fluid.blood", new ResourceLocation(Library.RL_BASE + "blocks/fluid.blood.still"), new ResourceLocation(Library.RL_BASE + "blocks/fluid.blood.flowing")).setBlock(BlockHandler.FLUID_BLOOD);
+	public static final Fluid VESPENE = new Fluid("fluid.vespene", new ResourceLocation(Library.RL_BASE + "blocks/fluid.vespene.still"), new ResourceLocation(Library.RL_BASE + "blocks/fluid.vespene.flowing")).setBlock(BlockHandler.FLUID_VESPENE);
+	public static final Fluid TERRAZINE = new Fluid("fluid.terrazine", new ResourceLocation(Library.RL_BASE + "blocks/fluid.terrazine.still"), new ResourceLocation(Library.RL_BASE + "blocks/fluid.terrazine.flowing")).setBlock(BlockHandler.FLUID_TERRAZINE);
 
 	/**
 	 * Registers the fluids.
@@ -30,10 +28,10 @@ public class FluidHandler {
 	}
 	
 	private static void register() {
-        registerFluid("fluidAcid", acid);
-        registerFluid("fluidBlood", blood);
-        registerFluid("fluidVespene", vespene);
-        registerFluid("fluidTerrazine", terrazine);
+        registerFluid("fluid.acid", ACID);
+        registerFluid("fluid.blood", BLOOD);
+        registerFluid("fluid.vespene", VESPENE);
+        registerFluid("fluid.terrazine", TERRAZINE);
 	}
 	
 	private static void registerFluid(String id, Fluid fluid) {

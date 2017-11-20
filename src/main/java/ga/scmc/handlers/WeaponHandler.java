@@ -31,18 +31,18 @@ public class WeaponHandler {
 	
 
 	public static void init() {
-		PSI_BLADE = new WeaponPsiBlade(WeaponMaterials.PSIBLADE_MATERIAL).setUnlocalizedName("psiBlade").setRegistryName("psi_blade").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		BANE_BLADE = new WeaponPsiBlade(WeaponMaterials.PSIBLADE_MATERIAL).setUnlocalizedName("darkPsiBlade").setRegistryName("dark_psi_blade").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		WARP_BLADE = new WeaponWarpBlade(WeaponMaterials.WARPBLADE_MATERIAL).setUnlocalizedName("warpBlade").setRegistryName("warp_blade").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		DARK_WARP_BLADE = new WeaponWarpBlade(WeaponMaterials.WARPBLADE_MATERIAL).setUnlocalizedName("darkWarpBlade").setRegistryName("dark_warp_blade").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PSI_BLADE = new WeaponPsiBlade(WeaponMaterials.PSIBLADE_MATERIAL).setUnlocalizedName("protoss.blade.aiur.psi").setRegistryName("protoss.blade.aiur.psi").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		BANE_BLADE = new WeaponPsiBlade(WeaponMaterials.PSIBLADE_MATERIAL).setUnlocalizedName("protoss.blade.dark.bane").setRegistryName("protoss.blade.dark.bane").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		WARP_BLADE = new WeaponWarpBlade(WeaponMaterials.WARPBLADE_MATERIAL).setUnlocalizedName("protoss.blade.aiur.warp").setRegistryName("protoss.blade.aiur.warp").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		DARK_WARP_BLADE = new WeaponWarpBlade(WeaponMaterials.WARPBLADE_MATERIAL).setUnlocalizedName("protoss.blade.dark.warp").setRegistryName("protoss.blade.dark.warp").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 		MASTER_PSI_BLADE = new WeaponMasterPsiBlade(WeaponMaterials.MASTERPSIBLADE_MATERIAL);
 
 		BALISONG = new WeaponBase(WeaponMaterials.BALISONG_MATERIAL).setUnlocalizedName("balisong").setRegistryName("balisong").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 		MILITARY_KNIFE = new WeaponBase(WeaponMaterials.MILITARYKNIFE_MATERIAL).setUnlocalizedName("militaryKnife").setRegistryName("military_knife").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 		MONOMOLECULAR_BLADE = new WeaponBase(WeaponMaterials.MONOMOLECULARBLADE_MATERIAL).setUnlocalizedName("monomolecularBlade").setRegistryName("monomolecular_blade").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		COPPER_SWORD = new WeaponBase(WeaponMaterials.COPPER_MATERIAL).setUnlocalizedName("copperSword").setRegistryName("copper_sword").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		TITANIUM_SWORD = new WeaponBase(WeaponMaterials.TITANIUM_MATERIAL).setUnlocalizedName("titaniumSword").setRegistryName("titanium_sword").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		STEEL_SWORD = new WeaponBase(WeaponMaterials.STEEL_MATERIAL).setUnlocalizedName("steelSword").setRegistryName("steel_sword").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		COPPER_SWORD = new WeaponBase(WeaponMaterials.COPPER_MATERIAL).setUnlocalizedName("copper.sword").setRegistryName("copper.sword").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		TITANIUM_SWORD = new WeaponBase(WeaponMaterials.TITANIUM_MATERIAL).setUnlocalizedName("titanium.sword").setRegistryName("titanium.sword").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STEEL_SWORD = new WeaponBase(WeaponMaterials.STEEL_MATERIAL).setUnlocalizedName("steel.sword").setRegistryName("steel.sword").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 
 	}
 

@@ -9,12 +9,13 @@ import net.minecraftforge.oredict.OreDictionary;
 public class OreDictionaryHandler {
 
 	public static void init() {
+		// TODO add the slay blocks here again.
 		OreDictionary.registerOre("cobblestone", BlockHandler.COBBLESTONE_CHAR);
 		OreDictionary.registerOre("cobblestone", BlockHandler.COBBLESTONE_SHAKURAS);
-		OreDictionary.registerOre("cobblestone", BlockHandler.COBBLESTONE_SLAYN);
+		// OreDictionary.registerOre("cobblestone", BlockHandler.COBBLESTONE_SLAYN);
 		OreDictionary.registerOre("stone", BlockHandler.STONE_CHAR);
 		OreDictionary.registerOre("stone", BlockHandler.STONE_SHAKURAS);
-		OreDictionary.registerOre("stone", BlockHandler.STONE_SLAYN);
+		// OreDictionary.registerOre("stone", BlockHandler.STONE_SLAYN);
 		OreDictionary.registerOre("oreGold", BlockHandler.ORE_GOLD_CHAR);
 		OreDictionary.registerOre("oreGold", BlockHandler.ORE_GOLD_SHAKURAS);
 		OreDictionary.registerOre("oreIron", BlockHandler.ORE_IRON_CHAR);
@@ -29,7 +30,7 @@ public class OreDictionaryHandler {
 		OreDictionary.registerOre("oreCoal", BlockHandler.ORE_COAL_SHAKURAS);
 		OreDictionary.registerOre("oreCopper", BlockHandler.ORE_COPPER_CHAR);
 		OreDictionary.registerOre("oreCopper", BlockHandler.ORE_COPPER_SHAKURAS);
-		
+
 		OreDictionary.registerOre("dustSteel", new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.STEEL.getID()));
 		OreDictionary.registerOre("ingotCopper", new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()));
 		OreDictionary.registerOre("ingotSteel", new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()));

@@ -14,8 +14,8 @@ public class ItemMineralShard extends Item {
 	 * Default constructor just sets the unlocalized name and the registry name
 	 */
 	public ItemMineralShard() {
-		setUnlocalizedName("mineralShard");
-		setRegistryName("mineral_shard");
+		setUnlocalizedName("mineral");
+		setRegistryName("mineral");
 		setHasSubtypes(true); // This just says the item has metadata
 		setCreativeTab(StarcraftCreativeTabs.MISC);
 	}

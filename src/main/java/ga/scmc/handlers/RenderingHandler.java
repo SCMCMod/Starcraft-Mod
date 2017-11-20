@@ -74,6 +74,7 @@ import static ga.scmc.handlers.BlockHandler.STARCRAFT_SKULL;
 import static ga.scmc.handlers.BlockHandler.TEST;
 import static ga.scmc.handlers.ItemHandler.BIOMASS;
 import static ga.scmc.handlers.ItemHandler.BULLET;
+import static ga.scmc.handlers.ItemHandler.BULLET_MAGAZINE;
 import static ga.scmc.handlers.ItemHandler.C14_GAUSS_RIFLE;
 import static ga.scmc.handlers.ItemHandler.C14_PARTS;
 import static ga.scmc.handlers.ItemHandler.CREEP_RESIN;
@@ -285,13 +286,14 @@ public class RenderingHandler {
 	}
 
 	private static void registerItemModelVariants() {
-		ModelBakery.registerItemVariants(ItemHandler.MINERAL_SHARD, new ResourceLocation(Library.MODID, "shard_blue"), new ResourceLocation(Library.MODID, "shard_rich"));
-		ModelBakery.registerItemVariants(ItemHandler.VESPENE, new ResourceLocation(Library.MODID, "vespene_raw"), new ResourceLocation(Library.MODID, "vespene_protoss"), new ResourceLocation(Library.MODID, "vespene_terran"), new ResourceLocation(Library.MODID, "vespene_zerg"));
-		ModelBakery.registerItemVariants(ItemHandler.ENERGY, new ResourceLocation(Library.MODID, "energy_pure"), new ResourceLocation(Library.MODID, "energy_corrupted"), new ResourceLocation(Library.MODID, "energy_void"));
-		ModelBakery.registerItemVariants(ItemHandler.DUST, new ResourceLocation(Library.MODID, "dust_iron"), new ResourceLocation(Library.MODID, "dust_steel"), new ResourceLocation(Library.MODID, "dust_carbon"));
-		ModelBakery.registerItemVariants(ItemHandler.PLEDGE, new ResourceLocation(Library.MODID, "pledge_white"), new ResourceLocation(Library.MODID, "pledge_orange"), new ResourceLocation(Library.MODID, "pledge_magenta"), new ResourceLocation(Library.MODID, "pledge_lightblue"), new ResourceLocation(Library.MODID, "pledge_yellow"), new ResourceLocation(Library.MODID, "pledge_lime"), new ResourceLocation(Library.MODID, "pledge_pink"), new ResourceLocation(Library.MODID, "pledge_gray"), new ResourceLocation(Library.MODID, "pledge_silver"), new ResourceLocation(Library.MODID, "pledge_cyan"), new ResourceLocation(Library.MODID, "pledge_purple"), new ResourceLocation(Library.MODID, "pledge_blue"), new ResourceLocation(Library.MODID, "pledge_brown"), new ResourceLocation(Library.MODID, "pledge_green"), new ResourceLocation(Library.MODID, "pledge_red"), new ResourceLocation(Library.MODID, "pledge_black"));
-		ModelBakery.registerItemVariants(ItemHandler.INGOT, new ResourceLocation(Library.MODID, "ingot_copper"), new ResourceLocation(Library.MODID, "ingot_titanium"), new ResourceLocation(Library.MODID, "ingot_steel"));
-		ModelBakery.registerItemVariants(ItemHandler.PROTOSS_INGOT, new ResourceLocation(Library.MODID, "pingot_khalai"), new ResourceLocation(Library.MODID, "pingot_dark"));
+		ModelBakery.registerItemVariants(ItemHandler.MINERAL_SHARD, new ResourceLocation(Library.MODID, "mineral.blue"), new ResourceLocation(Library.MODID, "mineral.rich"));
+		ModelBakery.registerItemVariants(ItemHandler.VESPENE, new ResourceLocation(Library.MODID, "vespene.raw"), new ResourceLocation(Library.MODID, "protoss.vespene"), new ResourceLocation(Library.MODID, "terran.vespene"), new ResourceLocation(Library.MODID, "zerg.vespene"));
+		ModelBakery.registerItemVariants(ItemHandler.TERRAZINE, new ResourceLocation(Library.MODID, "terrazine.raw"), new ResourceLocation(Library.MODID, "protoss.terrazine"), new ResourceLocation(Library.MODID, "terran.terrazine"), new ResourceLocation(Library.MODID, "zerg.terrazine"));
+		ModelBakery.registerItemVariants(ItemHandler.ENERGY, new ResourceLocation(Library.MODID, "energy.pure"), new ResourceLocation(Library.MODID, "energy.corrupted"), new ResourceLocation(Library.MODID, "energy.void"));
+		ModelBakery.registerItemVariants(ItemHandler.DUST, new ResourceLocation(Library.MODID, "dust.iron"), new ResourceLocation(Library.MODID, "dust.steel"), new ResourceLocation(Library.MODID, "dust.carbon"));
+		ModelBakery.registerItemVariants(ItemHandler.PLEDGE, new ResourceLocation(Library.MODID, "pledge.white"), new ResourceLocation(Library.MODID, "pledge.orange"), new ResourceLocation(Library.MODID, "pledge.magenta"), new ResourceLocation(Library.MODID, "pledge.lightblue"), new ResourceLocation(Library.MODID, "pledge.yellow"), new ResourceLocation(Library.MODID, "pledge.lime"), new ResourceLocation(Library.MODID, "pledge.pink"), new ResourceLocation(Library.MODID, "pledge.gray"), new ResourceLocation(Library.MODID, "pledge.silver"), new ResourceLocation(Library.MODID, "pledge.cyan"), new ResourceLocation(Library.MODID, "pledge.purple"), new ResourceLocation(Library.MODID, "pledge.blue"), new ResourceLocation(Library.MODID, "pledge.brown"), new ResourceLocation(Library.MODID, "pledge.green"), new ResourceLocation(Library.MODID, "pledge.red"), new ResourceLocation(Library.MODID, "pledge.black"));
+		ModelBakery.registerItemVariants(ItemHandler.INGOT, new ResourceLocation(Library.MODID, "ingot.copper"), new ResourceLocation(Library.MODID, "ingot.titanium"), new ResourceLocation(Library.MODID, "ingot.steel"));
+		ModelBakery.registerItemVariants(ItemHandler.PROTOSS_INGOT, new ResourceLocation(Library.MODID, "protoss.ingot.khalai"), new ResourceLocation(Library.MODID, "protoss.ingot.dark"));
 		ModelBakery.registerItemVariants(ItemHandler.PSI_BLADE_FOCUSER_UNCHARGED, new ResourceLocation(Library.MODID, "protoss_psiblade_focuser_uncharged_aiur"), new ResourceLocation(Library.MODID, "protoss_psiblade_focuser_uncharged_dark"));
 		ModelBakery.registerItemVariants(ItemHandler.C14_PARTS, new ResourceLocation(Library.MODID, "part_c14_gauss_body"), new ResourceLocation(Library.MODID, "part_c14_gauss_barrel"), new ResourceLocation(Library.MODID, "part_c14_gauss_grip"));
 		ModelBakery.registerItemVariants(ItemHandler.BULLET, new ResourceLocation(Library.MODID, "bullet_rifle_c14_gauss"));
@@ -343,7 +345,7 @@ public class RenderingHandler {
 		RenderingRegistry.registerEntityRenderingHandler(EntityMarauder.class, new RenderMarauder(Minecraft.getMinecraft().getRenderManager(), new ModelMarauder(), 0.4f));
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityKakaru.class, new RenderKakaru(Minecraft.getMinecraft().getRenderManager(), new ModelKakaru(), 0.4f));
-		
+
 		RenderingRegistry.registerEntityRenderingHandler(EntityC14GaussRifleBullet.class, new RenderC14GaussRifleBullet(Minecraft.getMinecraft().getRenderManager(), new ModelBullet()));
 		RenderingRegistry.registerEntityRenderingHandler(EntityHydraliskSpike.class, new RenderHydraliskSpike(Minecraft.getMinecraft().getRenderManager(), new ModelHydraliskSpike()));
 		RenderingRegistry.registerEntityRenderingHandler(EntityFlamethrowerFlame.class, new RenderFlamethrowerFlame(Minecraft.getMinecraft().getRenderManager(), null));
@@ -402,46 +404,46 @@ public class RenderingHandler {
 		registerItemRender(ICON_ZERG);
 
 		for (int i = 0; i < EnumMetaItem.MineralType.values().length; i++) {
-			registerItemRender(MINERAL_SHARD, i, "shard_" + EnumMetaItem.MineralType.values()[i].getName());
+			registerItemRender(MINERAL_SHARD, i, "mineral." + EnumMetaItem.MineralType.values()[i].getName());
 		}
 		for (int i = 0; i < EnumMetaItem.PledgeType.values().length; i++) {
-			registerItemRender(PLEDGE, i, "pledge_" + EnumMetaItem.PledgeType.values()[i].getName());
+			registerItemRender(PLEDGE, i, "pledge." + EnumMetaItem.PledgeType.values()[i].getName());
 		}
 		for (int i = 0; i < EnumMetaItem.VespeneType.values().length; i++) {
-			registerItemRender(VESPENE, i, "vespene_" + EnumMetaItem.VespeneType.values()[i].getName());
+			registerItemRender(VESPENE, i, "vespene." + EnumMetaItem.VespeneType.values()[i].getName());
 		}
 		for (int i = 0; i < EnumMetaItem.TerrazineType.values().length; i++) {
-			registerItemRender(TERRAZINE, i, "terrazine_" + EnumMetaItem.TerrazineType.values()[i].getName());
+			registerItemRender(TERRAZINE, i, "terrazine." + EnumMetaItem.TerrazineType.values()[i].getName());
 		}
 		for (int i = 0; i < EnumMetaItem.ContainerType.values().length; i++) {
-			registerItemRender(GAS_CONTAINER, i, "empty_container_" + EnumMetaItem.ContainerType.values()[i].getName());
+			registerItemRender(GAS_CONTAINER, i, "container." + EnumMetaItem.ContainerType.values()[i].getName());
 		}
 		for (int i = 0; i < EnumMetaItem.EnergyType.values().length; i++) {
-			registerItemRender(ENERGY, i, "energy_" + EnumMetaItem.EnergyType.values()[i].getName());
+			registerItemRender(ENERGY, i, "energy." + EnumMetaItem.EnergyType.values()[i].getName());
 		}
 		for (int i = 0; i < EnumMetaItem.DustType.values().length; i++) {
-			registerItemRender(DUST, i, "dust_" + EnumMetaItem.DustType.values()[i].getName());
+			registerItemRender(DUST, i, "dust." + EnumMetaItem.DustType.values()[i].getName());
 		}
 		for (int i = 0; i < EnumMetaItem.IngotType.values().length; i++) {
-			registerItemRender(INGOT, i, "ingot_" + EnumMetaItem.IngotType.values()[i].getName());
+			registerItemRender(INGOT, i, "ingot." + EnumMetaItem.IngotType.values()[i].getName());
 		}
 		for (int i = 0; i < EnumMetaItem.ProtossIngotType.values().length; i++) {
-			registerItemRender(PROTOSS_INGOT, i, "pingot_" + EnumMetaItem.ProtossIngotType.values()[i].getName());
+			registerItemRender(PROTOSS_INGOT, i, "protoss.ingot." + EnumMetaItem.ProtossIngotType.values()[i].getName());
 		}
 		for (int i = 0; i < EnumMetaItem.BulletType.values().length; i++) {
-			registerItemRender(BULLET, i, "bullet_" + EnumMetaItem.BulletType.values()[i].getName());
+			registerItemRender(BULLET, i, "bullet." + EnumMetaItem.BulletType.values()[i].getName());
+		}
+		for (int i = 0; i < EnumMetaItem.BulletMagazineType.values().length; i++) {
+			registerItemRender(BULLET_MAGAZINE, i, "magazine." + EnumMetaItem.BulletMagazineType.values()[i].getName());
 		}
 		for (int i = 0; i < EnumMetaItem.C14PartType.values().length; i++) {
 			registerItemRender(C14_PARTS, i, "part_c14_gauss_" + EnumMetaItem.C14PartType.values()[i].getName());
 		}
 		for (int i = 0; i < EnumMetaItem.FocuserType.values().length; i++) {
-			registerItemRender(PSI_BLADE_FOCUSER_UNCHARGED, i, "protoss_psiblade_focuser_uncharged_" + EnumMetaItem.FocuserType.values()[i].getName());
+			registerItemRender(PSI_BLADE_FOCUSER_UNCHARGED, i, "protoss.focuser." + EnumMetaItem.FocuserType.values()[i].getName());
 		}
 		for (int i = 0; i < EnumMetaItem.CarapaceType.values().length; i++) {
 			registerItemRender(ZERG_CARAPACE, i, "zerg_icarapace_" + EnumMetaItem.CarapaceType.values()[i].getName());
-		}
-		for (int i = 0; i < EnumMetaItem.SkullType.values().length; i++) {
-			registerItemRender(ItemHandler.STARCRAFT_SKULL, i, ItemHandler.STARCRAFT_SKULL.getRegistryName().getResourcePath());
 		}
 	}
 
@@ -554,7 +556,6 @@ public class RenderingHandler {
 		registerBlockModel(LIT_FURNACE_SLAYN);
 
 		// Other
-		registerBlockModel(STARCRAFT_SKULL);
 		registerBlockModel(TEST);
 
 		// Protoss Blocks
@@ -566,7 +567,7 @@ public class RenderingHandler {
 		registerBlockModel(PROTOSS_VOID_ENERGY_STABILIZER);
 
 		registerBlockModel(CORE_BARRACKS);
-		
+
 		registerBlockModel(ASH_CHAR);
 		// Layer Registration
 		registerLayered(ASH_CHAR);
@@ -616,6 +617,9 @@ public class RenderingHandler {
 		}
 		for (int i = 0; i < EnumMetaBlock.GasCollectorType.values().length; i++) {
 			registerBlockModel(GAS_COLLECTOR, i, "gas.collector." + EnumMetaBlock.GasCollectorType.values()[i].getName());
+		}
+		for (int i = 0; i < EnumMetaBlock.EnumSkullType.values().length; i++) {
+			registerBlockModel(STARCRAFT_SKULL, i, "skull");
 		}
 	}
 

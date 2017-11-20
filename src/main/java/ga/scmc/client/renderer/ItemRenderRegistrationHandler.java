@@ -34,7 +34,7 @@ public class ItemRenderRegistrationHandler {
 		registerItemModel(ItemHandler.C14_GAUSS_RIFLE, new ItemRenderC14GaussRifle());
 		registerItemModel(ItemHandler.FLAMETHROWER, new ItemRenderFlamethrower());
 		registerItemModel(BlockHandler.TEST, new ItemRenderTable());
-		registerItemModel(ItemHandler.STARCRAFT_SKULL, new ItemRenderStarcraftSkull());
+		registerItemModel(Item.getItemFromBlock(BlockHandler.STARCRAFT_SKULL), new ItemRenderStarcraftSkull());
 
 		registerItemModel(ArmorHandler.TERRAN_MARINE_T1_HELMET, new ItemRenderModelArmorItem(EntityEquipmentSlot.HEAD, (IArmorItem) Starcraft.proxy.getArmorModel(6), ArmorHandler.TERRAN_MARINE_ARMOR_MATERIAL_T1));
 		registerItemModel(ArmorHandler.TERRAN_MARINE_T1_CHESTPLATE, new ItemRenderModelArmorItem(EntityEquipmentSlot.CHEST, (IArmorItem) Starcraft.proxy.getArmorModel(6), ArmorHandler.TERRAN_MARINE_ARMOR_MATERIAL_T1));

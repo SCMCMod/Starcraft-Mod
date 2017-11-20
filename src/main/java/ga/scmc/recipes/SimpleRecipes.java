@@ -189,21 +189,6 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T3_BOOTS), "   ", "C C", "C C", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T3.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T3_BOOTS), "C C", "C C", "  ", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T3.getID()));
 
-		// Removed these recipes because we can simply use ore dictionary instead and it works better @Ocelot5836
-		// // Cobblestone tools from Char cobblestone
-		// GameRegistry.addRecipe(new ItemStack(Items.STONE_SHOVEL), " C ", " I ", " I ", 'C', new ItemStack(BlockHandler.COBBLESTONE_CHAR), 'I', Items.STICK);
-		// GameRegistry.addRecipe(new ItemStack(Items.STONE_AXE), " CC", " IC", " I ", 'C', new ItemStack(BlockHandler.COBBLESTONE_CHAR), 'I', Items.STICK);
-		// GameRegistry.addRecipe(new ItemStack(Items.STONE_PICKAXE), "CCC", " I ", " I ", 'C', new ItemStack(BlockHandler.COBBLESTONE_CHAR), 'I', Items.STICK);
-		// GameRegistry.addRecipe(new ItemStack(Items.STONE_HOE), " CC", " I ", " I ", 'C', new ItemStack(BlockHandler.COBBLESTONE_CHAR), 'I', Items.STICK);
-		// GameRegistry.addRecipe(new ItemStack(Items.STONE_SWORD), " C ", " C ", " I ", 'C', new ItemStack(BlockHandler.COBBLESTONE_CHAR), 'I', Items.STICK);
-		//
-		// // Cobblestone tools from Char cobblestone
-		// GameRegistry.addRecipe(new ItemStack(Items.STONE_SHOVEL), " S ", " I ", " I ", 'S', new ItemStack(BlockHandler.COBBLESTONE_SHAKURAS), 'I', Items.STICK);
-		// GameRegistry.addRecipe(new ItemStack(Items.STONE_AXE), " SS", " IS", " I ", 'S', new ItemStack(BlockHandler.COBBLESTONE_SHAKURAS), 'I', Items.STICK);
-		// GameRegistry.addRecipe(new ItemStack(Items.STONE_PICKAXE), "SSS", " I ", " I ", 'S', new ItemStack(BlockHandler.COBBLESTONE_SHAKURAS), 'I', Items.STICK);
-		// GameRegistry.addRecipe(new ItemStack(Items.STONE_HOE), " SS", " I ", " I ", 'S', new ItemStack(BlockHandler.COBBLESTONE_SHAKURAS), 'I', Items.STICK);
-		// GameRegistry.addRecipe(new ItemStack(Items.STONE_SWORD), " S ", " S ", " I ", 'S', new ItemStack(BlockHandler.COBBLESTONE_SHAKURAS), 'I', Items.STICK);
-
 		// Bullets for the Gauss Rifle
 		GameRegistry.addRecipe(new ItemStack(ItemHandler.BULLET, 6), " S ", " P ", " S ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'P', Items.GUNPOWDER);
 

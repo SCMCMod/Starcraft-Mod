@@ -17,9 +17,9 @@ public class ItemGasContainer extends Item {
 	 * Default constructor just sets the unlocalized name and the registry name
 	 */
 	public ItemGasContainer() {
-		setUnlocalizedName("emptyContainer");
-		setRegistryName("empty_container");
-		setHasSubtypes(true); // This just says the item has metadata
+		setUnlocalizedName("container");
+		setRegistryName("container");
+		setHasSubtypes(true);
 		setCreativeTab(StarcraftCreativeTabs.MISC);
 	}
 

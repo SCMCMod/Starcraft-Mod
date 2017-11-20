@@ -6,6 +6,8 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import ga.scmc.creativetabs.StarcraftCreativeTabs;
+import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
 import net.minecraft.block.BlockContainer;
@@ -47,13 +49,13 @@ public class BlockStarcraftSkull extends BlockContainer {
 
 	public BlockStarcraftSkull() {
 		super(Material.CIRCUITS, MapColor.SNOW);
-		setUnlocalizedName("starcraftSkull");
-		setRegistryName("starcraft_skull");
+		setUnlocalizedName("skull");
+		setRegistryName("skull");
 		setHardness(1.0F);
 		setResistance(5.0F);
 		setSoundType(SoundType.STONE);
 		setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(NODROP, Boolean.valueOf(false)));
-		setCreativeTab(null);
+		setCreativeTab(StarcraftCreativeTabs.MISC);
 	}
 
 	/**
@@ -111,7 +113,7 @@ public class BlockStarcraftSkull extends BlockContainer {
 			i = ((TileEntityStarcraftSkull) tileentity).getSkullType();
 		}
 
-		return new ItemStack(ItemHandler.STARCRAFT_SKULL, 1, i);
+		return new ItemStack(BlockHandler.STARCRAFT_SKULL, 1, i);
 	}
 
 	@Override
@@ -134,7 +136,7 @@ public class BlockStarcraftSkull extends BlockContainer {
 
 				if (tileentity instanceof TileEntityStarcraftSkull) {
 					TileEntityStarcraftSkull tileentityskull = (TileEntityStarcraftSkull) tileentity;
-					ItemStack itemstack = new ItemStack(ItemHandler.STARCRAFT_SKULL, 1, tileentityskull.getSkullType());
+					ItemStack itemstack = new ItemStack(BlockHandler.STARCRAFT_SKULL, 1, tileentityskull.getSkullType());
 					ret.add(itemstack);
 				}
 			}
@@ -148,7 +150,7 @@ public class BlockStarcraftSkull extends BlockContainer {
 	@Nullable
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		return ItemHandler.STARCRAFT_SKULL;
+		return Item.getItemFromBlock(BlockHandler.STARCRAFT_SKULL);
 	}
 
 	/**

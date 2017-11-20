@@ -300,4 +300,30 @@ public class EnumMetaBlock {
 			return getName();
 		}
 	}
+	
+	public static enum EnumSkullType implements IStringSerializable {
+		CIVILIAN("civilian", 0), ZERGLING_SC2("zergling_sc2", 1), HYDRALISK("hydralisk", 2), BRUTALISK("brutalisk", 3);
+
+		private int ID;
+		private String name;
+
+		private EnumSkullType(String name, int ID) {
+			this.ID = ID;
+			this.name = name;
+		}
+
+		public int getID() {
+			return ID;
+		}
+
+		@Override
+		public String getName() {
+			return name;
+		}
+
+		@Override
+		public String toString() {
+			return getName();
+		}
+	}
 }

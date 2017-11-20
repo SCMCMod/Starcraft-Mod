@@ -6,6 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.item.ItemStack;
 import ocelot.api.utils.GuiUtils;
+import ocelot.api.utils.SoundUtils;
 import ocelot.api.utils.TextureUtils;
 
 /**
@@ -67,7 +68,7 @@ public class Tab extends GuiScreen {
 
 	public void onMouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
 		if (GuiUtils.isMouseInside(x, y, width, height, mouseX, mouseY)) {
-			GuiUtils.playButtonClick();
+			SoundUtils.playButtonClick();
 		}
 	}
 

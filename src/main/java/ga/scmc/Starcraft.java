@@ -75,7 +75,6 @@ public class Starcraft {
 		FluidHandler.preInit();
 		SoundHandler.preInit();
 		BlockHandler.preInit();
-		ItemHandler.preInit();
 		WorldGenerationHandler.preInit();
 		BiomeHandler.preInit();
 		DimensionHandler.preInit();

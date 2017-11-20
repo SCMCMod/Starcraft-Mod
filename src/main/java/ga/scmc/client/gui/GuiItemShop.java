@@ -24,6 +24,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import ocelot.api.utils.GuiUtils;
 import ocelot.api.utils.InventoryUtils;
+import ocelot.api.utils.SoundUtils;
 import ocelot.api.utils.TextureUtils;
 
 /**
@@ -242,7 +243,7 @@ public class GuiItemShop extends GuiScreen {
 					if (index < GuiLists.TRADES[tab].size()) {
 						if (GuiUtils.isMouseInside(guiLeft + 25 + x * 18, guiTop + 25 + y * 22, 16, 16, mouseX, mouseY)) {
 							this.selectedIndex = index;
-							GuiUtils.playButtonClick();
+							SoundUtils.playButtonClick();
 							return;
 						}
 					}

@@ -19,9 +19,9 @@ import net.minecraftforge.fluids.BlockFluidClassic;
 public class BlockAcidFluid extends BlockFluidClassic {
 
 	public BlockAcidFluid() {
-		super(FluidHandler.acid, Material.WATER);
-		setUnlocalizedName("fluidAcid");
-		setRegistryName("fluid_acid");
+		super(FluidHandler.ACID, Material.WATER);
+		setUnlocalizedName("fluid.acid");
+		setRegistryName("fluid.acid");
 		setCreativeTab(null);
 	}
 	

@@ -2,6 +2,7 @@ package ga.scmc.blocks;
 
 import ga.scmc.lib.Library;
 import net.minecraft.block.BlockFalling;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -19,24 +20,24 @@ public class StarcraftBlockFalling extends BlockFalling {
 
 	MapColor color;
 	int dustcolor;
-	
+
 	public StarcraftBlockFalling(Material materialIn) {
 		super(materialIn);
 	}
-	
+
 	public StarcraftBlockFalling(String name, RegistryType type, Material material, MapColor color, int dustcolor) {
 		super(material);
 		this.color = color;
 		this.dustcolor = dustcolor;
 		this.setNames(name);
-		if(type == RegistryType.FULL) {
+		if (type == RegistryType.FULL) {
 			this.registerFullBlock();
-		}else if(type == RegistryType.NORMAL) {
+		} else if (type == RegistryType.NORMAL) {
 			this.registerBlock();
 			this.registerBlockModel();
 		}
 	}
-	
+
 	private void registerBlock() {
 		ForgeRegistries.BLOCKS.register(this);
 		ItemBlock item = new ItemBlock(this);
@@ -64,7 +65,7 @@ public class StarcraftBlockFalling extends BlockFalling {
 			ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
 		}
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	private void registerBlockModel() {
 		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(this.getRegistryName(), "inventory"));
@@ -76,19 +77,24 @@ public class StarcraftBlockFalling extends BlockFalling {
 	public void registerBlockModel(int meta, String fileName) {
 		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), meta, new ModelResourceLocation(new ResourceLocation(Library.MODID, fileName), "inventory"));
 	}
-	
+
 	public void setNames(String name) {
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
 	}
-	
+
 	@Override
 	public MapColor getMapColor(IBlockState state) {
 		return color;
 	}
-	
+
 	@Override
 	public int getDustColor(IBlockState p_189876_1_) {
 		return dustcolor;
+	}
+
+	public StarcraftBlockFalling setBlockSoundType(SoundType sound) {
+		this.setSoundType(sound);
+		return this;
 	}
 }

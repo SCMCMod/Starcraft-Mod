@@ -119,7 +119,7 @@ public class ArmorHandler {
 		TITANIUM_LEGGINGS = new ItemArmor(TITANIUM_ARMOR_MATERIAL, 0, EntityEquipmentSlot.LEGS).setUnlocalizedName("titanium.leggings").setRegistryName("titanium.leggings").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 		TITANIUM_BOOTS = new ItemArmor(TITANIUM_ARMOR_MATERIAL, 0, EntityEquipmentSlot.FEET).setUnlocalizedName("titanium.boots").setRegistryName("titanium.boots").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 
-		COPPER_HELMET = new ItemArmor(COPPER_ARMOR_MATERIAL, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("copper.helmet").setRegistryName("copper_helmet").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		COPPER_HELMET = new ItemArmor(COPPER_ARMOR_MATERIAL, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("copper.helmet").setRegistryName("copper.helmet").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 		COPPER_CHESTPLATE = new ItemArmor(COPPER_ARMOR_MATERIAL, 0, EntityEquipmentSlot.CHEST).setUnlocalizedName("copper.chestplate").setRegistryName("copper.chestplate").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 		COPPER_LEGGINGS = new ItemArmor(COPPER_ARMOR_MATERIAL, 0, EntityEquipmentSlot.LEGS).setUnlocalizedName("copper.leggings").setRegistryName("copper.leggings").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 		COPPER_BOOTS = new ItemArmor(COPPER_ARMOR_MATERIAL, 0, EntityEquipmentSlot.FEET).setUnlocalizedName("copper.boots").setRegistryName("copper.boots").setCreativeTab(StarcraftCreativeTabs.TERRAN);
@@ -173,7 +173,6 @@ public class ArmorHandler {
 		PROTOSS_T3_CHESTPLATE = new ArmorProtossT3(PROTOSS_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.CHEST).setUnlocalizedName("protoss.chestplate.3").setRegistryName("protoss.chestplate.3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 		PROTOSS_T3_LEGGINGS = new ArmorProtossT3(PROTOSS_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.LEGS).setUnlocalizedName("protoss.leggings.3").setRegistryName("protoss.leggings.3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 		PROTOSS_T3_BOOTS = new ArmorProtossT3(PROTOSS_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.FEET).setUnlocalizedName("protoss.boots.3").setRegistryName("protoss.boots.3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-
 	}
 
 	public static void register() {

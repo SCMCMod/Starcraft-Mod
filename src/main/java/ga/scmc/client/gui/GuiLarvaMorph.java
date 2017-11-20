@@ -14,6 +14,7 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import ocelot.api.utils.GuiUtils;
+import ocelot.api.utils.SoundUtils;
 import ocelot.api.utils.TextureUtils;
 
 /**
@@ -96,7 +97,7 @@ public class GuiLarvaMorph extends BasicGui {
 					int index = 5 * y + x;
 					if (index < GuiLists.LARVA_OPTIONS.size()) {
 						if (GuiUtils.isMouseInside(guiLeft + 7 + x * 18, guiTop + 7 + y * 18, 17, 18, mouseX, mouseY)) {
-							GuiUtils.playButtonClick();
+							SoundUtils.playButtonClick();
 							NetworkHandler.sendToServer(new MessageMorphLarva(larva, index));
 							return;
 						}

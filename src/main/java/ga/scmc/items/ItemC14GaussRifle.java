@@ -10,6 +10,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
@@ -31,7 +32,7 @@ public class ItemC14GaussRifle extends Item {
 		if (this.hasAmmo(world, player)) {
 			if (!world.isRemote) {
 				EntityC14GaussRifleBullet projectile = new EntityC14GaussRifleBullet(world, player);
-                projectile.setThrowableHeading(projectile.motionX, projectile.motionY, projectile.motionZ, 5F, 0F);
+				projectile.setThrowableHeading(projectile.motionX, projectile.motionY, projectile.motionZ, 5F, 0F);
 				player.world.playSound(null, player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ(), SoundHandler.FX_C14GAUSSRIFLE_FIRING, SoundCategory.PLAYERS, 0.4F, 1.5F);
 				world.spawnEntity(projectile);
 			}
@@ -59,9 +60,10 @@ public class ItemC14GaussRifle extends Item {
 		if (Inventories.playerHas(getAmmo(), player)) {
 			ItemStack ammoStack = player.inventory.getStackInSlot(Inventories.getSlotForItemIn(getAmmo(), player.inventory));
 
-			if (ammoStack != null && ammoStack.getItem() != null) {
-				if (ammoStack.getItemDamage() < ammoStack.getMaxDamage()) {
-					ammoStack.damageItem(1, player);
+			if (ammoStack != null && ammoStack.getItem() != null && ammoStack.hasTagCompound()) {
+				NBTTagCompound nbt = ammoStack.getTagCompound();
+				if (nbt.getInteger("BulletCount") >= 1) {
+					nbt.setInteger("BulletCount", nbt.getInteger("BulletCount") - 1);
 				} else {
 					Inventories.consumeItem(player, ammoStack.getItem());
 				}
@@ -73,6 +75,6 @@ public class ItemC14GaussRifle extends Item {
 	}
 
 	public Item getAmmo() {
-		return ItemHandler.BULLET;
+		return ItemHandler.BULLET_MAGAZINE;
 	}
 }

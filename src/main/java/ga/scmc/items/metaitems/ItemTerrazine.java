@@ -3,8 +3,8 @@ package ga.scmc.items.metaitems;
 import java.util.List;
 
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
-import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumMetaItem.TerrazineType;
+import ga.scmc.enums.EnumMetaItem.VespeneType;
 import ga.scmc.handlers.ItemHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
@@ -27,7 +28,7 @@ public class ItemTerrazine extends Item {
 	public ItemTerrazine() {
 		setUnlocalizedName("terrazine");
 		setRegistryName("terrazine");
-		setHasSubtypes(true); // This just says the item has metadata
+		setHasSubtypes(true);
 		setCreativeTab(StarcraftCreativeTabs.MISC);
 	}
 
@@ -55,21 +56,14 @@ public class ItemTerrazine extends Item {
 		}
 		return getUnlocalizedName() + "." + TerrazineType.RAW.getName();
 	}
-	
+
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer player,
-			EnumHand hand) {
-		player.addPotionEffect(new PotionEffect(Potion.getPotionById(1), 750));
-		player.addPotionEffect(new PotionEffect(Potion.getPotionById(5), 750));
-		player.addPotionEffect(new PotionEffect(Potion.getPotionById(9), 750));
-		if(this.getMetadata(itemStackIn) == 1) {
-			player.inventory.addItemStackToInventory(new ItemStack(ItemHandler.GAS_CONTAINER, 1, EnumMetaItem.ContainerType.PROTOSS.getID()));
-		}else if(this.getMetadata(itemStackIn) == 2) {
-			player.inventory.addItemStackToInventory(new ItemStack(ItemHandler.GAS_CONTAINER, 1, EnumMetaItem.ContainerType.TERRAN.getID()));
-		}else if(this.getMetadata(itemStackIn) == 3) {
-			player.inventory.addItemStackToInventory(new ItemStack(ItemHandler.GAS_CONTAINER, 1, EnumMetaItem.ContainerType.ZERG.getID()));
-		}
+	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer player, EnumHand hand) {
+		player.addPotionEffect(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:speed"), 750));
+		player.addPotionEffect(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:nausea"), 750));
+		player.addPotionEffect(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:strength"), 750));
+		player.inventory.addItemStackToInventory(new ItemStack(ItemHandler.GAS_CONTAINER, 1, itemStackIn.getItemDamage() - 1));
 		player.inventory.decrStackSize(player.inventory.getSlotFor(itemStackIn), 1);
-		return super.onItemRightClick(itemStackIn, worldIn, player, hand);
+		return new ActionResult(EnumActionResult.SUCCESS, itemStackIn);
 	}
 }

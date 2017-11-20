@@ -3,6 +3,7 @@ package ga.scmc.events;
 import java.awt.Color;
 
 import ga.scmc.api.CapabilityUtils;
+import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.ItemHandler;
 import net.minecraft.client.Minecraft;
@@ -22,7 +23,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import ocelot.api.utils.GuiUtils;
 import ocelot.api.utils.InventoryUtils;
 import ocelot.api.utils.TextureUtils;
 
@@ -49,33 +49,32 @@ public class GuiRenderEventHandler extends Gui {
 		int height = scaledresolution.getScaledHeight();
 		FontRenderer fontRenderer = mc.fontRendererObj;
 		GlStateManager.enableBlend();
-		GlStateManager.enableAlpha();
 
 		if (!player.isSpectator()) {
 			ItemStack itemstack = player.inventory.armorItemInSlot(3);
 			if (mc.gameSettings.thirdPersonView == 0 && itemstack != null && itemstack.getItem() == ArmorHandler.TERRAN_MARINE_T1_HELMET && renderHelmetOverlay && event.getType() == ElementType.TEXT) {
 				renderHelmetOverlay(scaledresolution);
-				String ammo = "Ammo: " + InventoryUtils.getItemAmount(mc.player, ItemHandler.C14_GAUSS_RIFLE.getAmmo());
+				String ammo = "Ammo: " + InventoryUtils.getItemAmount(mc.player, ItemHandler.C14_GAUSS_RIFLE.getAmmo()) * EnumMetaItem.BulletMagazineType.C14.getBulletCount();
 				if (mc.player.isCreative())
 					ammo = "Ammo: Infinite";
-				fontRenderer.drawString(ammo, 15, event.getResolution().getScaledHeight() - 18, Color.WHITE.getRGB());
+				fontRenderer.drawString(ammo, 15, height - 18, Color.WHITE.getRGB());
 
 				for (int i = 0; i < 4; i++) {
 					ItemStack stack = mc.player.inventory.armorItemInSlot(i);
 					if (stack != null) {
 						String damage = stack.getMaxDamage() - stack.getItemDamage() + "/" + stack.getMaxDamage();
 						RenderHelper.enableGUIStandardItemLighting();
-						mc.getRenderItem().renderItemAndEffectIntoGUI(stack, (event.getResolution().getScaledWidth() - 18 - mc.fontRendererObj.getStringWidth(damage)) - 18, (event.getResolution().getScaledHeight() - 20 - i * 18) - i);
+						mc.getRenderItem().renderItemAndEffectIntoGUI(stack, (width - 18 - mc.fontRendererObj.getStringWidth(damage)) - 18, (height - 20 - i * 18) - i);
 						RenderHelper.disableStandardItemLighting();
-						fontRenderer.drawString(damage, event.getResolution().getScaledWidth() - 18 - mc.fontRendererObj.getStringWidth(damage), event.getResolution().getScaledHeight() - 18 - i * 18, Color.WHITE.getRGB());
+						fontRenderer.drawString(damage, width - 18 - mc.fontRendererObj.getStringWidth(damage), height - 18 - i * 18, Color.WHITE.getRGB());
 					}
 				}
 			}
 
-			if (event.getType() == ElementType.HOTBAR && mc.playerController.shouldDrawHUD() && isWearingFullProtossArmor(player)) {
+			if (mc.playerController.shouldDrawHUD() && isWearingFullProtossArmor(player)) {
 				GlStateManager.color(1, 1, 1, 1);
 				TextureUtils.bindTexture("textures/gui/icons.png");
-				ScaledResolution resolution = event.getResolution();
+				ScaledResolution resolution = new ScaledResolution(mc);
 				float x = resolution.getScaledWidth() / 2 - 91;
 				float y = resolution.getScaledHeight() - 39;
 				double shieldLevel = CapabilityUtils.getShield(player);
@@ -98,11 +97,13 @@ public class GuiRenderEventHandler extends Gui {
 	}
 
 	public void renderHelmetOverlay(ScaledResolution scaledRes) {
+		GlStateManager.pushMatrix();
 		GlStateManager.disableDepth();
 		GlStateManager.color(1, 1, 1, 1);
 		TextureUtils.bindTexture("textures/gui/helmet_overlay.png");
 		drawModalRectWithCustomSizedTexture(0, 0, 0, 0, scaledRes.getScaledWidth(), scaledRes.getScaledHeight(), scaledRes.getScaledWidth(), scaledRes.getScaledHeight());
 		GlStateManager.enableDepth();
+		GlStateManager.popMatrix();
 	}
 
 	@SubscribeEvent

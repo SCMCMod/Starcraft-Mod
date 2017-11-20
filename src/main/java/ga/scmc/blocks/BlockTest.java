@@ -23,7 +23,7 @@ import net.minecraft.world.World;
 public class BlockTest extends BlockContainer {
 
 	public BlockTest() {
-		super(Material.ROCK, MapColor.WOOD);
+		super(Material.WOOD, MapColor.WOOD);
 		setUnlocalizedName("test");
 		setRegistryName("test");
 		setSoundType(SoundType.WOOD);
