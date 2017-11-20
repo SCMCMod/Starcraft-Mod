@@ -5,21 +5,29 @@ import static net.minecraft.inventory.EntityEquipmentSlot.FEET;
 import static net.minecraft.inventory.EntityEquipmentSlot.HEAD;
 import static net.minecraft.inventory.EntityEquipmentSlot.LEGS;
 
-import ga.scmc.client.renderer.model.IArmorModelItem;
+import ga.scmc.client.renderer.model.IArmorItem;
+import ga.scmc.lib.Library;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import ocelot.api.utils.TextureUtils;
 
 public class ItemRenderModelArmorItem extends ItemRenderer {
 
-	private IArmorModelItem model;
+	private IArmorItem model;
 	private EntityEquipmentSlot type;
 
-	public ItemRenderModelArmorItem(EntityEquipmentSlot type, IArmorModelItem model, ResourceLocation texture) {
-		super(model.getArmorModel(), texture);
+	private ResourceLocation textureLayer1;
+	private ResourceLocation textureLayer2;
+
+	public ItemRenderModelArmorItem(EntityEquipmentSlot type, IArmorItem model, ArmorMaterial material) {
+		super(null, null);
 		this.model = model;
+		this.textureLayer1 = new ResourceLocation(Library.RL_BASE + "textures/models/armor/" + material.getName().substring(Library.MODID.length() + 1) + "_layer_1.png");
+		this.textureLayer2 = new ResourceLocation(Library.RL_BASE + "textures/models/armor/" + material.getName().substring(Library.MODID.length() + 1) + "_layer_2.png");
 
 		switch (type) {
 		case CHEST:
@@ -31,7 +39,7 @@ public class ItemRenderModelArmorItem extends ItemRenderer {
 		case LEGS:
 			break;
 		default:
-			throw new IllegalArgumentException("You cannot have an armor item that uses the hands! 4 available arguments are CHEST, FEET, HEAD, and LEGS.");
+			throw new IllegalArgumentException(String.format("You cannot have an armor item that uses the hands! 4 available arguments are %s, %s, %s, and %s.", CHEST.toString(), FEET.toString(), HEAD.toString(), LEGS.toString()));
 		}
 
 		this.type = type;
@@ -44,51 +52,71 @@ public class ItemRenderModelArmorItem extends ItemRenderer {
 
 	@Override
 	public void renderFirstPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
-		float scale = 1;
-		if (type == HEAD) {
-			model.renderHelmet(entity, scale);
-		}
-
-		if (type == CHEST) {
-			model.renderChestplate(entity, scale);
-		}
-
-		if (type == LEGS) {
-			model.renderLeggings(entity, scale);
-		}
-
-		if (type == FEET) {
-			model.renderBoots(entity, scale);
-		}
+		float scale = 0.0625f;
+		renderArmor(entity, cameraTransformType, scale);
 	}
 
 	@Override
 	public void renderInInventory(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
-
+		float scale = 0.0625f;
+		renderArmor(entity, cameraTransformType, scale);
 	}
 
 	@Override
 	public void renderInWorld(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
-
+		float scale = 0.0625f;
+		renderArmor(entity, cameraTransformType, scale);
 	}
 
 	@Override
 	public void renderThirdPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
-
+		renderThirdPersonRight(itemstack, entity, cameraTransformType);
 	}
 
 	@Override
 	public void renderThirdPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
-
+		float scale = 0.0625f;
+		renderArmor(entity, cameraTransformType, scale);
 	}
 
 	@Override
 	public void renderFixed(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
-
+		float scale = 0.0625f;
+		renderArmor(entity, cameraTransformType, scale);
 	}
 
 	@Override
 	public void renderHead(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
 
+	}
+	
+	public void renderArmor(EntityLivingBase entity, TransformType cameraTransformType, float scale) {
+		if (type == HEAD) {
+			TextureUtils.bindTexture(textureLayer1);
+			model.renderHelmet(cameraTransformType, entity, scale);
+			TextureUtils.bindTexture(textureLayer2);
+			model.renderHelmet(cameraTransformType, entity, scale);
+		}
+
+		if (type == CHEST) {
+			TextureUtils.bindTexture(textureLayer1);
+			model.renderChestplate(cameraTransformType, entity, scale);
+			TextureUtils.bindTexture(textureLayer2);
+			model.renderChestplate(cameraTransformType, entity, scale);
+		}
+
+		if (type == LEGS) {
+			TextureUtils.bindTexture(textureLayer1);
+			model.renderLeggings(cameraTransformType, entity, scale);
+			TextureUtils.bindTexture(textureLayer2);
+			model.renderLeggings(cameraTransformType, entity, scale);
+		}
+
+		if (type == FEET) {
+			TextureUtils.bindTexture(textureLayer1);
+			model.renderBoots(cameraTransformType, entity, scale);
+			TextureUtils.bindTexture(textureLayer2);
+			model.renderBoots(cameraTransformType, entity, scale);
+		}
 	}
 }

@@ -1,5 +1,6 @@
 package ga.scmc.client.renderer.model.armor;
 
+import ga.scmc.annotation.Unused;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -84,6 +85,8 @@ public abstract class ModelArmorBase extends ModelBiped {
 			this.lArm.render(scale);
 			this.rLeg.render(scale);
 			this.lLeg.render(scale);
+
+			// renderArmorModel(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		} else {
 			if (entity.isSneaking()) {
 				GlStateManager.translate(0.0F, 0.2F, 0.0F);
@@ -95,6 +98,8 @@ public abstract class ModelArmorBase extends ModelBiped {
 			this.lArm.render(scale);
 			this.rLeg.render(scale);
 			this.lLeg.render(scale);
+
+			// renderArmorModel(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		}
 
 		GlStateManager.popMatrix();
@@ -246,9 +251,9 @@ public abstract class ModelArmorBase extends ModelBiped {
 	protected ModelRenderer getArmForSide(EnumHandSide side) {
 		return side == EnumHandSide.LEFT ? this.lArm : this.rArm;
 	}
-
+	
 	/**
-	 * This method renders the armor model to the biped. This is currently unused.
+	 * This method renders the armor model to the biped.
 	 * 
 	 * @param entity
 	 *            The entity instance
@@ -265,6 +270,7 @@ public abstract class ModelArmorBase extends ModelBiped {
 	 * @param scale
 	 *            The scale of the model
 	 */
+	@Unused
 	protected abstract void renderArmorModel(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale);
 
 	/**
