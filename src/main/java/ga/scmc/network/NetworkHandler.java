@@ -27,7 +27,6 @@ public class NetworkHandler {
 		}
 	}
 
-	@SideOnly(Side.SERVER)
 	private static void registerServer() {
 		registerMessage(new MessageMorphLarva(), MessageMorphLarva.class, Side.SERVER);
 		registerMessage(new MessageSpawnItem(), MessageSpawnItem.class, Side.SERVER);
