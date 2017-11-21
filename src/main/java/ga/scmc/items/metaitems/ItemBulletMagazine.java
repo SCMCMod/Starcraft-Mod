@@ -33,8 +33,7 @@ public class ItemBulletMagazine extends Item {
 	public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
 		if (stack.hasTagCompound()) {
 			NBTTagCompound nbt = stack.getTagCompound();
-			tooltip.add(nbt.getInteger("BulletCount") + " Count");
-			tooltip.add(nbt.getInteger("BulletCapacity") + " Capacity");
+			tooltip.add(nbt.getInteger("BulletCount") + "/" + nbt.getInteger("BulletCapacity") + " Ammo");
 		}
 	}
 

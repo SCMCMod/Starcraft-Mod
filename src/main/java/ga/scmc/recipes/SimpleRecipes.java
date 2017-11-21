@@ -195,6 +195,8 @@ public class SimpleRecipes {
 		// Gauss Rifle parts
 		GameRegistry.addRecipe(new ItemStack(ItemHandler.C14_PARTS, 1, EnumMetaItem.C14PartType.BARREL.getID()), "SSS", "STT", "S  ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()));
 
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.BULLET_MAGAZINE, 1, 0), "SSS", "SGS", "SSS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'G', Items.GUNPOWDER);
+		
 		GameRegistry.addRecipe(new ItemStack(ItemHandler.C14_PARTS, 1, EnumMetaItem.C14PartType.BODY.getID()), "SSS", "TTT", "  T", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()));
 
 		GameRegistry.addRecipe(new ItemStack(ItemHandler.C14_PARTS, 1, EnumMetaItem.C14PartType.GRIP.getID()), "SS ", "S S", "SSS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()));

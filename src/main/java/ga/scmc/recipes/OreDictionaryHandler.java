@@ -9,13 +9,12 @@ import net.minecraftforge.oredict.OreDictionary;
 public class OreDictionaryHandler {
 
 	public static void init() {
-		// TODO add the slay blocks here again.
 		OreDictionary.registerOre("cobblestone", BlockHandler.COBBLESTONE_CHAR);
 		OreDictionary.registerOre("cobblestone", BlockHandler.COBBLESTONE_SHAKURAS);
-		// OreDictionary.registerOre("cobblestone", BlockHandler.COBBLESTONE_SLAYN);
+		OreDictionary.registerOre("cobblestone", BlockHandler.COBBLESTONE_SLAYN);
 		OreDictionary.registerOre("stone", BlockHandler.STONE_CHAR);
 		OreDictionary.registerOre("stone", BlockHandler.STONE_SHAKURAS);
-		// OreDictionary.registerOre("stone", BlockHandler.STONE_SLAYN);
+		OreDictionary.registerOre("stone", BlockHandler.STONE_SLAYN);
 		OreDictionary.registerOre("oreGold", BlockHandler.ORE_GOLD_CHAR);
 		OreDictionary.registerOre("oreGold", BlockHandler.ORE_GOLD_SHAKURAS);
 		OreDictionary.registerOre("oreIron", BlockHandler.ORE_IRON_CHAR);
