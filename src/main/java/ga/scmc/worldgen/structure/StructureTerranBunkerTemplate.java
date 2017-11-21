@@ -6,7 +6,6 @@ import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.MetaBlockHandler;
-import ga.scmc.items.metaitems.ItemBulletMagazine;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -145,7 +144,7 @@ public class StructureTerranBunkerTemplate extends SCWorldGenerator {
 			if (num == 0) {
 				//chest.setInventorySlotContents(slot, new ItemStack(ModItems.COORDINATES, 1, 0));
 			} else if (num >= 13 && num <= 59) {
-				chest.setInventorySlotContents(slot,((ItemBulletMagazine) ItemHandler.BULLET_MAGAZINE).getDefaultStack(EnumMetaItem.BulletMagazineType.C14.getID()));
+				chest.setInventorySlotContents(slot, new ItemStack(ItemHandler.BULLET, 1 + randchest.nextInt(4), EnumMetaItem.BulletType.C14.getID()));
 			} else if (num == 1) {
 				//chest.setInventorySlotContents(slot, new ItemStack(ModItems.COORDINATES, 1, 1));
 			}
@@ -198,8 +197,8 @@ public class StructureTerranBunkerTemplate extends SCWorldGenerator {
 			if (num < 1) {
 				chest2.setInventorySlotContents(slot, new ItemStack(ItemHandler.C14_GAUSS_RIFLE, 1));
 			} else if (num >= 13 && num <= 59) {
-				chest2.setInventorySlotContents(slot,((ItemBulletMagazine) ItemHandler.BULLET_MAGAZINE).getDefaultStack(EnumMetaItem.BulletMagazineType.C14.getID()));
-				} else if (num > 89) {
+				chest2.setInventorySlotContents(slot, new ItemStack(ItemHandler.BULLET, 1 + randchest2.nextInt(4), EnumMetaItem.BulletType.C14.getID()));
+			} else if (num > 89) {
 				chest2.setInventorySlotContents(slot, new ItemStack(ItemHandler.DUST, 1, randchest2.nextInt(2)));
 			}
 		}

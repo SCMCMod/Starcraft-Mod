@@ -38,6 +38,7 @@ public class GuiRenderEventHandler extends Gui {
 	/** This is the maximum amount of shield the player has. */
 	private static int maxShieldLevel = 10;
 
+	@SuppressWarnings("unused")
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
 	public void onRenderGameOverlayEvent(RenderGameOverlayEvent event) {
@@ -70,7 +71,7 @@ public class GuiRenderEventHandler extends Gui {
 				}
 			}
 
-			if (mc.playerController.shouldDrawHUD() && isWearingFullProtossArmor(player)) {
+			if (mc.playerController.shouldDrawHUD() && isWearingFullProtossArmor(player) && false) {
 				GlStateManager.color(1, 1, 1, 1);
 				TextureUtils.bindTexture("textures/gui/icons.png");
 				ScaledResolution resolution = new ScaledResolution(mc);
