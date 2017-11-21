@@ -11,6 +11,7 @@ import ga.scmc.handlers.WeaponHandler;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
@@ -189,13 +190,16 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T3_BOOTS), "   ", "C C", "C C", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T3.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T3_BOOTS), "C C", "C C", "  ", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T3.getID()));
 
-		// Bullets for the Gauss Rifle
-		GameRegistry.addRecipe(new ItemStack(ItemHandler.BULLET, 6), " S ", " P ", " S ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'P', Items.GUNPOWDER);
+		// Bullets for the Gauss Rifle		
+		ItemStack bulletMagazine = new ItemStack(ItemHandler.BULLET_MAGAZINE, 1, 0);
+		NBTTagCompound nbt = new NBTTagCompound();
+		nbt.setInteger("BulletCount", EnumMetaItem.BulletMagazineType.C14.getBulletCount());
+		nbt.setInteger("BulletCapacity", EnumMetaItem.BulletMagazineType.C14.getBulletCount());
+		bulletMagazine.setTagCompound(nbt);
+		GameRegistry.addRecipe(bulletMagazine, "SSS", "SGS", "SSS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'G', Items.GUNPOWDER);
 
 		// Gauss Rifle parts
 		GameRegistry.addRecipe(new ItemStack(ItemHandler.C14_PARTS, 1, EnumMetaItem.C14PartType.BARREL.getID()), "SSS", "STT", "S  ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()));
-
-		GameRegistry.addRecipe(new ItemStack(ItemHandler.BULLET_MAGAZINE, 1, 0), "SSS", "SGS", "SSS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'G', Items.GUNPOWDER);
 		
 		GameRegistry.addRecipe(new ItemStack(ItemHandler.C14_PARTS, 1, EnumMetaItem.C14PartType.BODY.getID()), "SSS", "TTT", "  T", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()));
 
