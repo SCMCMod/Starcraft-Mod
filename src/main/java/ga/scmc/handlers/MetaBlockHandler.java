@@ -1,7 +1,6 @@
 package ga.scmc.handlers;
 
 import ga.scmc.blocks.itemblocks.ItemBlockMeta;
-import ga.scmc.blocks.metablocks.BlockTerranMetal;
 import ga.scmc.blocks.metablocks.BlockCompressedMinerals;
 import ga.scmc.blocks.metablocks.BlockGasCollector;
 import ga.scmc.blocks.metablocks.BlockNeosteelMetal;
@@ -10,6 +9,7 @@ import ga.scmc.blocks.metablocks.BlockProtossMetalT1;
 import ga.scmc.blocks.metablocks.BlockProtossMetalT2;
 import ga.scmc.blocks.metablocks.BlockProtossMetalT3;
 import ga.scmc.blocks.metablocks.BlockPylonCrystal;
+import ga.scmc.blocks.metablocks.BlockTerranMetal;
 import ga.scmc.blocks.metablocks.BlockZergStructureCarapace;
 import ga.scmc.blocks.metablocks.BlockZergStructureFlesh;
 import net.minecraft.block.Block;

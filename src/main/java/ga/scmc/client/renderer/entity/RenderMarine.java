@@ -4,7 +4,6 @@ import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.entity.layers.LayerMarineColor;
 import ga.scmc.client.renderer.model.ModelMarine;
 import ga.scmc.entity.living.EntityMarine;
-import ga.scmc.lib.Library;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;

@@ -2,8 +2,6 @@ package ga.scmc.client.renderer.model;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.entity.Entity;
 
 /**
  * sc2Marine - cybercat5555 Created using Tabula 5.1.0

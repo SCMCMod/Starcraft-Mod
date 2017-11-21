@@ -4,7 +4,6 @@ import java.util.List;
 
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.enums.EnumMetaItem.TerrazineType;
-import ga.scmc.enums.EnumMetaItem.VespeneType;
 import ga.scmc.handlers.ItemHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;

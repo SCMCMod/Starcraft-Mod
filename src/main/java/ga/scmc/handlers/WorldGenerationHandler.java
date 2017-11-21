@@ -4,7 +4,6 @@ import java.util.Random;
 
 import ga.scmc.worldgen.dimchar.CharWorldGenMinable;
 import ga.scmc.worldgen.dimshakuras.ShakurasWorldGenMinable;
-import ga.scmc.worldgen.structure.SCWorldGenerator;
 import ga.scmc.worldgen.structure.StructureGeyserTemplate;
 import ga.scmc.worldgen.structure.StructureMineralPatchTemplate;
 import ga.scmc.worldgen.structure.StructureProtossCyberneticsCoreTemplate;
@@ -14,14 +13,12 @@ import ga.scmc.worldgen.structure.StructureTerranBunkerTemplate;
 import ga.scmc.worldgen.structure.StructureZergHydraliskDenTemplate;
 import ga.scmc.worldgen.structure.StructureZergSpawningPoolTemplate;
 import ga.scmc.worldgen.structure.StructureZergSpireTemplate;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkGenerator;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
-import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 

@@ -1,7 +1,6 @@
 package ga.scmc.events;
 
 import ga.scmc.achievement.Achievements;
-import ga.scmc.achievement.EnumAchievements;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.WeaponHandler;
 import net.minecraft.item.ItemStack;

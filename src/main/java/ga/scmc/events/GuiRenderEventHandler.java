@@ -3,7 +3,6 @@ package ga.scmc.events;
 import java.awt.Color;
 
 import ga.scmc.api.CapabilityUtils;
-import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.ItemHandler;
 import net.minecraft.client.Minecraft;
@@ -54,7 +53,7 @@ public class GuiRenderEventHandler extends Gui {
 			ItemStack itemstack = player.inventory.armorItemInSlot(3);
 			if (mc.gameSettings.thirdPersonView == 0 && itemstack != null && itemstack.getItem() == ArmorHandler.TERRAN_MARINE_T1_HELMET && renderHelmetOverlay && event.getType() == ElementType.TEXT) {
 				renderHelmetOverlay(scaledresolution);
-				String ammo = "Ammo: " + InventoryUtils.getItemAmount(mc.player, ItemHandler.C14_GAUSS_RIFLE.getAmmo()) * EnumMetaItem.BulletMagazineType.C14.getBulletCount();
+				String ammo = "Ammo: " + InventoryUtils.getTotalAmmo(player, ItemHandler.BULLET_MAGAZINE);
 				if (mc.player.isCreative())
 					ammo = "Ammo: Infinite";
 				fontRenderer.drawString(ammo, 15, height - 18, Color.WHITE.getRGB());

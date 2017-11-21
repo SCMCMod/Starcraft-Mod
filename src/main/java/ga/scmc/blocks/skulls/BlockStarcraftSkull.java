@@ -8,7 +8,6 @@ import javax.annotation.Nullable;
 
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.handlers.BlockHandler;
-import ga.scmc.handlers.ItemHandler;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.BlockDirectional;

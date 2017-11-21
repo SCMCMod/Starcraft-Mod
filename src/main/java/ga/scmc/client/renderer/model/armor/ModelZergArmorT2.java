@@ -1,6 +1,5 @@
 package ga.scmc.client.renderer.model.armor;
 
-import ga.scmc.annotation.Unused;
 import ga.scmc.client.renderer.model.IArmorItem;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;

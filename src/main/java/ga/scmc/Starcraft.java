@@ -10,7 +10,6 @@ import ga.scmc.capabilities.Shield;
 import ga.scmc.capabilities.ShieldStorage;
 import ga.scmc.client.gui.GuiHandler;
 import ga.scmc.events.GuiRenderEventHandler;
-import ga.scmc.events.KeyEventHandler;
 import ga.scmc.events.OnPlayerLoggedInEvent;
 import ga.scmc.handlers.BiomeHandler;
 import ga.scmc.handlers.BlockHandler;

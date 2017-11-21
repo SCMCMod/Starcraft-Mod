@@ -6,7 +6,6 @@ import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.entity.EntityC14GaussRifleBullet;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -14,7 +13,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class ItemC14GaussRifle extends Item {
@@ -40,16 +38,6 @@ public class ItemC14GaussRifle extends Item {
 			player.world.playSound(null, player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ(), SoundHandler.FX_C14GAUSSRIFLE_OUT, SoundCategory.PLAYERS, 0.4F, 0.4F / (itemRand.nextFloat() * 0.5F + 0.8F));
 		}
 		return super.onItemRightClick(itemstack, world, player, hand);
-	}
-
-	@Override
-	public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack stack) {
-		return true;
-	}
-
-	@Override
-	public boolean onBlockStartBreak(ItemStack itemstack, BlockPos pos, EntityPlayer player) {
-		return false;
 	}
 
 	public boolean hasAmmo(World world, EntityPlayer player) {

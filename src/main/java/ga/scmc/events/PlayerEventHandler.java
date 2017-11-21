@@ -1,7 +1,6 @@
 package ga.scmc.events;
 
 import ga.scmc.achievement.Achievements;
-import ga.scmc.achievement.EnumAchievements;
 import ga.scmc.capabilities.ColorProvider;
 import ga.scmc.capabilities.IColor;
 import ga.scmc.handlers.ConfigurationHandler;

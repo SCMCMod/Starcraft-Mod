@@ -8,7 +8,6 @@ import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformT
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import ocelot.api.utils.GuiUtils;
 import ocelot.api.utils.TextureUtils;
 
 public class ItemRenderTable extends ItemRenderer {

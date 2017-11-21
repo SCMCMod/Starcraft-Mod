@@ -1,5 +1,8 @@
 package ocelot.api.utils;
 
+import com.arisux.mdx.lib.world.entity.player.inventory.Inventories;
+
+import ga.scmc.items.metaitems.ItemBulletMagazine;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -174,5 +177,18 @@ public class InventoryUtils {
 			}
 		}
 		return false;
+	}
+	
+	public static int getTotalAmmo(EntityPlayer player, Item item) {
+		int totalCount = 0;
+		if (Inventories.playerHas(item, player)) {
+			for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
+				ItemStack stack = player.inventory.getStackInSlot(i);
+					if(stack != null && stack.getItem() instanceof ItemBulletMagazine) {
+						totalCount += ((ItemBulletMagazine)stack.getItem()).getBulletCount(stack) + 1;
+					}
+			}
+		}
+		return totalCount;
 	}
 }

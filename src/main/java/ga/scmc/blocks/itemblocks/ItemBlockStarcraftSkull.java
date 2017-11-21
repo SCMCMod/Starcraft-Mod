@@ -4,7 +4,6 @@ import java.util.List;
 
 import ga.scmc.blocks.skulls.BlockStarcraftSkull;
 import ga.scmc.enums.EnumMetaBlock;
-import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
 import net.minecraft.block.Block;
