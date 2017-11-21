@@ -5,6 +5,7 @@ import java.util.List;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumMetaItem.BulletMagazineType;
+import ga.scmc.handlers.ItemHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -83,11 +84,17 @@ public class ItemBulletMagazine extends Item {
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
 		if (!stack.hasTagCompound()) {
-			NBTTagCompound nbt = new NBTTagCompound();
-			nbt.setInteger("BulletCount", EnumMetaItem.BulletMagazineType.values()[stack.getItemDamage()].getBulletCount());
-			nbt.setInteger("BulletCapacity", EnumMetaItem.BulletMagazineType.values()[stack.getItemDamage()].getBulletCount());
-			stack.setTagCompound(nbt);
+			stack = getDefaultStack(stack.getMetadata());
 		}
+	}
+
+	public ItemStack getDefaultStack(int type) {
+		ItemStack stack = new ItemStack(ItemHandler.BULLET_MAGAZINE, 1, type);
+		NBTTagCompound nbt = new NBTTagCompound();
+		nbt.setInteger("BulletCount", EnumMetaItem.BulletMagazineType.values()[type].getBulletCount());
+		nbt.setInteger("BulletCapacity", EnumMetaItem.BulletMagazineType.values()[type].getBulletCount());
+		stack.setTagCompound(nbt);
+		return stack;
 	}
 
 	/**
