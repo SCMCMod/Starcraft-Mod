@@ -155,20 +155,16 @@ public class BlockHandler {
 	public static final Block FURNACE_SLAYN;
 	public static final Block LIT_FURNACE_SLAYN;
 	public static final Block VOID_ENERGY;
-	// public static final Block WARPGATE_WORMHOLE_CHAR;
-	// public static final Block WARPGATE_WORMHOLE_OVERWORLD;
-	// public static final Block WARPGATE_WORMHOLE_SHAKURAS;
 	public static final Block ZERG_CREEP;
+	public static final Block STARCRAFT_SKULL;
 
 	public static final Block CITY_STONE_KORHAL;
 
-	// public static final Block SAND_SLAYN;
-	// public static final Block STONE_SLAYN;
-	// public static final Block DIRT_SLAYN;
-	// public static final Block COBBLESTONE_SLAYN;
-	// public static final Block GRAVEL_SLAYN;
-
-	public static final Block STARCRAFT_SKULL;
+	public static final Block SAND_SLAYN;
+	public static final Block STONE_SLAYN;
+	public static final Block DIRT_SLAYN;
+	public static final Block COBBLESTONE_SLAYN;
+	public static final Block GRAVEL_SLAYN;
 
 	/**
 	 * Instantiates, registers, and initializes the MetaBlocks.
@@ -178,7 +174,7 @@ public class BlockHandler {
 		register();
 		MetaBlockHandler.init();
 	}
-	
+
 	public static void instantiateFluids() {
 		FLUID_ACID = new BlockAcidFluid();
 		FLUID_BLOOD = new BlockBloodFluid();
@@ -240,6 +236,13 @@ public class BlockHandler {
 		SAND_SHAKURAS = new StarcraftBlockFalling("shakuras.sand", RegistryType.FULL, Material.SAND, MapColor.LIGHT_BLUE, 6724056).setBlockSoundType(SoundType.SAND).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0).setResistance(0);
 		DIM_PORTAL_SHAKURAS = new BlockDimPortalShakuras();
 
+		/** slayn blocks */
+		SAND_SLAYN = new StarcraftBlock("slayn.sand", RegistryType.FULL, Material.SAND, MapColor.BLACK).setBlockSoundType(SoundType.SAND).setCreativeTab(StarcraftCreativeTabs.MISC);
+		STONE_SLAYN = new StarcraftBlock("slayn.stone", RegistryType.FULL, Material.ROCK, MapColor.BLACK).setCreativeTab(StarcraftCreativeTabs.MISC);
+		DIRT_SLAYN = new StarcraftBlock("slayn.dirt", RegistryType.FULL, Material.GROUND, MapColor.BLACK).setBlockSoundType(SoundType.GROUND).setCreativeTab(StarcraftCreativeTabs.MISC);
+		COBBLESTONE_SLAYN = new StarcraftBlock("slayn.cobblestone", RegistryType.FULL, Material.ROCK, MapColor.BLACK).setCreativeTab(StarcraftCreativeTabs.MISC);
+		GRAVEL_SLAYN = new StarcraftBlockFalling("slayn.gravel", RegistryType.FULL, Material.GROUND, MapColor.BLACK, 0x000000).setBlockSoundType(SoundType.GROUND).setCreativeTab(StarcraftCreativeTabs.MISC);
+
 		/** furnaces blocks **/
 		FURNACE_SHAKURAS = new BlockFurnaceShakuras(false);
 		LIT_FURNACE_SHAKURAS = new BlockFurnaceShakuras(true);
@@ -299,7 +302,7 @@ public class BlockHandler {
 		registerCompleteBlock(DIM_PORTAL_KORHAL);
 		registerCompleteBlock(DIM_PORTAL_KALDIR);
 		registerCompleteBlock(DIM_PORTAL_SLAYN);
-
+		
 		registerCompleteBlock(MAGMA_CHAR);
 		registerBlock(ASH_CHAR, new ItemBlockAsh(ASH_CHAR));
 		registerCompleteBlock(DIM_PORTAL_CHAR);

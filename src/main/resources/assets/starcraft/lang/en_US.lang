@@ -13,6 +13,12 @@ itemGroup.terran.armors=Armors
 itemGroup.terran.tools=Tools
 #############################################################################################
 
+### Key Bindings ###
+#############################################################################################
+key.categories.starcraft=Starcraft
+key.terran.marinevisor.toggle=Toggle Marine Armor Visor
+#############################################################################################
+
 
 
 ### Protoss Blocks ###

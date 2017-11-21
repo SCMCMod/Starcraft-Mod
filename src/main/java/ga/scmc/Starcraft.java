@@ -10,6 +10,7 @@ import ga.scmc.capabilities.Shield;
 import ga.scmc.capabilities.ShieldStorage;
 import ga.scmc.client.gui.GuiHandler;
 import ga.scmc.events.GuiRenderEventHandler;
+import ga.scmc.events.KeyEventHandler;
 import ga.scmc.events.OnPlayerLoggedInEvent;
 import ga.scmc.handlers.BiomeHandler;
 import ga.scmc.handlers.BlockHandler;
@@ -18,7 +19,7 @@ import ga.scmc.handlers.DimensionHandler;
 import ga.scmc.handlers.EntityHandler;
 import ga.scmc.handlers.FluidHandler;
 import ga.scmc.handlers.FuelHandler;
-import ga.scmc.handlers.ItemHandler;
+import ga.scmc.handlers.KeybindingHandler;
 import ga.scmc.handlers.MaterialHandler;
 import ga.scmc.handlers.RenderingHandler;
 import ga.scmc.handlers.SoundHandler;
@@ -70,7 +71,8 @@ public class Starcraft {
 	public void preInit(FMLPreInitializationEvent event) {
 		ConfigurationHandler.preInit();
 
-		NetworkHandler.init();
+		NetworkHandler.preInit();
+		KeybindingHandler.preInit();
 		MaterialHandler.preInit();
 		FluidHandler.preInit();
 		SoundHandler.preInit();

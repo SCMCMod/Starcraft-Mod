@@ -18,7 +18,7 @@ public class NetworkHandler {
 
 	private static int nextId = 0;
 
-	public static void init() {
+	public static void preInit() {
 		registerMessage(new MessageMorphLarva(), MessageMorphLarva.class, Side.SERVER);
 		registerMessage(new MessageSetPlayerShieldServer(), MessageSetPlayerShieldServer.class, Side.SERVER);
 		registerMessage(new MessageSetPlayerShieldClient(), MessageSetPlayerShieldClient.class, Side.CLIENT);
