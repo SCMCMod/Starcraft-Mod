@@ -31,7 +31,7 @@ public class MessageSetPlayerShieldClient implements IMessage, IMessageHandler<M
 
 	@Override
 	public IMessage onMessage(MessageSetPlayerShieldClient message, MessageContext ctx) {
-		EntityPlayer player = ctx.getServerHandler().playerEntity;
+		EntityPlayer player = Minecraft.getMinecraft().player;
 		if (player != null && player.world.isRemote && player.getCapability(ShieldProvider.SHIELD, null) != null) {
 			player.getCapability(ShieldProvider.SHIELD, null).set(message.shield);
 		}

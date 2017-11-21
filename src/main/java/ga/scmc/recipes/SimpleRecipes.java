@@ -138,22 +138,20 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.COPPER_HELMET), "CCC", "C C", "   ", 'C', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.COPPER_CHESTPLATE), "C C", "CCC", "CCC", 'C', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.COPPER_LEGGINGS), "CCC", "C C", "C C", 'C', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()));
-		GameRegistry.addRecipe(new ItemStack(ArmorHandler.COPPER_BOOTS), "   ", "C C", "C C", 'C', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()));
-		GameRegistry.addRecipe(new ItemStack(ArmorHandler.COPPER_BOOTS), "C C", "C C", "  ", 'C', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.COPPER_BOOTS), "C C", "C C", 'C', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()));
 
 		// Titanium toolset
 		GameRegistry.addRecipe(new ItemStack(ToolHandler.TITANIUM_SHOVEL), " T ", " S ", " S ", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()), 'S', Items.STICK);
 		GameRegistry.addRecipe(new ItemStack(ToolHandler.TITANIUM_AXE), " TT", " ST", " S ", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()), 'S', Items.STICK);
 		GameRegistry.addRecipe(new ItemStack(ToolHandler.TITANIUM_PICKAXE), "TTT", " S ", " S ", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()), 'S', Items.STICK);
 		GameRegistry.addRecipe(new ItemStack(ToolHandler.TITANIUM_HOE), " TT", " S ", " S ", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()), 'S', Items.STICK);
-		GameRegistry.addRecipe(new ItemStack(WeaponHandler.TITANIUM_SWORD), " T ", " T ", " S ", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()), 'S', Items.STICK);
+		GameRegistry.addRecipe(new ItemStack(WeaponHandler.TITANIUM_SWORD), " T ", " T ", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()), 'S', Items.STICK);
 
 		// Titanium armorset
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TITANIUM_HELMET), "TTT", "T T", "   ", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TITANIUM_CHESTPLATE), "T T", "TTT", "TTT", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TITANIUM_LEGGINGS), "TTT", "T T", "T T", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()));
-		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TITANIUM_BOOTS), "   ", "T T", "T T", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()));
-		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TITANIUM_BOOTS), "T T", "T T", "  ", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TITANIUM_BOOTS), "T T", "T T", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()));
 
 		// Steel toolset
 		GameRegistry.addRecipe(new ItemStack(ToolHandler.STEEL_SHOVEL), " S ", " I ", " I ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'I', Items.STICK);
@@ -166,29 +164,30 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.STEEL_HELMET), "SSS", "S S", "   ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.STEEL_CHESTPLATE), "S S", "SSS", "SSS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.STEEL_LEGGINGS), "SSS", "S S", "S S", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()));
-		GameRegistry.addRecipe(new ItemStack(ArmorHandler.STEEL_BOOTS), "   ", "S S", "S S", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()));
-		GameRegistry.addRecipe(new ItemStack(ArmorHandler.STEEL_BOOTS), "S S", "S S", "  ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.STEEL_BOOTS), "S S", "S S", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()));
 
 		// T1 zerg armorset
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T1_HELMET), "CCC", "C C", "   ", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T1.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T1_CHESTPLATE), "C C", "CCC", "CCC", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T1.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T1_LEGGINGS), "CCC", "C C", "C C", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T1.getID()));
-		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T1_BOOTS), "   ", "C C", "C C", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T1.getID()));
-		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T1_BOOTS), "C C", "C C", "  ", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T1.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T1_BOOTS), "C C", "C C", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T1.getID()));
 
 		// T2 zerg armorset
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T2_HELMET), "CCC", "C C", "   ", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T2.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T2_CHESTPLATE), "C C", "CCC", "CCC", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T2.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T2_LEGGINGS), "CCC", "C C", "C C", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T2.getID()));
-		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T2_BOOTS), "   ", "C C", "C C", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T2.getID()));
-		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T2_BOOTS), "C C", "C C", "  ", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T2.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T2_BOOTS), "C C", "C C", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T2.getID()));
 
 		// T3 zerg armorset
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T3_HELMET), "CCC", "C C", "   ", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T3.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T3_CHESTPLATE), "C C", "CCC", "CCC", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T3.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T3_LEGGINGS), "CCC", "C C", "C C", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T3.getID()));
-		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T3_BOOTS), "   ", "C C", "C C", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T3.getID()));
-		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T3_BOOTS), "C C", "C C", "  ", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T3.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T3_BOOTS), "C C", "C C", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T3.getID()));
+
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T1_HELMET), "SSS", "SGS", 'S', new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.STEEL.getID()), 'G', new ItemStack(Blocks.STAINED_GLASS_PANE, 1, 1));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T1_CHESTPLATE), "S S", "SSS", "SSS", 'S', new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.STEEL.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T1_LEGGINGS), "SSS", "S S", "S S", 'S', new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.STEEL.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T1_BOOTS), "S S", "S S", 'S', new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.STEEL.getID()));
 
 		// Bullets for the Gauss Rifle
 		GameRegistry.addRecipe(((ItemBulletMagazine) ItemHandler.BULLET_MAGAZINE).getDefaultStack(EnumMetaItem.BulletMagazineType.C14.getID()), "SSS", "SGS", "SSS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'G', Items.GUNPOWDER);
