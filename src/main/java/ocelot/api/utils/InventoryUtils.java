@@ -178,15 +178,24 @@ public class InventoryUtils {
 		}
 		return false;
 	}
-	
+
+	/**
+	 * Recieves the amount of ammo a player has in the inventory.
+	 * 
+	 * @param player
+	 *            The player to search
+	 * @param item
+	 *            The item that has the tag BulletCount
+	 * @return The amount found if the tag was found. If it was not found it returns 0
+	 */
 	public static int getTotalAmmo(EntityPlayer player, Item item) {
 		int totalCount = 0;
 		if (Inventories.playerHas(item, player)) {
 			for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
 				ItemStack stack = player.inventory.getStackInSlot(i);
-					if(stack != null && stack.getItem() instanceof ItemBulletMagazine) {
-						totalCount += ((ItemBulletMagazine)stack.getItem()).getBulletCount(stack) + 1;
-					}
+				if (stack != null && stack.hasTagCompound() && stack.getTagCompound().hasKey("BulletCount")) {
+					totalCount += ((ItemBulletMagazine) stack.getItem()).getBulletCount(stack) + 1;
+				}
 			}
 		}
 		return totalCount;
