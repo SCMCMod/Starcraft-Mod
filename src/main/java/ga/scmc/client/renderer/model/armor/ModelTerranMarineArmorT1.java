@@ -1,7 +1,7 @@
 package ga.scmc.client.renderer.model.armor;
 
-import ga.scmc.annotation.Unused;
 import ga.scmc.client.renderer.model.IArmorItem;
+import ga.scmc.events.GuiRenderEventHandler;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
@@ -336,11 +336,9 @@ public class ModelTerranMarineArmorT1 extends ModelArmorBase implements IArmorIt
 		this.chestplate_lArmGuard01.addChild(this.chestplate_lArmGuard04);
 		this.leggings_lLegGuard01.addChild(this.leggings_lLegGuard02);
 	}
-
+	
 	@Override
-	@Unused
-	protected void renderArmorModel(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-
+	protected void renderArmorModelExtras(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 	}
 
 	@Override

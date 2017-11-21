@@ -1,6 +1,5 @@
 package ga.scmc.client.renderer.model.armor;
 
-import ga.scmc.annotation.Unused;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -86,7 +85,7 @@ public abstract class ModelArmorBase extends ModelBiped {
 			this.rLeg.render(scale);
 			this.lLeg.render(scale);
 
-			// renderArmorModel(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+			renderArmorModelExtras(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		} else {
 			if (entity.isSneaking()) {
 				GlStateManager.translate(0.0F, 0.2F, 0.0F);
@@ -99,16 +98,17 @@ public abstract class ModelArmorBase extends ModelBiped {
 			this.rLeg.render(scale);
 			this.lLeg.render(scale);
 
-			// renderArmorModel(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+			renderArmorModelExtras(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		}
 
 		GlStateManager.popMatrix();
 	}
 
 	@SuppressWarnings("incomplete-switch")
-	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netheadYaw, float headPitch, float scaleFactor, Entity entity) {
+	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
+		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entity);
 		boolean flag = entity instanceof EntityLivingBase && ((EntityLivingBase) entity).getTicksElytraFlying() > 4;
-		this.head.rotateAngleY = netheadYaw * 0.017453292F;
+		this.head.rotateAngleY = netHeadYaw * 0.017453292F;
 
 		if (flag) {
 			this.head.rotateAngleX = -((float) Math.PI / 4F);
@@ -186,7 +186,7 @@ public abstract class ModelArmorBase extends ModelBiped {
 
 		if (this.swingProgress > 0.0F) {
 			EnumHandSide enumhandside = this.getMainHand(entity);
-			ModelRenderer modelrenderer = this.getArmForSide(enumhandside);
+			ModelRenderer modelrenderer = this.getArmorArmForSide(enumhandside);
 			float f1 = this.swingProgress;
 			this.body.rotateAngleY = MathHelper.sin(MathHelper.sqrt(f1) * ((float) Math.PI * 2F)) * 0.2F;
 
@@ -248,10 +248,10 @@ public abstract class ModelArmorBase extends ModelBiped {
 		}
 	}
 
-	protected ModelRenderer getArmForSide(EnumHandSide side) {
+	protected ModelRenderer getArmorArmForSide(EnumHandSide side) {
 		return side == EnumHandSide.LEFT ? this.lArm : this.rArm;
 	}
-	
+
 	/**
 	 * This method renders the armor model to the biped.
 	 * 
@@ -270,8 +270,7 @@ public abstract class ModelArmorBase extends ModelBiped {
 	 * @param scale
 	 *            The scale of the model
 	 */
-	@Unused
-	protected abstract void renderArmorModel(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale);
+	protected abstract void renderArmorModelExtras(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale);
 
 	/**
 	 * This is a helper method used by tabula to set model rotation correctly.

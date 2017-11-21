@@ -90,4 +90,19 @@ public class ItemBulletMagazine extends Item {
 			stack.setTagCompound(nbt);
 		}
 	}
+
+	/**
+	 * If the specified stack is a bullet magazine, it will return the amount of bullets inside. If the specified stack is not a bullet magazine, it will return 0.
+	 * 
+	 * @param stack
+	 *            The stack to get the count from
+	 * @return The amount of bullets found in the magazine if the stack is one
+	 */
+	public int getBulletCount(ItemStack stack) {
+		int count = 0;
+		if (stack.hasTagCompound() && stack.getTagCompound().hasKey("BulletCount")) {
+			count = stack.getTagCompound().getInteger("BulletCount");
+		}
+		return count;
+	}
 }
