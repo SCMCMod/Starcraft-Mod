@@ -82,7 +82,7 @@ public class Achievements {
 	public static void init() {
 		for (int i = 0; i < EnumAchievements.values().length; i++) {
 			EnumAchievements a = EnumAchievements.values()[i];
-			Achievement achievement = new Achievement("achievement." + a.getUnlocalizedName(), a.getUnlocalizedName(), (int) a.getPosition().x, (int) a.getPosition().y, a.getIcon(), getRegisteredAchievement(a.getParentUnlocalizedName()));
+			Achievement achievement = new Achievement("achievement." + a.getUnlocalizedName(), a.getUnlocalizedName(), (int) a.getPosition()[0], (int) a.getPosition()[1], a.getIcon(), getRegisteredAchievement(a.getParentUnlocalizedName()));
 
 			if (a.isSpecial())
 				achievement.setSpecial();
@@ -96,6 +96,6 @@ public class Achievements {
 		for (int i = 0; i < achievements.size(); i++)
 			achievementsArray[i] = achievements.get(i);
 
-		AchievementPage.registerAchievementPage(new AchievementPage(I18n.format("achievement." + PAGE_UNLOCALIZED_NAME), achievementsArray));
+		AchievementPage.registerAchievementPage(new AchievementPage("Starcraft", achievementsArray));
 	}
 }
