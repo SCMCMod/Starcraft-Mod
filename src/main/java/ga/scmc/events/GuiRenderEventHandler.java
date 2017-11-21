@@ -30,7 +30,7 @@ import ocelot.api.utils.TextureUtils;
  * 
  * @author Ocelot5836
  */
-@EventBusSubscriber
+@SideOnly(Side.CLIENT)
 public class GuiRenderEventHandler extends Gui {
 
 	/** The determines whether or not the helmet overlay should be rendered. */
@@ -38,9 +38,8 @@ public class GuiRenderEventHandler extends Gui {
 	/** This is the maximum amount of shield the player has. */
 	private static int maxShieldLevel = 10;
 
-	@SuppressWarnings("unused")
-	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
+	@SideOnly(Side.CLIENT)
 	public void onRenderGameOverlayEvent(RenderGameOverlayEvent event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		EntityPlayer player = mc.player;
@@ -71,7 +70,7 @@ public class GuiRenderEventHandler extends Gui {
 				}
 			}
 
-			if (mc.playerController.shouldDrawHUD() && isWearingFullProtossArmor(player) && false) {
+			if (mc.playerController.shouldDrawHUD() && isWearingFullProtossArmor(player)) {
 				GlStateManager.color(1, 1, 1, 1);
 				TextureUtils.bindTexture("textures/gui/icons.png");
 				ScaledResolution resolution = new ScaledResolution(mc);
@@ -125,6 +124,7 @@ public class GuiRenderEventHandler extends Gui {
 		CapabilityUtils.setShield(event.player, CapabilityUtils.getShield(event.player));
 	}
 
+	@SideOnly(Side.CLIENT)
 	public static boolean isWearingFullProtossArmor(EntityPlayer player) {
 		boolean helmet = false;
 		boolean chestplate = false;
@@ -151,6 +151,7 @@ public class GuiRenderEventHandler extends Gui {
 		return helmet && chestplate && leggings && boots;
 	}
 
+	@SideOnly(Side.CLIENT)
 	public static int getMaxShieldLevel() {
 		return maxShieldLevel;
 	}

@@ -71,7 +71,6 @@ public class Starcraft {
 		ConfigurationHandler.preInit();
 
 		NetworkHandler.preInit();
-		KeybindingHandler.preInit();
 		MaterialHandler.preInit();
 		FluidHandler.preInit();
 		SoundHandler.preInit();
@@ -85,6 +84,7 @@ public class Starcraft {
 			WavefrontModelHandler.preInit();
 			FuelHandler.preInit();
 			RenderingHandler.preInit();
+			KeybindingHandler.preInit();
 		}
 	}
 
@@ -100,10 +100,10 @@ public class Starcraft {
 		CapabilityManager.INSTANCE.register(IColor.class, new ColorStorage(), Color.class);
 		CapabilityManager.INSTANCE.register(IShield.class, new ShieldStorage(), Shield.class);
 
-		MinecraftForge.EVENT_BUS.register(new GuiRenderEventHandler());
 		MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
 		MinecraftForge.EVENT_BUS.register(new OnPlayerLoggedInEvent());
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+			MinecraftForge.EVENT_BUS.register(new GuiRenderEventHandler());
 			RenderingHandler.init();
 		}
 	}
