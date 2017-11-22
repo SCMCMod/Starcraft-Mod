@@ -4,6 +4,7 @@ import com.arisux.mdx.lib.world.entity.player.inventory.Inventories;
 
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.entity.EntityFlamethrowerFlame;
+import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
 import net.minecraft.entity.EntityLivingBase;
@@ -33,7 +34,7 @@ public class ItemFlamethrower extends Item {
 		if (this.hasAmmo(world, player)) {
 			if (!world.isRemote) {
 				EntityFlamethrowerFlame projectile = new EntityFlamethrowerFlame(world, player);
-                projectile.setThrowableHeading(projectile.motionX, projectile.motionY, projectile.motionZ, 5F, 0F);
+				projectile.setThrowableHeading(projectile.motionX, projectile.motionY, projectile.motionZ, 5F, 0F);
 				player.world.playSound(null, player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ(), SoundEvents.BLOCK_LAVA_EXTINGUISH, SoundCategory.PLAYERS, 1, 1f);
 				world.spawnEntity(projectile);
 			}
@@ -61,7 +62,7 @@ public class ItemFlamethrower extends Item {
 		if (Inventories.playerHas(getAmmo(), player)) {
 			ItemStack ammoStack = player.inventory.getStackInSlot(Inventories.getSlotForItemIn(getAmmo(), player.inventory));
 
-			if (ammoStack != null && ammoStack.getItem() != null && ammoStack.hasTagCompound()) {
+			if (ammoStack != null && ammoStack.getItem() != null && ammoStack.getMetadata() == EnumMetaItem.BulletMagazineType.FLAMETHROWER.getID() && ammoStack.hasTagCompound()) {
 				NBTTagCompound nbt = ammoStack.getTagCompound();
 				if (nbt.getInteger("BulletCount") >= 1) {
 					nbt.setInteger("BulletCount", nbt.getInteger("BulletCount") - 1);

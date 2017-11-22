@@ -54,7 +54,7 @@ public class SoundHandler {
 	public static SoundEvent ENTITY_PREDATOR_HURT;
 	public static SoundEvent ENTITY_PREDATOR_LIVE1;
 	public static SoundEvent ENTITY_PREDATOR_LIVE2;
-	
+
 	public static SoundEvent ENTITY_PROBE_DEATH;
 	public static SoundEvent ENTITY_PROBE_HURT;
 	public static SoundEvent ENTITY_PROBE_LIVE1;
@@ -80,7 +80,7 @@ public class SoundHandler {
 	public static SoundEvent ENTITY_INFESTEDCIVILIAN_DEATH;
 	public static SoundEvent ENTITY_INFESTEDCIVILIAN_HURT;
 	public static SoundEvent ENTITY_INFESTEDCIVILIAN_LIVE1;
-	
+
 	public static SoundEvent STRUC_CYBERNETICSCORE_BIRTH;
 	public static SoundEvent STRUC_GATEWAY_BIRTH;
 	public static SoundEvent STRUC_PYLON_BIRTH;
@@ -89,7 +89,7 @@ public class SoundHandler {
 	public static SoundEvent FX_WARPBLADE_ATTACK;
 	public static SoundEvent FX_C14GAUSSRIFLE_FIRING;
 	public static SoundEvent FX_C14GAUSSRIFLE_OUT;
-	
+
 	public static SoundEvent ENTITY_KAKARU_LIVE1;
 	public static SoundEvent ENTITY_KAKARU_LIVE2;
 	public static SoundEvent ENTITY_KAKARU_HURT;
@@ -109,20 +109,21 @@ public class SoundHandler {
 	public static SoundEvent BLOCK_GAS_COLLECTOR_PROTOSS;
 	public static SoundEvent BLOCK_GAS_COLLECTOR_TERRAN;
 	public static SoundEvent BLOCK_GAS_COLLECTOR_ZERG;
-	
+
 	public static void preInit() {
-	    registerSounds();
-	    SoundTypes.register();
+		registerSounds();
+		SoundTypes.register();
 	}
 
 	public static class SoundTypes {
 
-	    public static SoundType ZERG_FLESH;
-    
-        private static void register() {
-            ZERG_FLESH = new SoundType(0.5f, 1.0f, SoundHandler.BLOCK_FLESH_BREAK, SoundHandler.BLOCK_FLESH_STEP, SoundHandler.BLOCK_FLESH_PLACE, SoundHandler.BLOCK_FLESH_HIT, SoundHandler.BLOCK_FLESH_FALL);
-        }
-    }
+		/** @author Ocelot5836 */
+		public static SoundType ZERG_FLESH;
+
+		private static void register() {
+			ZERG_FLESH = new SoundType(0.5f, 1.0f, SoundHandler.BLOCK_FLESH_BREAK, SoundHandler.BLOCK_FLESH_STEP, SoundHandler.BLOCK_FLESH_PLACE, SoundHandler.BLOCK_FLESH_HIT, SoundHandler.BLOCK_FLESH_FALL);
+		}
+	}
 
 	private static void registerSounds() {
 		ENTITY_ZERGLING_LIVE1 = registerSound("mob.zergling.live1");
@@ -180,16 +181,16 @@ public class SoundHandler {
 		ENTITY_BROODLING_LIVE1 = registerSound("mob.broodling.live1");
 		ENTITY_BROODLING_HURT = registerSound("mob.broodling.hurt");
 		ENTITY_BROODLING_DEATH = registerSound("mob.broodling.death");
-		
+
 		ENTITY_PREDATOR_LIVE1 = registerSound("mob.predator.live1");
 		ENTITY_PREDATOR_LIVE2 = registerSound("mob.predator.live2");
 		ENTITY_PREDATOR_HURT = registerSound("mob.predator.hurt");
 		ENTITY_PREDATOR_DEATH = registerSound("mob.predator.death");
-		
+
 		ENTITY_INFESTEDCIVILIAN_LIVE1 = registerSound("mob.infestedcivilian.live1");
 		ENTITY_INFESTEDCIVILIAN_HURT = registerSound("mob.infestedcivilian.hurt");
 		ENTITY_INFESTEDCIVILIAN_DEATH = registerSound("mob.infestedcivilian.death");
-		
+
 		STRUC_GATEWAY_BIRTH = registerSound("struc.gateway.birth");
 		STRUC_CYBERNETICSCORE_BIRTH = registerSound("struc.cyberneticscore.birth");
 		STRUC_PYLON_BIRTH = registerSound("struc.pylon.birth");
@@ -209,14 +210,14 @@ public class SoundHandler {
 		ENTITY_KAKARU_LIVE2 = registerSound("mob.kakaru.live2");
 		ENTITY_KAKARU_HURT = registerSound("mob.kakaru.hurt");
 		ENTITY_KAKARU_DEATH = registerSound("mob.kakaru.death");
-		
+
 		BLOCK_GAS_COLLECTOR_PROTOSS = registerSound("block.gas_collector.protoss");
 		BLOCK_GAS_COLLECTOR_TERRAN = registerSound("block.gas_collector.terran");
 		BLOCK_GAS_COLLECTOR_ZERG = registerSound("block.gas_collector.zerg");
 	}
 
-    private static SoundEvent registerSound(String soundName) {
-        final ResourceLocation soundID = new ResourceLocation(Library.MODID, soundName);
-        return GameRegistry.register(new SoundEvent(soundID).setRegistryName(soundID));
-    }
+	private static SoundEvent registerSound(String soundName) {
+		final ResourceLocation soundID = new ResourceLocation(Library.MODID, soundName);
+		return GameRegistry.register(new SoundEvent(soundID).setRegistryName(soundID));
+	}
 }

@@ -189,18 +189,22 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T1_LEGGINGS), "SSS", "S S", "S S", 'S', new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.STEEL.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T1_BOOTS), "S S", "S S", 'S', new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.STEEL.getID()));
 
-		// Bullets for the Gauss Rifle
+		// Ammo for weapons
 		GameRegistry.addRecipe(((ItemBulletMagazine) ItemHandler.BULLET_MAGAZINE).getDefaultStack(EnumMetaItem.BulletMagazineType.C14.getID()), " S ", "SGS", " S ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'G', Items.GUNPOWDER);
+		GameRegistry.addRecipe(((ItemBulletMagazine) ItemHandler.BULLET_MAGAZINE).getDefaultStack(EnumMetaItem.BulletMagazineType.FLAMETHROWER.getID()), " S ", "SFS", "S", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'F', Items.FLINT);
 
-		// Gauss Rifle parts
+		// Gauss Rifle
 		GameRegistry.addRecipe(new ItemStack(ItemHandler.C14_PARTS, 1, EnumMetaItem.C14PartType.BARREL.getID()), "SSS", "STT", "S  ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()));
-
 		GameRegistry.addRecipe(new ItemStack(ItemHandler.C14_PARTS, 1, EnumMetaItem.C14PartType.BODY.getID()), "SSS", "TTT", "  T", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()));
-
 		GameRegistry.addRecipe(new ItemStack(ItemHandler.C14_PARTS, 1, EnumMetaItem.C14PartType.GRIP.getID()), "SS ", "S S", "SSS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()));
-
-		// Recipe for the actual Gauss Rifle
 		GameRegistry.addRecipe(new ItemStack(ItemHandler.C14_GAUSS_RIFLE), "X  ", " Y ", "  Z", 'X', new ItemStack(ItemHandler.C14_PARTS, 1, 0), 'Y', new ItemStack(ItemHandler.C14_PARTS, 1, 1), 'Z', new ItemStack(ItemHandler.C14_PARTS, 1, 2));
+
+		// Flamethrower
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.FLAMETHROWER_PARTS, 1, 0), "SSS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.FLAMETHROWER_PARTS, 1, 1), "TTT", "SS ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.FLAMETHROWER_PARTS, 1, 2), "S ", "S ", "SS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.FLAMETHROWER_PARTS, 1, 3), "TST", "S S", "TST", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()));
+		GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.FLAMETHROWER), new ItemStack(ItemHandler.FLAMETHROWER_PARTS, 1, 0), new ItemStack(ItemHandler.FLAMETHROWER_PARTS, 1, 1), new ItemStack(ItemHandler.FLAMETHROWER_PARTS, 1, 2), new ItemStack(ItemHandler.FLAMETHROWER_PARTS, 1, 3));
 
 		// Empty Gas Containers
 		GameRegistry.addRecipe(new ItemStack(ItemHandler.GAS_CONTAINER, 1, EnumMetaItem.ContainerType.PROTOSS.getID()), " I ", "I I", " I ", 'I', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, OreDictionary.WILDCARD_VALUE));

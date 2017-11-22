@@ -4,6 +4,7 @@ import com.arisux.mdx.lib.world.entity.player.inventory.Inventories;
 
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.entity.EntityC14GaussRifleBullet;
+import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
 import net.minecraft.entity.player.EntityPlayer;
@@ -48,7 +49,7 @@ public class ItemC14GaussRifle extends Item {
 		if (Inventories.playerHas(getAmmo(), player)) {
 			ItemStack ammoStack = player.inventory.getStackInSlot(Inventories.getSlotForItemIn(getAmmo(), player.inventory));
 
-			if (ammoStack != null && ammoStack.getItem() != null && ammoStack.hasTagCompound()) {
+			if (ammoStack != null && ammoStack.getItem() != null && ammoStack.getMetadata() == EnumMetaItem.BulletMagazineType.C14.getID() && ammoStack.hasTagCompound()) {
 				NBTTagCompound nbt = ammoStack.getTagCompound();
 				if (nbt.getInteger("BulletCount") >= 1) {
 					nbt.setInteger("BulletCount", nbt.getInteger("BulletCount") - 1);

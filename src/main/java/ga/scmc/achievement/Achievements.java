@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.client.resources.I18n;
 import net.minecraft.stats.Achievement;
 import net.minecraftforge.common.AchievementPage;
 

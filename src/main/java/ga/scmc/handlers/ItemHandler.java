@@ -10,6 +10,7 @@ import ga.scmc.items.metaitems.ItemBulletMagazine;
 import ga.scmc.items.metaitems.ItemC14GaussRifleParts;
 import ga.scmc.items.metaitems.ItemDust;
 import ga.scmc.items.metaitems.ItemEnergy;
+import ga.scmc.items.metaitems.ItemFlamethrowerParts;
 import ga.scmc.items.metaitems.ItemGasContainer;
 import ga.scmc.items.metaitems.ItemIngot;
 import ga.scmc.items.metaitems.ItemMineralShard;
@@ -41,49 +42,50 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
  */
 public class ItemHandler {
 
-	public static final Item BULLET_MAGAZINE;
-	public static final ItemC14GaussRifle C14_GAUSS_RIFLE;
-	public static final ItemFlamethrower FLAMETHROWER;
-	public static final Item C14_PARTS;
-	public static final Item CREEP_RESIN;
-	public static final Item PROTOSS_INGOT;
-	public static final Item DUST;
-	public static final Item PLEDGE;
-	public static final Item ENERGY;
-	public static final Item INGOT;
-	public static final Item MINERAL_SHARD;
-	public static final Item PHOSPHORUS;
-	public static final Item ORGANIC_TISSUE;
-	public static final Item PSI_BLADE_FOCUSER_UNCHARGED;
-	public static final Item ZERG_CARAPACE;
-	public static final Item BIOMASS;
+	public static Item BULLET_MAGAZINE;
+	public static ItemC14GaussRifle C14_GAUSS_RIFLE;
+	public static ItemFlamethrower FLAMETHROWER;
+	public static Item C14_PARTS;
+	public static Item FLAMETHROWER_PARTS;
+	public static Item CREEP_RESIN;
+	public static Item PROTOSS_INGOT;
+	public static Item DUST;
+	public static Item PLEDGE;
+	public static Item ENERGY;
+	public static Item INGOT;
+	public static Item MINERAL_SHARD;
+	public static Item PHOSPHORUS;
+	public static Item ORGANIC_TISSUE;
+	public static Item PSI_BLADE_FOCUSER_UNCHARGED;
+	public static Item ZERG_CARAPACE;
+	public static Item BIOMASS;
 
-	public static final Item NUCLEAR_MISSILE;
-	public static final Item STIMPACK;
+	public static Item NUCLEAR_MISSILE;
+	public static Item STIMPACK;
 
-	public static final Item GAS_CONTAINER;
-	public static final Item VESPENE;
-	public static final Item TERRAZINE;
+	public static Item GAS_CONTAINER;
+	public static Item VESPENE;
+	public static Item TERRAZINE;
 
-	public static final Item SPAWNER_PROTOSS_DARK_CYBERNETICSCORE;
-	public static final Item SPAWNER_PROTOSS_VOID_CYBERNETICSCORE;
-	public static final Item SPAWNER_PROTOSS_CYBERNETICSCORE;
-	public static final Item SPAWNER_PROTOSS_DARK_PYLON;
-	public static final Item SPAWNER_PROTOSS_VOID_PYLON;
-	public static final Item SPAWNER_PROTOSS_PYLON;
-	public static final Item SPAWNER_PROTOSS_DARK_WARPGATE;
-	public static final Item SPAWNER_PROTOSS_VOID_WARPGATE;
-	public static final Item SPAWNER_PROTOSS_WARPGATE;
+	public static Item SPAWNER_PROTOSS_DARK_CYBERNETICSCORE;
+	public static Item SPAWNER_PROTOSS_VOID_CYBERNETICSCORE;
+	public static Item SPAWNER_PROTOSS_CYBERNETICSCORE;
+	public static Item SPAWNER_PROTOSS_DARK_PYLON;
+	public static Item SPAWNER_PROTOSS_VOID_PYLON;
+	public static Item SPAWNER_PROTOSS_PYLON;
+	public static Item SPAWNER_PROTOSS_DARK_WARPGATE;
+	public static Item SPAWNER_PROTOSS_VOID_WARPGATE;
+	public static Item SPAWNER_PROTOSS_WARPGATE;
 
-	public static final Item SPAWNER_TERRAN_BUNKER;
+	public static Item SPAWNER_TERRAN_BUNKER;
 
-	public static final Item SPAWNER_ZERG_SPAWNINGPOOL;
-	public static final Item SPAWNER_ZERG_SPIRE;
-	public static final Item SPAWNER_ZERG_HYDRALISKDEN;
+	public static Item SPAWNER_ZERG_SPAWNINGPOOL;
+	public static Item SPAWNER_ZERG_SPIRE;
+	public static Item SPAWNER_ZERG_HYDRALISKDEN;
 
-	public static final Item ICON_PROTOSS;
-	public static final Item ICON_TERRAN;
-	public static final Item ICON_ZERG;
+	public static Item ICON_PROTOSS;
+	public static Item ICON_TERRAN;
+	public static Item ICON_ZERG;
 
 	static {
 		MINERAL_SHARD = new ItemMineralShard();
@@ -100,6 +102,7 @@ public class ItemHandler {
 		PROTOSS_INGOT = new ItemProtossIngot();
 		C14_GAUSS_RIFLE = new ItemC14GaussRifle();
 		C14_PARTS = new ItemC14GaussRifleParts();
+		FLAMETHROWER_PARTS = new ItemFlamethrowerParts();
 		FLAMETHROWER = new ItemFlamethrower();
 		BULLET_MAGAZINE = new ItemBulletMagazine();
 		PSI_BLADE_FOCUSER_UNCHARGED = new ItemPsiBladeFocuserUncharged();
@@ -169,6 +172,7 @@ public class ItemHandler {
 		registerItem(C14_GAUSS_RIFLE);
 		registerItem(FLAMETHROWER);
 		registerItem(C14_PARTS);
+		registerItem(FLAMETHROWER_PARTS);
 		registerItem(BULLET_MAGAZINE);
 		registerItem(PSI_BLADE_FOCUSER_UNCHARGED);
 		registerItem(ZERG_CARAPACE);

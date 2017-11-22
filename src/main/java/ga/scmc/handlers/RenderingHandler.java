@@ -439,6 +439,9 @@ public class RenderingHandler {
 		for (int i = 0; i < EnumMetaItem.C14PartType.values().length; i++) {
 			registerItemRender(C14_PARTS, i, "part_c14_gauss_" + EnumMetaItem.C14PartType.values()[i].getName());
 		}
+		for (int i = 0; i < EnumMetaItem.FlamethrowerPartType.values().length; i++) {
+			registerItemRender(C14_PARTS, i, "flamethrower.part." + EnumMetaItem.FlamethrowerPartType.values()[i].getName());
+		}
 		for (int i = 0; i < EnumMetaItem.FocuserType.values().length; i++) {
 			registerItemRender(PSI_BLADE_FOCUSER_UNCHARGED, i, "protoss.focuser." + EnumMetaItem.FocuserType.values()[i].getName());
 		}

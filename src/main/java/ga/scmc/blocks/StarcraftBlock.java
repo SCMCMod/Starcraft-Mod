@@ -21,7 +21,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class StarcraftBlock extends Block {
 
 	private Item droppedItem;
-	
+
 	public StarcraftBlock(Material material) {
 		super(material);
 	}
@@ -29,16 +29,15 @@ public class StarcraftBlock extends Block {
 	public StarcraftBlock(String name, RegistryType type, Material material, MapColor color) {
 		super(material, color);
 		this.setNames(name);
-		if (type == RegistryType.FULL) {
-			this.registerFullBlock();
-		} else if (type == RegistryType.NORMAL) {
-			this.registerBlock();
-			this.registerBlockModel();
-		}
+		this.registerPre(type);
 	}
 
 	public StarcraftBlock(RegistryType type, Material material, MapColor color) {
 		super(material, color);
+		registerPre(type);
+	}
+
+	public void registerPre(RegistryType type) {
 		if (type == RegistryType.FULL) {
 			this.registerFullBlock();
 		} else if (type == RegistryType.NORMAL) {
@@ -86,10 +85,12 @@ public class StarcraftBlock extends Block {
 	public void registerBlockModel(int meta, String fileName) {
 		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), meta, new ModelResourceLocation(new ResourceLocation(Library.MODID, fileName), "inventory"));
 	}
-	
+
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		return droppedItem;
+		if (droppedItem != null)
+			return droppedItem;
+		return super.getItemDropped(state, rand, fortune);
 	}
 
 	public void setNames(String name) {

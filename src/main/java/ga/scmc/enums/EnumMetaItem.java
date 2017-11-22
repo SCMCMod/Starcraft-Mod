@@ -44,7 +44,7 @@ public class EnumMetaItem {
 	}
 
 	public enum BulletMagazineType implements IStringSerializable {
-		C14("c14", 0, 32);
+		C14("c14", 0, 32), FLAMETHROWER("flamethrower", 1, 50);
 
 		private int bulletCount;
 		private int ID;
@@ -55,7 +55,7 @@ public class EnumMetaItem {
 			this.ID = ID;
 			this.name = name;
 		}
-		
+
 		public int getBulletCount() {
 			return bulletCount;
 		}
@@ -82,6 +82,32 @@ public class EnumMetaItem {
 		private String name;
 
 		private C14PartType(String name, int ID) {
+			this.ID = ID;
+			this.name = name;
+		}
+
+		public int getID() {
+			return ID;
+		}
+
+		@Override
+		public String getName() {
+			return name;
+		}
+
+		@Override
+		public String toString() {
+			return getName();
+		}
+	}
+
+	public static enum FlamethrowerPartType implements IStringSerializable {
+		NOZZLE("nozzle", 0), BASE("base", 1), HANDLE("handle", 2), CHAMBERS("chambers", 3);
+
+		private int ID;
+		private String name;
+
+		private FlamethrowerPartType(String name, int ID) {
 			this.ID = ID;
 			this.name = name;
 		}

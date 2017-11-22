@@ -14,8 +14,8 @@ public class ItemPsiBladeFocuserUncharged extends Item {
 	 * Default constructor just sets the unlocalized name and the registry name
 	 */
 	public ItemPsiBladeFocuserUncharged() {
-		setUnlocalizedName("protossPsiBladeFocuserUncharged");
-		setRegistryName("protoss_psiblade_focuser_uncharged");
+		setUnlocalizedName("protoss.focuser");
+		setRegistryName("protoss.focuser");
 		setHasSubtypes(true); // This just says the item has metadata
 		setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 	}
