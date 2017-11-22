@@ -1,7 +1,5 @@
 package ga.scmc.events;
 
-import java.awt.Color;
-
 import ga.scmc.api.CapabilityUtils;
 import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.ItemHandler;
@@ -14,6 +12,7 @@ import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -113,7 +112,8 @@ public class GuiRenderEventHandler extends Gui {
 		GlStateManager.color(1, 1, 1, 1);
 		TextureUtils.bindTexture("textures/gui/helmet_overlay.png");
 		EntityPlayer player = Minecraft.getMinecraft().player;
-		float amount = 0.5f + player.world.getLightBrightness(player.getPosition());
+		
+		float amount = 0.35f + player.world.getLightBrightness(new BlockPos(player.getPositionVector().xCoord, player.getPositionVector().yCoord, player.getPositionVector().zCoord));
 		GlStateManager.color(1, 1, 1, amount);
 		drawModalRectWithCustomSizedTexture(0, 0, 0, 0, scaledRes.getScaledWidth(), scaledRes.getScaledHeight(), scaledRes.getScaledWidth(), scaledRes.getScaledHeight());
 		GlStateManager.enableDepth();
