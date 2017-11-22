@@ -39,6 +39,8 @@ public class Resources {
 	public static final String PROBE_OVERLAY	 				= Library.RL_BASE + "textures/entity/probe_overlay.png";
 	public static final String SCARAB_LAYER		 				= Library.RL_BASE + "textures/entity/scarab_layer.png";
 	public static final String SCARAB 							= Library.RL_BASE + "textures/entity/scarab.png";
+	public static final String TASTELOPE_BASE 					= Library.RL_BASE + "textures/entity/tastelope_base.png";
+	public static final String TASTELOPE_GLOW_STATIC 			= Library.RL_BASE + "textures/entity/tastelope_glow_static.png";
 	public static final String VOID_PROBE_BASE 					= Library.RL_BASE + "textures/entity/voidprobe_base.png";
 	public static final String VOID_PROBE_GLOW_DYNAMIC			= Library.RL_BASE + "textures/entity/voidprobe_glow_dynamic.png";
 	public static final String VOID_PROBE_OVERLAY 				= Library.RL_BASE + "textures/entity/voidprobe_overlay.png";

@@ -169,6 +169,7 @@ import ga.scmc.client.renderer.entity.RenderQueen;
 import ga.scmc.client.renderer.entity.RenderSCV;
 import ga.scmc.client.renderer.entity.RenderScarab;
 import ga.scmc.client.renderer.entity.RenderStalker;
+import ga.scmc.client.renderer.entity.RenderTastelope;
 import ga.scmc.client.renderer.entity.RenderVoidProbe;
 import ga.scmc.client.renderer.entity.RenderZealot;
 import ga.scmc.client.renderer.entity.RenderZergling;
@@ -201,6 +202,7 @@ import ga.scmc.client.renderer.model.ModelQueen;
 import ga.scmc.client.renderer.model.ModelSCV;
 import ga.scmc.client.renderer.model.ModelScarab;
 import ga.scmc.client.renderer.model.ModelStalker;
+import ga.scmc.client.renderer.model.ModelTastelope;
 import ga.scmc.client.renderer.model.ModelVoidProbe;
 import ga.scmc.client.renderer.model.ModelZealot;
 import ga.scmc.client.renderer.model.ModelZergling;
@@ -239,6 +241,7 @@ import ga.scmc.entity.living.EntityQueen;
 import ga.scmc.entity.living.EntitySCV;
 import ga.scmc.entity.living.EntityScarab;
 import ga.scmc.entity.living.EntityStalker;
+import ga.scmc.entity.living.EntityTastelope;
 import ga.scmc.entity.living.EntityVoidProbe;
 import ga.scmc.entity.living.EntityZealot;
 import ga.scmc.entity.living.EntityZergling;
@@ -345,6 +348,7 @@ public class RenderingHandler {
 		RenderingRegistry.registerEntityRenderingHandler(EntityMarauder.class, new RenderMarauder(Minecraft.getMinecraft().getRenderManager(), new ModelMarauder(), 0.4f));
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityKakaru.class, new RenderKakaru(Minecraft.getMinecraft().getRenderManager(), new ModelKakaru(), 0.4f));
+		RenderingRegistry.registerEntityRenderingHandler(EntityTastelope.class, new RenderTastelope(Minecraft.getMinecraft().getRenderManager(), new ModelTastelope(), 0.4f));
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityC14GaussRifleBullet.class, new RenderC14GaussRifleBullet(Minecraft.getMinecraft().getRenderManager(), new ModelBullet()));
 		RenderingRegistry.registerEntityRenderingHandler(EntityHydraliskSpike.class, new RenderHydraliskSpike(Minecraft.getMinecraft().getRenderManager(), new ModelHydraliskSpike()));
