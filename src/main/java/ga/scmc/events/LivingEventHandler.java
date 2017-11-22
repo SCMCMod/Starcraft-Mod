@@ -3,6 +3,7 @@ package ga.scmc.events;
 import java.util.Random;
 
 import ga.scmc.api.CapabilityUtils;
+import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.ItemHandler;
@@ -10,13 +11,17 @@ import ga.scmc.handlers.SoundHandler;
 import ga.scmc.handlers.WeaponHandler;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import ocelot.api.utils.InventoryUtils;
 
 /**
@@ -54,7 +59,7 @@ public class LivingEventHandler {
 			}
 
 			if (!player.world.isRemote) {
-				if (CapabilityUtils.getShield(player) < GuiRenderEventHandler.getMaxShieldLevel() && GuiRenderEventHandler.isWearingFullProtossArmor(player)) {
+				if (CapabilityUtils.getShield(player) < 10 && isWearingFullProtossArmor(player)) {
 					if (InventoryUtils.hasItemAndAmount(player, ItemHandler.ENERGY, 1, 0) && CapabilityUtils.getShield(player) <= 5) {
 						CapabilityUtils.addShield(player, 5);
 						InventoryUtils.removeItemWithAmount(player, ItemHandler.ENERGY, 1, 0);
@@ -66,5 +71,50 @@ public class LivingEventHandler {
 		// else if (event.getEntity() instanceof EntityDarkTemplar && !StarcraftConfig.BOOL_IS_DARK_TEMPLAR_VISIBLE) {
 		// event.getEntity().setInvisible(false);
 		// }
+	}
+	
+	@SubscribeEvent
+	public void onHitEvent(LivingHurtEvent event) {
+		if (event.getEntity() instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) event.getEntityLiving();
+			if (isWearingFullProtossArmor(player)) {
+				if (CapabilityUtils.getShield(player) * 2 >= event.getAmount()) {
+					CapabilityUtils.removeShield(player, event.getAmount() / 2);
+					event.setCanceled(true);
+					return;
+				}
+			}
+		}
+	}
+	
+	public static boolean isWearingFullProtossArmor(EntityPlayer player) {
+		boolean helmet = false;
+		boolean chestplate = false;
+		boolean leggings = false;
+		boolean boots = false;
+		ItemStack head = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
+		ItemStack chest = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
+		ItemStack legs = player.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
+		ItemStack feet = player.getItemStackFromSlot(EntityEquipmentSlot.FEET);
+
+		if (head != null && head.getItem() == ArmorHandler.PROTOSS_T1_HELMET) {
+			helmet = true;
+		}
+		if (chest != null && chest.getItem() == ArmorHandler.PROTOSS_T1_CHESTPLATE) {
+			chestplate = true;
+		}
+		if (legs != null && legs.getItem() == ArmorHandler.PROTOSS_T1_LEGGINGS) {
+			leggings = true;
+		}
+		if (feet != null && feet.getItem() == ArmorHandler.PROTOSS_T1_BOOTS) {
+			boots = true;
+		}
+
+		return helmet && chestplate && leggings && boots;
+	}
+
+	@SubscribeEvent
+	public void onPlayerRespawnEvent(PlayerEvent.PlayerRespawnEvent event) {
+		CapabilityUtils.setShield(event.player, CapabilityUtils.getShield(event.player));
 	}
 }

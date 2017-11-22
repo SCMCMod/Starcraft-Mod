@@ -105,26 +105,6 @@ public class GuiRenderEventHandler extends Gui {
 		GlStateManager.popMatrix();
 	}
 
-	@SubscribeEvent
-	public void onHitEvent(LivingHurtEvent event) {
-		if (event.getEntity() instanceof EntityPlayer) {
-			EntityPlayer player = (EntityPlayer) event.getEntityLiving();
-			if (isWearingFullProtossArmor(player)) {
-				if (CapabilityUtils.getShield(player) * 2 >= event.getAmount()) {
-					CapabilityUtils.removeShield(player, event.getAmount() / 2);
-					event.setCanceled(true);
-					return;
-				}
-			}
-		}
-	}
-
-	@SubscribeEvent
-	public void onPlayerRespawnEvent(PlayerEvent.PlayerRespawnEvent event) {
-		CapabilityUtils.setShield(event.player, CapabilityUtils.getShield(event.player));
-	}
-
-	@SideOnly(Side.CLIENT)
 	public static boolean isWearingFullProtossArmor(EntityPlayer player) {
 		boolean helmet = false;
 		boolean chestplate = false;
