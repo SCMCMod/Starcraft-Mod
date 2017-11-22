@@ -52,8 +52,6 @@ public class ItemC14GaussRifle extends Item {
 				NBTTagCompound nbt = ammoStack.getTagCompound();
 				if (nbt.getInteger("BulletCount") >= 1) {
 					nbt.setInteger("BulletCount", nbt.getInteger("BulletCount") - 1);
-				} else {
-					Inventories.consumeItem(player, ammoStack.getItem());
 				}
 
 				return true;

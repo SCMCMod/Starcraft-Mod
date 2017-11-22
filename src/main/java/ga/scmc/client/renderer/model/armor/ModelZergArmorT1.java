@@ -358,51 +358,6 @@ public class ModelZergArmorT1 extends ModelArmorBase implements IArmorItem {
 	}
 
 	@Override
-	protected void renderArmorModelExtras(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-//		GlStateManager.scale(0.75F, 0.75F, 0.75F);
-//		GlStateManager.translate(0.0F, 16.0F * scale, 0.0F);
-//		this.head.render(scale);
-//		GlStateManager.popMatrix();
-//		GlStateManager.pushMatrix();
-//		GlStateManager.scale(0.5F, 0.5F, 0.5F);
-//		GlStateManager.translate(0.0F, 24.0F * scale, 0.0F);
-//
-//		GlStateManager.pushMatrix();
-//		GlStateManager.translate(this.lArm.offsetX, this.lArm.offsetY, this.lArm.offsetZ);
-//		GlStateManager.translate(this.lArm.rotationPointX * scale, this.lArm.rotationPointY * scale, this.lArm.rotationPointZ * scale);
-//		GlStateManager.scale(1.05D, 1.05D, 1.05D);
-//		GlStateManager.translate(-this.lArm.offsetX, -this.lArm.offsetY, -this.lArm.offsetZ);
-//		GlStateManager.translate(-this.lArm.rotationPointX * scale, -this.lArm.rotationPointY * scale, -this.lArm.rotationPointZ * scale);
-//		this.lArm.render(scale);
-//		GlStateManager.popMatrix();
-//		this.body.render(scale);
-//		GlStateManager.pushMatrix();
-//		GlStateManager.translate(this.lLeg.offsetX, this.lLeg.offsetY, this.lLeg.offsetZ);
-//		GlStateManager.translate(this.lLeg.rotationPointX * scale, this.lLeg.rotationPointY * scale, this.lLeg.rotationPointZ * scale);
-//		GlStateManager.scale(1.05D, 1.05D, 1.05D);
-//		GlStateManager.translate(-this.lLeg.offsetX, -this.lLeg.offsetY, -this.lLeg.offsetZ);
-//		GlStateManager.translate(-this.lLeg.rotationPointX * scale, -this.lLeg.rotationPointY * scale, -this.lLeg.rotationPointZ * scale);
-//		this.lLeg.render(scale);
-//		GlStateManager.popMatrix();
-//		GlStateManager.pushMatrix();
-//		GlStateManager.translate(this.rArm.offsetX, this.rArm.offsetY, this.rArm.offsetZ);
-//		GlStateManager.translate(this.rArm.rotationPointX * scale, this.rArm.rotationPointY * scale, this.rArm.rotationPointZ * scale);
-//		GlStateManager.scale(1.05D, 1.05D, 1.05D);
-//		GlStateManager.translate(-this.rArm.offsetX, -this.rArm.offsetY, -this.rArm.offsetZ);
-//		GlStateManager.translate(-this.rArm.rotationPointX * scale, -this.rArm.rotationPointY * scale, -this.rArm.rotationPointZ * scale);
-//		this.rArm.render(scale);
-//		GlStateManager.popMatrix();
-//		GlStateManager.pushMatrix();
-//		GlStateManager.translate(this.rLeg.offsetX, this.rLeg.offsetY, this.rLeg.offsetZ);
-//		GlStateManager.translate(this.rLeg.rotationPointX * scale, this.rLeg.rotationPointY * scale, this.rLeg.rotationPointZ * scale);
-//		GlStateManager.scale(1.05D, 1.05D, 1.05D);
-//		GlStateManager.translate(-this.rLeg.offsetX, -this.rLeg.offsetY, -this.rLeg.offsetZ);
-//		GlStateManager.translate(-this.rLeg.rotationPointX * scale, -this.rLeg.rotationPointY * scale, -this.rLeg.rotationPointZ * scale);
-//		this.rLeg.render(scale);
-//		GlStateManager.popMatrix();
-	}
-
-	@Override
 	public void renderHelmet(TransformType type, Entity entity, float scale) {
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0, 1.5, 0);

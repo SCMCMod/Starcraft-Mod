@@ -11,6 +11,7 @@ import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.MetaBlockHandler;
 import ga.scmc.handlers.ToolHandler;
 import ga.scmc.handlers.WeaponHandler;
+import ga.scmc.items.metaitems.ItemBulletMagazine;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
@@ -26,7 +27,7 @@ public class GuiLists {
 		tab0.add(new Product(new ItemStack(ItemHandler.C14_PARTS, 1, 0), 11, 6));
 		tab0.add(new Product(new ItemStack(ItemHandler.C14_PARTS, 1, 1), 11, 6));
 		tab0.add(new Product(new ItemStack(ItemHandler.C14_PARTS, 1, 2), 11, 6));
-		tab0.add(new Product(new ItemStack(ItemHandler.BULLET, 1, 0), 6, 0));
+		tab0.add(new Product(((ItemBulletMagazine)ItemHandler.BULLET_MAGAZINE).getDefaultStack(EnumMetaItem.BulletMagazineType.C14.getID()), 6, 0));
 		tab0.add(new Product(new ItemStack(Items.GUNPOWDER, 1, 0), 3, 0));
 		tab0.add(new Product(new ItemStack(ItemHandler.INGOT, 1, 0), 1, 0));
 		tab0.add(new Product(new ItemStack(ItemHandler.INGOT, 1, 1), 2, 0));

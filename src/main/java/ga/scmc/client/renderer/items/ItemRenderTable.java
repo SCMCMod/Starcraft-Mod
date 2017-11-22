@@ -3,6 +3,7 @@ package ga.scmc.client.renderer.items;
 import ga.scmc.client.renderer.RenderUtil;
 import ga.scmc.client.renderer.blocks.ModelTable;
 import ga.scmc.lib.Library;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
 import net.minecraft.entity.EntityLivingBase;
@@ -42,6 +43,8 @@ public class ItemRenderTable extends ItemRenderer {
 		TextureUtils.bindTexture("textures/models/block/table.png");
 		renderModel(0, 0, 0, 0.0625 * 0.626);
 		GlStateManager.popMatrix();
+		System.out.println(Minecraft.getMinecraft().getTextureMapBlocks().getBasePath());
+		// TextureUtils.bindTexture(new ResourceLocation(Minecraft.getMinecraft().getTextureMapBlocks().getBasePath()));
 	}
 
 	@Override

@@ -42,7 +42,6 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
  */
 public class ItemHandler {
 
-	public static final Item BULLET;
 	public static final Item BULLET_MAGAZINE;
 	public static final ItemC14GaussRifle C14_GAUSS_RIFLE;
 	public static final ItemFlamethrower FLAMETHROWER;
@@ -103,7 +102,6 @@ public class ItemHandler {
 		C14_GAUSS_RIFLE = new ItemC14GaussRifle();
 		C14_PARTS = new ItemC14GaussRifleParts();
 		FLAMETHROWER = new ItemFlamethrower();
-		BULLET = new ItemBullet();
 		BULLET_MAGAZINE = new ItemBulletMagazine();
 		PSI_BLADE_FOCUSER_UNCHARGED = new ItemPsiBladeFocuserUncharged();
 		ZERG_CARAPACE = new ItemZergCarapace();
@@ -172,7 +170,6 @@ public class ItemHandler {
 		registerItem(C14_GAUSS_RIFLE);
 		registerItem(FLAMETHROWER);
 		registerItem(C14_PARTS);
-		registerItem(BULLET);
 		registerItem(BULLET_MAGAZINE);
 		registerItem(PSI_BLADE_FOCUSER_UNCHARGED);
 		registerItem(ZERG_CARAPACE);

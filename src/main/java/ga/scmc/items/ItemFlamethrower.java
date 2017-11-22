@@ -11,6 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
@@ -60,11 +61,10 @@ public class ItemFlamethrower extends Item {
 		if (Inventories.playerHas(getAmmo(), player)) {
 			ItemStack ammoStack = player.inventory.getStackInSlot(Inventories.getSlotForItemIn(getAmmo(), player.inventory));
 
-			if (ammoStack != null && ammoStack.getItem() != null) {
-				if (ammoStack.getItemDamage() < ammoStack.getMaxDamage()) {
-					ammoStack.damageItem(1, player);
-				} else {
-					Inventories.consumeItem(player, ammoStack.getItem());
+			if (ammoStack != null && ammoStack.getItem() != null && ammoStack.hasTagCompound()) {
+				NBTTagCompound nbt = ammoStack.getTagCompound();
+				if (nbt.getInteger("BulletCount") >= 1) {
+					nbt.setInteger("BulletCount", nbt.getInteger("BulletCount") - 1);
 				}
 
 				return true;
@@ -74,6 +74,6 @@ public class ItemFlamethrower extends Item {
 	}
 
 	public Item getAmmo() {
-		return ItemHandler.BULLET;
+		return ItemHandler.BULLET_MAGAZINE;
 	}
 }

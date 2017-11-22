@@ -2,6 +2,8 @@ package ga.scmc.items.metaitems;
 
 import java.util.List;
 
+import com.arisux.mdx.lib.world.entity.player.inventory.Inventories;
+
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumMetaItem.BulletMagazineType;
@@ -86,6 +88,12 @@ public class ItemBulletMagazine extends Item {
 		if (!stack.hasTagCompound()) {
 			stack = getDefaultStack(stack.getMetadata());
 		}
+		
+		if (entity instanceof EntityPlayer) {
+			if (stack.getTagCompound().getInteger("BulletCount") <= 0) {
+				Inventories.consumeItem((EntityPlayer) entity, stack.getItem());
+			}
+		}
 	}
 
 	public ItemStack getDefaultStack(int type) {
@@ -106,7 +114,7 @@ public class ItemBulletMagazine extends Item {
 	 */
 	public int getBulletCount(ItemStack stack) {
 		int count = 0;
-		if (stack.hasTagCompound() && stack.getTagCompound().hasKey("BulletCount")) {
+		if (stack != null && stack.hasTagCompound() && stack.getTagCompound().hasKey("BulletCount")) {
 			count = stack.getTagCompound().getInteger("BulletCount");
 		}
 		return count;

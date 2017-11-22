@@ -6,10 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ga.scmc.client.gui.element.Tab;
+import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.MetaBlockHandler;
 import ga.scmc.handlers.ToolHandler;
+import ga.scmc.items.metaitems.ItemBulletMagazine;
 import ga.scmc.network.NetworkHandler;
 import ga.scmc.network.message.MessageSpawnItem;
 import net.minecraft.client.Minecraft;
@@ -76,7 +78,7 @@ public class GuiItemShop extends GuiScreen {
 		tabHeight = 28;
 
 		tabs.clear();
-		tabs.add(new Tab(new ItemStack(ItemHandler.BULLET, 1, 0), I18n.format("itemGroup.terran.general"), 0, guiLeft - 29, guiTop + 4, tabWidth, tabHeight));
+		tabs.add(new Tab(((ItemBulletMagazine)ItemHandler.BULLET_MAGAZINE).getDefaultStack(EnumMetaItem.BulletMagazineType.C14.getID()), I18n.format("itemGroup.terran.general"), 0, guiLeft - 29, guiTop + 4, tabWidth, tabHeight));
 		tabs.add(new Tab(new ItemStack(MetaBlockHandler.GAS_COLLECTOR, 1, 1), I18n.format("itemGroup.terran.machine"), 1, guiLeft - 29, guiTop + 34, tabWidth, tabHeight));
 		tabs.add(new Tab(new ItemStack(MetaBlockHandler.PARISTEEL_METAL, 1, 0), I18n.format("itemGroup.terran.decoration"), 2, guiLeft - 29, guiTop + 64, tabWidth, tabHeight));
 		tabs.add(new Tab(new ItemStack(ItemHandler.C14_GAUSS_RIFLE, 1, 0), I18n.format("itemGroup.terran.weapons"), 3, guiLeft - 29, guiTop + 94, tabWidth, tabHeight));

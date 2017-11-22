@@ -6,6 +6,7 @@ import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.MetaBlockHandler;
+import ga.scmc.items.metaitems.ItemBulletMagazine;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -23,7 +24,7 @@ public class StructureTerranBunkerTemplate extends SCWorldGenerator {
 	}
 
 	public boolean generate_r0(World world, BlockPos pos, boolean flag) {
-		if(flag) {
+		if (flag) {
 			if (!LocationIsValidSpawn(world, pos) || !LocationIsValidSpawn(world, pos.add(13, 0, 0)) || !LocationIsValidSpawn(world, pos.add(13, 0, 13)) || !LocationIsValidSpawn(world, pos.add(0, 0, 13))) {
 				return false;
 			}
@@ -134,21 +135,19 @@ public class StructureTerranBunkerTemplate extends SCWorldGenerator {
 		world.setBlockState(pos.add(7, 1, 3), MetaBlockHandler.NEOSTEEL_METAL.getStateFromMeta(0));
 
 		TileEntityChest chest = new TileEntityChest();
-
 		world.setBlockState(pos.add(9, 1, 3), Blocks.CHEST.getDefaultState(), 3);
 		world.setTileEntity(pos.add(9, 1, 3), chest);
-		
+
 		Random randchest = new Random();
 		for (int slot = 0; slot < chest.getSizeInventory(); slot++) {
 			int num = randchest.nextInt(100);
 			if (num == 0) {
-				//chest.setInventorySlotContents(slot, new ItemStack(ModItems.COORDINATES, 1, 0));
+				// chest.setInventorySlotContents(slot, new ItemStack(ModItems.COORDINATES, 1, 0));
 			} else if (num >= 13 && num <= 59) {
-				chest.setInventorySlotContents(slot, new ItemStack(ItemHandler.BULLET, 1 + randchest.nextInt(4), EnumMetaItem.BulletType.C14.getID()));
+				chest.setInventorySlotContents(slot, ((ItemBulletMagazine) ItemHandler.BULLET_MAGAZINE).getDefaultStack(EnumMetaItem.BulletMagazineType.C14.getID()));
 			} else if (num == 1) {
-				//chest.setInventorySlotContents(slot, new ItemStack(ModItems.COORDINATES, 1, 1));
+				// chest.setInventorySlotContents(slot, new ItemStack(ModItems.COORDINATES, 1, 1));
 			}
-
 		}
 
 		world.setBlockState(pos.add(10, 1, 3), MetaBlockHandler.NEOSTEEL_METAL.getStateFromMeta(0));
@@ -188,18 +187,19 @@ public class StructureTerranBunkerTemplate extends SCWorldGenerator {
 		world.setBlockState(pos.add(2, 1, 10), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		world.setBlockState(pos.add(3, 1, 10), MetaBlockHandler.NEOSTEEL_METAL.getStateFromMeta(0));
 
-		TileEntityChest chest2 = new TileEntityChest();
-		world.setBlockState(pos.add(4, 1, 10), Blocks.CHEST.getDefaultState(), 3);
-		world.setTileEntity(pos.add(4, 1, 10), chest2);
-		Random randchest2 = new Random();
-		for (int slot = 0; slot < chest2.getSizeInventory(); slot++) {
-			int num = randchest2.nextInt(100);
-			if (num < 1) {
-				chest2.setInventorySlotContents(slot, new ItemStack(ItemHandler.C14_GAUSS_RIFLE, 1));
+		chest = new TileEntityChest();
+		world.setBlockState(pos.add(9, 1, 3), Blocks.CHEST.getDefaultState(), 3);
+		world.setTileEntity(pos.add(9, 1, 3), chest);
+
+		randchest = new Random();
+		for (int slot = 0; slot < chest.getSizeInventory(); slot++) {
+			int num = randchest.nextInt(100);
+			if (num < 2) {
+				chest.setInventorySlotContents(slot, new ItemStack(ItemHandler.C14_GAUSS_RIFLE));
 			} else if (num >= 13 && num <= 59) {
-				chest2.setInventorySlotContents(slot, new ItemStack(ItemHandler.BULLET, 1 + randchest2.nextInt(4), EnumMetaItem.BulletType.C14.getID()));
-			} else if (num > 89) {
-				chest2.setInventorySlotContents(slot, new ItemStack(ItemHandler.DUST, 1, randchest2.nextInt(2)));
+				chest.setInventorySlotContents(slot, ((ItemBulletMagazine) ItemHandler.BULLET_MAGAZINE).getDefaultStack(EnumMetaItem.BulletMagazineType.C14.getID()));
+			} else if (num > 89 && num < 94) {
+				chest.setInventorySlotContents(slot, new ItemStack(ItemHandler.DUST, 1, randchest.nextInt(2)));
 			}
 		}
 
@@ -392,7 +392,7 @@ public class StructureTerranBunkerTemplate extends SCWorldGenerator {
 	}
 
 	protected Block[] GetValidSpawnBlocks() {
-		return new Block[] { Blocks.GRASS, Blocks.STONE, Blocks.DIRT, Blocks.SAND, BlockHandler.CITY_STONE_KORHAL};
+		return new Block[] { Blocks.GRASS, Blocks.STONE, Blocks.DIRT, Blocks.SAND, BlockHandler.CITY_STONE_KORHAL };
 	}
 
 	public boolean LocationIsValidSpawn(World world, BlockPos pos) {

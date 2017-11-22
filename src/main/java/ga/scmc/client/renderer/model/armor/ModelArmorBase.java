@@ -79,26 +79,15 @@ public abstract class ModelArmorBase extends ModelBiped {
 			GlStateManager.scale(0.5F, 0.5F, 0.5F);
 			GlStateManager.translate(0.0F, 24.0F * scale, 0.0F);
 
-			this.body.render(scale);
-			this.rArm.render(scale);
-			this.lArm.render(scale);
-			this.rLeg.render(scale);
-			this.lLeg.render(scale);
-
-			renderArmorModelExtras(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+			this.head.showModel = false;
+			renderArmorModel(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+			this.head.showModel = true;
 		} else {
 			if (entity.isSneaking()) {
 				GlStateManager.translate(0.0F, 0.2F, 0.0F);
 			}
 
-			this.head.render(scale);
-			this.body.render(scale);
-			this.rArm.render(scale);
-			this.lArm.render(scale);
-			this.rLeg.render(scale);
-			this.lLeg.render(scale);
-
-			renderArmorModelExtras(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+			renderArmorModel(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		}
 
 		GlStateManager.popMatrix();
@@ -254,7 +243,7 @@ public abstract class ModelArmorBase extends ModelBiped {
 
 	/**
 	 * This method renders the armor model to the biped.
-	 * 
+	 *
 	 * @param entity
 	 *            The entity instance
 	 * @param limbSwing
@@ -270,7 +259,14 @@ public abstract class ModelArmorBase extends ModelBiped {
 	 * @param scale
 	 *            The scale of the model
 	 */
-	protected abstract void renderArmorModelExtras(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale);
+	protected void renderArmorModel(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		this.head.render(scale);
+		this.body.render(scale);
+		this.rArm.render(scale);
+		this.lArm.render(scale);
+		this.rLeg.render(scale);
+		this.lLeg.render(scale);
+	}
 
 	/**
 	 * This is a helper method used by tabula to set model rotation correctly.

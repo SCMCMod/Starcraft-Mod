@@ -73,7 +73,6 @@ import static ga.scmc.handlers.BlockHandler.PROTOSS_WARPGATE_WORMHOLE;
 import static ga.scmc.handlers.BlockHandler.STARCRAFT_SKULL;
 import static ga.scmc.handlers.BlockHandler.TEST;
 import static ga.scmc.handlers.ItemHandler.BIOMASS;
-import static ga.scmc.handlers.ItemHandler.BULLET;
 import static ga.scmc.handlers.ItemHandler.BULLET_MAGAZINE;
 import static ga.scmc.handlers.ItemHandler.C14_GAUSS_RIFLE;
 import static ga.scmc.handlers.ItemHandler.C14_PARTS;
@@ -296,7 +295,7 @@ public class RenderingHandler {
 		ModelBakery.registerItemVariants(ItemHandler.PROTOSS_INGOT, new ResourceLocation(Library.MODID, "protoss.ingot.khalai"), new ResourceLocation(Library.MODID, "protoss.ingot.dark"));
 		ModelBakery.registerItemVariants(ItemHandler.PSI_BLADE_FOCUSER_UNCHARGED, new ResourceLocation(Library.MODID, "protoss_psiblade_focuser_uncharged_aiur"), new ResourceLocation(Library.MODID, "protoss_psiblade_focuser_uncharged_dark"));
 		ModelBakery.registerItemVariants(ItemHandler.C14_PARTS, new ResourceLocation(Library.MODID, "part_c14_gauss_body"), new ResourceLocation(Library.MODID, "part_c14_gauss_barrel"), new ResourceLocation(Library.MODID, "part_c14_gauss_grip"));
-		ModelBakery.registerItemVariants(ItemHandler.BULLET, new ResourceLocation(Library.MODID, "bullet_rifle_c14_gauss"));
+		ModelBakery.registerItemVariants(ItemHandler.BULLET_MAGAZINE, new ResourceLocation(Library.MODID, "magazine.c14"));
 		ModelBakery.registerItemVariants(ItemHandler.ZERG_CARAPACE, new ResourceLocation(Library.MODID, "zerg_icarapace_t1"), new ResourceLocation(Library.MODID, "zerg_icarapace_t2"), new ResourceLocation(Library.MODID, "zerg_icarapace_t3"));
 		ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.PROTOSS_METAL_T1), new ResourceLocation(Library.MODID, "protoss.metal.1.aiur"), new ResourceLocation(Library.MODID, "protoss.metal.1.dark"), new ResourceLocation(Library.MODID, "protoss.metal.1.green"), new ResourceLocation(Library.MODID, "protoss.metal.1.blue"), new ResourceLocation(Library.MODID, "protoss.metal.1.red"));
 		ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.PROTOSS_METAL_T2), new ResourceLocation(Library.MODID, "protoss.metal.2.aiur"), new ResourceLocation(Library.MODID, "protoss.metal.2.dark"), new ResourceLocation(Library.MODID, "protoss.metal.2.green"), new ResourceLocation(Library.MODID, "protoss.metal.2.blue"), new ResourceLocation(Library.MODID, "protoss.metal.2.red"));
@@ -429,9 +428,6 @@ public class RenderingHandler {
 		}
 		for (int i = 0; i < EnumMetaItem.ProtossIngotType.values().length; i++) {
 			registerItemRender(PROTOSS_INGOT, i, "protoss.ingot." + EnumMetaItem.ProtossIngotType.values()[i].getName());
-		}
-		for (int i = 0; i < EnumMetaItem.BulletType.values().length; i++) {
-			registerItemRender(BULLET, i, "bullet." + EnumMetaItem.BulletType.values()[i].getName());
 		}
 		for (int i = 0; i < EnumMetaItem.BulletMagazineType.values().length; i++) {
 			registerItemRender(BULLET_MAGAZINE, i, "magazine." + EnumMetaItem.BulletMagazineType.values()[i].getName());
