@@ -6,7 +6,6 @@ import ga.scmc.items.ItemFlamethrower;
 import ga.scmc.items.ItemNuclearMissile;
 import ga.scmc.items.ItemPhosphorus;
 import ga.scmc.items.ItemStimpack;
-import ga.scmc.items.metaitems.ItemBullet;
 import ga.scmc.items.metaitems.ItemBulletMagazine;
 import ga.scmc.items.metaitems.ItemC14GaussRifleParts;
 import ga.scmc.items.metaitems.ItemDust;

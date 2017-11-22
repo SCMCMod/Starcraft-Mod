@@ -2,7 +2,6 @@ package ga.scmc.client.renderer.entity;
 
 import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.model.ModelUrsadon;
-import ga.scmc.entity.living.EntityUrsadon;
 import ga.scmc.entity.living.EntityUrsadonMatriarch;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
