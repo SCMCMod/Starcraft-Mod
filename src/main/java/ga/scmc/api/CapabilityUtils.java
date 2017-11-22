@@ -5,6 +5,8 @@ import ga.scmc.network.NetworkHandler;
 import ga.scmc.network.message.MessageSetPlayerShieldClient;
 import ga.scmc.network.message.MessageSetPlayerShieldServer;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.fml.client.FMLClientHandler;
+import net.minecraftforge.fml.relauncher.Side;
 
 /**
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
@@ -36,8 +38,11 @@ public class CapabilityUtils {
 	 *            The amount to set the shield to
 	 */
 	public static void setShield(EntityPlayer player, double amount) {
-		NetworkHandler.sendToServer(new MessageSetPlayerShieldServer(amount));
-		NetworkHandler.sendToClient(new MessageSetPlayerShieldClient(amount));
+		if (FMLClientHandler.instance().getSide() == Side.SERVER) {
+			NetworkHandler.sendToServer(new MessageSetPlayerShieldServer(amount));
+		} else {
+			NetworkHandler.sendToClient(new MessageSetPlayerShieldClient(amount));
+		}
 	}
 
 	/**
