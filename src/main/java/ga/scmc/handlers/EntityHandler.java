@@ -23,6 +23,7 @@ import ga.scmc.entity.living.EntityProtossReaver;
 import ga.scmc.entity.living.EntityQueen;
 import ga.scmc.entity.living.EntitySCV;
 import ga.scmc.entity.living.EntityScarab;
+import ga.scmc.entity.living.EntityTastelope;
 import ga.scmc.entity.living.EntityVoidProbe;
 import ga.scmc.entity.living.EntityZealot;
 import ga.scmc.entity.living.EntityZergling;
@@ -95,7 +96,8 @@ public class EntityHandler {
 		//EntityRegistry.registerEgg(EntityGhost.class, 7566195, 16639);
 		//EntityRegistry.registerEgg(EntityMarauder.class, 7566195, 16639);
 		EntityRegistry.registerEgg(EntitySCV.class, 7566195, 16639);
-		
+
+		EntityRegistry.registerEgg(EntityTastelope.class, 6632556, 14183716);
 		EntityRegistry.registerEgg(EntityKakaru.class, 6632556, 14183716);
 	}
 
@@ -150,6 +152,7 @@ public class EntityHandler {
 		registerEntity(EntityHydraliskSpike.class, "HydraliskSpike", 64, 1, true);
 		registerEntity(EntityFlamethrowerFlame.class, "flamethrowerFlame", 64, 1, true);
 
+		registerEntity(EntityTastelope.class, "tastelope", 64, 1, true);
 		registerEntity(EntityKakaru.class, "kakaru", 64, 1, true);
 	}
 
@@ -174,10 +177,12 @@ public class EntityHandler {
 		EntityRegistry.addSpawn(EntityLarvaCocoon.class, 5, 1, 5, EnumCreatureType.CREATURE, BiomeHandler.biomeCharCreepInfestation);
 		EntityRegistry.addSpawn(EntityInfestedCivilian.class, 15, 1, 3, EnumCreatureType.MONSTER, BiomeHandler.biomeCharCreepInfestation);
 		
-		EntityRegistry.addSpawn(EntityKakaru.class, 7, 1, 1, EnumCreatureType.CREATURE, BiomeHandler.biomeShakurasHills, BiomeHandler.biomeShakurasMountains);
-
 		EntityRegistry.addSpawn(EntityCivilian.class, 10, 1, 3, EnumCreatureType.CREATURE, BiomeHandler.biomeKorhalCity);
 		EntityRegistry.addSpawn(EntityPredator.class, 10, 1, 3, EnumCreatureType.MONSTER, BiomeHandler.biomeKorhalCity);
+		
+		EntityRegistry.addSpawn(EntityKakaru.class, 7, 1, 1, EnumCreatureType.CREATURE, BiomeHandler.biomeShakurasHills, BiomeHandler.biomeShakurasMountains);
+		EntityRegistry.addSpawn(EntityTastelope.class, 7, 1, 1, EnumCreatureType.CREATURE, BiomeHandler.biomeShakurasMountains);
+
 	}
 
 	/**
