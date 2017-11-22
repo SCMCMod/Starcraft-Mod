@@ -85,12 +85,12 @@ public class ItemBulletMagazine extends Item {
 
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
-		if (!stack.hasTagCompound()) {
-			stack = getDefaultStack(stack.getMetadata());
+		if (!stack.hasTagCompound() && !world.isRemote) {
+			stack.setTagCompound(getDefaultStack(stack.getMetadata()).getTagCompound());
 		}
-		
+
 		if (entity instanceof EntityPlayer) {
-			if (stack.getTagCompound().getInteger("BulletCount") <= 0) {
+			if (stack.hasTagCompound() && stack.getTagCompound().hasKey("BulletCount") && stack.getTagCompound().getInteger("BulletCount") <= 0) {
 				Inventories.consumeItem((EntityPlayer) entity, stack.getItem());
 			}
 		}

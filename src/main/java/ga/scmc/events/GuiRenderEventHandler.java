@@ -16,10 +16,7 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import ocelot.api.utils.InventoryUtils;
@@ -35,7 +32,7 @@ public class GuiRenderEventHandler extends Gui {
 
 	/** The determines whether or not the helmet overlay should be rendered. */
 	public static boolean renderHelmetOverlay = true;
-	/** This is the maximum amount of shield the player has. */
+
 	private static int maxShieldLevel = 10;
 
 	@SubscribeEvent
@@ -56,7 +53,7 @@ public class GuiRenderEventHandler extends Gui {
 				String ammo = "Ammo: " + InventoryUtils.getTotalAmmo(player, ItemHandler.BULLET_MAGAZINE);
 				if (mc.player.isCreative())
 					ammo = "Ammo: Infinite";
-				fontRenderer.drawString(ammo, 15, height - 18, Color.WHITE.getRGB());
+				drawString(fontRenderer, ammo, 8, height - 15, 0xffffff);
 
 				for (int i = 0; i < 4; i++) {
 					ItemStack stack = mc.player.inventory.armorItemInSlot(i);
@@ -65,8 +62,14 @@ public class GuiRenderEventHandler extends Gui {
 						RenderHelper.enableGUIStandardItemLighting();
 						mc.getRenderItem().renderItemAndEffectIntoGUI(stack, (width - 18 - mc.fontRendererObj.getStringWidth(damage)) - 18, (height - 20 - i * 18) - i);
 						RenderHelper.disableStandardItemLighting();
-						fontRenderer.drawString(damage, width - 18 - mc.fontRendererObj.getStringWidth(damage), height - 18 - i * 18, Color.WHITE.getRGB());
+						drawString(fontRenderer, damage, width - 18 - mc.fontRendererObj.getStringWidth(damage), height - 18 - i * 18, 0xffffff);
 					}
+				}
+
+				if (!player.isCreative()) {
+					float saturation = player.getFoodStats().getSaturationLevel() / 20;
+					
+					drawString(fontRenderer, (int) (saturation * 100) + "% Saturation", 5, 5, getColorForDisplay(saturation));
 				}
 			}
 
@@ -95,11 +98,23 @@ public class GuiRenderEventHandler extends Gui {
 		}
 	}
 
+	public int getColorForDisplay(float percentage) {
+		int color = 0xffffff;
+		if (percentage >= 0.75f)
+			color = 0xff007F0E;
+		if (percentage <= 0.25f)
+			color = 0xffBC0000;
+		return color;
+	}
+
 	public void renderHelmetOverlay(ScaledResolution scaledRes) {
 		GlStateManager.pushMatrix();
 		GlStateManager.disableDepth();
 		GlStateManager.color(1, 1, 1, 1);
 		TextureUtils.bindTexture("textures/gui/helmet_overlay.png");
+		EntityPlayer player = Minecraft.getMinecraft().player;
+		float amount = 0.5f + player.world.getLightBrightness(player.getPosition());
+		GlStateManager.color(1, 1, 1, amount);
 		drawModalRectWithCustomSizedTexture(0, 0, 0, 0, scaledRes.getScaledWidth(), scaledRes.getScaledHeight(), scaledRes.getScaledWidth(), scaledRes.getScaledHeight());
 		GlStateManager.enableDepth();
 		GlStateManager.popMatrix();
