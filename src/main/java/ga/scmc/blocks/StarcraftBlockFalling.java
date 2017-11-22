@@ -97,4 +97,31 @@ public class StarcraftBlockFalling extends BlockFalling {
 		this.setSoundType(sound);
 		return this;
 	}
+
+	/**
+	 * Sets or removes the tool and level required to harvest this block.
+	 *
+	 * @param toolClass
+	 *            Class
+	 * @param level
+	 *            Harvest level: Wood: 0 Stone: 1 Iron: 2 Diamond: 3 Gold: 0
+	 */
+	public StarcraftBlockFalling setBlockHarvestLevel(String toolClass, int level) {
+		return setBlockHarvestLevel(toolClass, level, getDefaultState());
+	}
+
+	/**
+	 * Sets or removes the tool and level required to harvest this block.
+	 *
+	 * @param toolClass
+	 *            Class
+	 * @param level
+	 *            Harvest level: Wood: 0 Stone: 1 Iron: 2 Diamond: 3 Gold: 0
+	 * @param state
+	 *            The specific state.
+	 */
+	public StarcraftBlockFalling setBlockHarvestLevel(String toolClass, int level, IBlockState state) {
+		setHarvestLevel(toolClass, level, state);
+		return this;
+	}
 }

@@ -30,8 +30,8 @@ public class OreCharRedstone extends Block {
 	public OreCharRedstone(boolean isOn) {
 		super(Material.ROCK);
 		setSoundType(SoundType.STONE);
-		setHardness(3.0F);
-		setResistance(5.0F);
+		setHardness(1);
+		setResistance(5);
 		setHarvestLevel("pickaxe", 2);
 		
 		if (isOn) {

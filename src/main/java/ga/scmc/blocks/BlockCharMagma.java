@@ -32,10 +32,10 @@ public class BlockCharMagma extends Block {
 		super(Material.ROCK, MapColor.BLACK);
 		setSoundType(SoundType.STONE);
 		setHardness(0.5F);
-		setResistance(5.0F);
+		setResistance(0.83F);
 		setLightLevel(0.2F);
 		setTickRandomly(true);
-		setHarvestLevel("pickaxe", 1);
+		setHarvestLevel("pickaxe", 0);
 		setCreativeTab(StarcraftCreativeTabs.MISC);
 		setUnlocalizedName("char.magma");
 		setRegistryName("char.magma");

@@ -15,13 +15,14 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.chunk.IChunkGenerator;
 import net.minecraft.world.gen.MapGenBase;
+import net.minecraft.world.gen.MapGenCaves;
 import net.minecraftforge.event.terraingen.InitMapGenEvent.EventType;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
 public class ChunkProviderKorhal implements IChunkGenerator {
 
 	private Biome[] biomesForGeneration;
-	private MapGenBase caveGenerator = new KorhalGenCaves();
+	private MapGenBase caveGenerator = new MapGenCaves();
 	private MapGenBase ravineGenerator = new KorhalGenRavine();
 	private Random random;
 
@@ -33,7 +34,7 @@ public class ChunkProviderKorhal implements IChunkGenerator {
 		long seed = worldObj.getSeed();
 		random = new Random((seed + 516) * 314);
 		terraingen.setup(worldObj, random);
-		caveGenerator = TerrainGen.getModdedMapGen(caveGenerator, EventType.CAVE);
+		caveGenerator = TerrainGen.getModdedMapGen(caveGenerator, EventType.RAVINE);
 		ravineGenerator = TerrainGen.getModdedMapGen(ravineGenerator, EventType.RAVINE);
 	}
 

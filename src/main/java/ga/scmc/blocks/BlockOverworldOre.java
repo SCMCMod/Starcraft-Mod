@@ -18,8 +18,8 @@ public class BlockOverworldOre extends StarcraftBlock
 {
 	public BlockOverworldOre(String name, RegistryType type, Material material, MapColor color, int level) {
 		super(name, type, material, color);
-		setHardness(3.0F);
-		setResistance(5.0F);
+		setHardness(1);
+		setResistance(5);
 		setHarvestLevel("pickaxe", level);
 		setCreativeTab(StarcraftCreativeTabs.MISC);
 		setSoundType(SoundType.STONE);

@@ -24,12 +24,12 @@ import net.minecraft.world.World;
  * 
  * @author Ocelot5836
  */
-public class BlockDimPortal extends Block {
+public class BlockDimPortal extends StarcraftBlock {
 
 	protected int dim = 0;
 
-	public BlockDimPortal(int dim) {
-		super(Material.PORTAL, MapColor.BLACK);
+	public BlockDimPortal(String name, int dim) {
+		super(name, RegistryType.FULL, Material.PORTAL, MapColor.BLACK);
 		setBlockUnbreakable();
 		setLightLevel(1.0F);
 		setCreativeTab(StarcraftCreativeTabs.MISC);

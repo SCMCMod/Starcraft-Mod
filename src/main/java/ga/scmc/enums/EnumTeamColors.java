@@ -17,7 +17,7 @@ public enum EnumTeamColors {
 	private float g;
 	private float b;
 
-	EnumTeamColors(int ID, float r, float b, float g) {
+	EnumTeamColors(int ID, float r, float g, float b) {
 		this.ID = ID;
 		this.r = r;
 		this.g = g;

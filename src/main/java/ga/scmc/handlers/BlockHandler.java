@@ -5,12 +5,7 @@ import ga.scmc.blocks.BlockAsh;
 import ga.scmc.blocks.BlockBloodFluid;
 import ga.scmc.blocks.BlockCharMagma;
 import ga.scmc.blocks.BlockCharOre;
-import ga.scmc.blocks.BlockDimPortalChar;
-import ga.scmc.blocks.BlockDimPortalKaldir;
-import ga.scmc.blocks.BlockDimPortalKorhal;
-import ga.scmc.blocks.BlockDimPortalOverworld;
-import ga.scmc.blocks.BlockDimPortalShakuras;
-import ga.scmc.blocks.BlockDimPortalSlayn;
+import ga.scmc.blocks.BlockDimPortal;
 import ga.scmc.blocks.BlockEnergy;
 import ga.scmc.blocks.BlockFurnaceChar;
 import ga.scmc.blocks.BlockFurnaceShakuras;
@@ -133,6 +128,7 @@ public class BlockHandler {
 	public static final Block ORE_RICHMINERAL_CHAR;
 	public static final Block ORE_RICHMINERAL_SHAKURAS;
 	public static final Block ORE_URANIUM_CHAR;
+	public static final Block ORE_URANIUM_OW;
 	public static final Block ORE_URANIUM_SHAKURAS;
 	public static final Block ORE_TITANIUM_CHAR;
 	public static final Block ORE_TITANIUM_OW;
@@ -148,7 +144,6 @@ public class BlockHandler {
 	public static final Block GRAVEL_SHAKURAS;
 	public static final Block STONE_CHAR;
 	public static final Block STONE_SHAKURAS;
-	public static final Block FROZEN_STONE_KALDIR;
 	public static final Block FURNACE_SHAKURAS;
 	public static final Block LIT_FURNACE_SHAKURAS;
 	public static final Block FURNACE_CHAR;
@@ -185,36 +180,38 @@ public class BlockHandler {
 
 	static {
 		/** portals **/
-		DIM_PORTAL_OVERWORLD = new BlockDimPortalOverworld();
-		DIM_PORTAL_KORHAL = new BlockDimPortalKorhal();
-		DIM_PORTAL_SLAYN = new BlockDimPortalSlayn();
-		DIM_PORTAL_KALDIR = new BlockDimPortalKaldir();
+		DIM_PORTAL_OVERWORLD = new BlockDimPortal("overworld.portal", 0);
+		DIM_PORTAL_KORHAL = new BlockDimPortal("korhal.portal", ConfigurationHandler.INT_DIMENSION_KORHAL);
+		DIM_PORTAL_SLAYN = new BlockDimPortal("slayn.portal", 0);
+		DIM_PORTAL_KALDIR = new BlockDimPortal("kaldir.portal", ConfigurationHandler.INT_DIMENSION_KALDIR);
+		DIM_PORTAL_CHAR = new BlockDimPortal("char.portal", ConfigurationHandler.INT_DIMENSION_CHAR);
+		DIM_PORTAL_SHAKURAS = new BlockDimPortal("shakuras.portal", ConfigurationHandler.INT_DIMENSION_SHAKURAS);
 
 		/** overworld blocks **/
-		ORE_COPPER_OW = new BlockOverworldOre("overworld.copper", RegistryType.FULL, Material.ROCK, MapColor.GRAY, 1).setCreativeTab(StarcraftCreativeTabs.MISC);
-		ORE_TITANIUM_OW = new BlockOverworldOre("overworld.titanium", RegistryType.FULL, Material.ROCK, MapColor.GRAY, 2).setCreativeTab(StarcraftCreativeTabs.MISC);
-
+		ORE_COPPER_OW = new BlockOverworldOre("overworld.copper", RegistryType.FULL, Material.ROCK, MapColor.GRAY, 1).setBlockHarvestLevel("pickaxe", 1).setCreativeTab(StarcraftCreativeTabs.MISC);
+		ORE_TITANIUM_OW = new BlockOverworldOre("overworld.titanium", RegistryType.FULL, Material.ROCK, MapColor.GRAY, 2).setBlockHarvestLevel("pickaxe", 2).setCreativeTab(StarcraftCreativeTabs.MISC);
+		ORE_URANIUM_OW = new BlockOverworldOre("overworld.uranium", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 1).setBlockHarvestLevel("pickaxe", 2).setCreativeTab(StarcraftCreativeTabs.MISC);
+		
 		/** char blocks **/
-		ORE_COAL_CHAR = new BlockCharOre("char.coal", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 0).setCreativeTab(StarcraftCreativeTabs.MISC);
-		ORE_COPPER_CHAR = new BlockCharOre("char.copper", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 1).setCreativeTab(StarcraftCreativeTabs.MISC);
-		ORE_DIAMOND_CHAR = new BlockCharOre("char.diamond", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 2).setCreativeTab(StarcraftCreativeTabs.MISC);
-		ORE_GOLD_CHAR = new BlockCharOre("char.gold", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 2).setCreativeTab(StarcraftCreativeTabs.MISC);
-		ORE_IRON_CHAR = new BlockCharOre("char.iron", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 1).setCreativeTab(StarcraftCreativeTabs.MISC);
-		ORE_LAPIS_CHAR = new BlockCharOre("char.lapis", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 1).setCreativeTab(StarcraftCreativeTabs.MISC);
+		ORE_COAL_CHAR = new BlockCharOre("char.coal", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 0).setBlockHarvestLevel("pickaxe", 0).setCreativeTab(StarcraftCreativeTabs.MISC);
+		ORE_COPPER_CHAR = new BlockCharOre("char.copper", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 1).setBlockHarvestLevel("pickaxe", 1).setCreativeTab(StarcraftCreativeTabs.MISC);
+		ORE_DIAMOND_CHAR = new BlockCharOre("char.diamond", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 2).setBlockHarvestLevel("pickaxe", 2).setCreativeTab(StarcraftCreativeTabs.MISC);
+		ORE_GOLD_CHAR = new BlockCharOre("char.gold", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 2).setBlockHarvestLevel("pickaxe", 2).setCreativeTab(StarcraftCreativeTabs.MISC);
+		ORE_IRON_CHAR = new BlockCharOre("char.iron", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 1).setBlockHarvestLevel("pickaxe", 1).setCreativeTab(StarcraftCreativeTabs.MISC);
+		ORE_LAPIS_CHAR = new BlockCharOre("char.lapis", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 1).setBlockHarvestLevel("pickaxe", 1).setCreativeTab(StarcraftCreativeTabs.MISC);
 		ORE_MINERAL_CHAR = new BlockCharOre("char.mineral", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 1).setCreativeTab(StarcraftCreativeTabs.MISC);
+		ORE_RICHMINERAL_CHAR = new BlockCharOre("char.richmineral", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 1).setBlockHarvestLevel("pickaxe", 0).setCreativeTab(StarcraftCreativeTabs.MISC);
 		ORE_REDSTONE_CHAR = new OreCharRedstone(false);
 		ORE_REDSTONE_LIT_CHAR = new OreCharRedstone(true);
-		ORE_RICHMINERAL_CHAR = new BlockCharOre("char.richmineral", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 1).setCreativeTab(StarcraftCreativeTabs.MISC);
 		ORE_TITANIUM_CHAR = new BlockCharOre("char.titanium", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 2).setCreativeTab(StarcraftCreativeTabs.MISC);
 		ORE_URANIUM_CHAR = new BlockCharOre("char.uranium", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 1).setCreativeTab(StarcraftCreativeTabs.MISC);
 		ORE_PHOSPHORUS_CHAR = new BlockCharOre("char.phosphorus", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 1).setCreativeTab(StarcraftCreativeTabs.MISC);
-		DIRT_CHAR = new StarcraftBlock("char.dirt", RegistryType.FULL, Material.ROCK, MapColor.BLACK).setBlockSoundType(SoundType.GROUND).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0).setResistance(0);
-		STONE_CHAR = new StarcraftBlock("char.stone", RegistryType.FULL, Material.GROUND, MapColor.BLACK).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0).setResistance(0);
-		GRAVEL_CHAR = new StarcraftBlockFalling("char.gravel", RegistryType.FULL, Material.SAND, MapColor.BLACK, 0x000000).setBlockSoundType(SoundType.GROUND).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0).setResistance(0);
-		COBBLESTONE_CHAR = new StarcraftBlock("char.cobblestone", RegistryType.FULL, Material.ROCK, MapColor.BLACK).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0).setResistance(0);
+		DIRT_CHAR = new StarcraftBlock("char.dirt", RegistryType.FULL, Material.GROUND, MapColor.BLACK).setBlockHarvestLevel("shovel", 0).setBlockSoundType(SoundType.GROUND).setHardness(0.5f).setResistance(0.83f).setCreativeTab(StarcraftCreativeTabs.MISC);
+		COBBLESTONE_CHAR = new StarcraftBlock("char.cobblestone", RegistryType.FULL, Material.ROCK, MapColor.BLACK).setBlockHarvestLevel("pickaxe", 0).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(2).setResistance(10);
+		STONE_CHAR = new StarcraftBlock("char.stone", RegistryType.FULL, Material.ROCK, MapColor.BLACK).setItemDropped(Item.getItemFromBlock(COBBLESTONE_CHAR)).setBlockHarvestLevel("pickaxe", 0).setHardness(1.5f).setResistance(10).setCreativeTab(StarcraftCreativeTabs.MISC);
+		GRAVEL_CHAR = new StarcraftBlockFalling("char.gravel", RegistryType.FULL, Material.GROUND, MapColor.BLACK, 0x000000).setBlockHarvestLevel("shovel", 0).setBlockSoundType(SoundType.GROUND).setHardness(0.6f).setResistance(1).setCreativeTab(StarcraftCreativeTabs.MISC);
 		MAGMA_CHAR = new BlockCharMagma();
 		ASH_CHAR = new BlockAsh();
-		DIM_PORTAL_CHAR = new BlockDimPortalChar();
 
 		/** shakuras blocks **/
 		ORE_COAL_SHAKURAS = new BlockShakurasOre("shakuras.coal", RegistryType.FULL, Material.ROCK, MapColor.LIGHT_BLUE, 0).setCreativeTab(StarcraftCreativeTabs.MISC);
@@ -224,29 +221,25 @@ public class BlockHandler {
 		ORE_IRON_SHAKURAS = new BlockShakurasOre("shakuras.iron", RegistryType.FULL, Material.ROCK, MapColor.LIGHT_BLUE, 1).setCreativeTab(StarcraftCreativeTabs.MISC);
 		ORE_LAPIS_SHAKURAS = new BlockShakurasOre("shakuras.lapis", RegistryType.FULL, Material.ROCK, MapColor.LIGHT_BLUE, 1).setCreativeTab(StarcraftCreativeTabs.MISC);
 		ORE_MINERAL_SHAKURAS = new BlockShakurasOre("shakuras.mineral", RegistryType.FULL, Material.ROCK, MapColor.LIGHT_BLUE, 1).setCreativeTab(StarcraftCreativeTabs.MISC);
+		ORE_RICHMINERAL_SHAKURAS = new BlockShakurasOre("shakuras.richmineral", RegistryType.FULL, Material.ROCK, MapColor.LIGHT_BLUE, 1).setCreativeTab(StarcraftCreativeTabs.MISC);
 		ORE_REDSTONE_SHAKURAS = new OreShakurasRedstone(false);
 		ORE_REDSTONE_LIT_SHAKURAS = new OreShakurasRedstone(true);
-		ORE_RICHMINERAL_SHAKURAS = new BlockShakurasOre("shakuras.richmineral", RegistryType.FULL, Material.ROCK, MapColor.LIGHT_BLUE, 1).setCreativeTab(StarcraftCreativeTabs.MISC);
 		ORE_TITANIUM_SHAKURAS = new BlockShakurasOre("shakuras.titanium", RegistryType.FULL, Material.ROCK, MapColor.LIGHT_BLUE, 2).setCreativeTab(StarcraftCreativeTabs.MISC);
 		ORE_URANIUM_SHAKURAS = new BlockShakurasOre("shakuras.uranium", RegistryType.FULL, Material.ROCK, MapColor.LIGHT_BLUE, 1).setCreativeTab(StarcraftCreativeTabs.MISC);
 		ORE_PHOSPHORUS_SHAKURAS = new BlockShakurasOre("shakuras.phosphorus", RegistryType.FULL, Material.ROCK, MapColor.LIGHT_BLUE, 1).setCreativeTab(StarcraftCreativeTabs.MISC);
-		DIRT_SHAKURAS = new StarcraftBlock("shakuras.dirt", RegistryType.FULL, Material.ROCK, MapColor.BLUE).setBlockSoundType(SoundType.GROUND).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0).setResistance(0);
-		STONE_SHAKURAS = new StarcraftBlock("shakuras.stone", RegistryType.FULL, Material.GROUND, MapColor.LIGHT_BLUE).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0).setResistance(0);
-		GRAVEL_SHAKURAS = new StarcraftBlockFalling("shakuras.gravel", RegistryType.FULL, Material.SAND, MapColor.LIGHT_BLUE, 6724056).setBlockSoundType(SoundType.GROUND).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0).setResistance(0);
-		COBBLESTONE_SHAKURAS = new StarcraftBlock("shakuras.cobblestone", RegistryType.FULL, Material.ROCK, MapColor.BLUE).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0).setResistance(0);
-		SAND_SHAKURAS = new StarcraftBlockFalling("shakuras.sand", RegistryType.FULL, Material.SAND, MapColor.LIGHT_BLUE, 6724056).setBlockSoundType(SoundType.SAND).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0).setResistance(0);
-		DIM_PORTAL_SHAKURAS = new BlockDimPortalShakuras();
+		DIRT_SHAKURAS = new StarcraftBlock("shakuras.dirt", RegistryType.FULL, Material.GROUND, MapColor.BLUE).setBlockHarvestLevel("shovel", 0).setBlockSoundType(SoundType.GROUND).setBlockSoundType(SoundType.GROUND).setHardness(0.5f).setResistance(0.83f).setCreativeTab(StarcraftCreativeTabs.MISC);
+		COBBLESTONE_SHAKURAS = new StarcraftBlock("shakuras.cobblestone", RegistryType.FULL, Material.ROCK, MapColor.BLUE).setBlockHarvestLevel("pickaxe", 0).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(2).setResistance(10);
+		STONE_SHAKURAS = new StarcraftBlock("shakuras.stone", RegistryType.FULL, Material.ROCK, MapColor.LIGHT_BLUE).setItemDropped(Item.getItemFromBlock(COBBLESTONE_SHAKURAS)).setHardness(1.5f).setResistance(10).setCreativeTab(StarcraftCreativeTabs.MISC);
+		GRAVEL_SHAKURAS = new StarcraftBlockFalling("shakuras.gravel", RegistryType.FULL, Material.GROUND, MapColor.LIGHT_BLUE, 6724056).setBlockSoundType(SoundType.GROUND).setBlockHarvestLevel("shovel", 0).setHardness(0.6f).setResistance(1).setCreativeTab(StarcraftCreativeTabs.MISC);
+		SAND_SHAKURAS = new StarcraftBlockFalling("shakuras.sand", RegistryType.FULL, Material.SAND, MapColor.LIGHT_BLUE, 6724056).setBlockSoundType(SoundType.SAND).setBlockHarvestLevel("shovel", 0).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0.5f).setResistance(0.83f);
 
 		/** slayn blocks */
-		SAND_SLAYN = new StarcraftBlock("slayn.sand", RegistryType.FULL, Material.SAND, MapColor.BLACK).setBlockSoundType(SoundType.SAND).setCreativeTab(StarcraftCreativeTabs.MISC);
-		STONE_SLAYN = new StarcraftBlock("slayn.stone", RegistryType.FULL, Material.ROCK, MapColor.BLACK).setCreativeTab(StarcraftCreativeTabs.MISC);
-		DIRT_SLAYN = new StarcraftBlock("slayn.dirt", RegistryType.FULL, Material.GROUND, MapColor.BLACK).setBlockSoundType(SoundType.GROUND).setCreativeTab(StarcraftCreativeTabs.MISC);
-		COBBLESTONE_SLAYN = new StarcraftBlock("slayn.cobblestone", RegistryType.FULL, Material.ROCK, MapColor.BLACK).setCreativeTab(StarcraftCreativeTabs.MISC);
-		GRAVEL_SLAYN = new StarcraftBlockFalling("slayn.gravel", RegistryType.FULL, Material.GROUND, MapColor.BLACK, 0x000000).setBlockSoundType(SoundType.GROUND).setCreativeTab(StarcraftCreativeTabs.MISC);
+		SAND_SLAYN = new StarcraftBlock("slayn.sand", RegistryType.FULL, Material.SAND, MapColor.BLACK).setBlockSoundType(SoundType.SAND).setBlockSoundType(SoundType.SAND).setBlockHarvestLevel("shovel", 0).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0.5f).setResistance(0.83f);;
+		DIRT_SLAYN = new StarcraftBlock("slayn.dirt", RegistryType.FULL, Material.GROUND, MapColor.BLACK).setBlockHarvestLevel("shovel", 0).setBlockSoundType(SoundType.GROUND).setBlockSoundType(SoundType.GROUND).setHardness(0.5f).setResistance(0.83f).setCreativeTab(StarcraftCreativeTabs.MISC);
+		COBBLESTONE_SLAYN = new StarcraftBlock("slayn.cobblestone", RegistryType.FULL, Material.ROCK, MapColor.BLACK).setBlockHarvestLevel("pickaxe", 0).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(2).setResistance(10);
+		STONE_SLAYN = new StarcraftBlock("slayn.stone", RegistryType.FULL, Material.ROCK, MapColor.BLACK).setItemDropped(Item.getItemFromBlock(COBBLESTONE_SLAYN)).setHardness(1.5f).setResistance(10).setCreativeTab(StarcraftCreativeTabs.MISC);
+		GRAVEL_SLAYN = new StarcraftBlockFalling("slayn.gravel", RegistryType.FULL, Material.GROUND, MapColor.BLACK, 0x000000).setBlockSoundType(SoundType.SAND).setBlockHarvestLevel("shovel", 0).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0.5f).setResistance(0.83f);
 
-		/** kaldir blocks */
-		FROZEN_STONE_KALDIR = new StarcraftBlock("kaldir.stone.frozen", RegistryType.FULL, Material.ROCK, MapColor.GRAY).setCreativeTab(StarcraftCreativeTabs.MISC);;
-		
 		/** furnaces blocks **/
 		FURNACE_SHAKURAS = new BlockFurnaceShakuras(false);
 		LIT_FURNACE_SHAKURAS = new BlockFurnaceShakuras(true);
@@ -302,16 +295,15 @@ public class BlockHandler {
 		registerCompleteBlock(ORE_REDSTONE_SHAKURAS);
 		registerCompleteBlock(ORE_REDSTONE_LIT_SHAKURAS);
 
-		registerCompleteBlock(DIM_PORTAL_OVERWORLD);
-		registerCompleteBlock(DIM_PORTAL_KORHAL);
-		registerCompleteBlock(DIM_PORTAL_KALDIR);
-		registerCompleteBlock(DIM_PORTAL_SLAYN);
-		
+		// registerCompleteBlock(DIM_PORTAL_OVERWORLD);
+		// registerCompleteBlock(DIM_PORTAL_KORHAL);
+		// registerCompleteBlock(DIM_PORTAL_KALDIR);
+		// registerCompleteBlock(DIM_PORTAL_SLAYN);
+		// registerCompleteBlock(DIM_PORTAL_CHAR);
+		// registerCompleteBlock(DIM_PORTAL_SHAKURAS);
+
 		registerCompleteBlock(MAGMA_CHAR);
 		registerBlock(ASH_CHAR, new ItemBlockAsh(ASH_CHAR));
-		registerCompleteBlock(DIM_PORTAL_CHAR);
-
-		registerCompleteBlock(DIM_PORTAL_SHAKURAS);
 
 		registerCompleteBlock(CITY_STONE_KORHAL);
 
