@@ -2,6 +2,8 @@ package ga.scmc.worldgen.dimkaldir;
 
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.DimensionHandler;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.chunk.IChunkGenerator;

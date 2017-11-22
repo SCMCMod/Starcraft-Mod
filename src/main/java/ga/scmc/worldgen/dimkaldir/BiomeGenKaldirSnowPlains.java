@@ -10,15 +10,15 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
 
-public class BiomeGenKaldirIcePlains extends BiomeHandler {
+public class BiomeGenKaldirSnowPlains extends BiomeHandler {
 
-	public BiomeGenKaldirIcePlains(BiomeProperties id) {
+	public BiomeGenKaldirSnowPlains(BiomeProperties id) {
 		super(id);
 
-		setRegistryName("kaldir_ice_plains");
+		setRegistryName("kaldir_snow_plains");
 
-		topBlock = Blocks.ICE.getDefaultState();
-		fillerBlock = Blocks.PACKED_ICE.getDefaultState();
+		topBlock = Blocks.SNOW.getDefaultState();
+		fillerBlock = Blocks.SNOW.getDefaultState();
 
 		spawnableMonsterList.clear();
 		spawnableCreatureList.clear();

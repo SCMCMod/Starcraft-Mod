@@ -2,6 +2,7 @@ package ga.scmc.worldgen.dimkaldir;
 
 import java.util.Random;
 
+import ga.scmc.handlers.BlockHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -119,7 +120,7 @@ public class KaldirGenCustomLakes extends WorldGenerator {
 											|| k4 < 7 && aboolean[(j2 * 16 + k3) * 8 + k4 + 1] || k4 > 0 && aboolean[(j2 * 16 + k3) * 8 + (k4 - 1)]);
 
 							if(flag1 && (k4 < 4 || rand.nextInt(2) != 0) && worldIn.getBlockState(position.add(j2, k4, k3)).getMaterial().isSolid()) {
-								worldIn.setBlockState(position.add(j2, k4, k3), Blocks.STONE.getDefaultState(), 2);
+								worldIn.setBlockState(position.add(j2, k4, k3), BlockHandler.FROZEN_STONE_KALDIR.getDefaultState(), 2);
 							}
 						}
 					}

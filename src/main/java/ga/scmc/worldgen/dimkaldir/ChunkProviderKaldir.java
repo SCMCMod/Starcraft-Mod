@@ -22,7 +22,7 @@ import net.minecraftforge.event.terraingen.TerrainGen;
 public class ChunkProviderKaldir implements IChunkGenerator {
 
 	private Biome[] biomesForGeneration;
-	private MapGenBase caveGenerator = new MapGenCaves();
+	private MapGenBase caveGenerator = new KaldirGenCaves();
 	private MapGenBase ravineGenerator = new KaldirGenRavine();
 	private Random random;
 
@@ -34,7 +34,7 @@ public class ChunkProviderKaldir implements IChunkGenerator {
 		long seed = worldObj.getSeed();
 		random = new Random((seed + 516) * 314);
 		terraingen.setup(worldObj, random);
-		caveGenerator = TerrainGen.getModdedMapGen(caveGenerator, EventType.RAVINE);
+		caveGenerator = TerrainGen.getModdedMapGen(caveGenerator, EventType.CAVE);
 		ravineGenerator = TerrainGen.getModdedMapGen(ravineGenerator, EventType.RAVINE);
 	}
 

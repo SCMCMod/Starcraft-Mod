@@ -24,6 +24,8 @@ import ga.scmc.entity.living.EntityQueen;
 import ga.scmc.entity.living.EntitySCV;
 import ga.scmc.entity.living.EntityScarab;
 import ga.scmc.entity.living.EntityTastelope;
+import ga.scmc.entity.living.EntityUrsadon;
+import ga.scmc.entity.living.EntityUrsadonMatriarch;
 import ga.scmc.entity.living.EntityVoidProbe;
 import ga.scmc.entity.living.EntityZealot;
 import ga.scmc.entity.living.EntityZergling;
@@ -98,6 +100,8 @@ public class EntityHandler {
 		EntityRegistry.registerEgg(EntitySCV.class, 7566195, 16639);
 
 		EntityRegistry.registerEgg(EntityTastelope.class, 6632556, 14183716);
+		EntityRegistry.registerEgg(EntityUrsadon.class, 6632556, 14183716);
+		EntityRegistry.registerEgg(EntityUrsadonMatriarch.class, 6632556, 14183716);
 		EntityRegistry.registerEgg(EntityKakaru.class, 6632556, 14183716);
 	}
 
@@ -153,6 +157,8 @@ public class EntityHandler {
 		registerEntity(EntityFlamethrowerFlame.class, "flamethrowerFlame", 64, 1, true);
 
 		registerEntity(EntityTastelope.class, "tastelope", 64, 1, true);
+		registerEntity(EntityUrsadon.class, "ursadon", 64, 1, true);
+		registerEntity(EntityUrsadonMatriarch.class, "ursadonMatriarch", 64, 1, true);
 		registerEntity(EntityKakaru.class, "kakaru", 64, 1, true);
 	}
 
@@ -181,7 +187,9 @@ public class EntityHandler {
 		EntityRegistry.addSpawn(EntityPredator.class, 10, 1, 3, EnumCreatureType.MONSTER, BiomeHandler.biomeKorhalCity);
 		
 		EntityRegistry.addSpawn(EntityKakaru.class, 7, 1, 1, EnumCreatureType.CREATURE, BiomeHandler.biomeShakurasHills, BiomeHandler.biomeShakurasMountains);
-		EntityRegistry.addSpawn(EntityTastelope.class, 7, 1, 1, EnumCreatureType.CREATURE, BiomeHandler.biomeShakurasMountains);
+		EntityRegistry.addSpawn(EntityTastelope.class, 25, 1, 1, EnumCreatureType.CREATURE, BiomeHandler.biomeKaldirSnowPlains);
+		EntityRegistry.addSpawn(EntityUrsadon.class, 15, 1, 1, EnumCreatureType.MONSTER, BiomeHandler.biomeKaldirSnowPlains);
+		EntityRegistry.addSpawn(EntityUrsadonMatriarch.class, 3, 1, 1, EnumCreatureType.MONSTER, BiomeHandler.biomeKaldirSnowPlains);
 
 	}
 

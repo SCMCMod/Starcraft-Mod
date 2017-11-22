@@ -148,6 +148,7 @@ public class BlockHandler {
 	public static final Block GRAVEL_SHAKURAS;
 	public static final Block STONE_CHAR;
 	public static final Block STONE_SHAKURAS;
+	public static final Block FROZEN_STONE_KALDIR;
 	public static final Block FURNACE_SHAKURAS;
 	public static final Block LIT_FURNACE_SHAKURAS;
 	public static final Block FURNACE_CHAR;
@@ -243,6 +244,9 @@ public class BlockHandler {
 		COBBLESTONE_SLAYN = new StarcraftBlock("slayn.cobblestone", RegistryType.FULL, Material.ROCK, MapColor.BLACK).setCreativeTab(StarcraftCreativeTabs.MISC);
 		GRAVEL_SLAYN = new StarcraftBlockFalling("slayn.gravel", RegistryType.FULL, Material.GROUND, MapColor.BLACK, 0x000000).setBlockSoundType(SoundType.GROUND).setCreativeTab(StarcraftCreativeTabs.MISC);
 
+		/** kaldir blocks */
+		FROZEN_STONE_KALDIR = new StarcraftBlock("kaldir.stone.frozen", RegistryType.FULL, Material.ROCK, MapColor.GRAY).setCreativeTab(StarcraftCreativeTabs.MISC);;
+		
 		/** furnaces blocks **/
 		FURNACE_SHAKURAS = new BlockFurnaceShakuras(false);
 		LIT_FURNACE_SHAKURAS = new BlockFurnaceShakuras(true);

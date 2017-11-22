@@ -2,6 +2,7 @@ package ga.scmc.worldgen.dimkaldir;
 
 import java.util.Random;
 
+import ga.scmc.handlers.BlockHandler;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -248,9 +249,9 @@ public class KaldirGenRavine extends MapGenBase
         net.minecraft.world.biome.Biome biome = world.getBiome(new BlockPos(x + chunkX * 16, 0, z + chunkZ * 16));
         IBlockState state = data.getBlockState(x, y, z);
         IBlockState top = isExceptionBiome(biome) ? Blocks.SAND.getDefaultState() : biome.topBlock;
-        IBlockState filler = isExceptionBiome(biome) ? Blocks.STONE.getDefaultState() : biome.fillerBlock;
+        IBlockState filler = isExceptionBiome(biome) ? BlockHandler.FROZEN_STONE_KALDIR.getDefaultState() : biome.fillerBlock;
 
-        if (state.getBlock() == Blocks.STONE || state.getBlock() == top.getBlock() || state.getBlock() == filler.getBlock())
+        if (state.getBlock() == BlockHandler.FROZEN_STONE_KALDIR || state.getBlock() == top.getBlock() || state.getBlock() == filler.getBlock())
         {
             if (y - 1 < 10)
             {
