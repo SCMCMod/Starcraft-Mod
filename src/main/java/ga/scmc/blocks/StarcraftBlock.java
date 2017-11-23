@@ -21,6 +21,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class StarcraftBlock extends Block {
 
 	private Item droppedItem;
+	private ItemBlock item;
 
 	public StarcraftBlock(Material material) {
 		super(material);
@@ -39,9 +40,17 @@ public class StarcraftBlock extends Block {
 
 	public void registerPre(RegistryType type) {
 		if (type == RegistryType.FULL) {
-			this.registerFullBlock();
+			if (item == null) {
+				this.registerFullBlock();
+			} else {
+				this.registerBlockWithItemBlock(item);
+			}
 		} else if (type == RegistryType.NORMAL) {
-			this.registerBlock();
+			if (item == null) {
+				this.registerFullBlock();
+			} else {
+				this.registerBlockWithItemBlock(item);
+			}
 			this.registerBlockModel();
 		}
 	}
@@ -133,6 +142,11 @@ public class StarcraftBlock extends Block {
 
 	public StarcraftBlock setItemDropped(Item droppedItem) {
 		this.droppedItem = droppedItem;
+		return this;
+	}
+
+	public StarcraftBlock setItemBlock(ItemBlock item) {
+		this.item = item;
 		return this;
 	}
 }

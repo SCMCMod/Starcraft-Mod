@@ -51,7 +51,7 @@ public class BlockStarcraftSkull extends BlockContainer {
 		setUnlocalizedName("skull");
 		setRegistryName("skull");
 		setHardness(1.0F);
-		setResistance(5.0F);
+		setResistance(1.6f);
 		setSoundType(SoundType.STONE);
 		setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(NODROP, Boolean.valueOf(false)));
 		setCreativeTab(StarcraftCreativeTabs.MISC);

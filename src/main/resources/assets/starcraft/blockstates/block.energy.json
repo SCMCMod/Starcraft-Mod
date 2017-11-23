@@ -1,16 +1,7 @@
 {
-    "forge_marker": 1,
-    "defaults": {
-        "textures": {
-            "all": "starcraft:blocks/block.energy"
-        }
-    },
     "variants": {
-        "normal": [{
-            "model": "cube_all"
-        }],
-        "inventory": [{
-            "model": "cube_all"
-        }]
+        "type=pure": { "model": "starcraft:block.energy.pure" },
+        "type=corrupted": { "model": "starcraft:block.energy.corrupted" },
+        "type=void": { "model": "starcraft:block.energy.void" }
     }
 }

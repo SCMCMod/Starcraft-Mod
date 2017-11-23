@@ -1,6 +1,7 @@
 package ga.scmc.recipes;
 
 import ga.scmc.enums.EnumMetaItem;
+import ga.scmc.enums.EnumMetaItem.EnergyType;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.WeaponHandler;
@@ -56,10 +57,12 @@ public class ShapelessRecipes {
 		// Corrupted Energy, made from combining Pure Energy and Void Energy
 		GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.CORRUPTED.getID()), new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.PURE.getID()), new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.VOID.getID()));
 
-		// 9 Pure Energy
-		GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.ENERGY, 9, EnumMetaItem.EnergyType.PURE.getID()), BlockHandler.ENERGY_BLOCK);
+		// GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.ENERGY, 9, EnumMetaItem.EnergyType.PURE.getID()), new ItemStack(BlockHandler.ENERGY_BLOCK, 1, EnumMetaItem.EnergyType.PURE.getID()));
+		// GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.ENERGY, 9, EnumMetaItem.EnergyType.CORRUPTED.getID()), new ItemStack(BlockHandler.ENERGY_BLOCK, 1, EnumMetaItem.EnergyType.CORRUPTED.getID()));
+		// GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.ENERGY, 9, EnumMetaItem.EnergyType.VOID.getID()), new ItemStack(BlockHandler.ENERGY_BLOCK, 1, EnumMetaItem.EnergyType.VOID.getID()));
 
-		// 9 Void Energy
-		GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.ENERGY, 9, EnumMetaItem.EnergyType.VOID.getID()), BlockHandler.VOID_ENERGY);
+		for (int i = 0; i < EnergyType.values().length; i++) {
+			GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.ENERGY, 9, EnumMetaItem.EnergyType.values()[i].getID()), new ItemStack(BlockHandler.ENERGY_BLOCK, 1, EnumMetaItem.EnergyType.values()[i].getID()));
+		}
 	}
 }

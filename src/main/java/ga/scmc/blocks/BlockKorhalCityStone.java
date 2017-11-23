@@ -18,8 +18,8 @@ public class BlockKorhalCityStone extends Block {
 		setUnlocalizedName("korhal.stone.city");
 		setRegistryName("korhal.stone.city");
 		setSoundType(SoundType.STONE);
-		setHardness(2.0F);
-		setResistance(30.0F);
+		setHardness(1.5f);
+		setResistance(10.0f);
 		setHarvestLevel("pickaxe", 0);
 		setCreativeTab(StarcraftCreativeTabs.MISC);
 	}

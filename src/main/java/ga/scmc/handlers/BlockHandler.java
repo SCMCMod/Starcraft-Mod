@@ -6,7 +6,6 @@ import ga.scmc.blocks.BlockBloodFluid;
 import ga.scmc.blocks.BlockCharMagma;
 import ga.scmc.blocks.BlockCharOre;
 import ga.scmc.blocks.BlockDimPortal;
-import ga.scmc.blocks.BlockEnergy;
 import ga.scmc.blocks.BlockFurnaceChar;
 import ga.scmc.blocks.BlockFurnaceShakuras;
 import ga.scmc.blocks.BlockFurnaceSlayn;
@@ -27,7 +26,6 @@ import ga.scmc.blocks.BlockTerrazineGas;
 import ga.scmc.blocks.BlockTest;
 import ga.scmc.blocks.BlockVespeneFluid;
 import ga.scmc.blocks.BlockVespeneGas;
-import ga.scmc.blocks.BlockVoidEnergy;
 import ga.scmc.blocks.BlockZergCreep;
 import ga.scmc.blocks.BlockZergKeratin;
 import ga.scmc.blocks.OreCharRedstone;
@@ -37,7 +35,9 @@ import ga.scmc.blocks.StarcraftBlock;
 import ga.scmc.blocks.StarcraftBlockFalling;
 import ga.scmc.blocks.StarcraftProtossCoreBlock;
 import ga.scmc.blocks.itemblocks.ItemBlockAsh;
+import ga.scmc.blocks.itemblocks.ItemBlockMeta;
 import ga.scmc.blocks.itemblocks.ItemBlockStarcraftSkull;
+import ga.scmc.blocks.metablocks.BlockEnergy;
 import ga.scmc.blocks.skulls.BlockStarcraftSkull;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import net.minecraft.block.Block;
@@ -150,7 +150,6 @@ public class BlockHandler {
 	public static Block LIT_FURNACE_CHAR;
 	public static Block FURNACE_SLAYN;
 	public static Block LIT_FURNACE_SLAYN;
-	public static Block VOID_ENERGY;
 	public static Block ZERG_CREEP;
 	public static Block STARCRAFT_SKULL;
 
@@ -235,12 +234,11 @@ public class BlockHandler {
 		SAND_SHAKURAS = new StarcraftBlockFalling("shakuras.sand", RegistryType.FULL, Material.SAND, MapColor.LIGHT_BLUE, 6724056).setBlockSoundType(SoundType.SAND).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0.5f).setResistance(0.83f);
 
 		/** slayn blocks */
-		SAND_SLAYN = new StarcraftBlock("slayn.sand", RegistryType.FULL, Material.SAND, MapColor.BLACK).setBlockSoundType(SoundType.SAND).setBlockSoundType(SoundType.SAND).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0.5f).setResistance(0.83f);
-		;
-		DIRT_SLAYN = new StarcraftBlock("slayn.dirt", RegistryType.FULL, Material.GROUND, MapColor.BLACK).setBlockSoundType(SoundType.GROUND).setBlockSoundType(SoundType.GROUND).setHardness(0.5f).setResistance(0.83f).setCreativeTab(StarcraftCreativeTabs.MISC);
-		COBBLESTONE_SLAYN = new StarcraftBlock("slayn.cobblestone", RegistryType.FULL, Material.ROCK, MapColor.BLACK).setBlockHarvestLevel("pickaxe", 0).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(2).setResistance(10);
-		STONE_SLAYN = new StarcraftBlock("slayn.stone", RegistryType.FULL, Material.ROCK, MapColor.BLACK).setItemDropped(Item.getItemFromBlock(COBBLESTONE_SLAYN)).setHardness(1.5f).setResistance(10).setCreativeTab(StarcraftCreativeTabs.MISC);
-		GRAVEL_SLAYN = new StarcraftBlockFalling("slayn.gravel", RegistryType.FULL, Material.GROUND, MapColor.BLACK, 0x000000).setBlockSoundType(SoundType.SAND).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0.5f).setResistance(0.83f);
+		// SAND_SLAYN = new StarcraftBlockFalling("slayn.sand", RegistryType.FULL, Material.SAND, MapColor.BLACK, 0x000000).setBlockSoundType(SoundType.SAND).setBlockSoundType(SoundType.SAND).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0.5f).setResistance(0.83f);
+		// DIRT_SLAYN = new StarcraftBlock("slayn.dirt", RegistryType.FULL, Material.GROUND, MapColor.BLACK).setBlockSoundType(SoundType.GROUND).setBlockSoundType(SoundType.GROUND).setHardness(0.5f).setResistance(0.83f).setCreativeTab(StarcraftCreativeTabs.MISC);
+		// COBBLESTONE_SLAYN = new StarcraftBlock("slayn.cobblestone", RegistryType.FULL, Material.ROCK, MapColor.BLACK).setBlockHarvestLevel("pickaxe", 0).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(2).setResistance(10);
+		// STONE_SLAYN = new StarcraftBlock("slayn.stone", RegistryType.FULL, Material.ROCK, MapColor.BLACK).setItemDropped(Item.getItemFromBlock(COBBLESTONE_SLAYN)).setHardness(1.5f).setResistance(10).setCreativeTab(StarcraftCreativeTabs.MISC);
+		// GRAVEL_SLAYN = new StarcraftBlockFalling("slayn.gravel", RegistryType.FULL, Material.GROUND, MapColor.BLACK, 0x000000).setBlockSoundType(SoundType.GROUND).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0.5f).setResistance(0.83f);
 
 		/** furnaces blocks **/
 		FURNACE_SHAKURAS = new BlockFurnaceShakuras(false);
@@ -284,7 +282,6 @@ public class BlockHandler {
 		CITY_STONE_KORHAL = new BlockKorhalCityStone();
 		TEST = new BlockTest();
 		ENERGY_BLOCK = new BlockEnergy();
-		VOID_ENERGY = new BlockVoidEnergy();
 		LIGHT_SOURCE = new BlockMovingLightSource();
 		PROTOSS_WARPGATE_WORMHOLE = new BlockProtossWormhole();
 	}
@@ -297,17 +294,11 @@ public class BlockHandler {
 		registerCompleteBlock(ORE_REDSTONE_SHAKURAS);
 		registerCompleteBlock(ORE_REDSTONE_LIT_SHAKURAS);
 
-		// registerCompleteBlock(DIM_PORTAL_OVERWORLD);
-		// registerCompleteBlock(DIM_PORTAL_KORHAL);
-		// registerCompleteBlock(DIM_PORTAL_KALDIR);
-		// registerCompleteBlock(DIM_PORTAL_SLAYN);
-		// registerCompleteBlock(DIM_PORTAL_CHAR);
-		// registerCompleteBlock(DIM_PORTAL_SHAKURAS);
-
 		registerCompleteBlock(MAGMA_CHAR);
 		registerBlock(ASH_CHAR, new ItemBlockAsh(ASH_CHAR));
 
 		registerCompleteBlock(CITY_STONE_KORHAL);
+		registerCompleteBlock(ENERGY_BLOCK,new ItemBlockMeta(ENERGY_BLOCK));
 
 		registerBlock(PROTOSS_ENERGY_CHANNEL);
 		registerBlock(PROTOSS_ENERGY_STABILIZER);
@@ -331,9 +322,6 @@ public class BlockHandler {
 		registerCompleteBlock(KERATIN_CHUNK);
 
 		registerBlock(PROTOSS_WARPGATE_WORMHOLE);
-
-		registerCompleteBlock(ENERGY_BLOCK);
-		registerCompleteBlock(VOID_ENERGY);
 
 		registerCompleteBlock(FLUID_ACID);
 		registerCompleteBlock(FLUID_BLOOD);

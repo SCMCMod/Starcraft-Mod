@@ -16,9 +16,9 @@ public class StarcraftDamageSources extends DamageSource {
 	/** @author Ocelot5836 */
 	public static DamageSource acid = (new DamageSource("acid")).setDamageBypassesArmor().setFireDamage();
 	/** @author Ocelot5836 */
-	public static DamageSource poisonFluid = (new DamageSource("fluid")).setFireDamage();
+	public static DamageSource poisonFluid = (new DamageSource("fluid")).setMagicDamage();
 	/** @author Ocelot5836 */
-	public static DamageSource poison_gas = (new DamageSource("gas"));
+	public static DamageSource poison_gas = (new DamageSource("gas")).setMagicDamage();
 
 	public StarcraftDamageSources(String damageTypeIn) {
 		super(damageTypeIn);

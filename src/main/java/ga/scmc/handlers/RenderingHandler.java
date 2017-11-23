@@ -50,6 +50,7 @@ import static ga.scmc.handlers.ArmorHandler.ZERG_T3_HELMET;
 import static ga.scmc.handlers.ArmorHandler.ZERG_T3_LEGGINGS;
 import static ga.scmc.handlers.BlockHandler.ASH_CHAR;
 import static ga.scmc.handlers.BlockHandler.CORE_BARRACKS;
+import static ga.scmc.handlers.BlockHandler.ENERGY_BLOCK;
 import static ga.scmc.handlers.BlockHandler.FLUID_ACID;
 import static ga.scmc.handlers.BlockHandler.FLUID_BLOOD;
 import static ga.scmc.handlers.BlockHandler.FLUID_TERRAZINE;
@@ -249,6 +250,7 @@ import ga.scmc.entity.living.EntityZerglingRaptor;
 import ga.scmc.entity.living.EntityZerglingSwarmling;
 import ga.scmc.enums.EnumMetaBlock;
 import ga.scmc.enums.EnumMetaItem;
+import ga.scmc.enums.EnumMetaItem.EnergyType;
 import ga.scmc.lib.Library;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
 import ga.scmc.tileentity.TileEntityTest;
@@ -289,7 +291,7 @@ public class RenderingHandler {
 
 	private static void registerItemModelVariants() {
 		ModelBakery.registerItemVariants(ItemHandler.MINERAL_SHARD, new ResourceLocation(Library.MODID, "mineral.blue"), new ResourceLocation(Library.MODID, "mineral.rich"));
-		ModelBakery.registerItemVariants(ItemHandler.VESPENE, new ResourceLocation(Library.MODID, "vespene.raw"), new ResourceLocation(Library.MODID, "protoss.vespene"), new ResourceLocation(Library.MODID, "terran.vespene"), new ResourceLocation(Library.MODID, "zerg.vespene"));
+		ModelBakery.registerItemVariants(ItemHandler.VESPENE, new ResourceLocation(Library.MODID, "vespene.raw"), new ResourceLocation(Library.MODID, "vespene.protoss"), new ResourceLocation(Library.MODID, "vespene.terran"), new ResourceLocation(Library.MODID, "vespene.zerg"));
 		ModelBakery.registerItemVariants(ItemHandler.TERRAZINE, new ResourceLocation(Library.MODID, "terrazine.raw"), new ResourceLocation(Library.MODID, "protoss.terrazine"), new ResourceLocation(Library.MODID, "terran.terrazine"), new ResourceLocation(Library.MODID, "zerg.terrazine"));
 		ModelBakery.registerItemVariants(ItemHandler.ENERGY, new ResourceLocation(Library.MODID, "energy.pure"), new ResourceLocation(Library.MODID, "energy.corrupted"), new ResourceLocation(Library.MODID, "energy.void"));
 		ModelBakery.registerItemVariants(ItemHandler.DUST, new ResourceLocation(Library.MODID, "dust.iron"), new ResourceLocation(Library.MODID, "dust.steel"), new ResourceLocation(Library.MODID, "dust.carbon"));
@@ -618,6 +620,9 @@ public class RenderingHandler {
 		for (int i = 0; i < EnumMetaBlock.CompressedMineralType.values().length; i++) {
 			registerBlockModel(COMP_MINERAL, i, "mineral.compressed." + EnumMetaBlock.CompressedMineralType.values()[i].getName());
 		}
+		for (int i = 0; i < EnergyType.values().length; i++) {
+			registerBlockModel(ENERGY_BLOCK, i, "block.energy." + EnergyType.values()[i].getName());
+		}
 		for (int i = 0; i < EnumMetaBlock.GasCollectorType.values().length; i++) {
 			registerBlockModel(GAS_COLLECTOR, i, "gas.collector." + EnumMetaBlock.GasCollectorType.values()[i].getName());
 		}
@@ -684,6 +689,7 @@ public class RenderingHandler {
 			@Override
 			protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
 				char num = state.toString().charAt(state.toString().length() - 2);
+				System.out.println(num);
 				return new ModelResourceLocation(block.getRegistryName(), "layers=" + num);
 			}
 		});

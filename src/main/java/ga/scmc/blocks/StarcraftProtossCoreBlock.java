@@ -19,7 +19,10 @@ public class StarcraftProtossCoreBlock extends StarcraftBlock {
 	
 	public StarcraftProtossCoreBlock(String name, RegistryType type, Material material, MapColor color) {
 		super(name, type, material, color);
-		this.setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		setHardness(15.0F);
+		setResistance(15.0F);
+		setHarvestLevel("pickaxe", 3);
+		setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 	}
 	
 	public Block setDomeHeight(int height) {

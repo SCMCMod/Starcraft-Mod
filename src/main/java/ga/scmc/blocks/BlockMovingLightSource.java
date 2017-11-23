@@ -27,6 +27,7 @@ public class BlockMovingLightSource extends Block implements ITileEntityProvider
         setUnlocalizedName("block.light");
         setRegistryName("block.light");
         setDefaultState(blockState.getBaseState());
+        setBlockUnbreakable();
         setTickRandomly(false);
         setLightLevel(5.0F);
     }

@@ -2,6 +2,7 @@ package ga.scmc.recipes;
 
 import ga.scmc.enums.EnumMetaBlock;
 import ga.scmc.enums.EnumMetaItem;
+import ga.scmc.enums.EnumMetaItem.EnergyType;
 import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ItemHandler;
@@ -40,11 +41,13 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.PROTOSS_METAL_T2, 1, EnumMetaBlock.ProtossMetalType.DARK.getID()), "DDD", "DZD", "DDD", 'D', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()), 'Z', new ItemStack(MetaBlockHandler.PROTOSS_METAL_T1, 1, EnumMetaBlock.ProtossMetalType.DARK.getID()));
 		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.PROTOSS_METAL_T3, 1, EnumMetaBlock.ProtossMetalType.DARK.getID()), "DDD", "DZD", "DDD", 'D', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()), 'Z', new ItemStack(MetaBlockHandler.PROTOSS_METAL_T2, 1, EnumMetaBlock.ProtossMetalType.DARK.getID()));
 
-		// Block of Pure Energy
-		GameRegistry.addRecipe(new ItemStack(BlockHandler.ENERGY_BLOCK), "EEE", "EEE", "EEE", 'E', new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.PURE.getID()));
+		// GameRegistry.addRecipe(new ItemStack(BlockHandler.ENERGY_BLOCK, 1, EnumMetaItem.EnergyType.PURE.getID()), "EEE", "EEE", "EEE", 'E', new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.PURE.getID()));
+		// GameRegistry.addRecipe(new ItemStack(BlockHandler.ENERGY_BLOCK, 1, EnumMetaItem.EnergyType.CORRUPTED.getID()), "VVV", "VVV", "VVV", 'V', new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.CORRUPTED.getID()));
+		// GameRegistry.addRecipe(new ItemStack(BlockHandler.ENERGY_BLOCK, 1, EnumMetaItem.EnergyType.VOID.getID()), "VVV", "VVV", "VVV", 'V', new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.VOID.getID()));
 
-		// Block of Void Energy
-		GameRegistry.addRecipe(new ItemStack(BlockHandler.VOID_ENERGY), "VVV", "VVV", "VVV", 'V', new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.VOID.getID()));
+		for (int i = 0; i < EnergyType.values().length; i++) {
+			GameRegistry.addRecipe(new ItemStack(BlockHandler.ENERGY_BLOCK, 1, EnumMetaItem.EnergyType.values()[i].getID()), "EEE", "EEE", "EEE", 'E', new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.values()[i].getID()));
+		}
 
 		// Block of Titanium
 		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.TITANIUM.getID()), "TTT", "TTT", "TTT", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()));
