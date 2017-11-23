@@ -67,6 +67,14 @@ public class ItemHandler {
 	public static Item VESPENE;
 	public static Item TERRAZINE;
 
+	public static Item MARINE_ARMOR_FRAME;
+	public static Item MARINE_ARMOR_VISOR;
+	public static Item WIRE;
+	public static Item MARINE_ARMOR_PLATING;
+	public static Item AIR_CONDITIONER;
+	public static Item MARINE_ARMOR_BATTERY;
+	public static Item MARINE_ARMOR_COOLING_SYSTEM;
+
 	public static Item SPAWNER_PROTOSS_DARK_CYBERNETICSCORE;
 	public static Item SPAWNER_PROTOSS_VOID_CYBERNETICSCORE;
 	public static Item SPAWNER_PROTOSS_CYBERNETICSCORE;
