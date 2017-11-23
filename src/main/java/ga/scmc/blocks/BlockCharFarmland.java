@@ -32,7 +32,7 @@ public class BlockCharFarmland extends BlockFarmland {
 		setSoundType(SoundType.GROUND);
 		setHardness(0.6f);
 		setResistance(1);
-		setCreativeTab(StarcraftCreativeTabs.MISC);
+		setCreativeTab(null);
 	}
 
 	@Override
