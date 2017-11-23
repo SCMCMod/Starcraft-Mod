@@ -27,7 +27,8 @@ public class GuiLists {
 		tab0.add(new Product(new ItemStack(ItemHandler.C14_PARTS, 1, 0), 11, 6));
 		tab0.add(new Product(new ItemStack(ItemHandler.C14_PARTS, 1, 1), 11, 6));
 		tab0.add(new Product(new ItemStack(ItemHandler.C14_PARTS, 1, 2), 11, 6));
-		tab0.add(new Product(((ItemBulletMagazine)ItemHandler.BULLET_MAGAZINE).getDefaultStack(EnumMetaItem.BulletMagazineType.C14.getID()), 6, 0));
+		tab0.add(new Product(((ItemBulletMagazine) ItemHandler.BULLET_MAGAZINE).getDefaultStack(EnumMetaItem.BulletMagazineType.C14.getID()), 6, 0));
+		tab0.add(new Product(((ItemBulletMagazine) ItemHandler.BULLET_MAGAZINE).getDefaultStack(EnumMetaItem.BulletMagazineType.FLAMETHROWER.getID()), 12, 0));
 		tab0.add(new Product(new ItemStack(Items.GUNPOWDER, 1, 0), 3, 0));
 		tab0.add(new Product(new ItemStack(ItemHandler.INGOT, 1, 0), 1, 0));
 		tab0.add(new Product(new ItemStack(ItemHandler.INGOT, 1, 1), 2, 0));
@@ -44,9 +45,9 @@ public class GuiLists {
 
 		ImmutableList.Builder<Product> tab2 = ImmutableList.builder();
 		for (int i = 0; i < ParisteelMetalType.values().length; i++)
-			tab2.add(new Product(new ItemStack(MetaBlockHandler.PARISTEEL_METAL, 1, i), 5, 0));
+			tab2.add(new Product(new ItemStack(MetaBlockHandler.PARISTEEL_METAL, 16, i), 10, 0));
 		for (int i = 0; i < NeosteelMetalType.values().length; i++)
-			tab2.add(new Product(new ItemStack(MetaBlockHandler.NEOSTEEL_METAL, 1, i), 5, 0));
+			tab2.add(new Product(new ItemStack(MetaBlockHandler.NEOSTEEL_METAL, 16, i), 10, 0));
 		TRADES[2] = tab2.build();
 
 		ImmutableList.Builder<Product> tab3 = ImmutableList.builder();
@@ -91,14 +92,14 @@ public class GuiLists {
 		TRADES[5] = tab5.build();
 
 		ImmutableList.Builder<LarvaOption> larvaOptions = ImmutableList.builder();
-		larvaOptions.add(new LarvaOption(0).setTooltip("Drone", ","));
-		larvaOptions.add(new LarvaOption(1).setTooltip("Overlord", ","));
-		larvaOptions.add(new LarvaOption(2).setTooltip("Zergling", ","));
-		larvaOptions.add(new LarvaOption(3).setTooltip("Roach", ","));
-		larvaOptions.add(new LarvaOption(4).setTooltip("Hydralisk", ","));
-		larvaOptions.add(new LarvaOption(5).setTooltip("Investor", ","));
-		larvaOptions.add(new LarvaOption(6).setTooltip("Swarm Host", ","));
-		larvaOptions.add(new LarvaOption(7).setTooltip("Mutalisk", ","));
+		larvaOptions.add(new LarvaOption().setTooltip("Drone").setCost(50, 0));
+		larvaOptions.add(new LarvaOption().setTooltip("Overlord"));
+		larvaOptions.add(new LarvaOption().setTooltip("Zergling"));
+		larvaOptions.add(new LarvaOption().setTooltip("Roach"));
+		larvaOptions.add(new LarvaOption().setTooltip("Hydralisk"));
+		larvaOptions.add(new LarvaOption().setTooltip("Investor"));
+		larvaOptions.add(new LarvaOption().setTooltip("Swarm Host"));
+		larvaOptions.add(new LarvaOption().setTooltip("Mutalisk"));
 		LARVA_OPTIONS = larvaOptions.build();
 	}
 

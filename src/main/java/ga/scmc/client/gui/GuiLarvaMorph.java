@@ -1,19 +1,23 @@
 package ga.scmc.client.gui;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import ga.scmc.Starcraft;
 import ga.scmc.client.gui.element.LarvaOption;
 import ga.scmc.entity.living.EntityLarva;
+import ga.scmc.handlers.ItemHandler;
 import ga.scmc.network.NetworkHandler;
 import ga.scmc.network.message.MessageMorphLarva;
 import ga.scmc.network.message.MessageSyncLarvaGui;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import ocelot.api.utils.GuiUtils;
+import ocelot.api.utils.InventoryUtils;
 import ocelot.api.utils.SoundUtils;
 import ocelot.api.utils.TextureUtils;
 
@@ -80,7 +84,13 @@ public class GuiLarvaMorph extends BasicGui {
 			for (int j = 0; j < 5; j++) {
 				int index = 5 * i + j;
 				if (index < GuiLists.LARVA_OPTIONS.size()) {
-					List<String> tooltip = GuiLists.LARVA_OPTIONS.get(index).getTooltip();
+					List<String> tooltip = new ArrayList<String>();
+					for (int i2 = 0; i2 < GuiLists.LARVA_OPTIONS.get(index).getTooltip().size(); i2++) {
+						tooltip.add(GuiLists.LARVA_OPTIONS.get(index).getTooltip().get(i2));
+					}
+					tooltip.add("");
+					tooltip.add(TextFormatting.GRAY + "Mineral Cost: " + GuiLists.LARVA_OPTIONS.get(index).getMineralCost());
+					tooltip.add(TextFormatting.GRAY + "Vespene Cost: " + GuiLists.LARVA_OPTIONS.get(index).getVespeneCost());
 					drawTooltip(tooltip, guiLeft + 7 + j * 18, guiTop + 7 + i * 18, 17, 18, mouseX, mouseY);
 				}
 			}
@@ -98,7 +108,12 @@ public class GuiLarvaMorph extends BasicGui {
 					if (index < GuiLists.LARVA_OPTIONS.size()) {
 						if (GuiUtils.isMouseInside(guiLeft + 7 + x * 18, guiTop + 7 + y * 18, 17, 18, mouseX, mouseY)) {
 							SoundUtils.playButtonClick();
-							NetworkHandler.sendToServer(new MessageMorphLarva(larva, index));
+							EntityPlayer player = Minecraft.getMinecraft().player;
+							if (InventoryUtils.hasItemAndAmount(player, ItemHandler.MINERAL_SHARD, GuiLists.LARVA_OPTIONS.get(index).getMineralCost(), 0) && InventoryUtils.hasItemAndAmount(player, ItemHandler.VESPENE, GuiLists.LARVA_OPTIONS.get(index).getVespeneCost())) {
+								InventoryUtils.removeItemWithAmount(player, ItemHandler.MINERAL_SHARD, GuiLists.LARVA_OPTIONS.get(index).getMineralCost(), 0);
+								InventoryUtils.removeItemWithAmount(player, ItemHandler.VESPENE, GuiLists.LARVA_OPTIONS.get(index).getVespeneCost(), 0);
+								NetworkHandler.sendToServer(new MessageMorphLarva(larva, index));
+							}
 							return;
 						}
 					}
