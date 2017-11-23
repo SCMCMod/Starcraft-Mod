@@ -18,6 +18,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import ocelot.api.utils.InventoryUtils;
 
 public class ItemFlamethrower extends Item {
 
@@ -60,7 +61,7 @@ public class ItemFlamethrower extends Item {
 		}
 
 		if (Inventories.playerHas(getAmmo(), player)) {
-			ItemStack ammoStack = player.inventory.getStackInSlot(Inventories.getSlotForItemIn(getAmmo(), player.inventory));
+			ItemStack ammoStack = player.inventory.mainInventory[InventoryUtils.getItemSlot(player, getAmmo(), EnumMetaItem.BulletMagazineType.FLAMETHROWER.getID())];
 
 			if (ammoStack != null && ammoStack.getItem() != null && ammoStack.getMetadata() == EnumMetaItem.BulletMagazineType.FLAMETHROWER.getID() && ammoStack.hasTagCompound()) {
 				NBTTagCompound nbt = ammoStack.getTagCompound();

@@ -17,6 +17,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
+import ocelot.api.utils.InventoryUtils;
 
 /**
  * @author Ocelot5836
@@ -91,7 +92,7 @@ public class ItemBulletMagazine extends Item {
 
 		if (entity instanceof EntityPlayer) {
 			if (stack.hasTagCompound() && stack.getTagCompound().hasKey("BulletCount") && stack.getTagCompound().getInteger("BulletCount") <= 0) {
-				Inventories.consumeItem((EntityPlayer) entity, stack.getItem());
+				InventoryUtils.removeItemWithAmount((EntityPlayer) entity, stack.getItem(), 1, stack.getMetadata());
 			}
 		}
 	}

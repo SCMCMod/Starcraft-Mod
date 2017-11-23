@@ -15,6 +15,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
+import ocelot.api.utils.InventoryUtils;
 
 public class ItemC14GaussRifle extends Item {
 
@@ -47,7 +48,7 @@ public class ItemC14GaussRifle extends Item {
 		}
 
 		if (Inventories.playerHas(getAmmo(), player)) {
-			ItemStack ammoStack = player.inventory.getStackInSlot(Inventories.getSlotForItemIn(getAmmo(), player.inventory));
+			ItemStack ammoStack = player.inventory.mainInventory[InventoryUtils.getItemSlot(player, getAmmo(), EnumMetaItem.BulletMagazineType.C14.getID())];
 
 			if (ammoStack != null && ammoStack.getItem() != null && ammoStack.getMetadata() == EnumMetaItem.BulletMagazineType.C14.getID() && ammoStack.hasTagCompound()) {
 				NBTTagCompound nbt = ammoStack.getTagCompound();

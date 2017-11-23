@@ -81,7 +81,7 @@ public class Starcraft {
 		BiomeHandler.preInit();
 		DimensionHandler.preInit();
 		EntityHandler.preInit();
-
+		
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 			WavefrontModelHandler.preInit();
 			FuelHandler.preInit();

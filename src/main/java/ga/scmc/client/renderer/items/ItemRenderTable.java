@@ -43,8 +43,6 @@ public class ItemRenderTable extends ItemRenderer {
 		TextureUtils.bindTexture("textures/models/block/table.png");
 		renderModel(0, 0, 0, 0.0625 * 0.626);
 		GlStateManager.popMatrix();
-		System.out.println(Minecraft.getMinecraft().getTextureMapBlocks().getBasePath());
-		// TextureUtils.bindTexture(new ResourceLocation(Minecraft.getMinecraft().getTextureMapBlocks().getBasePath()));
 	}
 
 	@Override

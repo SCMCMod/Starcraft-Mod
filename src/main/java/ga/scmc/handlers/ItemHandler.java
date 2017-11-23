@@ -3,6 +3,7 @@ package ga.scmc.handlers;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.items.ItemC14GaussRifle;
 import ga.scmc.items.ItemFlamethrower;
+import ga.scmc.items.ItemMarineHelmetVisor;
 import ga.scmc.items.ItemNuclearMissile;
 import ga.scmc.items.ItemPhosphorus;
 import ga.scmc.items.ItemStimpack;
@@ -68,7 +69,7 @@ public class ItemHandler {
 	public static Item TERRAZINE;
 
 	public static Item MARINE_ARMOR_FRAME;
-	public static Item MARINE_ARMOR_VISOR;
+	public static Item MARINE_HELMET_VISOR;
 	public static Item WIRE;
 	public static Item MARINE_ARMOR_PLATING;
 	public static Item AIR_CONDITIONER;
@@ -122,6 +123,8 @@ public class ItemHandler {
 		NUCLEAR_MISSILE = new ItemNuclearMissile();
 		STIMPACK = new ItemStimpack();
 
+		MARINE_HELMET_VISOR = new ItemMarineHelmetVisor();
+
 		SPAWNER_PROTOSS_DARK_CYBERNETICSCORE = new ItemProtossDarkCyberneticsCoreSpawner();
 		SPAWNER_PROTOSS_VOID_CYBERNETICSCORE = new ItemProtossVoidCyberneticsCoreSpawner();
 		SPAWNER_PROTOSS_CYBERNETICSCORE = new ItemProtossCyberneticsCoreSpawner();
@@ -153,16 +156,10 @@ public class ItemHandler {
 	 */
 	public static void register() {
 
-		// Register acid fluid and add it to the universal bucket
+		// Register fluids and add them to the universal bucket
 		FluidRegistry.addBucketForFluid(FluidHandler.ACID);
-
-		// Register blood fluid and add it to the universal bucket
 		FluidRegistry.addBucketForFluid(FluidHandler.BLOOD);
-
-		// Register vespene fluid and add it to the universal bucket
 		FluidRegistry.addBucketForFluid(FluidHandler.VESPENE);
-
-		// Register terrazine fluid and add it to the universal bucket
 		FluidRegistry.addBucketForFluid(FluidHandler.TERRAZINE);
 
 		registerItem(MINERAL_SHARD);
@@ -188,8 +185,10 @@ public class ItemHandler {
 		registerItem(ORGANIC_TISSUE);
 		registerItem(BIOMASS);
 
-		registerItem(NUCLEAR_MISSILE);
+		// registerItem(NUCLEAR_MISSILE);
 		registerItem(STIMPACK);
+
+		registerItem(MARINE_HELMET_VISOR);
 
 		registerItem(SPAWNER_PROTOSS_DARK_CYBERNETICSCORE);
 		registerItem(SPAWNER_PROTOSS_VOID_CYBERNETICSCORE);

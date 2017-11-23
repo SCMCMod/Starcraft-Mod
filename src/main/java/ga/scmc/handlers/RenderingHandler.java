@@ -51,6 +51,8 @@ import static ga.scmc.handlers.ArmorHandler.ZERG_T3_LEGGINGS;
 import static ga.scmc.handlers.BlockHandler.ASH_CHAR;
 import static ga.scmc.handlers.BlockHandler.CORE_BARRACKS;
 import static ga.scmc.handlers.BlockHandler.ENERGY_BLOCK;
+import static ga.scmc.handlers.BlockHandler.FARMLAND_CHAR;
+import static ga.scmc.handlers.BlockHandler.FARMLAND_SHAKURAS;
 import static ga.scmc.handlers.BlockHandler.FLUID_ACID;
 import static ga.scmc.handlers.BlockHandler.FLUID_BLOOD;
 import static ga.scmc.handlers.BlockHandler.FLUID_TERRAZINE;
@@ -86,8 +88,8 @@ import static ga.scmc.handlers.ItemHandler.ICON_PROTOSS;
 import static ga.scmc.handlers.ItemHandler.ICON_TERRAN;
 import static ga.scmc.handlers.ItemHandler.ICON_ZERG;
 import static ga.scmc.handlers.ItemHandler.INGOT;
+import static ga.scmc.handlers.ItemHandler.MARINE_HELMET_VISOR;
 import static ga.scmc.handlers.ItemHandler.MINERAL_SHARD;
-import static ga.scmc.handlers.ItemHandler.NUCLEAR_MISSILE;
 import static ga.scmc.handlers.ItemHandler.ORGANIC_TISSUE;
 import static ga.scmc.handlers.ItemHandler.PHOSPHORUS;
 import static ga.scmc.handlers.ItemHandler.PLEDGE;
@@ -383,8 +385,10 @@ public class RenderingHandler {
 		registerItemRender(ORGANIC_TISSUE);
 		registerItemRender(BIOMASS);
 
-		registerItemRender(NUCLEAR_MISSILE);
+		// registerItemRender(NUCLEAR_MISSILE);
 		registerItemRender(STIMPACK);
+
+		registerItemRender(MARINE_HELMET_VISOR);
 
 		registerItemRender(PHOSPHORUS);
 
@@ -560,6 +564,9 @@ public class RenderingHandler {
 		registerBlockModel(FURNACE_SLAYN);
 		registerBlockModel(LIT_FURNACE_SLAYN);
 
+		registerBlockModel(FARMLAND_SHAKURAS);
+		registerBlockModel(FARMLAND_CHAR);
+
 		// Other
 		registerBlockModel(TEST);
 
@@ -689,7 +696,6 @@ public class RenderingHandler {
 			@Override
 			protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
 				char num = state.toString().charAt(state.toString().length() - 2);
-				System.out.println(num);
 				return new ModelResourceLocation(block.getRegistryName(), "layers=" + num);
 			}
 		});

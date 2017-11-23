@@ -187,14 +187,16 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T3_LEGGINGS), "CCC", "C C", "C C", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T3.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T3_BOOTS), "C C", "C C", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T3.getID()));
 
-		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T1_HELMET), "SSS", "SGS", 'S', new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.STEEL.getID()), 'G', new ItemStack(Blocks.STAINED_GLASS_PANE, 1, 1));
+		// Marine armor
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.MARINE_HELMET_VISOR), "GGG", "GGG", "GGG", 'G', new ItemStack(Blocks.STAINED_GLASS_PANE, 1, 1));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T1_HELMET), "SSS", "SGS", 'S', new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.STEEL.getID()), 'G', new ItemStack(ItemHandler.MARINE_HELMET_VISOR));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T1_CHESTPLATE), "S S", "SSS", "SSS", 'S', new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.STEEL.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T1_LEGGINGS), "SSS", "S S", "S S", 'S', new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.STEEL.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T1_BOOTS), "S S", "S S", 'S', new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.STEEL.getID()));
 
 		// Ammo for weapons
-		GameRegistry.addRecipe(((ItemBulletMagazine) ItemHandler.BULLET_MAGAZINE).getDefaultStack(EnumMetaItem.BulletMagazineType.C14.getID()), " S ", "SGS", " S ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'G', Items.GUNPOWDER);
-		GameRegistry.addRecipe(((ItemBulletMagazine) ItemHandler.BULLET_MAGAZINE).getDefaultStack(EnumMetaItem.BulletMagazineType.FLAMETHROWER.getID()), " S ", "SFS", "S", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'F', Items.FLINT);
+		GameRegistry.addRecipe(((ItemBulletMagazine) ItemHandler.BULLET_MAGAZINE).getDefaultStack(EnumMetaItem.BulletMagazineType.C14.getID()), " S ", "SIS", " S ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'I', Items.GUNPOWDER);
+		GameRegistry.addRecipe(((ItemBulletMagazine) ItemHandler.BULLET_MAGAZINE).getDefaultStack(EnumMetaItem.BulletMagazineType.FLAMETHROWER.getID()), " S ", "SIS", " S ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'I', Items.FLINT);
 
 		// Gauss Rifle
 		GameRegistry.addRecipe(new ItemStack(ItemHandler.C14_PARTS, 1, EnumMetaItem.C14PartType.BARREL.getID()), "SSS", "STT", "S  ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()));

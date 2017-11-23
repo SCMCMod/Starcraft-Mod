@@ -3,6 +3,7 @@ package ga.scmc.handlers;
 import ga.scmc.blocks.BlockAcidFluid;
 import ga.scmc.blocks.BlockAsh;
 import ga.scmc.blocks.BlockBloodFluid;
+import ga.scmc.blocks.BlockCharFarmland;
 import ga.scmc.blocks.BlockCharMagma;
 import ga.scmc.blocks.BlockCharOre;
 import ga.scmc.blocks.BlockDimPortal;
@@ -20,7 +21,9 @@ import ga.scmc.blocks.BlockProtossEnergyStabilizerDark;
 import ga.scmc.blocks.BlockProtossEnergyStabilizerVoid;
 import ga.scmc.blocks.BlockProtossShield;
 import ga.scmc.blocks.BlockProtossWormhole;
+import ga.scmc.blocks.BlockShakurasFarmland;
 import ga.scmc.blocks.BlockShakurasOre;
+import ga.scmc.blocks.BlockStarcraftDirt;
 import ga.scmc.blocks.BlockTerrazineFluid;
 import ga.scmc.blocks.BlockTerrazineGas;
 import ga.scmc.blocks.BlockTest;
@@ -45,6 +48,7 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.client.model.ModelLoader;
@@ -85,7 +89,9 @@ public class BlockHandler {
 	public static Block DIM_PORTAL_KALDIR;
 	public static Block DIM_PORTAL_KORHAL;
 	public static Block DIM_PORTAL_SLAYN;
+	public static Block FARMLAND_CHAR;
 	public static Block DIRT_CHAR;
+	public static Block FARMLAND_SHAKURAS;
 	public static Block DIRT_SHAKURAS;
 	public static Block ENERGY_BLOCK;
 	public static Block PROTOSS_WARPGATE_WORMHOLE;
@@ -206,7 +212,8 @@ public class BlockHandler {
 		ORE_TITANIUM_CHAR = new BlockCharOre("char.titanium", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 2).setCreativeTab(StarcraftCreativeTabs.MISC);
 		ORE_URANIUM_CHAR = new BlockCharOre("char.uranium", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 1).setCreativeTab(StarcraftCreativeTabs.MISC);
 		ORE_PHOSPHORUS_CHAR = new BlockCharOre("char.phosphorus", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 1).setCreativeTab(StarcraftCreativeTabs.MISC);
-		DIRT_CHAR = new StarcraftBlock("char.dirt", RegistryType.FULL, Material.GROUND, MapColor.BLACK).setBlockSoundType(SoundType.GROUND).setHardness(0.5f).setResistance(0.83f).setCreativeTab(StarcraftCreativeTabs.MISC);
+		FARMLAND_CHAR = new BlockCharFarmland();
+		DIRT_CHAR = new BlockStarcraftDirt("char.dirt", MapColor.BLACK, FARMLAND_CHAR.getDefaultState());
 		COBBLESTONE_CHAR = new StarcraftBlock("char.cobblestone", RegistryType.FULL, Material.ROCK, MapColor.BLACK).setBlockHarvestLevel("pickaxe", 0).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(2).setResistance(10);
 		STONE_CHAR = new StarcraftBlock("char.stone", RegistryType.FULL, Material.ROCK, MapColor.BLACK).setItemDropped(Item.getItemFromBlock(COBBLESTONE_CHAR)).setBlockHarvestLevel("pickaxe", 0).setHardness(1.5f).setResistance(10).setCreativeTab(StarcraftCreativeTabs.MISC);
 		GRAVEL_CHAR = new StarcraftBlockFalling("char.gravel", RegistryType.FULL, Material.GROUND, MapColor.BLACK, 0x000000).setBlockSoundType(SoundType.GROUND).setHardness(0.6f).setResistance(1).setCreativeTab(StarcraftCreativeTabs.MISC);
@@ -227,7 +234,8 @@ public class BlockHandler {
 		ORE_TITANIUM_SHAKURAS = new BlockShakurasOre("shakuras.titanium", RegistryType.FULL, Material.ROCK, MapColor.LIGHT_BLUE, 2).setCreativeTab(StarcraftCreativeTabs.MISC);
 		ORE_URANIUM_SHAKURAS = new BlockShakurasOre("shakuras.uranium", RegistryType.FULL, Material.ROCK, MapColor.LIGHT_BLUE, 1).setCreativeTab(StarcraftCreativeTabs.MISC);
 		ORE_PHOSPHORUS_SHAKURAS = new BlockShakurasOre("shakuras.phosphorus", RegistryType.FULL, Material.ROCK, MapColor.LIGHT_BLUE, 1).setCreativeTab(StarcraftCreativeTabs.MISC);
-		DIRT_SHAKURAS = new StarcraftBlock("shakuras.dirt", RegistryType.FULL, Material.GROUND, MapColor.BLUE).setBlockSoundType(SoundType.GROUND).setBlockSoundType(SoundType.GROUND).setHardness(0.5f).setResistance(0.83f).setCreativeTab(StarcraftCreativeTabs.MISC);
+		FARMLAND_SHAKURAS = new BlockShakurasFarmland();
+		DIRT_SHAKURAS = new BlockStarcraftDirt("shakuras.dirt", MapColor.LIGHT_BLUE, FARMLAND_SHAKURAS.getDefaultState());
 		COBBLESTONE_SHAKURAS = new StarcraftBlock("shakuras.cobblestone", RegistryType.FULL, Material.ROCK, MapColor.BLUE).setBlockHarvestLevel("pickaxe", 0).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(2).setResistance(10);
 		STONE_SHAKURAS = new StarcraftBlock("shakuras.stone", RegistryType.FULL, Material.ROCK, MapColor.LIGHT_BLUE).setItemDropped(Item.getItemFromBlock(COBBLESTONE_SHAKURAS)).setHardness(1.5f).setResistance(10).setCreativeTab(StarcraftCreativeTabs.MISC);
 		GRAVEL_SHAKURAS = new StarcraftBlockFalling("shakuras.gravel", RegistryType.FULL, Material.GROUND, MapColor.LIGHT_BLUE, 6724056).setBlockSoundType(SoundType.GROUND).setHardness(0.6f).setResistance(1).setCreativeTab(StarcraftCreativeTabs.MISC);
@@ -296,9 +304,11 @@ public class BlockHandler {
 
 		registerCompleteBlock(MAGMA_CHAR);
 		registerBlock(ASH_CHAR, new ItemBlockAsh(ASH_CHAR));
-
 		registerCompleteBlock(CITY_STONE_KORHAL);
-		registerCompleteBlock(ENERGY_BLOCK,new ItemBlockMeta(ENERGY_BLOCK));
+		registerCompleteBlock(ENERGY_BLOCK, new ItemBlockMeta(ENERGY_BLOCK));
+
+		registerCompleteBlock(FARMLAND_SHAKURAS);
+		registerCompleteBlock(FARMLAND_CHAR);
 
 		registerBlock(PROTOSS_ENERGY_CHANNEL);
 		registerBlock(PROTOSS_ENERGY_STABILIZER);

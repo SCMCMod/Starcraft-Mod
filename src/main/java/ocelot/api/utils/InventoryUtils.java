@@ -81,6 +81,26 @@ public class InventoryUtils {
 	 * @param player
 	 *            The player to check
 	 * @param item
+	 *            The item being searched for
+	 * @param meta
+	 *            The metadata to search for
+	 * @return The slot at which the item was found
+	 */
+	public static int getItemSlot(EntityPlayer player, Item item, int meta) {
+		for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
+			ItemStack stack = player.inventory.getStackInSlot(i);
+			if (stack != null && stack.getItem() == item && stack.getMetadata() == meta) {
+				return i;
+			}
+		}
+		return 0;
+	}
+
+	/**
+	 * 
+	 * @param player
+	 *            The player to check
+	 * @param item
 	 *            The item to search for
 	 * @param amount
 	 *            The amount to search for
