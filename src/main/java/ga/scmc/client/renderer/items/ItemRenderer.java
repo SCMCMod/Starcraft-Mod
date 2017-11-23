@@ -12,6 +12,7 @@ import com.google.common.collect.Lists;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
@@ -65,7 +66,7 @@ public abstract class ItemRenderer implements IPerspectiveAwareModel, IBakedMode
 	private final Pair<? extends IBakedModel, Matrix4f> selfPair;
 
 	protected ItemStack stack;
-	
+
 	public ItemRenderer(ModelBase model, ResourceLocation resource) {
 		this.overrides = new ItemRenderList();
 		this.selfPair = Pair.of(this, null);
@@ -144,6 +145,8 @@ public abstract class ItemRenderer implements IPerspectiveAwareModel, IBakedMode
 		}
 
 		renderPost(stack, entity, type);
+
+		GlStateManager.bindTexture(Minecraft.getMinecraft().getTextureMapBlocks().getGlTextureId());
 
 		return selfPair;
 	}
