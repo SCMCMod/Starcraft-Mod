@@ -26,7 +26,7 @@ public class BlockAsh extends ModBlockLayered {
 		setSoundType(SoundType.SAND);
 		setHardness(0.2F);
 		setResistance(0.16f);
-		setHarvestLevel("shovel", 0);
+		setHarvestLevel("shovel", -1);
 		setCreativeTab(StarcraftCreativeTabs.MISC);
 	}
 

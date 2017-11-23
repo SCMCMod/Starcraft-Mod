@@ -4,7 +4,6 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.handlers.BlockHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFarmland;
@@ -15,6 +14,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
@@ -24,6 +24,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+/**
+ * @author Ocelot5836
+ */
 public class BlockCharFarmland extends BlockFarmland {
 
 	public BlockCharFarmland() {
@@ -85,7 +88,19 @@ public class BlockCharFarmland extends BlockFarmland {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
-		return true;
+		switch (side) {
+		case UP:
+			return true;
+		case NORTH:
+		case SOUTH:
+		case WEST:
+		case EAST:
+			IBlockState iblockstate = blockAccess.getBlockState(pos.offset(side));
+			Block block = iblockstate.getBlock();
+			return !iblockstate.isOpaqueCube() && !(block instanceof BlockFarmland) && block != Blocks.GRASS_PATH;
+		default:
+			return super.shouldSideBeRendered(blockState, blockAccess, pos, side);
+		}
 	}
 
 	/**

@@ -24,6 +24,7 @@ import ga.scmc.blocks.BlockProtossWormhole;
 import ga.scmc.blocks.BlockShakurasFarmland;
 import ga.scmc.blocks.BlockShakurasOre;
 import ga.scmc.blocks.BlockStarcraftDirt;
+import ga.scmc.blocks.BlockStarcraftGravel;
 import ga.scmc.blocks.BlockTerrazineFluid;
 import ga.scmc.blocks.BlockTerrazineGas;
 import ga.scmc.blocks.BlockTest;
@@ -48,7 +49,6 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.client.model.ModelLoader;
@@ -216,7 +216,7 @@ public class BlockHandler {
 		DIRT_CHAR = new BlockStarcraftDirt("char.dirt", MapColor.BLACK, FARMLAND_CHAR.getDefaultState());
 		COBBLESTONE_CHAR = new StarcraftBlock("char.cobblestone", RegistryType.FULL, Material.ROCK, MapColor.BLACK).setBlockHarvestLevel("pickaxe", 0).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(2).setResistance(10);
 		STONE_CHAR = new StarcraftBlock("char.stone", RegistryType.FULL, Material.ROCK, MapColor.BLACK).setItemDropped(Item.getItemFromBlock(COBBLESTONE_CHAR)).setBlockHarvestLevel("pickaxe", 0).setHardness(1.5f).setResistance(10).setCreativeTab(StarcraftCreativeTabs.MISC);
-		GRAVEL_CHAR = new StarcraftBlockFalling("char.gravel", RegistryType.FULL, Material.GROUND, MapColor.BLACK, 0x000000).setBlockSoundType(SoundType.GROUND).setHardness(0.6f).setResistance(1).setCreativeTab(StarcraftCreativeTabs.MISC);
+		GRAVEL_CHAR = new BlockStarcraftGravel("char.gravel", RegistryType.FULL, Material.GROUND, MapColor.BLACK, 0x000000).setBlockSoundType(SoundType.GROUND).setHardness(0.6f).setResistance(1).setCreativeTab(StarcraftCreativeTabs.MISC);
 		MAGMA_CHAR = new BlockCharMagma();
 		ASH_CHAR = new BlockAsh();
 
@@ -238,7 +238,7 @@ public class BlockHandler {
 		DIRT_SHAKURAS = new BlockStarcraftDirt("shakuras.dirt", MapColor.LIGHT_BLUE, FARMLAND_SHAKURAS.getDefaultState());
 		COBBLESTONE_SHAKURAS = new StarcraftBlock("shakuras.cobblestone", RegistryType.FULL, Material.ROCK, MapColor.BLUE).setBlockHarvestLevel("pickaxe", 0).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(2).setResistance(10);
 		STONE_SHAKURAS = new StarcraftBlock("shakuras.stone", RegistryType.FULL, Material.ROCK, MapColor.LIGHT_BLUE).setItemDropped(Item.getItemFromBlock(COBBLESTONE_SHAKURAS)).setHardness(1.5f).setResistance(10).setCreativeTab(StarcraftCreativeTabs.MISC);
-		GRAVEL_SHAKURAS = new StarcraftBlockFalling("shakuras.gravel", RegistryType.FULL, Material.GROUND, MapColor.LIGHT_BLUE, 6724056).setBlockSoundType(SoundType.GROUND).setHardness(0.6f).setResistance(1).setCreativeTab(StarcraftCreativeTabs.MISC);
+		GRAVEL_SHAKURAS = new BlockStarcraftGravel("shakuras.gravel", RegistryType.FULL, Material.GROUND, MapColor.LIGHT_BLUE, 6724056).setBlockSoundType(SoundType.GROUND).setHardness(0.6f).setResistance(1).setCreativeTab(StarcraftCreativeTabs.MISC);
 		SAND_SHAKURAS = new StarcraftBlockFalling("shakuras.sand", RegistryType.FULL, Material.SAND, MapColor.LIGHT_BLUE, 6724056).setBlockSoundType(SoundType.SAND).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0.5f).setResistance(0.83f);
 
 		/** slayn blocks */
@@ -246,7 +246,7 @@ public class BlockHandler {
 		// DIRT_SLAYN = new StarcraftBlock("slayn.dirt", RegistryType.FULL, Material.GROUND, MapColor.BLACK).setBlockSoundType(SoundType.GROUND).setBlockSoundType(SoundType.GROUND).setHardness(0.5f).setResistance(0.83f).setCreativeTab(StarcraftCreativeTabs.MISC);
 		// COBBLESTONE_SLAYN = new StarcraftBlock("slayn.cobblestone", RegistryType.FULL, Material.ROCK, MapColor.BLACK).setBlockHarvestLevel("pickaxe", 0).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(2).setResistance(10);
 		// STONE_SLAYN = new StarcraftBlock("slayn.stone", RegistryType.FULL, Material.ROCK, MapColor.BLACK).setItemDropped(Item.getItemFromBlock(COBBLESTONE_SLAYN)).setHardness(1.5f).setResistance(10).setCreativeTab(StarcraftCreativeTabs.MISC);
-		// GRAVEL_SLAYN = new StarcraftBlockFalling("slayn.gravel", RegistryType.FULL, Material.GROUND, MapColor.BLACK, 0x000000).setBlockSoundType(SoundType.GROUND).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0.5f).setResistance(0.83f);
+		// GRAVEL_SLAYN = new BlockStarcraftGravel("slayn.gravel", RegistryType.FULL, Material.GROUND, MapColor.BLACK, 0x000000).setBlockSoundType(SoundType.GROUND).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0.5f).setResistance(0.83f);
 
 		/** furnaces blocks **/
 		FURNACE_SHAKURAS = new BlockFurnaceShakuras(false);

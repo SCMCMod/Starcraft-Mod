@@ -18,6 +18,9 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 
+/**
+ * @author Ocelot5836
+ */
 public class BlockStarcraftDirt extends StarcraftBlock {
 
 	private IBlockState farmland;
@@ -27,6 +30,7 @@ public class BlockStarcraftDirt extends StarcraftBlock {
 		setSoundType(SoundType.GROUND);
 		setHardness(0.5f);
 		setResistance(0.83f);
+		setHarvestLevel("shovel", -1);
 		setCreativeTab(StarcraftCreativeTabs.MISC);
 		this.farmland = farmland;
 	}
