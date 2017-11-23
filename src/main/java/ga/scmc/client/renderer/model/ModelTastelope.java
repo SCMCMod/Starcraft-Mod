@@ -3,6 +3,7 @@ package ga.scmc.client.renderer.model;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.math.MathHelper;
 
 /**
  * artosilope - cybercat5555
@@ -729,4 +730,18 @@ public class ModelTastelope extends ModelBase {
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;
     }
+    
+    @Override
+	public void setRotationAngles(float par1, float par2, float par3, float par4, float par5, float par6, Entity par7Entity) {
+		super.setRotationAngles(par1, par2, par3, par4, par5, par6, par7Entity);
+		// super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks,
+		// netHeadYaw, headPitch, scaleFactor, entityIn);
+		head.rotateAngleX = par5 * 0.017453292F;
+		head.rotateAngleY = par4 * 0.017453292F;
+		lForeleg01.rotateAngleX = MathHelper.cos(par1 * 1.1F) * 0.667F * par2;
+		rForeleg01.rotateAngleX = MathHelper.sin(par1 * 1.1F) * 0.667F * par2;
+		lHindLeg01.rotateAngleX = MathHelper.cos(par1 * 1.1F) * 0.667F * par2 + 0.6F;
+		rHindLeg01.rotateAngleX = MathHelper.sin(par1 * 1.1F) * 0.667F * par2 + 0.6F;
+		lowerJaw.rotateAngleX = (MathHelper.sin(par1 * 0.01F) + 0.3F) * 0.667F * par2;
+	}
 }
