@@ -2,6 +2,7 @@ package ga.scmc.blocks;
 
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockCrops;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -16,6 +17,7 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 
 /**
@@ -61,6 +63,6 @@ public class BlockStarcraftDirt extends StarcraftBlock {
 
 	@Override
 	public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, IPlantable plantable) {
-		return true;
+		return plantable.getPlantType(world, pos) != EnumPlantType.Crop;
 	}
 }
