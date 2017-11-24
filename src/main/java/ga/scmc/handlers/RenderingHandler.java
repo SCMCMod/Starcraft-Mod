@@ -74,6 +74,7 @@ import static ga.scmc.handlers.BlockHandler.PROTOSS_VOID_ENERGY_CHANNEL;
 import static ga.scmc.handlers.BlockHandler.PROTOSS_VOID_ENERGY_STABILIZER;
 import static ga.scmc.handlers.BlockHandler.PROTOSS_WARPGATE_WORMHOLE;
 import static ga.scmc.handlers.BlockHandler.STARCRAFT_SKULL;
+import static ga.scmc.handlers.BlockHandler.TERRAN_WARNING_TAPE;
 import static ga.scmc.handlers.BlockHandler.TEST;
 import static ga.scmc.handlers.ItemHandler.BIOMASS;
 import static ga.scmc.handlers.ItemHandler.BULLET_MAGAZINE;
@@ -564,9 +565,6 @@ public class RenderingHandler {
 		registerBlockModel(FURNACE_SLAYN);
 		registerBlockModel(LIT_FURNACE_SLAYN);
 
-		registerBlockModel(FARMLAND_SHAKURAS);
-		registerBlockModel(FARMLAND_CHAR);
-
 		// Other
 		registerBlockModel(TEST);
 
@@ -594,7 +592,12 @@ public class RenderingHandler {
 		registerBlockModel(GAS_VESPENE);
 		registerBlockModel(GAS_TERRAZINE);
 
+		registerBlockModel(TERRAN_WARNING_TAPE);
+
 		registerBlockModel(LIGHT_SOURCE);
+
+		registerBlockModelNoMeta(FARMLAND_SHAKURAS);
+		registerBlockModelNoMeta(FARMLAND_CHAR);
 	}
 
 	/**
@@ -654,6 +657,12 @@ public class RenderingHandler {
 		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(new ResourceLocation(Library.MODID, fileName), "inventory"));
 	}
 
+	private static void registerBlockModelNoMeta(Block block) {
+		for(int i = 0; i < 16; i++) {
+			registerBlockModel(block, i, block.getRegistryName().getResourcePath());
+		}
+	}
+	
 	@SideOnly(Side.CLIENT)
 	private static void registerBlockModel(Block block) {
 		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(block.getRegistryName(), "inventory"));

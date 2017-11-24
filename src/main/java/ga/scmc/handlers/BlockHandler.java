@@ -104,6 +104,8 @@ public class BlockHandler {
 	public static Block GAS_VESPENE;
 	public static Block GAS_TERRAZINE;
 
+	public static Block TERRAN_WARNING_TAPE;
+
 	// TODO add the commented out blocks into the game.
 	public static Block GRAVEL_CHAR;
 	public static Block KERATIN_CHUNK;
@@ -286,6 +288,7 @@ public class BlockHandler {
 		GAS_TERRAZINE = new BlockTerrazineGas();
 
 		/** miscellaneous blocks **/
+		TERRAN_WARNING_TAPE = new StarcraftBlock("terran.warningtape", RegistryType.FULL, Material.IRON, MapColor.YELLOW);
 		STARCRAFT_SKULL = new BlockStarcraftSkull();
 		CITY_STONE_KORHAL = new BlockKorhalCityStone();
 		TEST = new BlockTest();

@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 
 import ga.scmc.handlers.BlockHandler;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockCrops;
 import net.minecraft.block.BlockFarmland;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -21,6 +22,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -101,6 +103,11 @@ public class BlockShakurasFarmland extends BlockFarmland {
 		default:
 			return super.shouldSideBeRendered(blockState, blockAccess, pos, side);
 		}
+	}
+	
+	@Override
+	public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, IPlantable plantable) {
+		return true;
 	}
 
 	/**
