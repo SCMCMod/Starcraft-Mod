@@ -59,10 +59,10 @@ public class EntityUrsadonMatriarch extends EntityMob implements IMob, Predicate
 	@Override
 	public boolean apply(EntityLivingBase entity) {
 		if (!entity.isInvisible()) {
-			if(entity instanceof EntityUrsadonMatriarch) {
-				return true;
-			}else {
+			if(entity instanceof EntityUrsadon) {
 				return false;
+			}else {
+				return true;
 			}
 		}
 		return false;

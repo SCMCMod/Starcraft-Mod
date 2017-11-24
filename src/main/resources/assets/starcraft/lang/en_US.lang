@@ -188,6 +188,7 @@ tile.char.stone.name=Stone
 tile.char.magma.name=Magma
 tile.char.gravel.name=Gravel
 tile.char.dirt.name=Dirt
+tile.char.ash.name=Ash
 
 tile.char.furnace.name=Furnace
 #############################################################################################
@@ -433,6 +434,7 @@ item.pledge.red.name=Team Red Pledge
 item.pledge.silver.name=Team Silver Pledge
 item.pledge.white.name=Team White Pledge
 item.pledge.yellow.name=Team Yellow Pledge
+item.pledge.black.name=Team Black Pledge
 #############################################################################################
 
 
@@ -484,6 +486,12 @@ entity.starcraft.scarab.name=Scarab
 
 entity.starcraft.civilian.name=Civilian
 entity.starcraft.predator.name=Predator
+entity.starcraft.marine.name=Marine
+
+entity.starcraft.kakaru.name=Kakaru
+entity.starcraft.tastelope.name=Tastelope
+entity.starcraft.ursadon.name=Ursadon
+entity.starcraft.ursadonMatriarch.name=Ursadon Matriarch
 #############################################################################################
 
 

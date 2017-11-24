@@ -97,12 +97,12 @@ public class EntityHandler {
 		EntityRegistry.registerEgg(EntityMarine.class, 7566195, 16639);
 		//EntityRegistry.registerEgg(EntityGhost.class, 7566195, 16639);
 		//EntityRegistry.registerEgg(EntityMarauder.class, 7566195, 16639);
-		EntityRegistry.registerEgg(EntitySCV.class, 7566195, 16639);
+		//EntityRegistry.registerEgg(EntitySCV.class, 7566195, 16639);
 
-		EntityRegistry.registerEgg(EntityTastelope.class, 6632556, 14183716);
+		EntityRegistry.registerEgg(EntityTastelope.class, 6847625, 13157029);
 		EntityRegistry.registerEgg(EntityKakaru.class, 6632556, 14183716);
-		EntityRegistry.registerEgg(EntityUrsadon.class, 6632556, 14183716);
-		EntityRegistry.registerEgg(EntityUrsadonMatriarch.class, 6632556, 14183716);
+		EntityRegistry.registerEgg(EntityUrsadon.class, 13686740, 8175830);
+		EntityRegistry.registerEgg(EntityUrsadonMatriarch.class, 13686740, 15296610);
 	}
 
 	private static void registerTileEntities() {
@@ -147,7 +147,7 @@ public class EntityHandler {
 
 		registerEntity(EntityCivilian.class, "civilian", 64, 1, true);
 		registerEntity(EntityPredator.class, "predator", 64, 1, true);
-		registerEntity(EntitySCV.class, "scv", 64, 1, true);
+		//registerEntity(EntitySCV.class, "scv", 64, 1, true);
 		registerEntity(EntityMarine.class, "marine", 64, 1, true);
 		//registerEntity(EntityGhost.class, "ghost", 64, 1, true);
 		//registerEntity(EntityMarauder.class, "marauder", 64, 1, true);

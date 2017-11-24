@@ -134,7 +134,7 @@ public class ArmorHandler {
 		ZERG_T1_LEGGINGS = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.LEGS).setUnlocalizedName("zerg.leggings.1").setRegistryName("zerg.leggings.1").setCreativeTab(StarcraftCreativeTabs.ZERG);
 		ZERG_T1_BOOTS = new ArmorZergArmorT1(ZERG_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.FEET).setUnlocalizedName("zerg.boots.1").setRegistryName("zerg.boots.1").setCreativeTab(StarcraftCreativeTabs.ZERG);
 
-		ZERG_T2_HELMET = new ArmorZergArmorT2(ZERG_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("zerg.helmetT2").setRegistryName("zerg.helmet.2").setCreativeTab(StarcraftCreativeTabs.ZERG);
+		ZERG_T2_HELMET = new ArmorZergArmorT2(ZERG_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("zerg.helmet.2").setRegistryName("zerg.helmet.2").setCreativeTab(StarcraftCreativeTabs.ZERG);
 		ZERG_T2_CHESTPLATE = new ArmorZergArmorT2(ZERG_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.CHEST).setUnlocalizedName("zerg.chestplate.2").setRegistryName("zerg.chestplate.2").setCreativeTab(StarcraftCreativeTabs.ZERG);
 		ZERG_T2_LEGGINGS = new ArmorZergArmorT2(ZERG_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.LEGS).setUnlocalizedName("zerg.leggings.2").setRegistryName("zerg.leggings.2").setCreativeTab(StarcraftCreativeTabs.ZERG);
 		ZERG_T2_BOOTS = new ArmorZergArmorT2(ZERG_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.FEET).setUnlocalizedName("zerg.boot.2").setRegistryName("zerg.boots.2").setCreativeTab(StarcraftCreativeTabs.ZERG);
