@@ -6,7 +6,6 @@ import javax.annotation.Nullable;
 
 import ga.scmc.handlers.BlockHandler;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockCrops;
 import net.minecraft.block.BlockFarmland;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;

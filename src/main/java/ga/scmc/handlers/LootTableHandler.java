@@ -2,7 +2,6 @@ package ga.scmc.handlers;
 
 import ga.scmc.lib.Library;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTable;
 import net.minecraft.world.storage.loot.LootTableList;
 

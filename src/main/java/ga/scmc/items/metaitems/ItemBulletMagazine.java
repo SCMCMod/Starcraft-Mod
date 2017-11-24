@@ -2,8 +2,6 @@ package ga.scmc.items.metaitems;
 
 import java.util.List;
 
-import com.arisux.mdx.lib.world.entity.player.inventory.Inventories;
-
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumMetaItem.BulletMagazineType;

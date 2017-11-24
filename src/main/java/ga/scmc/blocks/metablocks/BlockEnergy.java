@@ -3,7 +3,6 @@ package ga.scmc.blocks.metablocks;
 import java.util.List;
 import java.util.Random;
 
-import ga.scmc.blocks.RegistryType;
 import ga.scmc.blocks.itemblocks.IMetaBlockName;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.enums.EnumMetaBlock.CompressedMineralType;
