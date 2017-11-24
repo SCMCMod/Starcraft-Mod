@@ -41,7 +41,7 @@ public class GuiLarvaMorph extends BasicGui {
 
 	@Override
 	public void initGui() {
-		xSize = 104;
+		xSize = 300;
 		ySize = 68;
 		super.initGui();
 	}
@@ -50,7 +50,16 @@ public class GuiLarvaMorph extends BasicGui {
 	public void drawGuiBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
 		bindGuiTexture();
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
+		drawScaledCustomSizeModalRect(guiLeft + 5, guiTop + 5, 5, 5, 5, 5, xSize - 10, ySize - 10, 256, 256);
+		drawScaledCustomSizeModalRect(guiLeft, guiTop + 5, 0, 5, 5, 5, 5, ySize - 10, 256, 256);
+		drawScaledCustomSizeModalRect(guiLeft + xSize - 5, guiTop + 5, 10, 5, 5, 5, 5, ySize - 10, 256, 256);
+		drawScaledCustomSizeModalRect(guiLeft + 5, guiTop + ySize - 5, 5, 10, 5, 5, xSize - 10, 5, 256, 256);
+		drawScaledCustomSizeModalRect(guiLeft + 5, guiTop, 5, 0, 5, 5, xSize - 10, 5, 256, 256);
+
+		drawTexturedModalRect(guiLeft, guiTop, 0, 0, 5, 5);
+		drawTexturedModalRect(guiLeft + xSize - 5, guiTop, 10, 0, 5, 5);
+		drawTexturedModalRect(guiLeft, guiTop + ySize - 5, 0, 10, 5, 5);
+		drawTexturedModalRect(guiLeft + xSize - 5, guiTop + ySize - 5, 10, 10, 5, 5);
 	}
 
 	@Override
@@ -71,6 +80,8 @@ public class GuiLarvaMorph extends BasicGui {
 				int index = 5 * i + j;
 				if (index < GuiLists.LARVA_OPTIONS.size()) {
 					LarvaOption option = GuiLists.LARVA_OPTIONS.get(index);
+					bindGuiTexture();
+					drawTexturedModalRect(7 + j * 18, 7 + i * 18, 0, 15, 18, 18);
 					bindIconTexture();
 					drawTexturedModalRect(8 + j * 18, 8 + i * 18, (option.getIconId() % 16) * 16, (option.getIconId() / 16) * 16, 16, 16);
 				}
@@ -124,14 +135,9 @@ public class GuiLarvaMorph extends BasicGui {
 
 	@Override
 	public void updateScreen() {
-		if (larva.isDead) {
+		if (larva.getHealth() <= 0) {
 			Minecraft.getMinecraft().player.closeScreen();
 		}
-	}
-
-	@Override
-	public boolean doesGuiPauseGame() {
-		return false;
 	}
 
 	private void bindGuiTexture() {

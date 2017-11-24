@@ -18,7 +18,9 @@ public class LarvaOption {
 	private int mineralCost;
 	private int vespeneCost;
 
-	public LarvaOption() {
+	public LarvaOption(int mineralCost, int vespeneCost) {
+		this.mineralCost = mineralCost;
+		this.vespeneCost = vespeneCost;
 		this.iconId = nextIconId++;
 		this.tooltip = new ArrayList<String>();
 	}
@@ -55,12 +57,6 @@ public class LarvaOption {
 		for (int i = 0; i < tokens.length; i++)
 			this.tooltip.add(tokens[i]);
 
-		return this;
-	}
-
-	public LarvaOption setCost(int mineralCost, int vespeneCost) {
-		this.mineralCost = mineralCost;
-		this.vespeneCost = vespeneCost;
 		return this;
 	}
 }

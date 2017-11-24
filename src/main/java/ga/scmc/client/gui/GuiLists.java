@@ -92,14 +92,14 @@ public class GuiLists {
 		TRADES[5] = tab5.build();
 
 		ImmutableList.Builder<LarvaOption> larvaOptions = ImmutableList.builder();
-		larvaOptions.add(new LarvaOption().setTooltip("Drone").setCost(50, 0));
-		larvaOptions.add(new LarvaOption().setTooltip("Overlord"));
-		larvaOptions.add(new LarvaOption().setTooltip("Zergling"));
-		larvaOptions.add(new LarvaOption().setTooltip("Roach"));
-		larvaOptions.add(new LarvaOption().setTooltip("Hydralisk"));
-		larvaOptions.add(new LarvaOption().setTooltip("Investor"));
-		larvaOptions.add(new LarvaOption().setTooltip("Swarm Host"));
-		larvaOptions.add(new LarvaOption().setTooltip("Mutalisk"));
+		larvaOptions.add(new LarvaOption(50, 0).setTooltip("Drone"));
+		larvaOptions.add(new LarvaOption(100, 0).setTooltip("Overlord"));
+		larvaOptions.add(new LarvaOption(50, 0).setTooltip("Zergling"));
+		larvaOptions.add(new LarvaOption(75, 25).setTooltip("Roach"));
+		larvaOptions.add(new LarvaOption(100, 50).setTooltip("Hydralisk"));
+		larvaOptions.add(new LarvaOption(100, 150).setTooltip("Investor"));
+		larvaOptions.add(new LarvaOption(100, 75).setTooltip("Swarm Host"));
+		larvaOptions.add(new LarvaOption(300, 200).setTooltip("Mutalisk"));
 		LARVA_OPTIONS = larvaOptions.build();
 	}
 

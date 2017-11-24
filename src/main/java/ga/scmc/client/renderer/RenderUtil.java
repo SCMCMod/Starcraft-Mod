@@ -3,6 +3,9 @@ package ga.scmc.client.renderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainerCreative;
 import net.minecraft.client.gui.inventory.GuiInventory;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.util.ResourceLocation;
 
 /**
