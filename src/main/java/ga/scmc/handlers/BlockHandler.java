@@ -190,7 +190,7 @@ public class BlockHandler {
 		/** portals **/
 		DIM_PORTAL_OVERWORLD = new BlockDimPortal("overworld.portal", 0);
 		DIM_PORTAL_KORHAL = new BlockDimPortal("korhal.portal", ConfigurationHandler.INT_DIMENSION_KORHAL);
-		DIM_PORTAL_SLAYN = new BlockDimPortal("slayn.portal", 0);
+		//DIM_PORTAL_SLAYN = new BlockDimPortal("slayn.portal", 0);
 		DIM_PORTAL_KALDIR = new BlockDimPortal("kaldir.portal", ConfigurationHandler.INT_DIMENSION_KALDIR);
 		DIM_PORTAL_CHAR = new BlockDimPortal("char.portal", ConfigurationHandler.INT_DIMENSION_CHAR);
 		DIM_PORTAL_SHAKURAS = new BlockDimPortal("shakuras.portal", ConfigurationHandler.INT_DIMENSION_SHAKURAS);
