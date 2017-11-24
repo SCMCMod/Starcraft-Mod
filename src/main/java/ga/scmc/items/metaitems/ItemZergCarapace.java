@@ -14,8 +14,8 @@ public class ItemZergCarapace extends Item {
 	 * Default constructor just sets the unlocalized name and the registry name
 	 */
 	public ItemZergCarapace() {
-		setUnlocalizedName("zergICarapace");
-		setRegistryName("zerg_icarapace");
+		setUnlocalizedName("zerg.icarapace");
+		setRegistryName("zerg.icarapace");
 		setHasSubtypes(true); // This just says the item has metadata
 		setCreativeTab(StarcraftCreativeTabs.ZERG);
 	}

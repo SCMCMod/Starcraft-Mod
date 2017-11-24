@@ -15,8 +15,8 @@ import net.minecraft.world.World;
 public class ItemProtossDarkCyberneticsCoreSpawner extends Item {
 
 	public ItemProtossDarkCyberneticsCoreSpawner() {
-		setUnlocalizedName("spawnerProtossDarkCyberneticsCore");
-		setRegistryName("spawner_protoss_dark_cyberneticscore");
+		setUnlocalizedName("protoss.spawner.cyberneticscore.dark");
+		setRegistryName("protoss.spawner.cyberneticscore.dark");
 		setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 	}
 	

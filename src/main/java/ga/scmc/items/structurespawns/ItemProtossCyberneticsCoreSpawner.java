@@ -15,8 +15,8 @@ import net.minecraft.world.World;
 public class ItemProtossCyberneticsCoreSpawner extends Item {
 
 	public ItemProtossCyberneticsCoreSpawner() {
-		setUnlocalizedName("spawnerProtossCyberneticsCore");
-		setRegistryName("spawner_protoss_cyberneticscore");
+		setUnlocalizedName("protoss.spawner.cyberneticscore");
+		setRegistryName("protoss.spawner.cyberneticscore");
 		setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 	}
 	

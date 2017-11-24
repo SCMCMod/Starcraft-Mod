@@ -14,8 +14,8 @@ public class ItemC14GaussRifleParts extends Item {
 	 * Default constructor just sets the unlocalized name and the registry name
 	 */
 	public ItemC14GaussRifleParts() {
-		setUnlocalizedName("partC14");
-		setRegistryName("part_c14");
+		setUnlocalizedName("part.c14rifle");
+		setRegistryName("part.c14rifle");
 		setHasSubtypes(true); // This just says the item has metadata
 		setCreativeTab(StarcraftCreativeTabs.TERRAN);
 	}

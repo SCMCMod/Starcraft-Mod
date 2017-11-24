@@ -18,8 +18,8 @@ public class ItemZergHydraliskDenSpawner extends Item {
 	Random rand;
 	
 	public ItemZergHydraliskDenSpawner() {
-		setUnlocalizedName("spawnerZergHydraliskDen");
-		setRegistryName("spawner_zerg_hydraliskden");
+		setUnlocalizedName("zerg.spawner.hydraliskden");
+		setRegistryName("zerg.spawner.hydraliskden");
 		setCreativeTab(StarcraftCreativeTabs.ZERG);
 	}
 	

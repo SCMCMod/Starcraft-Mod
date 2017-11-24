@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
 	"textures": {
-		"layer0": "starcraft:items/spawner_zerg_spire"
+		"layer0": "starcraft:items/terran.spawner.bunker"
 	}
 }

@@ -17,8 +17,8 @@ public class WeaponMasterPsiBlade extends ItemSword {
 	
 	public WeaponMasterPsiBlade(ToolMaterial material) {
 		super(material);
-		setUnlocalizedName("protoss.blade.aiur.master");
-		setRegistryName("protoss.blade.aiur.master");
+		setUnlocalizedName("protoss.blade.master");
+		setRegistryName("protoss.blade.master");
 		setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 	}
 	

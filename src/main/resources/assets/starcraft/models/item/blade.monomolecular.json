@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "starcraft:items/military_knife"
+        "layer0": "starcraft:items/blade.monomolecular"
     }
 }

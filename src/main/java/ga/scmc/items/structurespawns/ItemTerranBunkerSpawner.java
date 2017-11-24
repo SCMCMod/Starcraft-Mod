@@ -14,8 +14,8 @@ import net.minecraft.world.World;
 public class ItemTerranBunkerSpawner extends Item {
 
 	public ItemTerranBunkerSpawner() {
-		setUnlocalizedName("spawnerTerranBunker");
-		setRegistryName("spawner_terran_bunker");
+		setUnlocalizedName("terran.spawner.bunker");
+		setRegistryName("terran.spawner.bunker");
 		setCreativeTab(StarcraftCreativeTabs.TERRAN);
 	}
 	

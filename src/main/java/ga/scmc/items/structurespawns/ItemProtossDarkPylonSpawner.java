@@ -15,8 +15,8 @@ import net.minecraft.world.World;
 public class ItemProtossDarkPylonSpawner extends Item {
 
 	public ItemProtossDarkPylonSpawner() {
-		setUnlocalizedName("spawnerProtossDarkPylon");
-		setRegistryName("spawner_protoss_dark_pylon");
+		setUnlocalizedName("protoss.spawner.pylon.dark");
+		setRegistryName("protoss.spawner.pylon.dark");
 		setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 	}
 	

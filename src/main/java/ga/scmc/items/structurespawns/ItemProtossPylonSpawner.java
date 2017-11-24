@@ -15,8 +15,8 @@ import net.minecraft.world.World;
 public class ItemProtossPylonSpawner extends Item {
 
 	public ItemProtossPylonSpawner() {
-		setUnlocalizedName("spawnerProtossPylon");
-		setRegistryName("spawner_protoss_pylon");
+		setUnlocalizedName("protoss.spawner.pylon");
+		setRegistryName("protoss.spawner.pylon");
 		setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 	}
 	

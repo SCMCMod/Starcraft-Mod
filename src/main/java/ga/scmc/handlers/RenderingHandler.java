@@ -451,7 +451,7 @@ public class RenderingHandler {
 			registerItemRender(BULLET_MAGAZINE, i, "magazine." + EnumMetaItem.BulletMagazineType.values()[i].getName());
 		}
 		for (int i = 0; i < EnumMetaItem.C14PartType.values().length; i++) {
-			registerItemRender(C14_PARTS, i, "part_c14_gauss_" + EnumMetaItem.C14PartType.values()[i].getName());
+			registerItemRender(C14_PARTS, i, "part.c14rifle." + EnumMetaItem.C14PartType.values()[i].getName());
 		}
 		for (int i = 0; i < EnumMetaItem.FlamethrowerPartType.values().length; i++) {
 			registerItemRender(C14_PARTS, i, "flamethrower.part." + EnumMetaItem.FlamethrowerPartType.values()[i].getName());
@@ -460,7 +460,7 @@ public class RenderingHandler {
 			registerItemRender(PSI_BLADE_FOCUSER_UNCHARGED, i, "protoss.focuser." + EnumMetaItem.FocuserType.values()[i].getName());
 		}
 		for (int i = 0; i < EnumMetaItem.CarapaceType.values().length; i++) {
-			registerItemRender(ZERG_CARAPACE, i, "zerg_icarapace_" + EnumMetaItem.CarapaceType.values()[i].getName());
+			registerItemRender(ZERG_CARAPACE, i, "zerg.icarapace." + EnumMetaItem.CarapaceType.values()[i].getName());
 		}
 	}
 

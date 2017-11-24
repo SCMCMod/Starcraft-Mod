@@ -8,40 +8,9 @@ import net.minecraft.util.IStringSerializable;
  * <br>
  * </br>
  * 
- * So... much... REDUNDANCY!
- * 
- * <br>
- * </br>
- * 
  * Holds the enums for the items in the mod.
  */
 public class EnumMetaItem {
-
-	public enum BulletType implements IStringSerializable {
-		C14("c14", 0);
-
-		private int ID;
-		private String name;
-
-		BulletType(String name, int ID) {
-			this.ID = ID;
-			this.name = name;
-		}
-
-		public int getID() {
-			return ID;
-		}
-
-		@Override
-		public String getName() {
-			return name;
-		}
-
-		@Override
-		public String toString() {
-			return getName();
-		}
-	}
 
 	public enum BulletMagazineType implements IStringSerializable {
 		C14("c14", 0, 32), FLAMETHROWER("flamethrower", 1, 50);
@@ -128,7 +97,7 @@ public class EnumMetaItem {
 	}
 
 	public static enum CarapaceType implements IStringSerializable {
-		T1("t1", 0), T2("t2", 1), T3("t3", 2);
+		T1("1", 0), T2("2", 1), T3("3", 2);
 
 		private int ID;
 		private String name;

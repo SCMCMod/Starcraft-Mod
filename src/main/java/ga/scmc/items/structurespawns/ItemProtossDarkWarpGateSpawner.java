@@ -17,8 +17,8 @@ import net.minecraft.world.World;
 public class ItemProtossDarkWarpGateSpawner extends Item {
 
 	public ItemProtossDarkWarpGateSpawner() {
-		setUnlocalizedName("spawnerProtossDarkWarpGate");
-		setRegistryName("spawner_protoss_dark_warpgate");
+		setUnlocalizedName("protoss.spawner.warpgate.dark");
+		setRegistryName("protoss.spawner.warpgate.dark");
 		setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 	}
 	

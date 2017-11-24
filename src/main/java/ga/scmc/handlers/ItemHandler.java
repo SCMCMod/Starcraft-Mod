@@ -141,9 +141,9 @@ public class ItemHandler {
 		SPAWNER_ZERG_SPIRE = new ItemZergSpireSpawner();
 		SPAWNER_ZERG_HYDRALISKDEN = new ItemZergHydraliskDenSpawner();
 
-		ICON_PROTOSS = new Item().setUnlocalizedName("iconProtoss").setRegistryName("icon_protoss").setCreativeTab(null);
-		ICON_TERRAN = new Item().setUnlocalizedName("iconTerran").setRegistryName("icon_terran").setCreativeTab(null);
-		ICON_ZERG = new Item().setUnlocalizedName("iconZerg").setRegistryName("icon_zerg").setCreativeTab(null);
+		ICON_PROTOSS = new Item().setUnlocalizedName("icon.protoss").setRegistryName("icon.protoss").setCreativeTab(null);
+		ICON_TERRAN = new Item().setUnlocalizedName("icon.terran").setRegistryName("icon.terran").setCreativeTab(null);
+		ICON_ZERG = new Item().setUnlocalizedName("icon.zerg").setRegistryName("icon.zerg").setCreativeTab(null);
 
 		ArmorHandler.init();
 		WeaponHandler.init();

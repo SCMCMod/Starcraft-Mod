@@ -17,8 +17,8 @@ import net.minecraft.world.World;
 public class ItemProtossVoidWarpGateSpawner extends Item {
 
 	public ItemProtossVoidWarpGateSpawner() {
-		setUnlocalizedName("spawnerProtossVoidWarpGate");
-		setRegistryName("spawner_protoss_void_warpgate");
+		setUnlocalizedName("protoss.spawner.warpgate.void");
+		setRegistryName("protoss.spawner.warpgate.void");
 		setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 	}
 	

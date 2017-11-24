@@ -18,8 +18,8 @@ public class ItemZergSpireSpawner extends Item {
 	Random rand;
 	
 	public ItemZergSpireSpawner() {
-		setUnlocalizedName("spawnerZergSpire");
-		setRegistryName("spawner_zerg_spire");
+		setUnlocalizedName("zerg.spawner.spire");
+		setRegistryName("zerg.spawner.spire");
 		setCreativeTab(StarcraftCreativeTabs.ZERG);
 	}
 	

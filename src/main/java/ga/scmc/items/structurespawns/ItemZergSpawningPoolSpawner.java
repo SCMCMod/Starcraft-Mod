@@ -18,8 +18,8 @@ public class ItemZergSpawningPoolSpawner extends Item {
 	Random rand;
 	
 	public ItemZergSpawningPoolSpawner() {
-		setUnlocalizedName("spawnerZergSpawningPool");
-		setRegistryName("spawner_zerg_spawningpool");
+		setUnlocalizedName("zerg.spawner.spawningpool");
+		setRegistryName("zerg.spawner.spawningpool");
 		setCreativeTab(StarcraftCreativeTabs.ZERG);
 	}
 	
