@@ -1,5 +1,6 @@
 package ga.scmc.entity;
 
+import ga.scmc.entity.living.EntityMarine;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
@@ -51,7 +52,13 @@ public class EntityC14GaussRifleBullet extends EntityThrowable {
 	protected void onImpact(RayTraceResult result) {
 		if (!world.isRemote) {
 			if (result.entityHit != null && result.entityHit != this.getThrower()) {
-				if (result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 6)) {
+	        	float i = 6.0F;
+	        	
+	        	 if (result.entityHit instanceof EntityMarine)
+	             {
+	                 i = 0;
+	             }
+				if (result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), i)) {
 					setDead();
 				}
 			}
