@@ -94,6 +94,10 @@ public class SoundHandler {
 	public static SoundEvent ENTITY_KAKARU_LIVE2;
 	public static SoundEvent ENTITY_KAKARU_HURT;
 	public static SoundEvent ENTITY_KAKARU_DEATH;
+	
+	public static SoundEvent ENTITY_MARINE_LIVE1;
+	public static SoundEvent ENTITY_MARINE_HURT;
+	public static SoundEvent ENTITY_MARINE_DEATH;
 
 	/** @author Ocelot5836 */
 	public static SoundEvent BLOCK_FLESH_BREAK;
@@ -210,6 +214,10 @@ public class SoundHandler {
 		ENTITY_KAKARU_LIVE2 = registerSound("mob.kakaru.live2");
 		ENTITY_KAKARU_HURT = registerSound("mob.kakaru.hurt");
 		ENTITY_KAKARU_DEATH = registerSound("mob.kakaru.death");
+
+		ENTITY_MARINE_LIVE1 = registerSound("mob.marine.live1");
+		ENTITY_MARINE_HURT = registerSound("mob.marine.hurt");
+		ENTITY_MARINE_DEATH = registerSound("mob.marine.death");
 
 		BLOCK_GAS_COLLECTOR_PROTOSS = registerSound("block.gas_collector.protoss");
 		BLOCK_GAS_COLLECTOR_TERRAN = registerSound("block.gas_collector.terran");

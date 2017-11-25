@@ -1,5 +1,7 @@
 package ga.scmc.entity.living;
 
+import java.util.Random;
+
 import com.google.common.base.Predicate;
 
 import ga.scmc.capabilities.ColorProvider;
@@ -22,6 +24,7 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
@@ -120,5 +123,21 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 	@Override
 	public int getTalkInterval() {
 		return 160;
+	}
+	
+	@Override
+	public SoundEvent getAmbientSound() {
+		return SoundHandler.ENTITY_MARINE_LIVE1;
+	}
+	
+	@Override
+	public SoundEvent getDeathSound() {
+		switch(rand.nextInt(1)) {
+			case 0:
+				return SoundHandler.ENTITY_MARINE_HURT;
+			default:
+				return SoundHandler.ENTITY_MARINE_DEATH;
+		}
+		
 	}
 }

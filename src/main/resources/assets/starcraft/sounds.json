@@ -502,5 +502,26 @@
             "name": "starcraft:mob/kakaru/kakaru-death",
             "stream": false
         }]
+    },
+    "mob.marine.live1": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/marine/marine-live1",
+            "stream": false
+        }]
+    },
+    "mob.marine.hurt": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/marine/marine-hurt",
+            "stream": false
+        }]
+    },
+    "mob.marine.death": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/marine/marine-death",
+            "stream": false
+        }]
     }
 }

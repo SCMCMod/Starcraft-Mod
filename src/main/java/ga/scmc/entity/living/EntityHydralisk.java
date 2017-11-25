@@ -135,8 +135,6 @@ public class EntityHydralisk extends EntityZergMob implements IMob, IRangedAttac
 
 	@Override
 	public SoundEvent getAmbientSound() {
-		Random rand = new Random();
-
 		switch(rand.nextInt(3)) {
 			case 0:
 				return SoundHandler.ENTITY_HYDRALISK_LIVE1;
