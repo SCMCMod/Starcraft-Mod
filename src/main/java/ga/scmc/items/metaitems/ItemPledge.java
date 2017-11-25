@@ -2,6 +2,8 @@ package ga.scmc.items.metaitems;
 
 import java.util.List;
 
+import com.arisux.mdx.lib.world.entity.player.inventory.Inventories;
+
 import ga.scmc.capabilities.ColorProvider;
 import ga.scmc.capabilities.IColor;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
@@ -58,6 +60,7 @@ public class ItemPledge extends Item {
 		color.set(itemStackIn.getItemDamage());
 		String message = "Your team color is now " + color.getColor() + ".";
 		playerIn.sendMessage(new TextComponentString(message));
+		Inventories.consumeItem(playerIn, this);
 		return super.onItemRightClick(itemStackIn, worldIn, playerIn, hand);
 	}
 }
