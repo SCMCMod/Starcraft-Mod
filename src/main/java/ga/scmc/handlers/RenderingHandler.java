@@ -84,6 +84,7 @@ import static ga.scmc.handlers.ItemHandler.CREEP_RESIN;
 import static ga.scmc.handlers.ItemHandler.DUST;
 import static ga.scmc.handlers.ItemHandler.ENERGY;
 import static ga.scmc.handlers.ItemHandler.FLAMETHROWER;
+import static ga.scmc.handlers.ItemHandler.FLAMETHROWER_PARTS;
 import static ga.scmc.handlers.ItemHandler.GAS_CONTAINER;
 import static ga.scmc.handlers.ItemHandler.ICON_PROTOSS;
 import static ga.scmc.handlers.ItemHandler.ICON_TERRAN;
@@ -307,7 +308,7 @@ public class RenderingHandler {
 		ModelBakery.registerItemVariants(ItemHandler.INGOT, new ResourceLocation(Library.MODID, "ingot.copper"), new ResourceLocation(Library.MODID, "ingot.titanium"), new ResourceLocation(Library.MODID, "ingot.steel"));
 		ModelBakery.registerItemVariants(ItemHandler.PROTOSS_INGOT, new ResourceLocation(Library.MODID, "protoss.ingot.khalai"), new ResourceLocation(Library.MODID, "protoss.ingot.dark"));
 		ModelBakery.registerItemVariants(ItemHandler.PSI_BLADE_FOCUSER_UNCHARGED, new ResourceLocation(Library.MODID, "protoss_psiblade_focuser_uncharged_aiur"), new ResourceLocation(Library.MODID, "protoss_psiblade_focuser_uncharged_dark"));
-		ModelBakery.registerItemVariants(ItemHandler.C14_PARTS, new ResourceLocation(Library.MODID, "part_c14_gauss_body"), new ResourceLocation(Library.MODID, "part_c14_gauss_barrel"), new ResourceLocation(Library.MODID, "part_c14_gauss_grip"));
+		ModelBakery.registerItemVariants(ItemHandler.C14_PARTS, new ResourceLocation(Library.MODID, "part.c14rifle.body"), new ResourceLocation(Library.MODID, "part.c14rifle.barrel"), new ResourceLocation(Library.MODID, "part.c14rifle.grip"));
 		ModelBakery.registerItemVariants(ItemHandler.BULLET_MAGAZINE, new ResourceLocation(Library.MODID, "magazine.c14"));
 		ModelBakery.registerItemVariants(ItemHandler.ZERG_CARAPACE, new ResourceLocation(Library.MODID, "zerg_icarapace_t1"), new ResourceLocation(Library.MODID, "zerg_icarapace_t2"), new ResourceLocation(Library.MODID, "zerg_icarapace_t3"));
 		ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.PROTOSS_METAL_T1), new ResourceLocation(Library.MODID, "protoss.metal.1.aiur"), new ResourceLocation(Library.MODID, "protoss.metal.1.dark"), new ResourceLocation(Library.MODID, "protoss.metal.1.green"), new ResourceLocation(Library.MODID, "protoss.metal.1.blue"), new ResourceLocation(Library.MODID, "protoss.metal.1.red"));
@@ -454,7 +455,7 @@ public class RenderingHandler {
 			registerItemRender(C14_PARTS, i, "part.c14rifle." + EnumMetaItem.C14PartType.values()[i].getName());
 		}
 		for (int i = 0; i < EnumMetaItem.FlamethrowerPartType.values().length; i++) {
-			registerItemRender(C14_PARTS, i, "flamethrower.part." + EnumMetaItem.FlamethrowerPartType.values()[i].getName());
+			registerItemRender(FLAMETHROWER_PARTS, i, "flamethrower.part." + EnumMetaItem.FlamethrowerPartType.values()[i].getName());
 		}
 		for (int i = 0; i < EnumMetaItem.FocuserType.values().length; i++) {
 			registerItemRender(PSI_BLADE_FOCUSER_UNCHARGED, i, "protoss.focuser." + EnumMetaItem.FocuserType.values()[i].getName());
