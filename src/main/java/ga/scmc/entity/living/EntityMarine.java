@@ -12,6 +12,7 @@ import ga.scmc.handlers.SoundHandler;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.IRangedAttackMob;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackRanged;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
@@ -44,6 +45,15 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 		tasks.addTask(5, new EntityAILookIdle(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, false, false, this));
+	}
+	
+	@Override
+	protected void applyEntityAttributes() {
+		super.applyEntityAttributes();
+		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(60.0D);
+		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32000000417232513D);
+		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(16.0D);
+		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12.0D);
 	}
 
 	@Override
@@ -93,12 +103,7 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 		}
 		return false;
 	}
-
-	@Override
-	protected void applyEntityAttributes() {
-		super.applyEntityAttributes();
-	}
-
+	
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float p_82196_2_) {
 		EntityC14GaussRifleBullet bullet = new EntityC14GaussRifleBullet(this.world, this);
