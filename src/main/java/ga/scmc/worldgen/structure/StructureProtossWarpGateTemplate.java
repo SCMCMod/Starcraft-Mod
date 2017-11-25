@@ -24,49 +24,48 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 		this.metaPrimColor = metaPrimColor;
 		this.metaSecColor = metaSecColor;
 		this.metaDim = rand.nextInt(100);
-		if(world.provider.getDimension() == 0) {
-			if(metaDim <= 50) {
+		if (world.provider.getDimension() == 0) {
+			if (metaDim <= 50) {
 				dimBlock = BlockHandler.DIM_PORTAL_CHAR;
-			}else if(metaDim >= 51) {
+			} else if (metaDim >= 51) {
 				dimBlock = BlockHandler.DIM_PORTAL_SHAKURAS;
 			}
-		}else if(world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_CHAR) {
-			if(metaDim <= 50) {
+		} else if (world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_CHAR) {
+			if (metaDim <= 50) {
 				dimBlock = BlockHandler.DIM_PORTAL_OVERWORLD;
-			}else if(metaDim >= 51) {
+			} else if (metaDim >= 51) {
 				dimBlock = BlockHandler.DIM_PORTAL_SHAKURAS;
 			}
-		}else if(world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_SHAKURAS) {
-			if(metaDim <= 50) {
+		} else if (world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_SHAKURAS) {
+			if (metaDim <= 50) {
 				dimBlock = BlockHandler.DIM_PORTAL_CHAR;
-			}else if(metaDim >= 51) {
+			} else if (metaDim >= 51) {
 				dimBlock = BlockHandler.DIM_PORTAL_OVERWORLD;
 			}
 		}
-		
-		if(metaSecColor == 0) {
+
+		if (metaSecColor == 0) {
 			stabBlock = BlockHandler.PROTOSS_ENERGY_STABILIZER;
 			chanBlock = BlockHandler.PROTOSS_ENERGY_CHANNEL;
-		}else if(metaSecColor == 4){
+		} else if (metaSecColor == 4) {
 			stabBlock = BlockHandler.PROTOSS_DARK_ENERGY_STABILIZER;
 			chanBlock = BlockHandler.PROTOSS_DARK_ENERGY_CHANNEL;
-		}else if(metaSecColor == 2){
+		} else if (metaSecColor == 2) {
 			stabBlock = BlockHandler.PROTOSS_VOID_ENERGY_STABILIZER;
 			chanBlock = BlockHandler.PROTOSS_VOID_ENERGY_CHANNEL;
-		}else if(metaSecColor == 3){
+		} else if (metaSecColor == 3) {
 			stabBlock = BlockHandler.PROTOSS_ENERGY_STABILIZER;
 			chanBlock = BlockHandler.PROTOSS_ENERGY_CHANNEL;
 		}
-			generate_r0(metaPrimColor, metaSecColor, world, offsetY, pos, flag);
+		generate_r0(metaPrimColor, metaSecColor, world, offsetY, pos, flag);
 
 		return true;
 
 	}
 
 	public boolean generate_r0(int metaPrimColor, int metaSecColor, World world, int offsetY, BlockPos pos, boolean flag) {
-		if(flag) {
-			if(!LocationIsValidSpawn(world, pos) || !LocationIsValidSpawn(world, pos.add(14, 0, 0)) || !LocationIsValidSpawn(world, pos.add(14, 0, 14))
-					|| !LocationIsValidSpawn(world, pos.add(0, 0, 14))) {
+		if (flag) {
+			if (!LocationIsValidSpawn(world, pos) || !LocationIsValidSpawn(world, pos.add(14, 0, 0)) || !LocationIsValidSpawn(world, pos.add(14, 0, 14)) || !LocationIsValidSpawn(world, pos.add(0, 0, 14))) {
 				return false;
 			}
 		}
@@ -719,9 +718,9 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 		world.setBlockState(pos.add(1, 8 + offsetY, 3), MetaBlockHandler.PROTOSS_METAL_T1.getStateFromMeta(metaPrimColor));
 		world.setBlockState(pos.add(2, 8 + offsetY, 3), MetaBlockHandler.PROTOSS_METAL_T1.getStateFromMeta(metaPrimColor));
 		world.setBlockState(pos.add(3, 8 + offsetY, 3), chanBlock.getDefaultState());
-		
+
 		//////
-		
+
 		world.setBlockState(pos.add(6, 7 + offsetY, 8), dimBlock.getDefaultState());
 		world.setBlockState(pos.add(7, 7 + offsetY, 8), dimBlock.getDefaultState());
 		world.setBlockState(pos.add(8, 7 + offsetY, 8), dimBlock.getDefaultState());
@@ -733,9 +732,9 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 		world.setBlockState(pos.add(6, 7 + offsetY, 6), dimBlock.getDefaultState());
 		world.setBlockState(pos.add(7, 7 + offsetY, 6), dimBlock.getDefaultState());
 		world.setBlockState(pos.add(8, 7 + offsetY, 6), dimBlock.getDefaultState());
-		
+
 		//////
-		
+
 		world.setBlockState(pos.add(6, 8 + offsetY, 8), dimBlock.getDefaultState());
 		world.setBlockState(pos.add(7, 8 + offsetY, 8), dimBlock.getDefaultState());
 		world.setBlockState(pos.add(8, 8 + offsetY, 8), dimBlock.getDefaultState());
@@ -747,9 +746,9 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 		world.setBlockState(pos.add(6, 8 + offsetY, 6), dimBlock.getDefaultState());
 		world.setBlockState(pos.add(7, 8 + offsetY, 6), dimBlock.getDefaultState());
 		world.setBlockState(pos.add(8, 8 + offsetY, 6), dimBlock.getDefaultState());
-		
+
 		//////
-		
+
 		world.setBlockState(pos.add(6, 9 + offsetY, 8), dimBlock.getDefaultState());
 		world.setBlockState(pos.add(7, 9 + offsetY, 8), dimBlock.getDefaultState());
 		world.setBlockState(pos.add(8, 9 + offsetY, 8), dimBlock.getDefaultState());
@@ -761,9 +760,9 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 		world.setBlockState(pos.add(6, 9 + offsetY, 6), dimBlock.getDefaultState());
 		world.setBlockState(pos.add(7, 9 + offsetY, 6), dimBlock.getDefaultState());
 		world.setBlockState(pos.add(8, 9 + offsetY, 6), dimBlock.getDefaultState());
-		
+
 		//////
-		
+
 		world.setBlockState(pos.add(11, 8 + offsetY, 11), chanBlock.getDefaultState());
 		world.setBlockState(pos.add(12, 8 + offsetY, 11), MetaBlockHandler.PROTOSS_METAL_T1.getStateFromMeta(metaPrimColor));
 		world.setBlockState(pos.add(13, 8 + offsetY, 11), MetaBlockHandler.PROTOSS_METAL_T1.getStateFromMeta(metaPrimColor));
@@ -818,19 +817,18 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 		world.setBlockState(pos.add(11, 12 + offsetY, 10), MetaBlockHandler.PROTOSS_METAL_T1.getStateFromMeta(metaPrimColor));
 		world.setBlockState(pos.add(10, 12 + offsetY, 11), MetaBlockHandler.PROTOSS_METAL_T1.getStateFromMeta(metaPrimColor));
 		world.setBlockState(pos.add(11, 12 + offsetY, 11), MetaBlockHandler.PROTOSS_METAL_T1.getStateFromMeta(metaPrimColor));
-		if(metaSecColor == 0 || metaSecColor == 3) {
+		if (metaSecColor == 0 || metaSecColor == 3) {
 			world.setBlockState(pos.add(7, 3 + offsetY, 7), BlockHandler.CORE_WARPGATE_KHALAI.getDefaultState(), 2);
-		}else if(metaSecColor == 2) {
+		} else if (metaSecColor == 2) {
 			world.setBlockState(pos.add(7, 3 + offsetY, 7), BlockHandler.CORE_WARPGATE_VOID.getDefaultState(), 2);
-		}else if(metaSecColor == 4) {
+		} else if (metaSecColor == 4) {
 			world.setBlockState(pos.add(7, 3 + offsetY, 7), BlockHandler.CORE_WARPGATE_DARK.getDefaultState(), 2);
 		}
 		return true;
-
 	}
 
 	protected Block[] getValidSpawnBlocks() {
-		return new Block[] {Blocks.GRASS, Blocks.DIRT, Blocks.STONE, BlockHandler.ASH_CHAR, BlockHandler.STONE_CHAR, MetaBlockHandler.PROTOSS_METAL_T1, BlockHandler.SAND_SHAKURAS, BlockHandler.STONE_SHAKURAS};
+		return new Block[] { Blocks.GRASS, Blocks.DIRT, Blocks.STONE, BlockHandler.ASH_CHAR, BlockHandler.STONE_CHAR, MetaBlockHandler.PROTOSS_METAL_T1, BlockHandler.SAND_SHAKURAS, BlockHandler.STONE_SHAKURAS, BlockHandler.DIRT_SHAKURAS, BlockHandler.DIRT_CHAR };
 	}
 
 	public boolean LocationIsValidSpawn(World world, BlockPos pos) {
@@ -839,15 +837,15 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 		Block blockAbove = world.getBlockState(pos.up()).getBlock();
 		Block blockBelow = world.getBlockState(pos.down()).getBlock();
 
-		for(Block i : getValidSpawnBlocks()) {
-			if(blockAbove != Blocks.AIR) {
+		for (Block i : getValidSpawnBlocks()) {
+			if (blockAbove != Blocks.AIR) {
 				return false;
 			}
-			if(checkBlock == i) {
+			if (checkBlock == i) {
 				return true;
-			} else if(checkBlock == Blocks.SNOW_LAYER && blockBelow == i) {
+			} else if (checkBlock == Blocks.SNOW_LAYER && blockBelow == i) {
 				return true;
-			} else if(m == Material.PLANTS && blockBelow == i) {
+			} else if (m == Material.PLANTS && blockBelow == i) {
 				world.getBlockState(pos).getMaterial();
 				return true;
 			}

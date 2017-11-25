@@ -80,7 +80,7 @@ public class EntityKakaru extends EntityFlying {
 	
 	@Override
 	protected float getSoundVolume() {
-		return 100f;
+		return 5;
 	}
 		
 	@Override

@@ -28,8 +28,6 @@ public class LayerDarkProbeGlowDynamic<T extends EntityDarkProbe> implements Lay
 
 	public void doRenderLayer(EntityDarkProbe entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		this.RENDERER.bindTexture(TEXTURE);
-		GlStateManager.enableAlpha();
-		GlStateManager.enableBlend();
 		GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
 
 		if (entitylivingbaseIn.isInvisible()) {
@@ -52,8 +50,6 @@ public class LayerDarkProbeGlowDynamic<T extends EntityDarkProbe> implements Lay
 		k = i / 65536;
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float) j, (float) k);
 		this.RENDERER.setLightmap(entitylivingbaseIn, partialTicks);
-		GlStateManager.disableBlend();
-		GlStateManager.disableAlpha();
 		GlStateManager.resetColor();
 	}
 

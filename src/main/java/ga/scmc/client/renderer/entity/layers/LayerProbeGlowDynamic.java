@@ -28,7 +28,6 @@ public class LayerProbeGlowDynamic<T extends EntityProbe> implements LayerRender
 
 	public void doRenderLayer(EntityProbe entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		this.RENDERER.bindTexture(TEXTURE);
-		GlStateManager.enableAlpha();
 		GlStateManager.enableBlend();
 		GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
 
@@ -52,8 +51,6 @@ public class LayerProbeGlowDynamic<T extends EntityProbe> implements LayerRender
 		k = i / 65536;
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float) j, (float) k);
 		this.RENDERER.setLightmap(entitylivingbaseIn, partialTicks);
-		GlStateManager.disableBlend();
-		GlStateManager.disableAlpha();
 		GlStateManager.resetColor();
 	}
 
