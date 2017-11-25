@@ -10,6 +10,8 @@ import ga.scmc.worldgen.dimchar.BiomeGenCharLavaOcean;
 import ga.scmc.worldgen.dimchar.BiomeGenCharOutskirts;
 import ga.scmc.worldgen.dimchar.BiomeGenCharScar;
 import ga.scmc.worldgen.dimkaldir.BiomeGenKaldirIcePlains;
+import ga.scmc.worldgen.dimkaldir.BiomeGenKaldirMountains;
+import ga.scmc.worldgen.dimkaldir.BiomeGenKaldirOcean;
 import ga.scmc.worldgen.dimkorhal.BiomeGenKorhalCity;
 import ga.scmc.worldgen.dimkorhal.BiomeGenKorhalDesert;
 import ga.scmc.worldgen.dimshakuras.BiomeGenShakurasCity;
@@ -48,6 +50,8 @@ public class BiomeHandler extends Biome {
 	public static Biome biomeKorhalCity;
 
 	public static Biome biomeKaldirIcePlains;
+	public static Biome biomeKaldirOcean;
+	public static Biome biomeKaldirMountains;
 
 	public static void preInit() {
 		registerBiomes();
@@ -75,6 +79,8 @@ public class BiomeHandler extends Biome {
 		GameRegistry.register(biomeKorhalCity);
 
 		GameRegistry.register(biomeKaldirIcePlains);
+		GameRegistry.register(biomeKaldirOcean);
+		GameRegistry.register(biomeKaldirMountains);
 	}
 
 	public static void registerBiomes() {
@@ -101,8 +107,10 @@ public class BiomeHandler extends Biome {
 		biomeKorhalDesert = new BiomeGenKorhalDesert((new Biome.BiomeProperties("Korhal Desert")).setBaseHeight(0.0F).setHeightVariation(0.025F).setTemperature(0.3F).setRainfall(0.3F));
 		biomeKorhalCity = new BiomeGenKorhalCity((new Biome.BiomeProperties("Korhal City")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(0.3F).setRainfall(0.3F));
 
-		biomeKaldirIcePlains = new BiomeGenKaldirIcePlains((new Biome.BiomeProperties("Kaldir Ice Plains")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(0.3F).setRainfall(0.3F));
-
+		biomeKaldirIcePlains = new BiomeGenKaldirIcePlains((new Biome.BiomeProperties("Kaldir Ice Plains")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(0.1F).setRainfall(0.3F));
+		biomeKaldirOcean = new BiomeGenKaldirOcean((new Biome.BiomeProperties("Kaldir Deep Ocean")).setBaseHeight(-1.5F).setHeightVariation(0.35F).setTemperature(0.1F));
+		biomeKaldirMountains = new BiomeGenKaldirMountains((new Biome.BiomeProperties("Kaldir Mountains")).setBaseHeight(1.0F).setHeightVariation(0.55F).setTemperature(0.1F).setRainfall(0.3F));
+		
 		// add or remove spawn biomes here
 
 		BiomeManager.addSpawnBiome(BiomeHandler.biomeAshPlains);

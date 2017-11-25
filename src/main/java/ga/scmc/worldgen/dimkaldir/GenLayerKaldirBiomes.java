@@ -7,7 +7,7 @@ import net.minecraft.world.gen.layer.IntCache;
 
 public class GenLayerKaldirBiomes extends GenLayer {
 
-	public Biome[] dimBiomes = { BiomeHandler.biomeKaldirIcePlains};
+	public Biome[] dimBiomes = { BiomeHandler.biomeKaldirIcePlains, BiomeHandler.biomeKaldirMountains, BiomeHandler.biomeKaldirOcean};
 
 	public GenLayerKaldirBiomes(long par1) {
 		super(par1);
