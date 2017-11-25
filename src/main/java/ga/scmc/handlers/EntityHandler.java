@@ -87,9 +87,9 @@ public class EntityHandler {
 		EntityRegistry.registerEgg(EntityLarvaCocoon.class, 11403519, 7684608);
 		EntityRegistry.registerEgg(EntityBroodling.class, 11403519, 7684608);
 		EntityRegistry.registerEgg(EntityInfestedCivilian.class, 11403519, 7684608);
-		EntityRegistry.registerEgg(EntityDrone.class, 11403519, 7684608);
-		EntityRegistry.registerEgg(EntityQueen.class, 11403519, 7684608);
-		EntityRegistry.registerEgg(EntityBrutaliskCocoon.class, 11403519, 7684608);
+		//EntityRegistry.registerEgg(EntityDrone.class, 11403519, 7684608);
+		//EntityRegistry.registerEgg(EntityQueen.class, 11403519, 7684608);
+		//EntityRegistry.registerEgg(EntityBrutaliskCocoon.class, 11403519, 7684608);
 
 		EntityRegistry.registerEgg(EntityCivilian.class, 7566195, 16639);
 		EntityRegistry.registerEgg(EntityPredator.class, 7566195, 16639);
@@ -140,9 +140,9 @@ public class EntityHandler {
 		registerEntity(EntityLarvaCocoon.class, "larvaCocoon", 64, 1, true);
 		registerEntity(EntityBroodling.class, "broodling", 64, 1, true);
 		registerEntity(EntityInfestedCivilian.class, "infestedCivilian", 64, 1, true);
-		registerEntity(EntityQueen.class, "queen", 64, 1, true);
-		registerEntity(EntityDrone.class, "drone", 64, 1, true);
-		registerEntity(EntityBrutaliskCocoon.class, "brutaliskCocoon", 64, 1, true);
+		//registerEntity(EntityQueen.class, "queen", 64, 1, true);
+		//registerEntity(EntityDrone.class, "drone", 64, 1, true);
+		//registerEntity(EntityBrutaliskCocoon.class, "brutaliskCocoon", 64, 1, true);
 
 		registerEntity(EntityCivilian.class, "civilian", 64, 1, true);
 		registerEntity(EntityPredator.class, "predator", 64, 1, true);
