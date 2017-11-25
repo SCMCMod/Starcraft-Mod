@@ -11,9 +11,11 @@ import java.util.List;
 public class LarvaOption {
 
 	private static int nextIconId;
-	
+
 	private int iconId;
 	private List<String> tooltip;
+	private List<LarvaOption> children;
+	private boolean isChild;
 
 	private int mineralCost;
 	private int vespeneCost;
@@ -23,6 +25,8 @@ public class LarvaOption {
 		this.vespeneCost = vespeneCost;
 		this.iconId = nextIconId++;
 		this.tooltip = new ArrayList<String>();
+		this.children = new ArrayList<LarvaOption>();
+		this.isChild = false;
 	}
 
 	public void render() {
@@ -40,9 +44,17 @@ public class LarvaOption {
 	public int getMineralCost() {
 		return mineralCost;
 	}
-	
+
 	public int getVespeneCost() {
 		return vespeneCost;
+	}
+
+	public LarvaOption[] getChildren() {
+		LarvaOption[] result = new LarvaOption[children.size()];
+		for (int i = 0; i < result.length; i++) {
+			result[i] = children.get(i);
+		}
+		return result;
 	}
 
 	public LarvaOption setTooltip(String tooltip) {
@@ -57,6 +69,14 @@ public class LarvaOption {
 		for (int i = 0; i < tokens.length; i++)
 			this.tooltip.add(tokens[i]);
 
+		return this;
+	}
+
+	public LarvaOption addChild(LarvaOption child) {
+		if (!this.isChild) {
+			child.isChild = true;
+			this.children.add(child);
+		}
 		return this;
 	}
 }
