@@ -208,7 +208,7 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 				runGenerator(GRAVEL_KORHAL, world, random, chunkX, chunkZ, 10, 0, 128);
 
 				if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKorhalCity) {
-					runGenerator(TERRAN_BUNKER, world, random, chunkX, chunkZ, 0, -1, 0, 3, 0, 100, true);
+					runGenerator(TERRAN_BUNKER, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 				}
 				if (world.rand.nextInt(100) < 2 && world.getWorldInfo().isMapFeaturesEnabled()) {
 					runGenerator(GEYSER, Blocks.RED_SANDSTONE.getDefaultState(), BlockHandler.FLUID_VESPENE.getDefaultState(), world, random, chunkX, chunkZ, 0, -34, 0, 1, 60, 80, true);

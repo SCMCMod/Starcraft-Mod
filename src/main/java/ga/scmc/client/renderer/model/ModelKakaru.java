@@ -490,14 +490,18 @@ public class ModelKakaru extends ModelBase {
 
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale, Entity entity) {
-		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
 		this.head01.rotateAngleX = headPitch * 0.017453292F;
 		this.head01.rotateAngleY = netHeadYaw * 0.017453292F;
+	}
+
+	@Override
+	public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime) {
+		float ageInTicks = entitylivingbaseIn.ticksExisted + partialTickTime;
 		this.rLeg01.rotateAngleZ = MathHelper.sin(limbSwing * 1.1F) * 0.667F * limbSwingAmount;
 		this.rArm01.rotateAngleZ = MathHelper.sin(limbSwing * 1.1F) * 0.667F * limbSwingAmount;
 		this.lLeg01.rotateAngleZ = -MathHelper.sin(limbSwing * 1.1F) * 0.667F * limbSwingAmount;
 		this.lArm01.rotateAngleZ = -MathHelper.sin(limbSwing * 1.1F) * 0.667F * limbSwingAmount;
 		this.lowerBeak01.rotateAngleX = MathHelper.sin(limbSwing * 0.8F) * 0.0667F + 0.4F;
-		this.tail01.rotateAngleX = MathHelper.sin(ageInTicks * 0.5f) * 0.1F;
+		this.tail01.rotateAngleX = MathHelper.sin(ageInTicks * 0.5f) * 0.05F;
 	}
 }

@@ -3,6 +3,7 @@ package ga.scmc.client.renderer.model;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.MathHelper;
 
 /**
@@ -914,18 +915,21 @@ public class ModelUrsadon extends ModelBase {
 	}
 
 	@Override
-	public void setRotationAngles(float limbSwing, float limbSwingAmountPrev, float ageInTicks, float netHeadYaw, float headPitch, float scale, Entity entity) {
-		super.setRotationAngles(limbSwing, limbSwingAmountPrev, ageInTicks, netHeadYaw, headPitch, scale, entity);
+	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
 		head.rotateAngleX = headPitch * 0.017453292F;
 		head.rotateAngleY = netHeadYaw * 0.017453292F;
+	}
+
+	@Override
+	public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmountPrev, float partialTickTime) {
+		float ageInTicks = entitylivingbaseIn.ticksExisted + partialTickTime;
 		lForeArm.rotateAngleX = MathHelper.cos(limbSwing * 0.6F) * 0.667F * limbSwingAmountPrev;
 		rForeArm.rotateAngleX = MathHelper.sin(limbSwing * 0.6F) * 0.667F * limbSwingAmountPrev;
 		lShin.rotateAngleX = MathHelper.cos(limbSwing * 1F) * 0.667F * limbSwingAmountPrev + 0.6F;
 		rShin.rotateAngleX = MathHelper.sin(limbSwing * 1F) * 0.667F * limbSwingAmountPrev + 0.6F;
-		tail01.rotateAngleX = MathHelper.sin((ageInTicks + limbSwing) * 0.05f) * 0.16675f + limbSwingAmountPrev * 0.25f;
-		tail02.rotateAngleX = MathHelper.sin((ageInTicks + limbSwing) * 0.05f) * 0.16675f + limbSwingAmountPrev * 0.25f;
-		tail03.rotateAngleX = MathHelper.sin((ageInTicks + limbSwing) * 0.05f) * 0.16675f + limbSwingAmountPrev * 0.25f;
-
+		tail01.rotateAngleX = MathHelper.sin(ageInTicks * 0.05f) * 0.16675f + limbSwingAmountPrev * 0.025f;
+		tail02.rotateAngleX = MathHelper.sin(ageInTicks * 0.05f) * 0.16675f + limbSwingAmountPrev * 0.025f;
+		tail03.rotateAngleX = MathHelper.sin(ageInTicks * 0.05f) * 0.16675f + limbSwingAmountPrev * 0.025f;
 		rShoulderFur.rotateAngleZ = MathHelper.sin(ageInTicks * 0.05f) * 0.16675f;
 		lShoulderFur.rotateAngleZ = MathHelper.cos(ageInTicks * 0.05f) * 0.16675f;
 	}
