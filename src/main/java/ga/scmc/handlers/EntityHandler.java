@@ -21,7 +21,6 @@ import ga.scmc.entity.living.EntityPredator;
 import ga.scmc.entity.living.EntityProbe;
 import ga.scmc.entity.living.EntityProtossReaver;
 import ga.scmc.entity.living.EntityQueen;
-import ga.scmc.entity.living.EntitySCV;
 import ga.scmc.entity.living.EntityScarab;
 import ga.scmc.entity.living.EntityTastelope;
 import ga.scmc.entity.living.EntityUrsadon;

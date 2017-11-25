@@ -41,9 +41,9 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.PROTOSS_METAL_T2, 1, EnumMetaBlock.ProtossMetalType.DARK.getID()), "DDD", "DZD", "DDD", 'D', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()), 'Z', new ItemStack(MetaBlockHandler.PROTOSS_METAL_T1, 1, EnumMetaBlock.ProtossMetalType.DARK.getID()));
 		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.PROTOSS_METAL_T3, 1, EnumMetaBlock.ProtossMetalType.DARK.getID()), "DDD", "DZD", "DDD", 'D', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()), 'Z', new ItemStack(MetaBlockHandler.PROTOSS_METAL_T2, 1, EnumMetaBlock.ProtossMetalType.DARK.getID()));
 
-		// GameRegistry.addRecipe(new ItemStack(BlockHandler.ENERGY_BLOCK, 1, EnumMetaItem.EnergyType.PURE.getID()), "EEE", "EEE", "EEE", 'E', new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.PURE.getID()));
-		// GameRegistry.addRecipe(new ItemStack(BlockHandler.ENERGY_BLOCK, 1, EnumMetaItem.EnergyType.CORRUPTED.getID()), "VVV", "VVV", "VVV", 'V', new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.CORRUPTED.getID()));
-		// GameRegistry.addRecipe(new ItemStack(BlockHandler.ENERGY_BLOCK, 1, EnumMetaItem.EnergyType.VOID.getID()), "VVV", "VVV", "VVV", 'V', new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.VOID.getID()));
+		GameRegistry.addRecipe(new ItemStack(BlockHandler.ENERGY_BLOCK, 1, EnumMetaItem.EnergyType.PURE.getID()), "EEE", "EEE", "EEE", 'E', new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.PURE.getID()));
+		GameRegistry.addRecipe(new ItemStack(BlockHandler.ENERGY_BLOCK, 1, EnumMetaItem.EnergyType.CORRUPTED.getID()), "VVV", "VVV", "VVV", 'V', new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.CORRUPTED.getID()));
+		GameRegistry.addRecipe(new ItemStack(BlockHandler.ENERGY_BLOCK, 1, EnumMetaItem.EnergyType.VOID.getID()), "VVV", "VVV", "VVV", 'V', new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.VOID.getID()));
 
 		for (int i = 0; i < EnergyType.values().length; i++) {
 			GameRegistry.addRecipe(new ItemStack(BlockHandler.ENERGY_BLOCK, 1, EnumMetaItem.EnergyType.values()[i].getID()), "EEE", "EEE", "EEE", 'E', new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.values()[i].getID()));
@@ -262,5 +262,21 @@ public class SimpleRecipes {
 		// Dark Energy Stabilizer
 		GameRegistry.addRecipe(new ItemStack(BlockHandler.PROTOSS_DARK_ENERGY_STABILIZER), "IEI", "III", "III", 'I', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()), 'E', new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.VOID.getID()));
 
+		// Pledge Items
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.PLEDGE, 1, EnumMetaItem.PledgeType.BLACK.getID()), " D ", "DXD", " D ", 'D', new ItemStack(Items.DIAMOND), 'X', new ItemStack(Items.DYE, 1, 0));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.PLEDGE, 1, EnumMetaItem.PledgeType.RED.getID()), " D ", "DXD", " D ", 'D', new ItemStack(Items.DIAMOND), 'X', new ItemStack(Items.DYE, 1, 1));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.PLEDGE, 1, EnumMetaItem.PledgeType.GREEN.getID()), " D ", "DXD", " D ", 'D', new ItemStack(Items.DIAMOND), 'X', new ItemStack(Items.DYE, 1, 2));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.PLEDGE, 1, EnumMetaItem.PledgeType.BROWN.getID()), " D ", "DXD", " D ", 'D', new ItemStack(Items.DIAMOND), 'X', new ItemStack(Items.DYE, 1, 3));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.PLEDGE, 1, EnumMetaItem.PledgeType.BLUE.getID()), " D ", "DXD", " D ", 'D', new ItemStack(Items.DIAMOND), 'X', new ItemStack(Items.DYE, 1, 4));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.PLEDGE, 1, EnumMetaItem.PledgeType.PURPLE.getID()), " D ", "DXD", " D ", 'D', new ItemStack(Items.DIAMOND), 'X', new ItemStack(Items.DYE, 1, 5));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.PLEDGE, 1, EnumMetaItem.PledgeType.CYAN.getID()), " D ", "DXD", " D ", 'D', new ItemStack(Items.DIAMOND), 'X', new ItemStack(Items.DYE, 1, 6));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.PLEDGE, 1, EnumMetaItem.PledgeType.GRAY.getID()), " D ", "DXD", " D ", 'D', new ItemStack(Items.DIAMOND), 'X', new ItemStack(Items.DYE, 1, 8));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.PLEDGE, 1, EnumMetaItem.PledgeType.PINK.getID()), " D ", "DXD", " D ", 'D', new ItemStack(Items.DIAMOND), 'X', new ItemStack(Items.DYE, 1, 9));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.PLEDGE, 1, EnumMetaItem.PledgeType.LIME.getID()), " D ", "DXD", " D ", 'D', new ItemStack(Items.DIAMOND), 'X', new ItemStack(Items.DYE, 1, 10));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.PLEDGE, 1, EnumMetaItem.PledgeType.YELLOW.getID()), " D ", "DXD", " D ", 'D', new ItemStack(Items.DIAMOND), 'X', new ItemStack(Items.DYE, 1, 11));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.PLEDGE, 1, EnumMetaItem.PledgeType.LIGHTBLUE.getID()), " D ", "DXD", " D ", 'D', new ItemStack(Items.DIAMOND), 'X', new ItemStack(Items.DYE, 1, 12));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.PLEDGE, 1, EnumMetaItem.PledgeType.MAGENTA.getID()), " D ", "DXD", " D ", 'D', new ItemStack(Items.DIAMOND), 'X', new ItemStack(Items.DYE, 1, 13));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.PLEDGE, 1, EnumMetaItem.PledgeType.ORANGE.getID()), " D ", "DXD", " D ", 'D', new ItemStack(Items.DIAMOND), 'X', new ItemStack(Items.DYE, 1, 14));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.PLEDGE, 1, EnumMetaItem.PledgeType.WHITE.getID()), " D ", "DXD", " D ", 'D', new ItemStack(Items.DIAMOND), 'X', new ItemStack(Items.DYE, 1, 15));
 	}
 }

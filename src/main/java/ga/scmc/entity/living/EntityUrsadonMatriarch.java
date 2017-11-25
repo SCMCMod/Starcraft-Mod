@@ -1,25 +1,8 @@
 package ga.scmc.entity.living;
 
-import java.util.ArrayList;
-import java.util.Random;
-
-import com.arisux.mdx.lib.client.entityfx.EntityFXElectricArc;
-import com.arisux.mdx.lib.game.Game;
-import com.arisux.mdx.lib.world.entity.ItemDrop;
 import com.google.common.base.Predicate;
 
-import ga.scmc.capabilities.ColorProvider;
-import ga.scmc.capabilities.IColor;
-import ga.scmc.enums.EnumFactionTypes;
-import ga.scmc.enums.EnumMetaItem;
-import ga.scmc.enums.EnumTeamColors;
-import ga.scmc.enums.EnumTypeAttributes;
-import ga.scmc.handlers.ItemHandler;
-import ga.scmc.handlers.SoundHandler;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
@@ -31,12 +14,7 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * @author Hypeirochus
