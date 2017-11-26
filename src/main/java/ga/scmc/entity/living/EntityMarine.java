@@ -1,7 +1,5 @@
 package ga.scmc.entity.living;
 
-import java.util.Random;
-
 import com.google.common.base.Predicate;
 
 import ga.scmc.capabilities.ColorProvider;
