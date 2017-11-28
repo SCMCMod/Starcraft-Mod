@@ -41,8 +41,8 @@ public class GuiLarvaMorph extends BasicGui {
 
 	@Override
 	public void initGui() {
-		xSize = 185;
-		ySize = 68;
+		xSize = 105;
+		ySize = 51;
 		super.initGui();
 	}
 
@@ -89,7 +89,7 @@ public class GuiLarvaMorph extends BasicGui {
 				bindGuiTexture();
 				drawTexturedModalRect(x + i * 18, y, 0, 15, 18, 18);
 				bindIconTexture();
-				drawTexturedModalRect(1 + x + i * 18, y + 1, (option.getIconId() % 16) * 16, (option.getIconId() / 16) * 16, 16, 16);
+				drawTexturedModalRect(1 + x + i * 18, 1 + y, (option.getIconId() % 16) * 16, (option.getIconId() / 16) * 16, 16, 16);
 			}
 		}
 	}
@@ -101,12 +101,8 @@ public class GuiLarvaMorph extends BasicGui {
 				for (int x = 0; x < 5; x++) {
 					int index = x + y * 5;
 					if (index < GuiLists.LARVA_OPTIONS.size()) {
-						List<String> tooltip = new ArrayList<String>();
-						for (int i2 = 0; i2 < GuiLists.LARVA_OPTIONS.get(index).getTooltip().size(); i2++) {
-							tooltip.add(GuiLists.LARVA_OPTIONS.get(index).getTooltip().get(i2));
-						}
+						List<String> tooltip = new ArrayList<String>(GuiLists.LARVA_OPTIONS.get(index).getTooltip());
 
-						tooltip.add("");
 						if (GuiLists.LARVA_OPTIONS.get(index).getChildren().length <= 0) {
 							tooltip.add(TextFormatting.GRAY + "Mineral Cost: " + GuiLists.LARVA_OPTIONS.get(index).getMineralCost());
 							tooltip.add(TextFormatting.GRAY + "Vespene Cost: " + GuiLists.LARVA_OPTIONS.get(index).getVespeneCost());
@@ -120,12 +116,7 @@ public class GuiLarvaMorph extends BasicGui {
 		} else {
 			for (int i = 0; i < subOptions.size(); i++) {
 				LarvaOption option = subOptions.get(i);
-				List<String> tooltip = new ArrayList<String>();
-				for (int i2 = 0; i2 < option.getTooltip().size(); i2++) {
-					tooltip.add(option.getTooltip().get(i2));
-				}
-
-				tooltip.add("");
+				List<String> tooltip = new ArrayList<String>(option.getTooltip());
 				tooltip.add(TextFormatting.GRAY + "Mineral Cost: " + option.getMineralCost());
 				tooltip.add(TextFormatting.GRAY + "Vespene Cost: " + option.getVespeneCost());
 				drawTooltip(tooltip, subOptionsX + i * 18, subOptionsY, 18, 18, mouseX, mouseY);
@@ -185,12 +176,18 @@ public class GuiLarvaMorph extends BasicGui {
 			subOptions.clear();
 		}
 	}
+	
 
 	@Override
 	public void updateScreen() {
 		if (larva != null && larva.isDead) {
 			Minecraft.getMinecraft().player.closeScreen();
 		}
+	}
+
+	@Override
+	public boolean doesGuiPauseGame() {
+		return false;
 	}
 
 	private void bindGuiTexture() {
