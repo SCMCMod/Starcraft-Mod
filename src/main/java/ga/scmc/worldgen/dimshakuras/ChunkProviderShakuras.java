@@ -6,9 +6,6 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import ga.scmc.worldgen.dimchar.CharGenCustomLakes;
-import ga.scmc.worldgen.dimkorhal.KorhalGenCaves;
-import ga.scmc.worldgen.dimkorhal.KorhalGenRavine;
-import ga.scmc.worldgen.dimkorhal.KorhalTerrainGenerator;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
@@ -27,11 +24,11 @@ import net.minecraftforge.event.terraingen.TerrainGen;
 public class ChunkProviderShakuras implements IChunkGenerator {
 
 	private Biome[] biomesForGeneration;
-	private MapGenBase caveGenerator = new KorhalGenCaves();
-	private MapGenBase ravineGenerator = new KorhalGenRavine();
+	private MapGenBase caveGenerator = new ShakurasGenCaves();
+	private MapGenBase ravineGenerator = new ShakurasGenRavine();
 	private Random random = new Random();
 
-	private KorhalTerrainGenerator terraingen = new KorhalTerrainGenerator();
+	private ShakurasTerrainGenerator terraingen = new ShakurasTerrainGenerator();
 	private final World worldObj;
     private ChunkProviderSettings settings;
 
