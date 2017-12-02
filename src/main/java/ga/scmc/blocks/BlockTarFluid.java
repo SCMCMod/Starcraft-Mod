@@ -1,6 +1,5 @@
 package ga.scmc.blocks;
 
-import ga.scmc.StarcraftDamageSources;
 import ga.scmc.handlers.FluidHandler;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -24,26 +23,13 @@ public class BlockTarFluid extends BlockFluidClassic {
 		setRegistryName("fluid.tar");
 		setCreativeTab(null);
 	}
-	
+
 	@Override
 	public MapColor getMapColor(IBlockState state) {
 		return MapColor.GREEN;
 	}
 
-	/**
-	 * Executes code when an entity collides with this block's bounds
-	 * 
-	 * @param world
-	 *            the world
-	 * @param pos
-	 *            position of the block
-	 * @param state
-	 *            state of the block
-	 * @param entity
-	 *            that collides with the block
-	 */
-	@Override
-	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
-		entity.attackEntityFrom(StarcraftDamageSources.acid, world.getDifficulty().getDifficultyId() + 1 + RANDOM.nextInt(2));
+	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
+		entityIn.setInWeb();
 	}
 }
