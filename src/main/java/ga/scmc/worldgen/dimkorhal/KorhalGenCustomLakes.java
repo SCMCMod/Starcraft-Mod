@@ -119,7 +119,7 @@ public class KorhalGenCustomLakes extends WorldGenerator {
 											|| k4 < 7 && aboolean[(j2 * 16 + k3) * 8 + k4 + 1] || k4 > 0 && aboolean[(j2 * 16 + k3) * 8 + (k4 - 1)]);
 
 							if(flag1 && (k4 < 4 || rand.nextInt(2) != 0) && worldIn.getBlockState(position.add(j2, k4, k3)).getMaterial().isSolid()) {
-								worldIn.setBlockState(position.add(j2, k4, k3), Blocks.STONE.getDefaultState(), 2);
+								worldIn.setBlockState(position.add(j2, k4, k3), Blocks.RED_SANDSTONE.getDefaultState(), 2);
 							}
 						}
 					}
