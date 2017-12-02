@@ -28,16 +28,16 @@ public class StarcraftGenerator {
 	protected WorldGenerator URANIUM_CHAR;
 	protected WorldGenerator URANIUM_SHAKURAS;
 	
-	protected WorldGenerator COAL_KORHAL;
-	protected WorldGenerator IRON_KORHAL;
-	protected WorldGenerator GOLD_KORHAL;
-	protected WorldGenerator DIAMOND_KORHAL;
-	protected WorldGenerator LAPIS_KORHAL;
-	protected WorldGenerator COPPER_KORHAL;
-	protected WorldGenerator TITANIUM_KORHAL;
-	protected WorldGenerator DIRT_KORHAL;
-	protected WorldGenerator GRAVEL_KORHAL;
-	protected WorldGenerator REDSTONE_KORHAL;
+	protected WorldGenerator COAL_GENERIC;
+	protected WorldGenerator IRON_GENERIC;
+	protected WorldGenerator GOLD_GENERIC;
+	protected WorldGenerator DIAMOND_GENERIC;
+	protected WorldGenerator LAPIS_GENERIC;
+	protected WorldGenerator COPPER_GENERIC;
+	protected WorldGenerator TITANIUM_GENERIC;
+	protected WorldGenerator DIRT_GENERIC;
+	protected WorldGenerator GRAVEL_GENERIC;
+	protected WorldGenerator REDSTONE_GENERIC;
 
 	protected WorldGenerator LAPIS_CHAR;
 	protected WorldGenerator LAPIS_SHAKURAS;
