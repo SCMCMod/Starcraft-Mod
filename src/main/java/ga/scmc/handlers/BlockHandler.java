@@ -25,6 +25,7 @@ import ga.scmc.blocks.BlockShakurasFarmland;
 import ga.scmc.blocks.BlockShakurasOre;
 import ga.scmc.blocks.BlockStarcraftDirt;
 import ga.scmc.blocks.BlockStarcraftGravel;
+import ga.scmc.blocks.BlockTarFluid;
 import ga.scmc.blocks.BlockTerrazineFluid;
 import ga.scmc.blocks.BlockTerrazineGas;
 import ga.scmc.blocks.BlockTest;
@@ -100,6 +101,7 @@ public class BlockHandler {
 	public static Block FLUID_BLOOD;
 	public static Block FLUID_VESPENE;
 	public static Block FLUID_TERRAZINE;
+	public static Block FLUID_TAR;
 
 	public static Block GAS_VESPENE;
 	public static Block GAS_TERRAZINE;
@@ -184,6 +186,7 @@ public class BlockHandler {
 		FLUID_BLOOD = new BlockBloodFluid();
 		FLUID_VESPENE = new BlockVespeneFluid();
 		FLUID_TERRAZINE = new BlockTerrazineFluid();
+		FLUID_TAR = new BlockTarFluid();
 	}
 
 	public static void instantiate() {
@@ -340,6 +343,7 @@ public class BlockHandler {
 		registerCompleteBlock(FLUID_BLOOD);
 		registerCompleteBlock(FLUID_VESPENE);
 		registerCompleteBlock(FLUID_TERRAZINE);
+		registerCompleteBlock(FLUID_TAR);
 
 		registerCompleteBlock(GAS_VESPENE);
 		registerCompleteBlock(GAS_TERRAZINE);

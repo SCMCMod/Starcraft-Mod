@@ -54,6 +54,7 @@ public class StarcraftGenerator {
 
 	protected SCWorldGenerator SPAWNING_POOL;
 	protected SCWorldGenerator TERRAN_BUNKER;
+	protected SCWorldGenerator TERRAN_BARRACKS;
 	protected WorldGenerator TITANIUM_CHAR;
 	protected WorldGenerator TITANIUM_OVERWORLD;
 	protected WorldGenerator TITANIUM_SHAKURAS;

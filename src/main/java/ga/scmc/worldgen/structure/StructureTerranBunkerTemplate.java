@@ -9,11 +9,13 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 public class StructureTerranBunkerTemplate extends SCWorldGenerator {
+	
 	@Override
 	public boolean generate(World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos pos, boolean flag) {
 		generate_r0(world, pos, flag);
 		return true;
 	}
+	
 	public boolean generate_r0(World worldIn, BlockPos bp, boolean flag) {
 		if(flag) {
 			if(!LocationIsValidSpawn(worldIn, bp) || !LocationIsValidSpawn(worldIn, bp.add(17, 0, 0)) || !LocationIsValidSpawn(worldIn, bp.add(17, 0, 15)) || !LocationIsValidSpawn(worldIn, bp.add(0, 0, 15))) {

@@ -9,6 +9,7 @@ import ga.scmc.worldgen.structure.StructureMineralPatchTemplate;
 import ga.scmc.worldgen.structure.StructureProtossCyberneticsCoreTemplate;
 import ga.scmc.worldgen.structure.StructureProtossPylonTemplate;
 import ga.scmc.worldgen.structure.StructureProtossWarpGateTemplate;
+import ga.scmc.worldgen.structure.StructureTerranBarracksTemplate;
 import ga.scmc.worldgen.structure.StructureTerranBunkerTemplate;
 import ga.scmc.worldgen.structure.StructureZergHydraliskDenTemplate;
 import ga.scmc.worldgen.structure.StructureZergSpawningPoolTemplate;
@@ -89,6 +90,7 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 		ZERG_HYDRALISK_DEN = new StructureZergHydraliskDenTemplate();
 		ZERG_SPIRE = new StructureZergSpireTemplate();
 		TERRAN_BUNKER = new StructureTerranBunkerTemplate();
+		TERRAN_BARRACKS = new StructureTerranBarracksTemplate();
 		PROTOSS_PYLON = new StructureProtossPylonTemplate();
 		PROTOSS_WARPGATE = new StructureProtossWarpGateTemplate();
 		PROTOSS_CYBERNETICS_CORE = new StructureProtossCyberneticsCoreTemplate();
@@ -209,6 +211,9 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 
 				if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKorhalCity) {
 					runGenerator(TERRAN_BUNKER, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
+				}
+				if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKorhalCity) {
+					runGenerator(TERRAN_BARRACKS, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 				}
 				if (world.rand.nextInt(100) < 2 && world.getWorldInfo().isMapFeaturesEnabled()) {
 					runGenerator(GEYSER, Blocks.RED_SANDSTONE.getDefaultState(), BlockHandler.FLUID_VESPENE.getDefaultState(), world, random, chunkX, chunkZ, 0, -34, 0, 1, 60, 80, true);

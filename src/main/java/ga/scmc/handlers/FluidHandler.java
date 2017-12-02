@@ -19,6 +19,7 @@ public class FluidHandler {
 	public static final  Fluid BLOOD = new Fluid("fluid.blood", new ResourceLocation(Library.RL_BASE + "blocks/fluid.blood.still"), new ResourceLocation(Library.RL_BASE + "blocks/fluid.blood.flowing")).setBlock(BlockHandler.FLUID_BLOOD);
 	public static final Fluid VESPENE = new Fluid("fluid.vespene", new ResourceLocation(Library.RL_BASE + "blocks/fluid.vespene.still"), new ResourceLocation(Library.RL_BASE + "blocks/fluid.vespene.flowing")).setBlock(BlockHandler.FLUID_VESPENE);
 	public static final Fluid TERRAZINE = new Fluid("fluid.terrazine", new ResourceLocation(Library.RL_BASE + "blocks/fluid.terrazine.still"), new ResourceLocation(Library.RL_BASE + "blocks/fluid.terrazine.flowing")).setBlock(BlockHandler.FLUID_TERRAZINE);
+	public static final Fluid TAR = new Fluid("fluid.tar", new ResourceLocation(Library.RL_BASE + "blocks/fluid.tar.still"), new ResourceLocation(Library.RL_BASE + "blocks/fluid.tar.flowing")).setBlock(BlockHandler.FLUID_TAR);
 
 	/**
 	 * Registers the fluids.
@@ -32,6 +33,7 @@ public class FluidHandler {
         registerFluid("fluid.blood", BLOOD);
         registerFluid("fluid.vespene", VESPENE);
         registerFluid("fluid.terrazine", TERRAZINE);
+        registerFluid("fluid.tar", TAR);
 	}
 	
 	private static void registerFluid(String id, Fluid fluid) {
