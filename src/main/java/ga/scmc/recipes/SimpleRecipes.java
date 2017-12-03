@@ -148,7 +148,7 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(ToolHandler.TITANIUM_AXE), " TT", " ST", " S ", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()), 'S', Items.STICK);
 		GameRegistry.addRecipe(new ItemStack(ToolHandler.TITANIUM_PICKAXE), "TTT", " S ", " S ", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()), 'S', Items.STICK);
 		GameRegistry.addRecipe(new ItemStack(ToolHandler.TITANIUM_HOE), " TT", " S ", " S ", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()), 'S', Items.STICK);
-		GameRegistry.addRecipe(new ItemStack(WeaponHandler.TITANIUM_SWORD), " T ", " T ", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()), 'S', Items.STICK);
+		GameRegistry.addRecipe(new ItemStack(WeaponHandler.TITANIUM_SWORD), " T ", " T ", " S ", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()), 'S', Items.STICK);
 
 		// Titanium armorset
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TITANIUM_HELMET), "TTT", "T T", "   ", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()));
