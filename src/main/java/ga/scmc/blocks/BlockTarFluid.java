@@ -26,7 +26,7 @@ public class BlockTarFluid extends BlockFluidClassic {
 
 	@Override
 	public MapColor getMapColor(IBlockState state) {
-		return MapColor.GREEN;
+		return MapColor.BLACK;
 	}
 
 	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
