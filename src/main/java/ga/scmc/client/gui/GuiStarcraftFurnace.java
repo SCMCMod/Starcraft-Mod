@@ -1,11 +1,9 @@
 package ga.scmc.client.gui;
 
-import ga.scmc.Starcraft;
 import ga.scmc.container.ContainerStarcraftFurnace;
 import ga.scmc.enums.EnumWorldType;
 import ga.scmc.lib.Library;
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.gui.inventory.GuiFurnace;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;

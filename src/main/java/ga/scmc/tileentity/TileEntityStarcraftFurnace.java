@@ -1,5 +1,7 @@
 package ga.scmc.tileentity;
 
+import javax.annotation.Nullable;
+
 import ga.scmc.blocks.BlockFurnaceChar;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -10,8 +12,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.MathHelper;
-
-import javax.annotation.Nullable;
 
 /**
  * A custom furnace which uses the {@link TileEntitySidedInventory} class

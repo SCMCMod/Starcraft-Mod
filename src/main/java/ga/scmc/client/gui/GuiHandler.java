@@ -3,7 +3,6 @@ package ga.scmc.client.gui;
 import ga.scmc.Starcraft;
 import ga.scmc.container.ContainerGasCollector;
 import ga.scmc.container.ContainerStarcraftFurnace;
-import ga.scmc.enums.EnumMetaBlock;
 import ga.scmc.enums.EnumWorldType;
 import ga.scmc.tileentity.TileEntityGasCollector;
 import net.minecraft.entity.player.EntityPlayer;

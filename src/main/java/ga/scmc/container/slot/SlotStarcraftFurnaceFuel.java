@@ -1,12 +1,12 @@
 package ga.scmc.container.slot;
 
+import javax.annotation.Nullable;
+
 import net.minecraft.inventory.SlotFurnaceFuel;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
-
-import javax.annotation.Nullable;
 
 /**
  * A slot which handles the furnace fuel

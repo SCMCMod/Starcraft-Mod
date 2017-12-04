@@ -1,16 +1,18 @@
 package ga.scmc.container;
 
+import javax.annotation.Nullable;
+
 import ga.scmc.container.slot.SlotStarcraftFurnaceFuel;
 import ga.scmc.container.slot.SlotStarcraftFurnaceOutput;
 import ga.scmc.tileentity.TileEntityBlockCharFurnace;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.*;
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
-
-import javax.annotation.Nullable;
 
 /**
  * The container of the starcraft furnace
