@@ -34,6 +34,26 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 			} else {
 				dimBlock = BlockHandler.DIM_PORTAL_KALDIR;
 			}
+		}  else if (world.provider.getDimension() == -1) {
+			if (metaDim <= 25) {
+				dimBlock = BlockHandler.DIM_PORTAL_CHAR;
+			} else if (metaDim >= 26 && metaDim <= 50) {
+				dimBlock = BlockHandler.DIM_PORTAL_OVERWORLD;
+			} else if (metaDim >= 51 && metaDim <= 75) {
+				dimBlock = BlockHandler.DIM_PORTAL_KORHAL;
+			} else {
+				dimBlock = BlockHandler.DIM_PORTAL_SHAKURAS;
+			}
+		}  else if (world.provider.getDimension() == 1) {
+			if (metaDim <= 25) {
+				dimBlock = BlockHandler.DIM_PORTAL_CHAR;
+			} else if (metaDim >= 26 && metaDim <= 50) {
+				dimBlock = BlockHandler.DIM_PORTAL_OVERWORLD;
+			} else if (metaDim >= 51 && metaDim <= 75) {
+				dimBlock = BlockHandler.DIM_PORTAL_KORHAL;
+			} else {
+				dimBlock = BlockHandler.DIM_PORTAL_SHAKURAS;
+			}
 		} else if (world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_CHAR) {
 			if (metaDim <= 25) {
 				dimBlock = BlockHandler.DIM_PORTAL_OVERWORLD;
@@ -53,6 +73,26 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 				dimBlock = BlockHandler.DIM_PORTAL_KORHAL;
 			} else {
 				dimBlock = BlockHandler.DIM_PORTAL_KALDIR;
+			}
+		} else if (world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_KORHAL) {
+			if (metaDim <= 25) {
+				dimBlock = BlockHandler.DIM_PORTAL_CHAR;
+			} else if (metaDim >= 26 && metaDim <= 50) {
+				dimBlock = BlockHandler.DIM_PORTAL_OVERWORLD;
+			} else if (metaDim >= 51 && metaDim <= 75) {
+				dimBlock = BlockHandler.DIM_PORTAL_SHAKURAS;
+			} else {
+				dimBlock = BlockHandler.DIM_PORTAL_KALDIR;
+			}
+		} else if (world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_KALDIR) {
+			if (metaDim <= 25) {
+				dimBlock = BlockHandler.DIM_PORTAL_CHAR;
+			} else if (metaDim >= 26 && metaDim <= 50) {
+				dimBlock = BlockHandler.DIM_PORTAL_OVERWORLD;
+			} else if (metaDim >= 51 && metaDim <= 75) {
+				dimBlock = BlockHandler.DIM_PORTAL_KORHAL;
+			} else {
+				dimBlock = BlockHandler.DIM_PORTAL_SHAKURAS;
 			}
 		}
 
