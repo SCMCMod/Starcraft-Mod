@@ -14,11 +14,29 @@ import net.minecraftforge.items.ItemStackHandler;
  */
 public class TileEntitySidedInventory extends TileEntity {
 
+    /**
+     * The holder of all the item stacks
+     */
     protected ItemStackHandler handler;
+    /**
+     * All of the handlers for each side
+     */
     private SidedItemStackHandler northHandler, southHandler, eastHandler, westHandler, upHandler, downHandler;
+    /**
+     * The slots each side will represent
+     */
     private int[][] slotsForFace;
 
-
+    /**
+     * Create a sided {@link TileEntity}, like the {@link net.minecraft.inventory.ISidedInventory interface}
+     *
+     * @param slotsDown  The slots which are represented on the down face
+     * @param slotsUp    The slots which are represented on the up face
+     * @param slotsNorth The slots which are represented on the north face
+     * @param slotsSouth The slots which are represented on the south face
+     * @param slotsWest  The slots which are represented on the west face
+     * @param slotsEast  The slots which are represented on the east face
+     */
     public TileEntitySidedInventory(int[] slotsDown, int[] slotsUp, int[] slotsNorth, int[] slotsSouth, int[] slotsWest, int[] slotsEast) {
         this.slotsForFace = new int[][]{slotsDown, slotsUp, slotsNorth, slotsSouth, slotsWest, slotsEast};
         this.handler = new ItemStackHandler(calculateSizeOfMainHandler()) {
@@ -44,6 +62,11 @@ public class TileEntitySidedInventory extends TileEntity {
         this.eastHandler = new SidedItemStackHandler(slotsEast.length, EnumFacing.EAST);
     }
 
+    /**
+     * Calculate the size of the main item handler
+     *
+     * @return the calculated size
+     */
     private int calculateSizeOfMainHandler() {
         int lastSlot = 0;
         for (int[] slots : this.slotsForFace) {
@@ -55,6 +78,12 @@ public class TileEntitySidedInventory extends TileEntity {
         return lastSlot + 1;
     }
 
+    /**
+     * Get the correct handler for the given face
+     *
+     * @param side The side to get the handler of
+     * @return the correct handler for the given face
+     */
     private ItemStackHandler getHandlerForFace(EnumFacing side) {
         switch (side) {
             case DOWN:
@@ -73,6 +102,12 @@ public class TileEntitySidedInventory extends TileEntity {
         return this.handler;
     }
 
+    /**
+     * Insert an {@link ItemStack} (used by the main handler) into all of the faces handlers
+     *
+     * @param slot  The slot of the main handler that the {@link ItemStack} is in
+     * @param stack The {@link ItemStack} to insert into all the of the faces handlers
+     */
     private void insertStack(int slot, ItemStack stack) {
         for (int i = 0; i < this.slotsForFace.length; i++) {
             for (int j = 0; j < this.slotsForFace[i].length; j++) {
@@ -103,6 +138,12 @@ public class TileEntitySidedInventory extends TileEntity {
         }
     }
 
+    /**
+     * Extract an {@link ItemStack} (used by the main handler) from all of the faces handlers
+     *
+     * @param slot   The slot of the main handler that the {@link ItemStack} is in
+     * @param amount The amount of items to be extracted
+     */
     private void extractStack(int slot, int amount) {
         for (int i = 0; i < this.slotsForFace.length; i++) {
             for (int j = 0; j < this.slotsForFace[i].length; j++) {
@@ -133,9 +174,12 @@ public class TileEntitySidedInventory extends TileEntity {
         }
     }
 
+    /**
+     * Update all of the faces handlers (used when loading up the NBT)
+     */
     private void updateHandlers() {
-        for(int i = 0; i < this.slotsForFace.length; i++) {
-            for(int j = 0; j < this.slotsForFace[i].length; j++) {
+        for (int i = 0; i < this.slotsForFace.length; i++) {
+            for (int j = 0; j < this.slotsForFace[i].length; j++) {
                 switch (i) {
                     case 0:
                         this.downHandler.setStackInSlot(j, this.handler.getStackInSlot(this.slotsForFace[i][j]));
@@ -187,6 +231,9 @@ public class TileEntitySidedInventory extends TileEntity {
         return super.writeToNBT(nbt);
     }
 
+    /**
+     * The {@link ItemStackHandler} which is used for each face
+     */
     private class SidedItemStackHandler extends ItemStackHandler {
 
         private EnumFacing side;
@@ -198,15 +245,17 @@ public class TileEntitySidedInventory extends TileEntity {
 
         @Override
         public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
+            // Insert into the main handler
             if (!simulate)
-                handler.insertItem(slotsForFace[side.getIndex()][slot];, stack, simulate);
+                handler.insertItem(slotsForFace[side.getIndex()][slot], stack, simulate);
             return super.insertItem(slot, stack, simulate);
         }
 
         @Override
         public ItemStack extractItem(int slot, int amount, boolean simulate) {
+            // Extract from the main handler
             if (!simulate)
-                handler.extractItem(slotsForFace[side.getIndex()][slot];, amount, simulate);
+                handler.extractItem(slotsForFace[side.getIndex()][slot], amount, simulate);
             return super.extractItem(slot, amount, simulate);
         }
     }
