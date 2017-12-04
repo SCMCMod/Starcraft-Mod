@@ -90,7 +90,7 @@ public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predica
 			} else if (entity instanceof EntityStarcraftPassive) {
 				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
 					if (!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.DAELAAM)) {
-						if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
+						if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor() && !((EntityStarcraftPassive) entity).isType(EnumTypeAttributes.CRITTER)) {
 							return true;
 						} else {
 							return false;

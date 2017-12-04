@@ -2,10 +2,15 @@ package ga.scmc.entity.living;
 
 import com.google.common.base.Predicate;
 
+import ga.scmc.capabilities.ColorProvider;
+import ga.scmc.capabilities.IColor;
+import ga.scmc.enums.EnumFactionTypes;
+import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
 import ga.scmc.handlers.WeaponHandler;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
@@ -40,17 +45,51 @@ public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<E
 	
 	@Override
 	public boolean apply(EntityLivingBase entity) {
-		if(entity.isInvisible() == false) {
-			if(entity instanceof EntityZergMob || entity instanceof EntityZergPassive || entity instanceof EntityTerranMob || entity instanceof EntityTerranPassive) {
+		if (!entity.isInvisible()) {
+			if (entity instanceof EntityStarcraftMob) {
+				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
+					if (!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.DAELAAM)) {
+						if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+							return true;
+						} else {
+							return false;
+						}
+					} else if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+						return true;
+					}
+				}
+			} else if (entity instanceof EntityStarcraftPassive) {
+				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
+					if (!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.DAELAAM)) {
+						if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor() && !((EntityStarcraftPassive) entity).isType(EnumTypeAttributes.CRITTER)) {
+							return true;
+						} else {
+							return false;
+						}
+					} else if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
+						return true;
+					}
+				}
+			}else if(entity instanceof EntityPlayer) {
+				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
+				if(color.getColor() == this.getTeamColor().getId()) {
+					return false;
+				}else {
+					return true;
+				}
+			}else {
+				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
+					return false;
+				}
 				return true;
-			} else {
-				return false;
 			}
-		}else {
+		} else if (entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)) {
+			return true;
+		} else {
 			return false;
 		}
+		return false;
 	}
-	
 	@Override
 	protected boolean canDespawn() {
 		return false;

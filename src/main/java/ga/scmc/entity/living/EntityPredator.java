@@ -76,7 +76,7 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 			} else if (entity instanceof EntityStarcraftPassive) {
 				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
 					if (!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.RAIDERS)) {
-						if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
+						if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor() && !((EntityStarcraftPassive) entity).isType(EnumTypeAttributes.CRITTER)) {
 							return true;
 						} else {
 							return false;
@@ -85,7 +85,7 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 						return true;
 					}
 				}
-			} else if(entity instanceof EntityPlayer) {
+			}else if(entity instanceof EntityPlayer) {
 				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
 				if(color.getColor() == this.getTeamColor().getId()) {
 					return false;

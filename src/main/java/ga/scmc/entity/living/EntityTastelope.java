@@ -1,6 +1,5 @@
 package ga.scmc.entity.living;
 
-import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAISwimming;
@@ -9,7 +8,7 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class EntityTastelope extends EntityCreature {
+public class EntityTastelope extends EntityCritterPassive {
 
 	public EntityTastelope(World world) {
 		super(world);
@@ -25,11 +24,5 @@ public class EntityTastelope extends EntityCreature {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(7.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.39000000298023224D);
-	}
-	
-	@Override
-	protected void dropFewItems(boolean recentlyHit, int looting) {
-		//ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.PROTOSS_INGOT, 1 + this.rand.nextInt(2), EnumMetaItem.ProtossIngotType.KHALAI.getID()));
-		//drop.tryDrop(this);
 	}
 }

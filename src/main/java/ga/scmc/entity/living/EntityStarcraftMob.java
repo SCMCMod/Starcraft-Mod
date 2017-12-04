@@ -134,11 +134,23 @@ public abstract class EntityStarcraftMob extends EntityMob {
 		if (entitylivingbaseIn instanceof EntityPlayer) {
 			IColor color = ((EntityPlayer) entitylivingbaseIn).getCapability(ColorProvider.COLOR, null);
 			if (color.getColor() == this.getTeamColor().getId()) {
-				// Do nothing
+				this.setAttackTarget(null);
 			} else {
 				super.setAttackTarget(entitylivingbaseIn);
 			}
-		} else {
+		}else if(entitylivingbaseIn instanceof EntityStarcraftMob) {
+			if(((EntityStarcraftMob)entitylivingbaseIn).getTeamColor() == this.getTeamColor()) {
+				this.setAttackTarget(null);
+			} else {
+				super.setAttackTarget(entitylivingbaseIn);
+			}
+		}else if(entitylivingbaseIn instanceof EntityStarcraftPassive) {
+			if(((EntityStarcraftMob)entitylivingbaseIn).getTeamColor() == this.getTeamColor()) {
+				this.setAttackTarget(null);
+			} else {
+				super.setAttackTarget(entitylivingbaseIn);
+			}
+		}else {
 			super.setAttackTarget(entitylivingbaseIn);
 		}
 	}

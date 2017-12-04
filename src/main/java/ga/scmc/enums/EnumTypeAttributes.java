@@ -15,5 +15,6 @@ public enum EnumTypeAttributes {
 	PSIONIC,
 	ROBOTIC,
 	SUMMONED,
-	PROJECTILE
+	PROJECTILE,
+	CRITTER
 }
