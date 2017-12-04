@@ -9,8 +9,8 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
 /**
- * @author CJMinecraft
  * A simple {@link net.minecraft.tileentity.TileEntity} which has a sided inventory using capabilities
+ * @author CJMinecraft
  */
 public class TileEntitySidedInventory extends TileEntity {
 

@@ -15,6 +15,8 @@ import javax.annotation.Nullable;
 
 /**
  * A custom furnace which uses the {@link TileEntitySidedInventory} class
+ *
+ * @author CJMinecraft
  */
 public class TileEntityStarcraftFurnace extends TileEntitySidedInventory implements ITickable {
 
