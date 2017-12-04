@@ -1,51 +1,15 @@
 package ga.scmc.handlers;
 
-import ga.scmc.blocks.BlockAcidFluid;
-import ga.scmc.blocks.BlockAsh;
-import ga.scmc.blocks.BlockBloodFluid;
-import ga.scmc.blocks.BlockCharFarmland;
-import ga.scmc.blocks.BlockCharMagma;
-import ga.scmc.blocks.BlockCharOre;
-import ga.scmc.blocks.BlockDimPortal;
-import ga.scmc.blocks.BlockFurnaceChar;
-import ga.scmc.blocks.BlockFurnaceShakuras;
-import ga.scmc.blocks.BlockFurnaceSlayn;
-import ga.scmc.blocks.BlockKorhalCityStone;
-import ga.scmc.blocks.BlockMovingLightSource;
-import ga.scmc.blocks.BlockOverworldOre;
-import ga.scmc.blocks.BlockProtossEnergyChannel;
-import ga.scmc.blocks.BlockProtossEnergyChannelDark;
-import ga.scmc.blocks.BlockProtossEnergyChannelVoid;
-import ga.scmc.blocks.BlockProtossEnergyStabilizer;
-import ga.scmc.blocks.BlockProtossEnergyStabilizerDark;
-import ga.scmc.blocks.BlockProtossEnergyStabilizerVoid;
-import ga.scmc.blocks.BlockProtossShield;
-import ga.scmc.blocks.BlockProtossWormhole;
-import ga.scmc.blocks.BlockShakurasFarmland;
-import ga.scmc.blocks.BlockShakurasOre;
-import ga.scmc.blocks.BlockStarcraftDirt;
-import ga.scmc.blocks.BlockStarcraftGravel;
-import ga.scmc.blocks.BlockTarFluid;
-import ga.scmc.blocks.BlockTerrazineFluid;
-import ga.scmc.blocks.BlockTerrazineGas;
-import ga.scmc.blocks.BlockTest;
-import ga.scmc.blocks.BlockVespeneFluid;
-import ga.scmc.blocks.BlockVespeneGas;
-import ga.scmc.blocks.BlockZergCreep;
-import ga.scmc.blocks.BlockZergKeratin;
-import ga.scmc.blocks.OreCharRedstone;
-import ga.scmc.blocks.OreShakurasRedstone;
-import ga.scmc.blocks.RegistryType;
-import ga.scmc.blocks.StarcraftBlock;
-import ga.scmc.blocks.StarcraftBlockFalling;
-import ga.scmc.blocks.StarcraftProtossCoreBlock;
+import ga.scmc.blocks.*;
 import ga.scmc.blocks.itemblocks.ItemBlockAsh;
 import ga.scmc.blocks.itemblocks.ItemBlockMeta;
 import ga.scmc.blocks.itemblocks.ItemBlockStarcraftSkull;
 import ga.scmc.blocks.metablocks.BlockEnergy;
 import ga.scmc.blocks.skulls.BlockStarcraftSkull;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
+import ga.scmc.enums.EnumWorldType;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockFurnace;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -254,12 +218,22 @@ public class BlockHandler {
 		// GRAVEL_SLAYN = new BlockStarcraftGravel("slayn.gravel", RegistryType.FULL, Material.GROUND, MapColor.BLACK, 0x000000).setBlockSoundType(SoundType.GROUND).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0.5f).setResistance(0.83f);
 
 		/** furnaces blocks **/
+
+		/*
 		FURNACE_SHAKURAS = new BlockFurnaceShakuras(false);
 		LIT_FURNACE_SHAKURAS = new BlockFurnaceShakuras(true);
 		FURNACE_CHAR = new BlockFurnaceChar(false);
 		LIT_FURNACE_CHAR = new BlockFurnaceChar(true);
 		FURNACE_SLAYN = new BlockFurnaceSlayn(false);
 		LIT_FURNACE_SLAYN = new BlockFurnaceSlayn(true);
+		*/
+		FURNACE_SHAKURAS = new BlockStarcraftFurnace(false, MapColor.LIGHT_BLUE, EnumWorldType.SHAKURAS);
+		LIT_FURNACE_SHAKURAS = new BlockStarcraftFurnace(true, MapColor.LIGHT_BLUE, EnumWorldType.SHAKURAS);
+		FURNACE_CHAR = new BlockStarcraftFurnace(false, MapColor.BLACK, EnumWorldType.CHAR);
+		LIT_FURNACE_CHAR = new BlockStarcraftFurnace(true, MapColor.BLACK, EnumWorldType.CHAR);
+		FURNACE_SLAYN = new BlockStarcraftFurnace(false, MapColor.BLACK, EnumWorldType.SLAYN);
+		LIT_FURNACE_SLAYN = new BlockStarcraftFurnace(true, MapColor.BLACK, EnumWorldType.SLAYN);
+
 
 		/** protoss blocks **/
 		PROTOSS_ENERGY_CHANNEL = new BlockProtossEnergyChannel();

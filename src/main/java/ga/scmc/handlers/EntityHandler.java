@@ -29,16 +29,10 @@ import ga.scmc.entity.living.EntityZerglingBoost;
 import ga.scmc.entity.living.EntityZerglingRaptor;
 import ga.scmc.entity.living.EntityZerglingSwarmling;
 import ga.scmc.lib.Library;
-import ga.scmc.tileentity.TileEntityBlockCharFurnace;
-import ga.scmc.tileentity.TileEntityBlockShakurasFurnace;
-import ga.scmc.tileentity.TileEntityBlockSlaynFurnace;
-import ga.scmc.tileentity.TileEntityGasCollector;
-import ga.scmc.tileentity.TileEntityMovingLightSource;
-import ga.scmc.tileentity.TileEntityStarcraftSkull;
-import ga.scmc.tileentity.TileEntityTest;
-import ga.scmc.tileentity.TileEntityWarpGateWormhole;
+import ga.scmc.tileentity.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -110,6 +104,8 @@ public class EntityHandler {
 		GameRegistry.registerTileEntity(TileEntityMovingLightSource.class, Library.RL_BASE + "TileEntityMovingLightSource");
 		GameRegistry.registerTileEntity(TileEntityStarcraftSkull.class, Library.RL_BASE + "TileEntityStarcraftSkull");
 		GameRegistry.registerTileEntity(TileEntityTest.class, Library.RL_BASE + "TileEntityTest");
+
+		GameRegistry.registerTileEntity(TileEntityStarcraftFurnace.class, Library.RL_BASE + "TileEntityStarcraftFurnace");
 	}
 
 	/**

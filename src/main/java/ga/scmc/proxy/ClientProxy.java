@@ -1,10 +1,14 @@
 package ga.scmc.proxy;
 
+import ga.scmc.Starcraft;
+import ga.scmc.client.gui.GuiHandler;
 import ga.scmc.client.renderer.model.armor.ModelArmorBase;
 import ga.scmc.client.renderer.model.armor.ModelTerranMarineArmorT1;
 import ga.scmc.client.renderer.model.armor.ModelZergArmorT1;
 import ga.scmc.client.renderer.model.armor.ModelZergArmorT2;
 import ga.scmc.client.renderer.model.armor.ModelZergArmorT3;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 /**
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
@@ -38,5 +42,10 @@ public class ClientProxy extends CommonProxy {
 		case 7:
 			return new ModelTerranMarineArmorT1(0.5f);
 		}
+	}
+
+	@Override
+	public void preInit(FMLPreInitializationEvent event) {
+		NetworkRegistry.INSTANCE.registerGuiHandler(Starcraft.instance, GuiHandler.INSTANCE);
 	}
 }
