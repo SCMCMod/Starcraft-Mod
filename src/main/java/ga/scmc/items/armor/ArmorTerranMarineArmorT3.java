@@ -12,6 +12,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ArmorTerranMarineArmorT3 extends ItemArmor {
 
+	ModelArmorBase armorModel = null;
+	
 	public ArmorTerranMarineArmorT3(ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
 		super(materialIn, renderIndexIn, equipmentSlotIn);
 	}
@@ -24,7 +26,6 @@ public class ArmorTerranMarineArmorT3 extends ItemArmor {
 			if (this instanceof ItemArmor) {
 
 				EntityEquipmentSlot type = armorType;
-				ModelArmorBase armorModel = null;
 				switch (type) {
 				case HEAD:
 				case LEGS:
