@@ -11,7 +11,7 @@ import ga.scmc.worldgen.dimchar.BiomeGenCharOutskirts;
 import ga.scmc.worldgen.dimchar.BiomeGenCharScar;
 import ga.scmc.worldgen.dimkaldir.BiomeGenKaldirIcePlains;
 import ga.scmc.worldgen.dimkaldir.BiomeGenKaldirMountains;
-import ga.scmc.worldgen.dimkaldir.BiomeGenKaldirOcean;
+import ga.scmc.worldgen.dimkaldir.BiomeGenKaldirSnowPlains;
 import ga.scmc.worldgen.dimkorhal.BiomeGenKorhalCity;
 import ga.scmc.worldgen.dimkorhal.BiomeGenKorhalDesert;
 import ga.scmc.worldgen.dimkorhal.BiomeGenKorhalDesertHills;
@@ -52,7 +52,7 @@ public class BiomeHandler extends Biome {
 	public static Biome biomeKorhalCity;
 
 	public static Biome biomeKaldirIcePlains;
-	public static Biome biomeKaldirOcean;
+	public static Biome biomeKaldirSnowPlains;
 	public static Biome biomeKaldirMountains;
 
 	public static void preInit() {
@@ -82,7 +82,7 @@ public class BiomeHandler extends Biome {
 		GameRegistry.register(biomeKorhalCity);
 
 		GameRegistry.register(biomeKaldirIcePlains);
-		GameRegistry.register(biomeKaldirOcean);
+		GameRegistry.register(biomeKaldirSnowPlains);
 		GameRegistry.register(biomeKaldirMountains);
 	}
 
@@ -112,7 +112,7 @@ public class BiomeHandler extends Biome {
 		biomeKorhalCity = new BiomeGenKorhalCity((new Biome.BiomeProperties("Korhal City")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(0.3F).setRainfall(0.3F));
 
 		biomeKaldirIcePlains = new BiomeGenKaldirIcePlains((new Biome.BiomeProperties("Kaldir Ice Plains")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(0.1F).setRainfall(0.5F));
-		biomeKaldirOcean = new BiomeGenKaldirOcean((new Biome.BiomeProperties("Kaldir Deep Ocean")).setBaseHeight(-1.5F).setHeightVariation(0.35F).setTemperature(0.1F));
+		biomeKaldirSnowPlains = new BiomeGenKaldirSnowPlains((new Biome.BiomeProperties("Kaldir Snow Plains")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(0.1F).setRainfall(0.5F));
 		biomeKaldirMountains = new BiomeGenKaldirMountains((new Biome.BiomeProperties("Kaldir Mountains")).setBaseHeight(1.0F).setHeightVariation(0.55F).setTemperature(0.1F).setRainfall(0.5F));
 		
 		// add or remove spawn biomes here
@@ -124,8 +124,9 @@ public class BiomeHandler extends Biome {
 		BiomeManager.addSpawnBiome(BiomeHandler.biomeKorhalDesert);
 		BiomeManager.addSpawnBiome(BiomeHandler.biomeKorhalDesertHills);
 		BiomeManager.addSpawnBiome(BiomeHandler.biomeKaldirIcePlains);
+		BiomeManager.addSpawnBiome(BiomeHandler.biomeKaldirSnowPlains);
 
-		BiomeManager.addSpawnBiome(BiomeHandler.biomeShakurasCity);
+		BiomeManager.removeSpawnBiome(BiomeHandler.biomeShakurasCity);
 		BiomeManager.removeSpawnBiome(BiomeHandler.biomeKorhalDesert);
 		BiomeManager.removeSpawnBiome(BiomeHandler.biomeShakurasOcean);
 		BiomeManager.removeSpawnBiome(BiomeHandler.biomeLavaOcean);
