@@ -1,7 +1,10 @@
 package ga.scmc.entity.living;
 
+import java.util.Random;
+
 import com.google.common.base.Predicate;
 
+import ga.scmc.handlers.SoundHandler;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
@@ -14,6 +17,7 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 /**
@@ -44,6 +48,33 @@ public class EntityUrsadonMatriarch extends EntityMob implements IMob, Predicate
 			}
 		}
 		return false;
+	}
+	
+	@Override
+	public SoundEvent getAmbientSound() {
+		Random rand = new Random();
+
+		switch (rand.nextInt(1)) {
+		case 0:
+			return SoundHandler.ENTITY_URSADON_LIVE1;
+		default:
+			return SoundHandler.ENTITY_URSADON_LIVE2;
+		}
+	}
+
+	@Override
+	public SoundEvent getDeathSound() {
+		return SoundHandler.ENTITY_URSADON_DEATH;
+	}
+
+	@Override
+	public SoundEvent getHurtSound() {
+		return SoundHandler.ENTITY_URSADON_HURT;
+	}
+
+	@Override
+	public int getTalkInterval() {
+		return 160;
 	}
 
 	@Override

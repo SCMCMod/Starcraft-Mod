@@ -503,6 +503,34 @@
             "stream": false
         }]
     },
+    "mob.ursadon.live1": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/ursadon/ursadon-live1",
+            "stream": false
+        }]
+    },
+    "mob.ursadon.live2": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/ursadon/ursadon-live2",
+            "stream": false
+        }]
+    },
+    "mob.ursadon.hurt": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/ursadon/ursadon-hurt",
+            "stream": false
+        }]
+    },
+    "mob.ursadon.death": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/ursadon/ursadon-death",
+            "stream": false
+        }]
+    },
     "mob.marine.live1": {
         "category": "master",
         "sounds": [{
