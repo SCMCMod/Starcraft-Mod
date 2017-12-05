@@ -61,7 +61,7 @@ public class EntityZergMob extends EntityStarcraftMob {
 	}
 
 	protected void findBiomass() {
-		if (!this.world.isRemote && this.world.getWorldTime() % 40 == 0) {
+		if (!this.world.isRemote && this.world.getWorldTime() % 40 == 0 && this.getAttackTarget() == null) {
 			ArrayList<EntityItem> entityItemList = (ArrayList<EntityItem>) world.getEntitiesWithinAABB(EntityItem.class, this.getEntityBoundingBox().expand(8, 8, 8));
 
 			for (EntityItem entityItem : entityItemList) {
