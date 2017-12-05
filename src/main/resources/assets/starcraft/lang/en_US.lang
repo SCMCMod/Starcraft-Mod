@@ -301,6 +301,7 @@ item.terran.magazine.flamethrower.name=Flamethrower Fuel
 item.stimpack.name=Stimpack
 
 item.terran.spawner.bunker.name=Bunker Spawner
+item.terran.spawner.barracks.name=Barracks Spawner
 
 item.titanium.helmet.name=Titanium Helmet
 item.titanium.chestplate.name=Titanium Chestplate

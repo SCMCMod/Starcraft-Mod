@@ -107,6 +107,7 @@ import static ga.scmc.handlers.ItemHandler.SPAWNER_PROTOSS_VOID_CYBERNETICSCORE;
 import static ga.scmc.handlers.ItemHandler.SPAWNER_PROTOSS_VOID_PYLON;
 import static ga.scmc.handlers.ItemHandler.SPAWNER_PROTOSS_VOID_WARPGATE;
 import static ga.scmc.handlers.ItemHandler.SPAWNER_PROTOSS_WARPGATE;
+import static ga.scmc.handlers.ItemHandler.SPAWNER_TERRAN_BARRACKS;
 import static ga.scmc.handlers.ItemHandler.SPAWNER_TERRAN_BUNKER;
 import static ga.scmc.handlers.ItemHandler.SPAWNER_ZERG_HYDRALISKDEN;
 import static ga.scmc.handlers.ItemHandler.SPAWNER_ZERG_SPAWNINGPOOL;
@@ -413,6 +414,7 @@ public class RenderingHandler {
 		registerItemRender(SPAWNER_PROTOSS_WARPGATE);
 
 		registerItemRender(SPAWNER_TERRAN_BUNKER);
+		registerItemRender(SPAWNER_TERRAN_BARRACKS);
 
 		registerItemRender(SPAWNER_ZERG_SPAWNINGPOOL);
 		registerItemRender(SPAWNER_ZERG_SPIRE);
