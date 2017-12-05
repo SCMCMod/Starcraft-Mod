@@ -145,7 +145,7 @@ public abstract class EntityStarcraftMob extends EntityMob {
 				super.setAttackTarget(entitylivingbaseIn);
 			}
 		}else if(entitylivingbaseIn instanceof EntityStarcraftPassive) {
-			if(((EntityStarcraftMob)entitylivingbaseIn).getTeamColor() == this.getTeamColor()) {
+			if(((EntityStarcraftPassive)entitylivingbaseIn).getTeamColor() == this.getTeamColor()) {
 				this.setAttackTarget(null);
 			} else {
 				super.setAttackTarget(entitylivingbaseIn);
