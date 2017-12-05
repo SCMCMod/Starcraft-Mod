@@ -880,7 +880,9 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 	}
 
 	protected Block[] getValidSpawnBlocks() {
-		return new Block[] { Blocks.GRASS, Blocks.DIRT, Blocks.STONE, BlockHandler.ASH_CHAR, BlockHandler.STONE_CHAR, MetaBlockHandler.PROTOSS_METAL_T1, BlockHandler.SAND_SHAKURAS, BlockHandler.STONE_SHAKURAS, BlockHandler.DIRT_SHAKURAS, BlockHandler.DIRT_CHAR };
+		return new Block[] { Blocks.GRASS, Blocks.DIRT, Blocks.STONE, BlockHandler.ASH_CHAR, BlockHandler.STONE_CHAR,
+				MetaBlockHandler.PROTOSS_METAL_T1, BlockHandler.SAND_SHAKURAS, BlockHandler.STONE_SHAKURAS,
+				BlockHandler.DIRT_SHAKURAS, BlockHandler.DIRT_CHAR, Blocks.SAND, Blocks.SNOW_LAYER, Blocks.SNOW };
 	}
 
 	public boolean LocationIsValidSpawn(World world, BlockPos pos) {
