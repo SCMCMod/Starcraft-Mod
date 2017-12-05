@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.google.common.base.Predicate;
 
+import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.SoundHandler;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -36,6 +37,14 @@ public class EntityUrsadonMatriarch extends EntityMob implements IMob, Predicate
 		tasks.addTask(4, new EntityAILookIdle(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, false, true, this));
+	}
+	
+	@Override
+	public boolean getCanSpawnHere() {
+		if(this.world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_KALDIR) {
+			return true;
+		}
+		return false;
 	}
 
 	@Override

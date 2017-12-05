@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.google.common.base.Predicate;
 
+import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.SoundHandler;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -70,6 +71,14 @@ public class EntityUrsadon extends EntityMob implements IMob, Predicate<EntityLi
 	@Override
 	public SoundEvent getHurtSound() {
 		return SoundHandler.ENTITY_URSADON_HURT;
+	}
+	
+	@Override
+	public boolean getCanSpawnHere() {
+		if(this.world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_KALDIR) {
+			return true;
+		}
+		return false;
 	}
 
 	@Override
