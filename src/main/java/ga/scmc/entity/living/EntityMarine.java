@@ -39,13 +39,13 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 		this.setTeamColor(EnumTeamColors.BLUE);
 		this.setFactions(EnumFactionTypes.RAIDERS);
 		setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
-		tasks.addTask(1, new EntityAIAttackRanged(this, 1.0D, 17, 16.0F));
+		tasks.addTask(1, new EntityAIAttackRanged(this, 0.75D, 17, 16.0F));
 		tasks.addTask(2, new EntityAISwimming(this));
 		tasks.addTask(3, new EntityAIWander(this, 1.0D));
 		tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
 		tasks.addTask(5, new EntityAILookIdle(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
-		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, false, false, this));
+		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, true, false, this));
 	}
 	
 	@Override
