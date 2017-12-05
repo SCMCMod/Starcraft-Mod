@@ -9,6 +9,7 @@ import ga.scmc.capabilities.IColor;
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
+import ga.scmc.handlers.ItemHandler;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
@@ -153,5 +154,31 @@ public abstract class EntityStarcraftMob extends EntityMob {
 		}else {
 			super.setAttackTarget(entitylivingbaseIn);
 		}
+	}
+	
+	@Override
+	public void onKillEntity(EntityLivingBase entityLivingIn) {
+		int biomassAmount;
+		if (entityLivingIn.getMaxHealth() <= 256) {
+			biomassAmount = (int) entityLivingIn.getMaxHealth() / 4;
+		} else {
+			biomassAmount = 64;
+		}
+		if (entityLivingIn instanceof EntityStarcraftMob) {
+			if (((EntityStarcraftMob) entityLivingIn).isType(EnumTypeAttributes.MECHANICAL)) {
+				//do nothing
+			} else {
+				entityLivingIn.dropItem(ItemHandler.BIOMASS, biomassAmount);
+			}
+		} else if (entityLivingIn instanceof EntityStarcraftPassive) {
+			if (((EntityStarcraftPassive) entityLivingIn).isType(EnumTypeAttributes.MECHANICAL)) {
+				//do nothing
+			} else {
+				entityLivingIn.dropItem(ItemHandler.BIOMASS, biomassAmount);
+			}
+		} else {
+			entityLivingIn.dropItem(ItemHandler.BIOMASS, biomassAmount);
+		}
+		super.onKillEntity(entityLivingIn);
 	}
 }
