@@ -32,6 +32,7 @@ import ga.scmc.items.structurespawns.ItemProtossVoidWarpGateSpawner;
 import ga.scmc.items.structurespawns.ItemProtossWarpGateSpawner;
 import ga.scmc.items.structurespawns.ItemTerranBarracksSpawner;
 import ga.scmc.items.structurespawns.ItemTerranBunkerSpawner;
+import ga.scmc.items.structurespawns.ItemTerranCommandCenterSpawner;
 import ga.scmc.items.structurespawns.ItemZergHydraliskDenSpawner;
 import ga.scmc.items.structurespawns.ItemZergSpawningPoolSpawner;
 import ga.scmc.items.structurespawns.ItemZergSpireSpawner;
@@ -89,6 +90,7 @@ public class ItemHandler {
 
 	public static Item SPAWNER_TERRAN_BUNKER;
 	public static Item SPAWNER_TERRAN_BARRACKS;
+	public static Item SPAWNER_TERRAN_COMMAND_CENTER;
 
 	public static Item SPAWNER_ZERG_SPAWNINGPOOL;
 	public static Item SPAWNER_ZERG_SPIRE;
@@ -139,6 +141,7 @@ public class ItemHandler {
 
 		SPAWNER_TERRAN_BUNKER = new ItemTerranBunkerSpawner();
 		SPAWNER_TERRAN_BARRACKS = new ItemTerranBarracksSpawner();
+		SPAWNER_TERRAN_COMMAND_CENTER = new ItemTerranCommandCenterSpawner();
 
 		SPAWNER_ZERG_SPAWNINGPOOL = new ItemZergSpawningPoolSpawner();
 		SPAWNER_ZERG_SPIRE = new ItemZergSpireSpawner();
@@ -205,6 +208,7 @@ public class ItemHandler {
 
 		registerItem(SPAWNER_TERRAN_BUNKER);
 		registerItem(SPAWNER_TERRAN_BARRACKS);
+		registerItem(SPAWNER_TERRAN_COMMAND_CENTER);
 
 		registerItem(SPAWNER_ZERG_SPAWNINGPOOL);
 		registerItem(SPAWNER_ZERG_SPIRE);
