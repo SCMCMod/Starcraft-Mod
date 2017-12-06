@@ -1,10 +1,7 @@
 package ga.scmc.tileentity;
 
 import javax.annotation.Nullable;
-
-import ga.scmc.blocks.BlockFurnaceChar;
 import ga.scmc.blocks.BlockStarcraftFurnace;
-import jdk.nashorn.internal.ir.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -47,7 +44,23 @@ public class TileEntityStarcraftFurnace extends TileEntitySidedInventory impleme
      */
     public TileEntityStarcraftFurnace() {
         super(new int[]{2, 1}, new int[]{0}, new int[]{1}, new int[]{1}, new int[]{1}, new int[]{1});
-        this.totalCookTime = getCookTime(null);
+        this.totalCookTime = getCurrentCookTime(null);
+    }
+
+    public int getBurnTime() {
+        return this.furnaceBurnTime;
+    }
+
+    public int getCurrentCookTime() {
+        return this.cookTime;
+    }
+
+    public int getTotalCookTime() {
+        return this.totalCookTime;
+    }
+
+    public int getCurrentItemBurnTime() {
+        return this.currentItemBurnTime;
     }
 
     /**
@@ -107,7 +120,7 @@ public class TileEntityStarcraftFurnace extends TileEntitySidedInventory impleme
      * @param stack The {@link ItemStack} which will be cooked
      * @return The amount of time it takes to cook the given item
      */
-    public int getCookTime(@Nullable ItemStack stack) {
+    public int getCurrentCookTime(@Nullable ItemStack stack) {
         return 200;
     }
 
@@ -162,7 +175,7 @@ public class TileEntityStarcraftFurnace extends TileEntitySidedInventory impleme
 
                     if (this.cookTime == this.totalCookTime) {
                         this.cookTime = 0;
-                        this.totalCookTime = getCookTime(this.handler.getStackInSlot(0));
+                        this.totalCookTime = getCurrentCookTime(this.handler.getStackInSlot(0));
                         smeltItem();
                         burningState = true;
                     }
