@@ -3,6 +3,9 @@ package ga.scmc.tileentity;
 import javax.annotation.Nullable;
 
 import ga.scmc.blocks.BlockFurnaceChar;
+import ga.scmc.blocks.BlockStarcraftFurnace;
+import jdk.nashorn.internal.ir.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -11,7 +14,9 @@ import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.ITickable;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.World;
 
 /**
  * A custom furnace which uses the {@link TileEntitySidedInventory} class
@@ -42,6 +47,7 @@ public class TileEntityStarcraftFurnace extends TileEntitySidedInventory impleme
      */
     public TileEntityStarcraftFurnace() {
         super(new int[]{2, 1}, new int[]{0}, new int[]{1}, new int[]{1}, new int[]{1}, new int[]{1});
+        this.totalCookTime = getCookTime(null);
     }
 
     /**
@@ -127,15 +133,16 @@ public class TileEntityStarcraftFurnace extends TileEntitySidedInventory impleme
         boolean originalIsBurning = this.isBurning();
         boolean burningState = false;
 
-        if (this.isBurning()) {
+        if (isBurning())
             --this.furnaceBurnTime;
-        }
 
         if (!this.world.isRemote) {
             if (this.isBurning() || this.handler.getStackInSlot(1) != null && this.handler.getStackInSlot(0) != null) {
                 if (!this.isBurning() && this.canSmelt()) {
                     this.furnaceBurnTime = TileEntityFurnace.getItemBurnTime(this.handler.getStackInSlot(1));
                     this.currentItemBurnTime = this.furnaceBurnTime;
+
+                    System.out.println(furnaceBurnTime);
 
                     if (this.isBurning()) {
                         burningState = true;
@@ -150,30 +157,35 @@ public class TileEntityStarcraftFurnace extends TileEntitySidedInventory impleme
                     }
                 }
 
-                if (this.isBurning() && this.canSmelt()) {
+                if (isBurning() && canSmelt()) {
                     ++this.cookTime;
 
                     if (this.cookTime == this.totalCookTime) {
                         this.cookTime = 0;
-                        this.totalCookTime = this.getCookTime(this.handler.getStackInSlot(0));
-                        this.smeltItem();
+                        this.totalCookTime = getCookTime(this.handler.getStackInSlot(0));
+                        smeltItem();
                         burningState = true;
                     }
                 } else {
                     this.cookTime = 0;
                 }
-            } else if (!this.isBurning() && this.cookTime > 0) {
+            } else if (!isBurning() && this.cookTime > 0) {
                 this.cookTime = MathHelper.clamp(this.cookTime - 2, 0, this.totalCookTime);
             }
 
-            if (originalIsBurning != this.isBurning()) {
+            if (originalIsBurning != isBurning()) {
                 burningState = true;
-                BlockFurnaceChar.setState(this.isBurning(), this.world, this.pos);
+                this.world.setBlockState(this.pos, this.world.getBlockState(this.pos).withProperty(BlockStarcraftFurnace.BURNING, isBurning()), 3);
             }
         }
 
         if (burningState) {
             this.markDirty();
         }
+    }
+
+    @Override
+    public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newState) {
+        return oldState.getBlock() != newState.getBlock();
     }
 }

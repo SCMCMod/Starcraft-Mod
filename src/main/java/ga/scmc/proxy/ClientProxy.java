@@ -43,9 +43,4 @@ public class ClientProxy extends CommonProxy {
 			return new ModelTerranMarineArmorT1(0.5f);
 		}
 	}
-
-	@Override
-	public void preInit(FMLPreInitializationEvent event) {
-		NetworkRegistry.INSTANCE.registerGuiHandler(Starcraft.instance, GuiHandler.INSTANCE);
-	}
 }

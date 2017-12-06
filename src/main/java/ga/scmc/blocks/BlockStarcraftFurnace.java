@@ -9,8 +9,6 @@ import ga.scmc.api.Utils;
 import ga.scmc.client.gui.GuiHandler;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.enums.EnumWorldType;
-import ga.scmc.handlers.BlockHandler;
-import ga.scmc.tileentity.TileEntityBlockCharFurnace;
 import ga.scmc.tileentity.TileEntityStarcraftFurnace;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.BlockHorizontal;
@@ -18,6 +16,7 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -51,36 +50,21 @@ import net.minecraftforge.items.IItemHandler;
 public class BlockStarcraftFurnace extends BlockContainer {
 
     public static final PropertyDirection FACING = BlockHorizontal.FACING;
-    private final boolean isBurning;
-    private static boolean keepInventory;
+    public static final PropertyBool BURNING = PropertyBool.create("burning");
 
     private EnumWorldType type;
-    private BlockStarcraftFurnace litBlock, normalBlock;
 
-    public BlockStarcraftFurnace(boolean isBurning, MapColor mapColor, EnumWorldType type) {
+    public BlockStarcraftFurnace(MapColor mapColor, EnumWorldType type) {
         super(Material.ROCK, mapColor);
         this.type = type;
-        this.isBurning = isBurning;
-        if (isBurning) {
-            this.setUnlocalizedName(type.getName() + ".furnace.lit");
-            this.setRegistryName(type.getName() + ".furnace.lit");
-            this.setCreativeTab(null);
-        } else {
-            this.setUnlocalizedName(type.getName() + ".furnace");
-            this.setRegistryName(type.getName() + ".furnace");
-            this.setCreativeTab(StarcraftCreativeTabs.MISC);
-        }
+        this.setUnlocalizedName(type.getName() + ".furnace");
+        this.setRegistryName(type.getName() + ".furnace");
+        this.setCreativeTab(StarcraftCreativeTabs.MISC);
         setSoundType(SoundType.STONE);
         setHardness(3.5F);
         setResistance(17.5F);
         setHarvestLevel("pickaxe", 0);
-        setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
-    }
-
-    public BlockStarcraftFurnace setBlocks(BlockStarcraftFurnace litBlock, BlockStarcraftFurnace normalBlock) {
-        this.litBlock = litBlock;
-        this.normalBlock = normalBlock;
-        return this;
+        setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(BURNING, false));
     }
 
     public EnumWorldType getType() {
@@ -93,7 +77,7 @@ public class BlockStarcraftFurnace extends BlockContainer {
     @Nullable
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return Item.getItemFromBlock(BlockHandler.FURNACE_CHAR);
+        return Item.getItemFromBlock(this);
     }
 
     @Override
@@ -124,9 +108,9 @@ public class BlockStarcraftFurnace extends BlockContainer {
 
     @SideOnly(Side.CLIENT)
     @Override
-    public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-        if (this.isBurning) {
-            EnumFacing enumfacing = stateIn.getValue(FACING);
+    public void randomDisplayTick(IBlockState state, World worldIn, BlockPos pos, Random rand) {
+        if (state.getValue(BURNING)) {
+            EnumFacing enumfacing = state.getValue(FACING);
             double x = (double) pos.getX() + 0.5D;
             double y = (double) pos.getY() + rand.nextDouble() * 6.0D / 16.0D;
             double z = (double) pos.getZ() + 0.5D;
@@ -161,47 +145,19 @@ public class BlockStarcraftFurnace extends BlockContainer {
         if (worldIn.isRemote)
             return true;
         else {
-            TileEntity te = worldIn.getTileEntity(pos);
-
-            if (te instanceof TileEntityStarcraftFurnace) {
-                switch(this.type) {
-                    case CHAR:
-                        playerIn.openGui(Starcraft.instance, GuiHandler.CHAR_FURNACE, worldIn, pos.getX(), pos.getY(), pos.getZ());
-                        break;
-                    case SHAKURAS:
-                        playerIn.openGui(Starcraft.instance, GuiHandler.SHAKURAS_FURNACE, worldIn, pos.getX(), pos.getY(), pos.getZ());
-                        break;
-                    case SLAYN:
-                        playerIn.openGui(Starcraft.instance, GuiHandler.SLAYN_FURNACE, worldIn, pos.getX(), pos.getY(), pos.getZ());
-                        break;
-                }
-                // TODO open gui
-                playerIn.addStat(StatList.FURNACE_INTERACTION);
+            switch (this.type) {
+                case CHAR:
+                    playerIn.openGui(Starcraft.instance, GuiHandler.CHAR_FURNACE, worldIn, pos.getX(), pos.getY(), pos.getZ());
+                    break;
+                case SHAKURAS:
+                    playerIn.openGui(Starcraft.instance, GuiHandler.SHAKURAS_FURNACE, worldIn, pos.getX(), pos.getY(), pos.getZ());
+                    break;
+                case SLAYN:
+                    playerIn.openGui(Starcraft.instance, GuiHandler.SLAYN_FURNACE, worldIn, pos.getX(), pos.getY(), pos.getZ());
+                    break;
             }
-
+            playerIn.addStat(StatList.FURNACE_INTERACTION);
             return true;
-        }
-    }
-
-    public static void setState(boolean active, World worldIn, BlockPos pos) {
-        IBlockState state = worldIn.getBlockState(pos);
-        BlockStarcraftFurnace block = (BlockStarcraftFurnace) state.getBlock();
-        TileEntity te = worldIn.getTileEntity(pos);
-        keepInventory = true;
-
-        if (active) {
-            worldIn.setBlockState(pos, block.litBlock.getDefaultState().withProperty(FACING, state.getValue(FACING)), 3);
-            worldIn.setBlockState(pos, block.litBlock.getDefaultState().withProperty(FACING, state.getValue(FACING)), 3);
-        } else {
-            worldIn.setBlockState(pos, block.normalBlock.getDefaultState().withProperty(FACING, state.getValue(FACING)), 3);
-            worldIn.setBlockState(pos, block.normalBlock.getDefaultState().withProperty(FACING, state.getValue(FACING)), 3);
-        }
-
-        keepInventory = false;
-
-        if (te != null) {
-            te.validate();
-            worldIn.setTileEntity(pos, te);
         }
     }
 
@@ -210,7 +166,7 @@ public class BlockStarcraftFurnace extends BlockContainer {
      */
     @Override
     public TileEntity createNewTileEntity(World worldIn, int meta) {
-        return new TileEntityBlockCharFurnace();
+        return new TileEntityStarcraftFurnace();
     }
 
     /**
@@ -226,32 +182,21 @@ public class BlockStarcraftFurnace extends BlockContainer {
      * Called by ItemBlocks after a block is set in the world, to allow post-place logic
      */
     @Override
-    public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
-        worldIn.setBlockState(pos, state.withProperty(FACING, placer.getHorizontalFacing().getOpposite()), 2);
-
-        if (stack.hasDisplayName()) {
-            TileEntity tileentity = worldIn.getTileEntity(pos);
-
-            if (tileentity instanceof TileEntityBlockCharFurnace) {
-                ((TileEntityBlockCharFurnace) tileentity).setCustomInventoryName(stack.getDisplayName());
-            }
-        }
+    public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
+        world.setBlockState(pos, state.withProperty(FACING, placer.getHorizontalFacing().getOpposite()), 2);
     }
 
     @Override
-    public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
-        if (!keepInventory) {
-            TileEntity te = worldIn.getTileEntity(pos);
+    public void breakBlock(World world, BlockPos pos, IBlockState state) {
+        TileEntity te = world.getTileEntity(pos);
 
-            if (te instanceof TileEntityStarcraftFurnace) {
-                IItemHandler handler = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
-                for (int slot = 0; slot < handler.getSlots(); slot++)
-                    InventoryHelper.spawnItemStack(worldIn, pos.getX(), pos.getY(), pos.getZ(), handler.getStackInSlot(slot));
-                worldIn.updateComparatorOutputLevel(pos, this);
-            }
+        IItemHandler handler = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
+        for (int slot = 0; slot < handler.getSlots(); slot++) {
+            if (handler.getStackInSlot(slot) != null)
+                InventoryHelper.spawnItemStack(world, pos.getX(), pos.getY(), pos.getZ(), handler.getStackInSlot(slot));
         }
-
-        super.breakBlock(worldIn, pos, state);
+        world.updateComparatorOutputLevel(pos, this);
+        world.removeTileEntity(pos);
     }
 
     @Override
@@ -266,7 +211,7 @@ public class BlockStarcraftFurnace extends BlockContainer {
 
     @Override
     public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
-        return new ItemStack(BlockHandler.FURNACE_CHAR);
+        return new ItemStack(this);
     }
 
     /**
@@ -282,12 +227,12 @@ public class BlockStarcraftFurnace extends BlockContainer {
      */
     @Override
     public IBlockState getStateFromMeta(int meta) {
-        EnumFacing face = EnumFacing.getFront(meta);
+        EnumFacing face = EnumFacing.getFront(meta / 2 + 2);
 
         if (face.getAxis() == EnumFacing.Axis.Y)
             face = EnumFacing.NORTH;
 
-        return this.getDefaultState().withProperty(FACING, face);
+        return this.getDefaultState().withProperty(FACING, face).withProperty(BURNING, meta % 2 == 0);
     }
 
     /**
@@ -295,7 +240,7 @@ public class BlockStarcraftFurnace extends BlockContainer {
      */
     @Override
     public int getMetaFromState(IBlockState state) {
-        return ((EnumFacing) state.getValue(FACING)).getIndex();
+        return (state.getValue(FACING).getIndex() - 2) * 2 + (state.getValue(BURNING) ? 0 : 1);
     }
 
     /**
@@ -303,7 +248,7 @@ public class BlockStarcraftFurnace extends BlockContainer {
      */
     @Override
     public IBlockState withRotation(IBlockState state, Rotation rot) {
-        return state.withProperty(FACING, rot.rotate((EnumFacing) state.getValue(FACING)));
+        return state.withProperty(FACING, rot.rotate(state.getValue(FACING)));
     }
 
     /**
@@ -311,11 +256,11 @@ public class BlockStarcraftFurnace extends BlockContainer {
      */
     @Override
     public IBlockState withMirror(IBlockState state, Mirror mirrorIn) {
-        return state.withRotation(mirrorIn.toRotation((EnumFacing) state.getValue(FACING)));
+        return state.withRotation(mirrorIn.toRotation(state.getValue(FACING)));
     }
 
     @Override
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, new IProperty[]{FACING});
+        return new BlockStateContainer(this, new IProperty[]{FACING, BURNING});
     }
 }

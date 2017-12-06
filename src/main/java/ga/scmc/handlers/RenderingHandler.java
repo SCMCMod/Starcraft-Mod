@@ -64,9 +64,6 @@ import static ga.scmc.handlers.BlockHandler.FURNACE_SLAYN;
 import static ga.scmc.handlers.BlockHandler.GAS_TERRAZINE;
 import static ga.scmc.handlers.BlockHandler.GAS_VESPENE;
 import static ga.scmc.handlers.BlockHandler.LIGHT_SOURCE;
-import static ga.scmc.handlers.BlockHandler.LIT_FURNACE_CHAR;
-import static ga.scmc.handlers.BlockHandler.LIT_FURNACE_SHAKURAS;
-import static ga.scmc.handlers.BlockHandler.LIT_FURNACE_SLAYN;
 import static ga.scmc.handlers.BlockHandler.PROTOSS_DARK_ENERGY_CHANNEL;
 import static ga.scmc.handlers.BlockHandler.PROTOSS_DARK_ENERGY_STABILIZER;
 import static ga.scmc.handlers.BlockHandler.PROTOSS_ENERGY_CHANNEL;
@@ -569,12 +566,9 @@ public class RenderingHandler {
 		registerBlockModel(PROTOSS_WARPGATE_WORMHOLE);
 
 		// Furnaces
-		registerBlockModel(LIT_FURNACE_SHAKURAS);
 		registerBlockModel(FURNACE_SHAKURAS);
-		registerBlockModel(LIT_FURNACE_CHAR);
 		registerBlockModel(FURNACE_CHAR);
 		registerBlockModel(FURNACE_SLAYN);
-		registerBlockModel(LIT_FURNACE_SLAYN);
 
 		// Other
 		registerBlockModel(TEST);

@@ -153,12 +153,9 @@ public class BlockHandler {
 	public static Block GRAVEL_SHAKURAS;
 	public static Block STONE_CHAR;
 	public static Block STONE_SHAKURAS;
-	public static Block FURNACE_SHAKURAS;
-	public static Block LIT_FURNACE_SHAKURAS;
-	public static Block FURNACE_CHAR;
-	public static Block LIT_FURNACE_CHAR;
-	public static Block FURNACE_SLAYN;
-	public static Block LIT_FURNACE_SLAYN;
+	public static BlockStarcraftFurnace FURNACE_SHAKURAS;
+	public static BlockStarcraftFurnace FURNACE_CHAR;
+	public static BlockStarcraftFurnace FURNACE_SLAYN;
 	public static Block ZERG_CREEP;
 	public static Block STARCRAFT_SKULL;
 
@@ -253,22 +250,9 @@ public class BlockHandler {
 		// GRAVEL_SLAYN = new BlockStarcraftGravel("slayn.gravel", RegistryType.FULL, Material.GROUND, MapColor.BLACK, 0x000000).setBlockSoundType(SoundType.GROUND).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0.5f).setResistance(0.83f);
 
 		/** furnaces blocks **/
-
-		/*
-		FURNACE_SHAKURAS = new BlockFurnaceShakuras(false);
-		LIT_FURNACE_SHAKURAS = new BlockFurnaceShakuras(true);
-		FURNACE_CHAR = new BlockFurnaceChar(false);
-		LIT_FURNACE_CHAR = new BlockFurnaceChar(true);
-		FURNACE_SLAYN = new BlockFurnaceSlayn(false);
-		LIT_FURNACE_SLAYN = new BlockFurnaceSlayn(true);
-		*/
-		FURNACE_SHAKURAS = new BlockStarcraftFurnace(false, MapColor.LIGHT_BLUE, EnumWorldType.SHAKURAS);
-		LIT_FURNACE_SHAKURAS = new BlockStarcraftFurnace(true, MapColor.LIGHT_BLUE, EnumWorldType.SHAKURAS);
-		FURNACE_CHAR = new BlockStarcraftFurnace(false, MapColor.BLACK, EnumWorldType.CHAR);
-		LIT_FURNACE_CHAR = new BlockStarcraftFurnace(true, MapColor.BLACK, EnumWorldType.CHAR);
-		FURNACE_SLAYN = new BlockStarcraftFurnace(false, MapColor.BLACK, EnumWorldType.SLAYN);
-		LIT_FURNACE_SLAYN = new BlockStarcraftFurnace(true, MapColor.BLACK, EnumWorldType.SLAYN);
-
+		FURNACE_SHAKURAS = new BlockStarcraftFurnace(MapColor.LIGHT_BLUE, EnumWorldType.SHAKURAS);
+		FURNACE_CHAR = new BlockStarcraftFurnace(MapColor.BLACK, EnumWorldType.CHAR);
+		FURNACE_SLAYN = new BlockStarcraftFurnace(MapColor.BLACK, EnumWorldType.SLAYN);
 
 		/** protoss blocks **/
 		PROTOSS_ENERGY_CHANNEL = new BlockProtossEnergyChannel();
@@ -336,11 +320,8 @@ public class BlockHandler {
 
 		// Furnaces
 		registerBlock(FURNACE_SHAKURAS);
-		registerBlock(LIT_FURNACE_SHAKURAS);
 		registerBlock(FURNACE_CHAR);
-		registerBlock(LIT_FURNACE_CHAR);
 		registerBlock(FURNACE_SLAYN);
-		registerBlock(LIT_FURNACE_SLAYN);
 
 		registerBlock(LIGHT_SOURCE);
 
