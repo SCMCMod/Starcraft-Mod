@@ -8,8 +8,11 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
+import javax.annotation.Nullable;
+
 /**
  * A simple {@link net.minecraft.tileentity.TileEntity} which has a sided inventory using capabilities
+ *
  * @author CJMinecraft
  */
 public class TileEntitySidedInventory extends TileEntity {
@@ -26,6 +29,10 @@ public class TileEntitySidedInventory extends TileEntity {
      * The slots each side will represent
      */
     private int[][] slotsForFace;
+    /**
+     * States whether we are currently transferring stacks
+     */
+    private boolean transferringStacks;
 
     /**
      * Create a sided {@link TileEntity}, like the {@link net.minecraft.inventory.ISidedInventory interface}
@@ -84,7 +91,9 @@ public class TileEntitySidedInventory extends TileEntity {
      * @param side The side to get the handler of
      * @return the correct handler for the given face
      */
-    private ItemStackHandler getHandlerForFace(EnumFacing side) {
+    private ItemStackHandler getHandlerForFace(@Nullable EnumFacing side) {
+        if(side == null)
+            return this.handler;
         switch (side) {
             case DOWN:
                 return this.downHandler;
@@ -98,8 +107,9 @@ public class TileEntitySidedInventory extends TileEntity {
                 return this.westHandler;
             case EAST:
                 return this.eastHandler;
+            default:
+                return this.handler;
         }
-        return this.handler;
     }
 
     /**
@@ -109,6 +119,7 @@ public class TileEntitySidedInventory extends TileEntity {
      * @param stack The {@link ItemStack} to insert into all the of the faces handlers
      */
     private void insertStack(int slot, ItemStack stack) {
+        this.transferringStacks = true;
         for (int i = 0; i < this.slotsForFace.length; i++) {
             for (int j = 0; j < this.slotsForFace[i].length; j++) {
                 if (this.slotsForFace[i][j] == slot) {
@@ -136,6 +147,7 @@ public class TileEntitySidedInventory extends TileEntity {
                 }
             }
         }
+        this.transferringStacks = false;
     }
 
     /**
@@ -145,6 +157,7 @@ public class TileEntitySidedInventory extends TileEntity {
      * @param amount The amount of items to be extracted
      */
     private void extractStack(int slot, int amount) {
+        this.transferringStacks = true;
         for (int i = 0; i < this.slotsForFace.length; i++) {
             for (int j = 0; j < this.slotsForFace[i].length; j++) {
                 if (this.slotsForFace[i][j] == slot) {
@@ -172,6 +185,7 @@ public class TileEntitySidedInventory extends TileEntity {
                 }
             }
         }
+        this.transferringStacks = false;
     }
 
     /**
@@ -246,17 +260,13 @@ public class TileEntitySidedInventory extends TileEntity {
         @Override
         public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
             // Insert into the main handler
-            if (!simulate)
-                handler.insertItem(slotsForFace[side.getIndex()][slot], stack, simulate);
-            return super.insertItem(slot, stack, simulate);
+            return transferringStacks ? super.insertItem(slot, stack, simulate) : handler.insertItem(slotsForFace[side.getIndex()][slot], stack, simulate);
         }
 
         @Override
         public ItemStack extractItem(int slot, int amount, boolean simulate) {
             // Extract from the main handler
-            if (!simulate)
-                handler.extractItem(slotsForFace[side.getIndex()][slot], amount, simulate);
-            return super.extractItem(slot, amount, simulate);
+            return transferringStacks ? super.extractItem(slot, amount, simulate) : handler.extractItem(slotsForFace[side.getIndex()][slot], amount, simulate);
         }
     }
 }

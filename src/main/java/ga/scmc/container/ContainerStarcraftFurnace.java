@@ -4,13 +4,13 @@ import javax.annotation.Nullable;
 
 import ga.scmc.container.slot.SlotStarcraftFurnaceFuel;
 import ga.scmc.container.slot.SlotStarcraftFurnaceOutput;
-import ga.scmc.tileentity.TileEntityBlockCharFurnace;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
@@ -53,13 +53,12 @@ public class ContainerStarcraftFurnace extends Container {
             if (index == 2) {
                 if (!this.mergeItemStack(stackInSlot, 3, 39, true))
                     return null;
-
                 slot.onSlotChange(stackInSlot, currentStack);
             } else if (index != 1 && index != 0) {
                 if (FurnaceRecipes.instance().getSmeltingResult(stackInSlot) != null)
                     if (!this.mergeItemStack(stackInSlot, 0, 1, false))
                         return null;
-                    else if (TileEntityBlockCharFurnace.isItemFuel(stackInSlot))
+                    else if (TileEntityFurnace.isItemFuel(stackInSlot))
                         if (!this.mergeItemStack(stackInSlot, 1, 2, false))
                             return null;
                         else if (index >= 3 && index < 30)
@@ -72,7 +71,7 @@ public class ContainerStarcraftFurnace extends Container {
             }
 
             if (stackInSlot.stackSize == 0)
-                slot.putStack((ItemStack) null);
+                slot.putStack(null);
             else
                 slot.onSlotChanged();
 
