@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 import ga.scmc.container.slot.SlotStarcraftFurnaceFuel;
 import ga.scmc.container.slot.SlotStarcraftFurnaceOutput;
+import ga.scmc.tileentity.TileEntityStarcraftFurnace;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
@@ -55,17 +56,24 @@ public class ContainerStarcraftFurnace extends Container {
                     return null;
                 slot.onSlotChange(stackInSlot, currentStack);
             } else if (index != 1 && index != 0) {
-                if (FurnaceRecipes.instance().getSmeltingResult(stackInSlot) != null)
-                    if (!this.mergeItemStack(stackInSlot, 0, 1, false))
+                if (FurnaceRecipes.instance().getSmeltingResult(stackInSlot) != null) {
+                    if (!this.mergeItemStack(stackInSlot, 0, 1, false)) {
                         return null;
-                    else if (TileEntityFurnace.isItemFuel(stackInSlot))
-                        if (!this.mergeItemStack(stackInSlot, 1, 2, false))
-                            return null;
-                        else if (index >= 3 && index < 30)
-                            if (!this.mergeItemStack(stackInSlot, 30, 39, false))
-                                return null;
-                            else if (index >= 30 && index < 39 && !this.mergeItemStack(stackInSlot, 3, 30, false))
-                                return null;
+                    }
+                }
+                else if (TileEntityFurnace.isItemFuel(stackInSlot)) {
+                    if (!this.mergeItemStack(stackInSlot, 1, 2, false)) {
+                        return null;
+                    }
+                }
+                else if (index >= 3 && index < 30) {
+                    if (!this.mergeItemStack(stackInSlot, 30, 39, false)) {
+                        return null;
+                    }
+                }
+                else if (index >= 30 && index < 39 && !this.mergeItemStack(stackInSlot, 3, 30, false)) {
+                    return null;
+                }
             } else if (!this.mergeItemStack(stackInSlot, 3, 39, false)) {
                 return null;
             }

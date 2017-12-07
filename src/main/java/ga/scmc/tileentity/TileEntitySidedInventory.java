@@ -2,6 +2,8 @@ package ga.scmc.tileentity;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;
@@ -192,27 +194,31 @@ public class TileEntitySidedInventory extends TileEntity {
      * Update all of the faces handlers (used when loading up the NBT)
      */
     private void updateHandlers() {
-        for (int i = 0; i < this.slotsForFace.length; i++) {
-            for (int j = 0; j < this.slotsForFace[i].length; j++) {
-                switch (i) {
-                    case 0:
-                        this.downHandler.setStackInSlot(j, this.handler.getStackInSlot(this.slotsForFace[i][j]));
-                        break;
-                    case 1:
-                        this.upHandler.setStackInSlot(j, this.handler.getStackInSlot(this.slotsForFace[i][j]));
-                        break;
-                    case 2:
-                        this.northHandler.setStackInSlot(j, this.handler.getStackInSlot(this.slotsForFace[i][j]));
-                        break;
-                    case 3:
-                        this.southHandler.setStackInSlot(j, this.handler.getStackInSlot(this.slotsForFace[i][j]));
-                        break;
-                    case 4:
-                        this.westHandler.setStackInSlot(j, this.handler.getStackInSlot(this.slotsForFace[i][j]));
-                        break;
-                    case 5:
-                        this.eastHandler.setStackInSlot(j, this.handler.getStackInSlot(this.slotsForFace[i][j]));
-                        break;
+        for(int slot = 0; slot < this.handler.getSlots(); slot++) {
+            for(int i = 0; i < this.slotsForFace.length; i++) {
+                for(int j = 0; j < this.slotsForFace[i].length; j++) {
+                    if (slot == this.slotsForFace[i][j]) {
+                        switch(i) {
+                            case 0:
+                                this.downHandler.setStackInSlot(j, this.handler.getStackInSlot(slot));
+                                break;
+                            case 1:
+                                this.upHandler.setStackInSlot(j, this.handler.getStackInSlot(slot));
+                                break;
+                            case 2:
+                                this.northHandler.setStackInSlot(j, this.handler.getStackInSlot(slot));
+                                break;
+                            case 3:
+                                this.southHandler.setStackInSlot(j, this.handler.getStackInSlot(slot));
+                                break;
+                            case 4:
+                                this.westHandler.setStackInSlot(j, this.handler.getStackInSlot(slot));
+                                break;
+                            case 5:
+                                this.eastHandler.setStackInSlot(j, this.handler.getStackInSlot(slot));
+                                break;
+                        }
+                    }
                 }
             }
         }
@@ -268,5 +274,51 @@ public class TileEntitySidedInventory extends TileEntity {
             // Extract from the main handler
             return transferringStacks ? super.extractItem(slot, amount, simulate) : handler.extractItem(slotsForFace[side.getIndex()][slot], amount, simulate);
         }
+    }
+
+    /**
+     * Makes sure the client has all the data it needs
+     */
+    @Override
+    public SPacketUpdateTileEntity getUpdatePacket() {
+        NBTTagCompound nbtTag = new NBTTagCompound();
+        writeToNBT(nbtTag);
+        return new SPacketUpdateTileEntity(pos, 1, nbtTag);
+    }
+
+    /**
+     * Make sure to read the client data when it receives the update packet
+     */
+    @Override
+    public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
+        readFromNBT(pkt.getNbtCompound());
+    }
+
+    /**
+     * Returns the tag with all of the client data saved
+     */
+    @Override
+    public NBTTagCompound getUpdateTag() {
+        NBTTagCompound nbt = super.getUpdateTag();
+        writeToNBT(nbt);
+        return nbt;
+    }
+
+    /**
+     * Handles when you get an update
+     */
+    @Override
+    public void handleUpdateTag(NBTTagCompound nbt) {
+        readFromNBT(nbt);
+    }
+
+    /**
+     * Gets the tile entities nbt with all of the data stored in it
+     */
+    @Override
+    public NBTTagCompound getTileData() {
+        NBTTagCompound nbt = new NBTTagCompound();
+        this.writeToNBT(nbt);
+        return nbt;
     }
 }
