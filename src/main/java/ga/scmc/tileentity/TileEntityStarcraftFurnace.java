@@ -87,7 +87,7 @@ public class TileEntityStarcraftFurnace extends TileEntitySidedInventory impleme
             if (!this.handler.getStackInSlot(2).isItemEqual(itemstack))
                 return false;
             int result = this.handler.getStackInSlot(2).stackSize + itemstack.stackSize;
-            return result <= this.handler.getSlots() && result <= this.handler.getStackInSlot(2).getMaxStackSize(); // Forge BugFix: Make it respect stack sizes properly.
+            return result <= 64 && result <= this.handler.getStackInSlot(2).getMaxStackSize(); // Forge BugFix: Make it respect stack sizes properly.
         }
     }
 
@@ -95,7 +95,7 @@ public class TileEntityStarcraftFurnace extends TileEntitySidedInventory impleme
      * Actually smelt the current item
      */
     private void smeltItem() {
-        if (this.canSmelt()) {
+        if (canSmelt()) {
             ItemStack itemstack = FurnaceRecipes.instance().getSmeltingResult(this.handler.getStackInSlot(0));
 
             if (this.handler.getStackInSlot(2) == null) {
@@ -133,7 +133,6 @@ public class TileEntityStarcraftFurnace extends TileEntitySidedInventory impleme
         this.cookTime = nbt.getInteger("CookTime");
         this.totalCookTime = nbt.getInteger("CookTimeTotal");
         this.currentItemBurnTime = TileEntityFurnace.getItemBurnTime(this.handler.getStackInSlot(1));
-        this.world.setBlockState(this.pos, this.world.getBlockState(this.pos).withProperty(BlockStarcraftFurnace.BURNING, isBurning()), 3);
     }
 
     @Override
