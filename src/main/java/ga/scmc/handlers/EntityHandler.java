@@ -18,6 +18,7 @@ import ga.scmc.entity.living.EntityMarine;
 import ga.scmc.entity.living.EntityPredator;
 import ga.scmc.entity.living.EntityProbe;
 import ga.scmc.entity.living.EntityProtossReaver;
+import ga.scmc.entity.living.EntityQueen;
 import ga.scmc.entity.living.EntityScarab;
 import ga.scmc.entity.living.EntityTastelope;
 import ga.scmc.entity.living.EntityUrsadon;
@@ -83,7 +84,7 @@ public class EntityHandler {
 		EntityRegistry.registerEgg(EntityBroodling.class, 11403519, 7684608);
 		EntityRegistry.registerEgg(EntityInfestedCivilian.class, 11403519, 7684608);
 		//EntityRegistry.registerEgg(EntityDrone.class, 11403519, 7684608);
-		//EntityRegistry.registerEgg(EntityQueen.class, 11403519, 7684608);
+		EntityRegistry.registerEgg(EntityQueen.class, 11403519, 7684608);
 		//EntityRegistry.registerEgg(EntityBrutaliskCocoon.class, 11403519, 7684608);
 
 		EntityRegistry.registerEgg(EntityCivilian.class, 7566195, 16639);
@@ -134,7 +135,7 @@ public class EntityHandler {
 		registerEntity(EntityLarvaCocoon.class, "larvaCocoon", 64, 1, true);
 		registerEntity(EntityBroodling.class, "broodling", 64, 1, true);
 		registerEntity(EntityInfestedCivilian.class, "infestedCivilian", 64, 1, true);
-		//registerEntity(EntityQueen.class, "queen", 64, 1, true);
+		registerEntity(EntityQueen.class, "queen", 64, 1, true);
 		//registerEntity(EntityDrone.class, "drone", 64, 1, true);
 		//registerEntity(EntityBrutaliskCocoon.class, "brutaliskCocoon", 64, 1, true);
 
@@ -175,6 +176,7 @@ public class EntityHandler {
 		EntityRegistry.addSpawn(EntityLarva.class, 5, 1, 3, EnumCreatureType.CREATURE, BiomeHandler.biomeCharCreepInfestation);
 		EntityRegistry.addSpawn(EntityLarvaCocoon.class, 5, 1, 5, EnumCreatureType.CREATURE, BiomeHandler.biomeCharCreepInfestation);
 		EntityRegistry.addSpawn(EntityInfestedCivilian.class, 15, 1, 3, EnumCreatureType.MONSTER, BiomeHandler.biomeCharCreepInfestation);
+		EntityRegistry.addSpawn(EntityQueen.class, 5, 1, 1, EnumCreatureType.MONSTER, BiomeHandler.biomeCharCreepInfestation);
 		
 		EntityRegistry.addSpawn(EntityCivilian.class, 10, 1, 3, EnumCreatureType.CREATURE, BiomeHandler.biomeKorhalCity);
 		EntityRegistry.addSpawn(EntityPredator.class, 10, 1, 3, EnumCreatureType.MONSTER, BiomeHandler.biomeKorhalCity);
