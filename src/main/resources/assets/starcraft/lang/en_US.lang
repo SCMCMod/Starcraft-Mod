@@ -75,6 +75,7 @@ tile.gas.collector.protoss.name=Assimilator
 tile.terran.metal.copper.name=Block of Copper
 tile.terran.metal.steel.name=Block of Steel
 tile.terran.metal.titanium.name=Block of Titanium
+tile.terran.warningtape.name=Warning Tape
 
 tile.terran.neosteel.base.name=Neosteel Base
 tile.terran.neosteel.frame.name=Neosteel Frame

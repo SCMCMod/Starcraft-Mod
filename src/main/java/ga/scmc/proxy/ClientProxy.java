@@ -3,6 +3,7 @@ package ga.scmc.proxy;
 import ga.scmc.Starcraft;
 import ga.scmc.client.gui.GuiHandler;
 import ga.scmc.client.renderer.model.armor.ModelArmorBase;
+import ga.scmc.client.renderer.model.armor.ModelProtossArmor;
 import ga.scmc.client.renderer.model.armor.ModelTerranMarineArmorT1;
 import ga.scmc.client.renderer.model.armor.ModelZergArmorT1;
 import ga.scmc.client.renderer.model.armor.ModelZergArmorT2;
@@ -41,6 +42,10 @@ public class ClientProxy extends CommonProxy {
 			return new ModelTerranMarineArmorT1(1.0f);
 		case 7:
 			return new ModelTerranMarineArmorT1(0.5f);
+		case 8:
+			return new ModelProtossArmor(1.0f);
+		case 9:
+			return new ModelProtossArmor(0.5f);
 		}
 	}
 }

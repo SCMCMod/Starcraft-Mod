@@ -100,9 +100,6 @@ public class EntityHandler {
 	}
 
 	private static void registerTileEntities() {
-		GameRegistry.registerTileEntity(TileEntityBlockShakurasFurnace.class, Library.RL_BASE + "TileEntityBlockShakurasFurnace");
-		GameRegistry.registerTileEntity(TileEntityBlockCharFurnace.class, Library.RL_BASE + "TileEntityBlockCharFurnace");
-		GameRegistry.registerTileEntity(TileEntityBlockSlaynFurnace.class, Library.RL_BASE + "TileEntityBlockSlaynFurnace");
 		GameRegistry.registerTileEntity(TileEntityGasCollector.class, Library.RL_BASE + "TileEntityBlockGasCollector");
 		GameRegistry.registerTileEntity(TileEntityWarpGateWormhole.class, Library.RL_BASE + "TileEntityWarpGateWormhole");
 		GameRegistry.registerTileEntity(TileEntityMovingLightSource.class, Library.RL_BASE + "TileEntityMovingLightSource");
@@ -182,7 +179,7 @@ public class EntityHandler {
 		EntityRegistry.addSpawn(EntityCivilian.class, 10, 1, 3, EnumCreatureType.CREATURE, BiomeHandler.biomeKorhalCity);
 		EntityRegistry.addSpawn(EntityPredator.class, 10, 1, 3, EnumCreatureType.MONSTER, BiomeHandler.biomeKorhalCity);
 		EntityRegistry.addSpawn(EntityMarine.class, 10, 1, 3, EnumCreatureType.MONSTER, BiomeHandler.biomeKorhalCity);
-		
+
 		EntityRegistry.addSpawn(EntityKakaru.class, 7, 1, 1, EnumCreatureType.CREATURE, BiomeHandler.biomeShakurasHills, BiomeHandler.biomeShakurasMountains);
 		EntityRegistry.addSpawn(EntityTastelope.class, 7, 1, 1, EnumCreatureType.CREATURE, BiomeHandler.biomeKaldirIcePlains);
 		EntityRegistry.addSpawn(EntityUrsadon.class, 15, 1, 1, EnumCreatureType.MONSTER, BiomeHandler.biomeKaldirIcePlains);
