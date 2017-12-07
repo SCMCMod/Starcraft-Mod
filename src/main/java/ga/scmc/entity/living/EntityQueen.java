@@ -28,7 +28,6 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
@@ -62,34 +61,6 @@ public class EntityQueen extends EntityZergMob implements IMob, IRangedAttackMob
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0,
 				false, false, this));
-	}
-
-	@Override
-	protected void entityInit() {
-		super.entityInit();
-		this.getDataManager().register(ENERGY, 50F);
-	}
-
-	@Override
-	public void writeEntityToNBT(NBTTagCompound nbt) {
-		super.writeEntityToNBT(nbt);
-
-		nbt.setFloat("Energy", this.getEnergyAmount());
-	}
-
-	@Override
-	public void readEntityFromNBT(NBTTagCompound nbt) {
-		super.readEntityFromNBT(nbt);
-
-		this.setEnergyAmount(nbt.getInteger("Energy"));
-	}
-
-	public float getEnergyAmount() {
-		return this.getDataManager().get(ENERGY);
-	}
-
-	public void setEnergyAmount(float amount) {
-		this.getDataManager().set(ENERGY, amount);
 	}
 
 	@Override
@@ -207,11 +178,6 @@ public class EntityQueen extends EntityZergMob implements IMob, IRangedAttackMob
 
 	@Override
 	public void onLivingUpdate() {
-		if (ticksExisted % 20 == 0) {
-			if(this.getEnergyAmount() < 200) {
-				this.setEnergyAmount(this.getEnergyAmount() + 1.4F);
-			}
-		}
 		super.onLivingUpdate();
 	}
 

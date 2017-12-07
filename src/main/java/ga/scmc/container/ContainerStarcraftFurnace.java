@@ -4,7 +4,6 @@ import javax.annotation.Nullable;
 
 import ga.scmc.container.slot.SlotStarcraftFurnaceFuel;
 import ga.scmc.container.slot.SlotStarcraftFurnaceOutput;
-import ga.scmc.tileentity.TileEntityStarcraftFurnace;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;

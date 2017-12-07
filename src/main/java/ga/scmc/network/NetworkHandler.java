@@ -1,7 +1,13 @@
 package ga.scmc.network;
 
 import ga.scmc.lib.Library;
-import ga.scmc.network.message.*;
+import ga.scmc.network.message.MessageGetFurnaceData;
+import ga.scmc.network.message.MessageMorphLarva;
+import ga.scmc.network.message.MessageReturnFurnaceData;
+import ga.scmc.network.message.MessageSetPlayerShieldClient;
+import ga.scmc.network.message.MessageSetPlayerShieldServer;
+import ga.scmc.network.message.MessageSpawnItem;
+import ga.scmc.network.message.MessageSyncLarvaGui;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;

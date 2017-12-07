@@ -4,7 +4,6 @@ import java.util.Random;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.MetaBlockHandler;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockStainedGlass;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.material.Material;
