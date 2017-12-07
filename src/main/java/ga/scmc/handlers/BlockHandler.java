@@ -268,16 +268,16 @@ public class BlockHandler {
 		KERATIN_CHUNK = new BlockZergKeratin();
 
 		/** core blocks **/
-		CORE_CYBERNETICSCORE_VOID = new StarcraftProtossCoreBlock("protoss.cyberneticscorecore.void", RegistryType.FULL, Material.IRON, MapColor.GREEN).setDomeSize(24, 24, 3);
-		CORE_CYBERNETICSCORE_DARK = new StarcraftProtossCoreBlock("protoss.cyberneticscorecore.dark", RegistryType.FULL, Material.IRON, MapColor.BLACK).setDomeSize(24, 24, 3);
-		CORE_CYBERNETICSCORE_KHALAI = new StarcraftProtossCoreBlock("protoss.cyberneticscorecore.khalai", RegistryType.FULL, Material.IRON, MapColor.YELLOW).setDomeSize(24, 24, 3);
-		CORE_PYLON_VOID = new StarcraftProtossCoreBlock("protoss.pyloncore.void", RegistryType.FULL, Material.IRON, MapColor.GREEN).setDomeSize(16, 10, 6);
-		CORE_PYLON_DARK = new StarcraftProtossCoreBlock("protoss.pyloncore.dark", RegistryType.FULL, Material.IRON, MapColor.BLACK).setDomeSize(16, 10, 6);
-		CORE_PYLON_KHALAI = new StarcraftProtossCoreBlock("protoss.pyloncore.khalai", RegistryType.FULL, Material.IRON, MapColor.YELLOW).setDomeSize(16, 10, 6);
-		CORE_WARPGATE_VOID = new StarcraftProtossCoreBlock("protoss.warpgatecore.void", RegistryType.FULL, Material.IRON, MapColor.GREEN).setDomeSize(16, 13, 3);
-		CORE_WARPGATE_DARK = new StarcraftProtossCoreBlock("protoss.warpgatecore.dark", RegistryType.FULL, Material.IRON, MapColor.BLACK).setDomeSize(16, 13, 3);
-		CORE_WARPGATE_KHALAI = new StarcraftProtossCoreBlock("protoss.warpgatecore.khalai", RegistryType.FULL, Material.IRON, MapColor.YELLOW).setDomeSize(16, 13, 3);
-		CORE_BARRACKS = new StarcraftProtossCoreBlock("protoss.barrackscore", RegistryType.FULL, Material.IRON, MapColor.BLUE).setDomeSize(16, 13, 3);
+		CORE_CYBERNETICSCORE_VOID = new StarcraftProtossCoreBlock("protoss.cyberneticscorecore.void", RegistryType.FULL, Material.IRON, MapColor.GREEN).setDomeSize(-5, 24, 24, 3);
+		CORE_CYBERNETICSCORE_DARK = new StarcraftProtossCoreBlock("protoss.cyberneticscorecore.dark", RegistryType.FULL, Material.IRON, MapColor.BLACK).setDomeSize(-5, 24, 24, 3);
+		CORE_CYBERNETICSCORE_KHALAI = new StarcraftProtossCoreBlock("protoss.cyberneticscorecore.khalai", RegistryType.FULL, Material.IRON, MapColor.YELLOW).setDomeSize(-5, 24, 24, 3);
+		CORE_PYLON_VOID = new StarcraftProtossCoreBlock("protoss.pyloncore.void", RegistryType.FULL, Material.IRON, MapColor.GREEN).setDomeSize(-10, 16, 10, 6);
+		CORE_PYLON_DARK = new StarcraftProtossCoreBlock("protoss.pyloncore.dark", RegistryType.FULL, Material.IRON, MapColor.BLACK).setDomeSize(-10, 16, 10, 6);
+		CORE_PYLON_KHALAI = new StarcraftProtossCoreBlock("protoss.pyloncore.khalai", RegistryType.FULL, Material.IRON, MapColor.YELLOW).setDomeSize(-10, 16, 10, 6);
+		CORE_WARPGATE_VOID = new StarcraftProtossCoreBlock("protoss.warpgatecore.void", RegistryType.FULL, Material.IRON, MapColor.GREEN).setDomeSize(-5, 16, 13, 3);
+		CORE_WARPGATE_DARK = new StarcraftProtossCoreBlock("protoss.warpgatecore.dark", RegistryType.FULL, Material.IRON, MapColor.BLACK).setDomeSize(-5, 16, 13, 3);
+		CORE_WARPGATE_KHALAI = new StarcraftProtossCoreBlock("protoss.warpgatecore.khalai", RegistryType.FULL, Material.IRON, MapColor.YELLOW).setDomeSize(-5, 16, 13, 3);
+		CORE_BARRACKS = new StarcraftProtossCoreBlock("protoss.barrackscore", RegistryType.FULL, Material.IRON, MapColor.BLUE);
 
 		/** gases **/
 		GAS_VESPENE = new BlockVespeneGas();

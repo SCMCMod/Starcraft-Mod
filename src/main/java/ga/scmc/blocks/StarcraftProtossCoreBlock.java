@@ -13,6 +13,7 @@ import net.minecraft.world.World;
 
 public class StarcraftProtossCoreBlock extends StarcraftBlock {
 
+	public int startPos;
 	public int domeHeight;
 	public int domeTopLength;
 	public int slope;
@@ -40,7 +41,8 @@ public class StarcraftProtossCoreBlock extends StarcraftBlock {
 		return this;
 	}
 	
-	public Block setDomeSize(int height, int length, int slope) {
+	public Block setDomeSize(int startPos, int height, int length, int slope) {
+		this.startPos = startPos;
 		this.domeHeight = height;
 		this.domeTopLength = length;
 		this.slope = slope;
@@ -50,12 +52,12 @@ public class StarcraftProtossCoreBlock extends StarcraftBlock {
 	@Override
 	public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
 		super.onBlockAdded(worldIn, pos, state);
-		Library.truncatedPyramid(worldIn, pos.add(0, -5, 0), BlockHandler.PROTOSS_SHIELD.getDefaultState(), domeHeight, domeTopLength, slope);
+		Library.truncatedPyramid(worldIn, pos.add(0, startPos, 0), BlockHandler.PROTOSS_SHIELD.getDefaultState(), domeHeight, domeTopLength, slope);
 	}
 	
 	@Override
 	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
-		Library.truncatedPyramid(worldIn, pos.add(0, -5, 0), Blocks.AIR.getDefaultState(), domeHeight, domeTopLength, slope);
+		Library.truncatedPyramid(worldIn, pos.add(0, startPos, 0), Blocks.AIR.getDefaultState(), domeHeight, domeTopLength, slope);
 		super.breakBlock(worldIn, pos, state);
 	}
 }
