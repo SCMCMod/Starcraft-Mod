@@ -1,6 +1,7 @@
 package ga.scmc.tileentity;
 
 import javax.annotation.Nullable;
+
 import ga.scmc.blocks.BlockStarcraftFurnace;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -14,6 +15,7 @@ import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 
 /**
  * A custom furnace which uses the {@link TileEntitySidedInventory} class
@@ -131,6 +133,7 @@ public class TileEntityStarcraftFurnace extends TileEntitySidedInventory impleme
         this.cookTime = nbt.getInteger("CookTime");
         this.totalCookTime = nbt.getInteger("CookTimeTotal");
         this.currentItemBurnTime = TileEntityFurnace.getItemBurnTime(this.handler.getStackInSlot(1));
+        this.world.setBlockState(this.pos, this.world.getBlockState(this.pos).withProperty(BlockStarcraftFurnace.BURNING, isBurning()), 3);
     }
 
     @Override
@@ -143,22 +146,20 @@ public class TileEntityStarcraftFurnace extends TileEntitySidedInventory impleme
 
     @Override
     public void update() {
-        boolean originalIsBurning = this.isBurning();
-        boolean burningState = false;
+        boolean originalIsBurning = isBurning();
+        boolean dirty = false;
 
         if (isBurning())
             --this.furnaceBurnTime;
 
         if (!this.world.isRemote) {
-            if (this.isBurning() || this.handler.getStackInSlot(1) != null && this.handler.getStackInSlot(0) != null) {
-                if (!this.isBurning() && this.canSmelt()) {
+            if (isBurning() || this.handler.getStackInSlot(1) != null && this.handler.getStackInSlot(0) != null) {
+                if (!isBurning() && canSmelt()) {
                     this.furnaceBurnTime = TileEntityFurnace.getItemBurnTime(this.handler.getStackInSlot(1));
                     this.currentItemBurnTime = this.furnaceBurnTime;
 
-                    System.out.println(furnaceBurnTime);
-
-                    if (this.isBurning()) {
-                        burningState = true;
+                    if (isBurning()) {
+                        dirty = true;
 
                         if (this.handler.getStackInSlot(1) != null) {
                             --this.handler.getStackInSlot(1).stackSize;
@@ -177,7 +178,7 @@ public class TileEntityStarcraftFurnace extends TileEntitySidedInventory impleme
                         this.cookTime = 0;
                         this.totalCookTime = getCurrentCookTime(this.handler.getStackInSlot(0));
                         smeltItem();
-                        burningState = true;
+                        dirty = true;
                     }
                 } else {
                     this.cookTime = 0;
@@ -187,13 +188,13 @@ public class TileEntityStarcraftFurnace extends TileEntitySidedInventory impleme
             }
 
             if (originalIsBurning != isBurning()) {
-                burningState = true;
+                dirty = true;
                 this.world.setBlockState(this.pos, this.world.getBlockState(this.pos).withProperty(BlockStarcraftFurnace.BURNING, isBurning()), 3);
             }
         }
 
-        if (burningState) {
-            this.markDirty();
+        if (dirty) {
+            markDirty();
         }
     }
 

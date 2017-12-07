@@ -22,7 +22,7 @@ public class MessageReturnFurnaceData implements IMessage {
         this.messageValid = false;
     }
 
-    public MessageReturnFurnaceData(int burnTime, int cookTime, String className, String burnTimeFieldName, String cookTimeFieldName) {
+    public MessageReturnFurnaceData(float burnTime, float cookTime, String className, String burnTimeFieldName, String cookTimeFieldName) {
         this.burnTime = burnTime;
         this.cookTime = cookTime;
         this.className = className;

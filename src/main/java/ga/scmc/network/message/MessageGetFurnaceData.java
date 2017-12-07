@@ -72,7 +72,10 @@ public class MessageGetFurnaceData implements IMessage {
             TileEntity tile = ctx.getServerHandler().playerEntity.getServerWorld().getTileEntity(msg.pos);
             if (tile instanceof TileEntityStarcraftFurnace) {
                 TileEntityStarcraftFurnace te = (TileEntityStarcraftFurnace) tile;
-                NetworkHandler.INSTANCE.sendTo(new MessageReturnFurnaceData(te.getBurnTime() / te.getCurrentItemBurnTime(), te.getCurrentCookTime() / te.getTotalCookTime(), msg.className, msg.burnTimeFieldName, msg.cookTimeFieldName), ctx.getServerHandler().playerEntity);
+                if(te.getCurrentItemBurnTime() != 0)
+                    NetworkHandler.INSTANCE.sendTo(new MessageReturnFurnaceData((float)te.getBurnTime() / (float)te.getCurrentItemBurnTime(), (float)te.getCurrentCookTime() / (float)te.getTotalCookTime(), msg.className, msg.burnTimeFieldName, msg.cookTimeFieldName), ctx.getServerHandler().playerEntity);
+                else
+                    NetworkHandler.INSTANCE.sendTo(new MessageReturnFurnaceData(0.0F, (float)te.getCurrentCookTime() / (float)te.getTotalCookTime(), msg.className, msg.burnTimeFieldName, msg.cookTimeFieldName), ctx.getServerHandler().playerEntity);
             }
         }
     }

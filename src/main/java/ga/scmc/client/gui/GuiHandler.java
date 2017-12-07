@@ -48,7 +48,8 @@ public class GuiHandler implements IGuiHandler {
 
 	@Override
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		TileEntity te = world.getTileEntity(new BlockPos(x, y, z));
+		BlockPos pos = new BlockPos(x, y, z);
+		TileEntity te = world.getTileEntity(pos);
 		if (ID == GAS_COLLECTOR_ID)
 			return new GuiGasCollector(player, (TileEntityGasCollector) te);
 		if (ID == SHOP_ID)
@@ -56,11 +57,11 @@ public class GuiHandler implements IGuiHandler {
 		if (ID == LARVA_ID)
 			return new GuiLarvaMorph(player);
 		if (ID == CHAR_FURNACE)
-			return new GuiStarcraftFurnace(player, te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), EnumWorldType.CHAR);
+			return new GuiStarcraftFurnace(player, te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), EnumWorldType.CHAR, pos);
 		if (ID == SHAKURAS_FURNACE)
-			return new GuiStarcraftFurnace(player, te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), EnumWorldType.SHAKURAS);
+			return new GuiStarcraftFurnace(player, te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), EnumWorldType.SHAKURAS, pos);
 		if (ID == SLAYN_FURNACE)
-			return new GuiStarcraftFurnace(player, te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), EnumWorldType.SLAYN);
+			return new GuiStarcraftFurnace(player, te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), EnumWorldType.SLAYN, pos);
 		return null;
 	}
 
