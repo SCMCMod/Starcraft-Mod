@@ -1,26 +1,36 @@
 package ga.scmc.enums;
 
-public enum EnumWorldType {
-    CHAR(0, "char"), SHAKURAS(1, "shakuras"), SLAYN(2, "slayn");
+import ga.scmc.client.gui.GuiHandler;
+import net.minecraft.util.IStringSerializable;
 
-    private int id;
-    private String name;
+public enum EnumWorldType implements IStringSerializable {
+	CHAR(0, "char", GuiHandler.CHAR_FURNACE), SHAKURAS(1, "shakuras", GuiHandler.SHAKURAS_FURNACE), SLAYN(2, "slayn", GuiHandler.SLAYN_FURNACE);
 
-    EnumWorldType(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
+	private int id;
+	private String name;
+	private int guiId;
 
-    public int getId() {
-        return id;
-    }
+	EnumWorldType(int id, String name, int guiId) {
+		this.id = id;
+		this.name = name;
+		this.guiId = guiId;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public int getId() {
+		return id;
+	}
 
-    @Override
-    public String toString() {
-        return getName();
-    }
+	@Override
+	public String getName() {
+		return name;
+	}
+
+	public int getGuiId() {
+		return guiId;
+	}
+
+	@Override
+	public String toString() {
+		return getName();
+	}
 }

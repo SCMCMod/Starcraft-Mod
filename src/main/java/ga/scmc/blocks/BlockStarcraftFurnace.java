@@ -73,15 +73,6 @@ public class BlockStarcraftFurnace extends BlockContainer {
 		return type;
 	}
 
-	/**
-	 * Get the Item that this Block should drop when harvested.
-	 */
-	@Nullable
-	@Override
-	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		return Item.getItemFromBlock(this);
-	}
-
 	@Override
 	public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
 		this.setDefaultFacing(worldIn, pos, state);
@@ -144,22 +135,12 @@ public class BlockStarcraftFurnace extends BlockContainer {
 	}
 
 	@Override
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
-		if (worldIn.isRemote)
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
+		if (world.isRemote)
 			return true;
 		else {
-			switch (this.type) {
-			case CHAR:
-				playerIn.openGui(Starcraft.instance, GuiHandler.CHAR_FURNACE, worldIn, pos.getX(), pos.getY(), pos.getZ());
-				break;
-			case SHAKURAS:
-				playerIn.openGui(Starcraft.instance, GuiHandler.SHAKURAS_FURNACE, worldIn, pos.getX(), pos.getY(), pos.getZ());
-				break;
-			case SLAYN:
-				playerIn.openGui(Starcraft.instance, GuiHandler.SLAYN_FURNACE, worldIn, pos.getX(), pos.getY(), pos.getZ());
-				break;
-			}
-			playerIn.addStat(StatList.FURNACE_INTERACTION);
+			player.openGui(Starcraft.instance, type.getGuiId(), world, pos.getX(), pos.getY(), pos.getZ());
+			player.addStat(StatList.FURNACE_INTERACTION);
 			return true;
 		}
 	}
@@ -256,7 +237,7 @@ public class BlockStarcraftFurnace extends BlockContainer {
 	 */
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		return (state.getValue(FACING).getIndex() - 2) * 2 + (state.getValue(BURNING) ? 0 : 1);
+		return (state.getValue(FACING).getHorizontalIndex()) * 2 + (state.getValue(BURNING) ? 0 : 1);
 	}
 
 	/**

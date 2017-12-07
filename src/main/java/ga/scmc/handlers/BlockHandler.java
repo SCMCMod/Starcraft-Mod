@@ -284,7 +284,7 @@ public class BlockHandler {
 		GAS_TERRAZINE = new BlockTerrazineGas();
 
 		/** miscellaneous blocks **/
-		TERRAN_WARNING_TAPE = new StarcraftBlock("terran.warningtape", RegistryType.FULL, Material.IRON, MapColor.YELLOW);
+		TERRAN_WARNING_TAPE = new StarcraftBlock("terran.warningtape", RegistryType.FULL, Material.IRON, MapColor.YELLOW).setBlockSoundType(SoundType.METAL).setCreativeTab(StarcraftCreativeTabs.TERRAN);
 		STARCRAFT_SKULL = new BlockStarcraftSkull();
 		CITY_STONE_KORHAL = new BlockKorhalCityStone();
 		TEST = new BlockTest();

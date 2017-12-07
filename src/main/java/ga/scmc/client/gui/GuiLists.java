@@ -100,7 +100,7 @@ public class GuiLists {
 		larvaOptions.add(new LarvaOption(100, 150).setTooltip("Infestor"));
 		larvaOptions.add(new LarvaOption(100, 75).setTooltip("Swarm Host"));
 		larvaOptions.add(new LarvaOption(300, 200).setTooltip("Mutalisk"));
-		larvaOptions.add(new LarvaOption(0, 0).setTooltip("Test").addChild(new LarvaOption(100, 0).setTooltip("test2")).addChild(new LarvaOption(0, 100).setTooltip("test3")));
+		larvaOptions.add(new LarvaOption(new LarvaOption(100, 0).setTooltip("test2"), new LarvaOption(0, 100).setTooltip("test3")).setTooltip("Test"));
 		LARVA_OPTIONS = larvaOptions.build();
 	}
 

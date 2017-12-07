@@ -51,11 +51,6 @@ public class GuiLarvaMorph extends BasicGui {
 		GuiUtils.drawCustomSizeGui(guiLeft, guiTop, xSize, ySize, zLevel);
 	}
 
-	@Override
-	protected void drawCenterLayer(int mouseX, int mouseY) {
-
-	}
-
 	public void openGUI(EntityPlayer player, Object mod, int guiID, World world, int x, int y, int z, EntityLarva larva) {
 		player.openGui(Starcraft.instance, guiID, world, x, y, z);
 		setLarva(larva);
