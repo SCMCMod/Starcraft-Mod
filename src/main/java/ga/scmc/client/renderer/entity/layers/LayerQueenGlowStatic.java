@@ -21,19 +21,16 @@ public class LayerQueenGlowStatic<T extends EntityQueen> implements LayerRendere
         this.RENDERER = zerglingSC2RendererIn;
     }
 
-    public void doRenderLayer(EntityQueen entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
-    {
-        this.RENDERER.bindTexture(TEXTURE);
+    @Override
+    public void doRenderLayer(EntityQueen entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+        RENDERER.bindTexture(TEXTURE);
         GlStateManager.enableBlend();
         GlStateManager.enableAlpha();
         GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
 
-        if (entitylivingbaseIn.isInvisible())
-        {
+        if(entitylivingbaseIn.isInvisible()){
             GlStateManager.depthMask(false);
-        }
-        else
-        {
+        } else {
             GlStateManager.depthMask(true);
         }
 
@@ -42,12 +39,12 @@ public class LayerQueenGlowStatic<T extends EntityQueen> implements LayerRendere
         int k = i / 65536;
         OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)j, (float)k);
         GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-        this.RENDERER.getMainModel().render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        RENDERER.getMainModel().render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
         i = entitylivingbaseIn.getBrightnessForRender(partialTicks);
         j = i % 65536;
         k = i / 65536;
         OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)j, (float)k);
-        this.RENDERER.setLightmap(entitylivingbaseIn, partialTicks);
+        RENDERER.setLightmap(entitylivingbaseIn, partialTicks);
         GlStateManager.disableBlend();
         GlStateManager.enableAlpha();
     }
