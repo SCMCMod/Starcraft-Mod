@@ -3,9 +3,10 @@ package ga.scmc.handlers;
 
 
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
-import ga.scmc.items.weapons.WeaponBase;
+import ga.scmc.items.weapons.WeaponLightBase;
 import ga.scmc.items.weapons.WeaponMasterPsiBlade;
 import ga.scmc.items.weapons.WeaponPsiBlade;
+import ga.scmc.items.weapons.WeaponSwordBase;
 import ga.scmc.items.weapons.WeaponWarpBlade;
 import ga.scmc.material.WeaponMaterials;
 import net.minecraft.item.Item;
@@ -37,12 +38,12 @@ public class WeaponHandler {
 		DARK_WARP_BLADE = new WeaponWarpBlade(WeaponMaterials.WARPBLADE_MATERIAL).setUnlocalizedName("protoss.blade.warp.dark").setRegistryName("protoss.blade.warp.dark").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 		MASTER_PSI_BLADE = new WeaponMasterPsiBlade(WeaponMaterials.MASTERPSIBLADE_MATERIAL);
 
-		BALISONG = new WeaponBase(WeaponMaterials.BALISONG_MATERIAL).setUnlocalizedName("balisong").setRegistryName("balisong").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		MILITARY_KNIFE = new WeaponBase(WeaponMaterials.MILITARYKNIFE_MATERIAL).setUnlocalizedName("terran.knife.military").setRegistryName("terran.knife.military").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		MONOMOLECULAR_BLADE = new WeaponBase(WeaponMaterials.MONOMOLECULARBLADE_MATERIAL).setUnlocalizedName("blade.monomolecular").setRegistryName("blade.monomolecular").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		COPPER_SWORD = new WeaponBase(WeaponMaterials.COPPER_MATERIAL).setUnlocalizedName("copper.sword").setRegistryName("copper.sword").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		TITANIUM_SWORD = new WeaponBase(WeaponMaterials.TITANIUM_MATERIAL).setUnlocalizedName("titanium.sword").setRegistryName("titanium.sword").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		STEEL_SWORD = new WeaponBase(WeaponMaterials.STEEL_MATERIAL).setUnlocalizedName("steel.sword").setRegistryName("steel.sword").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		BALISONG = new WeaponSwordBase(WeaponMaterials.BALISONG_MATERIAL).setUnlocalizedName("balisong").setRegistryName("balisong").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		MILITARY_KNIFE = new WeaponSwordBase(WeaponMaterials.MILITARYKNIFE_MATERIAL).setUnlocalizedName("terran.knife.military").setRegistryName("terran.knife.military").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		MONOMOLECULAR_BLADE = new WeaponLightBase(WeaponMaterials.MONOMOLECULARBLADE_MATERIAL).setUnlocalizedName("blade.monomolecular").setRegistryName("blade.monomolecular").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		COPPER_SWORD = new WeaponSwordBase(WeaponMaterials.COPPER_MATERIAL).setUnlocalizedName("copper.sword").setRegistryName("copper.sword").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		TITANIUM_SWORD = new WeaponSwordBase(WeaponMaterials.TITANIUM_MATERIAL).setUnlocalizedName("titanium.sword").setRegistryName("titanium.sword").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STEEL_SWORD = new WeaponSwordBase(WeaponMaterials.STEEL_MATERIAL).setUnlocalizedName("steel.sword").setRegistryName("steel.sword").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 	}
 
 	public static void register() {

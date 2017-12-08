@@ -1,7 +1,7 @@
 package ga.scmc.items.weapons;
 
 import ga.scmc.handlers.BlockHandler;
-import jdk.nashorn.internal.ir.Block;
+//import jdk.nashorn.internal.ir.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -12,9 +12,9 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class WeaponBase extends ItemSword {
+public class WeaponLightBase extends ItemSword {
 
-    public WeaponBase(ToolMaterial material) {
+    public WeaponLightBase(ToolMaterial material) {
         super(material);
     }
 
@@ -22,7 +22,7 @@ public class WeaponBase extends ItemSword {
     public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
         if (!world.isRemote && entity instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) entity;
-            if (player.getHeldItem(EnumHand.MAIN_HAND) != null && player.getHeldItem(EnumHand.MAIN_HAND).getItem() instanceof WeaponBase) {
+            if (player.getHeldItem(EnumHand.MAIN_HAND) != null && player.getHeldItem(EnumHand.MAIN_HAND).getItem() instanceof WeaponLightBase) {
                 if (!stack.hasTagCompound()) {
                     NBTTagCompound nbt = new NBTTagCompound();
                     nbt.setTag("LastLightPos", NBTUtil.createPosTag(player.getPosition().up()));

@@ -8,11 +8,10 @@ import ga.scmc.handlers.SoundHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
-public class WeaponPsiBlade extends WeaponBase {
+public class WeaponPsiBlade extends WeaponLightBase {
 	
 	public WeaponPsiBlade(ToolMaterial material) {
 		super(material);
