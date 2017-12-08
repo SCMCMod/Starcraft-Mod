@@ -18,7 +18,6 @@ import net.minecraft.world.World;
 import ocelot.api.utils.GuiUtils;
 import ocelot.api.utils.InventoryUtils;
 import ocelot.api.utils.SoundUtils;
-import ocelot.api.utils.TextureUtils;
 
 /**
  * @since 5.1
@@ -63,11 +62,8 @@ public class GuiLarvaMorph extends BasicGui {
 			for (int x = 0; x < 5; x++) {
 				int index = x + y * 5;
 				if (index < GuiLists.LARVA_OPTIONS.size()) {
-					LarvaOption option = GuiLists.LARVA_OPTIONS.get(index);
-					bindGuiTexture();
-					drawTexturedModalRect(7 + x * 18, 7 + y * 18, 0, 15, 18, 18);
-					bindIconTexture();
-					drawTexturedModalRect(8 + x * 18, 8 + y * 18, (option.getIconId() % 16) * 16, (option.getIconId() / 16) * 16, 16, 16);
+					GuiUtils.drawSlot(7 + x * 18, 7 + y * 18, 18, 18);
+					GuiLists.LARVA_OPTIONS.get(index).render(8 + x * 18, 8 + y * 18);
 				}
 			}
 		}
@@ -77,14 +73,10 @@ public class GuiLarvaMorph extends BasicGui {
 
 			int x = subOptionsX - guiLeft;
 			int y = subOptionsY - guiTop;
-			bindGuiTexture();
 			GuiUtils.drawCustomSizeGui(x - 6, y - 6, 16 * 3, 30, zLevel);
-			for (int i = 0; i < subOptions.size(); i++) {
-				LarvaOption option = subOptions.get(i);
-				bindGuiTexture();
-				drawTexturedModalRect(x + i * 18, y, 0, 15, 18, 18);
-				bindIconTexture();
-				drawTexturedModalRect(1 + x + i * 18, 1 + y, (option.getIconId() % 16) * 16, (option.getIconId() / 16) * 16, 16, 16);
+			for (int index = 0; index < subOptions.size(); index++) {
+				GuiUtils.drawSlot(x + index * 18, y, 18, 18);
+				subOptions.get(index).render(1 + x + index * 18, 1 + y);
 			}
 		}
 	}
@@ -171,7 +163,6 @@ public class GuiLarvaMorph extends BasicGui {
 			subOptions.clear();
 		}
 	}
-	
 
 	@Override
 	public void updateScreen() {
@@ -183,14 +174,6 @@ public class GuiLarvaMorph extends BasicGui {
 	@Override
 	public boolean doesGuiPauseGame() {
 		return false;
-	}
-
-	private void bindGuiTexture() {
-		TextureUtils.bindTexture("textures/gui/larva.png");
-	}
-
-	private void bindIconTexture() {
-		TextureUtils.bindTexture("textures/gui/larva_icons.png");
 	}
 
 	public EntityLarva getLarva() {

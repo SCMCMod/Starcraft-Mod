@@ -3,6 +3,10 @@ package ga.scmc.client.gui.element;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiIngame;
+import ocelot.api.utils.TextureUtils;
+
 /**
  * This class is an option for the larva morph larva GUI.
  * 
@@ -56,6 +60,12 @@ public class LarvaOption {
 				addChild(options[i]);
 			}
 		}
+	}
+
+	public void render(int x, int y) {
+		GuiIngame gui = Minecraft.getMinecraft().ingameGUI;
+		TextureUtils.bindTexture("textures/gui/larva_icons.png");
+		gui.drawTexturedModalRect(x, y, (iconId % 16) * 16, (iconId / 16) * 16, 16, 16);
 	}
 
 	/**
