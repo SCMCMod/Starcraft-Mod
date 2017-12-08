@@ -211,10 +211,10 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 				runGenerator(DIRT_GENERIC, world, random, chunkX, chunkZ, 20, 0, 128);
 				runGenerator(GRAVEL_GENERIC, world, random, chunkX, chunkZ, 10, 0, 128);
 
-				if (world.rand.nextInt(100) < 10 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKorhalCity) {
+				if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKorhalCity) {
 					runGenerator(TERRAN_BUNKER, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 				}
-				if (world.rand.nextInt(100) < 10 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKorhalCity) {
+				if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKorhalCity) {
 					runGenerator(TERRAN_BARRACKS, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 				}
 				if (world.rand.nextInt(100) < 10 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKorhalCity) {
