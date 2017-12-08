@@ -13,7 +13,7 @@ import net.minecraft.item.ItemSword;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
-public class WeaponMasterPsiBlade extends ItemSword {
+public class WeaponMasterPsiBlade extends WeaponBase {
 	
 	public WeaponMasterPsiBlade(ToolMaterial material) {
 		super(material);

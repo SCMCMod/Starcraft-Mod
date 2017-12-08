@@ -12,7 +12,7 @@ import net.minecraft.item.ItemSword;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
-public class WeaponWarpBlade extends ItemSword {
+public class WeaponWarpBlade extends WeaponBase {
 	public WeaponWarpBlade(ToolMaterial material) {
 		super(material);
 	}
