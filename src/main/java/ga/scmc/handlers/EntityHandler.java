@@ -15,6 +15,7 @@ import ga.scmc.entity.living.EntityKakaru;
 import ga.scmc.entity.living.EntityLarva;
 import ga.scmc.entity.living.EntityLarvaCocoon;
 import ga.scmc.entity.living.EntityMarine;
+import ga.scmc.entity.living.EntityNafash;
 import ga.scmc.entity.living.EntityPredator;
 import ga.scmc.entity.living.EntityProbe;
 import ga.scmc.entity.living.EntityProtossReaver;
@@ -84,6 +85,7 @@ public class EntityHandler {
 		EntityRegistry.registerEgg(EntityInfestedCivilian.class, 11403519, 7684608);
 		//EntityRegistry.registerEgg(EntityDrone.class, 11403519, 7684608);
 		EntityRegistry.registerEgg(EntityQueen.class, 11403519, 7684608);
+		EntityRegistry.registerEgg(EntityNafash.class, 11403519, 7684608);
 		//EntityRegistry.registerEgg(EntityBrutaliskCocoon.class, 11403519, 7684608);
 
 		EntityRegistry.registerEgg(EntityCivilian.class, 7566195, 16639);
@@ -133,6 +135,7 @@ public class EntityHandler {
 		registerEntity(EntityBroodling.class, "broodling", 64, 1, true);
 		registerEntity(EntityInfestedCivilian.class, "infestedCivilian", 64, 1, true);
 		registerEntity(EntityQueen.class, "queen", 64, 1, true);
+		registerEntity(EntityNafash.class, "nafash", 64, 1, true);
 		//registerEntity(EntityDrone.class, "drone", 64, 1, true);
 		//registerEntity(EntityBrutaliskCocoon.class, "brutaliskCocoon", 64, 1, true);
 

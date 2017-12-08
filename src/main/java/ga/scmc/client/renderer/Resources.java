@@ -40,6 +40,10 @@ public class Resources {
 	public static final String QUEEN_BASE		 				= Library.RL_BASE + "textures/entity/queen_base.png";
 	public static final String QUEEN_GLOW_STATIC				= Library.RL_BASE + "textures/entity/queen_glow_static.png";
 	public static final String QUEEN_OVERLAY	 				= Library.RL_BASE + "textures/entity/queen_overlay.png";
+	public static final String BROODMOTHER_BASE		 			= Library.RL_BASE + "textures/entity/broodmother_base.png";
+	public static final String BROODMOTHER_GLOW_STATIC			= Library.RL_BASE + "textures/entity/broodmother_glow_static.png";
+	public static final String BROODMOTHER_GLOW_DYNAMIC			= Library.RL_BASE + "textures/entity/broodmother_glow_dynamic.png";
+	public static final String BROODMOTHER_OVERLAY	 			= Library.RL_BASE + "textures/entity/broodmother_overlay.png";
 	public static final String SCARAB_LAYER		 				= Library.RL_BASE + "textures/entity/scarab_layer.png";
 	public static final String SCARAB 							= Library.RL_BASE + "textures/entity/scarab.png";
 	public static final String TASTELOPE_BASE 					= Library.RL_BASE + "textures/entity/tastelope_base.png";

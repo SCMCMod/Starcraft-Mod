@@ -166,6 +166,7 @@ import ga.scmc.client.renderer.entity.RenderLarva;
 import ga.scmc.client.renderer.entity.RenderLarvaCocoon;
 import ga.scmc.client.renderer.entity.RenderMarauder;
 import ga.scmc.client.renderer.entity.RenderMarine;
+import ga.scmc.client.renderer.entity.RenderNafash;
 import ga.scmc.client.renderer.entity.RenderPredator;
 import ga.scmc.client.renderer.entity.RenderProbe;
 import ga.scmc.client.renderer.entity.RenderProtossReaver;
@@ -184,6 +185,7 @@ import ga.scmc.client.renderer.entity.RenderZerglingRaptor;
 import ga.scmc.client.renderer.entity.RenderZerglingSwarmling;
 import ga.scmc.client.renderer.model.ModelAdept;
 import ga.scmc.client.renderer.model.ModelBroodling;
+import ga.scmc.client.renderer.model.ModelBroodmother;
 import ga.scmc.client.renderer.model.ModelBrutalisk;
 import ga.scmc.client.renderer.model.ModelBrutaliskCocoon;
 import ga.scmc.client.renderer.model.ModelBullet;
@@ -241,6 +243,7 @@ import ga.scmc.entity.living.EntityLarva;
 import ga.scmc.entity.living.EntityLarvaCocoon;
 import ga.scmc.entity.living.EntityMarauder;
 import ga.scmc.entity.living.EntityMarine;
+import ga.scmc.entity.living.EntityNafash;
 import ga.scmc.entity.living.EntityPredator;
 import ga.scmc.entity.living.EntityProbe;
 import ga.scmc.entity.living.EntityProtossReaver;
@@ -349,7 +352,8 @@ public class RenderingHandler {
 		RenderingRegistry.registerEntityRenderingHandler(EntityQueen.class, new RenderQueen(Minecraft.getMinecraft().getRenderManager(), new ModelQueen(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityDrone.class, new RenderDrone(Minecraft.getMinecraft().getRenderManager(), new ModelDrone(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityBrutaliskCocoon.class, new RenderBrutaliskCocoon(Minecraft.getMinecraft().getRenderManager(), new ModelBrutaliskCocoon(), 0.4f));
-
+		RenderingRegistry.registerEntityRenderingHandler(EntityNafash.class, new RenderNafash(Minecraft.getMinecraft().getRenderManager(), new ModelBroodmother(), 0.4f));
+		
 		RenderingRegistry.registerEntityRenderingHandler(EntityCivilian.class, new RenderCivilian(Minecraft.getMinecraft().getRenderManager(), new ModelCivilian(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityPredator.class, new RenderPredator(Minecraft.getMinecraft().getRenderManager(), new ModelPredator(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntitySCV.class, new RenderSCV(Minecraft.getMinecraft().getRenderManager(), new ModelSCV(), 0.4f));
