@@ -11,7 +11,7 @@ import ocelot.api.utils.ModelUtils;
 /**
  * sc2Marine - cybercat5555 Created using Tabula 5.1.0
  */
-public class ModelTerranMarineArmorT1 extends ModelArmorBase implements IArmorItem {
+public class ModelTerranMarineArmor extends ModelArmorBase implements IArmorItem {
 
 	public ModelRenderer lInsignia;
 	public ModelRenderer rInsignia;
@@ -74,7 +74,7 @@ public class ModelTerranMarineArmorT1 extends ModelArmorBase implements IArmorIt
 	public ModelRenderer leggings_lLegGuard02;
 	public ModelRenderer leggings_lLegGuard03;
 
-	public ModelTerranMarineArmorT1(float modelSize) {
+	public ModelTerranMarineArmor(float modelSize) {
 		super(modelSize, 128, 128);
 		this.chestplate_rGloves01 = new ModelRenderer(this, 64, 12);
 		this.chestplate_rGloves01.mirror = true;

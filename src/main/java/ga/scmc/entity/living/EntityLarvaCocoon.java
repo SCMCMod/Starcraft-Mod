@@ -15,8 +15,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.crash.CrashReport;
 import net.minecraft.crash.CrashReportCategory;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.util.ReportedException;
@@ -28,7 +28,7 @@ import net.minecraft.world.World;
 
 public class EntityLarvaCocoon extends EntityZergPassive {
 
-	/** This is the entity that this guy will hatch into. It's saved in a byte id because we only need about 15*/
+	/** This is the entity that this guy will hatch into. It's saved in a byte id because we only need about 15 */
 	private byte transformId;
 
 	public EntityLarvaCocoon(World world) {
@@ -285,7 +285,7 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 		rotationPitch = 0;
 	}
 
-	private Entity getEntityById(World world, int id) {
+	public static EntityLivingBase getEntityById(World world, int id) {
 		switch (id) {
 		default:
 			return new EntityOcelot(world);
@@ -293,7 +293,11 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 			return new EntityDrone(world);
 		case 2:
 			return new EntityZergling(world);
+		case 3:
+			return new EntityZerglingSwarmling(world);
 		case 4:
+			return new EntityZerglingRaptor(world);
+		case 6:
 			return new EntityHydralisk(world);
 		}
 	}

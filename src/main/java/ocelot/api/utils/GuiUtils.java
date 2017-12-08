@@ -5,9 +5,13 @@ import java.util.List;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.VertexBuffer;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.entity.EntityLivingBase;
 
 /**
  * <em><b>Copyright (c) 2017 Ocelot5836.</b></em>
@@ -113,6 +117,61 @@ public class GuiUtils extends GuiScreen {
 
 		drawScaledCustomSizeModalRect(x + (width - 1), y, 2, 15, 1, 1, 1, 1, 256, 256);
 		drawScaledCustomSizeModalRect(x, y + (height - 1), 0, 17, 1, 1, 1, 1, 256, 256);
+	}
+
+	/**
+	 * Renders an entity to the screen.
+	 * 
+	 * @param x
+	 *            The x position
+	 * @param y
+	 *            The y position
+	 * @param scale
+	 *            The scale of the entity
+	 * @param mouseX
+	 *            The mouse x position
+	 * @param mouseY
+	 *            The mouse y position
+	 * @param entity
+	 *            The entity to render
+	 */
+	public static void drawEntityOnScreen(int x, int y, int scale, float mouseX, float mouseY, EntityLivingBase entity) {
+		GlStateManager.enableColorMaterial();
+		GlStateManager.pushMatrix();
+		GlStateManager.translate((float) x, (float) y, 50.0F);
+		GlStateManager.scale((float) (-scale), (float) scale, (float) scale);
+		GlStateManager.rotate(180.0F, 0.0F, 0.0F, 1.0F);
+		float f = entity.renderYawOffset;
+		float f1 = entity.rotationYaw;
+		float f2 = entity.rotationPitch;
+		float f3 = entity.prevRotationYawHead;
+		float f4 = entity.rotationYawHead;
+		GlStateManager.rotate(135.0F, 0.0F, 1.0F, 0.0F);
+		RenderHelper.enableStandardItemLighting();
+		GlStateManager.rotate(-135.0F, 0.0F, 1.0F, 0.0F);
+		GlStateManager.rotate(-((float) Math.atan((double) (mouseY / 40.0F))) * 20.0F, 1.0F, 0.0F, 0.0F);
+		entity.renderYawOffset = (float) Math.atan((double) (mouseX / 40.0F)) * 20.0F;
+		entity.rotationYaw = (float) Math.atan((double) (mouseX / 40.0F)) * 40.0F;
+		entity.rotationPitch = -((float) Math.atan((double) (mouseY / 40.0F))) * 20.0F;
+		entity.rotationYawHead = entity.rotationYaw;
+		entity.prevRotationYawHead = entity.rotationYaw;
+		GlStateManager.translate(0.0F, 0.0F, 0.0F);
+		RenderManager rendermanager = Minecraft.getMinecraft().getRenderManager();
+		rendermanager.setPlayerViewY(180.0F);
+		rendermanager.setRenderShadow(false);
+		rendermanager.doRenderEntity(entity, 0.0D, 0.0D, 0.0D, 0.0F, 1.0F, false);
+		rendermanager.setRenderShadow(true);
+		entity.renderYawOffset = f;
+		entity.rotationYaw = f1;
+		entity.rotationPitch = f2;
+		entity.prevRotationYawHead = f3;
+		entity.rotationYawHead = f4;
+		GlStateManager.popMatrix();
+		RenderHelper.disableStandardItemLighting();
+		GlStateManager.disableRescaleNormal();
+		GlStateManager.setActiveTexture(OpenGlHelper.lightmapTexUnit);
+		GlStateManager.disableTexture2D();
+		GlStateManager.setActiveTexture(OpenGlHelper.defaultTexUnit);
 	}
 
 	/**

@@ -5,13 +5,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import ga.scmc.client.gui.element.Tab;
+import ga.scmc.client.gui.element.ItemShopTab;
 import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.MetaBlockHandler;
 import ga.scmc.handlers.ToolHandler;
 import ga.scmc.items.metaitems.ItemBulletMagazine;
+import ga.scmc.lib.Library;
 import ga.scmc.network.NetworkHandler;
 import ga.scmc.network.message.MessageSpawnItem;
 import net.minecraft.client.Minecraft;
@@ -23,11 +24,11 @@ import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 import ocelot.api.utils.GuiUtils;
 import ocelot.api.utils.InventoryUtils;
 import ocelot.api.utils.SoundUtils;
-import ocelot.api.utils.TextureUtils;
 
 /**
  * @author Ocelot5836
@@ -49,7 +50,7 @@ public class GuiItemShop extends GuiScreen {
 	private static final int HIGHLIGHT_COLOR = new Color(246, 255, 0, 60).getRGB();
 	private static final int NO_FUNDS_COLOR = new Color(200, 50, 0, 60).getRGB();
 
-	public static List<Tab> tabs = new ArrayList<Tab>();
+	public static List<ItemShopTab> tabs = new ArrayList<ItemShopTab>();
 	private static int tab = 0;
 
 	private static GuiButton buttonBuy;
@@ -74,16 +75,13 @@ public class GuiItemShop extends GuiScreen {
 		guiLeft = (width - xSize) / 2;
 		guiTop = (height - ySize) / 2;
 
-		tabWidth = 32;
-		tabHeight = 28;
-
 		tabs.clear();
-		tabs.add(new Tab(((ItemBulletMagazine)ItemHandler.BULLET_MAGAZINE).getDefaultStack(EnumMetaItem.BulletMagazineType.C14.getID()), I18n.format("itemGroup.terran.general"), 0, guiLeft - 29, guiTop + 4, tabWidth, tabHeight));
-		tabs.add(new Tab(new ItemStack(MetaBlockHandler.GAS_COLLECTOR, 1, 1), I18n.format("itemGroup.terran.machine"), 1, guiLeft - 29, guiTop + 34, tabWidth, tabHeight));
-		tabs.add(new Tab(new ItemStack(MetaBlockHandler.PARISTEEL_METAL, 1, 0), I18n.format("itemGroup.terran.decoration"), 2, guiLeft - 29, guiTop + 64, tabWidth, tabHeight));
-		tabs.add(new Tab(new ItemStack(ItemHandler.C14_GAUSS_RIFLE, 1, 0), I18n.format("itemGroup.terran.weapons"), 3, guiLeft - 29, guiTop + 94, tabWidth, tabHeight));
-		tabs.add(new Tab(new ItemStack(ArmorHandler.COPPER_HELMET, 1, 0), I18n.format("itemGroup.terran.armors"), 4, guiLeft - 29, guiTop + 124, tabWidth, tabHeight));
-		tabs.add(new Tab(new ItemStack(ToolHandler.COPPER_PICKAXE, 1, 0), I18n.format("itemGroup.terran.tools"), 5, guiLeft - 29, guiTop + 154, tabWidth, tabHeight));
+		tabs.add(new ItemShopTab(((ItemBulletMagazine) ItemHandler.BULLET_MAGAZINE).getDefaultStack(EnumMetaItem.BulletMagazineType.C14.getID()), I18n.format("itemGroup.terran.general"), 0, guiLeft - 29, guiTop + 4, GuiLists.TRADES[0]));
+		tabs.add(new ItemShopTab(new ItemStack(MetaBlockHandler.GAS_COLLECTOR, 1, 1), I18n.format("itemGroup.terran.machine"), 1, guiLeft - 29, guiTop + 34, GuiLists.TRADES[1]));
+		tabs.add(new ItemShopTab(new ItemStack(MetaBlockHandler.PARISTEEL_METAL, 1, 0), I18n.format("itemGroup.terran.decoration"), 2, guiLeft - 29, guiTop + 64, GuiLists.TRADES[2]));
+		tabs.add(new ItemShopTab(new ItemStack(ItemHandler.C14_GAUSS_RIFLE, 1, 0), I18n.format("itemGroup.terran.weapons"), 3, guiLeft - 29, guiTop + 94, GuiLists.TRADES[3]));
+		tabs.add(new ItemShopTab(new ItemStack(ArmorHandler.COPPER_HELMET, 1, 0), I18n.format("itemGroup.terran.armors"), 4, guiLeft - 29, guiTop + 124, GuiLists.TRADES[4]));
+		tabs.add(new ItemShopTab(new ItemStack(ToolHandler.COPPER_PICKAXE, 1, 0), I18n.format("itemGroup.terran.tools"), 5, guiLeft - 29, guiTop + 154, GuiLists.TRADES[5]));
 
 		buttonList.clear();
 		buttonBuy = new GuiButton(0, guiLeft + 105, guiTop + 120, 30, 20, I18n.format("gui.buy"));
@@ -107,7 +105,7 @@ public class GuiItemShop extends GuiScreen {
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 240.0F, 240.0F);
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 
-		for (Tab tab : tabs) {
+		for (ItemShopTab tab : tabs) {
 			tab.renderLit(mouseX, mouseY);
 			GlStateManager.enableDepth();
 			RenderHelper.enableGUIStandardItemLighting();
@@ -128,21 +126,19 @@ public class GuiItemShop extends GuiScreen {
 	}
 
 	public void drawGuiBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
-		for (Tab tab : tabs) {
+		for (ItemShopTab tab : tabs) {
 			tab.renderUnlit(mouseX, mouseY);
 		}
 
-		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-		bindGuiTexture();
-		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
+		tabs.get(tab).renderBackground(guiLeft, guiTop, xSize, ySize);
 
 		if (MINERAL.stackSize <= 0) {
-			bindGuiTexture();
+			tabs.get(tab).bindTexture();
 			this.drawTexturedModalRect(guiLeft + 105, guiTop + 91, 152, 0, 16, 16);
 		}
 
 		if (VESPENE.stackSize <= 0) {
-			bindGuiTexture();
+			tabs.get(tab).bindTexture();
 			this.drawTexturedModalRect(guiLeft + 123, guiTop + 91, 152, 0, 16, 16);
 		}
 	}
@@ -160,8 +156,8 @@ public class GuiItemShop extends GuiScreen {
 		for (int i = 0; i < 7; i++) {
 			for (int j = 0; j < 4; j++) {
 				int index = 4 * i + j;
-				if (index < GuiLists.TRADES[tab].size()) {
-					if (index != selectedIndex && (InventoryUtils.getItemAmount(customer, MINERAL) < GuiLists.TRADES[tab].get(index).getMineralCost() || InventoryUtils.getItemAmount(customer, VESPENE.getItem()) < GuiLists.TRADES[tab].get(index).getVespeneCost())) {
+				if (index < tabs.get(tab).getItems().size()) {
+					if (index != selectedIndex && (InventoryUtils.getItemAmount(customer, MINERAL) < tabs.get(tab).getItems().get(index).getMineralCost() || InventoryUtils.getItemAmount(customer, VESPENE.getItem()) < tabs.get(tab).getItems().get(index).getVespeneCost())) {
 						int selectedX = index % 4;
 						int selectedY = index / 4;
 						GlStateManager.color(0.1F, 0.1F, 0.1F, 0.1F);
@@ -169,8 +165,8 @@ public class GuiItemShop extends GuiScreen {
 						int yOffset = 25;
 						drawRect(xOffset + selectedX * 18, yOffset + selectedY * 22, xOffset + (selectedX * 18) + 16, yOffset + (selectedY * 22) + 16, NO_FUNDS_COLOR);
 					}
-					Minecraft.getMinecraft().getRenderItem().renderItemAndEffectIntoGUI(GuiLists.TRADES[tab].get(index).getStack(), 25 + j * 18, 25 + i * 22);
-					Minecraft.getMinecraft().getRenderItem().renderItemOverlays(mc.fontRendererObj, GuiLists.TRADES[tab].get(index).getStack(), 25 + j * 18, 25 + i * 22);
+					Minecraft.getMinecraft().getRenderItem().renderItemAndEffectIntoGUI(tabs.get(tab).getItems().get(index).getStack(), 25 + j * 18, 25 + i * 22);
+					Minecraft.getMinecraft().getRenderItem().renderItemOverlays(mc.fontRendererObj, tabs.get(tab).getItems().get(index).getStack(), 25 + j * 18, 25 + i * 22);
 				}
 			}
 		}
@@ -195,18 +191,18 @@ public class GuiItemShop extends GuiScreen {
 	}
 
 	public void drawTooltips(int mouseX, int mouseY) {
-		for (Tab tab : tabs) {
+		for (ItemShopTab tab : tabs) {
 			drawTooltip(tab.getName(), tab.getX(), tab.getY(), tab.getWidth(), tab.getHeight(), mouseX, mouseY);
 		}
 
 		for (int i = 0; i < 7; i++) {
 			for (int j = 0; j < 4; j++) {
 				int index = 4 * i + j;
-				if (index < GuiLists.TRADES[tab].size()) {
-					List<String> tooltip = GuiLists.TRADES[tab].get(index).getStack().getTooltip(customer, this.mc.gameSettings.advancedItemTooltips);
+				if (index < tabs.get(tab).getItems().size()) {
+					List<String> tooltip = tabs.get(tab).getItems().get(index).getStack().getTooltip(customer, this.mc.gameSettings.advancedItemTooltips);
 					tooltip.add("");
-					tooltip.add(TextFormatting.GRAY + I18n.format("gui.item_shop.tooltip.mineral_cost", GuiLists.TRADES[tab].get(index).getMineralCost()));
-					tooltip.add(TextFormatting.GRAY + I18n.format("gui.item_shop.tooltip.vespene_cost", GuiLists.TRADES[tab].get(index).getVespeneCost()));
+					tooltip.add(TextFormatting.GRAY + I18n.format("gui.item_shop.tooltip.mineral_cost", tabs.get(tab).getItems().get(index).getMineralCost()));
+					tooltip.add(TextFormatting.GRAY + I18n.format("gui.item_shop.tooltip.vespene_cost", tabs.get(tab).getItems().get(index).getVespeneCost()));
 					drawTooltip(tooltip, guiLeft + 25 + j * 18, guiTop + 25 + i * 22, 16, 16, mouseX, mouseY);
 				}
 			}
@@ -242,7 +238,7 @@ public class GuiItemShop extends GuiScreen {
 			for (int y = 0; y < 7; y++) {
 				for (int x = 0; x < 4; x++) {
 					int index = 4 * y + x;
-					if (index < GuiLists.TRADES[tab].size()) {
+					if (index < tabs.get(tab).getItems().size()) {
 						if (GuiUtils.isMouseInside(guiLeft + 25 + x * 18, guiTop + 25 + y * 22, 16, 16, mouseX, mouseY)) {
 							this.selectedIndex = index;
 							SoundUtils.playButtonClick();
@@ -260,13 +256,13 @@ public class GuiItemShop extends GuiScreen {
 
 	@Override
 	public void updateScreen() {
-		if (selectedIndex == -1 || InventoryUtils.getItemAmount(customer, MINERAL) < GuiLists.TRADES[tab].get(selectedIndex).getMineralCost() || InventoryUtils.getItemAmount(customer, VESPENE.getItem()) < GuiLists.TRADES[tab].get(selectedIndex).getVespeneCost()) {
+		if (selectedIndex == -1 || InventoryUtils.getItemAmount(customer, MINERAL) < tabs.get(tab).getItems().get(selectedIndex).getMineralCost() || InventoryUtils.getItemAmount(customer, VESPENE.getItem()) < tabs.get(tab).getItems().get(selectedIndex).getVespeneCost()) {
 			buttonBuy.enabled = false;
 		} else {
 			buttonBuy.enabled = true;
 		}
 
-		for (Tab tab : tabs) {
+		for (ItemShopTab tab : tabs) {
 			tab.deselect();
 		}
 
@@ -281,10 +277,10 @@ public class GuiItemShop extends GuiScreen {
 	protected void actionPerformed(GuiButton button) throws IOException {
 		switch (button.id) {
 		case BUTTON_BUY:
-			if (selectedIndex != -1 && InventoryUtils.getItemAmount(customer, MINERAL) >= GuiLists.TRADES[tab].get(selectedIndex).getMineralCost() && InventoryUtils.getItemAmount(customer, VESPENE.getItem()) >= GuiLists.TRADES[tab].get(selectedIndex).getVespeneCost()) {
-				NetworkHandler.sendToServer(new MessageSpawnItem(GuiLists.TRADES[tab].get(selectedIndex).getStack()));
-				InventoryUtils.removeItemWithAmount(customer, MINERAL.getItem(), GuiLists.TRADES[tab].get(selectedIndex).getMineralCost());
-				InventoryUtils.removeItemWithAmount(customer, VESPENE.getItem(), GuiLists.TRADES[tab].get(selectedIndex).getVespeneCost());
+			if (selectedIndex != -1 && InventoryUtils.getItemAmount(customer, MINERAL) >= tabs.get(tab).getItems().get(selectedIndex).getMineralCost() && InventoryUtils.getItemAmount(customer, VESPENE.getItem()) >= tabs.get(tab).getItems().get(selectedIndex).getVespeneCost()) {
+				NetworkHandler.sendToServer(new MessageSpawnItem(tabs.get(tab).getItems().get(selectedIndex).getStack()));
+				InventoryUtils.removeItemWithAmount(customer, MINERAL.getItem(), tabs.get(tab).getItems().get(selectedIndex).getMineralCost());
+				InventoryUtils.removeItemWithAmount(customer, VESPENE.getItem(), tabs.get(tab).getItems().get(selectedIndex).getVespeneCost());
 			}
 			break;
 		}
@@ -315,9 +311,5 @@ public class GuiItemShop extends GuiScreen {
 			lines.add(line);
 			drawHoveringText(lines, mouseX, mouseY);
 		}
-	}
-
-	public void bindGuiTexture() {
-		TextureUtils.bindTexture("textures/gui/item_shop.png");
 	}
 }

@@ -2,21 +2,28 @@ package ga.scmc.client.gui.element;
 
 import java.io.IOException;
 
+import com.google.common.collect.ImmutableList;
+
+import ga.scmc.client.gui.GuiLists.Product;
+import ga.scmc.lib.Library;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import ocelot.api.utils.GuiUtils;
 import ocelot.api.utils.SoundUtils;
 import ocelot.api.utils.TextureUtils;
 
 /**
- * @since 5.1
  * @author Ocelot5836
  */
-public class Tab extends GuiScreen {
+public class ItemShopTab extends GuiScreen {
 
 	private static final Minecraft MC = Minecraft.getMinecraft();
+	private ResourceLocation texture;
 
+	private ImmutableList<Product> items;
 	private ItemStack icon;
 	private String name;
 	private int id;
@@ -28,17 +35,19 @@ public class Tab extends GuiScreen {
 
 	private int xOffset = 14;
 
-	public Tab(ItemStack icon, String name, int id, int x, int y) {
-		this.icon = icon;
-		this.name = name;
-		this.id = id;
-		this.x = x;
-		this.y = y;
-		this.width = 32;
-		this.height = 28;
+	public ItemShopTab(ItemStack icon, String name, int id, int x, int y, ImmutableList<Product> items) {
+		this(icon, name, id, x, y, 32, 28, new ResourceLocation(Library.RL_BASE + "textures/gui/itemShop/item_shop.png"), items);
 	}
 
-	public Tab(ItemStack icon, String name, int id, int x, int y, int width, int height) {
+	public ItemShopTab(ItemStack icon, String name, int id, int x, int y, ResourceLocation texture, ImmutableList<Product> items) {
+		this(icon, name, id, x, y, 32, 28, texture, items);
+	}
+
+	public ItemShopTab(ItemStack icon, String name, int id, int x, int y, int width, int height, ImmutableList<Product> items) {
+		this(icon, name, id, x, y, width, height, new ResourceLocation(Library.RL_BASE + "textures/gui/itemShop/item_shop.png"), items);
+	}
+
+	public ItemShopTab(ItemStack icon, String name, int id, int x, int y, int width, int height, ResourceLocation texture, ImmutableList<Product> items) {
 		this.icon = icon;
 		this.name = name;
 		this.id = id;
@@ -46,19 +55,27 @@ public class Tab extends GuiScreen {
 		this.y = y;
 		this.width = width;
 		this.height = height;
+		this.items = items;
+		this.texture = texture;
+	}
+
+	public void renderBackground(int x, int y, int width, int height) {
+		bindTexture();
+		GlStateManager.color(1, 1, 1, 1);
+		drawTexturedModalRect(x, y, 0, 0, width, height);
 	}
 
 	public void renderUnlit(int mouseX, int mouseY) {
 		if (!selected) {
 			bindTexture();
-			this.drawTexturedModalRect(x, y, width * id, 0, width, height);
+			this.drawTexturedModalRect(x, y, 152, 16, width, height);
 		}
 	}
 
 	public void renderLit(int mouseX, int mouseY) {
 		if (selected) {
 			bindTexture();
-			this.drawTexturedModalRect(x, y, width * id, height, width, height);
+			this.drawTexturedModalRect(x, y, 152, 44, width, height);
 		}
 	}
 
@@ -73,7 +90,7 @@ public class Tab extends GuiScreen {
 	}
 
 	public void bindTexture() {
-		TextureUtils.bindTexture("textures/gui/tabs.png");
+		TextureUtils.bindTexture(texture);
 	}
 
 	public String getName() {
@@ -106,5 +123,9 @@ public class Tab extends GuiScreen {
 
 	public void deselect() {
 		this.selected = false;
+	}
+
+	public ImmutableList<Product> getItems() {
+		return items;
 	}
 }

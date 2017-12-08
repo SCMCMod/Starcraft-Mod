@@ -8,16 +8,20 @@ import ga.scmc.Starcraft;
 import ga.scmc.client.gui.element.LarvaOption;
 import ga.scmc.entity.living.EntityLarva;
 import ga.scmc.handlers.ItemHandler;
+import ga.scmc.lib.Library;
 import ga.scmc.network.NetworkHandler;
 import ga.scmc.network.message.MessageMorphLarva;
 import ga.scmc.network.message.MessageSyncLarvaGui;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import ocelot.api.utils.GuiUtils;
 import ocelot.api.utils.InventoryUtils;
 import ocelot.api.utils.SoundUtils;
+import ocelot.api.utils.TextureUtils;
 
 /**
  * @since 5.1
@@ -40,14 +44,18 @@ public class GuiLarvaMorph extends BasicGui {
 
 	@Override
 	public void initGui() {
-		xSize = 105;
+		xSize = 155;
 		ySize = 51;
 		super.initGui();
 	}
 
 	@Override
 	public void drawGuiBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
-		GuiUtils.drawCustomSizeGui(guiLeft, guiTop, xSize, ySize, zLevel);
+		TextureUtils.bindTexture(new ResourceLocation(Library.RL_BASE + "textures/gui/larva.png"));
+		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
+		int entityX = guiLeft + 124;
+		int entityY = guiTop + 28;
+		GuiUtils.drawEntityOnScreen(entityX, entityY, 35, entityX - mouseX, entityY - mouseY-5, larva);
 	}
 
 	public void openGUI(EntityPlayer player, Object mod, int guiID, World world, int x, int y, int z, EntityLarva larva) {
@@ -62,8 +70,7 @@ public class GuiLarvaMorph extends BasicGui {
 			for (int x = 0; x < 5; x++) {
 				int index = x + y * 5;
 				if (index < GuiLists.LARVA_OPTIONS.size()) {
-					GuiUtils.drawSlot(7 + x * 18, 7 + y * 18, 18, 18);
-					GuiLists.LARVA_OPTIONS.get(index).render(8 + x * 18, 8 + y * 18);
+					GuiLists.LARVA_OPTIONS.get(index).render(false, 8 + x * 18, 8 + y * 18);
 				}
 			}
 		}
@@ -73,10 +80,10 @@ public class GuiLarvaMorph extends BasicGui {
 
 			int x = subOptionsX - guiLeft;
 			int y = subOptionsY - guiTop;
-			GuiUtils.drawCustomSizeGui(x - 6, y - 6, 16 * 3, 30, zLevel);
+			GuiUtils.drawCustomSizeGui(x - 6, y - 6, 16 * (subOptions.size() + 1) + subOptions.size(), 30, zLevel);
 			for (int index = 0; index < subOptions.size(); index++) {
 				GuiUtils.drawSlot(x + index * 18, y, 18, 18);
-				subOptions.get(index).render(1 + x + index * 18, 1 + y);
+				subOptions.get(index).render(true, 1 + x + index * 18, 1 + y);
 			}
 		}
 	}
@@ -91,10 +98,10 @@ public class GuiLarvaMorph extends BasicGui {
 						List<String> tooltip = new ArrayList<String>(GuiLists.LARVA_OPTIONS.get(index).getTooltip());
 
 						if (GuiLists.LARVA_OPTIONS.get(index).getChildren().length <= 0) {
-							tooltip.add(TextFormatting.GRAY + "Mineral Cost: " + GuiLists.LARVA_OPTIONS.get(index).getMineralCost());
-							tooltip.add(TextFormatting.GRAY + "Vespene Cost: " + GuiLists.LARVA_OPTIONS.get(index).getVespeneCost());
+							tooltip.add(TextFormatting.GRAY + I18n.format("gui.larva_morph.tooltip.mineral_cost", GuiLists.LARVA_OPTIONS.get(index).getMineralCost()));
+							tooltip.add(TextFormatting.GRAY + I18n.format("gui.larva_morph.tooltip.vespene_cost", GuiLists.LARVA_OPTIONS.get(index).getVespeneCost()));
 						} else {
-							tooltip.add(TextFormatting.GRAY + "Children: " + GuiLists.LARVA_OPTIONS.get(index).getChildren().length);
+							tooltip.add(TextFormatting.GRAY + I18n.format("gui.larva_morph.tooltip.children", GuiLists.LARVA_OPTIONS.get(index).getChildren().length));
 						}
 						drawTooltip(tooltip, guiLeft + 7 + x * 18, guiTop + 7 + y * 18, 17, 18, mouseX, mouseY);
 					}
@@ -104,8 +111,8 @@ public class GuiLarvaMorph extends BasicGui {
 			for (int i = 0; i < subOptions.size(); i++) {
 				LarvaOption option = subOptions.get(i);
 				List<String> tooltip = new ArrayList<String>(option.getTooltip());
-				tooltip.add(TextFormatting.GRAY + "Mineral Cost: " + option.getMineralCost());
-				tooltip.add(TextFormatting.GRAY + "Vespene Cost: " + option.getVespeneCost());
+				tooltip.add(TextFormatting.GRAY + I18n.format("gui.larva_morph.tooltip.mineral_cost", option.getMineralCost()));
+				tooltip.add(TextFormatting.GRAY + I18n.format("gui.larva_morph.tooltip.mineral_cost", option.getVespeneCost()));
 				drawTooltip(tooltip, subOptionsX + i * 18, subOptionsY, 18, 18, mouseX, mouseY);
 			}
 		}

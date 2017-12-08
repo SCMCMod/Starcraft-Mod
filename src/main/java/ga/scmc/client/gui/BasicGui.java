@@ -9,6 +9,7 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
+import scala.actors.threadpool.Arrays;
 
 public class BasicGui extends GuiScreen {
 
@@ -82,7 +83,7 @@ public class BasicGui extends GuiScreen {
 			drawHoveringText(new ArrayList<String>(), mouseX, mouseY);
 			return;
 		}
-		
+
 		if (mouseX >= posX && mouseX <= (posX + width) && mouseY >= posY && mouseY < (posY + height)) {
 			drawHoveringText(lines, mouseX, mouseY);
 		}
@@ -90,14 +91,12 @@ public class BasicGui extends GuiScreen {
 
 	public void drawTooltip(String line, float posX, float posY, float width, float height, int mouseX, int mouseY) {
 		if (line == null) {
-			drawHoveringText(new ArrayList<String>(), mouseX, mouseY);
+			drawHoveringText(Arrays.asList(new String[] {}), mouseX, mouseY);
 			return;
 		}
-		
+
 		if (mouseX >= posX && mouseX <= (posX + width) && mouseY >= posY && mouseY < (posY + height)) {
-			List<String> lines = new ArrayList<String>();
-			lines.add(line);
-			drawHoveringText(lines, mouseX, mouseY);
+			drawHoveringText(Arrays.asList(new String[] { line }), mouseX, mouseY);
 		}
 	}
 }

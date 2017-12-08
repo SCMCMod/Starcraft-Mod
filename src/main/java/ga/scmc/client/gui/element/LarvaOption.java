@@ -3,9 +3,15 @@ package ga.scmc.client.gui.element;
 import java.util.ArrayList;
 import java.util.List;
 
+import ga.scmc.entity.living.EntityHydralisk;
+import ga.scmc.entity.living.EntityLarvaCocoon;
+import ga.scmc.entity.living.EntityZergling;
+import ga.scmc.entity.living.EntityZerglingRaptor;
+import ga.scmc.entity.living.EntityZerglingSwarmling;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiIngame;
-import ocelot.api.utils.TextureUtils;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.entity.EntityLivingBase;
+import ocelot.api.utils.GuiUtils;
 
 /**
  * This class is an option for the larva morph larva GUI.
@@ -50,7 +56,6 @@ public class LarvaOption {
 	public LarvaOption(LarvaOption... options) {
 		this.mineralCost = -1;
 		this.vespeneCost = -1;
-		this.iconId = nextIconId++;
 		this.tooltip = new ArrayList<String>();
 		this.children = new ArrayList<LarvaOption>();
 		this.isChild = false;
@@ -60,12 +65,44 @@ public class LarvaOption {
 				addChild(options[i]);
 			}
 		}
+		
+		this.tooltip = children.get(0).getTooltip();
 	}
 
-	public void render(int x, int y) {
-		GuiIngame gui = Minecraft.getMinecraft().ingameGUI;
-		TextureUtils.bindTexture("textures/gui/larva_icons.png");
-		gui.drawTexturedModalRect(x, y, (iconId % 16) * 16, (iconId / 16) * 16, 16, 16);
+	public void render(boolean renderingOveray, int x, int y) {
+		Minecraft mc = Minecraft.getMinecraft();
+
+		EntityLivingBase entity = hasChildren() ? EntityLarvaCocoon.getEntityById(mc.world, children.get(0).iconId) : EntityLarvaCocoon.getEntityById(mc.world, iconId);
+		int xx = x + 8;
+		int yy = y + 12;
+		int scale = 12;
+		
+		if (entity instanceof EntityHydralisk) {
+			scale = 4;
+			xx += 2;
+		}
+		
+		if (entity instanceof EntityZergling || entity instanceof EntityZerglingSwarmling || entity instanceof EntityZerglingRaptor) {
+			scale = 8;
+			yy += 2;
+		}
+		
+		if(renderingOveray) {
+			xx = x + 8;
+			yy = y + 12;
+			scale = 12;
+
+			if (entity instanceof EntityZergling || entity instanceof EntityZerglingSwarmling || entity instanceof EntityZerglingRaptor) {
+				scale = 8;
+				yy += 2;
+			}
+
+			GuiUtils.drawEntityOnScreen(xx, yy, scale, 100, -50, entity);
+		} else {
+			GlStateManager.enableDepth();
+			GuiUtils.drawEntityOnScreen(xx, yy, scale, 100, -50, entity);
+			GlStateManager.disableDepth();
+		}
 	}
 
 	/**
@@ -93,6 +130,10 @@ public class LarvaOption {
 			result[i] = children.get(i);
 		}
 		return result;
+	}
+
+	public boolean hasChildren() {
+		return children.size() > 0;
 	}
 
 	/**

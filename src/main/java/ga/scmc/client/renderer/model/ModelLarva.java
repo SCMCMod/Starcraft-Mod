@@ -617,21 +617,21 @@ public class ModelLarva extends ModelBase {
 	}
 
 	@Override
-	public void setRotationAngles(float par1, float par2, float par3, float par4, float par5, float par6, Entity par7Entity) {
-		super.setRotationAngles(par1, par2, par3, par4, par5, par6, par7Entity);
-		// super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks,
-		// netHeadYaw, headPitch, scaleFactor, entityIn);
-		lSpike0a.rotateAngleY = MathHelper.sin(par1 * 1.1F) * 1 * par2;
-		lSpike1a.rotateAngleY = MathHelper.sin(par1 * 1.2F) * 1 * par2;
-		lSpike2a.rotateAngleY = MathHelper.sin(par1 * 1.3F) * 1 * par2;
-		lSpike3a.rotateAngleY = MathHelper.sin(par1 * 1.4F) * 1 * par2;
-		lSpike4a.rotateAngleY = MathHelper.sin(par1 * 1.5F) * 1 * par2;
-		rSpike0a.rotateAngleY = MathHelper.cos(par1 * 1.5F) * 1 * par2;
-		rSpike1a.rotateAngleY = MathHelper.cos(par1 * 1.4F) * 1 * par2;
-		rSpike2a.rotateAngleY = MathHelper.cos(par1 * 1.3F) * 1 * par2;
-		rSpike3a.rotateAngleY = MathHelper.cos(par1 * 1.2F) * 1 * par2;
-		rSpike4a.rotateAngleY = MathHelper.cos(par1 * 1.1F) * 1 * par2;
-		lMandible.rotateAngleY = (MathHelper.sin(par1 * 0.5F) / 4.1F) * 2.0F * par2;
-		rMandible.rotateAngleY = (MathHelper.sin(par1 * -0.5F) / 4.1F) * 2.0F * par2;
+	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
+		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
+		head.rotateAngleX = headPitch * 0.017453292F;
+		head.rotateAngleY = netHeadYaw * 0.017453292F;
+		lSpike0a.rotateAngleY = MathHelper.sin(limbSwing * 1.1F) * 1 * limbSwingAmount;
+		lSpike1a.rotateAngleY = MathHelper.sin(limbSwing * 1.2F) * 1 * limbSwingAmount;
+		lSpike2a.rotateAngleY = MathHelper.sin(limbSwing * 1.3F) * 1 * limbSwingAmount;
+		lSpike3a.rotateAngleY = MathHelper.sin(limbSwing * 1.4F) * 1 * limbSwingAmount;
+		lSpike4a.rotateAngleY = MathHelper.sin(limbSwing * 1.5F) * 1 * limbSwingAmount;
+		rSpike0a.rotateAngleY = MathHelper.cos(limbSwing * 1.5F) * 1 * limbSwingAmount;
+		rSpike1a.rotateAngleY = MathHelper.cos(limbSwing * 1.4F) * 1 * limbSwingAmount;
+		rSpike2a.rotateAngleY = MathHelper.cos(limbSwing * 1.3F) * 1 * limbSwingAmount;
+		rSpike3a.rotateAngleY = MathHelper.cos(limbSwing * 1.2F) * 1 * limbSwingAmount;
+		rSpike4a.rotateAngleY = MathHelper.cos(limbSwing * 1.1F) * 1 * limbSwingAmount;
+		lMandible.rotateAngleY = (MathHelper.sin(limbSwing * 0.5F) / 4.1F) * 2.0F * limbSwingAmount;
+		rMandible.rotateAngleY = (MathHelper.sin(limbSwing * -0.5F) / 4.1F) * 2.0F * limbSwingAmount;
 	}
 }
