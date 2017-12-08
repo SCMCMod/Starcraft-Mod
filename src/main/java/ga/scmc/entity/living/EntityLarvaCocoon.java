@@ -2,9 +2,13 @@ package ga.scmc.entity.living;
 
 import java.util.List;
 
+import ga.scmc.Starcraft;
+import ga.scmc.client.gui.GuiLarvaMorph;
+import ga.scmc.client.gui.GuiLarvaProgress;
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
+import ga.scmc.handlers.GuiHandler;
 import ga.scmc.handlers.SoundHandler;
 import ga.scmc.lib.Library;
 import net.minecraft.block.Block;
@@ -19,6 +23,10 @@ import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.passive.EntityOcelot;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.ReportedException;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -87,6 +95,20 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 		if (ticksExisted > secondsToTicks(85)) {
 			Library.replaceEntity(true, this, getEntityById(world, transformId));
 			// TODO add a hatchind sound right here
+		}
+	}
+	
+	@Override
+	public boolean processInteract(EntityPlayer player, EnumHand hand, ItemStack stack) {
+		boolean flag = stack != null && stack.getItem() == Items.SPAWN_EGG;
+
+		if (!flag && this.isEntityAlive() && !this.isChild() && !player.isSneaking()) {
+			if (this.world.isRemote) {
+				GuiLarvaProgress.INSTANCE.openGUI(player, Starcraft.instance, GuiHandler.LARVA_PROGRESS_ID, world, (int) player.posX, (int) player.posY, (int) player.posZ, this);
+			}
+			return true;
+		} else {
+			return super.processInteract(player, hand, stack);
 		}
 	}
 
@@ -283,6 +305,10 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 	protected void setRotation(float par1, float par2) {
 		rotationYaw = 0;
 		rotationPitch = 0;
+	}
+	
+	public byte getTransformId() {
+		return transformId;
 	}
 
 	public static EntityLivingBase getEntityById(World world, int id) {

@@ -2,6 +2,7 @@ package ocelot.api.utils;
 
 import java.util.List;
 
+import ga.scmc.api.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.GlStateManager;
@@ -136,42 +137,46 @@ public class GuiUtils extends GuiScreen {
 	 *            The entity to render
 	 */
 	public static void drawEntityOnScreen(int x, int y, int scale, float mouseX, float mouseY, EntityLivingBase entity) {
-		GlStateManager.enableColorMaterial();
-		GlStateManager.pushMatrix();
-		GlStateManager.translate((float) x, (float) y, 50.0F);
-		GlStateManager.scale((float) (-scale), (float) scale, (float) scale);
-		GlStateManager.rotate(180.0F, 0.0F, 0.0F, 1.0F);
-		float f = entity.renderYawOffset;
-		float f1 = entity.rotationYaw;
-		float f2 = entity.rotationPitch;
-		float f3 = entity.prevRotationYawHead;
-		float f4 = entity.rotationYawHead;
-		GlStateManager.rotate(135.0F, 0.0F, 1.0F, 0.0F);
-		RenderHelper.enableStandardItemLighting();
-		GlStateManager.rotate(-135.0F, 0.0F, 1.0F, 0.0F);
-		GlStateManager.rotate(-((float) Math.atan((double) (mouseY / 40.0F))) * 20.0F, 1.0F, 0.0F, 0.0F);
-		entity.renderYawOffset = (float) Math.atan((double) (mouseX / 40.0F)) * 20.0F;
-		entity.rotationYaw = (float) Math.atan((double) (mouseX / 40.0F)) * 40.0F;
-		entity.rotationPitch = -((float) Math.atan((double) (mouseY / 40.0F))) * 20.0F;
-		entity.rotationYawHead = entity.rotationYaw;
-		entity.prevRotationYawHead = entity.rotationYaw;
-		GlStateManager.translate(0.0F, 0.0F, 0.0F);
-		RenderManager rendermanager = Minecraft.getMinecraft().getRenderManager();
-		rendermanager.setPlayerViewY(180.0F);
-		rendermanager.setRenderShadow(false);
-		rendermanager.doRenderEntity(entity, 0.0D, 0.0D, 0.0D, 0.0F, 1.0F, false);
-		rendermanager.setRenderShadow(true);
-		entity.renderYawOffset = f;
-		entity.rotationYaw = f1;
-		entity.rotationPitch = f2;
-		entity.prevRotationYawHead = f3;
-		entity.rotationYawHead = f4;
-		GlStateManager.popMatrix();
-		RenderHelper.disableStandardItemLighting();
-		GlStateManager.disableRescaleNormal();
-		GlStateManager.setActiveTexture(OpenGlHelper.lightmapTexUnit);
-		GlStateManager.disableTexture2D();
-		GlStateManager.setActiveTexture(OpenGlHelper.defaultTexUnit);
+		if (entity != null) {
+			GlStateManager.enableColorMaterial();
+			GlStateManager.pushMatrix();
+			GlStateManager.translate((float) x, (float) y, 50.0F);
+			GlStateManager.scale((float) (-scale), (float) scale, (float) scale);
+			GlStateManager.rotate(180.0F, 0.0F, 0.0F, 1.0F);
+			float f = entity.renderYawOffset;
+			float f1 = entity.rotationYaw;
+			float f2 = entity.rotationPitch;
+			float f3 = entity.prevRotationYawHead;
+			float f4 = entity.rotationYawHead;
+			GlStateManager.rotate(135.0F, 0.0F, 1.0F, 0.0F);
+			RenderHelper.enableStandardItemLighting();
+			GlStateManager.rotate(-135.0F, 0.0F, 1.0F, 0.0F);
+			GlStateManager.rotate(-((float) Math.atan((double) (mouseY / 40.0F))) * 20.0F, 1.0F, 0.0F, 0.0F);
+			entity.renderYawOffset = (float) Math.atan((double) (mouseX / 40.0F)) * 20.0F;
+			entity.rotationYaw = (float) Math.atan((double) (mouseX / 40.0F)) * 40.0F;
+			entity.rotationPitch = -((float) Math.atan((double) (mouseY / 40.0F))) * 20.0F;
+			entity.rotationYawHead = entity.rotationYaw;
+			entity.prevRotationYawHead = entity.rotationYaw;
+			GlStateManager.translate(0.0F, 0.0F, 0.0F);
+			RenderManager rendermanager = Minecraft.getMinecraft().getRenderManager();
+			rendermanager.setPlayerViewY(180.0F);
+			rendermanager.setRenderShadow(false);
+			rendermanager.doRenderEntity(entity, 0.0D, 0.0D, 0.0D, 0.0F, 1.0F, false);
+			rendermanager.setRenderShadow(true);
+			entity.renderYawOffset = f;
+			entity.rotationYaw = f1;
+			entity.rotationPitch = f2;
+			entity.prevRotationYawHead = f3;
+			entity.rotationYawHead = f4;
+			GlStateManager.popMatrix();
+			RenderHelper.disableStandardItemLighting();
+			GlStateManager.disableRescaleNormal();
+			GlStateManager.setActiveTexture(OpenGlHelper.lightmapTexUnit);
+			GlStateManager.disableTexture2D();
+			GlStateManager.setActiveTexture(OpenGlHelper.defaultTexUnit);
+		} else {
+			Utils.getLogger().warn("Trying to render an entity that is null!");
+		}
 	}
 
 	/**

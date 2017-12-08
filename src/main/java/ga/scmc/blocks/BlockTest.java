@@ -24,8 +24,8 @@ public class BlockTest extends BlockContainer {
 
 	public BlockTest() {
 		super(Material.WOOD, MapColor.WOOD);
-		setUnlocalizedName("test");
-		setRegistryName("test");
+		setUnlocalizedName("test.block");
+		setRegistryName("test.block");
 		setSoundType(SoundType.WOOD);
 		setBlockUnbreakable();
 		setTickRandomly(true);

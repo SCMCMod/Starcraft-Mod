@@ -39,7 +39,7 @@ public class Utils {
 	 */
 	public static Logger getLogger() {
 		if (logger == null) {
-			logger = LogManager.getFormatterLogger(Library.MODID);
+			logger = LogManager.getFormatterLogger("Starcraft");
 		}
 		return logger;
 	}

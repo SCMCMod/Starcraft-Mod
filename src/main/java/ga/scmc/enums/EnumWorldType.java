@@ -1,6 +1,6 @@
 package ga.scmc.enums;
 
-import ga.scmc.client.gui.GuiHandler;
+import ga.scmc.handlers.GuiHandler;
 import net.minecraft.util.IStringSerializable;
 
 public enum EnumWorldType implements IStringSerializable {

@@ -84,7 +84,7 @@ public class BasicGui extends GuiScreen {
 			return;
 		}
 
-		if (mouseX >= posX && mouseX <= (posX + width) && mouseY >= posY && mouseY < (posY + height)) {
+		if (mouseX >= posX && mouseX < (posX + width) && mouseY >= posY && mouseY < (posY + height)) {
 			drawHoveringText(lines, mouseX, mouseY);
 		}
 	}
@@ -95,7 +95,7 @@ public class BasicGui extends GuiScreen {
 			return;
 		}
 
-		if (mouseX >= posX && mouseX <= (posX + width) && mouseY >= posY && mouseY < (posY + height)) {
+		if (mouseX >= posX && mouseX < (posX + width) && mouseY >= posY && mouseY < (posY + height)) {
 			drawHoveringText(Arrays.asList(new String[] { line }), mouseX, mouseY);
 		}
 	}

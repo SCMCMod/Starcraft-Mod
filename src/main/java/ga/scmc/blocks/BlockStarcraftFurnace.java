@@ -6,10 +6,10 @@ import javax.annotation.Nullable;
 
 import ga.scmc.Starcraft;
 import ga.scmc.api.Utils;
-import ga.scmc.client.gui.GuiHandler;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.enums.EnumWorldType;
 import ga.scmc.handlers.BlockHandler;
+import ga.scmc.handlers.GuiHandler;
 import ga.scmc.tileentity.TileEntityStarcraftFurnace;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.BlockHorizontal;

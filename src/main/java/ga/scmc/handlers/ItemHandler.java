@@ -7,6 +7,7 @@ import ga.scmc.items.ItemMarineHelmetVisor;
 import ga.scmc.items.ItemNuclearMissile;
 import ga.scmc.items.ItemPhosphorus;
 import ga.scmc.items.ItemStimpack;
+import ga.scmc.items.ItemTest;
 import ga.scmc.items.metaitems.ItemBulletMagazine;
 import ga.scmc.items.metaitems.ItemC14GaussRifleParts;
 import ga.scmc.items.metaitems.ItemDust;
@@ -99,6 +100,8 @@ public class ItemHandler {
 	public static Item ICON_PROTOSS;
 	public static Item ICON_TERRAN;
 	public static Item ICON_ZERG;
+	
+	public static Item TEST;
 
 	static {
 		MINERAL_SHARD = new ItemMineralShard();
@@ -150,6 +153,8 @@ public class ItemHandler {
 		ICON_PROTOSS = new Item().setUnlocalizedName("icon.protoss").setRegistryName("icon.protoss").setCreativeTab(null);
 		ICON_TERRAN = new Item().setUnlocalizedName("icon.terran").setRegistryName("icon.terran").setCreativeTab(null);
 		ICON_ZERG = new Item().setUnlocalizedName("icon.zerg").setRegistryName("icon.zerg").setCreativeTab(null);
+		
+		TEST = new ItemTest();
 
 		ArmorHandler.init();
 		WeaponHandler.init();
@@ -217,6 +222,8 @@ public class ItemHandler {
 		registerItem(ICON_PROTOSS);
 		registerItem(ICON_TERRAN);
 		registerItem(ICON_ZERG);
+		
+		registerItem(TEST);
 
 		ArmorHandler.register();
 		WeaponHandler.register();

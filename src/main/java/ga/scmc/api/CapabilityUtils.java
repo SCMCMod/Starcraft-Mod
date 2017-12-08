@@ -37,7 +37,7 @@ public class CapabilityUtils {
 	 */
 	public static void setShield(EntityPlayer player, double amount) {
 		NetworkHandler.sendToServer(new MessageSetPlayerShieldServer(amount));
-		NetworkHandler.sendToClient(new MessageSetPlayerShieldClient(amount));
+		NetworkHandler.sendToAllClients(new MessageSetPlayerShieldClient(amount));
 	}
 
 	/**

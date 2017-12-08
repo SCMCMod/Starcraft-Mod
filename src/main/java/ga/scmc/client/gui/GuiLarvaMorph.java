@@ -30,23 +30,20 @@ import ocelot.api.utils.TextureUtils;
 public class GuiLarvaMorph extends BasicGui {
 
 	public static final GuiLarvaMorph INSTANCE = new GuiLarvaMorph();
-	private EntityPlayer customer;
+
 	private EntityLarva larva;
 	private List<LarvaOption> subOptions = new ArrayList<LarvaOption>();
 	private int subOptionsX, subOptionsY;
 
-	public GuiLarvaMorph(EntityPlayer player) {
-		this.customer = player;
-	}
-
 	public GuiLarvaMorph() {
-	}
-
-	@Override
-	public void initGui() {
 		xSize = 155;
 		ySize = 51;
-		super.initGui();
+	}
+
+	public void openGUI(EntityPlayer player, Object mod, int guiID, World world, int x, int y, int z, EntityLarva larva) {
+		player.openGui(Starcraft.instance, guiID, world, x, y, z);
+		setLarva(larva);
+		NetworkHandler.sendToAllClients(new MessageSyncLarvaGui(larva));
 	}
 
 	@Override
@@ -55,13 +52,7 @@ public class GuiLarvaMorph extends BasicGui {
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		int entityX = guiLeft + 124;
 		int entityY = guiTop + 28;
-		GuiUtils.drawEntityOnScreen(entityX, entityY, 35, entityX - mouseX, entityY - mouseY-5, larva);
-	}
-
-	public void openGUI(EntityPlayer player, Object mod, int guiID, World world, int x, int y, int z, EntityLarva larva) {
-		player.openGui(Starcraft.instance, guiID, world, x, y, z);
-		setLarva(larva);
-		NetworkHandler.sendToClient(new MessageSyncLarvaGui(larva));
+		GuiUtils.drawEntityOnScreen(entityX, entityY, 35, entityX - mouseX, entityY - mouseY - 5, larva);
 	}
 
 	@Override

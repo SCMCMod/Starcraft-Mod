@@ -3,11 +3,11 @@ package ga.scmc.entity.living;
 import java.util.Random;
 
 import ga.scmc.Starcraft;
-import ga.scmc.client.gui.GuiHandler;
 import ga.scmc.entity.ai.EntityAITradePlayer;
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
+import ga.scmc.handlers.GuiHandler;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAvoidEntity;

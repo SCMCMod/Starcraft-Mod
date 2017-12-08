@@ -6,13 +6,13 @@ import java.util.Random;
 import com.arisux.mdx.lib.world.entity.ItemDrop;
 
 import ga.scmc.Starcraft;
-import ga.scmc.client.gui.GuiHandler;
 import ga.scmc.client.gui.GuiLarvaMorph;
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.BlockHandler;
+import ga.scmc.handlers.GuiHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.MetaBlockHandler;
 import ga.scmc.handlers.SoundHandler;
@@ -51,7 +51,7 @@ public class EntityLarva extends EntityZergPassive {
 	private int nextStepDistance;
 	private Random random = new Random();
 
-	//Redo entity movement
+	// Redo entity movement
 	public EntityLarva(World world) {
 		super(world);
 		setSize(1.0F, .5F);
@@ -71,7 +71,7 @@ public class EntityLarva extends EntityZergPassive {
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(.19241212312);
 		getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(20.0D);
 	}
-	
+
 	@Override
 	public EntityAgeable createChild(EntityAgeable p_90011_1_) {
 		return null;
@@ -82,14 +82,14 @@ public class EntityLarva extends EntityZergPassive {
 		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), EnumMetaItem.CarapaceType.T1.getID()));
 		drop.tryDrop(this);
 	}
-	
+
 	@Override
 	public boolean processInteract(EntityPlayer player, EnumHand hand, ItemStack stack) {
 		boolean flag = stack != null && stack.getItem() == Items.SPAWN_EGG;
 
 		if (!flag && this.isEntityAlive() && !this.isChild() && !player.isSneaking()) {
 			if (this.world.isRemote) {
-				GuiLarvaMorph.INSTANCE.openGUI(player, Starcraft.instance, GuiHandler.LARVA_ID, world, (int) player.posX, (int) player.posY, (int) player.posZ, this);
+				GuiLarvaMorph.INSTANCE.openGUI(player, Starcraft.instance, GuiHandler.LARVA_MORPH_ID, world, (int) player.posX, (int) player.posY, (int) player.posZ, this);
 			}
 			return true;
 		} else {
@@ -132,7 +132,7 @@ public class EntityLarva extends EntityZergPassive {
 
 	@Override
 	public void move(double x, double y, double z) {
-		if(noClip) {
+		if (noClip) {
 			setEntityBoundingBox(getEntityBoundingBox().offset(x, y, z));
 			resetPositionToBB();
 		} else {
@@ -141,7 +141,7 @@ public class EntityLarva extends EntityZergPassive {
 			double d1 = posY;
 			double d2 = posZ;
 
-			if(isInWeb) {
+			if (isInWeb) {
 				isInWeb = false;
 				x *= 0.25D;
 				y *= 0.05000000074505806D;
@@ -156,31 +156,31 @@ public class EntityLarva extends EntityZergPassive {
 			double d5 = z;
 			boolean flag = onGround && isSneaking();
 
-			if(flag) {
-				for(; x != 0 && world.getCollisionBoxes(this, getEntityBoundingBox().offset(x, -1, 0)).isEmpty(); d3 = x) {
-					if(x < 0.05D && x >= -0.05D) {
+			if (flag) {
+				for (; x != 0 && world.getCollisionBoxes(this, getEntityBoundingBox().offset(x, -1, 0)).isEmpty(); d3 = x) {
+					if (x < 0.05D && x >= -0.05D) {
 						x = 0;
-					} else if(x > 0) {
+					} else if (x > 0) {
 						x -= 0.05D;
 					} else {
 						x += 0.05D;
 					}
 				}
 
-				for(; z != 0 && world.getCollisionBoxes(this, getEntityBoundingBox().offset(0, -1, z)).isEmpty(); d5 = z) {
-					if(z < 0.05D && z >= -0.05D) {
+				for (; z != 0 && world.getCollisionBoxes(this, getEntityBoundingBox().offset(0, -1, z)).isEmpty(); d5 = z) {
+					if (z < 0.05D && z >= -0.05D) {
 						z = 0;
-					} else if(z > 0) {
+					} else if (z > 0) {
 						z -= 0.05D;
 					} else {
 						z += 0.05D;
 					}
 				}
 
-				for(; x != 0 && z != 0 && world.getCollisionBoxes(this, getEntityBoundingBox().offset(x, -1, z)).isEmpty(); d5 = z) {
-					if(x < 0.05D && x >= -0.05D) {
+				for (; x != 0 && z != 0 && world.getCollisionBoxes(this, getEntityBoundingBox().offset(x, -1, z)).isEmpty(); d5 = z) {
+					if (x < 0.05D && x >= -0.05D) {
 						x = 0;
-					} else if(x > 0) {
+					} else if (x > 0) {
 						x -= 0.05D;
 					} else {
 						x += 0.05D;
@@ -188,9 +188,9 @@ public class EntityLarva extends EntityZergPassive {
 
 					d3 = x;
 
-					if(z < 0.05D && z >= -0.05D) {
+					if (z < 0.05D && z >= -0.05D) {
 						z = 0;
-					} else if(z > 0) {
+					} else if (z > 0) {
 						z -= 0.05D;
 					} else {
 						z += 0.05D;
@@ -202,7 +202,7 @@ public class EntityLarva extends EntityZergPassive {
 			AxisAlignedBB axisalignedbb = getEntityBoundingBox();
 			int i = 0;
 
-			for(int j = list1.size(); i < j; ++i) {
+			for (int j = list1.size(); i < j; ++i) {
 				y = list1.get(i).calculateYOffset(getEntityBoundingBox(), y);
 			}
 
@@ -210,20 +210,20 @@ public class EntityLarva extends EntityZergPassive {
 			boolean i_ = onGround || d4 != y && d4 < 0;
 			int j4 = 0;
 
-			for(int k = list1.size(); j4 < k; ++j4) {
+			for (int k = list1.size(); j4 < k; ++j4) {
 				x = list1.get(j4).calculateXOffset(getEntityBoundingBox(), x);
 			}
 
 			setEntityBoundingBox(getEntityBoundingBox().offset(x, 0, 0));
 			j4 = 0;
 
-			for(int k4 = list1.size(); j4 < k4; ++j4) {
+			for (int k4 = list1.size(); j4 < k4; ++j4) {
 				z = list1.get(j4).calculateZOffset(getEntityBoundingBox(), z);
 			}
 
 			setEntityBoundingBox(getEntityBoundingBox().offset(0, 0, z));
 
-			if(stepHeight > 0 && i_ && (d3 != x || d5 != z)) {
+			if (stepHeight > 0 && i_ && (d3 != x || d5 != z)) {
 				double d11 = x;
 				double d7 = y;
 				double d8 = z;
@@ -236,7 +236,7 @@ public class EntityLarva extends EntityZergPassive {
 				double d9 = y;
 				int l = 0;
 
-				for(int i1 = list.size(); l < i1; ++l) {
+				for (int i1 = list.size(); l < i1; ++l) {
 					d9 = list.get(l).calculateYOffset(axisalignedbb3, d9);
 				}
 
@@ -244,7 +244,7 @@ public class EntityLarva extends EntityZergPassive {
 				double d15 = d3;
 				int j1 = 0;
 
-				for(int k1 = list.size(); j1 < k1; ++j1) {
+				for (int k1 = list.size(); j1 < k1; ++j1) {
 					d15 = list.get(j1).calculateXOffset(axisalignedbb2, d15);
 				}
 
@@ -252,7 +252,7 @@ public class EntityLarva extends EntityZergPassive {
 				double d16 = d5;
 				int l1 = 0;
 
-				for(int i2 = list.size(); l1 < i2; ++l1) {
+				for (int i2 = list.size(); l1 < i2; ++l1) {
 					d16 = list.get(l1).calculateZOffset(axisalignedbb2, d16);
 				}
 
@@ -261,7 +261,7 @@ public class EntityLarva extends EntityZergPassive {
 				double d17 = y;
 				int j2 = 0;
 
-				for(int k2 = list.size(); j2 < k2; ++j2) {
+				for (int k2 = list.size(); j2 < k2; ++j2) {
 					d17 = list.get(j2).calculateYOffset(axisalignedbb4, d17);
 				}
 
@@ -269,7 +269,7 @@ public class EntityLarva extends EntityZergPassive {
 				double d18 = d3;
 				int l2 = 0;
 
-				for(int i3 = list.size(); l2 < i3; ++l2) {
+				for (int i3 = list.size(); l2 < i3; ++l2) {
 					d18 = list.get(l2).calculateXOffset(axisalignedbb4, d18);
 				}
 
@@ -277,7 +277,7 @@ public class EntityLarva extends EntityZergPassive {
 				double d19 = d5;
 				int j3 = 0;
 
-				for(int k3 = list.size(); j3 < k3; ++j3) {
+				for (int k3 = list.size(); j3 < k3; ++j3) {
 					d19 = list.get(j3).calculateZOffset(axisalignedbb4, d19);
 				}
 
@@ -285,7 +285,7 @@ public class EntityLarva extends EntityZergPassive {
 				double d20 = d15 * d15 + d16 * d16;
 				double d10 = d18 * d18 + d19 * d19;
 
-				if(d20 > d10) {
+				if (d20 > d10) {
 					x = d15;
 					z = d16;
 					y = -d9;
@@ -299,13 +299,13 @@ public class EntityLarva extends EntityZergPassive {
 
 				int l3 = 0;
 
-				for(int i4 = list.size(); l3 < i4; ++l3) {
+				for (int i4 = list.size(); l3 < i4; ++l3) {
 					y = list.get(l3).calculateYOffset(getEntityBoundingBox(), y);
 				}
 
 				setEntityBoundingBox(getEntityBoundingBox().offset(0, y, 0));
 
-				if(d11 * d11 + d8 * d8 >= x * x + z * z) {
+				if (d11 * d11 + d8 * d8 >= x * x + z * z) {
 					x = d11;
 					y = d7;
 					z = d8;
@@ -326,12 +326,12 @@ public class EntityLarva extends EntityZergPassive {
 			BlockPos blockpos = new BlockPos(j4, l4, i5);
 			IBlockState iblockstate = world.getBlockState(blockpos);
 
-			if(iblockstate.getMaterial() == Material.AIR) {
+			if (iblockstate.getMaterial() == Material.AIR) {
 				BlockPos blockpos1 = blockpos.down();
 				IBlockState iblockstate1 = world.getBlockState(blockpos1);
 				Block block1 = iblockstate1.getBlock();
 
-				if(block1 instanceof BlockFence || block1 instanceof BlockWall || block1 instanceof BlockFenceGate) {
+				if (block1 instanceof BlockFence || block1 instanceof BlockWall || block1 instanceof BlockFenceGate) {
 					iblockstate = iblockstate1;
 					blockpos = blockpos1;
 				}
@@ -339,50 +339,49 @@ public class EntityLarva extends EntityZergPassive {
 
 			updateFallState(y, onGround, iblockstate, blockpos);
 
-			if(d3 != x) {
+			if (d3 != x) {
 				motionX = 0;
 			}
 
-			if(d5 != z) {
+			if (d5 != z) {
 				motionZ = 0;
 			}
 
 			Block block = iblockstate.getBlock();
 
-			if(d4 != y) {
+			if (d4 != y) {
 				block.onLanded(world, this);
 			}
 
-			if(canTriggerWalking() && !flag && !isRiding()) {
+			if (canTriggerWalking() && !flag && !isRiding()) {
 				double d12 = posX - d0;
 				double d13 = posY - d1;
 				double d14 = posZ - d2;
 
-				if(block != Blocks.LADDER) {
+				if (block != Blocks.LADDER) {
 					d13 = 0;
 				}
 
-				if(block == BlockHandler.ZERG_CREEP || block == Blocks.AIR || block == BlockHandler.KERATIN_CHUNK || block == MetaBlockHandler.ZERG_CARAPACE_BLOCK
-						|| block == MetaBlockHandler.ZERG_FLESH) {
+				if (block == BlockHandler.ZERG_CREEP || block == Blocks.AIR || block == BlockHandler.KERATIN_CHUNK || block == MetaBlockHandler.ZERG_CARAPACE_BLOCK || block == MetaBlockHandler.ZERG_FLESH) {
 
 				} else {
 					kill();
 				}
 
-				if(block != null && onGround) {
+				if (block != null && onGround) {
 					block.onEntityWalk(world, blockpos, this);
 				}
 
 				distanceWalkedModified = (float) (distanceWalkedModified + MathHelper.sqrt(d12 * d12 + d14 * d14) * 0.6D);
 				distanceWalkedOnStepModified = (float) (distanceWalkedOnStepModified + MathHelper.sqrt(d12 * d12 + d13 * d13 + d14 * d14) * 0.6D);
 
-				if(distanceWalkedOnStepModified > nextStepDistance && iblockstate.getMaterial() != Material.AIR) {
+				if (distanceWalkedOnStepModified > nextStepDistance && iblockstate.getMaterial() != Material.AIR) {
 					nextStepDistance = (int) distanceWalkedOnStepModified + 1;
 
-					if(isInWater()) {
+					if (isInWater()) {
 						float f = MathHelper.sqrt(motionX * motionX * 0.20000000298023224D + motionY * motionY + motionZ * motionZ * 0.20000000298023224D) * 0.35F;
 
-						if(f > 1) {
+						if (f > 1) {
 							f = 1;
 						}
 
@@ -395,7 +394,7 @@ public class EntityLarva extends EntityZergPassive {
 
 			try {
 				doBlockCollisions();
-			} catch(Throwable throwable) {
+			} catch (Throwable throwable) {
 				CrashReport crashreport = CrashReport.makeCrashReport(throwable, "Checking entity block collision");
 				CrashReportCategory crashreportcategory = crashreport.makeCategory("Entity being checked for collision");
 				addEntityCrashInfo(crashreportcategory);
@@ -404,21 +403,21 @@ public class EntityLarva extends EntityZergPassive {
 
 			boolean flag1 = isWet();
 
-			if(world.isFlammableWithin(getEntityBoundingBox().contract(0.001D))) {
+			if (world.isFlammableWithin(getEntityBoundingBox().contract(0.001D))) {
 				dealFireDamage(1);
 
-				if(!flag1) {
+				if (!flag1) {
 					++fire;
 
-					if(fire == 0) {
+					if (fire == 0) {
 						setFire(8);
 					}
 				}
-			} else if(fire <= 0) {
+			} else if (fire <= 0) {
 				fire = -fireResistance;
 			}
 
-			if(flag1 && fire > 0) {
+			if (flag1 && fire > 0) {
 				playSound(SoundEvents.ENTITY_GENERIC_EXTINGUISH_FIRE, 0.7F, 1.6F + (rand.nextFloat() - rand.nextFloat()) * 0.4F);
 				fire = -fireResistance;
 			}

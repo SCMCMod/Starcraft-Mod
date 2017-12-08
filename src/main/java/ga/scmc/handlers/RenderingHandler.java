@@ -423,6 +423,8 @@ public class RenderingHandler {
 		registerItemRender(ICON_TERRAN);
 		registerItemRender(ICON_ZERG);
 
+		registerItemRender(ItemHandler.TEST);
+
 		for (int i = 0; i < EnumMetaItem.MineralType.values().length; i++) {
 			registerItemRender(MINERAL_SHARD, i, "mineral." + EnumMetaItem.MineralType.values()[i].getName());
 		}
@@ -666,11 +668,11 @@ public class RenderingHandler {
 	}
 
 	private static void registerBlockModelNoMeta(Block block) {
-		for(int i = 0; i < 16; i++) {
+		for (int i = 0; i < 16; i++) {
 			registerBlockModel(block, i, block.getRegistryName().getResourcePath());
 		}
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	private static void registerBlockModel(Block block) {
 		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(block.getRegistryName(), "inventory"));

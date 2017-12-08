@@ -232,6 +232,8 @@ tile.skull.hydralisk.name=Hydralisk Head
 
 tile.mineral.compressed.blue.name=Mineral
 tile.mineral.compressed.rich.name=Rich Mineral
+
+tile.test.block.name=Test Block
 #############################################################################################
 
 
@@ -438,6 +440,8 @@ item.pledge.silver.name=Team Silver Pledge
 item.pledge.white.name=Team White Pledge
 item.pledge.yellow.name=Team Yellow Pledge
 item.pledge.black.name=Team Black Pledge
+
+item.test.item.name=Test Item
 #############################################################################################
 
 
@@ -536,6 +540,12 @@ gui.item_shop.no_vespene=No More Vespene!
 gui.larva_morph.tooltip.mineral_cost=Mineral Cost: %s
 gui.larva_morph.tooltip.vespene_cost=Vespene Cost: %s
 gui.larva_morph.tooltip.children=Children: %s
+
+gui.larva_progress=Larva Progress
+gui.larva_progress.cancel=Stop Morph
+gui.larva_progress.transform=Transforming into %s
+gui.larva_progress.time_remaining=Time remaining: %s
+gui.larva_progress.bar_percentage=%s%s Complete
 
 gui.buy=Buy
 #############################################################################################

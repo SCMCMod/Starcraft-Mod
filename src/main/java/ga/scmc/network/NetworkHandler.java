@@ -7,7 +7,9 @@ import ga.scmc.network.message.MessageReturnFurnaceData;
 import ga.scmc.network.message.MessageSetPlayerShieldClient;
 import ga.scmc.network.message.MessageSetPlayerShieldServer;
 import ga.scmc.network.message.MessageSpawnItem;
+import ga.scmc.network.message.MessageSyncLarvaCocoonGui;
 import ga.scmc.network.message.MessageSyncLarvaGui;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
@@ -37,6 +39,7 @@ public class NetworkHandler {
 
 	private static void registerClient() {
 		registerMessage(new MessageSyncLarvaGui(), MessageSyncLarvaGui.class, Side.CLIENT);
+		registerMessage(new MessageSyncLarvaCocoonGui(), MessageSyncLarvaCocoonGui.class, Side.CLIENT);
 		registerMessage(new MessageSetPlayerShieldClient(), MessageSetPlayerShieldClient.class, Side.CLIENT);
 		registerMessage(new MessageReturnFurnaceData.Handler(), MessageReturnFurnaceData.class, Side.CLIENT);
 	}
@@ -53,8 +56,12 @@ public class NetworkHandler {
 		INSTANCE.sendToServer(message);
 	}
 
-	public static void sendToClient(IMessage message) {
+	public static void sendToAllClients(IMessage message) {
 		INSTANCE.sendToAll(message);
+	}
+
+	public static void sendToClient(IMessage message, EntityPlayerMP player) {
+		INSTANCE.sendTo(message, player);
 	}
 
 	public static void getPacketFrom(IMessage message) {
