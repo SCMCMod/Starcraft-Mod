@@ -3,7 +3,6 @@ package ga.scmc.entity.living;
 import java.util.List;
 
 import ga.scmc.Starcraft;
-import ga.scmc.client.gui.GuiLarvaMorph;
 import ga.scmc.client.gui.GuiLarvaProgress;
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumTeamColors;

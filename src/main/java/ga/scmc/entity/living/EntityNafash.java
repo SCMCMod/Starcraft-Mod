@@ -40,12 +40,12 @@ import net.minecraft.world.World;
  * 
  * @author Hypeirochus
  */
-public class EntityQueen extends EntityZergMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
+public class EntityNafash extends EntityZergMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
 
-	private static final DataParameter<Float> ENERGY = EntityDataManager.createKey(EntityQueen.class,
+	private static final DataParameter<Float> ENERGY = EntityDataManager.createKey(EntityNafash.class,
 			DataSerializers.FLOAT);
 
-	public EntityQueen(World world) {
+	public EntityNafash(World world) {
 		super(world);
 		setSize(3.0F, 3.0F);
 		experienceValue = 60;
@@ -61,6 +61,11 @@ public class EntityQueen extends EntityZergMob implements IMob, IRangedAttackMob
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0,
 				false, false, this));
+	}
+	
+	@Override
+	public boolean isNonBoss() {
+		return false;
 	}
 
 	@Override

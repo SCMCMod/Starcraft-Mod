@@ -1,8 +1,6 @@
 package ga.scmc.network.message;
 
-import ga.scmc.client.gui.GuiLarvaMorph;
 import ga.scmc.client.gui.GuiLarvaProgress;
-import ga.scmc.entity.living.EntityLarva;
 import ga.scmc.entity.living.EntityLarvaCocoon;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
