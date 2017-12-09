@@ -37,7 +37,7 @@ public class RenderNafash<T> extends RenderLiving<EntityNafash> {
 
 	@Override
 	protected void preRenderCallback(EntityNafash entitylivingbaseIn, float partialTickTime) {
-		GlStateManager.scale(1.2F, 1.2F, 1.2F);
+		GlStateManager.scale(1.5F, 1.5F, 1.5F);
 		super.preRenderCallback(entitylivingbaseIn, partialTickTime);
 	}
 }
