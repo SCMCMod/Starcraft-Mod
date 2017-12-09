@@ -3,6 +3,8 @@ package ga.scmc.blocks;
 import java.util.Random;
 
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
+import ga.scmc.entity.living.EntityNafash;
+import ga.scmc.entity.living.EntityQueen;
 import ga.scmc.entity.living.EntityZergMob;
 import ga.scmc.entity.living.EntityZergPassive;
 import ga.scmc.handlers.BlockHandler;
@@ -53,8 +55,13 @@ public class BlockZergCreep extends Block {
 	@Override
 	public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn) {
 		if (entityIn instanceof EntityZergMob || entityIn instanceof EntityZergPassive) {
-			entityIn.motionX *= 1.2D;
-			entityIn.motionZ *= 1.2D;
+			if(entityIn instanceof EntityQueen || entityIn instanceof EntityNafash) {
+				entityIn.motionX *= 1.6D;
+				entityIn.motionZ *= 1.6D;
+			}else {
+				entityIn.motionX *= 1.2D;
+				entityIn.motionZ *= 1.2D;
+			}
 		}
 		if (entityIn instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) entityIn;

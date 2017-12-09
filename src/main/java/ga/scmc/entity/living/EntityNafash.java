@@ -141,7 +141,7 @@ public class EntityNafash extends EntityZergMob implements IMob, IRangedAttackMo
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(300.0D);
-		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.39000000417232513D);
+		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.17000000417232513D);
 		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(16.0D);
 		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12.0D);
 	}
@@ -149,7 +149,7 @@ public class EntityNafash extends EntityZergMob implements IMob, IRangedAttackMo
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float p_82196_2_) {
 		EntityHydraliskSpike spike = new EntityHydraliskSpike(this.world, this);
-		double d0 = target.posY + (double) target.getEyeHeight() - 1.800000023841858D - target.getDistanceSq(target.getPosition());
+		double d0 = target.posY + (double) target.getEyeHeight() - 2.800000023841858D - target.getDistanceSq(target.getPosition());
 		double d1 = target.posX - this.posX;
 		double d2 = d0 - spike.posY;
 		double d3 = target.posZ - this.posZ;
