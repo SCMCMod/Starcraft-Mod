@@ -494,6 +494,9 @@ entity.starcraft.infestedCivilian.name=Infested Civilian
 entity.starcraft.brutalisk.name=Brutalisk
 entity.starcraft.hydralisk.name=Hydralisk
 
+entity.starcraft.queen.name=Queen
+entity.starcraft.nafash.name=Nafash
+
 entity.starcraft.probe.name=Probe
 entity.starcraft.darkProbe.name=Dark Probe
 entity.starcraft.voidProbe.name=Void Probe
@@ -560,6 +563,8 @@ gui.larva_progress.bar_percentage=%s%s Complete
 
 gui.buy=Buy
 #############################################################################################
+
+
 
 ### Achievements ###
 #############################################################################################
