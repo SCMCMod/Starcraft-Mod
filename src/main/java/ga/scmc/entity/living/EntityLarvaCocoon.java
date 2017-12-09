@@ -92,11 +92,17 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 	@Override
 	protected void updateAITasks() {
 		if (ticksExisted > secondsToTicks(85)) {
-			Library.replaceEntity(true, this, getEntityById(world, transformId));
+			if (getEntityById(world, transformId) instanceof EntityStarcraftMob) {
+				Library.replaceEntity(true, this, ((EntityStarcraftMob) getEntityById(world, transformId)).setTeamColor(teamColor));
+			} else if (getEntityById(world, transformId) instanceof EntityStarcraftPassive) {
+				Library.replaceEntity(true, this, ((EntityStarcraftPassive) getEntityById(world, transformId)).setTeamColor(teamColor));
+			} else {
+				Library.replaceEntity(true, this, getEntityById(world, transformId));
+			}
 			// TODO add a hatchind sound right here
 		}
 	}
-	
+
 	@Override
 	public boolean processInteract(EntityPlayer player, EnumHand hand, ItemStack stack) {
 		boolean flag = stack != null && stack.getItem() == Items.SPAWN_EGG;
@@ -305,7 +311,7 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 		rotationYaw = 0;
 		rotationPitch = 0;
 	}
-	
+
 	public byte getTransformId() {
 		return transformId;
 	}

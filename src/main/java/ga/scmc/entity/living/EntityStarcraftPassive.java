@@ -62,25 +62,29 @@ public abstract class EntityStarcraftPassive extends EntityTameable {
 		return null;
 	}
 
-	public void setTeamColor(EnumTeamColors team) {
+	public EntityStarcraftPassive setTeamColor(EnumTeamColors team) {
 		this.teamColor = team;
 		this.setNBTColor(team.getId());
+		return this;
 	}
 
-	public void setTypes(EnumTypeAttributes... types) {
+	public EntityStarcraftPassive setTypes(EnumTypeAttributes... types) {
 		for (int x = 0; x < types.length; x++) {
 			this.types.add(x, types[x]);
 		}
+		return this;
 	}
 
-	public void setFactions(EnumFactionTypes... types) {
+	public EntityStarcraftPassive setFactions(EnumFactionTypes... types) {
 		for (int x = 0; x < types.length; x++) {
 			this.factions.add(x, types[x]);
 		}
+		return this;
 	}
 
-	public void setDamageAgainstType(EnumTypeAttributes type, double dmg) {
+	public EntityStarcraftPassive setDamageAgainstType(EnumTypeAttributes type, double dmg) {
 		bonusDamage.put(type, dmg);
+		return this;
 	}
 
 	public double getDamageAgainstType(EnumTypeAttributes type) {
@@ -112,8 +116,9 @@ public abstract class EntityStarcraftPassive extends EntityTameable {
 		return this.getDataManager().get(COLOR);
 	}
 
-	public void setNBTColor(int colornum) {
+	public EntityStarcraftPassive setNBTColor(int colornum) {
 		this.getDataManager().set(COLOR, colornum);
+		return this;
 	}
 
 	@Override

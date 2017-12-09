@@ -135,6 +135,7 @@ public class GuiLarvaMorph extends BasicGui {
 										InventoryUtils.removeItemWithAmount(player, ItemHandler.VESPENE, larvaOption.getVespeneCost(), 0);
 										NetworkHandler.sendToServer(new MessageMorphLarva(larva, index));
 										Minecraft.getMinecraft().player.closeScreen();
+										break;
 									}
 								}
 								return;
@@ -164,7 +165,7 @@ public class GuiLarvaMorph extends BasicGui {
 
 	@Override
 	public void updateScreen() {
-		if (larva != null && larva.isDead) {
+		if (larva == null || larva.isDead) {
 			Minecraft.getMinecraft().player.closeScreen();
 		}
 	}
@@ -172,10 +173,6 @@ public class GuiLarvaMorph extends BasicGui {
 	@Override
 	public boolean doesGuiPauseGame() {
 		return false;
-	}
-
-	public EntityLarva getLarva() {
-		return larva;
 	}
 
 	public void setLarva(EntityLarva larva) {

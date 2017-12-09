@@ -39,7 +39,7 @@ public class MessageSyncLarvaCocoonGui implements IMessage, IMessageHandler<Mess
 		if (world.isRemote) {
 			if (Minecraft.getMinecraft().currentScreen instanceof GuiLarvaProgress) {
 				GuiLarvaProgress gui = (GuiLarvaProgress) Minecraft.getMinecraft().currentScreen;
-				gui.setLarva((EntityLarvaCocoon) world.getEntityByID(message.id));
+				gui.setCocoon((EntityLarvaCocoon) world.getEntityByID(message.id));
 			}
 		}
 

@@ -62,25 +62,29 @@ public abstract class EntityStarcraftMob extends EntityMob {
 		return null;
 	}
 
-	public void setTeamColor(EnumTeamColors team) {
+	public EntityStarcraftMob setTeamColor(EnumTeamColors team) {
 		this.teamColor = team;
 		this.setNBTColor(team.getId());
+		return this;
 	}
 
-	public void setTypes(EnumTypeAttributes... types) {
+	public EntityStarcraftMob setTypes(EnumTypeAttributes... types) {
 		for (int x = 0; x < types.length; x++) {
 			this.types.add(x, types[x]);
 		}
+		return this;
 	}
 
-	public void setFactions(EnumFactionTypes... types) {
+	public EntityStarcraftMob setFactions(EnumFactionTypes... types) {
 		for (int x = 0; x < types.length; x++) {
 			this.factions.add(x, types[x]);
 		}
+		return this;
 	}
 
-	public void setDamageAgainstType(EnumTypeAttributes type, double dmg) {
+	public EntityStarcraftMob setDamageAgainstType(EnumTypeAttributes type, double dmg) {
 		bonusDamage.put(type, dmg);
+		return this;
 	}
 
 	public double getDamageAgainstType(EnumTypeAttributes type) {

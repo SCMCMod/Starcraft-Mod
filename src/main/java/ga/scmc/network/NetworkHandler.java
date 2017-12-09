@@ -2,6 +2,7 @@ package ga.scmc.network;
 
 import ga.scmc.lib.Library;
 import ga.scmc.network.message.MessageGetFurnaceData;
+import ga.scmc.network.message.MessageKillEntity;
 import ga.scmc.network.message.MessageMorphLarva;
 import ga.scmc.network.message.MessageReturnFurnaceData;
 import ga.scmc.network.message.MessageSetPlayerShieldClient;
@@ -35,6 +36,7 @@ public class NetworkHandler {
 		registerMessage(new MessageSpawnItem(), MessageSpawnItem.class, Side.SERVER);
 		registerMessage(new MessageSetPlayerShieldServer(), MessageSetPlayerShieldServer.class, Side.SERVER);
 		registerMessage(new MessageGetFurnaceData.Handler(), MessageGetFurnaceData.class, Side.SERVER);
+		registerMessage(new MessageKillEntity(), MessageKillEntity.class, Side.SERVER);
 	}
 
 	private static void registerClient() {
