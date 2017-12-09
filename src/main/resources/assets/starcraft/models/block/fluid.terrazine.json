@@ -1,7 +1,6 @@
 {
-	"parent":"block/cube_all",
+	"parent": "item/generated",
 	"textures": {
-		"all": "starcraft:blocks/fluid.terrazine.still",
-		"flowing": "starcraft:blocks/fluid.terrazine.flowing"
+		"layer0": "starcraft:blocks/fluid.terrazine.still"
 	}
 }

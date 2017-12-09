@@ -8,6 +8,7 @@ import ga.scmc.capabilities.ColorProvider;
 import ga.scmc.capabilities.IColor;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.enums.EnumMetaItem.PledgeType;
+import ga.scmc.enums.EnumTeamColors;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -55,12 +56,14 @@ public class ItemPledge extends Item {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
-		IColor color = playerIn.getCapability(ColorProvider.COLOR, null);
-		color.set(itemStackIn.getItemDamage());
-		String message = "Your team color is now " + color.getColor() + ".";
-		playerIn.sendMessage(new TextComponentString(message));
-		Inventories.consumeItem(playerIn, this);
-		return super.onItemRightClick(itemStackIn, worldIn, playerIn, hand);
+	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStack, World world, EntityPlayer player, EnumHand hand) {
+		IColor color = player.getCapability(ColorProvider.COLOR, null);
+		color.set(itemStack.getItemDamage());
+		if (world.isRemote) {
+			String message = "Your team color is now " + (EnumTeamColors.getColorById(color.getColor()).toString()).toLowerCase() + ".";
+			player.sendMessage(new TextComponentString(message));
+		}
+		Inventories.consumeItem(player, this);
+		return super.onItemRightClick(itemStack, world, player, hand);
 	}
 }

@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ga.scmc.Starcraft;
+import ga.scmc.capabilities.ColorProvider;
 import ga.scmc.client.gui.element.LarvaOption;
 import ga.scmc.entity.living.EntityLarva;
+import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.lib.Library;
 import ga.scmc.network.NetworkHandler;
@@ -41,9 +43,11 @@ public class GuiLarvaMorph extends BasicGui {
 	}
 
 	public void openGUI(EntityPlayer player, Object mod, int guiID, World world, int x, int y, int z, EntityLarva larva) {
-		player.openGui(Starcraft.instance, guiID, world, x, y, z);
-		setLarva(larva);
-		NetworkHandler.sendToAllClients(new MessageSyncLarvaGui(larva));
+		if (larva.getTeamColor() == EnumTeamColors.getColorById(player.getCapability(ColorProvider.COLOR, null).getColor())) {
+			player.openGui(Starcraft.instance, guiID, world, x, y, z);
+			setLarva(larva);
+			NetworkHandler.sendToAllClients(new MessageSyncLarvaGui(larva));
+		}
 	}
 
 	@Override
@@ -51,8 +55,8 @@ public class GuiLarvaMorph extends BasicGui {
 		TextureUtils.bindTexture(new ResourceLocation(Library.RL_BASE + "textures/gui/larva.png"));
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		int entityX = guiLeft + 124;
-		int entityY = guiTop + 28;
-		GuiUtils.drawEntityOnScreen(entityX, entityY, 35, entityX - mouseX, entityY - mouseY - 5, larva);
+		int entityY = guiTop + 26;
+		GuiUtils.drawEntityOnScreen(entityX, entityY, 26, entityX - mouseX, entityY - mouseY - 5, larva);
 	}
 
 	@Override

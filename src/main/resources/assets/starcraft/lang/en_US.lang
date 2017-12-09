@@ -65,6 +65,9 @@ tile.protoss.pyloncrystal.pure.name=Pure Pylon Crystal
 tile.protoss.pyloncrystal.dark.name=Dark Pylon Crystal
 tile.protoss.pyloncrystal.void.name=Void Pylon Crystal
 
+tile.protoss.wormhole.name=Protoss Wormhole
+tile.protoss.shield.name=Protoss Shield
+
 tile.gas.collector.protoss.name=Assimilator
 #############################################################################################
 
@@ -167,6 +170,7 @@ tile.shakuras.stone.name=Stone
 tile.shakuras.sand.name=Sand
 tile.shakuras.gravel.name=Gravel
 tile.shakuras.dirt.name=Dirt
+tile.shakuras.farmland.name=Farmland
 
 tile.shakuras.furnace.name=Furnace
 #############################################################################################
@@ -194,6 +198,7 @@ tile.char.stone.name=Stone
 tile.char.magma.name=Magma
 tile.char.gravel.name=Gravel
 tile.char.dirt.name=Dirt
+tile.char.farmland.name=Farmland
 tile.char.ash.name=Ash
 
 tile.char.furnace.name=Furnace
@@ -237,7 +242,26 @@ tile.skull.hydralisk.name=Hydralisk Head
 tile.mineral.compressed.blue.name=Mineral
 tile.mineral.compressed.rich.name=Rich Mineral
 
+tile.block.light.name=Light
+
 tile.test.block.name=Test Block
+#############################################################################################
+
+
+
+### Fluids ###
+#############################################################################################
+tile.fluid.acid.name=Acid
+tile.fluid.blood.name=Blood
+tile.fluid.vespene.name=Vespene
+tile.fluid.terrazine.name=Terrazine
+tile.fluid.tar.name=Tar
+
+fluid.fluid.acid=Acid
+fluid.fluid.blood=Blood
+fluid.fluid.vespene=Vespene
+fluid.fluid.terrazine=Terrazine
+fluid.fluid.tar=Tar
 #############################################################################################
 
 
@@ -310,6 +334,7 @@ item.stimpack.name=Stimpack
 
 item.terran.spawner.bunker.name=Bunker Spawner
 item.terran.spawner.barracks.name=Barracks Spawner
+item.terran.spawner.commandcenter.name=Command Center Spawner
 
 item.titanium.helmet.name=Titanium Helmet
 item.titanium.chestplate.name=Titanium Chestplate
@@ -451,6 +476,10 @@ item.pledge.silver.name=Team Silver Pledge
 item.pledge.white.name=Team White Pledge
 item.pledge.yellow.name=Team Yellow Pledge
 item.pledge.black.name=Team Black Pledge
+
+item.icon.protoss.name=Protoss
+item.icon.terran.name=Terran
+item.icon.zerg.name=Zerg
 
 item.test.item.name=Test Item
 #############################################################################################

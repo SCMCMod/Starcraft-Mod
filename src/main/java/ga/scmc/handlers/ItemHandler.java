@@ -172,6 +172,7 @@ public class ItemHandler {
 		FluidRegistry.addBucketForFluid(FluidHandler.BLOOD);
 		FluidRegistry.addBucketForFluid(FluidHandler.VESPENE);
 		FluidRegistry.addBucketForFluid(FluidHandler.TERRAZINE);
+		FluidRegistry.addBucketForFluid(FluidHandler.TAR);
 
 		registerItem(MINERAL_SHARD);
 		registerItem(PHOSPHORUS);
