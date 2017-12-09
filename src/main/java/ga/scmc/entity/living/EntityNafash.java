@@ -52,8 +52,8 @@ public class EntityNafash extends EntityZergMob implements IMob, IRangedAttackMo
 	public EntityNafash(World world) {
 		super(world);
 		setSize(3.0F, 3.0F);
-		experienceValue = 60;
-		this.baseHealth = 60;
+		experienceValue = 300;
+		this.baseHealth = 300;
 		this.setTeamColor(EnumTeamColors.PURPLE);
 		this.setFactions(EnumFactionTypes.SWARM);
 		setTypes(EnumTypeAttributes.PSIONIC, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
@@ -140,7 +140,7 @@ public class EntityNafash extends EntityZergMob implements IMob, IRangedAttackMo
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(60.0D);
+		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(300.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.39000000417232513D);
 		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(16.0D);
 		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12.0D);

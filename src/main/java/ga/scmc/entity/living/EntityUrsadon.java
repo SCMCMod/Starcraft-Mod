@@ -29,7 +29,7 @@ public class EntityUrsadon extends EntityMob implements IMob, Predicate<EntityLi
 	public EntityUrsadon(World world) {
 		super(world);
 		setSize(1.5F, 1.5F);
-		experienceValue = 93;
+		experienceValue = 100;
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
 		tasks.addTask(2, new EntityAIWander(this, 1.0D));
@@ -89,7 +89,7 @@ public class EntityUrsadon extends EntityMob implements IMob, Predicate<EntityLi
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(93.0D);
+		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(100.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3804D);
 		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(16.0D);
 		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(15.0D);

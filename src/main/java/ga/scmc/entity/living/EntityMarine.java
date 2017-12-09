@@ -35,7 +35,7 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 	public EntityMarine(World world) {
 		super(world);
 		setSize(0.8F, 2.2F);
-		experienceValue = 60;
+		experienceValue = 30;
 		this.setTeamColor(EnumTeamColors.BLUE);
 		this.setFactions(EnumFactionTypes.RAIDERS);
 		setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
@@ -51,7 +51,7 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(60.0D);
+		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32000000417232513D);
 		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(16.0D);
 		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12.0D);
