@@ -551,5 +551,33 @@
             "name": "starcraft:mob/marine/marine-death",
             "stream": false
         }]
+    },
+    "mob.queen.live1": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/queen/queen-live1",
+            "stream": false
+        }]
+    },
+    "mob.queen.live2": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/queen/queen-live2",
+            "stream": false
+        }]
+    },
+    "mob.queen.hurt": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/queen/queen-hurt",
+            "stream": false
+        }]
+    },
+    "mob.queen.death": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/queen/queen-death",
+            "stream": false
+        }]
     }
 }

@@ -177,36 +177,26 @@ public class EntityNafash extends EntityZergMob implements IMob, IRangedAttackMo
 	public SoundEvent getAmbientSound() {
 		Random rand = new Random();
 
-		switch (rand.nextInt(3)) {
+		switch (rand.nextInt(1)) {
 		case 0:
-			return SoundHandler.ENTITY_HYDRALISK_LIVE1;
-		case 1:
-			return SoundHandler.ENTITY_HYDRALISK_LIVE2;
-		case 2:
-			return SoundHandler.ENTITY_HYDRALISK_LIVE3;
+			return SoundHandler.ENTITY_QUEEN_LIVE1;
 		default:
-			return SoundHandler.ENTITY_HYDRALISK_LIVE4;
+			return SoundHandler.ENTITY_QUEEN_LIVE2;
 		}
 	}
 
 	@Override
 	public SoundEvent getDeathSound() {
-		return SoundHandler.ENTITY_HYDRALISK_DEATH;
+		return SoundHandler.ENTITY_QUEEN_DEATH;
 	}
 
 	@Override
 	public SoundEvent getHurtSound() {
-		return SoundHandler.ENTITY_HYDRALISK_HURT;
+		return SoundHandler.ENTITY_QUEEN_HURT;
 	}
 
 	@Override
 	public int getTalkInterval() {
 		return 160;
 	}
-
-	@Override
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-	}
-
 }
