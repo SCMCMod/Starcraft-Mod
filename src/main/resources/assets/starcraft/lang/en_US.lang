@@ -98,6 +98,8 @@ tile.terran.paristeel.yellow.name=Yellow Paristeel
 tile.terran.paristeel.black.name=Black Paristeel
 
 tile.gas.collector.terran.name=Refinery
+
+tile.terran.barrackscore.name=Terran Barracks Core
 #############################################################################################
 
 
@@ -125,7 +127,7 @@ tile.zerg.flesh.yellow.name=Yellow Zerg Flesh
 
 tile.zerg.carapace.1.name=T1 Zerg Structure Carapace
 tile.zerg.carapace.2.name=T2 Zerg Structure Carapace
-tile.zerg.carapace.1.name=T3 Zerg Structure Carapace
+tile.zerg.carapace.3.name=T3 Zerg Structure Carapace
 
 tile.gas.collector.zerg.name=Extractor
 #############################################################################################
@@ -138,6 +140,8 @@ tile.overworld.copper.name=Copper Ore
 tile.overworld.titanium.name=Titanium Ore
 tile.overworld.phosphorus.name=Phosphorus Ore
 tile.overworld.uranium.name=Uranium Ore
+tile.overworld.mineral.name=Mineral Ore
+tile.overworld.richmineral.name=Rich Mineral Ore
 #############################################################################################
 
 
@@ -274,7 +278,7 @@ item.protoss.leggings.3.name=T3 Protoss Leggings
 item.protoss.boots.3.name=T3 Protoss Boots
 
 item.protoss.blade.psi.aiur.name=Khalai Psi Blade
-item.protoss.blade.psi.dark.name=Dark Psi Blade
+item.protoss.blade.psi.dark.name=Bane Blade
 item.protoss.blade.warp.aiur.name=Khalai Psi Blade
 item.protoss.blade.warp.dark.name=Dark Warp Blade
 item.protoss.blade.master.name=Master Psi Blade
@@ -370,6 +374,13 @@ item.dust.steel.name=Steel Dust
 item.dust.iron.name=Iron Dust
 
 item.dust.carbon.name=Carbon Dust
+
+item.flamethrower.part.nozzle.name=Flamethrower Nozzle
+item.flamethrower.part.base.name=Flamethrower Base
+item.flamethrower.part.handle.name=Flamethrower Handle
+item.flamethrower.part.chambers.name=Flamethrower Chambers
+
+item.terran.marine.helmet.visor.name=Marine Visor
 #############################################################################################
 
 
@@ -396,7 +407,7 @@ item.zerg.boots.1.name=T1 Zerg Boots
 item.zerg.helmet.2.name=T2 Zerg Helmet
 item.zerg.chestplate.2.name=T2 Zerg Chestplate
 item.zerg.leggings.2.name=T2 Zerg Leggings
-item.zerg.boots.21.name=T2 Zerg Boots
+item.zerg.boots.2.name=T2 Zerg Boots
 
 item.zerg.helmet.3.name=T3 Zerg Helmet
 item.zerg.chestplate.3.name=T3 Zerg Chestplate

@@ -37,6 +37,7 @@ import ga.scmc.blocks.RegistryType;
 import ga.scmc.blocks.StarcraftBlock;
 import ga.scmc.blocks.StarcraftBlockFalling;
 import ga.scmc.blocks.StarcraftProtossCoreBlock;
+import ga.scmc.blocks.StarcraftTerranCoreBlock;
 import ga.scmc.blocks.itemblocks.ItemBlockAsh;
 import ga.scmc.blocks.itemblocks.ItemBlockMeta;
 import ga.scmc.blocks.itemblocks.ItemBlockStarcraftSkull;
@@ -281,7 +282,8 @@ public class BlockHandler {
 		CORE_WARPGATE_VOID = new StarcraftProtossCoreBlock("protoss.warpgatecore.void", RegistryType.FULL, Material.IRON, MapColor.GREEN).setDomeSize(-5, 16, 13, 3);
 		CORE_WARPGATE_DARK = new StarcraftProtossCoreBlock("protoss.warpgatecore.dark", RegistryType.FULL, Material.IRON, MapColor.BLACK).setDomeSize(-5, 16, 13, 3);
 		CORE_WARPGATE_KHALAI = new StarcraftProtossCoreBlock("protoss.warpgatecore.khalai", RegistryType.FULL, Material.IRON, MapColor.YELLOW).setDomeSize(-5, 16, 13, 3);
-		CORE_BARRACKS = new StarcraftProtossCoreBlock("protoss.barrackscore", RegistryType.FULL, Material.IRON, MapColor.BLUE);
+		
+		CORE_BARRACKS = new StarcraftTerranCoreBlock("terran.barrackscore", RegistryType.FULL, Material.IRON, MapColor.BLUE);
 
 		/** gases **/
 		GAS_VESPENE = new BlockVespeneGas();
