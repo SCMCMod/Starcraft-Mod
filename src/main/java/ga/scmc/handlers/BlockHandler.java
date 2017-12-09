@@ -7,6 +7,7 @@ import ga.scmc.blocks.BlockCharFarmland;
 import ga.scmc.blocks.BlockCharMagma;
 import ga.scmc.blocks.BlockCharOre;
 import ga.scmc.blocks.BlockDimPortal;
+import ga.scmc.blocks.BlockEntitySpawner;
 import ga.scmc.blocks.BlockKorhalCityStone;
 import ga.scmc.blocks.BlockMovingLightSource;
 import ga.scmc.blocks.BlockOverworldOre;
@@ -163,6 +164,8 @@ public class BlockHandler {
 	public static Block ZERG_CREEP;
 	public static Block STARCRAFT_SKULL;
 
+	public static Block ENTITY_SPAWNER;
+
 	public static Block CITY_STONE_KORHAL;
 
 	public static Block SAND_SLAYN;
@@ -205,7 +208,7 @@ public class BlockHandler {
 		ORE_MINERAL_OW = new BlockOverworldOre("overworld.mineral", RegistryType.FULL, Material.ROCK, MapColor.GRAY, 1).setBlockHarvestLevel("pickaxe", 1).setCreativeTab(StarcraftCreativeTabs.MISC);
 		ORE_RICHMINERAL_OW = new BlockOverworldOre("overworld.richmineral", RegistryType.FULL, Material.ROCK, MapColor.GRAY, 1).setBlockHarvestLevel("pickaxe", 1).setCreativeTab(StarcraftCreativeTabs.MISC);
 		ORE_PHOSPHORUS_OW = new BlockOverworldOre("overworld.phosphorus", RegistryType.FULL, Material.ROCK, MapColor.GRAY, 1).setBlockHarvestLevel("pickaxe", 1).setCreativeTab(StarcraftCreativeTabs.MISC);
-		
+
 		/** char blocks **/
 		ORE_COAL_CHAR = new BlockCharOre("char.coal", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 0).setBlockHarvestLevel("pickaxe", 0).setCreativeTab(StarcraftCreativeTabs.MISC);
 		ORE_COPPER_CHAR = new BlockCharOre("char.copper", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 1).setBlockHarvestLevel("pickaxe", 1).setCreativeTab(StarcraftCreativeTabs.MISC);
@@ -284,8 +287,10 @@ public class BlockHandler {
 		CORE_WARPGATE_VOID = new StarcraftProtossCoreBlock("protoss.warpgatecore.void", RegistryType.FULL, Material.IRON, MapColor.GREEN).setDomeSize(-5, 16, 13, 3);
 		CORE_WARPGATE_DARK = new StarcraftProtossCoreBlock("protoss.warpgatecore.dark", RegistryType.FULL, Material.IRON, MapColor.BLACK).setDomeSize(-5, 16, 13, 3);
 		CORE_WARPGATE_KHALAI = new StarcraftProtossCoreBlock("protoss.warpgatecore.khalai", RegistryType.FULL, Material.IRON, MapColor.YELLOW).setDomeSize(-5, 16, 13, 3);
-		
+
 		CORE_BARRACKS = new StarcraftTerranCoreBlock("terran.barrackscore", RegistryType.FULL, Material.IRON, MapColor.BLUE);
+		
+		ENTITY_SPAWNER = new BlockEntitySpawner("block.entityspawner", 5);
 
 		/** gases **/
 		GAS_VESPENE = new BlockVespeneGas();

@@ -95,6 +95,24 @@ public class InventoryUtils {
 		}
 		return 0;
 	}
+	
+	/**
+	 * 
+	 * @param player
+	 *            The player to check
+	 * @param stack
+	 *            The stack being searched for
+	 * @return The slot at which the item was found
+	 */
+	public static int getItemSlot(EntityPlayer player, ItemStack stack) {
+		for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
+			ItemStack stack1 = player.inventory.getStackInSlot(i);
+			if (stack1 != null && stack1 == stack) {
+				return i;
+			}
+		}
+		return 0;
+	}
 
 	/**
 	 * 

@@ -90,7 +90,8 @@ public class ItemBulletMagazine extends Item {
 
 		if (entity instanceof EntityPlayer) {
 			if (stack.hasTagCompound() && stack.getTagCompound().hasKey("BulletCount") && stack.getTagCompound().getInteger("BulletCount") <= 0) {
-				InventoryUtils.removeItemWithAmount((EntityPlayer) entity, stack.getItem(), 1, stack.getMetadata());
+				EntityPlayer player = (EntityPlayer) entity;
+				player.inventory.setInventorySlotContents(InventoryUtils.getItemSlot(player, stack), null);
 			}
 		}
 	}

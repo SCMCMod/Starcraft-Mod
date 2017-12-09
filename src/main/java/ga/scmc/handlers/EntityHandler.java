@@ -31,6 +31,7 @@ import ga.scmc.entity.living.EntityZerglingBoost;
 import ga.scmc.entity.living.EntityZerglingRaptor;
 import ga.scmc.entity.living.EntityZerglingSwarmling;
 import ga.scmc.lib.Library;
+import ga.scmc.tileentity.TileEntityEntitySpawner;
 import ga.scmc.tileentity.TileEntityGasCollector;
 import ga.scmc.tileentity.TileEntityStarcraftFurnace;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
@@ -107,6 +108,7 @@ public class EntityHandler {
 		GameRegistry.registerTileEntity(TileEntityStarcraftSkull.class, Library.RL_BASE + "TileEntityStarcraftSkull");
 		GameRegistry.registerTileEntity(TileEntityTest.class, Library.RL_BASE + "TileEntityTest");
 		GameRegistry.registerTileEntity(TileEntityStarcraftFurnace.class, Library.RL_BASE + "TileEntityStarcraftFurnace");
+		GameRegistry.registerTileEntity(TileEntityEntitySpawner.class, Library.RL_BASE + "TileEntityEntitySpawner");
 	}
 
 	/**
