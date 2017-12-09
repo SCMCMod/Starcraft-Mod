@@ -4,7 +4,6 @@ import ga.scmc.entity.living.EntityLarva;
 import ga.scmc.entity.living.EntityLarvaCocoon;
 import ga.scmc.lib.Library;
 import io.netty.buffer.ByteBuf;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;

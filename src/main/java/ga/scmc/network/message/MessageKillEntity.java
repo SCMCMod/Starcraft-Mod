@@ -1,7 +1,6 @@
 package ga.scmc.network.message;
 
 import io.netty.buffer.ByteBuf;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;

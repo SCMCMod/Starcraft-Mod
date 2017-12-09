@@ -38,6 +38,8 @@ public class StarcraftGenerator {
 	protected WorldGenerator DIRT_GENERIC;
 	protected WorldGenerator GRAVEL_GENERIC;
 	protected WorldGenerator REDSTONE_GENERIC;
+	protected WorldGenerator MINERAL_GENERIC;
+	protected WorldGenerator RICHMINERAL_GENERIC;
 
 	protected WorldGenerator LAPIS_CHAR;
 	protected WorldGenerator LAPIS_SHAKURAS;

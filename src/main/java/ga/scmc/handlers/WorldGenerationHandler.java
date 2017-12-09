@@ -86,6 +86,8 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 		TITANIUM_GENERIC = new WorldGenMinable(BlockHandler.ORE_TITANIUM_OW.getDefaultState(), 8);
 		DIRT_GENERIC = new WorldGenMinable(Blocks.DIRT.getDefaultState(), 33);
 		GRAVEL_GENERIC = new WorldGenMinable(Blocks.GRAVEL.getDefaultState(), 33);
+		MINERAL_GENERIC = new WorldGenMinable(BlockHandler.ORE_MINERAL_OW.getDefaultState(), 8);
+		RICHMINERAL_GENERIC = new WorldGenMinable(BlockHandler.ORE_RICHMINERAL_OW.getDefaultState(), 8);
 
 		SPAWNING_POOL = new StructureZergSpawningPoolTemplate();
 		ZERG_HYDRALISK_DEN = new StructureZergHydraliskDenTemplate();
@@ -204,9 +206,9 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 				runGenerator(GOLD_GENERIC, world, random, chunkX, chunkZ, 2, 0, 32);
 				runGenerator(IRON_GENERIC, world, random, chunkX, chunkZ, 20, 0, 64);
 				runGenerator(LAPIS_GENERIC, world, random, chunkX, chunkZ, 1, 0, 16);
-				// runGenerator(MINERAL_KORHAL, world, random, chunkX, chunkZ, 12, 28, 50);
+				runGenerator(MINERAL_GENERIC, world, random, chunkX, chunkZ, 12, 28, 50);
 				runGenerator(REDSTONE_GENERIC, world, random, chunkX, chunkZ, 8, 0, 16);
-				// runGenerator(RICHMINERAL_KORHAL, world, random, chunkX, chunkZ, 6, 4, 28);
+				runGenerator(RICHMINERAL_GENERIC, world, random, chunkX, chunkZ, 6, 4, 28);
 				runGenerator(TITANIUM_GENERIC, world, random, chunkX, chunkZ, 3, 4, 28);
 				runGenerator(DIRT_GENERIC, world, random, chunkX, chunkZ, 20, 0, 128);
 				runGenerator(GRAVEL_GENERIC, world, random, chunkX, chunkZ, 10, 0, 128);
@@ -229,6 +231,12 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 				if (world.rand.nextInt(100) < 1 && world.getWorldInfo().isMapFeaturesEnabled()) {
 					runGenerator(GEYSER, Blocks.RED_SANDSTONE.getDefaultState(), BlockHandler.FLUID_TERRAZINE.getDefaultState(), world, random, chunkX, chunkZ, 0, -34, 0, 1, 60, 80, true);
 				}
+				if (world.rand.nextInt(100) < 30 && world.getWorldInfo().isMapFeaturesEnabled()) {
+					runGenerator(MINERAL_PATCH, 0, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
+				}
+				if (world.rand.nextInt(100) < 15 && world.getWorldInfo().isMapFeaturesEnabled()) {
+					runGenerator(MINERAL_PATCH, 1, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
+				}
 			} else if (world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_KALDIR) {
 				runGenerator(COAL_GENERIC, world, random, chunkX, chunkZ, 10, 0, 128);
 				runGenerator(COPPER_GENERIC, world, random, chunkX, chunkZ, 7, 4, 64);
@@ -236,9 +244,9 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 				runGenerator(GOLD_GENERIC, world, random, chunkX, chunkZ, 1, 0, 32);
 				runGenerator(IRON_GENERIC, world, random, chunkX, chunkZ, 10, 0, 64);
 				runGenerator(LAPIS_GENERIC, world, random, chunkX, chunkZ, 1, 0, 16);
-				// runGenerator(MINERAL_KORHAL, world, random, chunkX, chunkZ, 12, 28, 50);
+				runGenerator(MINERAL_GENERIC, world, random, chunkX, chunkZ, 6, 28, 50);
 				runGenerator(REDSTONE_GENERIC, world, random, chunkX, chunkZ, 4, 0, 16);
-				// runGenerator(RICHMINERAL_KORHAL, world, random, chunkX, chunkZ, 6, 4, 28);
+				runGenerator(RICHMINERAL_GENERIC, world, random, chunkX, chunkZ, 3, 4, 28);
 				runGenerator(TITANIUM_GENERIC, world, random, chunkX, chunkZ, 2, 4, 28);
 				runGenerator(DIRT_GENERIC, world, random, chunkX, chunkZ, 20, 0, 128);
 				runGenerator(GRAVEL_GENERIC, world, random, chunkX, chunkZ, 10, 0, 128);
@@ -266,6 +274,12 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 				}
 				if (world.rand.nextInt(100) < 1 && world.getWorldInfo().isMapFeaturesEnabled()) {
 					runGenerator(GEYSER, Blocks.STONE.getDefaultState(), BlockHandler.FLUID_TERRAZINE.getDefaultState(), world, random, chunkX, chunkZ, 0, -34, 0, 1, 60, 80, true);
+				}
+				if (world.rand.nextInt(100) < 10 && world.getWorldInfo().isMapFeaturesEnabled()) {
+					runGenerator(MINERAL_PATCH, 0, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
+				}
+				if (world.rand.nextInt(100) < 5 && world.getWorldInfo().isMapFeaturesEnabled()) {
+					runGenerator(MINERAL_PATCH, 1, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
 				}
 			} 
 			break;

@@ -12,9 +12,8 @@ import net.minecraft.world.World;
 
 public class StructureMineralPatchTemplate extends SCWorldGenerator {
 
-
 	protected Block[] GetValidSpawnBlocks() {
-		return new Block[] {Blocks.GRASS, BlockHandler.STONE_CHAR, Blocks.DIRT, BlockHandler.DIRT_CHAR, BlockHandler.ZERG_CREEP, BlockHandler.SAND_SHAKURAS, BlockHandler.DIRT_SHAKURAS};
+		return new Block[] { Blocks.GRASS, BlockHandler.STONE_CHAR, Blocks.DIRT, BlockHandler.DIRT_CHAR, BlockHandler.ZERG_CREEP, BlockHandler.SAND_SHAKURAS, BlockHandler.DIRT_SHAKURAS, Blocks.SNOW, Blocks.ICE, Blocks.PACKED_ICE, Blocks.SAND, Blocks.SANDSTONE };
 	}
 
 	public boolean LocationIsValidSpawn(World world, BlockPos pos) {
@@ -23,17 +22,18 @@ public class StructureMineralPatchTemplate extends SCWorldGenerator {
 		Material m = block.getBlockState().getBaseState().getMaterial();
 		Block blockBelow = world.getBlockState(pos.down()).getBlock();
 
-		for(Block i : GetValidSpawnBlocks()) {
-			if(block == i) {
+		for (Block i : GetValidSpawnBlocks()) {
+			if (block == i) {
 				return true;
-			} else if(block == Blocks.SNOW_LAYER && blockBelow == i) {
+			} else if (block == Blocks.SNOW_LAYER && blockBelow == i) {
 				return true;
-			} else if(m == Material.PLANTS && blockBelow == i) {
+			} else if (m == Material.PLANTS && blockBelow == i) {
 				return true;
 			}
 		}
 		return false;
 	}
+
 	@Override
 	public boolean generate(int meta, World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos pos) {
 		generate_r0(world, meta, pos);
