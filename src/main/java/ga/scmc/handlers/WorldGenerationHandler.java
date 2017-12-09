@@ -43,7 +43,8 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 	public WorldGenerationHandler() {
 		COPPER_OVERWORLD = new WorldGenMinable(BlockHandler.ORE_COPPER_OW.getDefaultState(), 8);
 		TITANIUM_OVERWORLD = new WorldGenMinable(BlockHandler.ORE_TITANIUM_OW.getDefaultState(), 8);
-
+		PHOSPHORUS_OVERWORLD = new WorldGenMinable(BlockHandler.ORE_PHOSPHORUS_OW.getDefaultState(), 4);
+				
 		TITANIUM_CHAR = new CharWorldGenMinable(BlockHandler.ORE_TITANIUM_CHAR.getDefaultState(), 8);
 		URANIUM_CHAR = new ShakurasWorldGenMinable(BlockHandler.ORE_URANIUM_CHAR.getDefaultState(), 1);
 		COAL_CHAR = new CharWorldGenMinable(BlockHandler.ORE_COAL_CHAR.getDefaultState(), 16);
@@ -55,6 +56,7 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 		MINERAL_CHAR = new CharWorldGenMinable(BlockHandler.ORE_MINERAL_CHAR.getDefaultState(), 8);
 		REDSTONE_CHAR = new CharWorldGenMinable(BlockHandler.ORE_REDSTONE_CHAR.getDefaultState(), 8);
 		RICHMINERAL_CHAR = new CharWorldGenMinable(BlockHandler.ORE_RICHMINERAL_CHAR.getDefaultState(), 8);
+		PHOSPHORUS_CHAR = new CharWorldGenMinable(BlockHandler.ORE_PHOSPHORUS_CHAR.getDefaultState(), 4);
 		MAGMA_CHAR = new CharWorldGenMinable(BlockHandler.MAGMA_CHAR.getDefaultState(), 16);
 		DIRT_CHAR = new CharWorldGenMinable(BlockHandler.DIRT_CHAR.getDefaultState(), 33);
 		GRAVEL_CHAR = new CharWorldGenMinable(BlockHandler.GRAVEL_CHAR.getDefaultState(), 33);
@@ -70,6 +72,7 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 		MINERAL_SHAKURAS = new ShakurasWorldGenMinable(BlockHandler.ORE_MINERAL_SHAKURAS.getDefaultState(), 8);
 		REDSTONE_SHAKURAS = new ShakurasWorldGenMinable(BlockHandler.ORE_REDSTONE_SHAKURAS.getDefaultState(), 8);
 		RICHMINERAL_SHAKURAS = new ShakurasWorldGenMinable(BlockHandler.ORE_RICHMINERAL_SHAKURAS.getDefaultState(), 8);
+		PHOSPHORUS_SHAKURAS = new ShakurasWorldGenMinable(BlockHandler.ORE_PHOSPHORUS_SHAKURAS.getDefaultState(), 4);
 		DIRT_SHAKURAS = new ShakurasWorldGenMinable(BlockHandler.DIRT_SHAKURAS.getDefaultState(), 33);
 		GRAVEL_SHAKURAS = new ShakurasWorldGenMinable(BlockHandler.GRAVEL_SHAKURAS.getDefaultState(), 33);
 
@@ -132,6 +135,7 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 				runGenerator(RICHMINERAL_CHAR, world, random, chunkX, chunkZ, 6, 4, 28);
 				runGenerator(TITANIUM_CHAR, world, random, chunkX, chunkZ, 3, 4, 28);
 				runGenerator(URANIUM_CHAR, world, random, chunkX, chunkZ, 1, 4, 20);
+				runGenerator(PHOSPHORUS_CHAR, world, random, chunkX, chunkZ, 5, 12, 48);
 				runGenerator(DIRT_CHAR, world, random, chunkX, chunkZ, 20, 0, 128);
 				runGenerator(GRAVEL_CHAR, world, random, chunkX, chunkZ, 10, 0, 128);
 
@@ -173,6 +177,7 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 				runGenerator(RICHMINERAL_SHAKURAS, world, random, chunkX, chunkZ, 6, 4, 28);
 				runGenerator(TITANIUM_SHAKURAS, world, random, chunkX, chunkZ, 3, 4, 28);
 				runGenerator(URANIUM_SHAKURAS, world, random, chunkX, chunkZ, 1, 4, 20);
+				runGenerator(PHOSPHORUS_SHAKURAS, world, random, chunkX, chunkZ, 5, 12, 48);
 				runGenerator(DIRT_SHAKURAS, world, random, chunkX, chunkZ, 20, 0, 128);
 				runGenerator(GRAVEL_SHAKURAS, world, random, chunkX, chunkZ, 10, 0, 128);
 
@@ -210,6 +215,7 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 				runGenerator(REDSTONE_GENERIC, world, random, chunkX, chunkZ, 8, 0, 16);
 				runGenerator(RICHMINERAL_GENERIC, world, random, chunkX, chunkZ, 6, 4, 28);
 				runGenerator(TITANIUM_GENERIC, world, random, chunkX, chunkZ, 3, 4, 28);
+				runGenerator(PHOSPHORUS_OVERWORLD, world, random, chunkX, chunkZ, 5, 12, 48);
 				runGenerator(DIRT_GENERIC, world, random, chunkX, chunkZ, 20, 0, 128);
 				runGenerator(GRAVEL_GENERIC, world, random, chunkX, chunkZ, 10, 0, 128);
 
@@ -250,8 +256,8 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 				runGenerator(TITANIUM_GENERIC, world, random, chunkX, chunkZ, 2, 4, 28);
 				runGenerator(DIRT_GENERIC, world, random, chunkX, chunkZ, 20, 0, 128);
 				runGenerator(GRAVEL_GENERIC, world, random, chunkX, chunkZ, 10, 0, 128);
-				
-				if (world.getWorldInfo().isMapFeaturesEnabled()  && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKaldirProtossCity) {
+
+				if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKaldirProtossCity) {
 					runGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100, true);
 				}
 				if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKaldirProtossCity) {
@@ -281,7 +287,7 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 				if (world.rand.nextInt(100) < 5 && world.getWorldInfo().isMapFeaturesEnabled()) {
 					runGenerator(MINERAL_PATCH, 1, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
 				}
-			} 
+			}
 			break;
 		}
 

@@ -17,6 +17,8 @@ public class StarcraftGenerator {
 	protected WorldGenerator COPPER_SHAKURAS;
 	protected WorldGenerator DIAMOND_CHAR;
 	protected WorldGenerator DIAMOND_SHAKURAS;
+	protected WorldGenerator PHOSPHORUS_OVERWORLD;
+	
 	protected WorldGenerator DIRT_CHAR;
 	protected WorldGenerator DIRT_SHAKURAS;
 	protected WorldGenerator GOLD_CHAR;
@@ -27,7 +29,8 @@ public class StarcraftGenerator {
 	protected WorldGenerator IRON_SHAKURAS;
 	protected WorldGenerator URANIUM_CHAR;
 	protected WorldGenerator URANIUM_SHAKURAS;
-	
+	protected WorldGenerator PHOSPHORUS_SHAKURAS;
+
 	protected WorldGenerator COAL_GENERIC;
 	protected WorldGenerator IRON_GENERIC;
 	protected WorldGenerator GOLD_GENERIC;
@@ -53,6 +56,7 @@ public class StarcraftGenerator {
 	protected WorldGenerator REDSTONE_SHAKURAS;
 	protected WorldGenerator RICHMINERAL_CHAR;
 	protected WorldGenerator RICHMINERAL_SHAKURAS;
+	protected WorldGenerator PHOSPHORUS_CHAR;
 
 	protected SCWorldGenerator SPAWNING_POOL;
 	protected SCWorldGenerator TERRAN_BUNKER;

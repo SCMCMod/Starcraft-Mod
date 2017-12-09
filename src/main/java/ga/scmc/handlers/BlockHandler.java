@@ -132,6 +132,7 @@ public class BlockHandler {
 	public static Block ORE_MINERAL_SHAKURAS;
 	public static Block ORE_PHOSPHORUS_CHAR;
 	public static Block ORE_PHOSPHORUS_SHAKURAS;
+	public static Block ORE_PHOSPHORUS_OW;
 	public static Block ORE_REDSTONE_CHAR;
 	public static Block ORE_REDSTONE_LIT_CHAR;
 	public static Block ORE_REDSTONE_SHAKURAS;
@@ -203,6 +204,7 @@ public class BlockHandler {
 		ORE_URANIUM_OW = new BlockOverworldOre("overworld.uranium", RegistryType.FULL, Material.ROCK, MapColor.GRAY, 1).setBlockHarvestLevel("pickaxe", 2).setCreativeTab(StarcraftCreativeTabs.MISC);
 		ORE_MINERAL_OW = new BlockOverworldOre("overworld.mineral", RegistryType.FULL, Material.ROCK, MapColor.GRAY, 1).setBlockHarvestLevel("pickaxe", 1).setCreativeTab(StarcraftCreativeTabs.MISC);
 		ORE_RICHMINERAL_OW = new BlockOverworldOre("overworld.richmineral", RegistryType.FULL, Material.ROCK, MapColor.GRAY, 1).setBlockHarvestLevel("pickaxe", 1).setCreativeTab(StarcraftCreativeTabs.MISC);
+		ORE_PHOSPHORUS_OW = new BlockOverworldOre("overworld.phosphorus", RegistryType.FULL, Material.ROCK, MapColor.GRAY, 1).setBlockHarvestLevel("pickaxe", 1).setCreativeTab(StarcraftCreativeTabs.MISC);
 		
 		/** char blocks **/
 		ORE_COAL_CHAR = new BlockCharOre("char.coal", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 0).setBlockHarvestLevel("pickaxe", 0).setCreativeTab(StarcraftCreativeTabs.MISC);

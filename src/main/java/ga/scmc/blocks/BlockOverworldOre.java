@@ -30,7 +30,7 @@ public class BlockOverworldOre extends StarcraftBlock
 
 	@Nullable
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		return this == BlockHandler.ORE_PHOSPHORUS_CHAR ? ItemHandler.PHOSPHORUS : (this == BlockHandler.ORE_RICHMINERAL_OW || this == BlockHandler.ORE_MINERAL_OW ? ItemHandler.MINERAL_SHARD : Item.getItemFromBlock(this));
+		return this == BlockHandler.ORE_PHOSPHORUS_OW ? ItemHandler.PHOSPHORUS : (this == BlockHandler.ORE_RICHMINERAL_OW || this == BlockHandler.ORE_MINERAL_OW ? ItemHandler.MINERAL_SHARD : Item.getItemFromBlock(this));
 	}
 
 	/**
@@ -80,21 +80,11 @@ public class BlockOverworldOre extends StarcraftBlock
 		}
 		return 0;
 	}
-
-	public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
-		return new ItemStack(this);
-	}
-
+	
 	/**
 	 * Gets the metadata of the item this Block can drop. This method is called when the block gets destroyed. It returns the metadata of the dropped item based on the old metadata of the block.
 	 */
 	public int damageDropped(IBlockState state) {
-		if (this == BlockHandler.ORE_MINERAL_OW) {
-			return 0;
-		} else if (this == BlockHandler.ORE_RICHMINERAL_OW) {
-			return 1;
-		} else {
-			return 0;
-		}
+		return this == BlockHandler.ORE_RICHMINERAL_OW ? 1 : 0;
 	}
 }
