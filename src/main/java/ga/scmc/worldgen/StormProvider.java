@@ -24,7 +24,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import ocelot.api.utils.TextureUtils;
 
 public class StormProvider implements Predicate<Entity>
 {
