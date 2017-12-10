@@ -26,6 +26,7 @@ import ga.scmc.entity.living.EntityUrsadon;
 import ga.scmc.entity.living.EntityUrsadonMatriarch;
 import ga.scmc.entity.living.EntityVoidProbe;
 import ga.scmc.entity.living.EntityZealot;
+import ga.scmc.entity.living.EntityZeratul;
 import ga.scmc.entity.living.EntityZergling;
 import ga.scmc.entity.living.EntityZerglingBoost;
 import ga.scmc.entity.living.EntityZerglingRaptor;
@@ -73,6 +74,8 @@ public class EntityHandler {
 		EntityRegistry.registerEgg(EntityDarkTemplar.class, 5066061, 45824);
 		EntityRegistry.registerEgg(EntityVoidProbe.class, 1447446, 45824);
 		EntityRegistry.registerEgg(EntityDarkProbe.class, 1447446, 13369344);
+
+		EntityRegistry.registerEgg(EntityZeratul.class, 5066061, 45824);
 
 		EntityRegistry.registerEgg(EntityBrutalisk.class, 11403519, 7684608);
 		EntityRegistry.registerEgg(EntityHydralisk.class, 11403519, 7684608);
@@ -122,6 +125,7 @@ public class EntityHandler {
 		registerEntity(EntityDarkTemplar.class, "darkTemplar", 64, 1, true);
 		registerEntity(EntityVoidProbe.class, "voidProbe", 64, 1, true);
 		registerEntity(EntityDarkProbe.class, "darkProbe", 64, 1, true);
+		registerEntity(EntityZeratul.class, "zeratul", 64, 1, true);
 		//registerEntity(EntityAdept.class, "adept", 64, 1, true);
 		//registerEntity(EntityStalker.class, "stalker", 64, 1, true);
 		//registerEntity(EntityDragoon.class, "dragoon", 64, 1, true);

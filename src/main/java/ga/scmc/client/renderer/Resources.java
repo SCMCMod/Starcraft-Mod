@@ -27,6 +27,8 @@ public class Resources {
 	public static final String LARVA_OVERLAY	 				= Library.RL_BASE + "textures/entity/larva_overlay.png";
 	public static final String LARVA_COCOON_BASE 				= Library.RL_BASE + "textures/entity/larvacocoon_base.png";
 	public static final String LARVA_COCOON_OVERLAY				= Library.RL_BASE + "textures/entity/larvacocoon_overlay.png";
+	public static final String MARINE_BASE                      = Library.RL_BASE + "textures/entity/marine/marine_base.png";
+	public static final String MARINE_OVERLAY                   = Library.RL_BASE + "textures/entity/marine/marine_overlay.png";
 	public static final String PREAVER_BASE		 				= Library.RL_BASE + "textures/entity/preaver_base.png";
 	public static final String PREAVER_GLOW_DYNAMIC				= Library.RL_BASE + "textures/entity/preaver_glow_dynamic.png";
 	public static final String PREAVER_OVERLAY 					= Library.RL_BASE + "textures/entity/preaver_overlay.png";
@@ -57,6 +59,9 @@ public class Resources {
 	public static final String ZEALOT_GLOW_DYNAMIC 				= Library.RL_BASE + "textures/entity/zealot_glow_dynamic.png";
 	public static final String ZEALOT_GLOW_STATIC 				= Library.RL_BASE + "textures/entity/zealot_glow_static.png";
 	public static final String ZEALOT_OVERLAY 					= Library.RL_BASE + "textures/entity/zealot_overlay.png";
+	public static final String ZERATUL_BASE 					= Library.RL_BASE + "textures/entity/zeratul_base.png";
+	public static final String ZERATUL_GLOW_STATIC 				= Library.RL_BASE + "textures/entity/zeratul_glow_static.png";
+	public static final String ZERATUL_OVERLAY	 				= Library.RL_BASE + "textures/entity/zeratul_overlay.png";
 	public static final String ZERGLING_BASE 					= Library.RL_BASE + "textures/entity/zergling_base.png";
 	public static final String ZERGLING_GLOW_STATIC 			= Library.RL_BASE + "textures/entity/zergling_glow_static.png";
 	public static final String ZERGLING_OVERLAY 				= Library.RL_BASE + "textures/entity/zergling_overlay.png";
@@ -64,6 +69,4 @@ public class Resources {
 	public static final String ZERGLINGRAPTOR_BASE 				= Library.RL_BASE + "textures/entity/zerglingraptor_base.png";
 	public static final String ZERGLINGSWARMLING_BASE 			= Library.RL_BASE + "textures/entity/zerglingswarmling_base.png";
 	public static final String ZERGLINGSWARMLING_GLOW_STATIC 	= Library.RL_BASE + "textures/entity/zerglingswarmling_glow_static.png";
-	public static final String MARINE_BASE                      = Library.RL_BASE + "textures/entity/marine/marine_base.png";
-	public static final String MARINE_OVERLAY                   = Library.RL_BASE + "textures/entity/marine/marine_overlay.png";
 }

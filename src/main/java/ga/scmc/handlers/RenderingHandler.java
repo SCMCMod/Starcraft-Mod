@@ -179,6 +179,7 @@ import ga.scmc.client.renderer.entity.RenderUrsadon;
 import ga.scmc.client.renderer.entity.RenderUrsadonMatriarch;
 import ga.scmc.client.renderer.entity.RenderVoidProbe;
 import ga.scmc.client.renderer.entity.RenderZealot;
+import ga.scmc.client.renderer.entity.RenderZeratul;
 import ga.scmc.client.renderer.entity.RenderZergling;
 import ga.scmc.client.renderer.entity.RenderZerglingBoost;
 import ga.scmc.client.renderer.entity.RenderZerglingRaptor;
@@ -214,6 +215,7 @@ import ga.scmc.client.renderer.model.ModelTastelope;
 import ga.scmc.client.renderer.model.ModelUrsadon;
 import ga.scmc.client.renderer.model.ModelVoidProbe;
 import ga.scmc.client.renderer.model.ModelZealot;
+import ga.scmc.client.renderer.model.ModelZeratul;
 import ga.scmc.client.renderer.model.ModelZergling;
 import ga.scmc.client.renderer.model.ModelZerglingBoost;
 import ga.scmc.client.renderer.model.ModelZerglingRaptor;
@@ -256,6 +258,7 @@ import ga.scmc.entity.living.EntityUrsadon;
 import ga.scmc.entity.living.EntityUrsadonMatriarch;
 import ga.scmc.entity.living.EntityVoidProbe;
 import ga.scmc.entity.living.EntityZealot;
+import ga.scmc.entity.living.EntityZeratul;
 import ga.scmc.entity.living.EntityZergling;
 import ga.scmc.entity.living.EntityZerglingBoost;
 import ga.scmc.entity.living.EntityZerglingRaptor;
@@ -339,6 +342,8 @@ public class RenderingHandler {
 		RenderingRegistry.registerEntityRenderingHandler(EntityStalker.class, new RenderStalker(Minecraft.getMinecraft().getRenderManager(), new ModelStalker(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityDragoon.class, new RenderDragoon(Minecraft.getMinecraft().getRenderManager(), new ModelDragoon(), 0.4f));
 
+		RenderingRegistry.registerEntityRenderingHandler(EntityZeratul.class, new RenderZeratul<Object>(Minecraft.getMinecraft().getRenderManager(), new ModelZeratul(), 0.4f));
+		
 		RenderingRegistry.registerEntityRenderingHandler(EntityBrutalisk.class, new RenderBrutalisk(Minecraft.getMinecraft().getRenderManager(), new ModelBrutalisk(), 3.0f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityHydralisk.class, new RenderHydralisk<Object>(Minecraft.getMinecraft().getRenderManager(), new ModelHydralisk(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityZergling.class, new RenderZergling<Object>(Minecraft.getMinecraft().getRenderManager(), new ModelZergling(), 0.4f));

@@ -5,6 +5,7 @@ import com.google.common.base.Predicate;
 import ga.scmc.capabilities.ColorProvider;
 import ga.scmc.capabilities.IColor;
 import ga.scmc.enums.EnumFactionTypes;
+import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
@@ -22,18 +23,28 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.world.BossInfo;
+import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<EntityLivingBase> {
 
+	private final BossInfoServer bossInfo = (BossInfoServer) (new BossInfoServer(this.getDisplayName(), BossInfo.Color.BLUE, BossInfo.Overlay.PROGRESS)).setDarkenSky(true);
+
 	public EntityZeratul(World world) {
 		super(world);
 		setSize(1.5F, 2.5F);
-		experienceValue = 80;
+		experienceValue = 300;
+		this.setTeamColor(EnumTeamColors.LIGHT_BLUE);
+		this.setFactions(EnumFactionTypes.DAELAAM);
+		setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND, EnumTypeAttributes.PSIONIC, EnumTypeAttributes.HEROIC);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
 		tasks.addTask(2, new EntityAIWander(this, 1.0D));
@@ -90,6 +101,7 @@ public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<E
 		}
 		return false;
 	}
+	
 	@Override
 	protected boolean canDespawn() {
 		return false;
@@ -106,16 +118,6 @@ public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<E
 		getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(2.0D);
 	}
 
-	@Override
-	public void onDeath(DamageSource cause) {
-		super.onDeath(cause);
-	}
-	
-	@Override
-	public boolean attackEntityFrom(DamageSource source, float damageDealt) {
-		return super.attackEntityFrom(source, damageDealt);
-	}
-
 	/**
 	 * Drop 0-2 items on death
 	 * @param recentPlayerDmg {@code true} if a player recently dealt damage to
@@ -125,22 +127,16 @@ public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<E
 	 */
 	@Override
 	protected void dropFewItems(boolean recentPlayerDmg, int lootingLvl) {
-		int j = rand.nextInt(50);
-			dropItem(WeaponHandler.MASTER_PSI_BLADE, 1);
-			entityDropItem(new ItemStack(ItemHandler.ENERGY, 1, 1), 2 + rand.nextInt(3));
+		dropItem(WeaponHandler.MASTER_PSI_BLADE, 1);
+		entityDropItem(new ItemStack(ItemHandler.ENERGY, 1, 4 + rand.nextInt(2)), 0);
 	}
 
 	@Override
 	public SoundEvent getAmbientSound() {
-		if(rand.nextInt(2) == 0)
+		if(rand.nextInt(1) == 0)
 			return SoundHandler.ENTITY_DARKTEMPLAR_LIVE1;
 
 		return SoundHandler.ENTITY_DARKTEMPLAR_LIVE2;
-	}
-
-	@Override
-	public boolean getCanSpawnHere() {
-		return this.world.getDifficulty() != EnumDifficulty.PEACEFUL;
 	}
 
 	@Override
@@ -156,14 +152,5 @@ public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<E
 	@Override
 	public int getTalkInterval() {
 		return 160;
-	}
-
-	@Override
-	public void onUpdate() {
-		for(int i = 0; i < 2; ++i) {
-			world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, posX + (rand.nextDouble() - 0.5D) * width, posY + rand.nextDouble() * height,
-					posZ + (rand.nextDouble() - 0.5D) * width, 0.0D, 0.0D, 0.0D, null);
-		}
-		super.onUpdate();
 	}
 }

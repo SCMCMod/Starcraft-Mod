@@ -83,9 +83,7 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 		GOLD_GENERIC = new WorldGenMinable(Blocks.GOLD_ORE.getDefaultState(), 8);
 		IRON_GENERIC = new WorldGenMinable(Blocks.IRON_ORE.getDefaultState(), 8);
 		LAPIS_GENERIC = new WorldGenMinable(BlockHandler.ORE_LAPIS_SHAKURAS.getDefaultState(), 8);
-		// MINERAL_KORHAL = new WorldGenMinable(BlockHandler.ORE_MINERAL_SHAKURAS.getDefaultState(), 8);
 		REDSTONE_GENERIC = new WorldGenMinable(Blocks.REDSTONE_ORE.getDefaultState(), 8);
-		// RICHMINERAL_KORHAL = new WorldGenMinable(BlockHandler.ORE_RICHMINERAL_SHAKURAS.getDefaultState(), 8);
 		TITANIUM_GENERIC = new WorldGenMinable(BlockHandler.ORE_TITANIUM_OW.getDefaultState(), 8);
 		DIRT_GENERIC = new WorldGenMinable(Blocks.DIRT.getDefaultState(), 33);
 		GRAVEL_GENERIC = new WorldGenMinable(Blocks.GRAVEL.getDefaultState(), 33);

@@ -56,7 +56,7 @@ public class EntityNafash extends EntityZergMob implements IMob, IRangedAttackMo
 		this.baseHealth = 300;
 		this.setTeamColor(EnumTeamColors.PURPLE);
 		this.setFactions(EnumFactionTypes.SWARM);
-		setTypes(EnumTypeAttributes.PSIONIC, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
+		setTypes(EnumTypeAttributes.PSIONIC, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND, EnumTypeAttributes.HEROIC);
 		tasks.addTask(1, new EntityAIAttackRanged(this, 1.0D, 17, 16.0F));
 		tasks.addTask(2, new EntityAISwimming(this));
 		tasks.addTask(3, new EntityAIWander(this, 1.0D));
