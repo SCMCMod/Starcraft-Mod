@@ -122,7 +122,7 @@ public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<E
 	@Override
 	protected void dropFewItems(boolean recentPlayerDmg, int lootingLvl) {
 		dropItem(WeaponHandler.MASTER_PSI_BLADE, 1);
-		entityDropItem(new ItemStack(ItemHandler.ENERGY, 1, 4 + rand.nextInt(2)), 0);
+		entityDropItem(new ItemStack(ItemHandler.ENERGY, 4 + rand.nextInt(2), 0), 0);
 	}
 
 	@Override
