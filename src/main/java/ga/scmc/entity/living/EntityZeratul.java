@@ -23,15 +23,9 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.BossInfo;
 import net.minecraft.world.BossInfoServer;
-import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<EntityLivingBase> {
