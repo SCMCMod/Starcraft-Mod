@@ -2,16 +2,52 @@ package ga.scmc.worldgen.dimkaldir;
 
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.DimensionHandler;
+import ga.scmc.worldgen.StormProvider;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.chunk.IChunkGenerator;
+import net.minecraftforge.client.IRenderHandler;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WorldProviderKaldir extends WorldProvider {
 
+
+    public StormProvider stormProvider = new StormProvider();
+
+    @SideOnly(Side.CLIENT)
+    private IRenderHandler skyProvider;
+    
 	@Override
 	protected void createBiomeProvider() {
 		biomeProvider = new KaldirBiomeProvider(world.getWorldInfo());
 	}
+	
+	public StormProvider getStormProvider()
+    {
+        return this.stormProvider;
+    }
+	
+	@Override
+    @SideOnly(Side.CLIENT)
+    public IRenderHandler getSkyRenderer()
+    {
+        return skyProvider == null ? skyProvider = new SkyProviderKaldir() : skyProvider;
+    }
+
+    @Override
+    public IRenderHandler getCloudRenderer()
+    {
+        return skyProvider == null ? skyProvider = new SkyProviderKaldir() : skyProvider;
+    }
+    
+    @Override
+    public void updateWeather()
+    {
+        super.updateWeather();
+        this.stormProvider.update(this.world);
+    }
 
 	@Override
 	public IChunkGenerator createChunkGenerator() {
@@ -32,6 +68,17 @@ public class WorldProviderKaldir extends WorldProvider {
 		}
 		
 		return null;
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public Vec3d getFogColor(float var1, float var2) {
+		return new Vec3d(.65D, 0.95D, 0.95D);
+	}
+
+	@Override
+	public Vec3d getCloudColor(float partialTicks) {
+		return new Vec3d(.65D, 0.95D, 0.95D);
 	}
 
 	@Override
