@@ -17,6 +17,7 @@ import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -124,7 +125,7 @@ public class StormProvider implements Predicate<Entity>
         OpenGlHelper.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA, 1, 0);
         GL11.glAlphaFunc(GL11.GL_GREATER, 0.1F);
         OpenGL.color(1.0F, 1.0F, 1.0F, 1.0F);
-		TextureUtils.bindTexture("textures/world/hellfire.png");
+        Draw.bindTexture(new ResourceLocation("textures/world/hellfire.png"));
 
         for (int vZ = posZ - 16; vZ < posZ + 16; ++vZ)
         {

@@ -101,10 +101,6 @@ public class SkyProviderKaldir extends IRenderHandler {
 		if (world.provider instanceof WorldProviderKaldir) {
 			WorldProviderKaldir provider = (WorldProviderKaldir) world.provider;
 
-			if (provider.getStormProvider().isStormActive(world)) {
-				provider.getStormProvider().render(partialTicks);
-			}
-
 			OpenGL.disable(GL11.GL_TEXTURE_2D);
 			GL11.glColor3f(1.0F, 1.0F, 1.0F);
 			GL11.glDepthMask(false);

@@ -13,9 +13,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WorldProviderKaldir extends WorldProvider {
 
-
-    public StormProvider stormProvider = new StormProvider();
-
     @SideOnly(Side.CLIENT)
     private IRenderHandler skyProvider;
     
@@ -23,11 +20,6 @@ public class WorldProviderKaldir extends WorldProvider {
 	protected void createBiomeProvider() {
 		biomeProvider = new KaldirBiomeProvider(world.getWorldInfo());
 	}
-	
-	public StormProvider getStormProvider()
-    {
-        return this.stormProvider;
-    }
 	
 	@Override
     @SideOnly(Side.CLIENT)
@@ -40,13 +32,6 @@ public class WorldProviderKaldir extends WorldProvider {
     public IRenderHandler getCloudRenderer()
     {
         return skyProvider == null ? skyProvider = new SkyProviderKaldir() : skyProvider;
-    }
-    
-    @Override
-    public void updateWeather()
-    {
-        super.updateWeather();
-        this.stormProvider.update(this.world);
     }
 
 	@Override
