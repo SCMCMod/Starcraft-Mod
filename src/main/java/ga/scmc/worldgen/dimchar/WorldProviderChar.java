@@ -40,7 +40,6 @@ public class WorldProviderChar extends WorldProvider {
 	@Override
 	public void updateWeather() {
 		super.updateWeather();
-		System.out.println(this.getWorldTime());
 		this.stormProvider.update(this.world);
 	}
 
