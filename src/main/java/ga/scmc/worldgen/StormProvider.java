@@ -139,7 +139,7 @@ public class StormProvider implements Predicate<Entity>
 
                 Biome b = worldclient.getBiome(pos);
 
-                if (b == BiomeHandler.biomeAshHills || b == BiomeHandler.biomeAshPlateau || b == BiomeHandler.biomeAshPlains || b == BiomeHandler.biomeCharHills || b == BiomeHandler.biomeCharOutskirts)
+                if (b == BiomeHandler.biomeCharCreepInfestation)
                 {
                     int stormHeight = worldclient.getPrecipitationHeight(pos).getY();
                     int minY = posY - (Game.minecraft().gameSettings.fancyGraphics ? 64 : 16);

@@ -137,11 +137,11 @@ public class SkyProviderChar extends IRenderHandler
 
             OpenGL.pushMatrix();
             {
-                float scale = 150.0F;
+                float scale = 35.0F;
                 OpenGL.rotate(-90.0F, 0.0F, 1.0F, 0.0F);
-                OpenGL.color(1.0F, 1.0F, 1.0F, 1.0F);
+                OpenGL.color(1.0F, 0.2F, 0.0F, 1.0F);
                 OpenGL.rotate(world.getCelestialAngle(partialTicks) * 360.0F, 1.0F, 0.0F, 0.0F);
-                Draw.bindTexture(GameResources.SKY_SUN);
+        		TextureUtils.bindTexture("textures/world/sun.png");
                 Draw.startQuads();
                 Draw.vertex(-scale, 150.0D, -scale, 0.0D, 0.0D).endVertex();
                 Draw.vertex(scale, 150.0D, -scale, 1.0D, 0.0D).endVertex();
@@ -153,11 +153,11 @@ public class SkyProviderChar extends IRenderHandler
             
             OpenGL.pushMatrix();
             {
-                float scale = 50.0F;
+                float scale = 15.0F;
                 OpenGL.rotate(90.0F, 0.9F, 1.0F, 0.0F);
-                OpenGL.color(1.0F, 1.0F, 1.0F, 1.0F);
+                OpenGL.color(1.0F, 0.1F, 0.5F, 1.0F);
                 OpenGL.rotate(world.getCelestialAngle(partialTicks) * 360.0F, 1.0F, 0.0F, 0.0F);
-                Draw.bindTexture(GameResources.SKY_SUN);
+        		TextureUtils.bindTexture("textures/world/sun.png");
                 Draw.startQuads();
                 Draw.vertex(-scale, 150.0D, -scale, 0.0D, 0.0D).endVertex();
                 Draw.vertex(scale, 150.0D, -scale, 1.0D, 0.0D).endVertex();
