@@ -1,4 +1,4 @@
-package ga.scmc.worldgen.dimchar;
+package ga.scmc.worldgen.dimshakuras;
 
 import java.util.Random;
 
@@ -22,13 +22,13 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.client.IRenderHandler;
 import ocelot.api.utils.TextureUtils;
 
-public class SkyProviderChar extends IRenderHandler
+public class SkyProviderShakuras extends IRenderHandler
 {
     private Color   skyColor       = new Color(1F, 0.225F, 0.265F, 1F);
     protected Color cloudColor     = new Color(0.075F, 0.1F, 0.15F, 0.75F);
     public int      starGLCallList = GLAllocation.generateDisplayLists(3);
 
-    public SkyProviderChar()
+    public SkyProviderShakuras()
     {
         this.generateStars();
     }
@@ -106,14 +106,9 @@ public class SkyProviderChar extends IRenderHandler
     @Override
     public void render(float partialTicks, WorldClient world, Minecraft mc)
     {
-        if (world.provider instanceof WorldProviderChar)
+        if (world.provider instanceof WorldProviderShakuras)
         {
-        	WorldProviderChar provider = (WorldProviderChar) world.provider;
-
-            if (provider.getStormProvider().isStormActive(world))
-            {
-                provider.getStormProvider().render(partialTicks);
-            }
+        	WorldProviderShakuras provider = (WorldProviderShakuras) world.provider;
 
             OpenGL.disable(GL11.GL_TEXTURE_2D);
             GL11.glColor3f(1.0F, 1.0F, 1.0F);
@@ -136,45 +131,13 @@ public class SkyProviderChar extends IRenderHandler
 
             OpenGL.pushMatrix();
             {
-                float scale = 35.0F;
-                OpenGL.rotate(-90.0F, 0.0F, 1.0F, 0.0F);
-                OpenGL.color(1.0F, 0.2F, 0.0F, 1.0F);
-                OpenGL.rotate(world.getCelestialAngle(partialTicks) * 360.0F, 1.0F, 0.0F, 0.0F);
-        		TextureUtils.bindTexture("textures/world/sun.png");
-                Draw.startQuads();
-                Draw.vertex(-scale, 150.0D, -scale, 0.0D, 0.0D).endVertex();
-                Draw.vertex(scale, 150.0D, -scale, 1.0D, 0.0D).endVertex();
-                Draw.vertex(scale, 150.0D, scale, 1.0D, 1.0D).endVertex();
-                Draw.vertex(-scale, 150.0D, scale, 0.0D, 1.0D).endVertex();
-                Draw.tessellate();
-            }
-            OpenGL.popMatrix();
-            
-            OpenGL.pushMatrix();
-            {
-                float scale = 15.0F;
-                OpenGL.rotate(90.0F, 0.9F, 1.0F, 0.0F);
-                OpenGL.color(1.0F, 0.1F, 0.0F, 1.0F);
-                OpenGL.rotate(world.getCelestialAngle(partialTicks) * 360.0F, 1.0F, 0.0F, 0.0F);
-        		TextureUtils.bindTexture("textures/world/sun.png");
-                Draw.startQuads();
-                Draw.vertex(-scale, 150.0D, -scale, 0.0D, 0.0D).endVertex();
-                Draw.vertex(scale, 150.0D, -scale, 1.0D, 0.0D).endVertex();
-                Draw.vertex(scale, 150.0D, scale, 1.0D, 1.0D).endVertex();
-                Draw.vertex(-scale, 150.0D, scale, 0.0D, 1.0D).endVertex();
-                Draw.tessellate();
-            }
-            OpenGL.popMatrix();
-
-            OpenGL.pushMatrix();
-            {
                 float scale = 10.0F;
                 OpenGL.translate(30F, 0F, 0F);
                 OpenGL.rotate(DimensionUtil.calculateCelestialAngle(world.getWorldTime(), partialTicks) * 360.0F, 0.0F, 1.0F, 0.0F);
                 OpenGL.color(1.0F, 1.0F, 1.0F, 1.0F);
                 OpenGL.rotate(DimensionUtil.calculateCelestialAngle(world.getWorldTime(), partialTicks) * 360.0F, 10.0F, -6.0F, -20.0F);
                 OpenGL.rotate(135F, 0.0F, 1.0F, 0.0F);
-        		TextureUtils.bindTexture("textures/world/eris.png");
+        		TextureUtils.bindTexture("textures/world/rajal.png");
                 Draw.startQuads();
                 Draw.vertex(-scale, 150.0D, -scale, 0.0D, 0.0D).endVertex();
                 Draw.vertex(scale, 150.0D, -scale, 1.0D, 0.0D).endVertex();

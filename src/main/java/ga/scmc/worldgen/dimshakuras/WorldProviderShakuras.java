@@ -5,9 +5,26 @@ import ga.scmc.handlers.DimensionHandler;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.chunk.IChunkGenerator;
+import net.minecraftforge.client.IRenderHandler;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WorldProviderShakuras extends WorldProvider {
 
+	@SideOnly(Side.CLIENT)
+	private IRenderHandler skyProvider;
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public IRenderHandler getSkyRenderer() {
+		return skyProvider == null ? skyProvider = new SkyProviderShakuras() : skyProvider;
+	}
+
+	@Override
+	public IRenderHandler getCloudRenderer() {
+		return skyProvider == null ? skyProvider = new SkyProviderShakuras() : skyProvider;
+	}
+	
 	@Override
 	protected void createBiomeProvider() {
 		biomeProvider = new ShakurasBiomeProvider(world.getWorldInfo());
@@ -55,6 +72,11 @@ public class WorldProviderShakuras extends WorldProvider {
         return 0;
     }
 	
+	@Override
+	public float getSunBrightness(float angle) {
+		return 0;
+	}
+	
 	/**
 	 * A message to display to the user when they transfer to this dimension.
 	 * @return The message to be displayed
@@ -74,9 +96,4 @@ public class WorldProviderShakuras extends WorldProvider {
 	public boolean isDaytime() {
         return false;
     }
-	
-	@Override
-	public void setWorldTime(long time) {
-		world.getWorldInfo().setWorldTime(15000);
-	}
 }

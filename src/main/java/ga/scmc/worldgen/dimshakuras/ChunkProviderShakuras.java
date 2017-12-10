@@ -5,7 +5,6 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import ga.scmc.worldgen.dimchar.CharGenCustomLakes;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
@@ -82,9 +81,9 @@ public class ChunkProviderShakuras implements IChunkGenerator {
 	            int l2 = this.random.nextInt(this.random.nextInt(248) + 8);
 	            int k3 = this.random.nextInt(16) + 8;
 
-	            if (l2 < worldObj.getSeaLevel() || this.random.nextInt(this.settings.lavaLakeChance / 8) == 0)
+	            if (l2 < worldObj.getSeaLevel() || this.random.nextInt(this.settings.lavaLakeChance) == 0)
 	            {
-	                (new CharGenCustomLakes(Blocks.LAVA)).generate(worldObj, this.random, blockpos.add(i2, l2, k3));
+	                (new ShakurasGenCustomLakes(Blocks.LAVA)).generate(worldObj, this.random, blockpos.add(i2, l2, k3));
 	            }
 	        }
 		// Make sure animals appropriate to the biome spawn here when the chunk
