@@ -1,7 +1,8 @@
 package ga.scmc.client.renderer.model;
  
+import com.arisux.mdx.lib.client.Model;
+
 import ga.scmc.lib.Library;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
@@ -10,7 +11,7 @@ import net.minecraft.util.ResourceLocation;
  * Flame Thrower - SCMCDevTeam
  * Created using Tabula 5.1.0
  */
-public class ModelFlamethrower extends ModelBase {
+public class ModelFlamethrower extends Model {
 	public static final ResourceLocation TEXTURE = new ResourceLocation(Library.MODID, "textures/models/flamethrower.png");
 
     public ModelRenderer main1;
@@ -54,11 +55,11 @@ public class ModelFlamethrower extends ModelBase {
         this.main2 = new ModelRenderer(this, 0, 50);
         this.main2.setRotationPoint(-22.0F, 10.0F, -2.0F);
         this.main2.addBox(0.0F, 0.0F, 0.0F, 7, 2, 5, 0.0F);
-        this.setRotateAngle(main2, 0.0F, 0.0F, -0.6373942428283291F);
+        this.setRotation(main2, 0.0F, 0.0F, -0.6373942428283291F);
         this.main29 = new ModelRenderer(this, 40, 50);
         this.main29.setRotationPoint(-16.0F, 15.0F, -1.0F);
         this.main29.addBox(0.0F, 0.0F, 0.0F, 1, 1, 3, 0.0F);
-        this.setRotateAngle(main29, 0.0F, 0.0F, -0.41887902047863906F);
+        this.setRotation(main29, 0.0F, 0.0F, -0.41887902047863906F);
         this.main5 = new ModelRenderer(this, 25, 64);
         this.main5.setRotationPoint(-16.5F, 5.85F, -2.0F);
         this.main5.addBox(0.0F, 0.0F, 0.0F, 16, 4, 5, 0.0F);
@@ -68,7 +69,7 @@ public class ModelFlamethrower extends ModelBase {
         this.main17 = new ModelRenderer(this, 50, 10);
         this.main17.setRotationPoint(-3.5F, 7.5F, -3.0F);
         this.main17.addBox(0.0F, 0.0F, 0.0F, 8, 5, 1, 0.0F);
-        this.setRotateAngle(main17, 0.0F, 0.0F, 0.6981317007977318F);
+        this.setRotation(main17, 0.0F, 0.0F, 0.6981317007977318F);
         this.main8 = new ModelRenderer(this, 150, 40);
         this.main8.setRotationPoint(12.0F, 8.6F, -1.0F);
         this.main8.addBox(0.0F, 0.0F, 0.0F, 11, 3, 3, 0.0F);
@@ -81,15 +82,15 @@ public class ModelFlamethrower extends ModelBase {
         this.main16 = new ModelRenderer(this, 85, 0);
         this.main16.setRotationPoint(-3.5F, 7.5F, 3.0F);
         this.main16.addBox(0.0F, 0.0F, 0.0F, 8, 5, 1, 0.0F);
-        this.setRotateAngle(main16, 0.0F, 0.0F, 0.6981317007977318F);
+        this.setRotation(main16, 0.0F, 0.0F, 0.6981317007977318F);
         this.main27 = new ModelRenderer(this, 5, 0);
         this.main27.setRotationPoint(-11.4F, 7.1F, 3.0F);
         this.main27.addBox(0.0F, 0.0F, 0.0F, 2, 6, 1, 0.0F);
-        this.setRotateAngle(main27, 0.0F, 0.0F, 0.3665191429188092F);
+        this.setRotation(main27, 0.0F, 0.0F, 0.3665191429188092F);
         this.main31 = new ModelRenderer(this, 55, 50);
         this.main31.setRotationPoint(-17.5F, 13.5F, -2.0F);
         this.main31.addBox(0.0F, 0.0F, 0.0F, 1, 1, 5, 0.0F);
-        this.setRotateAngle(main31, 0.0F, 0.0F, 0.41887902047863906F);
+        this.setRotation(main31, 0.0F, 0.0F, 0.41887902047863906F);
         this.main6 = new ModelRenderer(this, 70, 56);
         this.main6.setRotationPoint(-13.5F, 12.5F, -3.0F);
         this.main6.addBox(0.0F, 0.0F, 0.0F, 28, 6, 7, 0.0F);
@@ -108,14 +109,14 @@ public class ModelFlamethrower extends ModelBase {
         this.main7 = new ModelRenderer(this, 150, 60);
         this.main7.setRotationPoint(-0.5F, 5.8F, -2.0F);
         this.main7.addBox(0.0F, 0.0F, 0.0F, 5, 3, 5, 0.0F);
-        this.setRotateAngle(main7, 0.0F, 0.0F, 0.5462880558742251F);
+        this.setRotation(main7, 0.0F, 0.0F, 0.5462880558742251F);
         this.main24 = new ModelRenderer(this, 36, 0);
         this.main24.setRotationPoint(-6.0F, 11.5F, -6.5F);
         this.main24.addBox(0.0F, 0.0F, 0.0F, 1, 3, 1, 0.0F);
         this.main26 = new ModelRenderer(this, 20, 0);
         this.main26.setRotationPoint(-11.4F, 7.1F, -3.0F);
         this.main26.addBox(0.0F, 0.0F, 0.0F, 2, 6, 1, 0.0F);
-        this.setRotateAngle(main26, 0.0F, 0.0F, 0.3665191429188092F);
+        this.setRotation(main26, 0.0F, 0.0F, 0.3665191429188092F);
         this.main12 = new ModelRenderer(this, 110, 10);
         this.main12.setRotationPoint(20.0F, 7.5F, -2.0F);
         this.main12.addBox(0.0F, 0.0F, 0.0F, 6, 5, 5, 0.0F);
@@ -137,7 +138,7 @@ public class ModelFlamethrower extends ModelBase {
         this.main30 = new ModelRenderer(this, 40, 50);
         this.main30.setRotationPoint(-14.0F, 14.0F, -2.0F);
         this.main30.addBox(0.0F, 0.0F, 0.0F, 1, 1, 5, 0.0F);
-        this.setRotateAngle(main30, 0.0F, 0.0F, -0.41887902047863906F);
+        this.setRotation(main30, 0.0F, 0.0F, -0.41887902047863906F);
     }
  
     @Override
@@ -170,14 +171,5 @@ public class ModelFlamethrower extends ModelBase {
         this.main21.render(f5);
         this.main18.render(f5);
         this.main30.render(f5);
-    }
- 
-    /**
-     * This is a helper function from Tabula to set the rotation of model parts
-     */
-    public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-        modelRenderer.rotateAngleX = x;
-        modelRenderer.rotateAngleY = y;
-        modelRenderer.rotateAngleZ = z;
     }
 }

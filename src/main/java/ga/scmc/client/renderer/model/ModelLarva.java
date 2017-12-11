@@ -1,14 +1,16 @@
 package ga.scmc.client.renderer.model;
 
-import net.minecraft.client.model.ModelBase;
+import com.arisux.mdx.lib.client.Model;
+
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.MathHelper;
 
 /**
  * zerglarva - cybercat5555 Created using Tabula 5.1.0
  */
-public class ModelLarva extends ModelBase {
+public class ModelLarva extends Model {
 
 	public ModelRenderer bSpike1a;
 	public ModelRenderer bSpike1b;
@@ -135,12 +137,12 @@ public class ModelLarva extends ModelBase {
 		rSpike4a.mirror = true;
 		rSpike4a.setRotationPoint(-2.4F, 0.0F, 3.5F);
 		rSpike4a.addBox(-2.1F, -0.3F, -0.8F, 2, 1, 1, 0.0F);
-		setRotateAngle(rSpike4a, 0.0F, 0.4553564018453205F, 0.0F);
+		setRotation(rSpike4a, 0.0F, 0.4553564018453205F, 0.0F);
 		rSpike1c = new ModelRenderer(this, 39, 0);
 		rSpike1c.mirror = true;
 		rSpike1c.setRotationPoint(-0.6F, 0.2F, 0.0F);
 		rSpike1c.addBox(-1.1F, -0.7F, -0.5F, 1, 1, 1, 0.0F);
-		setRotateAngle(rSpike1c, 0.0F, 0.18203784098300857F, 0.0F);
+		setRotation(rSpike1c, 0.0F, 0.18203784098300857F, 0.0F);
 		lSpike4e = new ModelRenderer(this, 39, 0);
 		lSpike4e.setRotationPoint(1.6F, 0.5F, 0.0F);
 		lSpike4e.addBox(0.0F, -0.5F, -0.5F, 1, 1, 1, 0.0F);
@@ -150,12 +152,12 @@ public class ModelLarva extends ModelBase {
 		lMandible2 = new ModelRenderer(this, 23, 6);
 		lMandible2.setRotationPoint(0.0F, 0.1F, -3.6F);
 		lMandible2.addBox(-0.5F, -0.5F, -3.0F, 1, 1, 3, 0.0F);
-		setRotateAngle(lMandible2, 0.0F, 0.31869712141416456F, 0.0F);
+		setRotation(lMandible2, 0.0F, 0.31869712141416456F, 0.0F);
 		rMandibleSpikes = new ModelRenderer(this, 19, 18);
 		rMandibleSpikes.mirror = true;
 		rMandibleSpikes.setRotationPoint(0.0F, 0.0F, 0.0F);
 		rMandibleSpikes.addBox(-2.5F, 0.1F, -5.7F, 4, 0, 5, 0.0F);
-		setRotateAngle(rMandibleSpikes, 0.0F, -0.18203784098300857F, 0.0F);
+		setRotation(rMandibleSpikes, 0.0F, -0.18203784098300857F, 0.0F);
 		rSpike4c = new ModelRenderer(this, 37, 0);
 		rSpike4c.mirror = true;
 		rSpike4c.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -166,7 +168,7 @@ public class ModelLarva extends ModelBase {
 		bSpike2e = new ModelRenderer(this, 39, 0);
 		bSpike2e.setRotationPoint(0.0F, -1.2F, -0.2F);
 		bSpike2e.addBox(-0.5F, -2.0F, -0.5F, 1, 2, 1, 0.0F);
-		setRotateAngle(bSpike2e, -0.18203784098300857F, 0.0F, 0.0F);
+		setRotation(bSpike2e, -0.18203784098300857F, 0.0F, 0.0F);
 		rSpike1aa = new ModelRenderer(this, 37, 0);
 		rSpike1aa.mirror = true;
 		rSpike1aa.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -181,14 +183,14 @@ public class ModelLarva extends ModelBase {
 		rSpike2a.mirror = true;
 		rSpike2a.setRotationPoint(-2.4F, 0.0F, 3.5F);
 		rSpike2a.addBox(-2.1F, -0.3F, -0.8F, 2, 1, 1, 0.0F);
-		setRotateAngle(rSpike2a, 0.0F, 0.4553564018453205F, 0.0F);
+		setRotation(rSpike2a, 0.0F, 0.4553564018453205F, 0.0F);
 		bSpike4b = new ModelRenderer(this, 39, 0);
 		bSpike4b.setRotationPoint(0.0F, 0.0F, 0.0F);
 		bSpike4b.addBox(-0.2F, -2.0F, -0.8F, 1, 2, 1, 0.0F);
 		lSpike4a = new ModelRenderer(this, 37, 0);
 		lSpike4a.setRotationPoint(2.5F, 0.0F, 3.9F);
 		lSpike4a.addBox(-0.1F, -0.3F, -0.7F, 2, 1, 1, 0.0F);
-		setRotateAngle(lSpike4a, 0.0F, -0.4553564018453205F, 0.0F);
+		setRotation(lSpike4a, 0.0F, -0.4553564018453205F, 0.0F);
 		bSpike6d = new ModelRenderer(this, 39, 0);
 		bSpike6d.setRotationPoint(0.0F, 0.0F, 0.0F);
 		bSpike6d.addBox(-0.7F, -2.0F, -0.8F, 1, 2, 1, 0.0F);
@@ -201,7 +203,7 @@ public class ModelLarva extends ModelBase {
 		bSpike1a = new ModelRenderer(this, 39, 0);
 		bSpike1a.setRotationPoint(0.0F, -0.8F, -1.2F);
 		bSpike1a.addBox(-0.2F, -2.0F, -0.3F, 1, 1, 1, 0.0F);
-		setRotateAngle(bSpike1a, -0.40980330836826856F, 0.0F, 0.0F);
+		setRotation(bSpike1a, -0.40980330836826856F, 0.0F, 0.0F);
 		bSpike4d_1 = new ModelRenderer(this, 39, 0);
 		bSpike4d_1.setRotationPoint(0.0F, 0.0F, 0.0F);
 		bSpike4d_1.addBox(-0.7F, -2.0F, -0.8F, 1, 2, 1, 0.0F);
@@ -214,11 +216,11 @@ public class ModelLarva extends ModelBase {
 		bSpike7e = new ModelRenderer(this, 39, 0);
 		bSpike7e.setRotationPoint(0.0F, -1.2F, -0.2F);
 		bSpike7e.addBox(-0.5F, -2.0F, -0.5F, 1, 2, 1, 0.0F);
-		setRotateAngle(bSpike7e, -0.18203784098300857F, 0.0F, 0.0F);
+		setRotation(bSpike7e, -0.18203784098300857F, 0.0F, 0.0F);
 		lSpike0a = new ModelRenderer(this, 37, 0);
 		lSpike0a.setRotationPoint(2.3F, 0.0F, -1.2F);
 		lSpike0a.addBox(-0.1F, -0.3F, -0.7F, 2, 1, 1, 0.0F);
-		setRotateAngle(lSpike0a, 0.0F, -0.4553564018453205F, 0.0F);
+		setRotation(lSpike0a, 0.0F, -0.4553564018453205F, 0.0F);
 		bSpike5c = new ModelRenderer(this, 39, 0);
 		bSpike5c.setRotationPoint(0.0F, 0.0F, 0.0F);
 		bSpike5c.addBox(-0.7F, -2.0F, -0.3F, 1, 2, 1, 0.0F);
@@ -235,16 +237,16 @@ public class ModelLarva extends ModelBase {
 		bSpike6a = new ModelRenderer(this, 39, 0);
 		bSpike6a.setRotationPoint(0.0F, -1.1F, -1.2F);
 		bSpike6a.addBox(-0.2F, -2.0F, -0.3F, 1, 2, 1, 0.0F);
-		setRotateAngle(bSpike6a, -0.40980330836826856F, 0.0F, 0.0F);
+		setRotation(bSpike6a, -0.40980330836826856F, 0.0F, 0.0F);
 		rMandible2 = new ModelRenderer(this, 23, 6);
 		rMandible2.mirror = true;
 		rMandible2.setRotationPoint(0.0F, 0.1F, -3.6F);
 		rMandible2.addBox(-0.5F, -0.5F, -3.0F, 1, 1, 3, 0.0F);
-		setRotateAngle(rMandible2, 0.0F, -0.31869712141416456F, 0.0F);
+		setRotation(rMandible2, 0.0F, -0.31869712141416456F, 0.0F);
 		bSpike4a = new ModelRenderer(this, 39, 0);
 		bSpike4a.setRotationPoint(0.0F, -1.1F, 1.2F);
 		bSpike4a.addBox(-0.2F, -2.0F, -0.3F, 1, 2, 1, 0.0F);
-		setRotateAngle(bSpike4a, -0.40980330836826856F, 0.0F, 0.0F);
+		setRotation(bSpike4a, -0.40980330836826856F, 0.0F, 0.0F);
 		rSpike0b = new ModelRenderer(this, 37, 0);
 		rSpike0b.mirror = true;
 		rSpike0b.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -252,7 +254,7 @@ public class ModelLarva extends ModelBase {
 		lSpike2a = new ModelRenderer(this, 37, 0);
 		lSpike2a.setRotationPoint(2.5F, 0.0F, 3.9F);
 		lSpike2a.addBox(-0.1F, -0.3F, -0.7F, 2, 1, 1, 0.0F);
-		setRotateAngle(lSpike2a, 0.0F, -0.4553564018453205F, 0.0F);
+		setRotation(lSpike2a, 0.0F, -0.4553564018453205F, 0.0F);
 		bSpike1d = new ModelRenderer(this, 39, 0);
 		bSpike1d.setRotationPoint(0.0F, 0.0F, 0.0F);
 		bSpike1d.addBox(-0.7F, -2.0F, -0.8F, 1, 1, 1, 0.0F);
@@ -262,18 +264,18 @@ public class ModelLarva extends ModelBase {
 		shell3 = new ModelRenderer(this, 0, 10);
 		shell3.setRotationPoint(0.0F, 0.0F, 2.5F);
 		shell3.addBox(-3.5F, -2.1F, -1.8F, 7, 2, 5, 0.0F);
-		setRotateAngle(shell3, 0.18203784098300857F, 0.0F, 0.0F);
+		setRotation(shell3, 0.18203784098300857F, 0.0F, 0.0F);
 		bSpike7a = new ModelRenderer(this, 39, 0);
 		bSpike7a.setRotationPoint(0.0F, -1.1F, 1.2F);
 		bSpike7a.addBox(-0.2F, -2.0F, -0.3F, 1, 2, 1, 0.0F);
-		setRotateAngle(bSpike7a, -0.40980330836826856F, 0.0F, 0.0F);
+		setRotation(bSpike7a, -0.40980330836826856F, 0.0F, 0.0F);
 		bSpike4c_1 = new ModelRenderer(this, 39, 0);
 		bSpike4c_1.setRotationPoint(0.0F, 0.0F, 0.0F);
 		bSpike4c_1.addBox(-0.7F, -2.0F, -0.3F, 1, 2, 1, 0.0F);
 		bSpike1e = new ModelRenderer(this, 37, 0);
 		bSpike1e.setRotationPoint(0.0F, -0.7F, -0.2F);
 		bSpike1e.addBox(-0.5F, -2.0F, -0.5F, 1, 1, 1, 0.0F);
-		setRotateAngle(bSpike1e, -0.18203784098300857F, 0.0F, 0.0F);
+		setRotation(bSpike1e, -0.18203784098300857F, 0.0F, 0.0F);
 		rSpike3e = new ModelRenderer(this, 39, 0);
 		rSpike3e.mirror = true;
 		rSpike3e.setRotationPoint(-2.0F, 0.5F, 0.0F);
@@ -284,11 +286,11 @@ public class ModelLarva extends ModelBase {
 		shell4 = new ModelRenderer(this, 0, 10);
 		shell4.setRotationPoint(0.0F, 0.0F, 2.5F);
 		shell4.addBox(-3.5F, -2.1F, -1.8F, 7, 2, 5, 0.0F);
-		setRotateAngle(shell4, 0.18203784098300857F, 0.0F, 0.0F);
+		setRotation(shell4, 0.18203784098300857F, 0.0F, 0.0F);
 		bSpike2a = new ModelRenderer(this, 39, 0);
 		bSpike2a.setRotationPoint(0.0F, -0.8F, 1.2F);
 		bSpike2a.addBox(-0.2F, -2.0F, -0.3F, 1, 2, 1, 0.0F);
-		setRotateAngle(bSpike2a, -0.40980330836826856F, 0.0F, 0.0F);
+		setRotation(bSpike2a, -0.40980330836826856F, 0.0F, 0.0F);
 		rSpike3d = new ModelRenderer(this, 37, 0);
 		rSpike3d.mirror = true;
 		rSpike3d.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -299,7 +301,7 @@ public class ModelLarva extends ModelBase {
 		lSpike1c = new ModelRenderer(this, 39, 0);
 		lSpike1c.setRotationPoint(0.9F, 0.2F, 0.0F);
 		lSpike1c.addBox(0.0F, -0.7F, -0.5F, 1, 1, 1, 0.0F);
-		setRotateAngle(lSpike1c, 0.0F, -0.18203784098300857F, 0.0F);
+		setRotation(lSpike1c, 0.0F, -0.18203784098300857F, 0.0F);
 		lSpike0c = new ModelRenderer(this, 37, 0);
 		lSpike0c.setRotationPoint(0.0F, 0.0F, 0.0F);
 		lSpike0c.addBox(-0.1F, 0.2F, -0.7F, 2, 1, 1, 0.0F);
@@ -309,7 +311,7 @@ public class ModelLarva extends ModelBase {
 		bSpike4a_2 = new ModelRenderer(this, 39, 0);
 		bSpike4a_2.setRotationPoint(0.0F, -1.1F, 1.2F);
 		bSpike4a_2.addBox(-0.2F, -2.0F, -0.3F, 1, 2, 1, 0.0F);
-		setRotateAngle(bSpike4a_2, -0.40980330836826856F, 0.0F, 0.0F);
+		setRotation(bSpike4a_2, -0.40980330836826856F, 0.0F, 0.0F);
 		bSpike4b_1 = new ModelRenderer(this, 39, 0);
 		bSpike4b_1.setRotationPoint(0.0F, 0.0F, 0.0F);
 		bSpike4b_1.addBox(-0.2F, -2.0F, -0.8F, 1, 2, 1, 0.0F);
@@ -323,7 +325,7 @@ public class ModelLarva extends ModelBase {
 		lSpike1a = new ModelRenderer(this, 37, 0);
 		lSpike1a.setRotationPoint(2.4F, 0.0F, 1.5F);
 		lSpike1a.addBox(-0.1F, -0.5F, -1.0F, 2, 2, 2, 0.0F);
-		setRotateAngle(lSpike1a, 0.0F, -0.4553564018453205F, 0.0F);
+		setRotation(lSpike1a, 0.0F, -0.4553564018453205F, 0.0F);
 		bSpike2c = new ModelRenderer(this, 39, 0);
 		bSpike2c.setRotationPoint(0.0F, 0.0F, 0.0F);
 		bSpike2c.addBox(-0.7F, -2.0F, -0.3F, 1, 2, 1, 0.0F);
@@ -353,7 +355,7 @@ public class ModelLarva extends ModelBase {
 		bSpike3a = new ModelRenderer(this, 39, 0);
 		bSpike3a.setRotationPoint(0.0F, -1.1F, -1.2F);
 		bSpike3a.addBox(-0.2F, -2.0F, -0.3F, 1, 2, 1, 0.0F);
-		setRotateAngle(bSpike3a, -0.40980330836826856F, 0.0F, 0.0F);
+		setRotation(bSpike3a, -0.40980330836826856F, 0.0F, 0.0F);
 		rSpike1b = new ModelRenderer(this, 39, 0);
 		rSpike1b.mirror = true;
 		rSpike1b.setRotationPoint(-2.1F, 0.5F, 0.0F);
@@ -365,7 +367,7 @@ public class ModelLarva extends ModelBase {
 		shell2 = new ModelRenderer(this, 0, 10);
 		shell2.setRotationPoint(0.0F, 0.0F, 2.5F);
 		shell2.addBox(-3.5F, -2.1F, -1.8F, 7, 2, 5, 0.0F);
-		setRotateAngle(shell2, 0.18203784098300857F, 0.0F, 0.0F);
+		setRotation(shell2, 0.18203784098300857F, 0.0F, 0.0F);
 		rSpike4d = new ModelRenderer(this, 37, 0);
 		rSpike4d.mirror = true;
 		rSpike4d.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -373,7 +375,7 @@ public class ModelLarva extends ModelBase {
 		lMandible = new ModelRenderer(this, 23, 0);
 		lMandible.setRotationPoint(2.5F, 0.0F, -2.6F);
 		lMandible.addBox(-1.0F, -0.5F, -3.8F, 2, 1, 4, 0.0F);
-		setRotateAngle(lMandible, 0.0F, -0.27314402793711257F, 0.0F);
+		setRotation(lMandible, 0.0F, -0.27314402793711257F, 0.0F);
 		bSpike6b = new ModelRenderer(this, 39, 0);
 		bSpike6b.setRotationPoint(0.0F, 0.0F, 0.0F);
 		bSpike6b.addBox(-0.2F, -2.0F, -0.8F, 1, 2, 1, 0.0F);
@@ -381,7 +383,7 @@ public class ModelLarva extends ModelBase {
 		rSpike1a.mirror = true;
 		rSpike1a.setRotationPoint(-2.4F, 0.0F, 1.5F);
 		rSpike1a.addBox(-2.1F, -0.5F, -1.0F, 2, 2, 2, 0.0F);
-		setRotateAngle(rSpike1a, 0.0F, 0.4553564018453205F, 0.0F);
+		setRotation(rSpike1a, 0.0F, 0.4553564018453205F, 0.0F);
 		rSpike4b = new ModelRenderer(this, 37, 0);
 		rSpike4b.mirror = true;
 		rSpike4b.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -393,7 +395,7 @@ public class ModelLarva extends ModelBase {
 		rSpike0a.mirror = true;
 		rSpike0a.setRotationPoint(-2.0F, 0.0F, -1.2F);
 		rSpike0a.addBox(-2.1F, -0.3F, -0.8F, 2, 1, 1, 0.0F);
-		setRotateAngle(rSpike0a, 0.0F, 0.4553564018453205F, 0.0F);
+		setRotation(rSpike0a, 0.0F, 0.4553564018453205F, 0.0F);
 		rSpike2d = new ModelRenderer(this, 37, 0);
 		rSpike2d.mirror = true;
 		rSpike2d.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -401,7 +403,7 @@ public class ModelLarva extends ModelBase {
 		lMandibleSpikes = new ModelRenderer(this, 19, 18);
 		lMandibleSpikes.setRotationPoint(0.0F, 0.0F, 0.0F);
 		lMandibleSpikes.addBox(-1.5F, 0.1F, -5.7F, 4, 0, 5, 0.0F);
-		setRotateAngle(lMandibleSpikes, 0.0F, 0.18203784098300857F, 0.0F);
+		setRotation(lMandibleSpikes, 0.0F, 0.18203784098300857F, 0.0F);
 		tail = new ModelRenderer(this, 36, 9);
 		tail.setRotationPoint(0.0F, 0.5F, 4.8F);
 		tail.addBox(-2.5F, -1.0F, 0.0F, 5, 2, 4, 0.0F);
@@ -409,11 +411,11 @@ public class ModelLarva extends ModelBase {
 		rSpike3a.mirror = true;
 		rSpike3a.setRotationPoint(-2.4F, 0.0F, 3.5F);
 		rSpike3a.addBox(-2.1F, -0.3F, -0.8F, 2, 1, 1, 0.0F);
-		setRotateAngle(rSpike3a, 0.0F, 0.4553564018453205F, 0.0F);
+		setRotation(rSpike3a, 0.0F, 0.4553564018453205F, 0.0F);
 		bSpike4a_1 = new ModelRenderer(this, 39, 0);
 		bSpike4a_1.setRotationPoint(0.0F, -1.1F, -1.2F);
 		bSpike4a_1.addBox(-0.2F, -2.0F, -0.3F, 1, 2, 1, 0.0F);
-		setRotateAngle(bSpike4a_1, -0.40980330836826856F, 0.0F, 0.0F);
+		setRotation(bSpike4a_1, -0.40980330836826856F, 0.0F, 0.0F);
 		bSpike3d = new ModelRenderer(this, 39, 0);
 		bSpike3d.setRotationPoint(0.0F, 0.0F, 0.0F);
 		bSpike3d.addBox(-0.7F, -2.0F, -0.8F, 1, 2, 1, 0.0F);
@@ -424,7 +426,7 @@ public class ModelLarva extends ModelBase {
 		bSpike4e_1 = new ModelRenderer(this, 38, 0);
 		bSpike4e_1.setRotationPoint(0.0F, -1.6F, -0.2F);
 		bSpike4e_1.addBox(-0.5F, -2.0F, -0.5F, 1, 2, 1, 0.0F);
-		setRotateAngle(bSpike4e_1, -0.18203784098300857F, 0.0F, 0.0F);
+		setRotation(bSpike4e_1, -0.18203784098300857F, 0.0F, 0.0F);
 		segment2 = new ModelRenderer(this, 0, 0);
 		segment2.setRotationPoint(0.0F, 0.0F, 2.4F);
 		segment2.addBox(-3.0F, -1.5F, 0.0F, 6, 3, 5, 0.0F);
@@ -434,7 +436,7 @@ public class ModelLarva extends ModelBase {
 		bSpike3e = new ModelRenderer(this, 39, 0);
 		bSpike3e.setRotationPoint(0.0F, -1.6F, -0.2F);
 		bSpike3e.addBox(-0.5F, -2.0F, -0.5F, 1, 2, 1, 0.0F);
-		setRotateAngle(bSpike3e, -0.18203784098300857F, 0.0F, 0.0F);
+		setRotation(bSpike3e, -0.18203784098300857F, 0.0F, 0.0F);
 		bSpike7b = new ModelRenderer(this, 39, 0);
 		bSpike7b.setRotationPoint(0.0F, 0.0F, 0.0F);
 		bSpike7b.addBox(-0.2F, -2.0F, -0.8F, 1, 2, 1, 0.0F);
@@ -448,22 +450,22 @@ public class ModelLarva extends ModelBase {
 		rMandible.mirror = true;
 		rMandible.setRotationPoint(-2.5F, 0.0F, -2.6F);
 		rMandible.addBox(-1.0F, -0.5F, -3.8F, 2, 1, 4, 0.0F);
-		setRotateAngle(rMandible, 0.0F, 0.27314402793711257F, 0.0F);
+		setRotation(rMandible, 0.0F, 0.27314402793711257F, 0.0F);
 		bSpike4e = new ModelRenderer(this, 39, 0);
 		bSpike4e.setRotationPoint(0.0F, -1.2F, -0.2F);
 		bSpike4e.addBox(-0.5F, -2.0F, -0.5F, 1, 2, 1, 0.0F);
-		setRotateAngle(bSpike4e, -0.18203784098300857F, 0.0F, 0.0F);
+		setRotation(bSpike4e, -0.18203784098300857F, 0.0F, 0.0F);
 		lSpike2b = new ModelRenderer(this, 37, 0);
 		lSpike2b.setRotationPoint(0.0F, 0.0F, 0.0F);
 		lSpike2b.addBox(-0.1F, -0.3F, -0.3F, 2, 1, 1, 0.0F);
 		shell1 = new ModelRenderer(this, 0, 10);
 		shell1.setRotationPoint(0.0F, 0.0F, 0.0F);
 		shell1.addBox(-3.5F, -2.1F, -1.8F, 7, 2, 5, 0.0F);
-		setRotateAngle(shell1, 0.18203784098300857F, 0.0F, 0.0F);
+		setRotation(shell1, 0.18203784098300857F, 0.0F, 0.0F);
 		bSpike6e = new ModelRenderer(this, 39, 0);
 		bSpike6e.setRotationPoint(0.0F, -1.6F, -0.2F);
 		bSpike6e.addBox(-0.5F, -2.0F, -0.5F, 1, 2, 1, 0.0F);
-		setRotateAngle(bSpike6e, -0.18203784098300857F, 0.0F, 0.0F);
+		setRotation(bSpike6e, -0.18203784098300857F, 0.0F, 0.0F);
 		bSpike4b_2 = new ModelRenderer(this, 39, 0);
 		bSpike4b_2.setRotationPoint(0.0F, 0.0F, 0.0F);
 		bSpike4b_2.addBox(-0.2F, -2.0F, -0.8F, 1, 2, 1, 0.0F);
@@ -480,7 +482,7 @@ public class ModelLarva extends ModelBase {
 		lSpike3a = new ModelRenderer(this, 37, 0);
 		lSpike3a.setRotationPoint(2.5F, 0.0F, 3.9F);
 		lSpike3a.addBox(-0.1F, -0.3F, -0.7F, 2, 1, 1, 0.0F);
-		setRotateAngle(lSpike3a, 0.0F, -0.4553564018453205F, 0.0F);
+		setRotation(lSpike3a, 0.0F, -0.4553564018453205F, 0.0F);
 		lSpike2e = new ModelRenderer(this, 39, 0);
 		lSpike2e.setRotationPoint(1.6F, 0.5F, 0.0F);
 		lSpike2e.addBox(0.0F, -0.5F, -0.5F, 1, 1, 1, 0.0F);
@@ -490,7 +492,7 @@ public class ModelLarva extends ModelBase {
 		bSpike5e = new ModelRenderer(this, 39, 0);
 		bSpike5e.setRotationPoint(0.0F, -1.2F, -0.2F);
 		bSpike5e.addBox(-0.5F, -2.0F, -0.5F, 1, 2, 1, 0.0F);
-		setRotateAngle(bSpike5e, -0.18203784098300857F, 0.0F, 0.0F);
+		setRotation(bSpike5e, -0.18203784098300857F, 0.0F, 0.0F);
 		rSpike4e = new ModelRenderer(this, 39, 0);
 		rSpike4e.mirror = true;
 		rSpike4e.setRotationPoint(-2.0F, 0.5F, 0.0F);
@@ -606,32 +608,23 @@ public class ModelLarva extends ModelBase {
 		setRotationAngles(f, f1, f2, f3, f4, f4, entity);
 		segment1.render(f5);
 	}
-
-	/**
-	 * This is a helper function from Tabula to set the rotation of model parts
-	 */
-	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-		modelRenderer.rotateAngleX = x;
-		modelRenderer.rotateAngleY = y;
-		modelRenderer.rotateAngleZ = z;
-	}
-
+	
 	@Override
-	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
-		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
-		head.rotateAngleX = headPitch * 0.017453292F;
-		head.rotateAngleY = netHeadYaw * 0.017453292F;
-		lSpike0a.rotateAngleY = MathHelper.sin(limbSwing * 1.1F) * 1 * limbSwingAmount;
-		lSpike1a.rotateAngleY = MathHelper.sin(limbSwing * 1.2F) * 1 * limbSwingAmount;
-		lSpike2a.rotateAngleY = MathHelper.sin(limbSwing * 1.3F) * 1 * limbSwingAmount;
-		lSpike3a.rotateAngleY = MathHelper.sin(limbSwing * 1.4F) * 1 * limbSwingAmount;
-		lSpike4a.rotateAngleY = MathHelper.sin(limbSwing * 1.5F) * 1 * limbSwingAmount;
-		rSpike0a.rotateAngleY = MathHelper.cos(limbSwing * 1.5F) * 1 * limbSwingAmount;
-		rSpike1a.rotateAngleY = MathHelper.cos(limbSwing * 1.4F) * 1 * limbSwingAmount;
-		rSpike2a.rotateAngleY = MathHelper.cos(limbSwing * 1.3F) * 1 * limbSwingAmount;
-		rSpike3a.rotateAngleY = MathHelper.cos(limbSwing * 1.2F) * 1 * limbSwingAmount;
-		rSpike4a.rotateAngleY = MathHelper.cos(limbSwing * 1.1F) * 1 * limbSwingAmount;
-		lMandible.rotateAngleY = (MathHelper.sin(limbSwing * 0.5F) / 4.1F) * 2.0F * limbSwingAmount;
-		rMandible.rotateAngleY = (MathHelper.sin(limbSwing * -0.5F) / 4.1F) * 2.0F * limbSwingAmount;
-	}
+   	public void render(Object obj) {
+       	EntityLivingBase base = (EntityLivingBase) obj;
+       	head.rotateAngleX = headPitch(obj) * 0.017453292F;
+		head.rotateAngleY = headYaw(obj) * 0.017453292F;
+		lSpike0a.rotateAngleY = MathHelper.sin(swingProgress(obj) * 1.1F) * 1 * swingProgressPrev(obj);
+		lSpike1a.rotateAngleY = MathHelper.sin(swingProgress(obj) * 1.2F) * 1 * swingProgressPrev(obj);
+		lSpike2a.rotateAngleY = MathHelper.sin(swingProgress(obj) * 1.3F) * 1 * swingProgressPrev(obj);
+		lSpike3a.rotateAngleY = MathHelper.sin(swingProgress(obj) * 1.4F) * 1 * swingProgressPrev(obj);
+		lSpike4a.rotateAngleY = MathHelper.sin(swingProgress(obj) * 1.5F) * 1 * swingProgressPrev(obj);
+		rSpike0a.rotateAngleY = MathHelper.cos(swingProgress(obj) * 1.5F) * 1 * swingProgressPrev(obj);
+		rSpike1a.rotateAngleY = MathHelper.cos(swingProgress(obj) * 1.4F) * 1 * swingProgressPrev(obj);
+		rSpike2a.rotateAngleY = MathHelper.cos(swingProgress(obj) * 1.3F) * 1 * swingProgressPrev(obj);
+		rSpike3a.rotateAngleY = MathHelper.cos(swingProgress(obj) * 1.2F) * 1 * swingProgressPrev(obj);
+		rSpike4a.rotateAngleY = MathHelper.cos(swingProgress(obj) * 1.1F) * 1 * swingProgressPrev(obj);
+		lMandible.rotateAngleY = (MathHelper.sin(swingProgress(obj) * 0.5F) / 4.1F) * 2.0F * swingProgressPrev(obj);
+		rMandible.rotateAngleY = (MathHelper.sin(swingProgress(obj) * -0.5F) / 4.1F) * 2.0F * swingProgressPrev(obj);
+   	}
 }

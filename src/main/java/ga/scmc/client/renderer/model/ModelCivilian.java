@@ -1,25 +1,19 @@
 package ga.scmc.client.renderer.model;
 
-import net.minecraft.client.model.ModelBase;
+import com.arisux.mdx.lib.client.Model;
+
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.MathHelper;
 
-public class ModelCivilian extends ModelBase {
-
-	private static void setRotation(ModelRenderer model, float x, float y, float z) {
-		model.rotateAngleX = x;
-		model.rotateAngleY = y;
-		model.rotateAngleZ = z;
-	}
+public class ModelCivilian extends Model {
 
 	ModelRenderer body;
-	// fields
 	ModelRenderer head;
 	ModelRenderer leftarm;
 	ModelRenderer leftleg;
 	ModelRenderer rightarm;
-
 	ModelRenderer rightleg;
 
 	public ModelCivilian() {
@@ -75,25 +69,15 @@ public class ModelCivilian extends ModelBase {
 		rightleg.render(f5);
 		leftleg.render(f5);
 	}
-
+	
 	@Override
-	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
-		super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-
-		head.rotateAngleY = f3 / (180F / (float) Math.PI);
-		head.rotateAngleX = f4 / (180F / (float) Math.PI);
-		// lhornang.rotateAngleY = f3 / (180F / (float)Math.PI);
-		// lhornang.rotateAngleX = f4 / (180F / (float)Math.PI);
-		// rhorn.rotateAngleY = f3 / (180F / (float)Math.PI);
-		// rhorn.rotateAngleX = f4 / (180F / (float)Math.PI);
-		rightarm.rotateAngleX = MathHelper.cos(f * 0.6662F + (float) Math.PI) * 2.0F * f1 * 0.5F;
-		leftarm.rotateAngleX = MathHelper.cos(f * 0.6662F) * 2.0F * f1 * 0.5F;
-		rightarm.rotateAngleZ = 0.0F;
-		leftarm.rotateAngleZ = 0.0F;
-		rightleg.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
-		leftleg.rotateAngleX = MathHelper.cos(f * 0.6662F + (float) Math.PI) * 1.4F * f1;
-		rightleg.rotateAngleY = 0.0F;
-		leftleg.rotateAngleY = 0.0F;
-	}
-
+   	public void render(Object obj) {
+       	EntityLivingBase base = (EntityLivingBase) obj;
+       	head.rotateAngleY = headPitch(obj) / (180F / (float) Math.PI);
+		head.rotateAngleX = headYaw(obj) / (180F / (float) Math.PI);
+		rightarm.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.6662F + (float) Math.PI) * 2.0F * swingProgressPrev(obj) * 0.5F;
+		leftarm.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.6662F) * 2.0F * swingProgressPrev(obj) * 0.5F;
+		rightleg.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.6662F) * 1.4F * swingProgressPrev(obj);
+		leftleg.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.6662F + (float) Math.PI) * 1.4F * swingProgressPrev(obj);
+   	}
 }

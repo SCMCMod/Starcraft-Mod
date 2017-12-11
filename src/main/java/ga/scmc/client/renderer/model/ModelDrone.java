@@ -1,7 +1,7 @@
 package ga.scmc.client.renderer.model;
 
-import net.minecraft.client.model.ModelBase;
+import com.arisux.mdx.lib.client.Model;
 
-public class ModelDrone extends ModelBase {
+public class ModelDrone extends Model {
 
 }

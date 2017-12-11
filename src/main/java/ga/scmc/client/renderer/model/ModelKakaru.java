@@ -1,6 +1,7 @@
 package ga.scmc.client.renderer.model;
 
-import net.minecraft.client.model.ModelBase;
+import com.arisux.mdx.lib.client.Model;
+
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
@@ -10,7 +11,7 @@ import net.minecraft.util.math.MathHelper;
 /**
  * kakaru - cybercat5555 Created using Tabula 6.0.0
  */
-public class ModelKakaru extends ModelBase {
+public class ModelKakaru extends Model {
 	public ModelRenderer chest;
 	public ModelRenderer spineBone01;
 	public ModelRenderer stomach;
@@ -94,7 +95,7 @@ public class ModelKakaru extends ModelBase {
 		this.lArm04 = new ModelRenderer(this, 45, 26);
 		this.lArm04.setRotationPoint(0.0F, 0.0F, 3.9F);
 		this.lArm04.addBox(-0.5F, -0.5F, 0.0F, 1, 1, 3, 0.0F);
-		this.setRotateAngle(lArm04, 0.0F, -0.18203784098300857F, 0.0F);
+		this.setRotation(lArm04, 0.0F, -0.18203784098300857F, 0.0F);
 		this.rArm02b = new ModelRenderer(this, 38, 33);
 		this.rArm02b.mirror = true;
 		this.rArm02b.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -103,14 +104,14 @@ public class ModelKakaru extends ModelBase {
 		this.rArm01.mirror = true;
 		this.rArm01.setRotationPoint(-1.2F, -0.3F, 1.5F);
 		this.rArm01.addBox(-4.5F, -1.0F, -1.0F, 4, 2, 2, 0.0F);
-		this.setRotateAngle(rArm01, 0.18203784098300857F, -0.27314402793711257F, 0.0F);
+		this.setRotation(rArm01, 0.18203784098300857F, -0.27314402793711257F, 0.0F);
 		this.lLeg02d = new ModelRenderer(this, 12, 56);
 		this.lLeg02d.setRotationPoint(0.0F, 0.0F, 0.0F);
 		this.lLeg02d.addBox(0.1F, -0.25F, -0.2F, 5, 1, 1, 0.0F);
 		this.crest01 = new ModelRenderer(this, 44, 17);
 		this.crest01.setRotationPoint(0.0F, 0.1F, -2.7F);
 		this.crest01.addBox(-1.0F, -0.5F, 0.0F, 2, 1, 2, 0.0F);
-		this.setRotateAngle(crest01, 1.0471975511965976F, 0.0F, 0.0F);
+		this.setRotation(crest01, 1.0471975511965976F, 0.0F, 0.0F);
 		this.neck01d = new ModelRenderer(this, 9, 37);
 		this.neck01d.setRotationPoint(0.0F, 0.0F, 0.0F);
 		this.neck01d.addBox(0.2F, 0.3F, -1.5F, 1, 1, 2, 0.0F);
@@ -120,7 +121,7 @@ public class ModelKakaru extends ModelBase {
 		this.neck03 = new ModelRenderer(this, 0, 49);
 		this.neck03.setRotationPoint(0.0F, 0.0F, -2.6F);
 		this.neck03.addBox(-1.0F, -1.0F, -2.0F, 2, 2, 2, 0.0F);
-		this.setRotateAngle(neck03, -0.136659280431156F, 0.0F, 0.0F);
+		this.setRotation(neck03, -0.136659280431156F, 0.0F, 0.0F);
 		this.spineBone01 = new ModelRenderer(this, 71, 17);
 		this.spineBone01.setRotationPoint(0.0F, -1.5F, 1.1F);
 		this.spineBone01.addBox(-0.5F, -3.0F, -0.5F, 1, 3, 1, 0.0F);
@@ -131,18 +132,18 @@ public class ModelKakaru extends ModelBase {
 		this.rLeg01.mirror = true;
 		this.rLeg01.setRotationPoint(1.2F, 0.8F, 3.7F);
 		this.rLeg01.addBox(-4.0F, -1.0F, -0.8F, 4, 2, 2, 0.0F);
-		this.setRotateAngle(rLeg01, -0.18203784098300857F, 0.6829473363053812F, 0.0F);
+		this.setRotation(rLeg01, -0.18203784098300857F, 0.6829473363053812F, 0.0F);
 		this.tail02b = new ModelRenderer(this, 34, 1);
 		this.tail02b.setRotationPoint(0.0F, 0.0F, 0.0F);
 		this.tail02b.addBox(-0.75F, -0.75F, 0.0F, 1, 1, 5, 0.0F);
 		this.lWing02 = new ModelRenderer(this, 14, 50);
 		this.lWing02.setRotationPoint(5.6F, 0.0F, -0.2F);
 		this.lWing02.addBox(-6.8F, 0.0F, 0.0F, 13, 0, 12, 0.0F);
-		this.setRotateAngle(lWing02, -0.091106186954104F, -0.8651597102135892F, 0.0F);
+		this.setRotation(lWing02, -0.091106186954104F, -0.8651597102135892F, 0.0F);
 		this.lLeg02a = new ModelRenderer(this, 12, 47);
 		this.lLeg02a.setRotationPoint(3.8F, 0.0F, 0.2F);
 		this.lLeg02a.addBox(0.1F, -0.75F, -0.7F, 5, 1, 1, 0.0F);
-		this.setRotateAngle(lLeg02a, 0.045553093477052F, -0.136659280431156F, 0.0F);
+		this.setRotation(lLeg02a, 0.045553093477052F, -0.136659280431156F, 0.0F);
 		this.rLeg02b = new ModelRenderer(this, 12, 50);
 		this.rLeg02b.mirror = true;
 		this.rLeg02b.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -153,11 +154,11 @@ public class ModelKakaru extends ModelBase {
 		this.lWing03 = new ModelRenderer(this, 56, 3);
 		this.lWing03.setRotationPoint(5.0F, 0.0F, 1.0F);
 		this.lWing03.addBox(-7.1F, 0.0F, 0.0F, 9, 0, 12, 0.0F);
-		this.setRotateAngle(lWing03, 0.22759093446006054F, -0.36425021489121656F, 0.0F);
+		this.setRotation(lWing03, 0.22759093446006054F, -0.36425021489121656F, 0.0F);
 		this.chest = new ModelRenderer(this, 0, 0);
 		this.chest.setRotationPoint(0.0F, 0.0F, 0.0F);
 		this.chest.addBox(-2.0F, -2.0F, 0.0F, 4, 4, 5, 0.0F);
-		this.setRotateAngle(chest, -0.22759093446006054F, 0.0F, 0.0F);
+		this.setRotation(chest, -0.22759093446006054F, 0.0F, 0.0F);
 		this.crest02b = new ModelRenderer(this, 53, 23);
 		this.crest02b.setRotationPoint(0.0F, 0.0F, 0.0F);
 		this.crest02b.addBox(-0.25F, -0.5F, 0.0F, 1, 1, 3, 0.0F);
@@ -169,24 +170,24 @@ public class ModelKakaru extends ModelBase {
 		this.rLeg02a.mirror = true;
 		this.rLeg02a.setRotationPoint(-3.8F, 0.0F, 0.2F);
 		this.rLeg02a.addBox(-5.1F, -0.75F, -0.7F, 5, 1, 1, 0.0F);
-		this.setRotateAngle(rLeg02a, 0.045553093477052F, 0.136659280431156F, 0.0F);
+		this.setRotation(rLeg02a, 0.045553093477052F, 0.136659280431156F, 0.0F);
 		this.lFinger01 = new ModelRenderer(this, 50, 45);
 		this.lFinger01.setRotationPoint(9.8F, 0.0F, 0.1F);
 		this.lFinger01.addBox(-1.0F, 0.0F, -4.2F, 2, 0, 4, 0.0F);
-		this.setRotateAngle(lFinger01, 0.0F, -1.1838568316277536F, 0.0F);
+		this.setRotation(lFinger01, 0.0F, -1.1838568316277536F, 0.0F);
 		this.crest03 = new ModelRenderer(this, 55, 28);
 		this.crest03.setRotationPoint(0.0F, -0.2F, 2.8F);
 		this.crest03.addBox(-1.0F, -0.5F, 0.0F, 2, 1, 2, 0.0F);
-		this.setRotateAngle(crest03, -0.5009094953223726F, 0.0F, 0.0F);
+		this.setRotation(crest03, -0.5009094953223726F, 0.0F, 0.0F);
 		this.rLeg03 = new ModelRenderer(this, 12, 59);
 		this.rLeg03.mirror = true;
 		this.rLeg03.setRotationPoint(-4.8F, 0.0F, 0.1F);
 		this.rLeg03.addBox(-4.0F, -0.5F, -0.5F, 4, 1, 1, 0.0F);
-		this.setRotateAngle(rLeg03, 0.0F, -0.31869712141416456F, 0.0F);
+		this.setRotation(rLeg03, 0.0F, -0.31869712141416456F, 0.0F);
 		this.lLeg04 = new ModelRenderer(this, 35, 26);
 		this.lLeg04.setRotationPoint(0.0F, 0.0F, 0.2F);
 		this.lLeg04.addBox(-0.5F, -0.5F, 0.0F, 1, 1, 3, 0.0F);
-		this.setRotateAngle(lLeg04, 0.0F, 0.5462880558742251F, 0.0F);
+		this.setRotation(lLeg04, 0.0F, 0.5462880558742251F, 0.0F);
 		this.rTeethUpper = new ModelRenderer(this, 73, 27);
 		this.rTeethUpper.mirror = true;
 		this.rTeethUpper.setRotationPoint(-0.7F, -0.5F, -4.0F);
@@ -200,20 +201,20 @@ public class ModelKakaru extends ModelBase {
 		this.spineBone03 = new ModelRenderer(this, 71, 17);
 		this.spineBone03.setRotationPoint(0.0F, -0.1F, 1.7F);
 		this.spineBone03.addBox(-0.5F, -3.0F, -0.5F, 1, 3, 1, 0.0F);
-		this.setRotateAngle(spineBone03, -0.136659280431156F, 0.0F, 0.0F);
+		this.setRotation(spineBone03, -0.136659280431156F, 0.0F, 0.0F);
 		this.crest04 = new ModelRenderer(this, 53, 40);
 		this.crest04.setRotationPoint(0.0F, -0.1F, 0.0F);
 		this.crest04.addBox(-0.5F, -0.5F, 0.0F, 1, 1, 2, 0.0F);
-		this.setRotateAngle(crest04, -0.5462880558742251F, 0.0F, 0.0F);
+		this.setRotation(crest04, -0.5462880558742251F, 0.0F, 0.0F);
 		this.rWing02 = new ModelRenderer(this, 14, 50);
 		this.rWing02.mirror = true;
 		this.rWing02.setRotationPoint(-5.8F, 0.0F, 0.1F);
 		this.rWing02.addBox(-5.8F, 0.0F, 0.0F, 13, 0, 12, 0.0F);
-		this.setRotateAngle(rWing02, -0.091106186954104F, 0.8651597102135892F, 0.0F);
+		this.setRotation(rWing02, -0.091106186954104F, 0.8651597102135892F, 0.0F);
 		this.neck02 = new ModelRenderer(this, 0, 42);
 		this.neck02.setRotationPoint(0.0F, -0.1F, -1.1F);
 		this.neck02.addBox(-1.0F, -1.0F, -3.0F, 2, 2, 3, 0.0F);
-		this.setRotateAngle(neck02, 0.18203784098300857F, 0.0F, 0.0F);
+		this.setRotation(neck02, 0.18203784098300857F, 0.0F, 0.0F);
 		this.tail04 = new ModelRenderer(this, 47, 8);
 		this.tail04.setRotationPoint(0.0F, 0.0F, 3.7F);
 		this.tail04.addBox(-0.5F, -0.5F, 0.0F, 1, 1, 6, 0.0F);
@@ -221,36 +222,36 @@ public class ModelKakaru extends ModelBase {
 		this.UpperBeak02.mirror = true;
 		this.UpperBeak02.setRotationPoint(0.0F, 0.0F, 0.0F);
 		this.UpperBeak02.addBox(-1.1F, -1.0F, -3.0F, 1, 1, 3, 0.0F);
-		this.setRotateAngle(UpperBeak02, 0.0F, -0.22759093446006054F, 0.0F);
+		this.setRotation(UpperBeak02, 0.0F, -0.22759093446006054F, 0.0F);
 		this.lArm02d = new ModelRenderer(this, 38, 36);
 		this.lArm02d.setRotationPoint(0.0F, 0.0F, 0.0F);
 		this.lArm02d.addBox(0.3F, -0.25F, -0.05F, 10, 1, 1, 0.0F);
 		this.stomach = new ModelRenderer(this, 0, 12);
 		this.stomach.setRotationPoint(0.0F, 0.0F, 4.4F);
 		this.stomach.addBox(-1.5F, -1.5F, 0.0F, 3, 3, 4, 0.0F);
-		this.setRotateAngle(stomach, 0.27314402793711257F, 0.0F, 0.0F);
+		this.setRotation(stomach, 0.27314402793711257F, 0.0F, 0.0F);
 		this.rWing01 = new ModelRenderer(this, 22, 40);
 		this.rWing01.mirror = true;
 		this.rWing01.setRotationPoint(-9.3F, 0.0F, 0.0F);
 		this.rWing01.addBox(-1.0F, 0.0F, -0.0F, 2, 0, 5, 0.0F);
-		this.setRotateAngle(rWing01, 0.0F, 0.36425021489121656F, 0.0F);
+		this.setRotation(rWing01, 0.0F, 0.36425021489121656F, 0.0F);
 		this.spineBone04 = new ModelRenderer(this, 71, 17);
 		this.spineBone04.setRotationPoint(0.0F, -0.4F, 1.9F);
 		this.spineBone04.addBox(-0.5F, -3.0F, -0.5F, 1, 3, 1, 0.0F);
-		this.setRotateAngle(spineBone04, -0.18203784098300857F, 0.0F, 0.0F);
+		this.setRotation(spineBone04, -0.18203784098300857F, 0.0F, 0.0F);
 		this.lowerBeak01 = new ModelRenderer(this, 17, 21);
 		this.lowerBeak01.setRotationPoint(0.0F, 0.2F, -1.2F);
 		this.lowerBeak01.addBox(0.2F, -0.1F, -3.0F, 1, 1, 3, 0.0F);
-		this.setRotateAngle(lowerBeak01, 0.136659280431156F, 0.136659280431156F, 0.0F);
+		this.setRotation(lowerBeak01, 0.136659280431156F, 0.136659280431156F, 0.0F);
 		this.lowerBeak02 = new ModelRenderer(this, 17, 21);
 		this.lowerBeak02.mirror = true;
 		this.lowerBeak02.setRotationPoint(0.0F, 0.0F, 0.0F);
 		this.lowerBeak02.addBox(-1.1F, -0.1F, -3.0F, 1, 1, 3, 0.0F);
-		this.setRotateAngle(lowerBeak02, 0.0F, -0.22759093446006054F, 0.0F);
+		this.setRotation(lowerBeak02, 0.0F, -0.22759093446006054F, 0.0F);
 		this.crest02a = new ModelRenderer(this, 53, 17);
 		this.crest02a.setRotationPoint(0.0F, 0.0F, 1.7F);
 		this.crest02a.addBox(-0.75F, -0.5F, 0.0F, 1, 1, 3, 0.0F);
-		this.setRotateAngle(crest02a, -0.31869712141416456F, 0.0F, 0.0F);
+		this.setRotation(crest02a, -0.31869712141416456F, 0.0F, 0.0F);
 		this.rArm02c = new ModelRenderer(this, 15, 36);
 		this.rArm02c.mirror = true;
 		this.rArm02c.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -258,21 +259,21 @@ public class ModelKakaru extends ModelBase {
 		this.spineBone02 = new ModelRenderer(this, 71, 17);
 		this.spineBone02.setRotationPoint(0.0F, 0.3F, 1.6F);
 		this.spineBone02.addBox(-0.5F, -3.0F, -0.5F, 1, 3, 1, 0.0F);
-		this.setRotateAngle(spineBone02, -0.31869712141416456F, 0.0F, 0.0F);
+		this.setRotation(spineBone02, -0.31869712141416456F, 0.0F, 0.0F);
 		this.lLeg02c = new ModelRenderer(this, 12, 53);
 		this.lLeg02c.setRotationPoint(0.0F, 0.0F, 0.0F);
 		this.lLeg02c.addBox(0.1F, -0.25F, -0.7F, 5, 1, 1, 0.0F);
 		this.lArm03 = new ModelRenderer(this, 34, 25);
 		this.lArm03.setRotationPoint(7.0F, 0.0F, 0.1F);
 		this.lArm03.addBox(-0.5F, -0.5F, 0.0F, 1, 1, 4, 0.0F);
-		this.setRotateAngle(lArm03, 0.0F, 0.31869712141416456F, 0.0F);
+		this.setRotation(lArm03, 0.0F, 0.31869712141416456F, 0.0F);
 		this.lArm02b = new ModelRenderer(this, 38, 33);
 		this.lArm02b.setRotationPoint(0.0F, 0.0F, 0.0F);
 		this.lArm02b.addBox(0.3F, -0.75F, -0.05F, 10, 1, 1, 0.0F);
 		this.spineMembrane = new ModelRenderer(this, 71, 17);
 		this.spineMembrane.setRotationPoint(0.0F, 0.3F, -0.2F);
 		this.spineMembrane.addBox(0.0F, -3.0F, -0.5F, 0, 3, 6, 0.0F);
-		this.setRotateAngle(spineMembrane, -0.31869712141416456F, 0.0F, 0.0F);
+		this.setRotation(spineMembrane, -0.31869712141416456F, 0.0F, 0.0F);
 		this.tail02c = new ModelRenderer(this, 21, 8);
 		this.tail02c.setRotationPoint(0.0F, 0.0F, 0.0F);
 		this.tail02c.addBox(-0.25F, -0.25F, 0.0F, 1, 1, 5, 0.0F);
@@ -286,14 +287,14 @@ public class ModelKakaru extends ModelBase {
 		this.UpperBeak03 = new ModelRenderer(this, 34, 21);
 		this.UpperBeak03.setRotationPoint(0.3F, -0.45F, -2.3F);
 		this.UpperBeak03.addBox(-0.5F, -0.5F, -2.0F, 1, 1, 2, 0.0F);
-		this.setRotateAngle(UpperBeak03, 0.0F, -0.136659280431156F, 0.0F);
+		this.setRotation(UpperBeak03, 0.0F, -0.136659280431156F, 0.0F);
 		this.tail02a = new ModelRenderer(this, 21, 1);
 		this.tail02a.setRotationPoint(0.0F, 0.0F, 2.7F);
 		this.tail02a.addBox(-0.25F, -0.75F, 0.0F, 1, 1, 5, 0.0F);
 		this.lowerBeak03 = new ModelRenderer(this, 26, 22);
 		this.lowerBeak03.setRotationPoint(0.3F, 0.35F, -2.3F);
 		this.lowerBeak03.addBox(-0.5F, -0.5F, -2.0F, 1, 1, 2, 0.0F);
-		this.setRotateAngle(lowerBeak03, 0.0F, -0.136659280431156F, 0.0F);
+		this.setRotation(lowerBeak03, 0.0F, -0.136659280431156F, 0.0F);
 		this.tail05 = new ModelRenderer(this, 50, 7);
 		this.tail05.setRotationPoint(0.0F, 0.0F, 3.2F);
 		this.tail05.addBox(-2.0F, 0.0F, 0.0F, 4, 0, 6, 0.0F);
@@ -303,22 +304,22 @@ public class ModelKakaru extends ModelBase {
 		this.neck01a = new ModelRenderer(this, 0, 30);
 		this.neck01a.setRotationPoint(0.0F, -0.2F, 0.1F);
 		this.neck01a.addBox(-1.3F, -1.2F, -1.5F, 2, 2, 2, 0.0F);
-		this.setRotateAngle(neck01a, -0.091106186954104F, 0.0F, 0.0F);
+		this.setRotation(neck01a, -0.091106186954104F, 0.0F, 0.0F);
 		this.neck01c = new ModelRenderer(this, 0, 36);
 		this.neck01c.setRotationPoint(0.0F, 0.0F, 0.0F);
 		this.neck01c.addBox(-1.3F, 0.3F, -1.5F, 2, 1, 2, 0.0F);
 		this.head01 = new ModelRenderer(this, 20, 16);
 		this.head01.setRotationPoint(0.0F, -0.1F, -1.5F);
 		this.head01.addBox(-1.4F, -1.0F, -2.0F, 3, 2, 2, 0.0F);
-		this.setRotateAngle(head01, 0.27314402793711257F, 0.0F, 0.0F);
+		this.setRotation(head01, 0.27314402793711257F, 0.0F, 0.0F);
 		this.UpperBeak01 = new ModelRenderer(this, 32, 16);
 		this.UpperBeak01.setRotationPoint(0.0F, 0.6F, -1.5F);
 		this.UpperBeak01.addBox(0.2F, -1.0F, -3.0F, 1, 1, 3, 0.0F);
-		this.setRotateAngle(UpperBeak01, 0.136659280431156F, 0.136659280431156F, 0.0F);
+		this.setRotation(UpperBeak01, 0.136659280431156F, 0.136659280431156F, 0.0F);
 		this.lArm02a = new ModelRenderer(this, 15, 33);
 		this.lArm02a.setRotationPoint(4.0F, 0.0F, 0.0F);
 		this.lArm02a.addBox(0.3F, -0.75F, -0.55F, 10, 1, 1, 0.0F);
-		this.setRotateAngle(lArm02a, 0.0F, 0.27314402793711257F, 0.0F);
+		this.setRotation(lArm02a, 0.0F, 0.27314402793711257F, 0.0F);
 		this.lLeg02b = new ModelRenderer(this, 12, 50);
 		this.lLeg02b.setRotationPoint(0.0F, 0.0F, 0.0F);
 		this.lLeg02b.addBox(0.1F, -0.75F, -0.2F, 5, 1, 1, 0.0F);
@@ -326,42 +327,42 @@ public class ModelKakaru extends ModelBase {
 		this.rLeg04.mirror = true;
 		this.rLeg04.setRotationPoint(0.0F, 0.0F, 0.2F);
 		this.rLeg04.addBox(-0.5F, -0.5F, 0.0F, 1, 1, 3, 0.0F);
-		this.setRotateAngle(rLeg04, 0.0F, -0.5462880558742251F, 0.0F);
+		this.setRotation(rLeg04, 0.0F, -0.5462880558742251F, 0.0F);
 		this.lLeg03 = new ModelRenderer(this, 12, 59);
 		this.lLeg03.setRotationPoint(4.8F, 0.0F, 0.1F);
 		this.lLeg03.addBox(0.0F, -0.5F, -0.5F, 4, 1, 1, 0.0F);
-		this.setRotateAngle(lLeg03, 0.0F, 0.31869712141416456F, 0.0F);
+		this.setRotation(lLeg03, 0.0F, 0.31869712141416456F, 0.0F);
 		this.rArm02a = new ModelRenderer(this, 15, 33);
 		this.rArm02a.mirror = true;
 		this.rArm02a.setRotationPoint(-4.0F, 0.0F, 0.0F);
 		this.rArm02a.addBox(-10.3F, -0.75F, -0.55F, 10, 1, 1, 0.0F);
-		this.setRotateAngle(rArm02a, 0.0F, -0.27314402793711257F, 0.0F);
+		this.setRotation(rArm02a, 0.0F, -0.27314402793711257F, 0.0F);
 		this.rFinger02 = new ModelRenderer(this, 56, 45);
 		this.rFinger02.mirror = true;
 		this.rFinger02.setRotationPoint(-9.9F, -0.1F, -0.3F);
 		this.rFinger02.addBox(-1.0F, 0.0F, -2.9F, 2, 0, 3, 0.0F);
-		this.setRotateAngle(rFinger02, 0.0F, 0.22759093446006054F, 0.0F);
+		this.setRotation(rFinger02, 0.0F, 0.22759093446006054F, 0.0F);
 		this.lArm01 = new ModelRenderer(this, 18, 28);
 		this.lArm01.setRotationPoint(1.2F, -0.3F, 1.5F);
 		this.lArm01.addBox(0.5F, -1.0F, -1.0F, 4, 2, 2, 0.0F);
-		this.setRotateAngle(lArm01, 0.18203784098300857F, 0.27314402793711257F, 0.0F);
+		this.setRotation(lArm01, 0.18203784098300857F, 0.27314402793711257F, 0.0F);
 		this.crest05 = new ModelRenderer(this, 60, 40);
 		this.crest05.setRotationPoint(0.0F, -0.2F, 0.0F);
 		this.crest05.addBox(-0.5F, -2.4F, -0.5F, 1, 2, 1, 0.0F);
-		this.setRotateAngle(crest05, 0.091106186954104F, 0.0F, 0.0F);
+		this.setRotation(crest05, 0.091106186954104F, 0.0F, 0.0F);
 		this.lFinger02 = new ModelRenderer(this, 56, 45);
 		this.lFinger02.setRotationPoint(9.9F, -0.1F, -0.3F);
 		this.lFinger02.addBox(-1.0F, 0.0F, -2.9F, 2, 0, 3, 0.0F);
-		this.setRotateAngle(lFinger02, 0.0F, 0.22759093446006054F, 0.0F);
+		this.setRotation(lFinger02, 0.0F, 0.22759093446006054F, 0.0F);
 		this.tail01 = new ModelRenderer(this, 0, 22);
 		this.tail01.setRotationPoint(0.0F, 0.0F, 3.7F);
 		this.tail01.addBox(-1.0F, -1.0F, 0.0F, 2, 2, 3, 0.0F);
-		this.setRotateAngle(tail01, -0.045553093477052F, 0.0F, 0.0F);
+		this.setRotation(tail01, -0.045553093477052F, 0.0F, 0.0F);
 		this.rArm03 = new ModelRenderer(this, 34, 25);
 		this.rArm03.mirror = true;
 		this.rArm03.setRotationPoint(-7.0F, 0.0F, 0.1F);
 		this.rArm03.addBox(-0.5F, -0.5F, 0.0F, 1, 1, 4, 0.0F);
-		this.setRotateAngle(rArm03, 0.0F, -0.31869712141416456F, 0.0F);
+		this.setRotation(rArm03, 0.0F, -0.31869712141416456F, 0.0F);
 		this.rLeg02d = new ModelRenderer(this, 12, 56);
 		this.rLeg02d.mirror = true;
 		this.rLeg02d.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -370,25 +371,25 @@ public class ModelKakaru extends ModelBase {
 		this.rWing03.mirror = true;
 		this.rWing03.setRotationPoint(-5.0F, 0.0F, 1.0F);
 		this.rWing03.addBox(-1.9F, 0.0F, 0.0F, 9, 0, 12, 0.0F);
-		this.setRotateAngle(rWing03, 0.22759093446006054F, 0.36425021489121656F, 0.0F);
+		this.setRotation(rWing03, 0.22759093446006054F, 0.36425021489121656F, 0.0F);
 		this.rArm04 = new ModelRenderer(this, 45, 26);
 		this.rArm04.mirror = true;
 		this.rArm04.setRotationPoint(0.0F, 0.0F, 3.9F);
 		this.rArm04.addBox(-0.5F, -0.5F, 0.0F, 1, 1, 3, 0.0F);
-		this.setRotateAngle(rArm04, 0.0F, 0.18203784098300857F, 0.0F);
+		this.setRotation(rArm04, 0.0F, 0.18203784098300857F, 0.0F);
 		this.lWing01 = new ModelRenderer(this, 22, 40);
 		this.lWing01.setRotationPoint(9.3F, 0.0F, 0.0F);
 		this.lWing01.addBox(-1.0F, 0.0F, 0.0F, 2, 0, 5, 0.0F);
-		this.setRotateAngle(lWing01, 0.0F, -0.36425021489121656F, 0.0F);
+		this.setRotation(lWing01, 0.0F, -0.36425021489121656F, 0.0F);
 		this.lLeg01 = new ModelRenderer(this, 13, 41);
 		this.lLeg01.setRotationPoint(-1.2F, 0.8F, 3.7F);
 		this.lLeg01.addBox(0.0F, -1.0F, -0.8F, 4, 2, 2, 0.0F);
-		this.setRotateAngle(lLeg01, -0.18203784098300857F, -0.6829473363053812F, 0.0F);
+		this.setRotation(lLeg01, -0.18203784098300857F, -0.6829473363053812F, 0.0F);
 		this.rFinger01 = new ModelRenderer(this, 50, 45);
 		this.rFinger01.mirror = true;
 		this.rFinger01.setRotationPoint(-9.8F, 0.0F, 0.1F);
 		this.rFinger01.addBox(-1.0F, 0.0F, -4.2F, 2, 0, 4, 0.0F);
-		this.setRotateAngle(rFinger01, 0.0F, 1.1838568316277536F, 0.0F);
+		this.setRotation(rFinger01, 0.0F, 1.1838568316277536F, 0.0F);
 		this.lArm03.addChild(this.lArm04);
 		this.rArm02a.addChild(this.rArm02b);
 		this.chest.addChild(this.rArm01);
@@ -478,30 +479,17 @@ public class ModelKakaru extends ModelBase {
 		GlStateManager.popMatrix();
 		this.chest.render(scale);
 	}
-
-	/**
-	 * This is a helper function from Tabula to set the rotation of model parts
-	 */
-	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-		modelRenderer.rotateAngleX = x;
-		modelRenderer.rotateAngleY = y;
-		modelRenderer.rotateAngleZ = z;
-	}
-
+	
 	@Override
-	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale, Entity entity) {
-		this.head01.rotateAngleX = headPitch * 0.017453292F;
-		this.head01.rotateAngleY = netHeadYaw * 0.017453292F;
-	}
-
-	@Override
-	public void setLivingAnimations(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime) {
-		float ageInTicks = entitylivingbaseIn.ticksExisted + partialTickTime;
-		this.rLeg01.rotateAngleZ = MathHelper.sin(limbSwing * 1.1F) * 0.667F * limbSwingAmount;
-		this.rArm01.rotateAngleZ = MathHelper.sin(limbSwing * 1.1F) * 0.667F * limbSwingAmount;
-		this.lLeg01.rotateAngleZ = -MathHelper.sin(limbSwing * 1.1F) * 0.667F * limbSwingAmount;
-		this.lArm01.rotateAngleZ = -MathHelper.sin(limbSwing * 1.1F) * 0.667F * limbSwingAmount;
-		this.lowerBeak01.rotateAngleX = MathHelper.sin(limbSwing * 0.8F) * 0.0667F + 0.4F;
-		this.tail01.rotateAngleX = MathHelper.sin(ageInTicks * 0.5f) * 0.05F;
-	}
+   	public void render(Object obj) {
+       	EntityLivingBase base = (EntityLivingBase) obj;
+       	this.head01.rotateAngleX = headPitch(obj) * 0.017453292F;
+		this.head01.rotateAngleY = headYaw(obj) * 0.017453292F;
+		this.rLeg01.rotateAngleZ = MathHelper.sin(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj);
+		this.rArm01.rotateAngleZ = MathHelper.sin(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj);
+		this.lLeg01.rotateAngleZ = -MathHelper.sin(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj);
+		this.lArm01.rotateAngleZ = -MathHelper.sin(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj);
+		this.lowerBeak01.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.8F) * 0.0667F + 0.4F;
+		this.tail01.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.5f) * 0.05F;
+   	}
 }

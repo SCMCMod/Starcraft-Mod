@@ -131,7 +131,7 @@ public class SkyProviderShakuras extends IRenderHandler
 
             OpenGL.pushMatrix();
             {
-                float scale = 10.0F;
+                float scale = 20.0F;
                 OpenGL.translate(30F, 0F, 0F);
                 OpenGL.rotate(DimensionUtil.calculateCelestialAngle(world.getWorldTime(), partialTicks) * 360.0F, 0.0F, 1.0F, 0.0F);
                 OpenGL.color(1.0F, 1.0F, 1.0F, 1.0F);

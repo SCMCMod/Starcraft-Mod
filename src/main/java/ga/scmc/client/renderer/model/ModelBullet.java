@@ -1,6 +1,7 @@
 package ga.scmc.client.renderer.model;
 
-import net.minecraft.client.model.ModelBase;
+import com.arisux.mdx.lib.client.Model;
+
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
@@ -8,7 +9,7 @@ import net.minecraft.entity.Entity;
 /**
  * bullet - cybercat5555 Created using Tabula 5.1.0
  */
-public class ModelBullet extends ModelBase {
+public class ModelBullet extends Model {
 	public ModelRenderer body;
 	public ModelRenderer point01;
 	public ModelRenderer point02;
@@ -87,14 +88,5 @@ public class ModelBullet extends ModelBase {
 		GlStateManager.translate(-this.point03.rotationPointX * f5, -this.point03.rotationPointY * f5, -this.point03.rotationPointZ * f5);
 		this.point03.render(f5);
 		GlStateManager.popMatrix();
-	}
-
-	/**
-	 * This is a helper function from Tabula to set the rotation of model parts
-	 */
-	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-		modelRenderer.rotateAngleX = x;
-		modelRenderer.rotateAngleY = y;
-		modelRenderer.rotateAngleZ = z;
 	}
 }
