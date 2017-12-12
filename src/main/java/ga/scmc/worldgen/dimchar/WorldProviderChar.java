@@ -106,12 +106,12 @@ public class WorldProviderChar extends WorldProvider {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Vec3d getFogColor(float var1, float var2) {
-			return new Vec3d(1.0D, 0.3D, 0.0D);
+		return new Vec3d(0.9D - this.getWorldTime()/18000D, MathHelper.clamp(1D - this.getWorldTime()/18000D, 0.0D, 0.055D), 0.0D);
 	}
 
 	@Override
 	public Vec3d getCloudColor(float partialTicks) {
-		return new Vec3d(1.0D, 0.3D, 0.0D);
+		return new Vec3d(0.9D - this.getWorldTime()/18000D, MathHelper.clamp(1D - this.getWorldTime()/18000D, 0.0D, 0.055D), 0.0D);
 	}
 
 	@Override
