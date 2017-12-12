@@ -22,13 +22,43 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent.ClientTickEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent.WorldTickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+@EventBusSubscriber
 public class StormProvider implements Predicate<Entity>
 {
+	public static final ResourceLocation HELLFIRE = new ResourceLocation("textures/world/hellfire.png");
+	
+	private static final int STORM_SIZE = 32;
+	
     private float[] stormX = null;
     private float[] stormZ = null;
+    
+    @SideOnly(Side.CLIENT)
+    @SubscribeEvent
+    public static void clientTickEvent(ClientTickEvent event)
+    {
+    	if (Game.minecraft().world != null && Game.minecraft().world.provider instanceof WorldProviderChar)
+    	{
+    		WorldProviderChar provider = (WorldProviderChar) Game.minecraft().world.provider;
+    		provider.getStormProvider().update(Game.minecraft().world);
+    	}
+    }
+    
+    @SubscribeEvent
+    public static void worldTickEvent(WorldTickEvent event)
+    {
+    	if (event.world.provider instanceof WorldProviderChar)
+    	{
+    		WorldProviderChar provider = (WorldProviderChar) event.world.provider;
+    		provider.getStormProvider().update(event.world);
+    	}
+    }
 
     public void update(World world)
     {
@@ -63,16 +93,14 @@ public class StormProvider implements Predicate<Entity>
     @SideOnly(Side.CLIENT)
     public void updateClient(World world)
     {
-        int i = 32;
-
         if (stormX == null || stormZ == null)
         {
-            stormX = new float[i * i];
-            stormZ = new float[i * i];
+            stormX = new float[STORM_SIZE * STORM_SIZE];
+            stormZ = new float[STORM_SIZE * STORM_SIZE];
 
-            for (int zCoord = 0; zCoord < i; ++zCoord)
+            for (int zCoord = 0; zCoord < STORM_SIZE; ++zCoord)
             {
-                for (int xCoord = 0; xCoord < i; ++xCoord)
+                for (int xCoord = 0; xCoord < STORM_SIZE; ++xCoord)
                 {
                     float x = xCoord - 16;
                     float z = zCoord - 16;
@@ -106,7 +134,7 @@ public class StormProvider implements Predicate<Entity>
         {
             return;
         }
-
+        
         Entity renderViewEntity = Game.minecraft().getRenderViewEntity();
         WorldClient worldclient = Game.minecraft().world;
         int posX = MathHelper.floor(renderViewEntity.posX);
@@ -123,8 +151,10 @@ public class StormProvider implements Predicate<Entity>
         OpenGL.enable(GL11.GL_BLEND);
         OpenGlHelper.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA, 1, 0);
         GL11.glAlphaFunc(GL11.GL_GREATER, 0.1F);
-        OpenGL.color(1.0F, 1.0F, 1.0F, 1.0F);
-        Draw.bindTexture(new ResourceLocation("textures/world/hellfire.png"));
+        GlStateManager.resetColor();
+        Draw.bindTexture(HELLFIRE);
+        
+        Draw.buffer().setTranslation(renderPartialX, renderPartialY, renderPartialZ);
 
         for (int vZ = posZ - 16; vZ < posZ + 16; ++vZ)
         {
@@ -138,12 +168,13 @@ public class StormProvider implements Predicate<Entity>
 
                 Biome b = worldclient.getBiome(pos);
 
-                if (b == BiomeHandler.biomeCharCreepInfestation)
+//                if (b == BiomeHandler.biomeCharCreepInfestation)
                 {
                     int stormHeight = worldclient.getPrecipitationHeight(pos).getY();
                     int minY = posY - (Game.minecraft().gameSettings.fancyGraphics ? 64 : 16);
                     int maxY = posY + (Game.minecraft().gameSettings.fancyGraphics ? 64 : 16);
-
+//                    System.out.println("t");
+                    
                     if (minY < stormHeight)
                         minY = stormHeight;
 
