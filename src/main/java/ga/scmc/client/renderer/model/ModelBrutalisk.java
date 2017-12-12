@@ -846,7 +846,7 @@ public class ModelBrutalisk extends Model implements IModelSkull {
 	@Override
    	public void render(Object obj) {
        	EntityLivingBase base = (EntityLivingBase) obj;
-       	head.rotateAngleX = headPitch(obj) * 0.017453292F + 5.5F;
+       	head.rotateAngleX = headPitch(obj) * 0.017453292F + 0.4F;
 	    head.rotateAngleY = headYaw(obj) * 0.0017453292F;
 		this.lShoulder.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.5F) * 0.667F * swingProgressPrev(obj);
 		this.rShoulder.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.5F) * 0.667F * swingProgressPrev(obj);
