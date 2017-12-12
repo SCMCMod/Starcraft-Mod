@@ -36,11 +36,15 @@ public class WorldProviderChar extends WorldProvider {
 	public IRenderHandler getCloudRenderer() {
 		return skyProvider == null ? skyProvider = new SkyProviderChar() : skyProvider;
 	}
+	
+	@Override
+	public void onWorldUpdateEntities() {
+		super.onWorldUpdateEntities();
+	}
 
 	@Override
 	public void updateWeather() {
 		super.updateWeather();
-		this.stormProvider.update(this.world);
 	}
 
 	@Override
