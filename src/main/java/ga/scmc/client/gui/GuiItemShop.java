@@ -16,7 +16,7 @@ import ga.scmc.network.NetworkHandler;
 import ga.scmc.network.message.MessageSpawnItem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.gui.GuiLabel;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
@@ -27,31 +27,26 @@ import net.minecraft.util.text.TextFormatting;
 import ocelot.api.utils.GuiUtils;
 import ocelot.api.utils.InventoryUtils;
 import ocelot.api.utils.SoundUtils;
+import ocelot.api.utils.TimeUtils;
 
 /**
  * @author Ocelot5836
  */
-public class GuiItemShop extends GuiScreen {
+public class GuiItemShop extends BasicGui {
 
 	/** The player being traded with. */
 	private EntityPlayer customer;
-
 	private String displayName;
-
-	private int xSize, ySize;
-	private int guiLeft, guiTop;
-	private int tabWidth, tabHeight;
-	private int xOffset = 14;
 
 	private static final ItemStack MINERAL = new ItemStack(ItemHandler.MINERAL_SHARD);
 	private static final ItemStack VESPENE = new ItemStack(ItemHandler.VESPENE, 1, 2);
 	private static final int HIGHLIGHT_COLOR = new Color(246, 255, 0, 60).getRGB();
 	private static final int NO_FUNDS_COLOR = new Color(200, 50, 0, 60).getRGB();
 
-	public static List<ItemShopTab> tabs = new ArrayList<ItemShopTab>();
-	private static int tab = 0;
+	public List<ItemShopTab> tabs = new ArrayList<ItemShopTab>();
+	private int tab;
 
-	private static GuiButton buttonBuy;
+	private GuiButton buttonBuy;
 	private static final int BUTTON_BUY = 0;
 
 	private int selectedIndex = -1;
@@ -73,6 +68,8 @@ public class GuiItemShop extends GuiScreen {
 		guiLeft = (width - xSize) / 2;
 		guiTop = (height - ySize) / 2;
 
+		tab = 0;
+
 		tabs.clear();
 		tabs.add(new ItemShopTab(((ItemBulletMagazine) ItemHandler.BULLET_MAGAZINE).getDefaultStack(EnumMetaItem.BulletMagazineType.C14.getID()), I18n.format("itemGroup.terran.general"), 0, guiLeft - 29, guiTop + 4, GuiLists.TRADES[0]));
 		tabs.add(new ItemShopTab(new ItemStack(MetaBlockHandler.GAS_COLLECTOR, 1, 1), I18n.format("itemGroup.terran.machine"), 1, guiLeft - 29, guiTop + 34, GuiLists.TRADES[1]));
@@ -89,19 +86,25 @@ public class GuiItemShop extends GuiScreen {
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
 		this.drawDefaultBackground();
-		int i = this.guiLeft;
-		int j = this.guiTop;
 		this.drawGuiBackgroundLayer(partialTicks, mouseX, mouseY);
 		GlStateManager.disableRescaleNormal();
 		RenderHelper.disableStandardItemLighting();
 		GlStateManager.disableLighting();
 		GlStateManager.disableDepth();
-		super.drawScreen(mouseX, mouseY, partialTicks);
+
+		for (int i = 0; i < this.buttonList.size(); ++i) {
+			((GuiButton) this.buttonList.get(i)).drawButton(this.mc, mouseX, mouseY);
+		}
+
+		for (int j = 0; j < this.labelList.size(); ++j) {
+			((GuiLabel) this.labelList.get(j)).drawLabel(this.mc, mouseX, mouseY);
+		}
+
 		GlStateManager.pushMatrix();
-		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+		GlStateManager.color(1F, 1F, 1F, 1F);
 		GlStateManager.enableRescaleNormal();
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 240.0F, 240.0F);
-		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+		GlStateManager.color(1F, 1F, 1F, 1F);
 
 		for (ItemShopTab tab : tabs) {
 			tab.renderLit(mouseX, mouseY);
@@ -110,7 +113,7 @@ public class GuiItemShop extends GuiScreen {
 			tab.renderIcon();
 		}
 
-		GlStateManager.translate((float) i, (float) j, 0.0F);
+		GlStateManager.translate((float) this.guiLeft, (float) this.guiTop, 0.0F);
 		drawCenterLayer(mouseX, mouseY);
 		RenderHelper.disableStandardItemLighting();
 		this.drawGuiForegroundLayer(mouseX, mouseY);
@@ -123,6 +126,7 @@ public class GuiItemShop extends GuiScreen {
 		drawTooltips(mouseX, mouseY);
 	}
 
+	@Override
 	public void drawGuiBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
 		for (ItemShopTab tab : tabs) {
 			tab.renderUnlit(mouseX, mouseY);
@@ -141,6 +145,7 @@ public class GuiItemShop extends GuiScreen {
 		}
 	}
 
+	@Override
 	public void drawCenterLayer(int mouseX, int mouseY) {
 		if (selectedIndex != -1) {
 			int selectedX = selectedIndex % 4;
@@ -155,7 +160,7 @@ public class GuiItemShop extends GuiScreen {
 			for (int j = 0; j < 4; j++) {
 				int index = 4 * i + j;
 				if (index < tabs.get(tab).getItems().size()) {
-					if (index != selectedIndex && (InventoryUtils.getItemAmount(customer, MINERAL) < tabs.get(tab).getItems().get(index).getMineralCost() || InventoryUtils.getItemAmount(customer, VESPENE.getItem()) < tabs.get(tab).getItems().get(index).getVespeneCost())) {
+					if (index != selectedIndex && (InventoryUtils.getStackAmount(customer, MINERAL) < tabs.get(tab).getItems().get(index).getMineralCost() || InventoryUtils.getItemAmount(customer, VESPENE.getItem()) < tabs.get(tab).getItems().get(index).getVespeneCost())) {
 						int selectedX = index % 4;
 						int selectedY = index / 4;
 						GlStateManager.color(0.1F, 0.1F, 0.1F, 0.1F);
@@ -170,12 +175,16 @@ public class GuiItemShop extends GuiScreen {
 		}
 	}
 
+	@Override
 	public void drawGuiForegroundLayer(int mouseX, int mouseY) {
 		this.fontRendererObj.drawString(displayName, xSize / 2 - this.fontRendererObj.getStringWidth(displayName) / 2, 8, 4210752);
 		this.fontRendererObj.drawString(I18n.format("gui.item_shop.money"), 123 - this.fontRendererObj.getStringWidth(I18n.format("gui.item_shop.money")) / 2, 75, 4210752);
+		if (TimeUtils.isChristmas()) {
+			this.fontRendererObj.drawString(I18n.format("gui.item_shop.christmas"), xSize / 2 - this.fontRendererObj.getStringWidth(I18n.format("gui.item_shop.christmas")) / 2, 206, 0x005f00);
+		}
 
-		MINERAL.stackSize = InventoryUtils.getItemAmount(customer, MINERAL);
-		VESPENE.stackSize = InventoryUtils.getItemAmount(customer, VESPENE);
+		MINERAL.stackSize = InventoryUtils.getStackAmount(customer, MINERAL);
+		VESPENE.stackSize = InventoryUtils.getStackAmount(customer, VESPENE);
 
 		if (MINERAL.stackSize > 0) {
 			Minecraft.getMinecraft().getRenderItem().renderItemAndEffectIntoGUI(MINERAL, 105, 91);
@@ -188,6 +197,7 @@ public class GuiItemShop extends GuiScreen {
 		}
 	}
 
+	@Override
 	public void drawTooltips(int mouseX, int mouseY) {
 		for (ItemShopTab tab : tabs) {
 			drawTooltip(tab.getName(), tab.getX(), tab.getY(), tab.getWidth(), tab.getHeight(), mouseX, mouseY);
@@ -201,7 +211,7 @@ public class GuiItemShop extends GuiScreen {
 					tooltip.add("");
 					tooltip.add(TextFormatting.GRAY + I18n.format("gui.item_shop.tooltip.mineral_cost", tabs.get(tab).getItems().get(index).getMineralCost()));
 					tooltip.add(TextFormatting.GRAY + I18n.format("gui.item_shop.tooltip.vespene_cost", tabs.get(tab).getItems().get(index).getVespeneCost()));
-					drawTooltip(tooltip, guiLeft + 25 + j * 18, guiTop + 25 + i * 22, 16, 16, mouseX, mouseY);
+					drawTooltip(tooltip, guiLeft + 24 + j * 18, guiTop + 24 + i * 22, 18, 18, mouseX, mouseY);
 				}
 			}
 		}
@@ -209,13 +219,13 @@ public class GuiItemShop extends GuiScreen {
 		if (MINERAL.stackSize <= 0) {
 			drawTooltip(I18n.format("gui.item_shop.no_minerals"), guiLeft + 105, guiTop + 91, 16, 16, mouseX, mouseY);
 		} else {
-			drawTooltip(MINERAL.getTooltip(customer, this.mc.gameSettings.advancedItemTooltips), guiLeft + 105, guiTop + 91, 16, 16, mouseX, mouseY);
+			drawTooltip(MINERAL.getTooltip(customer, this.mc.gameSettings.advancedItemTooltips), guiLeft + 104, guiTop + 90, 18, 18, mouseX, mouseY);
 		}
 
 		if (VESPENE.stackSize <= 0) {
 			drawTooltip(I18n.format("gui.item_shop.no_vespene"), guiLeft + 123, guiTop + 91, 16, 16, mouseX, mouseY);
 		} else {
-			drawTooltip(VESPENE.getTooltip(customer, this.mc.gameSettings.advancedItemTooltips), guiLeft + 123, guiTop + 91, 16, 16, mouseX, mouseY);
+			drawTooltip(VESPENE.getTooltip(customer, this.mc.gameSettings.advancedItemTooltips), guiLeft + 122, guiTop + 90, 18, 168, mouseX, mouseY);
 		}
 	}
 
@@ -254,7 +264,7 @@ public class GuiItemShop extends GuiScreen {
 
 	@Override
 	public void updateScreen() {
-		if (selectedIndex == -1 || InventoryUtils.getItemAmount(customer, MINERAL) < tabs.get(tab).getItems().get(selectedIndex).getMineralCost() || InventoryUtils.getItemAmount(customer, VESPENE.getItem()) < tabs.get(tab).getItems().get(selectedIndex).getVespeneCost()) {
+		if (selectedIndex == -1 || InventoryUtils.getStackAmount(customer, MINERAL) < tabs.get(tab).getItems().get(selectedIndex).getMineralCost() || InventoryUtils.getItemAmount(customer, VESPENE.getItem()) < tabs.get(tab).getItems().get(selectedIndex).getVespeneCost()) {
 			buttonBuy.enabled = false;
 		} else {
 			buttonBuy.enabled = true;
@@ -275,7 +285,7 @@ public class GuiItemShop extends GuiScreen {
 	protected void actionPerformed(GuiButton button) throws IOException {
 		switch (button.id) {
 		case BUTTON_BUY:
-			if (selectedIndex != -1 && InventoryUtils.getItemAmount(customer, MINERAL) >= tabs.get(tab).getItems().get(selectedIndex).getMineralCost() && InventoryUtils.getItemAmount(customer, VESPENE.getItem()) >= tabs.get(tab).getItems().get(selectedIndex).getVespeneCost()) {
+			if (selectedIndex != -1 && InventoryUtils.getStackAmount(customer, MINERAL) >= tabs.get(tab).getItems().get(selectedIndex).getMineralCost() && InventoryUtils.getItemAmount(customer, VESPENE.getItem()) >= tabs.get(tab).getItems().get(selectedIndex).getVespeneCost()) {
 				NetworkHandler.sendToServer(new MessageSpawnItem(tabs.get(tab).getItems().get(selectedIndex).getStack()));
 				InventoryUtils.removeItemWithAmount(customer, MINERAL.getItem(), tabs.get(tab).getItems().get(selectedIndex).getMineralCost());
 				InventoryUtils.removeItemWithAmount(customer, VESPENE.getItem(), tabs.get(tab).getItems().get(selectedIndex).getVespeneCost());
@@ -294,20 +304,6 @@ public class GuiItemShop extends GuiScreen {
 		super.keyTyped(typedChar, keyCode);
 		if (keyCode == 1 || this.mc.gameSettings.keyBindInventory.isActiveAndMatches(keyCode)) {
 			this.mc.player.closeScreen();
-		}
-	}
-
-	public void drawTooltip(List<String> lines, int posX, int posY, int width, int height, int mouseX, int mouseY) {
-		if (mouseX >= posX && mouseX <= (posX + width) && mouseY >= posY && mouseY < (posY + height)) {
-			drawHoveringText(lines, mouseX, mouseY);
-		}
-	}
-
-	public void drawTooltip(String line, float posX, float posY, float width, float height, int mouseX, int mouseY) {
-		if (mouseX >= posX && mouseX <= (posX + width) && mouseY >= posY && mouseY < (posY + height)) {
-			List<String> lines = new ArrayList<String>();
-			lines.add(line);
-			drawHoveringText(lines, mouseX, mouseY);
 		}
 	}
 }

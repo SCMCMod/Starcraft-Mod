@@ -14,6 +14,7 @@ import net.minecraft.util.ResourceLocation;
 import ocelot.api.utils.GuiUtils;
 import ocelot.api.utils.SoundUtils;
 import ocelot.api.utils.TextureUtils;
+import ocelot.api.utils.TimeUtils;
 
 /**
  * @author Ocelot5836
@@ -36,7 +37,7 @@ public class ItemShopTab extends GuiScreen {
 	private int xOffset = 14;
 
 	public ItemShopTab(ItemStack icon, String name, int id, int x, int y, ImmutableList<Product> items) {
-		this(icon, name, id, x, y, 32, 28, new ResourceLocation(Library.RL_BASE + "textures/gui/itemShop/item_shop.png"), items);
+		this(icon, name, id, x, y, 32, 28, TimeUtils.isChristmas() ? new ResourceLocation(Library.RL_BASE + "textures/gui/itemShop/item_shop_christmas.png") : new ResourceLocation(Library.RL_BASE + "textures/gui/itemShop/item_shop.png"), items);
 	}
 
 	public ItemShopTab(ItemStack icon, String name, int id, int x, int y, ResourceLocation texture, ImmutableList<Product> items) {
@@ -44,7 +45,7 @@ public class ItemShopTab extends GuiScreen {
 	}
 
 	public ItemShopTab(ItemStack icon, String name, int id, int x, int y, int width, int height, ImmutableList<Product> items) {
-		this(icon, name, id, x, y, width, height, new ResourceLocation(Library.RL_BASE + "textures/gui/itemShop/item_shop.png"), items);
+		this(icon, name, id, x, y, width, height, TimeUtils.isChristmas() ? new ResourceLocation(Library.RL_BASE + "textures/gui/itemShop/item_shop_christmas.png") : new ResourceLocation(Library.RL_BASE + "textures/gui/itemShop/item_shop.png"), items);
 	}
 
 	public ItemShopTab(ItemStack icon, String name, int id, int x, int y, int width, int height, ResourceLocation texture, ImmutableList<Product> items) {
@@ -68,6 +69,7 @@ public class ItemShopTab extends GuiScreen {
 	public void renderUnlit(int mouseX, int mouseY) {
 		if (!selected) {
 			bindTexture();
+			GlStateManager.color(1, 1, 1, 1);
 			this.drawTexturedModalRect(x, y, 152, 16, width, height);
 		}
 	}
@@ -75,6 +77,7 @@ public class ItemShopTab extends GuiScreen {
 	public void renderLit(int mouseX, int mouseY) {
 		if (selected) {
 			bindTexture();
+			GlStateManager.color(1, 1, 1, 1);
 			this.drawTexturedModalRect(x, y, 152, 44, width, height);
 		}
 	}

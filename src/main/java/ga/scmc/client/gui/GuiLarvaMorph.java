@@ -33,6 +33,7 @@ public class GuiLarvaMorph extends BasicGui {
 
 	public static final GuiLarvaMorph INSTANCE = new GuiLarvaMorph();
 
+	public final ResourceLocation LARVA_GUI = new ResourceLocation("textures/gui/larva.png");
 	private EntityLarva larva;
 	private List<LarvaOption> subOptions = new ArrayList<LarvaOption>();
 	private int subOptionsX, subOptionsY;
@@ -52,7 +53,7 @@ public class GuiLarvaMorph extends BasicGui {
 
 	@Override
 	public void drawGuiBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
-		TextureUtils.bindTexture(new ResourceLocation(Library.RL_BASE + "textures/gui/larva.png"));
+		TextureUtils.bindTexture(LARVA_GUI);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		int entityX = guiLeft + 124;
 		int entityY = guiTop + 26;

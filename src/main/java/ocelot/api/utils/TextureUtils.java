@@ -21,7 +21,7 @@ import net.minecraft.util.ResourceLocation;
  */
 public class TextureUtils {
 
-	private static final Minecraft MC = Minecraft.getMinecraft();
+	private static Minecraft mc = Minecraft.getMinecraft();
 
 	/**
 	 * Creates a texture from a buffered image.
@@ -31,7 +31,7 @@ public class TextureUtils {
 	 * @return The {@link ResourceLocation} to that texture
 	 */
 	public static ResourceLocation createBufferedImageTexture(BufferedImage image) {
-		return MC.getTextureManager().getDynamicTextureLocation(" ", new DynamicTexture(image));
+		return mc.getTextureManager().getDynamicTextureLocation(" ", new DynamicTexture(image));
 	}
 	
 	/**
@@ -41,7 +41,7 @@ public class TextureUtils {
 	 *            The texture to delete
 	 */
 	public static void deleteTexture(ResourceLocation texture) {
-		MC.getTextureManager().deleteTexture(texture);
+		mc.getTextureManager().deleteTexture(texture);
 	}
 
 	/**
@@ -63,7 +63,7 @@ public class TextureUtils {
 	 *            The path to the texture
 	 */
 	public static void bindTexture(String domain, String path) {
-		bindTexture(new ResourceLocation(domain, path));
+		RenderUtil.bindTexture(new ResourceLocation(domain, path));
 	}
 
 	/**
@@ -73,13 +73,13 @@ public class TextureUtils {
 	 *            The path to the texture
 	 */
 	public static void bindTexture(String path) {
-		bindTexture(Library.MODID, path);
+		RenderUtil.bindTexture(new ResourceLocation(Library.MODID, path));
 	}
 	
 	/**
 	 * @return The default missing image texture
 	 */
 	public static TextureAtlasSprite getMissingSprite() {
-		return MC.getTextureMapBlocks().getMissingSprite();
+		return mc.getTextureMapBlocks().getMissingSprite();
 	}
 }

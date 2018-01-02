@@ -56,7 +56,7 @@ public class GuiStarcraftFurnace extends GuiContainer {
 
     @Override
     protected void drawGuiContainerBackgroundLayer(float v, int i, int i1) {
-        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+        GlStateManager.color(1F, 1F, 1F, 1F);
         this.mc.getTextureManager().bindTexture(this.texturePath);
         this.drawTexturedModalRect(this.guiLeft, this.guiTop, 0, 0, this.xSize, this.ySize);
 

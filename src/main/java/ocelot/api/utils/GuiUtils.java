@@ -2,6 +2,8 @@ package ocelot.api.utils;
 
 import java.util.List;
 
+import com.arisux.mdx.lib.game.Game;
+
 import ga.scmc.api.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
@@ -21,8 +23,6 @@ import net.minecraft.entity.EntityLivingBase;
  */
 public class GuiUtils extends GuiScreen {
 
-	private static final Minecraft MC = Minecraft.getMinecraft();
-
 	/**
 	 * Draws an array of lines to a gui.
 	 * 
@@ -37,7 +37,7 @@ public class GuiUtils extends GuiScreen {
 	 */
 	public static void drawLines(List<String> lines, int x, int y, int color) {
 		for (int i = 0; i < lines.size(); i++) {
-			MC.fontRendererObj.drawString(lines.get(i), x, y + (i * 8), color);
+			Game.fontRenderer().drawString(lines.get(i), x, y + (i * 8), color);
 		}
 	}
 
@@ -81,7 +81,7 @@ public class GuiUtils extends GuiScreen {
 	 */
 	public static void drawCustomSizeGui(int x, int y, int width, int height, float zLevel) {
 		TextureUtils.bindTexture("textures/gui/util.png");
-		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+		GlStateManager.color(1F, 1F, 1F, 1F);
 		drawScaledCustomSizeModalRect(x + 5, y + 5, 5, 5, 5, 5, width - 10, height - 10, 256, 256);
 		drawScaledCustomSizeModalRect(x, y + 5, 0, 5, 5, 5, 5, height - 10, 256, 256);
 		drawScaledCustomSizeModalRect(x + width - 5, y + 5, 10, 5, 5, 5, 5, height - 10, 256, 256);
@@ -108,7 +108,7 @@ public class GuiUtils extends GuiScreen {
 	 */
 	public static void drawSlot(int x, int y, int width, int height) {
 		TextureUtils.bindTexture("textures/gui/util.png");
-		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+		GlStateManager.color(1F, 1F, 1F, 1F);
 		drawScaledCustomSizeModalRect(x + 1, y + 1, 1, 16, 0, 0, width - 2, height - 2, 256, 256);
 
 		drawScaledCustomSizeModalRect(x, y, 0, 15, 1, 1, 1, height - 1, 256, 256);
@@ -119,7 +119,7 @@ public class GuiUtils extends GuiScreen {
 		drawScaledCustomSizeModalRect(x + (width - 1), y, 2, 15, 1, 1, 1, 1, 256, 256);
 		drawScaledCustomSizeModalRect(x, y + (height - 1), 0, 17, 1, 1, 1, 1, 256, 256);
 	}
-
+	
 	/**
 	 * Renders an entity to the screen.
 	 * 

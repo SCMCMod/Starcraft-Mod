@@ -65,7 +65,7 @@ public class LarvaOption {
 				addChild(options[i]);
 			}
 		}
-		
+
 		this.tooltip = children.get(0).getTooltip();
 	}
 
@@ -76,18 +76,18 @@ public class LarvaOption {
 		int xx = x + 8;
 		int yy = y + 12;
 		int scale = 12;
-		
+
 		if (entity instanceof EntityHydralisk) {
 			scale = 4;
 			xx += 2;
 		}
-		
+
 		if (entity instanceof EntityZergling || entity instanceof EntityZerglingSwarmling || entity instanceof EntityZerglingRaptor) {
 			scale = 8;
 			yy += 2;
 		}
-		
-		if(renderingOveray) {
+
+		if (renderingOveray) {
 			xx = x + 8;
 			yy = y + 12;
 			scale = 12;
@@ -103,6 +103,7 @@ public class LarvaOption {
 			GuiUtils.drawEntityOnScreen(xx, yy, scale, 100, -50, entity);
 			GlStateManager.disableDepth();
 		}
+		GlStateManager.color(1, 1, 1, 1);
 	}
 
 	/**

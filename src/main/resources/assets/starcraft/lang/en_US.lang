@@ -579,6 +579,7 @@ gui.item_shop.tooltip.mineral_cost=Mineral Cost: %s
 gui.item_shop.tooltip.vespene_cost=Vespene Cost: %s
 gui.item_shop.no_minerals=No More Minerals!
 gui.item_shop.no_vespene=No More Vespene!
+gui.item_shop.christmas=Merry Christmas!
 
 gui.larva_morph.tooltip.mineral_cost=Mineral Cost: %s
 gui.larva_morph.tooltip.vespene_cost=Vespene Cost: %s

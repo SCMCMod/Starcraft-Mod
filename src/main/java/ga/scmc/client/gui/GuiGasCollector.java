@@ -54,10 +54,9 @@ public class GuiGasCollector extends GuiContainer {
 
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
-		drawDefaultBackground();
 		bindTexture();
 		drawTexturedModalRect((width - xSize) / 2, (height - ySize) / 2, 0, 0, this.xSize, this.ySize);
-		GlStateManager.color(1.0f, 1.0f, 1.0f, 1.0f);
+		GlStateManager.color(1F, 1F, 1F, 1F);
 		GlStateManager.pushMatrix();
 		{
 			GlStateManager.scale(0.5f, 0.5f, 0.5f);

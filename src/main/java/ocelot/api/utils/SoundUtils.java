@@ -17,47 +17,47 @@ import net.minecraft.init.SoundEvents;
  */
 public class SoundUtils {
 
-	private static final Minecraft MC = Minecraft.getMinecraft();
+	private static Minecraft mc = Minecraft.getMinecraft();
 
 	/**
 	 * Plays the default minecraft button click sound.
 	 */
 	public static void playButtonClick() {
-		MC.getSoundHandler().playSound(PositionedSoundRecord.getMasterRecord(SoundEvents.UI_BUTTON_CLICK, 1.0F));
+		mc.getSoundHandler().playSound(PositionedSoundRecord.getMasterRecord(SoundEvents.UI_BUTTON_CLICK, 1.0F));
 	}
 
 	/**
 	 * Stops all currently playing sounds.
 	 */
 	public static void stopAllSounds() {
-		MC.getSoundHandler().stopSounds();
+		mc.getSoundHandler().stopSounds();
 	}
 
 	/**
 	 * Pauses all currently playing sounds.
 	 */
 	public static void pauseAllSounds() {
-		MC.getSoundHandler().pauseSounds();
+		mc.getSoundHandler().pauseSounds();
 	}
 
 	/**
 	 * Resumes all currently playing sounds.
 	 */
 	public static void resumeAllSounds() {
-		MC.getSoundHandler().resumeSounds();
+		mc.getSoundHandler().resumeSounds();
 	}
 
 	/**
 	 * Unloads the sounds currently inside the sounds handler.
 	 */
 	public static void unloadSounds() {
-		MC.getSoundHandler().unloadSounds();
+		mc.getSoundHandler().unloadSounds();
 	}
 
 	/**
 	 * @return The sound used if a sound is missing.
 	 */
 	public static Sound getMissingSound() {
-		return MC.getSoundHandler().MISSING_SOUND;
+		return mc.getSoundHandler().MISSING_SOUND;
 	}
 }
