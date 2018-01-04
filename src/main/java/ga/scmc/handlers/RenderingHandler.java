@@ -112,6 +112,7 @@ import static ga.scmc.handlers.ItemHandler.SPAWNER_ZERG_SPAWNINGPOOL;
 import static ga.scmc.handlers.ItemHandler.SPAWNER_ZERG_SPIRE;
 import static ga.scmc.handlers.ItemHandler.STIMPACK;
 import static ga.scmc.handlers.ItemHandler.TERRAZINE;
+import static ga.scmc.handlers.ItemHandler.CARBOTIFIER;
 import static ga.scmc.handlers.ItemHandler.VESPENE;
 import static ga.scmc.handlers.ItemHandler.ZERG_CARAPACE;
 import static ga.scmc.handlers.MetaBlockHandler.COMP_METAL_T1;
@@ -405,6 +406,7 @@ public class RenderingHandler {
 
 		// registerItemRender(NUCLEAR_MISSILE);
 		registerItemRender(STIMPACK);
+		registerItemRender(CARBOTIFIER);
 
 		registerItemRender(MARINE_HELMET_VISOR);
 

@@ -331,6 +331,7 @@ item.terran.magazine.c14.name=C14 Rifle Magazine
 item.terran.magazine.flamethrower.name=Flamethrower Fuel
 
 item.stimpack.name=Stimpack
+item.carbotifier.name=Carbotifier
 
 item.terran.spawner.bunker.name=Bunker Spawner
 item.terran.spawner.barracks.name=Barracks Spawner

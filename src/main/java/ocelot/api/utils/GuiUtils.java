@@ -1,8 +1,12 @@
 package ocelot.api.utils;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.List;
 
-import com.arisux.mdx.lib.game.Game;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 
 import ga.scmc.api.Utils;
 import net.minecraft.client.Minecraft;
@@ -37,7 +41,7 @@ public class GuiUtils extends GuiScreen {
 	 */
 	public static void drawLines(List<String> lines, int x, int y, int color) {
 		for (int i = 0; i < lines.size(); i++) {
-			Game.fontRenderer().drawString(lines.get(i), x, y + (i * 8), color);
+			Minecraft.getMinecraft().fontRendererObj.drawString(lines.get(i), x, y + (i * 8), color);
 		}
 	}
 
@@ -83,19 +87,20 @@ public class GuiUtils extends GuiScreen {
 		TextureUtils.bindTexture("ocelotutil", "textures/gui/util.png");
 		GlStateManager.color(1F, 1F, 1F, 1F);
 
-		
+		int u = type.getU();
+		int v = type.getV();
 		int cellSize = type.getCellSize();
 
-		drawScaledCustomSizeModalRect(x + 5, y + 5, 5, 5, 5, 5, width - 10, height - 10, 256, 256);
-		// drawScaledCustomSizeModalRect(x, y + 5, 0, 5, 5, 5, 5, height - 10, 256, 256);
-		// drawScaledCustomSizeModalRect(x + width - 5, y + 5, 10, 5, 5, 5, 5, height - 10, 256, 256);
-		// drawScaledCustomSizeModalRect(x + 5, y + height - 5, 5, 10, 5, 5, width - 10, 5, 256, 256);
-		// drawScaledCustomSizeModalRect(x + 5, y, 5, 0, 5, 5, width - 10, 5, 256, 256);
-		//
-		// drawStaticTextureModelRect(x, y, 0, 0, 5, 5);
-		// drawStaticTextureModelRect(x + width - 5, y, 10, 0, 5, 5);
-		// drawStaticTextureModelRect(x, y + height - 5, 0, 10, 5, 5);
-		// drawStaticTextureModelRect(x + width - 5, y + height - 5, 10, 10, 5, 5);
+		drawScaledCustomSizeModalRect(x + cellSize, y + cellSize, u + cellSize, v + cellSize, cellSize, cellSize, width - cellSize * 2, height - cellSize * 2, 256, 256);
+		drawScaledCustomSizeModalRect(x, y + cellSize, u, v + cellSize, cellSize, cellSize, cellSize, height - cellSize * 2, 256, 256);
+		drawScaledCustomSizeModalRect(x + width - cellSize, y + cellSize, u + cellSize * 2, v + cellSize, cellSize, cellSize, cellSize, height - cellSize * 2, 256, 256);
+		drawScaledCustomSizeModalRect(x + cellSize, y + height - cellSize, u + cellSize, v + cellSize * 2, cellSize, cellSize, width - cellSize * 2, cellSize, 256, 256);
+		drawScaledCustomSizeModalRect(x + cellSize, y, u + cellSize, v, cellSize, cellSize, width - cellSize * 2, cellSize, 256, 256);
+
+		drawStaticTextureModelRect(x, y, u, v, cellSize, cellSize);
+		drawStaticTextureModelRect(x + width - cellSize, y, u + cellSize * 2, v, cellSize, cellSize);
+		drawStaticTextureModelRect(x, y + height - cellSize, u, v + cellSize * 2, cellSize, cellSize);
+		drawStaticTextureModelRect(x + width - cellSize, y + height - cellSize, u + cellSize * 2, v + cellSize * 2, cellSize, cellSize);
 	}
 
 	/**
@@ -208,8 +213,38 @@ public class GuiUtils extends GuiScreen {
 		tessellator.draw();
 	}
 
+	/**
+	 * Gets the username of a player based on the uuid given.
+	 * 
+	 * @param uuid
+	 *            The uuid of the player.
+	 * @return The name of the player if the uuid is valid
+	 */
+	public static String getPlayerName(String uuid) {
+		String name = null;
+		try {
+			URL url = new URL("https://sessionserver.mojang.com/session/minecraft/profile/" + uuid);
+			BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
+			StringBuilder sb = new StringBuilder();
+			String line;
+
+			while ((line = reader.readLine()) != null) {
+				sb.append(line + "\n");
+			}
+
+			JsonParser parser = new JsonParser();
+			JsonElement obj = parser.parse(sb.toString().trim());
+			name = obj.getAsJsonObject().get("name").getAsString();
+			reader.close();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			name = "Invalid UUID";
+		}
+		return name;
+	}
+
 	public enum EnumGuiType {
-		DEFAULT(0, 0, 3, 3, 5), BOOK(0, 0, 3, 3, 5);
+		DEFAULT(0, 0, 3, 3, 5), BOOK(15, 0, 3, 3, 5);
 
 		private int u, v, width, height, cellSize;
 

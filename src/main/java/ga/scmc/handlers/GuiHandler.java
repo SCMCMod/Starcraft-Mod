@@ -17,6 +17,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.items.CapabilityItemHandler;
+import ocelot.api.client.gui.GuiTest;
 
 /**
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
@@ -33,6 +34,7 @@ public class GuiHandler implements IGuiHandler {
 	/** The instance of Starcraft's GUI handler class */
 	public static final GuiHandler INSTANCE = new GuiHandler();
 
+	public static final int TEST_ID = -1;
 	public static final int GAS_COLLECTOR_ID = 0;
 	public static final int SHOP_ID = 1;
 	public static final int LARVA_MORPH_ID = 2;
@@ -56,6 +58,8 @@ public class GuiHandler implements IGuiHandler {
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		BlockPos pos = new BlockPos(x, y, z);
 		TileEntity te = world.getTileEntity(pos);
+		if(ID == TEST_ID)
+			return new GuiTest();
 		if (ID == GAS_COLLECTOR_ID)
 			return new GuiGasCollector(player, (TileEntityGasCollector) te);
 		if (ID == SHOP_ID)

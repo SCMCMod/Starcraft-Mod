@@ -1,4 +1,4 @@
-package ocelot.api.utils;
+package ga.scmc.lib;
 
 import ga.scmc.enums.EnumTeamColors;
 
@@ -48,8 +48,6 @@ public class StarcraftUtils {
 			return EnumTeamColors.RED.getId();
 		if (id == 12)
 			return EnumTeamColors.SILVER.getId();
-		if (id == 13)
-			return EnumTeamColors.WHITE.getId();
 		if (id == 14)
 			return EnumTeamColors.YELLOW.getId();
 
