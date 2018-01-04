@@ -10,6 +10,7 @@ import ocelot.api.client.gui.component.ComponentButton;
 import ocelot.api.client.gui.component.ComponentItem;
 import ocelot.api.client.gui.component.listener.MouseListener;
 import ocelot.api.utils.GuiUtils;
+import ocelot.api.utils.GuiUtils.EnumGuiType;
 
 /**
  * A gui that can be used for reference when trying to create a new custom one.
@@ -62,7 +63,7 @@ public class GuiTest extends GuiBase {
 
 	@Override
 	protected void renderGuiBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
-		GuiUtils.drawCustomSizeGui(guiLeft, guiTop, xSize, ySize, 0);
+		GuiUtils.drawCustomSizeGui(guiLeft, guiTop, xSize, ySize, EnumGuiType.DEFAULT);
 	}
 
 	@Override

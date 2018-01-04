@@ -79,19 +79,23 @@ public class GuiUtils extends GuiScreen {
 	 * @param zLevel
 	 *            <em> MAKE SURE NOT TO EDIT THIS VALUE UNLESS YOU KNOW WHAT YOU ARE DOING!!</em>
 	 */
-	public static void drawCustomSizeGui(int x, int y, int width, int height, float zLevel) {
-		TextureUtils.bindTexture("textures/gui/util.png");
+	public static void drawCustomSizeGui(int x, int y, int width, int height, EnumGuiType type) {
+		TextureUtils.bindTexture("ocelotutil", "textures/gui/util.png");
 		GlStateManager.color(1F, 1F, 1F, 1F);
-		drawScaledCustomSizeModalRect(x + 5, y + 5, 5, 5, 5, 5, width - 10, height - 10, 256, 256);
-		drawScaledCustomSizeModalRect(x, y + 5, 0, 5, 5, 5, 5, height - 10, 256, 256);
-		drawScaledCustomSizeModalRect(x + width - 5, y + 5, 10, 5, 5, 5, 5, height - 10, 256, 256);
-		drawScaledCustomSizeModalRect(x + 5, y + height - 5, 5, 10, 5, 5, width - 10, 5, 256, 256);
-		drawScaledCustomSizeModalRect(x + 5, y, 5, 0, 5, 5, width - 10, 5, 256, 256);
 
-		drawStaticTextureModelRect(x, y, 0, 0, 5, 5, zLevel);
-		drawStaticTextureModelRect(x + width - 5, y, 10, 0, 5, 5, zLevel);
-		drawStaticTextureModelRect(x, y + height - 5, 0, 10, 5, 5, zLevel);
-		drawStaticTextureModelRect(x + width - 5, y + height - 5, 10, 10, 5, 5, zLevel);
+		
+		int cellSize = type.getCellSize();
+
+		drawScaledCustomSizeModalRect(x + 5, y + 5, 5, 5, 5, 5, width - 10, height - 10, 256, 256);
+		// drawScaledCustomSizeModalRect(x, y + 5, 0, 5, 5, 5, 5, height - 10, 256, 256);
+		// drawScaledCustomSizeModalRect(x + width - 5, y + 5, 10, 5, 5, 5, 5, height - 10, 256, 256);
+		// drawScaledCustomSizeModalRect(x + 5, y + height - 5, 5, 10, 5, 5, width - 10, 5, 256, 256);
+		// drawScaledCustomSizeModalRect(x + 5, y, 5, 0, 5, 5, width - 10, 5, 256, 256);
+		//
+		// drawStaticTextureModelRect(x, y, 0, 0, 5, 5);
+		// drawStaticTextureModelRect(x + width - 5, y, 10, 0, 5, 5);
+		// drawStaticTextureModelRect(x, y + height - 5, 0, 10, 5, 5);
+		// drawStaticTextureModelRect(x + width - 5, y + height - 5, 10, 10, 5, 5);
 	}
 
 	/**
@@ -107,7 +111,7 @@ public class GuiUtils extends GuiScreen {
 	 *            The height of the slot
 	 */
 	public static void drawSlot(int x, int y, int width, int height) {
-		TextureUtils.bindTexture("textures/gui/util.png");
+		TextureUtils.bindTexture("ocelotutil", "textures/gui/util.png");
 		GlStateManager.color(1F, 1F, 1F, 1F);
 		drawScaledCustomSizeModalRect(x + 1, y + 1, 1, 16, 0, 0, width - 2, height - 2, 256, 256);
 
@@ -119,7 +123,7 @@ public class GuiUtils extends GuiScreen {
 		drawScaledCustomSizeModalRect(x + (width - 1), y, 2, 15, 1, 1, 1, 1, 256, 256);
 		drawScaledCustomSizeModalRect(x, y + (height - 1), 0, 17, 1, 1, 1, 1, 256, 256);
 	}
-	
+
 	/**
 	 * Renders an entity to the screen.
 	 * 
@@ -190,7 +194,8 @@ public class GuiUtils extends GuiScreen {
 	 * @param zLevel
 	 *            <em> MAKE SURE NOT TO EDIT THIS VALUE UNLESS YOU KNOW WHAT YOU ARE DOING!!</em>
 	 */
-	private static void drawStaticTextureModelRect(float x, float y, int minU, int minV, int maxU, int maxV, float zLevel) {
+	private static void drawStaticTextureModelRect(float x, float y, int minU, int minV, int maxU, int maxV) {
+		float zLevel = 0;
 		float f = 0.00390625F;
 		float f1 = 0.00390625F;
 		Tessellator tessellator = Tessellator.getInstance();
@@ -201,5 +206,39 @@ public class GuiUtils extends GuiScreen {
 		vertexbuffer.pos((double) (x + (float) maxU), (double) (y + 0.0F), (double) zLevel).tex((double) ((float) (minU + maxU) * 0.00390625F), (double) ((float) (minV + 0) * 0.00390625F)).endVertex();
 		vertexbuffer.pos((double) (x + 0.0F), (double) (y + 0.0F), (double) zLevel).tex((double) ((float) (minU + 0) * 0.00390625F), (double) ((float) (minV + 0) * 0.00390625F)).endVertex();
 		tessellator.draw();
+	}
+
+	public enum EnumGuiType {
+		DEFAULT(0, 0, 3, 3, 5), BOOK(0, 0, 3, 3, 5);
+
+		private int u, v, width, height, cellSize;
+
+		private EnumGuiType(int u, int v, int width, int height, int cellSize) {
+			this.u = u;
+			this.v = v;
+			this.width = width;
+			this.height = height;
+			this.cellSize = cellSize;
+		}
+
+		public int getU() {
+			return u;
+		}
+
+		public int getV() {
+			return v;
+		}
+
+		public int getWidth() {
+			return width;
+		}
+
+		public int getHeight() {
+			return height;
+		}
+
+		public int getCellSize() {
+			return cellSize;
+		}
 	}
 }

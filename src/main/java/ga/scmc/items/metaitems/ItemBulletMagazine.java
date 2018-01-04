@@ -96,7 +96,7 @@ public class ItemBulletMagazine extends Item {
 		}
 	}
 
-	public ItemStack getDefaultStack(int type) {
+	public static ItemStack getDefaultStack(int type) {
 		ItemStack stack = new ItemStack(ItemHandler.BULLET_MAGAZINE, 1, type);
 		NBTTagCompound nbt = new NBTTagCompound();
 		nbt.setInteger("BulletCount", EnumMetaItem.BulletMagazineType.values()[type].getBulletCount());
@@ -112,7 +112,7 @@ public class ItemBulletMagazine extends Item {
 	 *            The stack to get the count from
 	 * @return The amount of bullets found in the magazine if the stack is one
 	 */
-	public int getBulletCount(ItemStack stack) {
+	public static int getBulletCount(ItemStack stack) {
 		int count = 0;
 		if (stack != null && stack.hasTagCompound() && stack.getTagCompound().hasKey("BulletCount")) {
 			count = stack.getTagCompound().getInteger("BulletCount");
