@@ -5,10 +5,12 @@ import ga.scmc.client.gui.GuiGasCollector;
 import ga.scmc.client.gui.GuiItemShop;
 import ga.scmc.client.gui.GuiLarvaMorph;
 import ga.scmc.client.gui.GuiLarvaProgress;
+import ga.scmc.client.gui.GuiLog;
 import ga.scmc.client.gui.GuiStarcraftFurnace;
 import ga.scmc.container.ContainerGasCollector;
 import ga.scmc.container.ContainerStarcraftFurnace;
 import ga.scmc.enums.EnumWorldType;
+import ga.scmc.items.ItemLog.EnumLogType;
 import ga.scmc.tileentity.TileEntityGasCollector;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
@@ -39,10 +41,11 @@ public class GuiHandler implements IGuiHandler {
 	public static final int SHOP_ID = 1;
 	public static final int LARVA_MORPH_ID = 2;
 	public static final int LARVA_PROGRESS_ID = 3;
+	public static final int LOG = 4;
 
-	public static final int CHAR_FURNACE = 4;
-	public static final int SHAKURAS_FURNACE = 5;
-	public static final int SLAYN_FURNACE = 6;
+	public static final int CHAR_FURNACE = 5;
+	public static final int SHAKURAS_FURNACE = 6;
+	public static final int SLAYN_FURNACE = 7;
 
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
@@ -58,7 +61,7 @@ public class GuiHandler implements IGuiHandler {
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		BlockPos pos = new BlockPos(x, y, z);
 		TileEntity te = world.getTileEntity(pos);
-		if(ID == TEST_ID)
+		if (ID == TEST_ID)
 			return new GuiTest();
 		if (ID == GAS_COLLECTOR_ID)
 			return new GuiGasCollector(player, (TileEntityGasCollector) te);
@@ -66,9 +69,10 @@ public class GuiHandler implements IGuiHandler {
 			return new GuiItemShop(player);
 		if (ID == LARVA_MORPH_ID)
 			return new GuiLarvaMorph();
-		if (ID == LARVA_PROGRESS_ID) {
+		if (ID == LARVA_PROGRESS_ID)
 			return new GuiLarvaProgress();
-		}
+		if (ID == LOG)
+			return new GuiLog(EnumLogType.values()[x]);
 		if (ID == CHAR_FURNACE)
 			return new GuiStarcraftFurnace(player, te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), EnumWorldType.CHAR, pos);
 		if (ID == SHAKURAS_FURNACE)

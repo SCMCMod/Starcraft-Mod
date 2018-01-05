@@ -22,15 +22,17 @@ public class ComponentItem extends Component {
 	@Override
 	public void renderBackground(Minecraft mc, float partialTicks, int mouseX, int mouseY) {
 		if (stack != null) {
+			GlStateManager.pushMatrix();
+			GlStateManager.translate(parent.getX(), parent.getY(), 0);
 			GlStateManager.scale(width / 16, height / 16, 1);
 			mc.getRenderItem().renderItemIntoGUI(stack, x / (width / 16), y / (height / 16));
+			GlStateManager.popMatrix();
 		}
 	}
 
 	@Override
 	public void renderForeground(Minecraft mc, float partialTicks, int mouseX, int mouseY) {
 		if (stack != null) {
-			GlStateManager.translate(-x, -y, 0);
 			mc.getRenderItem().renderItemOverlays(mc.fontRendererObj, stack, x / (width / 16), y / (height / 16));
 		}
 	}

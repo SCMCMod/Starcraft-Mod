@@ -4,6 +4,7 @@ import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.items.ItemC14GaussRifle;
 import ga.scmc.items.ItemCarbotifier;
 import ga.scmc.items.ItemFlamethrower;
+import ga.scmc.items.ItemLog;
 import ga.scmc.items.ItemMarineHelmetVisor;
 import ga.scmc.items.ItemPhosphorus;
 import ga.scmc.items.ItemStimpack;
@@ -67,6 +68,7 @@ public class ItemHandler {
 	public static Item NUCLEAR_MISSILE;
 	public static Item STIMPACK;
 	public static Item CARBOTIFIER;
+	public static Item LOG;
 
 	public static Item GAS_CONTAINER;
 	public static Item VESPENE;
@@ -131,6 +133,7 @@ public class ItemHandler {
 		NUCLEAR_MISSILE = new Item().setUnlocalizedName("terran.nuclearmisile").setRegistryName("terran.nuclearmisile").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 		STIMPACK = new ItemStimpack();
 		CARBOTIFIER = new ItemCarbotifier();
+		LOG = new ItemLog();
 
 		MARINE_HELMET_VISOR = new ItemMarineHelmetVisor();
 
@@ -202,6 +205,7 @@ public class ItemHandler {
 		// registerItem(NUCLEAR_MISSILE);
 		registerItem(STIMPACK);
 		registerItem(CARBOTIFIER);
+		registerItem(LOG);
 
 		registerItem(MARINE_HELMET_VISOR);
 

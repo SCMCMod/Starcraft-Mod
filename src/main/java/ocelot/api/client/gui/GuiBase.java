@@ -83,11 +83,14 @@ public abstract class GuiBase extends GuiScreen {
 		renderTooltips(mouseX, mouseY);
 	}
 
-	protected abstract void renderGuiBackgroundLayer(float partialTicks, int mouseX, int mouseY);
+	protected void renderGuiBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
+	}
 
-	protected abstract void renderCenterLayer(int mouseX, int mouseY);
+	protected void renderCenterLayer(int mouseX, int mouseY) {
+	}
 
-	protected abstract void renderGuiForegroundLayer(int mouseX, int mouseY);
+	protected void renderGuiForegroundLayer(int mouseX, int mouseY) {
+	}
 
 	protected void renderTooltips(int mouseX, int mouseY) {
 	}
@@ -157,9 +160,29 @@ public abstract class GuiBase extends GuiScreen {
 		}
 	}
 
-	protected void addComponent(Component component) {
-		component.setX(this.guiLeft + component.getX());
-		component.setY(this.guiTop + component.getY());
+	public void addComponent(Component component) {
+		component.setParent(this);
+		component.onAddComponent();
 		components.add(component);
+	}
+	
+	public void clearComponents() {
+		components.clear();
+	}
+
+	public int getX() {
+		return guiLeft;
+	}
+
+	public int getY() {
+		return guiTop;
+	}
+
+	public int getWidth() {
+		return xSize;
+	}
+
+	public int getHeight() {
+		return ySize;
 	}
 }
