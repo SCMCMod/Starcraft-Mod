@@ -6,6 +6,8 @@ import ga.scmc.client.gui.GuiItemShop;
 import ga.scmc.client.gui.GuiLarvaMorph;
 import ga.scmc.client.gui.GuiLarvaProgress;
 import ga.scmc.client.gui.GuiLog;
+import ga.scmc.client.gui.GuiPlayerMessage;
+import ga.scmc.client.gui.GuiPlayerMessage.EnumPlayerMessageType;
 import ga.scmc.client.gui.GuiStarcraftFurnace;
 import ga.scmc.container.ContainerGasCollector;
 import ga.scmc.container.ContainerStarcraftFurnace;
@@ -42,10 +44,11 @@ public class GuiHandler implements IGuiHandler {
 	public static final int LARVA_MORPH_ID = 2;
 	public static final int LARVA_PROGRESS_ID = 3;
 	public static final int LOG = 4;
+	public static final int PLAYER_MESSAGE = 5;
 
-	public static final int CHAR_FURNACE = 5;
-	public static final int SHAKURAS_FURNACE = 6;
-	public static final int SLAYN_FURNACE = 7;
+	public static final int CHAR_FURNACE = 6;
+	public static final int SHAKURAS_FURNACE = 7;
+	public static final int SLAYN_FURNACE = 8;
 
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
@@ -73,6 +76,8 @@ public class GuiHandler implements IGuiHandler {
 			return new GuiLarvaProgress();
 		if (ID == LOG)
 			return new GuiLog(EnumLogType.values()[x]);
+		if (ID == PLAYER_MESSAGE)
+			return new GuiPlayerMessage(EnumPlayerMessageType.values()[x & EnumPlayerMessageType.values().length - 1]);
 		if (ID == CHAR_FURNACE)
 			return new GuiStarcraftFurnace(player, te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), EnumWorldType.CHAR, pos);
 		if (ID == SHAKURAS_FURNACE)

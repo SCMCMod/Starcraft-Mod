@@ -9,6 +9,7 @@ import org.apache.commons.lang3.tuple.Pair;
 
 import com.google.common.collect.Lists;
 
+import ga.scmc.client.renderer.RenderUtil;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
@@ -100,6 +101,10 @@ public abstract class ItemRenderer implements IPerspectiveAwareModel, IBakedMode
 
 	public ResourceLocation getResourceLocation() {
 		return resource;
+	}
+	
+	protected void bindTexture() {
+		RenderUtil.bindTexture(resource);
 	}
 
 	@Override

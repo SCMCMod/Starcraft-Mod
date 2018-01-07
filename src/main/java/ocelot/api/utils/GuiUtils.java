@@ -83,7 +83,7 @@ public class GuiUtils extends GuiScreen {
 	 * @param zLevel
 	 *            <em> MAKE SURE NOT TO EDIT THIS VALUE UNLESS YOU KNOW WHAT YOU ARE DOING!!</em>
 	 */
-	public static void drawCustomSizeGui(int x, int y, int width, int height, EnumGuiType type) {
+	public static void drawCustomSizeGui(int x, int y, int width, int height, GuiType type) {
 		TextureUtils.bindTexture("ocelotutil", "textures/gui/util.png");
 		GlStateManager.color(1F, 1F, 1F, 1F);
 
@@ -243,12 +243,14 @@ public class GuiUtils extends GuiScreen {
 		return name;
 	}
 
-	public enum EnumGuiType {
-		DEFAULT(0, 0, 3, 3, 5), BOOK(15, 0, 3, 3, 5);
+	public static class GuiType {
+		
+		public static final GuiType DEFAULT = new GuiType(0, 0, 3, 3, 5);
+		public static final GuiType BOOK = new GuiType(15, 0, 3, 3, 5);
 
 		private int u, v, width, height, cellSize;
 
-		private EnumGuiType(int u, int v, int width, int height, int cellSize) {
+		private GuiType(int u, int v, int width, int height, int cellSize) {
 			this.u = u;
 			this.v = v;
 			this.width = width;

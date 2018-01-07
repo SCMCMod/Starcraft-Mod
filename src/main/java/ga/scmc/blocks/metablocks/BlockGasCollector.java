@@ -74,7 +74,7 @@ public class BlockGasCollector extends Block implements IMetaBlockName, ITileEnt
 	@Override
 	public SoundType getSoundType(IBlockState state, World world, BlockPos pos, Entity entity) {
 		if (world.getBlockState(pos) == this.getDefaultState().withProperty(TYPE, GasCollectorType.ZERG)) {
-			return SoundTypes.ZERG_FLESH;
+			return SoundTypes.FLESH;
 		} else {
 			return SoundType.METAL;
 		}

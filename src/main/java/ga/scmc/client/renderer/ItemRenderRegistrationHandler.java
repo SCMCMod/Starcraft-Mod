@@ -6,6 +6,7 @@ import ga.scmc.client.renderer.items.ItemRenderFlamethrower;
 import ga.scmc.client.renderer.items.ItemRenderModelArmorItem;
 import ga.scmc.client.renderer.items.ItemRenderStarcraftSkull;
 import ga.scmc.client.renderer.items.ItemRenderTable;
+import ga.scmc.client.renderer.items.ItemRenderZerusGlowPod;
 import ga.scmc.client.renderer.model.IArmorItem;
 import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.BlockHandler;
@@ -35,6 +36,7 @@ public class ItemRenderRegistrationHandler {
 		registerItemModel(ItemHandler.FLAMETHROWER, new ItemRenderFlamethrower());
 		registerItemModel(BlockHandler.TEST, new ItemRenderTable());
 		registerItemModel(Item.getItemFromBlock(BlockHandler.STARCRAFT_SKULL), new ItemRenderStarcraftSkull());
+		registerItemModel(Item.getItemFromBlock(BlockHandler.FLORA_ZERUS_GLOW_POD), new ItemRenderZerusGlowPod());
 
 		registerItemModel(ArmorHandler.TERRAN_MARINE_T1_HELMET, new ItemRenderModelArmorItem(EntityEquipmentSlot.HEAD, (IArmorItem) Starcraft.proxy.getArmorModel(6), ArmorHandler.TERRAN_MARINE_ARMOR_MATERIAL_T1));
 		registerItemModel(ArmorHandler.TERRAN_MARINE_T1_CHESTPLATE, new ItemRenderModelArmorItem(EntityEquipmentSlot.CHEST, (IArmorItem) Starcraft.proxy.getArmorModel(6), ArmorHandler.TERRAN_MARINE_ARMOR_MATERIAL_T1));

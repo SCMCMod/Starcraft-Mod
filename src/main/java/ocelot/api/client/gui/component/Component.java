@@ -40,7 +40,9 @@ public abstract class Component extends Gui {
 	public void renderTooltips(int mouseX, int mouseY) {
 	}
 
-	public boolean isHovered(Minecraft mc, int mouseX, int mouseY) {
+	public boolean isHovered(int mouseX, int mouseY) {
+		mouseX -= parent.getX();
+		mouseY -= parent.getY();
 		return this.visible && mouseX >= this.x && mouseY >= this.y && mouseX < this.x + this.width && mouseY < this.y + this.height;
 	}
 
@@ -53,7 +55,7 @@ public abstract class Component extends Gui {
 		if (mouseListener != null)
 			mouseListener.mouseReleased(mouseButton, mouseX, mouseY);
 	}
-	
+
 	public void onAddComponent() {
 	}
 
@@ -100,7 +102,7 @@ public abstract class Component extends Gui {
 	public void setMouseListener(MouseListener mouseListener) {
 		this.mouseListener = mouseListener;
 	}
-	
+
 	public void setParent(GuiBase parent) {
 		this.parent = parent;
 	}

@@ -10,8 +10,9 @@ import ocelot.api.client.gui.component.ComponentBookPage;
 public abstract class GuiBookBase extends GuiBase {
 
 	protected List<ComponentBookPage> pages;
-	protected int page;
-	protected int maxPages;
+
+	private int maxPages;
+	private int page;
 
 	public GuiBookBase(int xSize, int ySize) {
 		super(xSize, ySize);
@@ -21,6 +22,7 @@ public abstract class GuiBookBase extends GuiBase {
 
 	@Override
 	public void initGui() {
+		this.page = 0;
 		this.initText();
 		super.initGui();
 
@@ -28,11 +30,24 @@ public abstract class GuiBookBase extends GuiBase {
 			addComponent(pages.get(i));
 		}
 
-		this.page = 0;
-		this.maxPages = 1;
+		this.maxPages = pages.size();
 	}
 
 	protected abstract void initText();
+
+	protected void setPage(int page) {
+		page -= 1;
+		if (page > maxPages)
+			page = maxPages;
+		if (page < 0)
+			page = 0;
+		this.page = page;
+
+		for (int i = 0; i < pages.size(); i++) {
+			pages.get(i).setVisible(false);
+		}
+		pages.get(page).setVisible(true);
+	}
 
 	@Override
 	public void updateScreen() {
@@ -41,11 +56,7 @@ public abstract class GuiBookBase extends GuiBase {
 
 	@Override
 	protected void renderGuiForegroundLayer(int mouseX, int mouseY) {
-		this.fontRendererObj.drawString(page + 1 + "/" + maxPages, xSize - fontRendererObj.getStringWidth(page + "/" + maxPages) - 10, 8, 0);
-	}
-
-	protected void setBody(String... body) {
-
+		this.fontRendererObj.drawString(page + 1 + "/" + maxPages, xSize - fontRendererObj.getStringWidth(page + 1 + "/" + maxPages) - 10, 8, 0);
 	}
 
 	protected void addLine(String text) {
@@ -61,8 +72,15 @@ public abstract class GuiBookBase extends GuiBase {
 	}
 
 	protected void addPage() {
-		maxPages += 1;
 		pages.add(new ComponentBookPage(this));
+		maxPages = pages.size();
+	}
+
+	protected void removePage() {
+		if (maxPages > 1) {
+			pages.remove(maxPages - 1);
+			maxPages = pages.size();
+		}
 	}
 
 	protected String[] getLinesFromString(String string, int width) {
@@ -75,8 +93,6 @@ public abstract class GuiBookBase extends GuiBase {
 		for (int i = 0; i < string.length(); i++) {
 			if (ChatAllowedCharacters.isAllowedCharacter(string.charAt(i))) {
 				builder.append(string.charAt(i));
-			} else {
-				System.out.println(string.charAt(i) + " is not a valid character");
 			}
 		}
 		return builder.toString();

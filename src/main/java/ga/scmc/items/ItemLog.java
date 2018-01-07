@@ -1,6 +1,7 @@
 package ga.scmc.items;
 
 import ga.scmc.Starcraft;
+import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.handlers.GuiHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,7 +16,7 @@ public class ItemLog extends Item {
 	public ItemLog() {
 		setRegistryName("log");
 		setUnlocalizedName("log");
-		setCreativeTab(null);
+		setCreativeTab(StarcraftCreativeTabs.MISC);
 	}
 	
 	@Override

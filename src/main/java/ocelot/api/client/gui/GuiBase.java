@@ -100,7 +100,7 @@ public abstract class GuiBase extends GuiScreen {
 		for (int i = 0; i < this.components.size(); ++i) {
 			Component component = (Component) this.components.get(i);
 
-			if (component.isHovered(this.mc, mouseX, mouseY)) {
+			if (component.isHovered(mouseX, mouseY)) {
 				this.selectedComonent = component;
 				component.mousePressed(mouseButton, mouseX, mouseY);
 			}
@@ -165,9 +165,13 @@ public abstract class GuiBase extends GuiScreen {
 		component.onAddComponent();
 		components.add(component);
 	}
-	
+
 	public void clearComponents() {
 		components.clear();
+	}
+
+	public List<Component> getComponents() {
+		return components;
 	}
 
 	public int getX() {

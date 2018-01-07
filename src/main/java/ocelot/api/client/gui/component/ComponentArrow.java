@@ -13,11 +13,11 @@ public class ComponentArrow extends Component {
 	public String displayString;
 	public boolean enabled;
 	protected boolean hovered;
-	
+
 	public ComponentArrow(int x, int y, int width, int height) {
 		super(x, y, width, height);
 	}
-	
+
 	protected int getHoverState(boolean mouseOver) {
 		int i = 1;
 
@@ -58,8 +58,8 @@ public class ComponentArrow extends Component {
 	}
 
 	@Override
-	public boolean isHovered(Minecraft mc, int mouseX, int mouseY) {
-		return this.enabled && super.isHovered(mc, mouseX, mouseY);
+	public boolean isHovered(int mouseX, int mouseY) {
+		return this.enabled && super.isHovered(mouseX, mouseY);
 	}
 
 	@Override

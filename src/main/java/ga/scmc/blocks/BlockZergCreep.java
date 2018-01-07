@@ -34,7 +34,7 @@ public class BlockZergCreep extends Block {
 		super(Material.GROUND, MapColor.BLACK);
 		setUnlocalizedName("zerg.creep");
 		setRegistryName("zerg.creep");
-		setSoundType(SoundTypes.ZERG_FLESH);
+		setSoundType(SoundTypes.FLESH);
 		setHardness(5.0F);
 		setResistance(5.0F);
 		setHarvestLevel("shovel", 2);

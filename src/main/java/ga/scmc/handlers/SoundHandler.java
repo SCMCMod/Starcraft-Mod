@@ -133,10 +133,10 @@ public class SoundHandler {
 	public static class SoundTypes {
 
 		/** @author Ocelot5836 */
-		public static SoundType ZERG_FLESH;
+		public static SoundType FLESH;
 
 		private static void register() {
-			ZERG_FLESH = new SoundType(0.5f, 1.0f, SoundHandler.BLOCK_FLESH_BREAK, SoundHandler.BLOCK_FLESH_STEP, SoundHandler.BLOCK_FLESH_PLACE, SoundHandler.BLOCK_FLESH_HIT, SoundHandler.BLOCK_FLESH_FALL);
+			FLESH = new SoundType(0.5f, 1.0f, SoundHandler.BLOCK_FLESH_BREAK, SoundHandler.BLOCK_FLESH_STEP, SoundHandler.BLOCK_FLESH_PLACE, SoundHandler.BLOCK_FLESH_HIT, SoundHandler.BLOCK_FLESH_FALL);
 		}
 	}
 

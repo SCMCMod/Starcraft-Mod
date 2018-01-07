@@ -66,8 +66,8 @@ public class ComponentButton extends Component {
 	}
 
 	@Override
-	public boolean isHovered(Minecraft mc, int mouseX, int mouseY) {
-		return this.enabled && super.isHovered(mc, mouseX, mouseY);
+	public boolean isHovered(int mouseX, int mouseY) {
+		return this.enabled && super.isHovered(mouseX, mouseY);
 	}
 
 	@Override

@@ -525,11 +525,59 @@ public class ModelZergArmorT2 extends ModelArmorBase implements IArmorItem {
 		case FIXED:
 			break;
 		case GROUND:
+			GlStateManager.scale(2, 2, 2);
+			GlStateManager.translate(0, scale * 6 - 0.8, 0);
+			GlStateManager.scale(0.8, 0.8, 0.8);
+			break;
+		case GUI:
+			GlStateManager.scale(1.5, 1.5, 1.5);
+			GlStateManager.translate(0.05, scale * 12 - 0.9, 0);
+			ModelUtils.rotateDefaultBlockGui();
+			GlStateManager.rotate(90, 0, 1, 0);
+			break;
+		case HEAD:
+			break;
+		case NONE:
+			break;
+		case THIRD_PERSON_LEFT_HAND:
+			ModelUtils.rotateDefaultBlockThirdperson(EnumHandSide.LEFT);
+			GlStateManager.scale(1.5, 1.5, 1.5);
+			GlStateManager.translate(0, -0.4, 0);
+			break;
+		case THIRD_PERSON_RIGHT_HAND:
+			ModelUtils.rotateDefaultBlockThirdperson(EnumHandSide.RIGHT);
+			GlStateManager.scale(1.5, 1.5, 1.5);
+			GlStateManager.translate(0, -0.4, 0);
+			break;
+		}
+
+		GlStateManager.translate(0, 1, 0);
+		this.leggings_lLegCarapace.render(scale);
+		this.leggings_rLegCarapace.render(scale);
+		GlStateManager.popMatrix();
+	}
+
+	@Override
+	public void renderBoots(TransformType type, Entity entity, float scale) {
+		GlStateManager.pushMatrix();
+		GlStateManager.translate(0, 1.5, 0);
+		GlStateManager.rotate(180, 1, 0, 0);
+
+		switch (type) {
+		case FIRST_PERSON_LEFT_HAND:
+			ModelUtils.rotateDefaultBlockFirstperson(EnumHandSide.LEFT);
+			break;
+		case FIRST_PERSON_RIGHT_HAND:
+			ModelUtils.rotateDefaultBlockFirstperson(EnumHandSide.RIGHT);
+			break;
+		case FIXED:
+			break;
+		case GROUND:
 			GlStateManager.translate(0, scale * 6, 0);
 			GlStateManager.scale(0.8, 0.8, 0.8);
 			break;
 		case GUI:
-			GlStateManager.translate(0, scale * 12, 0);
+			GlStateManager.translate(0, scale * 12 - 0.2, 0);
 			ModelUtils.rotateDefaultBlockGui();
 			GlStateManager.rotate(90, 0, 1, 0);
 			GlStateManager.scale(0.8, 0.8, 0.8);
@@ -546,13 +594,10 @@ public class ModelZergArmorT2 extends ModelArmorBase implements IArmorItem {
 			break;
 		}
 
-		this.lLeg.render(scale);
-		this.rLeg.render(scale);
+		GlStateManager.translate(-0.152, 0.9, 0);
+		this.boots_lFlesh01.render(scale);
+		GlStateManager.translate(0.32, 0, 0);
+		this.boots_rFlesh01.render(scale);
 		GlStateManager.popMatrix();
-	}
-
-	@Override
-	public void renderBoots(TransformType type, Entity entity, float scale) {
-		renderLeggings(type, entity, scale);
 	}
 }
