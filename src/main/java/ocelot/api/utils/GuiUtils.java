@@ -19,13 +19,15 @@ import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * <em><b>Copyright (c) 2017 Ocelot5836.</b></em>
  * 
  * @author Ocelot5836
  */
-public class GuiUtils extends GuiScreen {
+public class GuiUtils {
 
 	/**
 	 * Draws an array of lines to a gui.
@@ -83,6 +85,7 @@ public class GuiUtils extends GuiScreen {
 	 * @param zLevel
 	 *            <em> MAKE SURE NOT TO EDIT THIS VALUE UNLESS YOU KNOW WHAT YOU ARE DOING!!</em>
 	 */
+	@SideOnly(Side.CLIENT)
 	public static void drawCustomSizeGui(int x, int y, int width, int height, GuiType type) {
 		TextureUtils.bindTexture("ocelotutil", "textures/gui/util.png");
 		GlStateManager.color(1F, 1F, 1F, 1F);
@@ -91,11 +94,11 @@ public class GuiUtils extends GuiScreen {
 		int v = type.getV();
 		int cellSize = type.getCellSize();
 
-		drawScaledCustomSizeModalRect(x + cellSize, y + cellSize, u + cellSize, v + cellSize, cellSize, cellSize, width - cellSize * 2, height - cellSize * 2, 256, 256);
-		drawScaledCustomSizeModalRect(x, y + cellSize, u, v + cellSize, cellSize, cellSize, cellSize, height - cellSize * 2, 256, 256);
-		drawScaledCustomSizeModalRect(x + width - cellSize, y + cellSize, u + cellSize * 2, v + cellSize, cellSize, cellSize, cellSize, height - cellSize * 2, 256, 256);
-		drawScaledCustomSizeModalRect(x + cellSize, y + height - cellSize, u + cellSize, v + cellSize * 2, cellSize, cellSize, width - cellSize * 2, cellSize, 256, 256);
-		drawScaledCustomSizeModalRect(x + cellSize, y, u + cellSize, v, cellSize, cellSize, width - cellSize * 2, cellSize, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x + cellSize, y + cellSize, u + cellSize, v + cellSize, cellSize, cellSize, width - cellSize * 2, height - cellSize * 2, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x, y + cellSize, u, v + cellSize, cellSize, cellSize, cellSize, height - cellSize * 2, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x + width - cellSize, y + cellSize, u + cellSize * 2, v + cellSize, cellSize, cellSize, cellSize, height - cellSize * 2, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x + cellSize, y + height - cellSize, u + cellSize, v + cellSize * 2, cellSize, cellSize, width - cellSize * 2, cellSize, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x + cellSize, y, u + cellSize, v, cellSize, cellSize, width - cellSize * 2, cellSize, 256, 256);
 
 		drawStaticTextureModelRect(x, y, u, v, cellSize, cellSize);
 		drawStaticTextureModelRect(x + width - cellSize, y, u + cellSize * 2, v, cellSize, cellSize);
@@ -115,18 +118,19 @@ public class GuiUtils extends GuiScreen {
 	 * @param height
 	 *            The height of the slot
 	 */
+	@SideOnly(Side.CLIENT)
 	public static void drawSlot(int x, int y, int width, int height) {
 		TextureUtils.bindTexture("ocelotutil", "textures/gui/util.png");
 		GlStateManager.color(1F, 1F, 1F, 1F);
-		drawScaledCustomSizeModalRect(x + 1, y + 1, 1, 16, 0, 0, width - 2, height - 2, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x + 1, y + 1, 1, 16, 0, 0, width - 2, height - 2, 256, 256);
 
-		drawScaledCustomSizeModalRect(x, y, 0, 15, 1, 1, 1, height - 1, 256, 256);
-		drawScaledCustomSizeModalRect(x + 1, y, 0, 15, 1, 1, width - 2, 1, 256, 256);
-		drawScaledCustomSizeModalRect(x + (width - 1), y, 2, 16, 1, 1, 1, height - 1, 256, 256);
-		drawScaledCustomSizeModalRect(x + 1, y + (height - 1), 1, 17, 1, 1, width - 1, 1, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x, y, 0, 15, 1, 1, 1, height - 1, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x + 1, y, 0, 15, 1, 1, width - 2, 1, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x + (width - 1), y, 2, 16, 1, 1, 1, height - 1, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x + 1, y + (height - 1), 1, 17, 1, 1, width - 1, 1, 256, 256);
 
-		drawScaledCustomSizeModalRect(x + (width - 1), y, 2, 15, 1, 1, 1, 1, 256, 256);
-		drawScaledCustomSizeModalRect(x, y + (height - 1), 0, 17, 1, 1, 1, 1, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x + (width - 1), y, 2, 15, 1, 1, 1, 1, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x, y + (height - 1), 0, 17, 1, 1, 1, 1, 256, 256);
 	}
 
 	/**
@@ -145,6 +149,7 @@ public class GuiUtils extends GuiScreen {
 	 * @param entity
 	 *            The entity to render
 	 */
+	@SideOnly(Side.CLIENT)
 	public static void drawEntityOnScreen(int x, int y, int scale, float mouseX, float mouseY, EntityLivingBase entity) {
 		if (entity != null) {
 			GlStateManager.enableColorMaterial();
@@ -199,6 +204,7 @@ public class GuiUtils extends GuiScreen {
 	 * @param zLevel
 	 *            <em> MAKE SURE NOT TO EDIT THIS VALUE UNLESS YOU KNOW WHAT YOU ARE DOING!!</em>
 	 */
+	@SideOnly(Side.CLIENT)
 	private static void drawStaticTextureModelRect(float x, float y, int minU, int minV, int maxU, int maxV) {
 		float zLevel = 0;
 		float f = 0.00390625F;
@@ -244,7 +250,7 @@ public class GuiUtils extends GuiScreen {
 	}
 
 	public static class GuiType {
-		
+
 		public static final GuiType DEFAULT = new GuiType(0, 0, 3, 3, 5);
 		public static final GuiType BOOK = new GuiType(15, 0, 3, 3, 5);
 

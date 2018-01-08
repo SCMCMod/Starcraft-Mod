@@ -13,7 +13,7 @@ import net.minecraft.util.IStringSerializable;
 public class EnumMetaItem {
 
 	public enum BulletMagazineType implements IStringSerializable {
-		C14("c14", 0, 32), FLAMETHROWER("flamethrower", 1, 50);
+		C14("c14", 0, 32), FLAMETHROWER("flamethrower", 1, 100);
 
 		private int bulletCount;
 		private int ID;

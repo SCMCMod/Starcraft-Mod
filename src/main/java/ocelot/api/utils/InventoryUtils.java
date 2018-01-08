@@ -2,7 +2,7 @@ package ocelot.api.utils;
 
 import com.arisux.mdx.lib.world.entity.player.inventory.Inventories;
 
-import ga.scmc.items.metaitems.ItemBulletMagazine;
+import ga.scmc.items.metaitems.ItemMagazine;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -302,7 +302,7 @@ public class InventoryUtils {
 		if (Inventories.playerHas(item, player)) {
 			for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
 				ItemStack stack = player.inventory.getStackInSlot(i);
-				totalCount += ItemBulletMagazine.getBulletCount(stack);
+				totalCount += ItemMagazine.getBulletCount(stack);
 			}
 		}
 		return totalCount;

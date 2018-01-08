@@ -9,7 +9,7 @@ import ga.scmc.items.ItemMarineHelmetVisor;
 import ga.scmc.items.ItemPhosphorus;
 import ga.scmc.items.ItemStimpack;
 import ga.scmc.items.ItemTest;
-import ga.scmc.items.metaitems.ItemBulletMagazine;
+import ga.scmc.items.metaitems.ItemMagazine;
 import ga.scmc.items.metaitems.ItemC14GaussRifleParts;
 import ga.scmc.items.metaitems.ItemDust;
 import ga.scmc.items.metaitems.ItemEnergy;
@@ -123,7 +123,7 @@ public class ItemHandler {
 		C14_PARTS = new ItemC14GaussRifleParts();
 		FLAMETHROWER_PARTS = new ItemFlamethrowerParts();
 		FLAMETHROWER = new ItemFlamethrower();
-		BULLET_MAGAZINE = new ItemBulletMagazine();
+		BULLET_MAGAZINE = new ItemMagazine();
 		PSI_BLADE_FOCUSER_UNCHARGED = new ItemPsiBladeFocuserUncharged();
 		ZERG_CARAPACE = new ItemZergCarapace();
 		CREEP_RESIN = new Item().setUnlocalizedName("zerg.creepresin").setRegistryName("zerg.creepresin").setCreativeTab(StarcraftCreativeTabs.ZERG);
