@@ -3,7 +3,6 @@ package ga.scmc.client.renderer.model.blocks;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.entity.Entity;
 
 /**
  * zerusglowpod - cybercat5555 Created using Tabula 6.0.0

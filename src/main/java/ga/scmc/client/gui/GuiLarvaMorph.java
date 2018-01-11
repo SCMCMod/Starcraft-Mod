@@ -10,7 +10,6 @@ import ga.scmc.client.gui.element.LarvaOption;
 import ga.scmc.entity.living.EntityLarva;
 import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.handlers.ItemHandler;
-import ga.scmc.lib.Library;
 import ga.scmc.network.NetworkHandler;
 import ga.scmc.network.message.MessageMorphLarva;
 import ga.scmc.network.message.MessageSyncLarvaGui;

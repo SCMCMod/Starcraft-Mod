@@ -9,7 +9,6 @@ import com.arisux.mdx.lib.world.Pos;
 import com.arisux.mdx.lib.world.Worlds;
 import com.google.common.base.Predicate;
 
-import ga.scmc.handlers.BiomeHandler;
 import ga.scmc.worldgen.dimchar.WorldProviderChar;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.GlStateManager;
