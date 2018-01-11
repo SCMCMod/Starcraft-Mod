@@ -20,9 +20,9 @@ import ocelot.api.utils.InventoryUtils;
 /**
  * @author Ocelot5836
  */
-public class ItemBulletMagazine extends Item {
+public class ItemMagazine extends Item {
 
-	public ItemBulletMagazine() {
+	public ItemMagazine() {
 		setUnlocalizedName("terran.magazine");
 		setRegistryName("terran.magazine");
 		setHasSubtypes(true);
@@ -67,7 +67,7 @@ public class ItemBulletMagazine extends Item {
 		}
 		return getUnlocalizedName() + "." + BulletMagazineType.C14.getName();
 	}
-
+	
 	@Override
 	public double getDurabilityForDisplay(ItemStack stack) {
 		if (stack.hasTagCompound()) {
@@ -96,7 +96,7 @@ public class ItemBulletMagazine extends Item {
 		}
 	}
 
-	public ItemStack getDefaultStack(int type) {
+	public static ItemStack getDefaultStack(int type) {
 		ItemStack stack = new ItemStack(ItemHandler.BULLET_MAGAZINE, 1, type);
 		NBTTagCompound nbt = new NBTTagCompound();
 		nbt.setInteger("BulletCount", EnumMetaItem.BulletMagazineType.values()[type].getBulletCount());

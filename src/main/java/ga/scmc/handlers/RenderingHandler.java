@@ -53,6 +53,7 @@ import static ga.scmc.handlers.BlockHandler.CORE_BARRACKS;
 import static ga.scmc.handlers.BlockHandler.ENERGY_BLOCK;
 import static ga.scmc.handlers.BlockHandler.FARMLAND_CHAR;
 import static ga.scmc.handlers.BlockHandler.FARMLAND_SHAKURAS;
+import static ga.scmc.handlers.BlockHandler.FLORA_ZERUS_GLOW_POD;
 import static ga.scmc.handlers.BlockHandler.FLUID_ACID;
 import static ga.scmc.handlers.BlockHandler.FLUID_BLOOD;
 import static ga.scmc.handlers.BlockHandler.FLUID_TAR;
@@ -78,6 +79,7 @@ import static ga.scmc.handlers.ItemHandler.BIOMASS;
 import static ga.scmc.handlers.ItemHandler.BULLET_MAGAZINE;
 import static ga.scmc.handlers.ItemHandler.C14_GAUSS_RIFLE;
 import static ga.scmc.handlers.ItemHandler.C14_PARTS;
+import static ga.scmc.handlers.ItemHandler.CARBOTIFIER;
 import static ga.scmc.handlers.ItemHandler.CREEP_RESIN;
 import static ga.scmc.handlers.ItemHandler.DUST;
 import static ga.scmc.handlers.ItemHandler.ENERGY;
@@ -88,6 +90,7 @@ import static ga.scmc.handlers.ItemHandler.ICON_PROTOSS;
 import static ga.scmc.handlers.ItemHandler.ICON_TERRAN;
 import static ga.scmc.handlers.ItemHandler.ICON_ZERG;
 import static ga.scmc.handlers.ItemHandler.INGOT;
+import static ga.scmc.handlers.ItemHandler.LOG;
 import static ga.scmc.handlers.ItemHandler.MARINE_HELMET_VISOR;
 import static ga.scmc.handlers.ItemHandler.MINERAL_SHARD;
 import static ga.scmc.handlers.ItemHandler.ORGANIC_TISSUE;
@@ -225,6 +228,7 @@ import ga.scmc.client.renderer.projectiles.RenderFlamethrowerFlame;
 import ga.scmc.client.renderer.projectiles.RenderHydraliskSpike;
 import ga.scmc.client.renderer.tileentity.RendererStarcraftSkull;
 import ga.scmc.client.renderer.tileentity.RendererTest;
+import ga.scmc.client.renderer.tileentity.RendererZerusGlowPod;
 import ga.scmc.entity.EntityC14GaussRifleBullet;
 import ga.scmc.entity.EntityFlamethrowerFlame;
 import ga.scmc.entity.EntityHydraliskSpike;
@@ -269,6 +273,7 @@ import ga.scmc.enums.EnumMetaItem.EnergyType;
 import ga.scmc.lib.Library;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
 import ga.scmc.tileentity.TileEntityTest;
+import ga.scmc.tileentity.TileEntityZerusGlowPod;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -343,7 +348,7 @@ public class RenderingHandler {
 		RenderingRegistry.registerEntityRenderingHandler(EntityDragoon.class, new RenderDragoon(Minecraft.getMinecraft().getRenderManager(), new ModelDragoon(), 0.4f));
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityZeratul.class, new RenderZeratul<Object>(Minecraft.getMinecraft().getRenderManager(), new ModelZeratul(), 0.4f));
-		
+
 		RenderingRegistry.registerEntityRenderingHandler(EntityBrutalisk.class, new RenderBrutalisk(Minecraft.getMinecraft().getRenderManager(), new ModelBrutalisk(), 3.0f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityHydralisk.class, new RenderHydralisk<Object>(Minecraft.getMinecraft().getRenderManager(), new ModelHydralisk(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityZergling.class, new RenderZergling<Object>(Minecraft.getMinecraft().getRenderManager(), new ModelZergling(), 0.4f));
@@ -358,7 +363,7 @@ public class RenderingHandler {
 		RenderingRegistry.registerEntityRenderingHandler(EntityDrone.class, new RenderDrone(Minecraft.getMinecraft().getRenderManager(), new ModelDrone(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityBrutaliskCocoon.class, new RenderBrutaliskCocoon(Minecraft.getMinecraft().getRenderManager(), new ModelBrutaliskCocoon(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityNafash.class, new RenderNafash(Minecraft.getMinecraft().getRenderManager(), new ModelBroodmother(), 0.4f));
-		
+
 		RenderingRegistry.registerEntityRenderingHandler(EntityCivilian.class, new RenderCivilian(Minecraft.getMinecraft().getRenderManager(), new ModelCivilian(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityPredator.class, new RenderPredator(Minecraft.getMinecraft().getRenderManager(), new ModelPredator(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntitySCV.class, new RenderSCV(Minecraft.getMinecraft().getRenderManager(), new ModelSCV(), 0.4f));
@@ -379,6 +384,7 @@ public class RenderingHandler {
 	private static void registerTileEntityRenders() {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTest.class, new RendererTest());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStarcraftSkull.class, new RendererStarcraftSkull());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityZerusGlowPod.class, new RendererZerusGlowPod());
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -405,6 +411,8 @@ public class RenderingHandler {
 
 		// registerItemRender(NUCLEAR_MISSILE);
 		registerItemRender(STIMPACK);
+		registerItemRender(CARBOTIFIER);
+		registerItemRender(LOG);
 
 		registerItemRender(MARINE_HELMET_VISOR);
 
@@ -585,6 +593,7 @@ public class RenderingHandler {
 
 		// Other
 		registerBlockModel(TEST);
+		registerBlockModel(FLORA_ZERUS_GLOW_POD);
 
 		// Protoss Blocks
 		registerBlockModel(PROTOSS_ENERGY_CHANNEL);

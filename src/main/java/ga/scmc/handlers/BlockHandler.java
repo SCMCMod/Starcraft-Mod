@@ -39,6 +39,7 @@ import ga.scmc.blocks.StarcraftBlock;
 import ga.scmc.blocks.StarcraftBlockFalling;
 import ga.scmc.blocks.StarcraftProtossCoreBlock;
 import ga.scmc.blocks.StarcraftTerranCoreBlock;
+import ga.scmc.blocks.flora.BlockZerusGlowPod;
 import ga.scmc.blocks.itemblocks.ItemBlockAsh;
 import ga.scmc.blocks.itemblocks.ItemBlockMeta;
 import ga.scmc.blocks.itemblocks.ItemBlockStarcraftSkull;
@@ -106,6 +107,8 @@ public class BlockHandler {
 
 	public static Block GAS_VESPENE;
 	public static Block GAS_TERRAZINE;
+
+	public static Block FLORA_ZERUS_GLOW_POD;
 
 	public static Block TERRAN_WARNING_TAPE;
 
@@ -289,12 +292,15 @@ public class BlockHandler {
 		CORE_WARPGATE_KHALAI = new StarcraftProtossCoreBlock("protoss.warpgatecore.khalai", RegistryType.FULL, Material.IRON, MapColor.YELLOW).setDomeSize(-5, 16, 13, 3);
 
 		CORE_BARRACKS = new StarcraftTerranCoreBlock("terran.barrackscore", RegistryType.FULL, Material.IRON, MapColor.BLUE);
-		
+
 		ENTITY_SPAWNER = new BlockEntitySpawner("block.entityspawner", 5);
 
 		/** gases **/
 		GAS_VESPENE = new BlockVespeneGas();
 		GAS_TERRAZINE = new BlockTerrazineGas();
+
+		/** flora **/
+		FLORA_ZERUS_GLOW_POD = new BlockZerusGlowPod();
 
 		/** miscellaneous blocks **/
 		TERRAN_WARNING_TAPE = new StarcraftBlock("terran.warningtape", RegistryType.FULL, Material.IRON, MapColor.YELLOW).setBlockSoundType(SoundType.METAL).setCreativeTab(StarcraftCreativeTabs.TERRAN);
@@ -350,6 +356,7 @@ public class BlockHandler {
 
 		registerCompleteBlock(GAS_VESPENE);
 		registerCompleteBlock(GAS_TERRAZINE);
+		registerCompleteBlock(FLORA_ZERUS_GLOW_POD);
 
 		registerBlock(STARCRAFT_SKULL, new ItemBlockStarcraftSkull());
 

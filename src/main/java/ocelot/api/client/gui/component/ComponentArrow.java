@@ -6,7 +6,7 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
 import ocelot.api.utils.SoundUtils;
 
-public class ComponentButton extends Component {
+public class ComponentArrow extends Component {
 
 	protected static final ResourceLocation BUTTON_TEXTURES = new ResourceLocation("textures/gui/widgets.png");
 
@@ -14,16 +14,8 @@ public class ComponentButton extends Component {
 	public boolean enabled;
 	protected boolean hovered;
 
-	public ComponentButton(int x, int y, String buttonText) {
-		this(x, y, 200, 20, buttonText);
-	}
-
-	public ComponentButton(int x, int y, int width, int height, String buttonText) {
+	public ComponentArrow(int x, int y, int width, int height) {
 		super(x, y, width, height);
-		this.x += parent.getX();
-		this.y += parent.getY();
-		this.enabled = true;
-		this.displayString = buttonText;
 	}
 
 	protected int getHoverState(boolean mouseOver) {

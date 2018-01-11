@@ -1,8 +1,12 @@
 package ocelot.api.utils;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.List;
 
-import com.arisux.mdx.lib.game.Game;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 
 import ga.scmc.api.Utils;
 import net.minecraft.client.Minecraft;
@@ -15,13 +19,15 @@ import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * <em><b>Copyright (c) 2017 Ocelot5836.</b></em>
  * 
  * @author Ocelot5836
  */
-public class GuiUtils extends GuiScreen {
+public class GuiUtils {
 
 	/**
 	 * Draws an array of lines to a gui.
@@ -37,7 +43,7 @@ public class GuiUtils extends GuiScreen {
 	 */
 	public static void drawLines(List<String> lines, int x, int y, int color) {
 		for (int i = 0; i < lines.size(); i++) {
-			Game.fontRenderer().drawString(lines.get(i), x, y + (i * 8), color);
+			Minecraft.getMinecraft().fontRendererObj.drawString(lines.get(i), x, y + (i * 8), color);
 		}
 	}
 
@@ -79,19 +85,25 @@ public class GuiUtils extends GuiScreen {
 	 * @param zLevel
 	 *            <em> MAKE SURE NOT TO EDIT THIS VALUE UNLESS YOU KNOW WHAT YOU ARE DOING!!</em>
 	 */
-	public static void drawCustomSizeGui(int x, int y, int width, int height, float zLevel) {
-		TextureUtils.bindTexture("textures/gui/util.png");
+	@SideOnly(Side.CLIENT)
+	public static void drawCustomSizeGui(int x, int y, int width, int height, GuiType type) {
+		TextureUtils.bindTexture("ocelotutil", "textures/gui/util.png");
 		GlStateManager.color(1F, 1F, 1F, 1F);
-		drawScaledCustomSizeModalRect(x + 5, y + 5, 5, 5, 5, 5, width - 10, height - 10, 256, 256);
-		drawScaledCustomSizeModalRect(x, y + 5, 0, 5, 5, 5, 5, height - 10, 256, 256);
-		drawScaledCustomSizeModalRect(x + width - 5, y + 5, 10, 5, 5, 5, 5, height - 10, 256, 256);
-		drawScaledCustomSizeModalRect(x + 5, y + height - 5, 5, 10, 5, 5, width - 10, 5, 256, 256);
-		drawScaledCustomSizeModalRect(x + 5, y, 5, 0, 5, 5, width - 10, 5, 256, 256);
 
-		drawStaticTextureModelRect(x, y, 0, 0, 5, 5, zLevel);
-		drawStaticTextureModelRect(x + width - 5, y, 10, 0, 5, 5, zLevel);
-		drawStaticTextureModelRect(x, y + height - 5, 0, 10, 5, 5, zLevel);
-		drawStaticTextureModelRect(x + width - 5, y + height - 5, 10, 10, 5, 5, zLevel);
+		int u = type.getU();
+		int v = type.getV();
+		int cellSize = type.getCellSize();
+
+		GuiScreen.drawScaledCustomSizeModalRect(x + cellSize, y + cellSize, u + cellSize, v + cellSize, cellSize, cellSize, width - cellSize * 2, height - cellSize * 2, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x, y + cellSize, u, v + cellSize, cellSize, cellSize, cellSize, height - cellSize * 2, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x + width - cellSize, y + cellSize, u + cellSize * 2, v + cellSize, cellSize, cellSize, cellSize, height - cellSize * 2, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x + cellSize, y + height - cellSize, u + cellSize, v + cellSize * 2, cellSize, cellSize, width - cellSize * 2, cellSize, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x + cellSize, y, u + cellSize, v, cellSize, cellSize, width - cellSize * 2, cellSize, 256, 256);
+
+		drawStaticTextureModelRect(x, y, u, v, cellSize, cellSize);
+		drawStaticTextureModelRect(x + width - cellSize, y, u + cellSize * 2, v, cellSize, cellSize);
+		drawStaticTextureModelRect(x, y + height - cellSize, u, v + cellSize * 2, cellSize, cellSize);
+		drawStaticTextureModelRect(x + width - cellSize, y + height - cellSize, u + cellSize * 2, v + cellSize * 2, cellSize, cellSize);
 	}
 
 	/**
@@ -106,20 +118,21 @@ public class GuiUtils extends GuiScreen {
 	 * @param height
 	 *            The height of the slot
 	 */
+	@SideOnly(Side.CLIENT)
 	public static void drawSlot(int x, int y, int width, int height) {
-		TextureUtils.bindTexture("textures/gui/util.png");
+		TextureUtils.bindTexture("ocelotutil", "textures/gui/util.png");
 		GlStateManager.color(1F, 1F, 1F, 1F);
-		drawScaledCustomSizeModalRect(x + 1, y + 1, 1, 16, 0, 0, width - 2, height - 2, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x + 1, y + 1, 1, 16, 0, 0, width - 2, height - 2, 256, 256);
 
-		drawScaledCustomSizeModalRect(x, y, 0, 15, 1, 1, 1, height - 1, 256, 256);
-		drawScaledCustomSizeModalRect(x + 1, y, 0, 15, 1, 1, width - 2, 1, 256, 256);
-		drawScaledCustomSizeModalRect(x + (width - 1), y, 2, 16, 1, 1, 1, height - 1, 256, 256);
-		drawScaledCustomSizeModalRect(x + 1, y + (height - 1), 1, 17, 1, 1, width - 1, 1, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x, y, 0, 15, 1, 1, 1, height - 1, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x + 1, y, 0, 15, 1, 1, width - 2, 1, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x + (width - 1), y, 2, 16, 1, 1, 1, height - 1, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x + 1, y + (height - 1), 1, 17, 1, 1, width - 1, 1, 256, 256);
 
-		drawScaledCustomSizeModalRect(x + (width - 1), y, 2, 15, 1, 1, 1, 1, 256, 256);
-		drawScaledCustomSizeModalRect(x, y + (height - 1), 0, 17, 1, 1, 1, 1, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x + (width - 1), y, 2, 15, 1, 1, 1, 1, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x, y + (height - 1), 0, 17, 1, 1, 1, 1, 256, 256);
 	}
-	
+
 	/**
 	 * Renders an entity to the screen.
 	 * 
@@ -136,6 +149,7 @@ public class GuiUtils extends GuiScreen {
 	 * @param entity
 	 *            The entity to render
 	 */
+	@SideOnly(Side.CLIENT)
 	public static void drawEntityOnScreen(int x, int y, int scale, float mouseX, float mouseY, EntityLivingBase entity) {
 		if (entity != null) {
 			GlStateManager.enableColorMaterial();
@@ -190,7 +204,9 @@ public class GuiUtils extends GuiScreen {
 	 * @param zLevel
 	 *            <em> MAKE SURE NOT TO EDIT THIS VALUE UNLESS YOU KNOW WHAT YOU ARE DOING!!</em>
 	 */
-	private static void drawStaticTextureModelRect(float x, float y, int minU, int minV, int maxU, int maxV, float zLevel) {
+	@SideOnly(Side.CLIENT)
+	private static void drawStaticTextureModelRect(float x, float y, int minU, int minV, int maxU, int maxV) {
+		float zLevel = 0;
 		float f = 0.00390625F;
 		float f1 = 0.00390625F;
 		Tessellator tessellator = Tessellator.getInstance();
@@ -201,5 +217,71 @@ public class GuiUtils extends GuiScreen {
 		vertexbuffer.pos((double) (x + (float) maxU), (double) (y + 0.0F), (double) zLevel).tex((double) ((float) (minU + maxU) * 0.00390625F), (double) ((float) (minV + 0) * 0.00390625F)).endVertex();
 		vertexbuffer.pos((double) (x + 0.0F), (double) (y + 0.0F), (double) zLevel).tex((double) ((float) (minU + 0) * 0.00390625F), (double) ((float) (minV + 0) * 0.00390625F)).endVertex();
 		tessellator.draw();
+	}
+
+	/**
+	 * Gets the username of a player based on the uuid given.
+	 * 
+	 * @param uuid
+	 *            The uuid of the player.
+	 * @return The name of the player if the uuid is valid
+	 */
+	public static String getPlayerName(String uuid) {
+		String name = null;
+		try {
+			URL url = new URL("https://sessionserver.mojang.com/session/minecraft/profile/" + uuid);
+			BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
+			StringBuilder sb = new StringBuilder();
+			String line;
+
+			while ((line = reader.readLine()) != null) {
+				sb.append(line + "\n");
+			}
+
+			JsonParser parser = new JsonParser();
+			JsonElement obj = parser.parse(sb.toString().trim());
+			name = obj.getAsJsonObject().get("name").getAsString();
+			reader.close();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			name = "Invalid UUID";
+		}
+		return name;
+	}
+
+	public static class GuiType {
+
+		public static final GuiType DEFAULT = new GuiType(0, 0, 3, 3, 5);
+		public static final GuiType BOOK = new GuiType(15, 0, 3, 3, 5);
+
+		private int u, v, width, height, cellSize;
+
+		private GuiType(int u, int v, int width, int height, int cellSize) {
+			this.u = u;
+			this.v = v;
+			this.width = width;
+			this.height = height;
+			this.cellSize = cellSize;
+		}
+
+		public int getU() {
+			return u;
+		}
+
+		public int getV() {
+			return v;
+		}
+
+		public int getWidth() {
+			return width;
+		}
+
+		public int getHeight() {
+			return height;
+		}
+
+		public int getCellSize() {
+			return cellSize;
+		}
 	}
 }

@@ -3,6 +3,7 @@ package ocelot.api.client.gui;
 import ga.scmc.network.NetworkHandler;
 import ga.scmc.network.message.MessageSpawnItem;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import ocelot.api.client.gui.component.Component;
@@ -10,6 +11,7 @@ import ocelot.api.client.gui.component.ComponentButton;
 import ocelot.api.client.gui.component.ComponentItem;
 import ocelot.api.client.gui.component.listener.MouseListener;
 import ocelot.api.utils.GuiUtils;
+import ocelot.api.utils.GuiUtils.GuiType;
 
 /**
  * A gui that can be used for reference when trying to create a new custom one.
@@ -62,7 +64,7 @@ public class GuiTest extends GuiBase {
 
 	@Override
 	protected void renderGuiBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
-		GuiUtils.drawCustomSizeGui(guiLeft, guiTop, xSize, ySize, 0);
+		GuiUtils.drawCustomSizeGui(guiLeft, guiTop, xSize, ySize, GuiType.BOOK);
 	}
 
 	@Override

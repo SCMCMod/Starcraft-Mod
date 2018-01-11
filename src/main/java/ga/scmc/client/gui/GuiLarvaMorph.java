@@ -21,6 +21,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import ocelot.api.utils.GuiUtils;
+import ocelot.api.utils.GuiUtils.GuiType;
 import ocelot.api.utils.InventoryUtils;
 import ocelot.api.utils.SoundUtils;
 import ocelot.api.utils.TextureUtils;
@@ -76,7 +77,7 @@ public class GuiLarvaMorph extends BasicGui {
 
 			int x = subOptionsX - guiLeft;
 			int y = subOptionsY - guiTop;
-			GuiUtils.drawCustomSizeGui(x - 6, y - 6, 16 * (subOptions.size() + 1) + subOptions.size(), 30, zLevel);
+			GuiUtils.drawCustomSizeGui(x - 6, y - 6, 16 * (subOptions.size() + 1) + subOptions.size(), 30, GuiType.DEFAULT);
 			for (int index = 0; index < subOptions.size(); index++) {
 				GuiUtils.drawSlot(x + index * 18, y, 18, 18);
 				subOptions.get(index).render(true, 1 + x + index * 18, 1 + y);

@@ -56,8 +56,8 @@ public class EntityFlamethrowerFlame extends EntityThrowable {
 	protected void onImpact(RayTraceResult result) {
 		if (!world.isRemote) {
 			if (result.entityHit != null && result.entityHit != this.getThrower()) {
+				result.entityHit.setFire(20);
 				if (result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 3)) {
-					result.entityHit.setFire(20);
 				}
 			}
 			setDead();

@@ -1,8 +1,9 @@
 package ga.scmc.items;
 
 import ga.scmc.Starcraft;
-import ga.scmc.client.gui.GuiPlayerMessage.EnumPlayerMessageType;
+import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.handlers.GuiHandler;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -10,25 +11,31 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
-public class ItemTest extends Item {
+public class ItemLog extends Item {
 
-	public ItemTest() {
-		setUnlocalizedName("test.item");
-		setRegistryName("test.item");
-		setCreativeTab(null);
+	public ItemLog() {
+		setRegistryName("log");
+		setUnlocalizedName("log");
+		setCreativeTab(StarcraftCreativeTabs.MISC);
 	}
-
+	
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStack, World world, EntityPlayer player, EnumHand hand) {
-		if (world.isRemote) {
-			player.openGui(Starcraft.instance, GuiHandler.PLAYER_MESSAGE, world, EnumPlayerMessageType.CONFIRMATION.ordinal(), -1, -1);
-		} else {
-		}
+		player.openGui(Starcraft.instance, GuiHandler.LOG, world, EnumLogType.TEST.getId(), -1, -1);
 		return super.onItemRightClick(itemStack, world, player, hand);
 	}
-
-	@Override
-	public boolean hasEffect(ItemStack stack) {
-		return true;
+	
+	public enum EnumLogType {
+		TEST(0);
+		
+		private int id;
+		
+		private EnumLogType(int id) {
+			this.id = id;
+		}
+		
+		public int getId() {
+			return id;
+		}
 	}
 }

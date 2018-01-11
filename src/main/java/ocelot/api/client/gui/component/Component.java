@@ -1,13 +1,17 @@
 package ocelot.api.client.gui.component;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
+import ocelot.api.client.gui.GuiBase;
 import ocelot.api.client.gui.component.listener.MouseListener;
 
 public abstract class Component extends Gui {
 
 	protected static Minecraft mc = Minecraft.getMinecraft();
-	
+	protected static FontRenderer fontRenderer = mc.fontRendererObj;
+
+	protected GuiBase parent;
 	protected int x;
 	protected int y;
 	protected int width;
@@ -36,7 +40,9 @@ public abstract class Component extends Gui {
 	public void renderTooltips(int mouseX, int mouseY) {
 	}
 
-	public boolean isHovered(Minecraft mc, int mouseX, int mouseY) {
+	public boolean isHovered(int mouseX, int mouseY) {
+		mouseX -= parent.getX();
+		mouseY -= parent.getY();
 		return this.visible && mouseX >= this.x && mouseY >= this.y && mouseX < this.x + this.width && mouseY < this.y + this.height;
 	}
 
@@ -48,6 +54,9 @@ public abstract class Component extends Gui {
 	public void mouseReleased(int mouseButton, int mouseX, int mouseY) {
 		if (mouseListener != null)
 			mouseListener.mouseReleased(mouseButton, mouseX, mouseY);
+	}
+
+	public void onAddComponent() {
 	}
 
 	public int getX() {
@@ -92,5 +101,9 @@ public abstract class Component extends Gui {
 
 	public void setMouseListener(MouseListener mouseListener) {
 		this.mouseListener = mouseListener;
+	}
+
+	public void setParent(GuiBase parent) {
+		this.parent = parent;
 	}
 }

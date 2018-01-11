@@ -2,13 +2,14 @@ package ga.scmc.handlers;
 
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.items.ItemC14GaussRifle;
+import ga.scmc.items.ItemCarbotifier;
 import ga.scmc.items.ItemFlamethrower;
+import ga.scmc.items.ItemLog;
 import ga.scmc.items.ItemMarineHelmetVisor;
-import ga.scmc.items.ItemNuclearMissile;
 import ga.scmc.items.ItemPhosphorus;
 import ga.scmc.items.ItemStimpack;
 import ga.scmc.items.ItemTest;
-import ga.scmc.items.metaitems.ItemBulletMagazine;
+import ga.scmc.items.metaitems.ItemMagazine;
 import ga.scmc.items.metaitems.ItemC14GaussRifleParts;
 import ga.scmc.items.metaitems.ItemDust;
 import ga.scmc.items.metaitems.ItemEnergy;
@@ -66,6 +67,8 @@ public class ItemHandler {
 
 	public static Item NUCLEAR_MISSILE;
 	public static Item STIMPACK;
+	public static Item CARBOTIFIER;
+	public static Item LOG;
 
 	public static Item GAS_CONTAINER;
 	public static Item VESPENE;
@@ -100,7 +103,7 @@ public class ItemHandler {
 	public static Item ICON_PROTOSS;
 	public static Item ICON_TERRAN;
 	public static Item ICON_ZERG;
-	
+
 	public static Item TEST;
 
 	static {
@@ -120,15 +123,17 @@ public class ItemHandler {
 		C14_PARTS = new ItemC14GaussRifleParts();
 		FLAMETHROWER_PARTS = new ItemFlamethrowerParts();
 		FLAMETHROWER = new ItemFlamethrower();
-		BULLET_MAGAZINE = new ItemBulletMagazine();
+		BULLET_MAGAZINE = new ItemMagazine();
 		PSI_BLADE_FOCUSER_UNCHARGED = new ItemPsiBladeFocuserUncharged();
 		ZERG_CARAPACE = new ItemZergCarapace();
 		CREEP_RESIN = new Item().setUnlocalizedName("zerg.creepresin").setRegistryName("zerg.creepresin").setCreativeTab(StarcraftCreativeTabs.ZERG);
 		ORGANIC_TISSUE = new Item().setUnlocalizedName("zerg.tissue").setRegistryName("zerg.tissue").setCreativeTab(StarcraftCreativeTabs.ZERG);
 		BIOMASS = new Item().setUnlocalizedName("biomass").setRegistryName("biomass").setCreativeTab(StarcraftCreativeTabs.ZERG);
 
-		NUCLEAR_MISSILE = new ItemNuclearMissile();
+		NUCLEAR_MISSILE = new Item().setUnlocalizedName("terran.nuclearmisile").setRegistryName("terran.nuclearmisile").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 		STIMPACK = new ItemStimpack();
+		CARBOTIFIER = new ItemCarbotifier();
+		LOG = new ItemLog();
 
 		MARINE_HELMET_VISOR = new ItemMarineHelmetVisor();
 
@@ -153,7 +158,7 @@ public class ItemHandler {
 		ICON_PROTOSS = new Item().setUnlocalizedName("icon.protoss").setRegistryName("icon.protoss").setCreativeTab(null);
 		ICON_TERRAN = new Item().setUnlocalizedName("icon.terran").setRegistryName("icon.terran").setCreativeTab(null);
 		ICON_ZERG = new Item().setUnlocalizedName("icon.zerg").setRegistryName("icon.zerg").setCreativeTab(null);
-		
+
 		TEST = new ItemTest();
 
 		ArmorHandler.init();
@@ -199,6 +204,8 @@ public class ItemHandler {
 
 		// registerItem(NUCLEAR_MISSILE);
 		registerItem(STIMPACK);
+		registerItem(CARBOTIFIER);
+		registerItem(LOG);
 
 		registerItem(MARINE_HELMET_VISOR);
 
@@ -223,7 +230,7 @@ public class ItemHandler {
 		registerItem(ICON_PROTOSS);
 		registerItem(ICON_TERRAN);
 		registerItem(ICON_ZERG);
-		
+
 		registerItem(TEST);
 
 		ArmorHandler.register();

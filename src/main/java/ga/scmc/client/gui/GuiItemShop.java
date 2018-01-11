@@ -11,7 +11,7 @@ import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.MetaBlockHandler;
 import ga.scmc.handlers.ToolHandler;
-import ga.scmc.items.metaitems.ItemBulletMagazine;
+import ga.scmc.items.metaitems.ItemMagazine;
 import ga.scmc.network.NetworkHandler;
 import ga.scmc.network.message.MessageSpawnItem;
 import net.minecraft.client.Minecraft;
@@ -71,7 +71,7 @@ public class GuiItemShop extends BasicGui {
 		tab = 0;
 
 		tabs.clear();
-		tabs.add(new ItemShopTab(((ItemBulletMagazine) ItemHandler.BULLET_MAGAZINE).getDefaultStack(EnumMetaItem.BulletMagazineType.C14.getID()), I18n.format("itemGroup.terran.general"), 0, guiLeft - 29, guiTop + 4, GuiLists.TRADES[0]));
+		tabs.add(new ItemShopTab(((ItemMagazine) ItemHandler.BULLET_MAGAZINE).getDefaultStack(EnumMetaItem.BulletMagazineType.C14.getID()), I18n.format("itemGroup.terran.general"), 0, guiLeft - 29, guiTop + 4, GuiLists.TRADES[0]));
 		tabs.add(new ItemShopTab(new ItemStack(MetaBlockHandler.GAS_COLLECTOR, 1, 1), I18n.format("itemGroup.terran.machine"), 1, guiLeft - 29, guiTop + 34, GuiLists.TRADES[1]));
 		tabs.add(new ItemShopTab(new ItemStack(MetaBlockHandler.PARISTEEL_METAL, 1, 0), I18n.format("itemGroup.terran.decoration"), 2, guiLeft - 29, guiTop + 64, GuiLists.TRADES[2]));
 		tabs.add(new ItemShopTab(new ItemStack(ItemHandler.C14_GAUSS_RIFLE, 1, 0), I18n.format("itemGroup.terran.weapons"), 3, guiLeft - 29, guiTop + 94, GuiLists.TRADES[3]));

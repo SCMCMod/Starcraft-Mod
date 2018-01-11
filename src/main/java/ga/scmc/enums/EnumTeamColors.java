@@ -2,7 +2,7 @@ package ga.scmc.enums;
 
 import java.awt.Color;
 
-import ocelot.api.utils.StarcraftUtils;
+import ga.scmc.lib.StarcraftUtils;
 
 /**
  * This holds all the possible team colors for entities.

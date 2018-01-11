@@ -1,4 +1,4 @@
-package ga.scmc.client.renderer.blocks;
+package ga.scmc.client.renderer.model.blocks;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -37,14 +37,7 @@ public class ModelTable extends ModelBase {
 		this.top.addBox(-8.0F, 8.0F, -8.0F, 16, 1, 16, 0.0F);
 	}
 
-	@Override
-	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-		setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
-		renderModel(scale);
-	}
-
-	public void renderModel(float scale) {
+	public void render(float scale) {
 		this.leg2.render(scale);
 		this.leg3.render(scale);
 		this.leg4.render(scale);

@@ -3,6 +3,7 @@ package ga.scmc.network.message;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
@@ -36,6 +37,7 @@ public class MessageKillEntity implements IMessage, IMessageHandler<MessageKillE
 
 		if (!world.isRemote) {
 			EntityLivingBase entity = (EntityLivingBase) world.getEntityByID(message.entityId);
+			entity.onDeath(DamageSource.outOfWorld);
 			entity.setHealth(0);
 		}
 
