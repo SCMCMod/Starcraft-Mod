@@ -11,37 +11,30 @@ import net.minecraft.util.ITickable;
 /**
  * @author Ocelot5836
  */
-public class TileEntityZerusGlowPod extends TileEntity implements ITickable {
+public class TileEntityKaldirBrambles extends TileEntity implements ITickable {
 
-	private float pulsingProgress;
-	private float pulsingSpeed;
+	private int age;
 
-	public TileEntityZerusGlowPod() {
-		pulsingProgress = 1;
-		pulsingSpeed = 0.005f;
+	public TileEntityKaldirBrambles() {
+		age = 0;
 	}
 
 	@Override
 	public void update() {
-		pulsingProgress += pulsingSpeed;
-		
-		if (pulsingProgress >= 1.1f || pulsingProgress < 1) {
-			pulsingSpeed *= -1;
-		}
+		age++;
 	}
 
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
-		nbt.setFloat("pulsingProgress", this.pulsingProgress);
+		nbt.setInteger("age", this.age);
 		return nbt;
 	}
 
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
-		this.pulsingProgress = nbt.getFloat("pulsingProgress");
-		this.pulsingSpeed = 0.005f;
+		this.age = nbt.getInteger("age");
 	}
 
 	@Override
@@ -63,7 +56,7 @@ public class TileEntityZerusGlowPod extends TileEntity implements ITickable {
 		return nbt;
 	}
 
-	public float getPulsingProgress() {
-		return pulsingProgress;
+	public int getAge() {
+		return age;
 	}
 }

@@ -19,7 +19,7 @@ public class ItemRenderZerusGlowPod extends ItemRenderer {
 	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.MODID, "textures/models/block/zerus_glow_pod.png");
 
 	public ItemRenderZerusGlowPod() {
-		super(new ModelTable(), TEXTURE);
+		super(null, TEXTURE);
 	}
 
 	@Override

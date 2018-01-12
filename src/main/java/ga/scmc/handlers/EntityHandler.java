@@ -34,6 +34,7 @@ import ga.scmc.entity.living.EntityZerglingSwarmling;
 import ga.scmc.lib.Library;
 import ga.scmc.tileentity.TileEntityEntitySpawner;
 import ga.scmc.tileentity.TileEntityGasCollector;
+import ga.scmc.tileentity.TileEntityKaldirBrambles;
 import ga.scmc.tileentity.TileEntityStarcraftFurnace;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
 import ga.scmc.tileentity.TileEntityTest;
@@ -41,6 +42,7 @@ import ga.scmc.tileentity.TileEntityWarpGateWormhole;
 import ga.scmc.tileentity.TileEntityZerusGlowPod;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -107,13 +109,14 @@ public class EntityHandler {
 	}
 
 	private static void registerTileEntities() {
-		GameRegistry.registerTileEntity(TileEntityGasCollector.class, Library.RL_BASE + "TileEntityBlockGasCollector");
-		GameRegistry.registerTileEntity(TileEntityWarpGateWormhole.class, Library.RL_BASE + "TileEntityWarpGateWormhole");
-		GameRegistry.registerTileEntity(TileEntityStarcraftSkull.class, Library.RL_BASE + "TileEntityStarcraftSkull");
-		GameRegistry.registerTileEntity(TileEntityTest.class, Library.RL_BASE + "TileEntityTest");
-		GameRegistry.registerTileEntity(TileEntityStarcraftFurnace.class, Library.RL_BASE + "TileEntityStarcraftFurnace");
-		GameRegistry.registerTileEntity(TileEntityEntitySpawner.class, Library.RL_BASE + "TileEntityEntitySpawner");
-		GameRegistry.registerTileEntity(TileEntityZerusGlowPod.class, Library.RL_BASE + "TileEntityZerusGlowPod");
+		registerTileEntity(TileEntityGasCollector.class);
+		registerTileEntity(TileEntityWarpGateWormhole.class);
+		registerTileEntity(TileEntityStarcraftSkull.class);
+		registerTileEntity(TileEntityTest.class);
+		registerTileEntity(TileEntityStarcraftFurnace.class);
+		registerTileEntity(TileEntityEntitySpawner.class);
+		registerTileEntity(TileEntityZerusGlowPod.class);
+		registerTileEntity(TileEntityKaldirBrambles.class);
 	}
 
 	/**
@@ -205,10 +208,6 @@ public class EntityHandler {
 	 *            The entity class
 	 * @param entityName
 	 *            A unique name for the entity
-	 * @param id
-	 *            A mod specific ID for the entity
-	 * @param mod
-	 *            The mod
 	 * @param trackingRange
 	 *            The range at which MC will send tracking updates
 	 * @param updateFrequency
@@ -218,5 +217,9 @@ public class EntityHandler {
 	 */
 	private static void registerEntity(Class<? extends Entity> entityClass, String entityName, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates) {
 		EntityRegistry.registerModEntity(entityClass, entityName, entityID++, Starcraft.instance, trackingRange, updateFrequency, sendsVelocityUpdates);
+	}
+
+	private static void registerTileEntity(Class<? extends TileEntity> clazz) {
+		GameRegistry.registerTileEntity(clazz, Library.RL_BASE + clazz.getSimpleName());
 	}
 }

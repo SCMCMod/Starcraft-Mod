@@ -39,6 +39,7 @@ import ga.scmc.blocks.StarcraftBlock;
 import ga.scmc.blocks.StarcraftBlockFalling;
 import ga.scmc.blocks.StarcraftProtossCoreBlock;
 import ga.scmc.blocks.StarcraftTerranCoreBlock;
+import ga.scmc.blocks.flora.BlockKaldirBrambles;
 import ga.scmc.blocks.flora.BlockZerusGlowPod;
 import ga.scmc.blocks.itemblocks.ItemBlockAsh;
 import ga.scmc.blocks.itemblocks.ItemBlockMeta;
@@ -109,6 +110,7 @@ public class BlockHandler {
 	public static Block GAS_TERRAZINE;
 
 	public static Block FLORA_ZERUS_GLOW_POD;
+	public static Block FLORA_KALDIR_BRAMBLES;
 
 	public static Block TERRAN_WARNING_TAPE;
 
@@ -252,7 +254,7 @@ public class BlockHandler {
 		DIRT_SHAKURAS = new BlockStarcraftDirt("shakuras.dirt", MapColor.LIGHT_BLUE, FARMLAND_SHAKURAS.getDefaultState());
 		COBBLESTONE_SHAKURAS = new StarcraftBlock("shakuras.cobblestone", RegistryType.FULL, Material.ROCK, MapColor.BLUE).setBlockHarvestLevel("pickaxe", 0).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(2).setResistance(10);
 		STONE_SHAKURAS = new StarcraftBlock("shakuras.stone", RegistryType.FULL, Material.ROCK, MapColor.LIGHT_BLUE).setItemDropped(Item.getItemFromBlock(COBBLESTONE_SHAKURAS)).setHardness(1.5f).setResistance(10).setCreativeTab(StarcraftCreativeTabs.MISC);
-		GRAVEL_SHAKURAS = new BlockStarcraftGravel("shakuras.gravel", RegistryType.FULL, Material.GROUND, MapColor.LIGHT_BLUE, 6724056).setBlockSoundType(SoundType.GROUND).setHardness(0.6f).setResistance(1).setCreativeTab(StarcraftCreativeTabs.MISC);
+		GRAVEL_SHAKURAS = new BlockStarcraftGravel("shakuras.gravel", RegistryType.FULL, Material.GROUND, MapColor.LIGHT_BLUE, 0x55539B).setBlockSoundType(SoundType.GROUND).setHardness(0.6f).setResistance(1).setCreativeTab(StarcraftCreativeTabs.MISC);
 		SAND_SHAKURAS = new StarcraftBlockFalling("shakuras.sand", RegistryType.FULL, Material.SAND, MapColor.LIGHT_BLUE, 6724056).setBlockSoundType(SoundType.SAND).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0.5f).setResistance(0.83f);
 
 		/** slayn blocks */
@@ -301,6 +303,7 @@ public class BlockHandler {
 
 		/** flora **/
 		FLORA_ZERUS_GLOW_POD = new BlockZerusGlowPod();
+		FLORA_KALDIR_BRAMBLES = new BlockKaldirBrambles();
 
 		/** miscellaneous blocks **/
 		TERRAN_WARNING_TAPE = new StarcraftBlock("terran.warningtape", RegistryType.FULL, Material.IRON, MapColor.YELLOW).setBlockSoundType(SoundType.METAL).setCreativeTab(StarcraftCreativeTabs.TERRAN);
@@ -356,7 +359,9 @@ public class BlockHandler {
 
 		registerCompleteBlock(GAS_VESPENE);
 		registerCompleteBlock(GAS_TERRAZINE);
+		
 		registerCompleteBlock(FLORA_ZERUS_GLOW_POD);
+		registerCompleteBlock(FLORA_KALDIR_BRAMBLES);
 
 		registerBlock(STARCRAFT_SKULL, new ItemBlockStarcraftSkull());
 

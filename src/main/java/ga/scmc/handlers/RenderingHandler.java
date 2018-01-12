@@ -53,6 +53,7 @@ import static ga.scmc.handlers.BlockHandler.CORE_BARRACKS;
 import static ga.scmc.handlers.BlockHandler.ENERGY_BLOCK;
 import static ga.scmc.handlers.BlockHandler.FARMLAND_CHAR;
 import static ga.scmc.handlers.BlockHandler.FARMLAND_SHAKURAS;
+import static ga.scmc.handlers.BlockHandler.FLORA_KALDIR_BRAMBLES;
 import static ga.scmc.handlers.BlockHandler.FLORA_ZERUS_GLOW_POD;
 import static ga.scmc.handlers.BlockHandler.FLUID_ACID;
 import static ga.scmc.handlers.BlockHandler.FLUID_BLOOD;
@@ -226,6 +227,7 @@ import ga.scmc.client.renderer.model.ModelZerglingSwarmling;
 import ga.scmc.client.renderer.projectiles.RenderC14GaussRifleBullet;
 import ga.scmc.client.renderer.projectiles.RenderFlamethrowerFlame;
 import ga.scmc.client.renderer.projectiles.RenderHydraliskSpike;
+import ga.scmc.client.renderer.tileentity.RendererKaldirBrambles;
 import ga.scmc.client.renderer.tileentity.RendererStarcraftSkull;
 import ga.scmc.client.renderer.tileentity.RendererTest;
 import ga.scmc.client.renderer.tileentity.RendererZerusGlowPod;
@@ -271,6 +273,7 @@ import ga.scmc.enums.EnumMetaBlock;
 import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumMetaItem.EnergyType;
 import ga.scmc.lib.Library;
+import ga.scmc.tileentity.TileEntityKaldirBrambles;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
 import ga.scmc.tileentity.TileEntityTest;
 import ga.scmc.tileentity.TileEntityZerusGlowPod;
@@ -385,6 +388,7 @@ public class RenderingHandler {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTest.class, new RendererTest());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStarcraftSkull.class, new RendererStarcraftSkull());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityZerusGlowPod.class, new RendererZerusGlowPod());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityKaldirBrambles.class, new RendererKaldirBrambles());
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -594,6 +598,7 @@ public class RenderingHandler {
 		// Other
 		registerBlockModel(TEST);
 		registerBlockModel(FLORA_ZERUS_GLOW_POD);
+		registerBlockModel(FLORA_KALDIR_BRAMBLES);
 
 		// Protoss Blocks
 		registerBlockModel(PROTOSS_ENERGY_CHANNEL);

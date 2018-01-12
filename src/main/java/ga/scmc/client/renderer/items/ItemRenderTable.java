@@ -15,7 +15,7 @@ public class ItemRenderTable extends ItemRenderer {
 	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.MODID, "textures/models/block/table.png");
 
 	public ItemRenderTable() {
-		super(new ModelTable(), TEXTURE);
+		super(null, TEXTURE);
 	}
 
 	@Override
@@ -28,7 +28,6 @@ public class ItemRenderTable extends ItemRenderer {
 		GlStateManager.pushMatrix();
 		GlStateManager.rotate(45, 0, 1, 0);
 		GlStateManager.translate(-0.5, -1.1, -0.5);
-		TextureUtils.bindTexture(TEXTURE);
 		renderModel(0, 0, 0, 0.0625 * 0.4);
 		GlStateManager.popMatrix();
 	}
@@ -39,7 +38,6 @@ public class ItemRenderTable extends ItemRenderer {
 		GlStateManager.rotate(30, 1, 0, 0);
 		GlStateManager.rotate(225, 0, 1, 0);
 		GlStateManager.translate(-0.5, -0.9, -0.5);
-		TextureUtils.bindTexture(TEXTURE);
 		renderModel(0, 0, 0, 0.0625 * 0.626);
 		GlStateManager.popMatrix();
 	}
@@ -49,7 +47,6 @@ public class ItemRenderTable extends ItemRenderer {
 		GlStateManager.pushMatrix();
 		GlStateManager.rotate(45, 0, 1, 0);
 		GlStateManager.translate(-0.5, -1.3, -0.5);
-		TextureUtils.bindTexture(TEXTURE);
 		renderModel(0, 0, 0, 0.0625 * 0.25);
 		GlStateManager.popMatrix();
 	}
@@ -58,7 +55,6 @@ public class ItemRenderTable extends ItemRenderer {
 	public void renderFixed(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(-0.5, -1, -0.5);
-		TextureUtils.bindTexture(TEXTURE);
 		renderModel(0, 0, 0, 0.0625 * 0.5);
 		GlStateManager.popMatrix();
 	}
@@ -79,7 +75,6 @@ public class ItemRenderTable extends ItemRenderer {
 		GlStateManager.rotate(75, 1, 0, 0);
 		GlStateManager.rotate(45, 0, 1, 0);
 		GlStateManager.translate(-0.4, -1.1, -0.6);
-		TextureUtils.bindTexture(TEXTURE);
 		renderModel(0, 0, 0, 0.0625 * 0.4);
 		GlStateManager.popMatrix();
 	}
@@ -89,7 +84,7 @@ public class ItemRenderTable extends ItemRenderer {
 		ModelTable model = new ModelTable();
 		GlStateManager.translate(x + 0.5, y + 1.5, z + 0.5);
 		GlStateManager.rotate(180, 0, 0, 1);
-		RenderUtil.bindTexture(TEXTURE);
+		bindTexture();
 		model.render((float) scale);
 		GlStateManager.popMatrix();
 	}

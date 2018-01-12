@@ -23,7 +23,7 @@ import net.minecraft.world.World;
 public class BlockZerusGlowPod extends BlockContainer implements ITileEntityProvider {
 
 	public BlockZerusGlowPod() {
-		super(Material.GOURD, MapColor.GREEN);
+		super(Material.GOURD, MapColor.BROWN);
 		setRegistryName("flora.zerus.glowpod");
 		setUnlocalizedName("flora.zerus.glowpod");
 		setSoundType(SoundTypes.FLESH);
@@ -52,7 +52,7 @@ public class BlockZerusGlowPod extends BlockContainer implements ITileEntityProv
 	}
 
 	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta) {
+	public TileEntity createNewTileEntity(World world, int meta) {
 		return new TileEntityZerusGlowPod();
 	}
 }
