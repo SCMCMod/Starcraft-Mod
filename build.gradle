@@ -10,7 +10,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the nessasary things for Forge to be setup.
 
-def mdxversion="2.0.0.27"
+def mdxversion="2.0.0.33"
 
 version = "1.6"
 group= "" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
