@@ -15,6 +15,10 @@ import ga.scmc.entity.living.EntityKakaru;
 import ga.scmc.entity.living.EntityLarva;
 import ga.scmc.entity.living.EntityLarvaCocoon;
 import ga.scmc.entity.living.EntityMarine;
+import ga.scmc.entity.living.EntityMutalisk;
+import ga.scmc.entity.living.EntityMutaliskBroodlord;
+import ga.scmc.entity.living.EntityMutaliskPrimal;
+import ga.scmc.entity.living.EntityMutaliskViper;
 import ga.scmc.entity.living.EntityNafash;
 import ga.scmc.entity.living.EntityPredator;
 import ga.scmc.entity.living.EntityProbe;
@@ -93,6 +97,10 @@ public class EntityHandler {
 		// EntityRegistry.registerEgg(EntityDrone.class, 11403519, 7684608);
 		EntityRegistry.registerEgg(EntityQueen.class, 11403519, 7684608);
 		EntityRegistry.registerEgg(EntityNafash.class, 11403519, 7684608);
+		EntityRegistry.registerEgg(EntityMutalisk.class, 11403519, 7684608);
+		EntityRegistry.registerEgg(EntityMutaliskBroodlord.class, 11403519, 7684608);
+		EntityRegistry.registerEgg(EntityMutaliskPrimal.class, 11403519, 7684608);
+		EntityRegistry.registerEgg(EntityMutaliskViper.class, 11403519, 7684608);
 		// EntityRegistry.registerEgg(EntityBrutaliskCocoon.class, 11403519, 7684608);
 
 		EntityRegistry.registerEgg(EntityCivilian.class, 7566195, 16639);
@@ -147,6 +155,10 @@ public class EntityHandler {
 		registerEntity(EntityInfestedCivilian.class, "infestedCivilian", 64, 1, true);
 		registerEntity(EntityQueen.class, "queen", 64, 1, true);
 		registerEntity(EntityNafash.class, "nafash", 64, 1, true);
+		registerEntity(EntityMutalisk.class, "mutalisk", 64, 1, true);
+		registerEntity(EntityMutaliskBroodlord.class, "mutaliskBroodlord", 64, 1, true);
+		registerEntity(EntityMutaliskPrimal.class, "mutaliskPrimal", 64, 1, true);
+		registerEntity(EntityMutaliskViper.class, "mutaliskViper", 64, 1, true);
 		// registerEntity(EntityDrone.class, "drone", 64, 1, true);
 		// registerEntity(EntityBrutaliskCocoon.class, "brutaliskCocoon", 64, 1, true);
 
@@ -186,8 +198,11 @@ public class EntityHandler {
 		EntityRegistry.addSpawn(EntityZerglingBoost.class, 10, 1, 5, EnumCreatureType.MONSTER, BiomeHandler.biomeCharCreepInfestation, BiomeHandler.biomeKaldirCreepInfestation);
 		EntityRegistry.addSpawn(EntityLarva.class, 5, 1, 3, EnumCreatureType.CREATURE, BiomeHandler.biomeCharCreepInfestation, BiomeHandler.biomeKaldirCreepInfestation);
 		EntityRegistry.addSpawn(EntityLarvaCocoon.class, 5, 1, 5, EnumCreatureType.CREATURE, BiomeHandler.biomeCharCreepInfestation, BiomeHandler.biomeKaldirCreepInfestation);
-		EntityRegistry.addSpawn(EntityInfestedCivilian.class, 15, 1, 3, EnumCreatureType.MONSTER, BiomeHandler.biomeCharCreepInfestation, BiomeHandler.biomeKaldirCreepInfestation);
+		EntityRegistry.addSpawn(EntityInfestedCivilian.class, 5, 1, 3, EnumCreatureType.MONSTER, BiomeHandler.biomeCharCreepInfestation, BiomeHandler.biomeKaldirCreepInfestation);
 		EntityRegistry.addSpawn(EntityQueen.class, 5, 1, 1, EnumCreatureType.MONSTER, BiomeHandler.biomeCharCreepInfestation, BiomeHandler.biomeKaldirCreepInfestation);
+		EntityRegistry.addSpawn(EntityMutalisk.class, 5, 1, 1, EnumCreatureType.MONSTER, BiomeHandler.biomeCharCreepInfestation, BiomeHandler.biomeKaldirCreepInfestation);
+		EntityRegistry.addSpawn(EntityMutaliskBroodlord.class, 5, 1, 1, EnumCreatureType.MONSTER, BiomeHandler.biomeCharCreepInfestation, BiomeHandler.biomeKaldirCreepInfestation);
+		EntityRegistry.addSpawn(EntityMutaliskViper.class, 5, 1, 1, EnumCreatureType.MONSTER, BiomeHandler.biomeCharCreepInfestation, BiomeHandler.biomeKaldirCreepInfestation);
 
 		EntityRegistry.addSpawn(EntityCivilian.class, 10, 1, 3, EnumCreatureType.CREATURE, BiomeHandler.biomeKorhalCity);
 		EntityRegistry.addSpawn(EntityPredator.class, 10, 1, 3, EnumCreatureType.MONSTER, BiomeHandler.biomeKorhalCity);

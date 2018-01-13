@@ -1,12 +1,8 @@
 package ga.scmc.client.renderer.entity.layers;
 
-import org.lwjgl.opengl.GL11;
-
 import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.entity.RenderZealot;
 import ga.scmc.entity.living.EntityZealot;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;

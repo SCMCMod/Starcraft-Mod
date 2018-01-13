@@ -3,8 +3,6 @@ package ga.scmc.client.renderer.entity.layers;
 import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.entity.RenderZergling;
 import ga.scmc.entity.living.EntityZergling;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;

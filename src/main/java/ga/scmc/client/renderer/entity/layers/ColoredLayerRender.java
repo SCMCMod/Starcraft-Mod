@@ -1,15 +1,13 @@
 package ga.scmc.client.renderer.entity.layers;
 
+import org.lwjgl.opengl.GL11;
+
 import ga.scmc.api.IEntityTeamColorable;
-import ga.scmc.entity.living.EntityStarcraftMob;
-import ga.scmc.entity.living.EntityStarcraftPassive;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 
 /**
  * The code to rendering the entity layers
