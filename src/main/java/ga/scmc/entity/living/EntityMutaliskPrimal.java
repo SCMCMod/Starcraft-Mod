@@ -49,20 +49,20 @@ public class EntityMutaliskPrimal extends EntityZergFlying implements IMob {
 
 		switch (rand.nextInt(1)) {
 		case 0:
-			return SoundHandler.ENTITY_KAKARU_LIVE1;
+			return SoundHandler.ENTITY_MUTALISK_LIVE1;
 		default:
-			return SoundHandler.ENTITY_KAKARU_LIVE2;
+			return SoundHandler.ENTITY_MUTALISK_LIVE2;
 		}
 	}
 
 	@Override
 	public SoundEvent getDeathSound() {
-		return SoundHandler.ENTITY_KAKARU_DEATH;
+		return SoundHandler.ENTITY_MUTALISK_DEATH;
 	}
 
 	@Override
 	public SoundEvent getHurtSound() {
-		return SoundHandler.ENTITY_KAKARU_HURT;
+		return SoundHandler.ENTITY_MUTALISK_HURT;
 	}
 
 	@Override
