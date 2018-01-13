@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import ga.scmc.api.IEntityTeamColorable;
 import ga.scmc.capabilities.ColorProvider;
 import ga.scmc.capabilities.IColor;
 import ga.scmc.enums.EnumFactionTypes;
@@ -21,7 +22,7 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
-public abstract class EntityStarcraftMob extends EntityMob {
+public abstract class EntityStarcraftMob extends EntityMob implements IEntityTeamColorable<EntityStarcraftMob> {
 
 	private static final DataParameter<Integer> COLOR = EntityDataManager.createKey(EntityStarcraftMob.class,
 			DataSerializers.VARINT);

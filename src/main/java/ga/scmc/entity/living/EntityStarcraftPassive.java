@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import ga.scmc.api.IEntityTeamColorable;
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
@@ -18,7 +19,7 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
-public abstract class EntityStarcraftPassive extends EntityTameable {
+public abstract class EntityStarcraftPassive extends EntityTameable implements IEntityTeamColorable<EntityStarcraftPassive> {
 
 	private static final DataParameter<Integer> COLOR = EntityDataManager.createKey(EntityStarcraftPassive.class, DataSerializers.VARINT);
 
