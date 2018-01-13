@@ -2,7 +2,6 @@ package ga.scmc.client.renderer.entity.layers;
 
 import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.entity.RenderZerglingPrimal1;
-import ga.scmc.entity.living.EntityZealot;
 import ga.scmc.entity.living.EntityZerglingPrimal1;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;

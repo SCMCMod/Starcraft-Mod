@@ -7,7 +7,6 @@ import com.google.common.base.Predicate;
 
 import ga.scmc.capabilities.ColorProvider;
 import ga.scmc.capabilities.IColor;
-import ga.scmc.entity.ai.EntityAIFollowTeamLeader;
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumTeamColors;

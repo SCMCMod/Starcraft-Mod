@@ -1,7 +1,5 @@
 package ga.scmc.tileentity;
 
-import org.lwjgl.util.vector.Vector3f;
-
 import ga.scmc.handlers.BlockHandler;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.tileentity.TileEntity;
