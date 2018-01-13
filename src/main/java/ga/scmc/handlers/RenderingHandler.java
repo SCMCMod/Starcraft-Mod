@@ -154,6 +154,7 @@ import static ga.scmc.handlers.WeaponHandler.TITANIUM_SWORD;
 import static ga.scmc.handlers.WeaponHandler.WARP_BLADE;
 
 import ga.scmc.client.renderer.entity.RenderAdept;
+import ga.scmc.client.renderer.entity.RenderArtislope;
 import ga.scmc.client.renderer.entity.RenderBroodling;
 import ga.scmc.client.renderer.entity.RenderBrutalisk;
 import ga.scmc.client.renderer.entity.RenderBrutaliskCocoon;
@@ -190,6 +191,9 @@ import ga.scmc.client.renderer.entity.RenderZealot;
 import ga.scmc.client.renderer.entity.RenderZeratul;
 import ga.scmc.client.renderer.entity.RenderZergling;
 import ga.scmc.client.renderer.entity.RenderZerglingBoost;
+import ga.scmc.client.renderer.entity.RenderZerglingPrimal1;
+import ga.scmc.client.renderer.entity.RenderZerglingPrimal2;
+import ga.scmc.client.renderer.entity.RenderZerglingPrimal3;
 import ga.scmc.client.renderer.entity.RenderZerglingRaptor;
 import ga.scmc.client.renderer.entity.RenderZerglingSwarmling;
 import ga.scmc.client.renderer.model.ModelAdept;
@@ -230,6 +234,9 @@ import ga.scmc.client.renderer.model.ModelZealot;
 import ga.scmc.client.renderer.model.ModelZeratul;
 import ga.scmc.client.renderer.model.ModelZergling;
 import ga.scmc.client.renderer.model.ModelZerglingBoost;
+import ga.scmc.client.renderer.model.ModelZerglingPrimal1;
+import ga.scmc.client.renderer.model.ModelZerglingPrimal2;
+import ga.scmc.client.renderer.model.ModelZerglingPrimal3;
 import ga.scmc.client.renderer.model.ModelZerglingRaptor;
 import ga.scmc.client.renderer.model.ModelZerglingSwarmling;
 import ga.scmc.client.renderer.projectiles.RenderC14GaussRifleBullet;
@@ -243,6 +250,7 @@ import ga.scmc.entity.EntityC14GaussRifleBullet;
 import ga.scmc.entity.EntityFlamethrowerFlame;
 import ga.scmc.entity.EntityHydraliskSpike;
 import ga.scmc.entity.living.EntityAdept;
+import ga.scmc.entity.living.EntityArtislope;
 import ga.scmc.entity.living.EntityBroodling;
 import ga.scmc.entity.living.EntityBrutalisk;
 import ga.scmc.entity.living.EntityBrutaliskCocoon;
@@ -279,6 +287,9 @@ import ga.scmc.entity.living.EntityZealot;
 import ga.scmc.entity.living.EntityZeratul;
 import ga.scmc.entity.living.EntityZergling;
 import ga.scmc.entity.living.EntityZerglingBoost;
+import ga.scmc.entity.living.EntityZerglingPrimal1;
+import ga.scmc.entity.living.EntityZerglingPrimal2;
+import ga.scmc.entity.living.EntityZerglingPrimal3;
 import ga.scmc.entity.living.EntityZerglingRaptor;
 import ga.scmc.entity.living.EntityZerglingSwarmling;
 import ga.scmc.enums.EnumMetaBlock;
@@ -382,6 +393,9 @@ public class RenderingHandler {
 		RenderingRegistry.registerEntityRenderingHandler(EntityMutaliskBroodlord.class, new RenderMutaliskBroodlord(Minecraft.getMinecraft().getRenderManager(), new ModelMutaliskBroodlord(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityMutaliskPrimal.class, new RenderMutaliskPrimal(Minecraft.getMinecraft().getRenderManager(), new ModelMutaliskPrimal(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityMutaliskViper.class, new RenderMutaliskViper(Minecraft.getMinecraft().getRenderManager(), new ModelMutaliskViper(), 0.4f));
+		RenderingRegistry.registerEntityRenderingHandler(EntityZerglingPrimal1.class, new RenderZerglingPrimal1(Minecraft.getMinecraft().getRenderManager(), new ModelZerglingPrimal1(), 0.4f));
+		RenderingRegistry.registerEntityRenderingHandler(EntityZerglingPrimal2.class, new RenderZerglingPrimal2(Minecraft.getMinecraft().getRenderManager(), new ModelZerglingPrimal2(), 0.4f));
+		RenderingRegistry.registerEntityRenderingHandler(EntityZerglingPrimal3.class, new RenderZerglingPrimal3(Minecraft.getMinecraft().getRenderManager(), new ModelZerglingPrimal3(), 0.4f));
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityCivilian.class, new RenderCivilian(Minecraft.getMinecraft().getRenderManager(), new ModelCivilian(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityPredator.class, new RenderPredator(Minecraft.getMinecraft().getRenderManager(), new ModelPredator(), 0.4f));
@@ -392,6 +406,7 @@ public class RenderingHandler {
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityKakaru.class, new RenderKakaru(Minecraft.getMinecraft().getRenderManager(), new ModelKakaru(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityTastelope.class, new RenderTastelope(Minecraft.getMinecraft().getRenderManager(), new ModelTastelope(), 0.4f));
+		RenderingRegistry.registerEntityRenderingHandler(EntityArtislope.class, new RenderArtislope(Minecraft.getMinecraft().getRenderManager(), new ModelTastelope(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityUrsadon.class, new RenderUrsadon(Minecraft.getMinecraft().getRenderManager(), new ModelUrsadon(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityUrsadonMatriarch.class, new RenderUrsadonMatriarch(Minecraft.getMinecraft().getRenderManager(), new ModelUrsadon(), 0.4f));
 

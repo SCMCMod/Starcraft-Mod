@@ -4,6 +4,7 @@ import ga.scmc.lib.Library;
 
 public class Resources {
 
+	public static final String ARTISLOPE_BASE					= Library.RL_BASE + "textures/entity/artislope_base.png";
 	public static final String BROODLING_BASE 					= Library.RL_BASE + "textures/entity/broodling_base.png";
 	public static final String BROODLING_OVERLAY				= Library.RL_BASE + "textures/entity/broodling_overlay.png";
 	public static final String BROODMOTHER_BASE		 			= Library.RL_BASE + "textures/entity/broodmother_base.png";
@@ -75,6 +76,13 @@ public class Resources {
 	public static final String ZERGLING_GLOW_STATIC 			= Library.RL_BASE + "textures/entity/zergling_glow_static.png";
 	public static final String ZERGLING_OVERLAY 				= Library.RL_BASE + "textures/entity/zergling_overlay.png";
 	public static final String ZERGLINGBOOST_BASE 				= Library.RL_BASE + "textures/entity/zerglingboost_base.png";
+	public static final String ZERGLINGPRIMAL_GLOW_DYNAMIC		= Library.RL_BASE + "textures/entity/zerglingprimal_glow_dynamic.png";
+	public static final String ZERGLINGPRIMAL1_BASE				= Library.RL_BASE + "textures/entity/zerglingprimal1_base.png";
+	public static final String ZERGLINGPRIMAL1_OVERLAY			= Library.RL_BASE + "textures/entity/zerglingprimal1_overlay.png";
+	public static final String ZERGLINGPRIMAL2_BASE				= Library.RL_BASE + "textures/entity/zerglingprimal2_base.png";
+	public static final String ZERGLINGPRIMAL2_OVERLAY			= Library.RL_BASE + "textures/entity/zerglingprimal2_overlay.png";
+	public static final String ZERGLINGPRIMAL3_BASE				= Library.RL_BASE + "textures/entity/zerglingprimal3_base.png";
+	public static final String ZERGLINGPRIMAL3_OVERLAY			= Library.RL_BASE + "textures/entity/zerglingprimal3_overlay.png";
 	public static final String ZERGLINGRAPTOR_BASE 				= Library.RL_BASE + "textures/entity/zerglingraptor_base.png";
 	public static final String ZERGLINGSWARMLING_BASE 			= Library.RL_BASE + "textures/entity/zerglingswarmling_base.png";
 	public static final String ZERGLINGSWARMLING_GLOW_STATIC 	= Library.RL_BASE + "textures/entity/zerglingswarmling_glow_static.png";

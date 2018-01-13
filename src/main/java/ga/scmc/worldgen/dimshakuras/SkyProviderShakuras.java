@@ -110,23 +110,23 @@ public class SkyProviderShakuras extends IRenderHandler
         {
         	WorldProviderShakuras provider = (WorldProviderShakuras) world.provider;
 
-            OpenGL.disable(GL11.GL_TEXTURE_2D);
+        	GlStateManager.disableTexture2D();
             GL11.glColor3f(1.0F, 1.0F, 1.0F);
-            GL11.glDepthMask(false);
-            OpenGL.enable(GL11.GL_FOG);
+            GlStateManager.depthMask(false);
+            GlStateManager.enableFog();
             GL11.glColor3f(skyColor.r, skyColor.g, skyColor.b);
 
             /** Render Sky **/
-            OpenGL.disable(GL11.GL_FOG);
-            OpenGL.disable(GL11.GL_ALPHA_TEST);
-            OpenGL.enable(GL11.GL_BLEND);
+            GlStateManager.disableFog();
+            GlStateManager.disableAlpha();
+            GlStateManager.enableBlend();
             OpenGL.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
             OpenGL.color(1.0F, 1.0F, 1.0F, provider.getStarBrightness(partialTicks) * 2);
 
             /** Render Stars **/
             this.renderStars(Tessellator.getInstance().getBuffer());
 
-            OpenGL.enable(GL11.GL_TEXTURE_2D);
+            GlStateManager.enableTexture2D();
             OpenGL.blendFunc(GL11.GL_SRC_ALPHA, 1);
 
             OpenGL.pushMatrix();
@@ -148,10 +148,10 @@ public class SkyProviderShakuras extends IRenderHandler
             OpenGL.popMatrix();
             
             OpenGL.blendClear();
-			OpenGL.disable(GL11.GL_BLEND);
-            OpenGL.enable(GL11.GL_ALPHA_TEST);
-            OpenGL.enable(GL11.GL_TEXTURE_2D);
-            GL11.glDepthMask(true);
+            GlStateManager.disableBlend();
+            GlStateManager.enableAlpha();
+            GlStateManager.enableTexture2D();
+            GlStateManager.depthMask(true);
 
             if (Game.minecraft().gameSettings.shouldRenderClouds() == 1)
             {
@@ -159,11 +159,11 @@ public class SkyProviderShakuras extends IRenderHandler
                 {
                     if (Game.minecraft().gameSettings.fancyGraphics)
                     {
-                        OpenGL.enable(GL11.GL_FOG);
+                    	GlStateManager.enableFog();
                     }
 
                     this.renderClouds(partialTicks);
-                    OpenGL.disable(GL11.GL_FOG);
+                    GlStateManager.disableFog();
                 }
                 OpenGL.popMatrix();
             }
@@ -300,8 +300,8 @@ public class SkyProviderShakuras extends IRenderHandler
             }
 
             OpenGL.color(1.0F, 1.0F, 1.0F, 1.0F);
-            OpenGL.disable(GL11.GL_BLEND);
-            OpenGL.enable(GL11.GL_CULL_FACE);
+            GlStateManager.disableBlend();
+            GlStateManager.enableCull();
         }
     }
 }

@@ -22,8 +22,8 @@ public class EntityMutaliskPrimal extends EntityZergFlying implements IMob {
 	public EntityMutaliskPrimal(World world) {
 		super(world);
 		setSize(4.0F, 1.5F);
-		this.setTeamColor(EnumTeamColors.PURPLE);
-		this.setFactions(EnumFactionTypes.SWARM);
+		this.setTeamColor(EnumTeamColors.CYAN);
+		this.setFactions(EnumFactionTypes.PRIMALZERG);
 		this.setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.AIR);
 		this.moveHelper = new EntityMutaliskPrimal.MutaliskMoveHelper(this);
 		this.tasks.addTask(5, new EntityMutaliskPrimal.AIRandomFly(this));

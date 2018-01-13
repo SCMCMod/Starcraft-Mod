@@ -4,6 +4,7 @@ import ga.scmc.Starcraft;
 import ga.scmc.entity.EntityC14GaussRifleBullet;
 import ga.scmc.entity.EntityFlamethrowerFlame;
 import ga.scmc.entity.EntityHydraliskSpike;
+import ga.scmc.entity.living.EntityArtislope;
 import ga.scmc.entity.living.EntityBroodling;
 import ga.scmc.entity.living.EntityBrutalisk;
 import ga.scmc.entity.living.EntityCivilian;
@@ -33,6 +34,9 @@ import ga.scmc.entity.living.EntityZealot;
 import ga.scmc.entity.living.EntityZeratul;
 import ga.scmc.entity.living.EntityZergling;
 import ga.scmc.entity.living.EntityZerglingBoost;
+import ga.scmc.entity.living.EntityZerglingPrimal1;
+import ga.scmc.entity.living.EntityZerglingPrimal2;
+import ga.scmc.entity.living.EntityZerglingPrimal3;
 import ga.scmc.entity.living.EntityZerglingRaptor;
 import ga.scmc.entity.living.EntityZerglingSwarmling;
 import ga.scmc.lib.Library;
@@ -99,8 +103,12 @@ public class EntityHandler {
 		EntityRegistry.registerEgg(EntityNafash.class, 11403519, 7684608);
 		EntityRegistry.registerEgg(EntityMutalisk.class, 11403519, 7684608);
 		EntityRegistry.registerEgg(EntityMutaliskBroodlord.class, 11403519, 7684608);
-		EntityRegistry.registerEgg(EntityMutaliskPrimal.class, 11403519, 7684608);
+		EntityRegistry.registerEgg(EntityMutaliskPrimal.class, 6986824, 65535);
 		EntityRegistry.registerEgg(EntityMutaliskViper.class, 11403519, 7684608);
+		EntityRegistry.registerEgg(EntityZerglingPrimal1.class, 6986824, 65535);
+		EntityRegistry.registerEgg(EntityZerglingPrimal2.class, 6986824, 65535);
+		EntityRegistry.registerEgg(EntityZerglingPrimal3.class, 6986824, 65535);
+
 		// EntityRegistry.registerEgg(EntityBrutaliskCocoon.class, 11403519, 7684608);
 
 		EntityRegistry.registerEgg(EntityCivilian.class, 7566195, 16639);
@@ -111,6 +119,7 @@ public class EntityHandler {
 		// EntityRegistry.registerEgg(EntitySCV.class, 7566195, 16639);
 
 		EntityRegistry.registerEgg(EntityTastelope.class, 6847625, 13157029);
+		EntityRegistry.registerEgg(EntityArtislope.class, 6847625, 13157029);
 		EntityRegistry.registerEgg(EntityKakaru.class, 6632556, 14183716);
 		EntityRegistry.registerEgg(EntityUrsadon.class, 13686740, 8175830);
 		EntityRegistry.registerEgg(EntityUrsadonMatriarch.class, 13686740, 15296610);
@@ -159,6 +168,9 @@ public class EntityHandler {
 		registerEntity(EntityMutaliskBroodlord.class, "mutaliskBroodlord", 64, 1, true);
 		registerEntity(EntityMutaliskPrimal.class, "mutaliskPrimal", 64, 1, true);
 		registerEntity(EntityMutaliskViper.class, "mutaliskViper", 64, 1, true);
+		registerEntity(EntityZerglingPrimal1.class, "zerglingPrimal1", 64, 1, true);
+		registerEntity(EntityZerglingPrimal2.class, "zerglingPrimal2", 64, 1, true);
+		registerEntity(EntityZerglingPrimal3.class, "zerglingPrimal3", 64, 1, true);
 		// registerEntity(EntityDrone.class, "drone", 64, 1, true);
 		// registerEntity(EntityBrutaliskCocoon.class, "brutaliskCocoon", 64, 1, true);
 
@@ -173,6 +185,7 @@ public class EntityHandler {
 		registerEntity(EntityHydraliskSpike.class, "HydraliskSpike", 64, 1, true);
 		registerEntity(EntityFlamethrowerFlame.class, "flamethrowerFlame", 64, 1, true);
 
+		registerEntity(EntityArtislope.class, "artislope", 64, 1, true);
 		registerEntity(EntityTastelope.class, "tastelope", 64, 1, true);
 		registerEntity(EntityKakaru.class, "kakaru", 64, 1, true);
 		registerEntity(EntityUrsadon.class, "ursadon", 64, 1, true);

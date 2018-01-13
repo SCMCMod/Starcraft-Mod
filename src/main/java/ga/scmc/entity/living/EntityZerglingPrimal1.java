@@ -33,13 +33,13 @@ import net.minecraft.world.World;
 /**
  * @author Hypeirochus
  */
-public class EntityZergling extends EntityZergMob implements IMob, Predicate<EntityLivingBase> {
+public class EntityZerglingPrimal1 extends EntityZergMob implements IMob, Predicate<EntityLivingBase> {
 
-	public EntityZergling(World world) {
+	public EntityZerglingPrimal1(World world) {
 		super(world);
 		setSize(1.0F, 1.0F);
-		this.setTeamColor(EnumTeamColors.PURPLE);
-		this.setFactions(EnumFactionTypes.SWARM);
+		this.setTeamColor(EnumTeamColors.CYAN);
+		this.setFactions(EnumFactionTypes.PRIMALZERG);
 		this.setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
 		experienceValue = 23;
 		this.baseHealth = 25;
@@ -58,7 +58,7 @@ public class EntityZergling extends EntityZergMob implements IMob, Predicate<Ent
 		if (!entity.isInvisible()) {
 			if (entity instanceof EntityStarcraftMob) {
 				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if (!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.SWARM)) {
+					if (!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.PRIMALZERG)) {
 						if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						} else {
@@ -70,7 +70,7 @@ public class EntityZergling extends EntityZergMob implements IMob, Predicate<Ent
 				}
 			} else if (entity instanceof EntityStarcraftPassive) {
 				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if (!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.SWARM)) {
+					if (!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.PRIMALZERG)) {
 						if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						} else {

@@ -1,8 +1,11 @@
 package ga.scmc.worldgen.dimchar;
 
+import com.arisux.mdx.lib.client.render.world.IClimateProvider;
+import com.arisux.mdx.lib.client.render.world.ICloudProvider;
+import com.arisux.mdx.lib.client.render.world.IStormProvider;
+
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.DimensionHandler;
-import ga.scmc.worldgen.StormProvider;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -15,28 +18,30 @@ import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class WorldProviderChar extends WorldProvider {
-
-	public StormProvider stormProvider = new StormProvider();
+public class WorldProviderChar extends WorldProvider implements IClimateProvider {
+	private StormProviderChar storm = new StormProviderChar();
+	private CloudProviderChar clouds = new CloudProviderChar();
+	private IRenderHandler skyRenderer;
+	private IRenderHandler cliimateProvider;
 
 	@SideOnly(Side.CLIENT)
-	private IRenderHandler skyProvider;
-
-	public StormProvider getStormProvider() {
-		return this.stormProvider;
-	}
-
 	@Override
-	@SideOnly(Side.CLIENT)
-	public IRenderHandler getSkyRenderer() {
-		return skyProvider == null ? skyProvider = new SkyProviderChar() : skyProvider;
+	public IRenderHandler getWeatherRenderer() {
+		return null;
 	}
 
+	@SideOnly(Side.CLIENT)
 	@Override
 	public IRenderHandler getCloudRenderer() {
-		return skyProvider == null ? skyProvider = new SkyProviderChar() : skyProvider;
+		return cliimateProvider == null ? cliimateProvider = new CloudProviderChar() : cliimateProvider;
 	}
-	
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public IRenderHandler getSkyRenderer() {
+		return skyRenderer == null ? skyRenderer = new RenderSkyChar() : skyRenderer;
+	}
+
 	@Override
 	public void onWorldUpdateEntities() {
 		super.onWorldUpdateEntities();
@@ -64,7 +69,6 @@ public class WorldProviderChar extends WorldProvider {
 	 */
 	@Override
 	public String getDepartMessage() {
-
 		// Always true
 		if (this instanceof WorldProviderChar) {
 			return "Leaving Char";
@@ -98,7 +102,6 @@ public class WorldProviderChar extends WorldProvider {
 	 */
 	@Override
 	public String getWelcomeMessage() {
-
 		// Always true
 		if (this instanceof WorldProviderChar) {
 			return "Entering Char";
@@ -110,12 +113,14 @@ public class WorldProviderChar extends WorldProvider {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Vec3d getFogColor(float var1, float var2) {
-		return new Vec3d(0.9D - this.getWorldTime()/18000D, MathHelper.clamp(1D - this.getWorldTime()/18000D, 0.0D, 0.055D), 0.0D);
+		return new Vec3d(0.9D - this.getWorldTime() / 18000D,
+				MathHelper.clamp(1D - this.getWorldTime() / 18000D, 0.0D, 0.055D), 0.0D);
 	}
 
 	@Override
 	public Vec3d getCloudColor(float partialTicks) {
-		return new Vec3d(0.9D - this.getWorldTime()/18000D, MathHelper.clamp(1D - this.getWorldTime()/18000D, 0.0D, 0.055D), 0.0D);
+		return new Vec3d(0.9D - this.getWorldTime() / 18000D,
+				MathHelper.clamp(1D - this.getWorldTime() / 18000D, 0.0D, 0.055D), 0.0D);
 	}
 
 	@Override
@@ -145,5 +150,15 @@ public class WorldProviderChar extends WorldProvider {
 	@Override
 	public boolean canDoRainSnowIce(Chunk chunk) {
 		return false;
+	}
+
+	@Override
+	public ICloudProvider getCloudProvider() {
+		return clouds;
+	}
+
+	@Override
+	public IStormProvider getStormProvider() {
+		return storm;
 	}
 }

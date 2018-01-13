@@ -23,12 +23,12 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.client.IRenderHandler;
 import ocelot.api.utils.TextureUtils;
 
-public class SkyProviderKaldir extends IRenderHandler {
+public class RenderSkyKaldir extends IRenderHandler {
 	private Color skyColor = new Color(0.11F, 0.225F, 0.265F, 1F);
 	protected Color cloudColor = new Color(0.075F, 0.1F, 0.15F, 0.75F);
 	public int starGLCallList = GLAllocation.generateDisplayLists(3);
 
-	public SkyProviderKaldir() {
+	public RenderSkyKaldir() {
 		this.generateStars();
 	}
 
@@ -101,23 +101,23 @@ public class SkyProviderKaldir extends IRenderHandler {
 		if (world.provider instanceof WorldProviderKaldir) {
 			WorldProviderKaldir provider = (WorldProviderKaldir) world.provider;
 
-			OpenGL.disable(GL11.GL_TEXTURE_2D);
+			GlStateManager.disableTexture2D();
 			GL11.glColor3f(1.0F, 1.0F, 1.0F);
-			GL11.glDepthMask(false);
-			OpenGL.enable(GL11.GL_FOG);
+			GlStateManager.depthMask(false);
+			GlStateManager.disableFog();
 			GL11.glColor3f(skyColor.r, skyColor.g, skyColor.b);
 
 			/** Render Sky **/
-			OpenGL.disable(GL11.GL_FOG);
-			OpenGL.disable(GL11.GL_ALPHA_TEST);
-			OpenGL.enable(GL11.GL_BLEND);
+			GlStateManager.disableFog();
+			GlStateManager.disableAlpha();
+			GlStateManager.enableBlend();
 			OpenGL.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 			OpenGL.color(1.0F, 1.0F, 1.0F, provider.getStarBrightness(partialTicks) * 2);
 
 			/** Render Stars **/
 			this.renderStars(Tessellator.getInstance().getBuffer());
 
-			OpenGL.enable(GL11.GL_TEXTURE_2D);
+			GlStateManager.enableTexture2D();
 			OpenGL.blendFunc(GL11.GL_SRC_ALPHA, 1);
 
 			OpenGL.pushMatrix();
@@ -155,20 +155,20 @@ public class SkyProviderKaldir extends IRenderHandler {
 			OpenGL.popMatrix();
 
 			OpenGL.blendClear();
-			OpenGL.disable(GL11.GL_BLEND);
-			OpenGL.enable(GL11.GL_ALPHA_TEST);
-			OpenGL.enable(GL11.GL_TEXTURE_2D);
-			GL11.glDepthMask(true);
+			GlStateManager.disableBlend();
+			GlStateManager.enableAlpha();
+			GlStateManager.enableTexture2D();
+			GlStateManager.depthMask(true);
 
 			if (Game.minecraft().gameSettings.shouldRenderClouds() == 1) {
 				OpenGL.pushMatrix();
 				{
 					if (Game.minecraft().gameSettings.fancyGraphics) {
-						OpenGL.enable(GL11.GL_FOG);
+						GlStateManager.enableFog();
 					}
 
 					this.renderClouds(partialTicks);
-					OpenGL.disable(GL11.GL_FOG);
+					GlStateManager.disableFog();
 				}
 				OpenGL.popMatrix();
 			}
@@ -287,8 +287,8 @@ public class SkyProviderKaldir extends IRenderHandler {
 			}
 
 			OpenGL.color(1.0F, 1.0F, 1.0F, 1.0F);
-			OpenGL.disable(GL11.GL_BLEND);
-			OpenGL.enable(GL11.GL_CULL_FACE);
+			GlStateManager.disableBlend();
+			GlStateManager.enableCull();
 		}
 	}
 }
