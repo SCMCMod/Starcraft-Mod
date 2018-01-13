@@ -79,6 +79,7 @@ public class TileEntityGasCollector extends TileEntity implements ITickable, ICa
 		}
 	}
 
+	// This method looks familiar (I think its mine @author CJMinecraft)
 	public void breakBlock(EnumFacing facing) {
 		BlockPos newPos = pos.offset(facing, 1); // Gets the block pos in front of the block breaker
 		IBlockState state = world.getBlockState(newPos); // Gets the block state

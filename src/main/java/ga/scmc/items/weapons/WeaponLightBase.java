@@ -40,7 +40,7 @@ public class WeaponLightBase extends ItemSword {
                     stack.getTagCompound().setTag("LastLightPos", NBTUtil.createPosTag(player.getPosition().up()));
                 }
             } else if (world.getBlockState(player.getPosition().up()).getBlock() == BlockHandler.LIGHT_SOURCE) {
-                world.setBlockToAir(player.getPosition().up());
+                    world.setBlockToAir(player.getPosition().up());
             }
         }
     }
