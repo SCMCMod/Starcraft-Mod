@@ -1,5 +1,7 @@
 package ga.scmc.entity.living;
 
+import com.arisux.mdx.lib.client.entityfx.EntityFXElectricArc;
+import com.arisux.mdx.lib.game.Game;
 import com.arisux.mdx.lib.world.entity.ItemDrop;
 
 import ga.scmc.enums.EnumFactionTypes;
@@ -21,6 +23,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityDarkProbe extends EntityProtossPassive {
 
@@ -82,8 +86,16 @@ public class EntityDarkProbe extends EntityProtossPassive {
 	
 	@Override
 	public void onDeath(DamageSource cause) {
+		this.spawnElectricArc(this.posX + this.rand.nextDouble(), this.posY + this.rand.nextDouble(), this.posZ + this.rand.nextDouble());
 		this.world.createExplosion(this, this.posX, this.posY + 0.35, this.posZ, 1.2F, false);
 		super.onDeath(cause);
+	}
+	
+	@SideOnly(Side.CLIENT)
+	private void spawnElectricArc(double posX, double posY, double posZ) {
+		for (int x = 0; x < 5; x++) {
+			Game.minecraft().effectRenderer.addEffect(new EntityFXElectricArc(this.world, this.posX, this.posY, this.posZ, posX + this.rand.nextInt(2), posY, posZ + this.rand.nextInt(2), 10, 2.5F, 0.5F, 0.05F, 0xFFFF0000));
+		}
 	}
 	
 	@Override
