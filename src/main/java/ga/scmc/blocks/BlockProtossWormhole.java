@@ -2,6 +2,9 @@ package ga.scmc.blocks;
 
 import java.util.Random;
 
+import com.arisux.mdx.lib.client.entityfx.EntityFXElectricArc;
+import com.arisux.mdx.lib.game.Game;
+
 import ga.scmc.tileentity.TileEntityWarpGateWormhole;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
@@ -17,6 +20,8 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockProtossWormhole extends Block implements ITileEntityProvider {
 
@@ -38,17 +43,13 @@ public class BlockProtossWormhole extends Block implements ITileEntityProvider {
 	@Override
 	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
 		TileEntityWarpGateWormhole te = (TileEntityWarpGateWormhole) worldIn.getTileEntity(pos);
-		for (int xx = -1; xx < 2; xx++) {
-			for (int yy = -1; yy < 2; yy++) {
-				for (int zz = -1; zz < 2; zz++) {
-					double x = (double) pos.getX() + 0.5D;
-					double y = (double) pos.getY() + rand.nextDouble() * 9.0D / 16.0D;
-					double z = (double) pos.getZ() + 0.5D;
-
-					worldIn.spawnParticle(EnumParticleTypes.SPELL_MOB, x + xx, y + yy, z + zz, te.getColor().x, te.getColor().y, te.getColor().z, new int[0]);
-				}
-			}
-		}
+		this.spawnElectricArc(worldIn, pos, rand, pos.getX(), pos.getY(), pos.getZ(), te.getColor());
+	}
+	
+	@SideOnly(Side.CLIENT)
+	private void spawnElectricArc(World world, BlockPos pos, Random rand, double posX, double posY, double posZ, int color) {
+		Game.minecraft().effectRenderer.addEffect(new EntityFXElectricArc(world, pos.getX(), pos.getY(), pos.getZ(), posX + (rand.nextInt(4) - 2), posY, posZ + (rand.nextInt(4) - 2), 10, 2.5F, 0.5F, 0.05F, color));
+		Game.minecraft().effectRenderer.addEffect(new EntityFXElectricArc(world, pos.getX(), pos.getY(), pos.getZ(), posX - (rand.nextInt(2) - 2), posY, posZ - (rand.nextInt(2) - 2), 10, 2.5F, 0.5F, 0.05F, color));
 	}
 
 	@Override
