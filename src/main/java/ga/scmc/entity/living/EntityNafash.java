@@ -33,8 +33,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.server.management.PlayerList;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.BossInfo;
 import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
@@ -48,7 +53,8 @@ public class EntityNafash extends EntityZergMob implements IMob, IRangedAttackMo
 
 	private static final DataParameter<Float> ENERGY = EntityDataManager.createKey(EntityNafash.class, DataSerializers.FLOAT);
 	private final BossInfoServer bossInfo = (BossInfoServer) (new BossInfoServer(this.getDisplayName(), BossInfo.Color.PURPLE, BossInfo.Overlay.PROGRESS)).setDarkenSky(true);
-
+	public int tracker = 0;
+	
 	public EntityNafash(World world) {
 		super(world);
 		setSize(3.0F, 3.0F);
@@ -198,5 +204,43 @@ public class EntityNafash extends EntityZergMob implements IMob, IRangedAttackMo
 	@Override
 	public int getTalkInterval() {
 		return 160;
+	}
+	
+	@Override
+	public void onDeath(DamageSource cause) {
+		PlayerList list = ((EntityPlayerMP)cause.getEntity()).mcServer.getPlayerList();
+		for(int i = 0; i < list.getMaxPlayers(); i++) {
+			EntityPlayer thePlayer = list.getPlayers().get(i);
+			thePlayer.sendMessage(new TextComponentString("Nafash has been slain!").setStyle(new Style().setColor(TextFormatting.DARK_RED)));
+		}
+		super.onDeath(cause);
+	}
+	
+	@Override
+	public void onLivingUpdate() {
+		if(this.world.isRemote) {
+			EntityPlayer player = this.world.getClosestPlayerToEntity(this, 32.0D);
+			if(this.tracker == 0 && this.getHealth() == this.getMaxHealth()) {
+				tracker++;
+				String message = "<Nafash> Who are you to challenge the true queen of the swarm?!";
+				player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
+			}
+			if(this.tracker == 1 && this.getHealth() <= this.getMaxHealth()*.75) {
+				tracker++;
+				String message = "<Nafash> Agh! I will snap your bones between my claws!";
+				player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
+			}
+			if(this.tracker == 2 && this.getHealth() <= this.getMaxHealth()*.50) {
+				tracker++;
+				String message = "<Nafash> I underestimated you. It will not happen again!";
+				player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
+			}
+			if(this.tracker == 3 && this.getHealth() <= this.getMaxHealth()*.25) {
+				tracker++;
+				String message = "<Nafash> No, this can not be... the swarm will triumph!";
+				player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
+			}
+		}
+		super.onLivingUpdate();
 	}
 }
