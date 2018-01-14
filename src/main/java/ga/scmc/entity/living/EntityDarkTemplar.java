@@ -138,7 +138,7 @@ public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predica
 
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
-		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.ENERGY, 1 + this.rand.nextInt(2),
+		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.ENERGY, 1 + this.rand.nextInt(2),
 				EnumMetaItem.EnergyType.CORRUPTED.getID()));
 		ItemDrop drop2 = new ItemDrop(1, new ItemStack(WeaponHandler.DARK_WARP_BLADE));
 		drop.tryDrop(this);
