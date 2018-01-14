@@ -5,8 +5,10 @@ import java.util.Random;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.entity.living.EntityNafash;
 import ga.scmc.entity.living.EntityQueen;
+import ga.scmc.entity.living.EntityStarcraftMob;
 import ga.scmc.entity.living.EntityZergMob;
 import ga.scmc.entity.living.EntityZergPassive;
+import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.ItemHandler;
@@ -59,8 +61,10 @@ public class BlockZergCreep extends Block {
 				entityIn.motionX *= 1.6D;
 				entityIn.motionZ *= 1.6D;
 			}else {
-				entityIn.motionX *= 1.2D;
-				entityIn.motionZ *= 1.2D;
+				if(!((EntityStarcraftMob) entityIn).isFaction(EnumFactionTypes.PRIMALZERG)) {
+					entityIn.motionX *= 1.2D;
+					entityIn.motionZ *= 1.2D;
+				}
 			}
 		}
 		if (entityIn instanceof EntityPlayer) {
