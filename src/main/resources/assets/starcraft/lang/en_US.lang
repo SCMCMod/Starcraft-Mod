@@ -234,8 +234,8 @@ tile.slayn.furnace.name=Furnace
 
 ### Miscellaneous Blocks ###
 #############################################################################################
-tile.block.energy.pure.name=Block of Pure Energy
-tile.block.energy.corrupted.name=Block of Corrupted Energy
+tile.block.energy.pure.name=Block of Khala Energy
+tile.block.energy.corrupted.name=Block of Nerazim Energy
 tile.block.energy.void.name=Block of Void Energy
 
 tile.gas.vespene.name=Vespene Gas
@@ -465,8 +465,8 @@ item.phosphorus.name=Phosphorus
 item.vespene.raw.name=Raw Vespene
 item.terrazine.raw.name=Raw Terrazine
 
-item.energy.pure.name=Pure Energy
-item.energy.corrupted.name=Corrupted Energy
+item.energy.pure.name=Khala Energy
+item.energy.corrupted.name=Nerazim Energy
 item.energy.void.name=Void Energy
 
 item.pledge.purple.name=Team Purple Pledge
