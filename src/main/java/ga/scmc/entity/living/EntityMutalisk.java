@@ -2,9 +2,13 @@ package ga.scmc.entity.living;
 
 import java.util.Random;
 
+import com.arisux.mdx.lib.world.entity.ItemDrop;
+
 import ga.scmc.enums.EnumFactionTypes;
+import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
+import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -12,6 +16,7 @@ import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAIFindEntityNearestPlayer;
 import net.minecraft.entity.ai.EntityMoveHelper;
 import net.minecraft.entity.monster.IMob;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
@@ -29,6 +34,12 @@ public class EntityMutalisk extends EntityZergFlying implements IMob {
 		this.tasks.addTask(5, new EntityMutalisk.AIRandomFly(this));
 		this.tasks.addTask(7, new EntityMutalisk.AILookAround(this));
 		this.targetTasks.addTask(1, new EntityAIFindEntityNearestPlayer(this));
+	}
+	
+	@Override
+	protected void dropFewItems(boolean recentlyHit, int looting) {
+		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), EnumMetaItem.CarapaceType.T2.getID()));
+		drop.tryDrop(this);
 	}
 
 	@Override
