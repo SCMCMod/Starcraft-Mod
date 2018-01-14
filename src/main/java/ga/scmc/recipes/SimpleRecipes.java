@@ -187,6 +187,24 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T3_LEGGINGS), "CCC", "C C", "C C", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T3.getID()));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.ZERG_T3_BOOTS), "C C", "C C", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T3.getID()));
 
+		// T1 protoss armorset
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.PROTOSS_T1_HELMET), "PPP", "P P", "   ", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.KHALAI.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.PROTOSS_T1_CHESTPLATE), "P P", "PPP", "PPP", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.KHALAI.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.PROTOSS_T1_LEGGINGS), "PPP", "P P", "P P", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.KHALAI.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.PROTOSS_T1_BOOTS), "P P", "P P", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.KHALAI.getID()));
+
+		// T2 protoss armorset
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.PROTOSS_T2_HELMET), "PPP", "P P", "   ", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.KHALAI.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.PROTOSS_T2_CHESTPLATE), "P P", "PPP", "PPP", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.KHALAI.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.PROTOSS_T2_LEGGINGS), "PPP", "P P", "P P", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.KHALAI.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.PROTOSS_T2_BOOTS), "P P", "P P", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.KHALAI.getID()));
+
+		// T3 protoss armorset
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.PROTOSS_T3_HELMET), "PPP", "P P", "   ", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.KHALAI.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.PROTOSS_T3_CHESTPLATE), "P P", "PPP", "PPP", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.KHALAI.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.PROTOSS_T3_LEGGINGS), "PPP", "P P", "P P", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.KHALAI.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.PROTOSS_T3_BOOTS), "P P", "P P", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.KHALAI.getID()));
+
 		// Marine armor
 		GameRegistry.addRecipe(new ItemStack(ItemHandler.MARINE_HELMET_VISOR), "GGG", "GGG", "GGG", 'G', new ItemStack(Blocks.STAINED_GLASS_PANE, 1, 1));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T1_HELMET), "SSS", "SGS", 'S', new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.STEEL.getID()), 'G', new ItemStack(ItemHandler.MARINE_HELMET_VISOR));
