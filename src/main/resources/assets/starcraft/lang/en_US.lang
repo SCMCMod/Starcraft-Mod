@@ -661,6 +661,12 @@ achievement.getMasterPsiBlade.desc=Obtain Zeratul's Master Psi Blade!
 achievement.enterChar=The Devil's Nest
 achievement.enterChar.desc=Arrive on Char!
 
-achievement.enterShakuras=We Linger, In Twilight...
+achievement.enterKaldir=As Cold As Ice
+achievement.enterKaldir.desc=Arrive on Kaldir!
+
+achievement.enterKorhal=Remember Korhal!
+achievement.enterKorhal.desc=Arrive on Korhal!
+
+achievement.enterShakuras=We Linger, In Twilight
 achievement.enterShakuras.desc=Arrive on Shakuras!
 #############################################################################################
