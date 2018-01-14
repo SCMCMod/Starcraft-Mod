@@ -37,6 +37,7 @@ import ga.scmc.entity.living.EntityZerglingBoost;
 import ga.scmc.entity.living.EntityZerglingPrimal1;
 import ga.scmc.entity.living.EntityZerglingPrimal2;
 import ga.scmc.entity.living.EntityZerglingPrimal3;
+import ga.scmc.entity.living.EntityZerglingPrimalDehaka;
 import ga.scmc.entity.living.EntityZerglingRaptor;
 import ga.scmc.entity.living.EntityZerglingSwarmling;
 import ga.scmc.lib.Library;
@@ -108,6 +109,7 @@ public class EntityHandler {
 		EntityRegistry.registerEgg(EntityZerglingPrimal1.class, 6986824, 65535);
 		EntityRegistry.registerEgg(EntityZerglingPrimal2.class, 6986824, 65535);
 		EntityRegistry.registerEgg(EntityZerglingPrimal3.class, 6986824, 65535);
+		EntityRegistry.registerEgg(EntityZerglingPrimalDehaka.class, 6986824, 65535);
 
 		// EntityRegistry.registerEgg(EntityBrutaliskCocoon.class, 11403519, 7684608);
 
@@ -171,6 +173,7 @@ public class EntityHandler {
 		registerEntity(EntityZerglingPrimal1.class, "zerglingPrimal1", 64, 1, true);
 		registerEntity(EntityZerglingPrimal2.class, "zerglingPrimal2", 64, 1, true);
 		registerEntity(EntityZerglingPrimal3.class, "zerglingPrimal3", 64, 1, true);
+		registerEntity(EntityZerglingPrimalDehaka.class, "zerglingPrimalDehaka", 64, 1, true);
 		// registerEntity(EntityDrone.class, "drone", 64, 1, true);
 		// registerEntity(EntityBrutaliskCocoon.class, "brutaliskCocoon", 64, 1, true);
 
