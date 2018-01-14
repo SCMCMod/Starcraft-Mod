@@ -129,7 +129,7 @@ public class ArmorHandler {
 		ZERG_T2_HELMET = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.HEAD, 2, 3).setUnlocalizedName("zerg.helmet.2").setRegistryName("zerg.helmet.2").setCreativeTab(StarcraftCreativeTabs.ZERG);
 		ZERG_T2_CHESTPLATE = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.CHEST, 2, 3).setUnlocalizedName("zerg.chestplate.2").setRegistryName("zerg.chestplate.2").setCreativeTab(StarcraftCreativeTabs.ZERG);
 		ZERG_T2_LEGGINGS = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.LEGS, 2, 3).setUnlocalizedName("zerg.leggings.2").setRegistryName("zerg.leggings.2").setCreativeTab(StarcraftCreativeTabs.ZERG);
-		ZERG_T2_BOOTS = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.FEET, 2, 3).setUnlocalizedName("zerg.boot.2").setRegistryName("zerg.boots.2").setCreativeTab(StarcraftCreativeTabs.ZERG);
+		ZERG_T2_BOOTS = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.FEET, 2, 3).setUnlocalizedName("zerg.boots.2").setRegistryName("zerg.boots.2").setCreativeTab(StarcraftCreativeTabs.ZERG);
 
 		ZERG_T3_HELMET = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.HEAD, 4, 5).setUnlocalizedName("zerg.helmet.3").setRegistryName("zerg.helmet.3").setCreativeTab(StarcraftCreativeTabs.ZERG);
 		ZERG_T3_CHESTPLATE = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.CHEST, 4, 5).setUnlocalizedName("zerg.chestplate.3").setRegistryName("zerg.chestplate.3").setCreativeTab(StarcraftCreativeTabs.ZERG);

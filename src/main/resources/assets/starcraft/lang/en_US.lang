@@ -519,6 +519,13 @@ tile.slayn.portal.name=Slayn Portal
 
 
 
+### Flora ###
+#############################################################################################
+tile.flora.kaldir.brambles.name=Kaldir Brambles
+#############################################################################################
+
+
+
 ### Entities ###
 #############################################################################################
 entity.starcraft.larva.name=Larva
@@ -531,9 +538,18 @@ entity.starcraft.zerglingBoost.name=Zergling (Metabolic Boost)
 entity.starcraft.infestedCivilian.name=Infested Civilian
 entity.starcraft.brutalisk.name=Brutalisk
 entity.starcraft.hydralisk.name=Hydralisk
+entity.starcraft.mutalisk.name=Mutalisk
+entity.starcraft.mutaliskBroodlord=Mutalisk (Broodlord Strain)
+entity.starcraft.mutaliskViper=Mutalisk (Viper Strain)
 
 entity.starcraft.queen.name=Queen
 entity.starcraft.nafash.name=Nafash
+
+entity.starcraft.mutaliskPrimal.name=Primal Mutalisk
+entity.starcraft.zerglingPrimal1.name=Primal Zergling
+entity.starcraft.zerglingPrimal2.name=Primal Zergling
+entity.starcraft.zerglingPrimal3.name=Primal Zergling
+entity.starcraft.zerglingPrimalDehaka.name=Primal Zergling (Dehaka)
 
 entity.starcraft.probe.name=Probe
 entity.starcraft.darkProbe.name=Dark Probe
@@ -542,6 +558,7 @@ entity.starcraft.darkTemplar.name=Dark Templar
 entity.starcraft.zealot.name=Zealot
 entity.starcraft.protossReaver.name=Reaver
 entity.starcraft.scarab.name=Scarab
+entity.starcraft.zeratul.name=Zeratul
 
 entity.starcraft.civilian.name=Civilian
 entity.starcraft.predator.name=Predator
@@ -549,6 +566,7 @@ entity.starcraft.marine.name=Marine
 
 entity.starcraft.kakaru.name=Kakaru
 entity.starcraft.tastelope.name=Tastelope
+entity.starcraft.artislope.name=Artislope
 entity.starcraft.ursadon.name=Ursadon
 entity.starcraft.ursadonMatriarch.name=Ursadon Matriarch
 #############################################################################################
