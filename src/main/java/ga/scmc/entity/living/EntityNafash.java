@@ -2,6 +2,7 @@ package ga.scmc.entity.living;
 
 import java.util.Random;
 
+import com.arisux.mdx.lib.game.Game;
 import com.arisux.mdx.lib.world.entity.ItemDrop;
 import com.google.common.base.Predicate;
 
@@ -208,10 +209,12 @@ public class EntityNafash extends EntityZergMob implements IMob, IRangedAttackMo
 	
 	@Override
 	public void onDeath(DamageSource cause) {
-		PlayerList list = ((EntityPlayerMP)cause.getEntity()).mcServer.getPlayerList();
-		for(int i = 0; i < list.getMaxPlayers(); i++) {
-			EntityPlayer thePlayer = list.getPlayers().get(i);
-			thePlayer.sendMessage(new TextComponentString("Nafash has been slain!").setStyle(new Style().setColor(TextFormatting.DARK_RED)));
+		if(world.isRemote) {
+			PlayerList list = Game.minecraft().getIntegratedServer().getPlayerList();
+			for(int i = 0; i < list.getCurrentPlayerCount(); i++) {
+				EntityPlayer thePlayer = list.getPlayers().get(i);
+				thePlayer.sendMessage(new TextComponentString("Nafash has been slain!").setStyle(new Style().setColor(TextFormatting.DARK_RED)));
+			}
 		}
 		super.onDeath(cause);
 	}
