@@ -11,6 +11,7 @@ import ga.scmc.entity.living.EntityCivilian;
 import ga.scmc.entity.living.EntityDarkProbe;
 import ga.scmc.entity.living.EntityDarkTemplar;
 import ga.scmc.entity.living.EntityHydralisk;
+import ga.scmc.entity.living.EntityHydraliskPrimal;
 import ga.scmc.entity.living.EntityInfestedCivilian;
 import ga.scmc.entity.living.EntityKakaru;
 import ga.scmc.entity.living.EntityLarva;
@@ -110,6 +111,7 @@ public class EntityHandler {
 		EntityRegistry.registerEgg(EntityZerglingPrimal2.class, 6986824, 65535);
 		EntityRegistry.registerEgg(EntityZerglingPrimal3.class, 6986824, 65535);
 		EntityRegistry.registerEgg(EntityZerglingPrimalDehaka.class, 6986824, 65535);
+		EntityRegistry.registerEgg(EntityHydraliskPrimal.class, 6986824, 65535);
 
 		// EntityRegistry.registerEgg(EntityBrutaliskCocoon.class, 11403519, 7684608);
 
@@ -174,6 +176,7 @@ public class EntityHandler {
 		registerEntity(EntityZerglingPrimal2.class, "zerglingPrimal2", 64, 1, true);
 		registerEntity(EntityZerglingPrimal3.class, "zerglingPrimal3", 64, 1, true);
 		registerEntity(EntityZerglingPrimalDehaka.class, "zerglingPrimalDehaka", 64, 1, true);
+		registerEntity(EntityHydraliskPrimal.class, "hydraliskPrimal", 64, 1, true);
 		// registerEntity(EntityDrone.class, "drone", 64, 1, true);
 		// registerEntity(EntityBrutaliskCocoon.class, "brutaliskCocoon", 64, 1, true);
 

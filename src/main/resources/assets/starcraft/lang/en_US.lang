@@ -550,6 +550,7 @@ entity.starcraft.zerglingPrimal1.name=Primal Zergling
 entity.starcraft.zerglingPrimal2.name=Primal Zergling
 entity.starcraft.zerglingPrimal3.name=Primal Zergling
 entity.starcraft.zerglingPrimalDehaka.name=Primal Zergling (Dehaka)
+entity.starcraft.hydraliskPrimal.name=Primal Hydralisk
 
 entity.starcraft.probe.name=Probe
 entity.starcraft.darkProbe.name=Dark Probe

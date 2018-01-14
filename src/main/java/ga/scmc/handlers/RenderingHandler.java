@@ -165,6 +165,7 @@ import ga.scmc.client.renderer.entity.RenderDragoon;
 import ga.scmc.client.renderer.entity.RenderDrone;
 import ga.scmc.client.renderer.entity.RenderGhost;
 import ga.scmc.client.renderer.entity.RenderHydralisk;
+import ga.scmc.client.renderer.entity.RenderHydraliskPrimal;
 import ga.scmc.client.renderer.entity.RenderInfestedCivilian;
 import ga.scmc.client.renderer.entity.RenderKakaru;
 import ga.scmc.client.renderer.entity.RenderLarva;
@@ -263,6 +264,7 @@ import ga.scmc.entity.living.EntityDragoon;
 import ga.scmc.entity.living.EntityDrone;
 import ga.scmc.entity.living.EntityGhost;
 import ga.scmc.entity.living.EntityHydralisk;
+import ga.scmc.entity.living.EntityHydraliskPrimal;
 import ga.scmc.entity.living.EntityInfestedCivilian;
 import ga.scmc.entity.living.EntityKakaru;
 import ga.scmc.entity.living.EntityLarva;
@@ -400,6 +402,7 @@ public class RenderingHandler {
 		RenderingRegistry.registerEntityRenderingHandler(EntityZerglingPrimal2.class, new RenderZerglingPrimal2(Minecraft.getMinecraft().getRenderManager(), new ModelZerglingPrimal2(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityZerglingPrimal3.class, new RenderZerglingPrimal3(Minecraft.getMinecraft().getRenderManager(), new ModelZerglingPrimal3(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityZerglingPrimalDehaka.class, new RenderZerglingPrimalDehaka(Minecraft.getMinecraft().getRenderManager(), new ModelZerglingPrimalDehaka(), 0.4f));
+		RenderingRegistry.registerEntityRenderingHandler(EntityHydraliskPrimal.class, new RenderHydraliskPrimal(Minecraft.getMinecraft().getRenderManager(), new ModelHydralisk(), 0.4f));
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityCivilian.class, new RenderCivilian(Minecraft.getMinecraft().getRenderManager(), new ModelCivilian(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityPredator.class, new RenderPredator(Minecraft.getMinecraft().getRenderManager(), new ModelPredator(), 0.4f));

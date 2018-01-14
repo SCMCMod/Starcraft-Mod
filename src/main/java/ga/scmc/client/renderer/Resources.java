@@ -25,6 +25,8 @@ public class Resources {
 	public static final String HYDRALISK_GLOW_STATIC 			= Library.RL_BASE + "textures/entity/hydralisk_glow_static.png";
 	public static final String HYDRALISK_OVERLAY 				= Library.RL_BASE + "textures/entity/hydralisk_overlay.png";
 	public static final String HYDRALISK_SPIKE	 				= Library.RL_BASE + "textures/entity/hydraliskspike.png";
+	public static final String HYDRALISKPRIMAL_BASE 			= Library.RL_BASE + "textures/entity/hydraliskprimal_base.png";
+	public static final String HYDRALISKPRIMAL_OVERLAY 			= Library.RL_BASE + "textures/entity/hydraliskprimal_overlay.png";
 	public static final String INFESTED_CIVILIAN 				= Library.RL_BASE + "textures/entity/infestedcivilian.png";
 	public static final String KAKARU			 				= Library.RL_BASE + "textures/entity/kakaru.png";
 	public static final String LARVA_BASE		 				= Library.RL_BASE + "textures/entity/larva_base.png";
