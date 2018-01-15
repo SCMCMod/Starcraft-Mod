@@ -2,11 +2,9 @@ package ga.scmc.client.renderer.model.blocks;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
-<<<<<<< HEAD
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-=======
->>>>>>> 6baba3ca0a5812cb310931aaf2efdcea9bcb6e83
+
 
 /**
  * kaldirbrambles - cybercat5555 Created using Tabula 6.0.0

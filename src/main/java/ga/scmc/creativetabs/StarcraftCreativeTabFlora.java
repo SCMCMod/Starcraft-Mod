@@ -9,7 +9,7 @@ public class StarcraftCreativeTabFlora extends CreativeTabs{
 
 	public StarcraftCreativeTabFlora() {
 		super("flora");
-		setBackgroundImageName("item_search.png");
+//		setBackgroundImageName("item_search.png");
 	}
 
 	@Override
@@ -19,6 +19,6 @@ public class StarcraftCreativeTabFlora extends CreativeTabs{
 
 	@Override
 	public boolean hasSearchBar() {
-		return true;
+		return false;
 	}
 }

@@ -1,0 +1,16 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "all": "starcraft:particles/kaldir_brambles"
+        }
+    },
+    "variants": {
+        "part=bottom": [{
+            "model": "cube_all"
+        }],
+		"part=top": [{
+            "model": "cube_all"
+        }]
+    }
+}

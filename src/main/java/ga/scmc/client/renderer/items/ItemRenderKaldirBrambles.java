@@ -1,8 +1,6 @@
 package ga.scmc.client.renderer.items;
 
 import ga.scmc.client.renderer.model.blocks.ModelKaldirBrambles;
-import ga.scmc.client.renderer.model.blocks.ModelTable;
-import ga.scmc.client.renderer.model.blocks.ModelZerusGlowPod;
 import ga.scmc.lib.Library;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
@@ -31,6 +29,7 @@ public class ItemRenderKaldirBrambles extends ItemRenderer {
 	public void renderFirstPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
 		GlStateManager.pushMatrix();
 		GlStateManager.rotate(0, 0, 1, 0);
+		GlStateManager.scale(0.5, 0.5, 0.5);
 		GlStateManager.translate(-0.5, -0.9, -0.5);
 		renderModel(0.0625 * 0.4);
 		GlStateManager.popMatrix();
@@ -41,8 +40,8 @@ public class ItemRenderKaldirBrambles extends ItemRenderer {
 		GlStateManager.pushMatrix();
 		GlStateManager.rotate(30, 1, 0, 0);
 		GlStateManager.rotate(225, 0, 1, 0);
-		GlStateManager.scale(1.8, 1.8, 1.8);
-		GlStateManager.translate(-0.5, -0.68, -0.5);
+		GlStateManager.scale(0.6, 0.6, 0.6);
+		GlStateManager.translate(-0.5, -1.25, -0.5);
 		renderModel(0.0625 * 0.626);
 		GlStateManager.popMatrix();
 	}
@@ -51,7 +50,7 @@ public class ItemRenderKaldirBrambles extends ItemRenderer {
 	public void renderInWorld(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
 		GlStateManager.pushMatrix();
 		GlStateManager.rotate(45, 0, 1, 0);
-		GlStateManager.scale(1.8, 1.8, 1.8);
+		GlStateManager.scale(0.6, 0.6, 0.6);
 		GlStateManager.translate(-0.5, -1.2, -0.5);
 		renderModel(0.0625 * 0.25);
 		GlStateManager.popMatrix();
@@ -60,8 +59,8 @@ public class ItemRenderKaldirBrambles extends ItemRenderer {
 	@Override
 	public void renderFixed(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
 		GlStateManager.pushMatrix();
-		GlStateManager.scale(1.8, 1.8, 1.8);
-		GlStateManager.translate(-0.5, -0.85, -0.5);
+		GlStateManager.scale(0.6, 0.6, 0.6);
+		GlStateManager.translate(-0.5, -1.25, -0.5);
 		renderModel(0.0625 * 0.5);
 		GlStateManager.popMatrix();
 	}
@@ -81,7 +80,8 @@ public class ItemRenderKaldirBrambles extends ItemRenderer {
 		GlStateManager.pushMatrix();
 		GlStateManager.rotate(75, 1, 0, 0);
 		GlStateManager.rotate(45, 0, 1, 0);
-		GlStateManager.translate(-0.45, -0.9, -0.55);
+		GlStateManager.scale(0.6, 0.6, 0.6);
+		GlStateManager.translate(-0.45, -1.25, -0.65);
 		renderModel(0.0625 * 0.4);
 		GlStateManager.popMatrix();
 	}
