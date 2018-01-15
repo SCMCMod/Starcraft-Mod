@@ -579,5 +579,33 @@
             "name": "starcraft:mob/queen/queen-death",
             "stream": false
         }]
+    },
+    "mob.mutalisk.live1": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/mutalisk/mutalisk-live1",
+            "stream": false
+        }]
+    },
+    "mob.mutalisk.live2": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/mutalisk/mutalisk-live2",
+            "stream": false
+        }]
+    },
+    "mob.mutalisk.hurt": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/mutalisk/mutalisk-hurt",
+            "stream": false
+        }]
+    },
+    "mob.mutalisk.death": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/mutalisk/mutalisk-death",
+            "stream": false
+        }]
     }
 }

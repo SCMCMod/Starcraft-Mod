@@ -117,7 +117,7 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
-		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.INGOT, 1 + this.rand.nextInt(2), EnumMetaItem.IngotType.STEEL.getID()));
+		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.INGOT, 1 + this.rand.nextInt(2), EnumMetaItem.IngotType.STEEL.getID()));
 		drop.tryDrop(this);
 	}
 

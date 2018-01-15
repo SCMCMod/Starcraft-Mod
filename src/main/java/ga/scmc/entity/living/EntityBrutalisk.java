@@ -26,7 +26,6 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -112,11 +111,6 @@ public class EntityBrutalisk extends EntityZergMob implements IMob, Predicate<En
 	}
 
 	@Override
-	public boolean attackEntityFrom(DamageSource source, float damageDealt) {
-		return super.attackEntityFrom(source, damageDealt);
-	}
-
-	@Override
 	public boolean canBePushed() {
 		return false;
 	}
@@ -129,7 +123,7 @@ public class EntityBrutalisk extends EntityZergMob implements IMob, Predicate<En
 	 */
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
-		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), EnumMetaItem.CarapaceType.T3.getID()));
+		ItemDrop drop = new ItemDrop(100, new ItemStack(ItemHandler.ZERG_CARAPACE, 3 + this.rand.nextInt(3), EnumMetaItem.CarapaceType.T3.getID()));
 		drop.tryDrop(this);
 	}
 

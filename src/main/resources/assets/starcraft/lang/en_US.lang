@@ -235,8 +235,8 @@ tile.slayn.furnace.name=Furnace
 
 ### Miscellaneous Blocks ###
 #############################################################################################
-tile.block.energy.pure.name=Block of Pure Energy
-tile.block.energy.corrupted.name=Block of Corrupted Energy
+tile.block.energy.pure.name=Block of Khala Energy
+tile.block.energy.corrupted.name=Block of Nerazim Energy
 tile.block.energy.void.name=Block of Void Energy
 
 tile.gas.vespene.name=Vespene Gas
@@ -466,8 +466,8 @@ item.phosphorus.name=Phosphorus
 item.vespene.raw.name=Raw Vespene
 item.terrazine.raw.name=Raw Terrazine
 
-item.energy.pure.name=Pure Energy
-item.energy.corrupted.name=Corrupted Energy
+item.energy.pure.name=Khala Energy
+item.energy.corrupted.name=Nerazim Energy
 item.energy.void.name=Void Energy
 
 item.pledge.purple.name=Team Purple Pledge
@@ -520,6 +520,13 @@ tile.slayn.portal.name=Slayn Portal
 
 
 
+### Flora ###
+#############################################################################################
+tile.flora.kaldir.brambles.name=Kaldir Brambles
+#############################################################################################
+
+
+
 ### Entities ###
 #############################################################################################
 entity.starcraft.larva.name=Larva
@@ -532,9 +539,19 @@ entity.starcraft.zerglingBoost.name=Zergling (Metabolic Boost)
 entity.starcraft.infestedCivilian.name=Infested Civilian
 entity.starcraft.brutalisk.name=Brutalisk
 entity.starcraft.hydralisk.name=Hydralisk
+entity.starcraft.mutalisk.name=Mutalisk
+entity.starcraft.mutaliskBroodlord=Mutalisk (Broodlord Strain)
+entity.starcraft.mutaliskViper=Mutalisk (Viper Strain)
 
 entity.starcraft.queen.name=Queen
 entity.starcraft.nafash.name=Nafash
+
+entity.starcraft.mutaliskPrimal.name=Primal Mutalisk
+entity.starcraft.zerglingPrimal1.name=Primal Zergling
+entity.starcraft.zerglingPrimal2.name=Primal Zergling
+entity.starcraft.zerglingPrimal3.name=Primal Zergling
+entity.starcraft.zerglingPrimalDehaka.name=Primal Zergling (Dehaka)
+entity.starcraft.hydraliskPrimal.name=Primal Hydralisk
 
 entity.starcraft.probe.name=Probe
 entity.starcraft.darkProbe.name=Dark Probe
@@ -543,6 +560,7 @@ entity.starcraft.darkTemplar.name=Dark Templar
 entity.starcraft.zealot.name=Zealot
 entity.starcraft.protossReaver.name=Reaver
 entity.starcraft.scarab.name=Scarab
+entity.starcraft.zeratul.name=Zeratul
 
 entity.starcraft.civilian.name=Civilian
 entity.starcraft.predator.name=Predator
@@ -550,6 +568,7 @@ entity.starcraft.marine.name=Marine
 
 entity.starcraft.kakaru.name=Kakaru
 entity.starcraft.tastelope.name=Tastelope
+entity.starcraft.artislope.name=Artislope
 entity.starcraft.ursadon.name=Ursadon
 entity.starcraft.ursadonMatriarch.name=Ursadon Matriarch
 #############################################################################################
@@ -643,6 +662,12 @@ achievement.getMasterPsiBlade.desc=Obtain Zeratul's Master Psi Blade!
 achievement.enterChar=The Devil's Nest
 achievement.enterChar.desc=Arrive on Char!
 
-achievement.enterShakuras=We Linger, In Twilight...
+achievement.enterKaldir=As Cold As Ice
+achievement.enterKaldir.desc=Arrive on Kaldir!
+
+achievement.enterKorhal=Remember Korhal!
+achievement.enterKorhal.desc=Arrive on Korhal!
+
+achievement.enterShakuras=We Linger, In Twilight
 achievement.enterShakuras.desc=Arrive on Shakuras!
 #############################################################################################

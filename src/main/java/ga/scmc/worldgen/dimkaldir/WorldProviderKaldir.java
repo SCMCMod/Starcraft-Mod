@@ -1,5 +1,9 @@
 package ga.scmc.worldgen.dimkaldir;
 
+import com.arisux.mdx.lib.client.render.world.IClimateProvider;
+import com.arisux.mdx.lib.client.render.world.ICloudProvider;
+import com.arisux.mdx.lib.client.render.world.IStormProvider;
+
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.DimensionHandler;
 import net.minecraft.util.math.Vec3d;
@@ -10,28 +14,50 @@ import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class WorldProviderKaldir extends WorldProvider {
+public class WorldProviderKaldir extends WorldProvider implements IClimateProvider {
+	
+	private StormProviderKaldir storm = new StormProviderKaldir();
+    private CloudProviderKaldir clouds = new CloudProviderKaldir();
+	private IRenderHandler skyRenderer;
+    private IRenderHandler climateProvider;
 
     @SideOnly(Side.CLIENT)
-    private IRenderHandler skyProvider;
-    
-	@Override
-	protected void createBiomeProvider() {
-		biomeProvider = new KaldirBiomeProvider(world.getWorldInfo());
-	}
-	
-	@Override
-    @SideOnly(Side.CLIENT)
-    public IRenderHandler getSkyRenderer()
+    @Override
+    public IRenderHandler getWeatherRenderer()
     {
-        return skyProvider == null ? skyProvider = new SkyProviderKaldir() : skyProvider;
+        return null;
     }
 
+    @SideOnly(Side.CLIENT)
     @Override
     public IRenderHandler getCloudRenderer()
     {
-        return skyProvider == null ? skyProvider = new SkyProviderKaldir() : skyProvider;
+        return climateProvider == null ? climateProvider = new CloudProviderKaldir() : climateProvider;
     }
+
+    @SideOnly(Side.CLIENT)
+    @Override
+    public IRenderHandler getSkyRenderer()
+    {
+        return skyRenderer == null ? skyRenderer = new RenderSkyKaldir() : skyRenderer;
+    }
+
+    @Override
+    public void onWorldUpdateEntities()
+    {
+        super.onWorldUpdateEntities();
+    }
+
+    @Override
+    public void updateWeather()
+    {
+        super.updateWeather();
+    }
+    
+    @Override
+	protected void createBiomeProvider() {
+		biomeProvider = new KaldirBiomeProvider(world.getWorldInfo());
+	}
 
 	@Override
 	public IChunkGenerator createChunkGenerator() {
@@ -94,5 +120,15 @@ public class WorldProviderKaldir extends WorldProvider {
 		}
 		
 		return null;
+	}
+
+	@Override
+	public ICloudProvider getCloudProvider() {
+		return clouds;
+	}
+
+	@Override
+	public IStormProvider getStormProvider() {
+		return storm;
 	}
 }

@@ -1,11 +1,8 @@
 package ga.scmc.client.renderer.entity.layers;
 
-import org.lwjgl.opengl.GL11;
-
 import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.entity.RenderVoidProbe;
 import ga.scmc.entity.living.EntityVoidProbe;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
@@ -26,18 +23,7 @@ public class LayerVoidProbeColor<T extends EntityVoidProbe> implements LayerRend
 	}
 
 	public void doRenderLayer(EntityVoidProbe entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		this.RENDERER.bindTexture(TEXTURE);
-		GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
-
-		if (entitylivingbaseIn.isInvisible()) {
-			GlStateManager.depthMask(false);
-		} else {
-			GlStateManager.depthMask(true);
-		}
-
-		GL11.glColor3f(entitylivingbaseIn.getTeamColor().getR() / 255, entitylivingbaseIn.getTeamColor().getG() / 255, entitylivingbaseIn.getTeamColor().getB() / 255);
-		this.RENDERER.getMainModel().render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-		GlStateManager.resetColor();
+		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, TEXTURE, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 	}
 
 	@Override

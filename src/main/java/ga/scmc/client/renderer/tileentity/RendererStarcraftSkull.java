@@ -26,11 +26,21 @@ public class RendererStarcraftSkull extends TileEntitySpecialRenderer<TileEntity
 
 	public static RendererStarcraftSkull instance;
 
+<<<<<<< HEAD
 	private static final ModelSkeletonHead SKELETON = new ModelSkeletonHead(0, 0, 64, 64);
 	private static final ModelZergling ZERGLING = new ModelZergling();
 	private static final ModelSkeletonHead HYDRALISK = new ModelSkeletonHead(0, 0, 64, 64);
 	private static final ModelSkeletonHead BRUTALISK = new ModelSkeletonHead(0, 0, 64, 64);
 
+=======
+	public static final ResourceLocation ZERGLING_BASE = new ResourceLocation(Library.MODID, "textures/entity/zergling_base.png");
+	public static final ResourceLocation ZERGLING_OVERLAY = new ResourceLocation(Library.MODID, "textures/entity/zergling_overlay.png");
+	public static final ResourceLocation HYDRALISK_BASE = new ResourceLocation(Library.MODID, "textures/entity/hydralisk_base.png");
+	public static final ResourceLocation BRUTALISK_BASE = new ResourceLocation(Library.MODID, "textures/entity/brutalisk_base.png");
+	public static final ResourceLocation SKELETON = new ResourceLocation("textures/entity/skeleton/skeleton.png");
+	public static final ResourceLocation CIVILIAN = new ResourceLocation(Library.MODID, "textures/entity/civilian.png");
+	
+>>>>>>> 6baba3ca0a5812cb310931aaf2efdcea9bcb6e83
 	public void renderTileEntityAt(TileEntityStarcraftSkull te, double x, double y, double z, float partialTicks, int destroyStage) {
 		super.renderTileEntityAt(te, x, y, z, partialTicks, destroyStage);
 		EnumFacing enumfacing = EnumFacing.getFront(te.getBlockMetadata() & 7);
@@ -55,11 +65,16 @@ public class RendererStarcraftSkull extends TileEntitySpecialRenderer<TileEntity
 		} else {
 			switch (skullType) {
 			default:
-				this.bindTexture(new ResourceLocation("textures/entity/skeleton/skeleton.png"));
+				this.bindTexture(SKELETON);
 				break;
 			case 0:
+<<<<<<< HEAD
 				this.bindTexture(new ResourceLocation(Library.MODID, "textures/entity/civilian.png"));
 				skullModel = SKELETON;
+=======
+				this.bindTexture(CIVILIAN);
+				skullModel = new ModelSkeletonHead(0, 0, 64, 64);
+>>>>>>> 6baba3ca0a5812cb310931aaf2efdcea9bcb6e83
 				break;
 			case 1:
 				skullModel = ZERGLING;
@@ -108,18 +123,18 @@ public class RendererStarcraftSkull extends TileEntitySpecialRenderer<TileEntity
 			default:
 				break;
 			case 1:
-				RenderUtil.bindTexture(new ResourceLocation(Library.MODID, "textures/entity/zergling_base.png"));
+				RenderUtil.bindTexture(ZERGLING_BASE);
 				((IModelSkull) skullModel).renderSkull(0.0625f);
 				GlStateManager.translate(0, 0.2, -0.2);
-				RenderUtil.bindTexture(new ResourceLocation(Library.MODID, "textures/entity/zergling_overlay.png"));
+				RenderUtil.bindTexture(ZERGLING_OVERLAY);
 				((IModelSkull) skullModel).renderSkull(0.0625f);
 				break;
 			case 2:
-				RenderUtil.bindTexture(new ResourceLocation(Library.MODID, "textures/entity/hydralisk_base.png"));
+				RenderUtil.bindTexture(HYDRALISK_BASE);
 				((IModelSkull) skullModel).renderSkull(0.0625f);
 				break;
 			case 3:
-				RenderUtil.bindTexture(new ResourceLocation(Library.MODID, "textures/entity/brutalisk_base.png"));
+				RenderUtil.bindTexture(BRUTALISK_BASE);
 				((IModelSkull) skullModel).renderSkull(0.0625f);
 				break;
 			}

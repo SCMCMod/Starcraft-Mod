@@ -4,8 +4,13 @@ import ga.scmc.lib.Library;
 
 public class Resources {
 
+	public static final String ARTISLOPE_BASE					= Library.RL_BASE + "textures/entity/artislope_base.png";
 	public static final String BROODLING_BASE 					= Library.RL_BASE + "textures/entity/broodling_base.png";
 	public static final String BROODLING_OVERLAY				= Library.RL_BASE + "textures/entity/broodling_overlay.png";
+	public static final String BROODMOTHER_BASE		 			= Library.RL_BASE + "textures/entity/broodmother_base.png";
+	public static final String BROODMOTHER_GLOW_STATIC			= Library.RL_BASE + "textures/entity/broodmother_glow_static.png";
+	public static final String BROODMOTHER_GLOW_DYNAMIC			= Library.RL_BASE + "textures/entity/broodmother_glow_dynamic.png";
+	public static final String BROODMOTHER_OVERLAY	 			= Library.RL_BASE + "textures/entity/broodmother_overlay.png";
 	public static final String BRUTALISK_BASE 					= Library.RL_BASE + "textures/entity/brutalisk_base.png";
 	public static final String BRUTALISK_OVERLAY 				= Library.RL_BASE + "textures/entity/brutalisk_overlay.png";
 	public static final String BULLET_C14 						= Library.RL_BASE + "textures/entity/bullet.png";
@@ -20,6 +25,8 @@ public class Resources {
 	public static final String HYDRALISK_GLOW_STATIC 			= Library.RL_BASE + "textures/entity/hydralisk_glow_static.png";
 	public static final String HYDRALISK_OVERLAY 				= Library.RL_BASE + "textures/entity/hydralisk_overlay.png";
 	public static final String HYDRALISK_SPIKE	 				= Library.RL_BASE + "textures/entity/hydraliskspike.png";
+	public static final String HYDRALISKPRIMAL_BASE 			= Library.RL_BASE + "textures/entity/hydraliskprimal_base.png";
+	public static final String HYDRALISKPRIMAL_OVERLAY 			= Library.RL_BASE + "textures/entity/hydraliskprimal_overlay.png";
 	public static final String INFESTED_CIVILIAN 				= Library.RL_BASE + "textures/entity/infestedcivilian.png";
 	public static final String KAKARU			 				= Library.RL_BASE + "textures/entity/kakaru.png";
 	public static final String LARVA_BASE		 				= Library.RL_BASE + "textures/entity/larva_base.png";
@@ -29,6 +36,15 @@ public class Resources {
 	public static final String LARVA_COCOON_OVERLAY				= Library.RL_BASE + "textures/entity/larvacocoon_overlay.png";
 	public static final String MARINE_BASE                      = Library.RL_BASE + "textures/entity/marine/marine_base.png";
 	public static final String MARINE_OVERLAY                   = Library.RL_BASE + "textures/entity/marine/marine_overlay.png";
+	public static final String MUTALISK_BASE					= Library.RL_BASE + "textures/entity/mutalisk_base.png";
+	public static final String MUTALISK_GLOW_STATIC				= Library.RL_BASE + "textures/entity/mutalisk_glow_static.png";
+	public static final String MUTALISK_OVERLAY					= Library.RL_BASE + "textures/entity/mutalisk_overlay.png";
+	public static final String MUTALISKBROODLORD_BASE			= Library.RL_BASE + "textures/entity/mutaliskbroodlord_base.png";
+	public static final String MUTALISKBROODLORD_OVERLAY		= Library.RL_BASE + "textures/entity/mutaliskbroodlord_overlay.png";
+	public static final String MUTALISKPRIMAL_BASE				= Library.RL_BASE + "textures/entity/mutaliskprimal_base.png";
+	public static final String MUTALISKPRIMAL_OVERLAY			= Library.RL_BASE + "textures/entity/mutaliskprimal_overlay.png";
+	public static final String MUTALISKVIPER_BASE				= Library.RL_BASE + "textures/entity/mutaliskviper_base.png";
+	public static final String MUTALISKVIPER_OVERLAY			= Library.RL_BASE + "textures/entity/mutaliskviper_overlay.png";
 	public static final String PREAVER_BASE		 				= Library.RL_BASE + "textures/entity/preaver_base.png";
 	public static final String PREAVER_GLOW_DYNAMIC				= Library.RL_BASE + "textures/entity/preaver_glow_dynamic.png";
 	public static final String PREAVER_OVERLAY 					= Library.RL_BASE + "textures/entity/preaver_overlay.png";
@@ -42,10 +58,6 @@ public class Resources {
 	public static final String QUEEN_BASE		 				= Library.RL_BASE + "textures/entity/queen_base.png";
 	public static final String QUEEN_GLOW_STATIC				= Library.RL_BASE + "textures/entity/queen_glow_static.png";
 	public static final String QUEEN_OVERLAY	 				= Library.RL_BASE + "textures/entity/queen_overlay.png";
-	public static final String BROODMOTHER_BASE		 			= Library.RL_BASE + "textures/entity/broodmother_base.png";
-	public static final String BROODMOTHER_GLOW_STATIC			= Library.RL_BASE + "textures/entity/broodmother_glow_static.png";
-	public static final String BROODMOTHER_GLOW_DYNAMIC			= Library.RL_BASE + "textures/entity/broodmother_glow_dynamic.png";
-	public static final String BROODMOTHER_OVERLAY	 			= Library.RL_BASE + "textures/entity/broodmother_overlay.png";
 	public static final String SCARAB_LAYER		 				= Library.RL_BASE + "textures/entity/scarab_layer.png";
 	public static final String SCARAB 							= Library.RL_BASE + "textures/entity/scarab.png";
 	public static final String TASTELOPE_BASE 					= Library.RL_BASE + "textures/entity/tastelope_base.png";
@@ -66,6 +78,16 @@ public class Resources {
 	public static final String ZERGLING_GLOW_STATIC 			= Library.RL_BASE + "textures/entity/zergling_glow_static.png";
 	public static final String ZERGLING_OVERLAY 				= Library.RL_BASE + "textures/entity/zergling_overlay.png";
 	public static final String ZERGLINGBOOST_BASE 				= Library.RL_BASE + "textures/entity/zerglingboost_base.png";
+	public static final String ZERGLINGPRIMAL_GLOW_DYNAMIC		= Library.RL_BASE + "textures/entity/zerglingprimal_glow_dynamic.png";
+	public static final String ZERGLINGPRIMAL1_BASE				= Library.RL_BASE + "textures/entity/zerglingprimal1_base.png";
+	public static final String ZERGLINGPRIMAL1_OVERLAY			= Library.RL_BASE + "textures/entity/zerglingprimal1_overlay.png";
+	public static final String ZERGLINGPRIMAL2_BASE				= Library.RL_BASE + "textures/entity/zerglingprimal2_base.png";
+	public static final String ZERGLINGPRIMAL2_OVERLAY			= Library.RL_BASE + "textures/entity/zerglingprimal2_overlay.png";
+	public static final String ZERGLINGPRIMAL3_BASE				= Library.RL_BASE + "textures/entity/zerglingprimal3_base.png";
+	public static final String ZERGLINGPRIMAL3_OVERLAY			= Library.RL_BASE + "textures/entity/zerglingprimal3_overlay.png";
+	public static final String ZERGLINGPRIMALDEHAKA_BASE		= Library.RL_BASE + "textures/entity/zerglingprimaldehaka_base.png";
+	public static final String ZERGLINGPRIMALDEHAKA_OVERLAY		= Library.RL_BASE + "textures/entity/zerglingprimaldehaka_overlay.png";
+	public static final String ZERGLINGPRIMALDEHAKA_GLOW_STATIC	= Library.RL_BASE + "textures/entity/zerglingprimaldehaka_glow_static.png";
 	public static final String ZERGLINGRAPTOR_BASE 				= Library.RL_BASE + "textures/entity/zerglingraptor_base.png";
 	public static final String ZERGLINGSWARMLING_BASE 			= Library.RL_BASE + "textures/entity/zerglingswarmling_base.png";
 	public static final String ZERGLINGSWARMLING_GLOW_STATIC 	= Library.RL_BASE + "textures/entity/zerglingswarmling_glow_static.png";

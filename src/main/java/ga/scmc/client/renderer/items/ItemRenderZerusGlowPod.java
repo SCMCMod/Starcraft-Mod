@@ -1,6 +1,5 @@
 package ga.scmc.client.renderer.items;
 
-import ga.scmc.client.renderer.model.blocks.ModelTable;
 import ga.scmc.client.renderer.model.blocks.ModelZerusGlowPod;
 import ga.scmc.lib.Library;
 import net.minecraft.client.renderer.GlStateManager;

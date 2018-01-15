@@ -19,6 +19,12 @@ import net.minecraft.util.ResourceLocation;
 public class ItemRenderStarcraftSkull extends ItemRenderer {
 
 	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.MODID, "textures/models/block/table.png");
+	public static final ResourceLocation ZERGLING_BASE = new ResourceLocation(Library.MODID, "textures/entity/zergling_base.png");
+	public static final ResourceLocation ZERGLING_OVERLAY = new ResourceLocation(Library.MODID, "textures/entity/zergling_overlay.png");
+	public static final ResourceLocation HYDRALISK_BASE = new ResourceLocation(Library.MODID, "textures/entity/hydralisk_base.png");
+	public static final ResourceLocation BRUTALISK_BASE = new ResourceLocation(Library.MODID, "textures/entity/brutalisk_base.png");
+	public static final ResourceLocation SKELETON = new ResourceLocation("textures/entity/skeleton/skeleton.png");
+	public static final ResourceLocation CIVILIAN = new ResourceLocation(Library.MODID, "textures/entity/civilian.png");
 	private int type;
 
 	public ItemRenderStarcraftSkull() {
@@ -201,10 +207,10 @@ public class ItemRenderStarcraftSkull extends ItemRenderer {
 
 		switch (skullType) {
 		default:
-			RenderUtil.bindTexture(new ResourceLocation("textures/entity/skeleton/skeleton.png"));
+			RenderUtil.bindTexture(SKELETON);
 			break;
 		case 0:
-			RenderUtil.bindTexture(new ResourceLocation(Library.MODID, "textures/entity/civilian.png"));
+			RenderUtil.bindTexture(CIVILIAN);
 			skullModel = new ModelSkeletonHead(0, 0, 64, 64);
 			break;
 		case 1:
@@ -226,22 +232,22 @@ public class ItemRenderStarcraftSkull extends ItemRenderer {
 		if (skullModel instanceof IModelSkull) {
 			switch (skullType) {
 			default:
-				RenderUtil.bindTexture(new ResourceLocation(Library.MODID, "textures/entity/zergling_base.png"));
+				RenderUtil.bindTexture(ZERGLING_BASE);
 				skullModel.render((Entity) null, 0, 0, 0, 0, 0, (float) scale);
 				break;
 			case 1:
-				RenderUtil.bindTexture(new ResourceLocation(Library.MODID, "textures/entity/zergling_base.png"));
+				RenderUtil.bindTexture(ZERGLING_BASE);
 				((IModelSkull) skullModel).renderSkull((float) scale);
 				GlStateManager.translate(0, 0.2, -0.2);
-				RenderUtil.bindTexture(new ResourceLocation(Library.MODID, "textures/entity/zergling_overlay.png"));
+				RenderUtil.bindTexture(ZERGLING_OVERLAY);
 				((IModelSkull) skullModel).renderSkull((float) scale);
 				break;
 			case 2:
-				RenderUtil.bindTexture(new ResourceLocation(Library.MODID, "textures/entity/hydralisk_base.png"));
+				RenderUtil.bindTexture(HYDRALISK_BASE);
 				((IModelSkull) skullModel).renderSkull((float) scale);
 				break;
 			case 3:
-				RenderUtil.bindTexture(new ResourceLocation(Library.MODID, "textures/entity/brutalisk_base.png"));
+				RenderUtil.bindTexture(BRUTALISK_BASE);
 				((IModelSkull) skullModel).renderSkull((float) scale);
 				break;
 			}

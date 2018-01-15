@@ -22,7 +22,7 @@ public class WorldProviderShakuras extends WorldProvider {
 
 	@Override
 	public IRenderHandler getCloudRenderer() {
-		return skyProvider == null ? skyProvider = new SkyProviderShakuras() : skyProvider;
+		return null;
 	}
 	
 	@Override

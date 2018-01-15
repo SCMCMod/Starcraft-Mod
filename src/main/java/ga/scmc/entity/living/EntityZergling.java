@@ -7,7 +7,6 @@ import com.google.common.base.Predicate;
 
 import ga.scmc.capabilities.ColorProvider;
 import ga.scmc.capabilities.IColor;
-import ga.scmc.entity.ai.EntityAIFollowTeamLeader;
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumTeamColors;
@@ -48,7 +47,6 @@ public class EntityZergling extends EntityZergMob implements IMob, Predicate<Ent
 		tasks.addTask(2, new EntityAIWander(this, 1.0D));
 		tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
 		tasks.addTask(4, new EntityAILookIdle(this));
-		tasks.addTask(5, new EntityAIFollowTeamLeader(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0,
 				false, false, this));
@@ -110,7 +108,7 @@ public class EntityZergling extends EntityZergMob implements IMob, Predicate<Ent
 
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
-		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2),
+		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2),
 				EnumMetaItem.CarapaceType.T1.getID()));
 		drop.tryDrop(this);
 	}

@@ -99,12 +99,16 @@ public class SoundHandler {
 	public static SoundEvent ENTITY_URSADON_LIVE2;
 	public static SoundEvent ENTITY_URSADON_HURT;
 	public static SoundEvent ENTITY_URSADON_DEATH;
-	
 
 	public static SoundEvent ENTITY_QUEEN_LIVE1;
 	public static SoundEvent ENTITY_QUEEN_LIVE2;
 	public static SoundEvent ENTITY_QUEEN_HURT;
 	public static SoundEvent ENTITY_QUEEN_DEATH;
+	
+	public static SoundEvent ENTITY_MUTALISK_LIVE1;
+	public static SoundEvent ENTITY_MUTALISK_LIVE2;
+	public static SoundEvent ENTITY_MUTALISK_HURT;
+	public static SoundEvent ENTITY_MUTALISK_DEATH;
 	
 	public static SoundEvent ENTITY_MARINE_LIVE1;
 	public static SoundEvent ENTITY_MARINE_HURT;
@@ -235,6 +239,11 @@ public class SoundHandler {
 		ENTITY_QUEEN_LIVE2 = registerSound("mob.queen.live2");
 		ENTITY_QUEEN_HURT = registerSound("mob.queen.hurt");
 		ENTITY_QUEEN_DEATH = registerSound("mob.queen.death");
+		
+		ENTITY_MUTALISK_LIVE1 = registerSound("mob.mutalisk.live1");
+		ENTITY_MUTALISK_LIVE2 = registerSound("mob.mutalisk.live2");
+		ENTITY_MUTALISK_HURT = registerSound("mob.mutalisk.hurt");
+		ENTITY_MUTALISK_DEATH = registerSound("mob.mutalisk.death");
 
 		ENTITY_MARINE_LIVE1 = registerSound("mob.marine.live1");
 		ENTITY_MARINE_HURT = registerSound("mob.marine.hurt");
