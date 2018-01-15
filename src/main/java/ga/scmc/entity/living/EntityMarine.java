@@ -7,7 +7,6 @@ import ga.scmc.capabilities.ColorProvider;
 import ga.scmc.capabilities.IColor;
 import ga.scmc.entity.EntityC14GaussRifleBullet;
 import ga.scmc.enums.EnumFactionTypes;
-import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.ItemHandler;

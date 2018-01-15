@@ -5,7 +5,6 @@ import java.util.Random;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.entity.living.EntityNafash;
 import ga.scmc.entity.living.EntityQueen;
-import ga.scmc.entity.living.EntityStarcraftMob;
 import ga.scmc.entity.living.EntityZergMob;
 import ga.scmc.entity.living.EntityZergPassive;
 import ga.scmc.enums.EnumFactionTypes;
@@ -56,15 +55,18 @@ public class BlockZergCreep extends Block {
 
 	@Override
 	public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn) {
-		if (entityIn instanceof EntityZergMob || entityIn instanceof EntityZergPassive) {
+		if (entityIn instanceof EntityZergMob) {
 			if(entityIn instanceof EntityQueen || entityIn instanceof EntityNafash) {
 				entityIn.motionX *= 1.6D;
 				entityIn.motionZ *= 1.6D;
-			}else {
-				if(!((EntityStarcraftMob) entityIn).isFaction(EnumFactionTypes.PRIMALZERG)) {
-					entityIn.motionX *= 1.2D;
-					entityIn.motionZ *= 1.2D;
-				}
+			}else if(!((EntityZergMob) entityIn).isFaction(EnumFactionTypes.PRIMALZERG)) {
+				entityIn.motionX *= 1.2D;
+				entityIn.motionZ *= 1.2D;
+			}
+		}else if(entityIn instanceof EntityZergPassive) {
+			if(!((EntityZergPassive) entityIn).isFaction(EnumFactionTypes.PRIMALZERG)) {
+				entityIn.motionX *= 1.2D;
+				entityIn.motionZ *= 1.2D;
 			}
 		}
 		if (entityIn instanceof EntityPlayer) {
