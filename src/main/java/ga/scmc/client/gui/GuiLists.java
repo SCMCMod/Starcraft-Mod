@@ -23,7 +23,7 @@ public class GuiLists {
 	public static final ImmutableList<LarvaOption> LARVA_OPTIONS;
 
 	static {
-		TRADES = new ImmutableList[10];
+		TRADES = new ImmutableList[6];
 
 		ImmutableList.Builder<Product> tab0 = ImmutableList.builder();
 		tab0.add(new Product(new ItemStack(ItemHandler.C14_PARTS, 1, 0), 11, 6));

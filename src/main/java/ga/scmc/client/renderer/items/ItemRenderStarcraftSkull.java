@@ -22,7 +22,7 @@ public class ItemRenderStarcraftSkull extends ItemRenderer {
 	private int type;
 
 	public ItemRenderStarcraftSkull() {
-		super(new ModelTable(), TEXTURE);
+		super(null, TEXTURE);
 	}
 
 	@Override

@@ -27,8 +27,9 @@ public class BlockZerusGlowPod extends BlockContainer implements ITileEntityProv
 		setRegistryName("flora.zerus.glowpod");
 		setUnlocalizedName("flora.zerus.glowpod");
 		setSoundType(SoundTypes.FLESH);
+		setHardness(0.5f);
 		setLightLevel(13);
-		setCreativeTab(StarcraftCreativeTabs.MISC);
+		setCreativeTab(StarcraftCreativeTabs.FLORA);
 	}
 
 	@Override

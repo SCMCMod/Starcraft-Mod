@@ -1,6 +1,8 @@
 package ga.scmc.lib;
 
 import ga.scmc.enums.EnumTeamColors;
+import net.minecraft.world.World;
+import scala.util.Random;
 
 /**
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
@@ -13,6 +15,8 @@ import ga.scmc.enums.EnumTeamColors;
  * @author Ocelot5836
  */
 public class StarcraftUtils {
+
+	private static Random random = new Random();
 
 	/**
 	 * Transfers a minecraft id into a starcraft id.
@@ -52,5 +56,14 @@ public class StarcraftUtils {
 			return EnumTeamColors.YELLOW.getId();
 
 		return EnumTeamColors.WHITE.getId();
+	}
+
+	public static boolean shouldGasDissipate(World world, int maxHeight, int currentHeight) {
+		int lowestHeight = world.getSeaLevel();
+		if (currentHeight < lowestHeight || maxHeight - lowestHeight <= 0)
+			return false;
+		float chance = currentHeight / (maxHeight - lowestHeight);
+
+		return random.nextFloat() <= chance;
 	}
 }

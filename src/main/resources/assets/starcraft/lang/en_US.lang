@@ -4,6 +4,7 @@
 itemGroup.protoss=Protoss
 itemGroup.terran=Terran
 itemGroup.zerg=Zerg
+itemGroup.flora=Flora
 
 itemGroup.terran.general=General
 itemGroup.terran.machine=Machines

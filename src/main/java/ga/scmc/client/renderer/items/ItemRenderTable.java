@@ -12,6 +12,7 @@ import ocelot.api.utils.TextureUtils;
 
 public class ItemRenderTable extends ItemRenderer {
 
+	private static final ModelTable MODEL = new ModelTable();
 	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.MODID, "textures/models/block/table.png");
 
 	public ItemRenderTable() {
@@ -81,11 +82,10 @@ public class ItemRenderTable extends ItemRenderer {
 
 	public void renderModel(double x, double y, double z, double scale) {
 		GlStateManager.pushMatrix();
-		ModelTable model = new ModelTable();
 		GlStateManager.translate(x + 0.5, y + 1.5, z + 0.5);
 		GlStateManager.rotate(180, 0, 0, 1);
 		bindTexture();
-		model.render((float) scale);
+		MODEL.render((float) scale);
 		GlStateManager.popMatrix();
 	}
 }

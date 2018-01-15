@@ -10,6 +10,7 @@ import ga.scmc.client.gui.element.LarvaOption;
 import ga.scmc.entity.living.EntityLarva;
 import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.handlers.ItemHandler;
+import ga.scmc.lib.Library;
 import ga.scmc.network.NetworkHandler;
 import ga.scmc.network.message.MessageMorphLarva;
 import ga.scmc.network.message.MessageSyncLarvaGui;
@@ -33,7 +34,7 @@ public class GuiLarvaMorph extends BasicGui {
 
 	public static final GuiLarvaMorph INSTANCE = new GuiLarvaMorph();
 
-	public final ResourceLocation LARVA_GUI = new ResourceLocation("textures/gui/larva.png");
+	public final ResourceLocation LARVA_GUI = new ResourceLocation(Library.RL_BASE + "textures/gui/larva.png");
 	private EntityLarva larva;
 	private List<LarvaOption> subOptions = new ArrayList<LarvaOption>();
 	private int subOptionsX, subOptionsY;

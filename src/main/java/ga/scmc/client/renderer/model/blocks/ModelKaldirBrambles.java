@@ -3,6 +3,7 @@ package ga.scmc.client.renderer.model.blocks;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.math.MathHelper;
 
 /**
  * kaldirbrambles - cybercat5555 Created using Tabula 6.0.0
@@ -155,6 +156,7 @@ public class ModelKaldirBrambles extends ModelBase {
 	}
 
 	public void render(float scale, float age) {
+		this.setRotationAngles(0, 0, age, 0, 0, scale, (Entity) null);
 		this.branch11.render(scale);
 		this.branch09.render(scale);
 		this.branch02.render(scale);
@@ -167,6 +169,22 @@ public class ModelKaldirBrambles extends ModelBase {
 		this.branch04.render(scale);
 		this.branch10.render(scale);
 		this.branch06.render(scale);
+	}
+
+	@Override
+	public void setRotationAngles(float limbSwing, float limbSwingAmount, float age, float netHeadYaw, float headPitch, float scale, Entity entity) {
+		this.branch11.rotateAngleX = MathHelper.sin(age * 0.1f) * 0.1f;
+		this.branch09.rotateAngleX = MathHelper.sin(age * 0.05f) * 0.1f;
+		this.branch02.rotateAngleX = MathHelper.sin(age * 0.05f) * 0.15f;
+		this.branch01.rotateAngleX = MathHelper.sin(age * 0.05f) * 0.1f;
+		this.branch05.rotateAngleZ = MathHelper.sin(age * 0.05f) * 0.1f;
+		this.branch08.rotateAngleX = MathHelper.sin(age * 0.1f) * 0.1f;
+		this.branch07.rotateAngleX = MathHelper.sin(age * 0.05f) * 0.1f;
+		this.branch03.rotateAngleZ = MathHelper.sin(age * 0.05f) * 0.1f;
+		this.branch12.rotateAngleX = MathHelper.sin(age * 0.05f) * 0.1f;
+		this.branch04.rotateAngleX = MathHelper.sin(age * 0.05f) * 0.1f;
+		this.branch10.rotateAngleX = MathHelper.sin(age * 0.1f) * 0.1f;
+		this.branch06.rotateAngleX = MathHelper.sin(age * 0.05f) * 0.15f;
 	}
 
 	/**

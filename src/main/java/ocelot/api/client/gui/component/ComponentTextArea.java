@@ -15,14 +15,16 @@ public class ComponentTextArea extends Component {
 	}
 
 	public void addText(String string, int color) {
-		String[] tokens = getLinesFromString(string, width);
-		for (int i = 0; i < tokens.length; i++) {
-			if (this.isTextRoom()) {
-				this.text.add(new ComponentText(x, y + text.size() * 9, tokens[i], color));
+		if (isTextRoom()) {
+			String[] tokens = getLinesFromString(string, width);
+			for (int i = 0; i < tokens.length; i++) {
+				if (this.isTextRoom()) {
+					this.text.add(new ComponentText(x, y + text.size() * 9, tokens[i], color));
+				}
 			}
 		}
 	}
-	
+
 	public boolean isTextRoom() {
 		return text.size() < height;
 	}

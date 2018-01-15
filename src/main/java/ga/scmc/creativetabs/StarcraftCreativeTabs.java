@@ -15,4 +15,5 @@ public class StarcraftCreativeTabs {
 	public static final CreativeTabs TERRAN = new StarcraftCreativeTabTerran();
 	public static final CreativeTabs ZERG = new StarcraftCreativeTabZerg();
 	public static final CreativeTabs MISC = new StarcraftCreativeTabMisc();
+	public static final CreativeTabs FLORA = new StarcraftCreativeTabFlora();
 }

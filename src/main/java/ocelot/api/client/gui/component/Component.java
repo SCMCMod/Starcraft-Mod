@@ -41,8 +41,8 @@ public abstract class Component extends Gui {
 	}
 
 	public boolean isHovered(int mouseX, int mouseY) {
-		mouseX -= parent.getX();
-		mouseY -= parent.getY();
+		// mouseX -= parent.getX();
+		// mouseY -= parent.getY();
 		return this.visible && mouseX >= this.x && mouseY >= this.y && mouseX < this.x + this.width && mouseY < this.y + this.height;
 	}
 

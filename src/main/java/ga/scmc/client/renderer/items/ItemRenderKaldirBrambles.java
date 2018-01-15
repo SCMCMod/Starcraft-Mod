@@ -1,5 +1,6 @@
 package ga.scmc.client.renderer.items;
 
+import ga.scmc.client.renderer.model.blocks.ModelKaldirBrambles;
 import ga.scmc.client.renderer.model.blocks.ModelTable;
 import ga.scmc.client.renderer.model.blocks.ModelZerusGlowPod;
 import ga.scmc.lib.Library;
@@ -12,12 +13,12 @@ import net.minecraft.util.ResourceLocation;
 /**
  * @author Ocelot5836
  */
-public class ItemRenderZerusGlowPod extends ItemRenderer {
+public class ItemRenderKaldirBrambles extends ItemRenderer {
 
-	private static final ModelZerusGlowPod MODEL = new ModelZerusGlowPod();
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.MODID, "textures/models/block/zerus_glow_pod.png");
+	private static final ModelKaldirBrambles MODEL = new ModelKaldirBrambles();
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.MODID, "textures/models/block/kaldir_brambles.png");
 
-	public ItemRenderZerusGlowPod() {
+	public ItemRenderKaldirBrambles() {
 		super(null, TEXTURE);
 	}
 

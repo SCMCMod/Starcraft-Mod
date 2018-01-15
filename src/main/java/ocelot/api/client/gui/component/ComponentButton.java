@@ -20,8 +20,6 @@ public class ComponentButton extends Component {
 
 	public ComponentButton(int x, int y, int width, int height, String buttonText) {
 		super(x, y, width, height);
-		this.x += parent.getX();
-		this.y += parent.getY();
 		this.enabled = true;
 		this.displayString = buttonText;
 	}

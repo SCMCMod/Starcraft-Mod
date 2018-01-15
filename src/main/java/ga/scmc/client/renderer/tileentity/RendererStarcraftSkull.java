@@ -26,7 +26,13 @@ public class RendererStarcraftSkull extends TileEntitySpecialRenderer<TileEntity
 
 	public static RendererStarcraftSkull instance;
 
+	private static final ModelSkeletonHead SKELETON = new ModelSkeletonHead(0, 0, 64, 64);
+	private static final ModelZergling ZERGLING = new ModelZergling();
+	private static final ModelSkeletonHead HYDRALISK = new ModelSkeletonHead(0, 0, 64, 64);
+	private static final ModelSkeletonHead BRUTALISK = new ModelSkeletonHead(0, 0, 64, 64);
+
 	public void renderTileEntityAt(TileEntityStarcraftSkull te, double x, double y, double z, float partialTicks, int destroyStage) {
+		super.renderTileEntityAt(te, x, y, z, partialTicks, destroyStage);
 		EnumFacing enumfacing = EnumFacing.getFront(te.getBlockMetadata() & 7);
 		this.renderSkull((float) x, (float) y, (float) z, enumfacing, (float) (te.getSkullRotation() * 360) / 16.0F, te.getSkullType(), destroyStage);
 	}
@@ -53,16 +59,16 @@ public class RendererStarcraftSkull extends TileEntitySpecialRenderer<TileEntity
 				break;
 			case 0:
 				this.bindTexture(new ResourceLocation(Library.MODID, "textures/entity/civilian.png"));
-				skullModel = new ModelSkeletonHead(0, 0, 64, 64);
+				skullModel = SKELETON;
 				break;
 			case 1:
-				skullModel = new ModelZergling();
+				skullModel = ZERGLING;
 				break;
 			case 2:
-				skullModel = new ModelHydralisk();
+				skullModel = HYDRALISK;
 				break;
 			case 3:
-				skullModel = new ModelBrutalisk();
+				skullModel = BRUTALISK;
 				break;
 			}
 		}

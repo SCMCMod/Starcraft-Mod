@@ -6,10 +6,15 @@ import java.util.List;
 import net.minecraft.util.ChatAllowedCharacters;
 import ocelot.api.client.gui.GuiBase;
 import ocelot.api.client.gui.component.ComponentBookPage;
+import ocelot.api.client.gui.component.ComponentButton;
+import ocelot.api.client.gui.component.listener.MouseListener;
 
 public abstract class GuiBookBase extends GuiBase {
 
 	protected List<ComponentBookPage> pages;
+
+	protected ComponentButton buttonNext;
+	protected ComponentButton buttonLast;
 
 	private int maxPages;
 	private int page;
@@ -24,7 +29,36 @@ public abstract class GuiBookBase extends GuiBase {
 	public void initGui() {
 		this.page = 0;
 		this.initText();
+		setPage(0);
 		super.initGui();
+
+		buttonNext = new ComponentButton(guiLeft + xSize - 40, guiTop + ySize + 4, 40, 20, "Next");
+		buttonNext.setMouseListener(new MouseListener() {
+			@Override
+			public void mouseReleased(int mouseButton, int mouseX, int mouseY) {
+
+			}
+
+			@Override
+			public void mousePressed(int mouseButton, int mouseX, int mouseY) {
+				setPage(page + 1);
+			}
+		});
+		addComponent(buttonNext);
+
+		buttonLast = new ComponentButton(guiLeft, guiTop + ySize + 4, 40, 20, "Last");
+		buttonLast.setMouseListener(new MouseListener() {
+			@Override
+			public void mouseReleased(int mouseButton, int mouseX, int mouseY) {
+
+			}
+
+			@Override
+			public void mousePressed(int mouseButton, int mouseX, int mouseY) {
+				setPage(page - 1);
+			}
+		});
+		addComponent(buttonLast);
 
 		for (int i = 0; i < pages.size(); i++) {
 			addComponent(pages.get(i));
@@ -36,9 +70,8 @@ public abstract class GuiBookBase extends GuiBase {
 	protected abstract void initText();
 
 	protected void setPage(int page) {
-		page -= 1;
-		if (page > maxPages)
-			page = maxPages;
+		if (page >= maxPages - 1)
+			page = maxPages - 1;
 		if (page < 0)
 			page = 0;
 		this.page = page;
@@ -63,11 +96,16 @@ public abstract class GuiBookBase extends GuiBase {
 		this.addLine(text, 0);
 	}
 
+	int pageCounter = 0;
+
 	protected void addLine(String text, int color) {
-		if (this.pages.get(page).body.isTextRoom()) {
-			this.pages.get(page).body.addText(text, color);
+		if (this.pages.get(pageCounter).body.isTextRoom()) {
+			this.pages.get(pageCounter).body.addText(text, color);
 		} else {
-			addPage();
+			pageCounter++;
+			if (pageCounter >= maxPages)
+				addPage();
+			this.pages.get(pageCounter).body.addText(text, color);
 		}
 	}
 
@@ -80,6 +118,9 @@ public abstract class GuiBookBase extends GuiBase {
 		if (maxPages > 1) {
 			pages.remove(maxPages - 1);
 			maxPages = pages.size();
+			if (page >= maxPages) {
+				page = maxPages;
+			}
 		}
 	}
 
