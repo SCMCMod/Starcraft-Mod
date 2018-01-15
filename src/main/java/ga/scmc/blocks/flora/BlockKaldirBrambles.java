@@ -25,7 +25,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 
-public class BlockKaldirBrambles extends BlockContainer implements ITileEntityProvider, IShearable {
+public class BlockKaldirBrambles extends BlockContainer implements IShearable {
 
 	public static final PropertyEnum<Part> PART = PropertyEnum.create("part", Part.class);
 
@@ -66,11 +66,6 @@ public class BlockKaldirBrambles extends BlockContainer implements ITileEntityPr
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
 		return null;
-	}
-
-	@Override
-	public boolean isReplaceable(IBlockAccess world, BlockPos pos) {
-		return false;
 	}
 
 	@Override

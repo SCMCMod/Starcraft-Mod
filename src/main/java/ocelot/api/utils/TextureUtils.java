@@ -2,6 +2,9 @@ package ocelot.api.utils;
 
 import java.awt.image.BufferedImage;
 
+import com.arisux.mdx.lib.client.render.Draw;
+import com.arisux.mdx.lib.game.Game;
+
 import ga.scmc.client.renderer.RenderUtil;
 import ga.scmc.lib.Library;
 import net.minecraft.client.Minecraft;
@@ -43,7 +46,7 @@ public class TextureUtils {
 	public static void deleteTexture(ResourceLocation texture) {
 		mc.getTextureManager().deleteTexture(texture);
 	}
-
+	
 	/**
 	 * Binds the specified texture.
 	 * 
@@ -51,7 +54,7 @@ public class TextureUtils {
 	 *            The texture to bind
 	 */
 	public static void bindTexture(ResourceLocation texture) {
-		RenderUtil.bindTexture(texture);
+		Draw.bindTexture(texture);
 	}
 
 	/**
@@ -63,7 +66,7 @@ public class TextureUtils {
 	 *            The path to the texture
 	 */
 	public static void bindTexture(String domain, String path) {
-		RenderUtil.bindTexture(new ResourceLocation(domain, path));
+		Draw.bindTexture(new ResourceLocation(domain, path));
 	}
 
 	/**
@@ -73,7 +76,7 @@ public class TextureUtils {
 	 *            The path to the texture
 	 */
 	public static void bindTexture(String path) {
-		RenderUtil.bindTexture(new ResourceLocation(Library.MODID, path));
+		Draw.bindTexture(new ResourceLocation(Library.MODID, path));
 	}
 	
 	/**

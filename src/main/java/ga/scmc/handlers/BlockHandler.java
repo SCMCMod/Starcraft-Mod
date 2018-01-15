@@ -41,6 +41,7 @@ import ga.scmc.blocks.StarcraftProtossCoreBlock;
 import ga.scmc.blocks.StarcraftTerranCoreBlock;
 import ga.scmc.blocks.flora.BlockKaldirBrambles;
 import ga.scmc.blocks.flora.BlockZerusGlowPod;
+import ga.scmc.blocks.flora.BlockZerusLightcap;
 import ga.scmc.blocks.itemblocks.ItemBlockAsh;
 import ga.scmc.blocks.itemblocks.ItemBlockMeta;
 import ga.scmc.blocks.itemblocks.ItemBlockStarcraftSkull;
@@ -111,6 +112,7 @@ public class BlockHandler {
 
 	public static Block FLORA_ZERUS_GLOW_POD;
 	public static Block FLORA_KALDIR_BRAMBLES;
+	public static Block FLORA_ZERUS_LIGHTCAP;
 
 	public static Block TERRAN_WARNING_TAPE;
 
@@ -304,6 +306,7 @@ public class BlockHandler {
 		/** flora **/
 		FLORA_ZERUS_GLOW_POD = new BlockZerusGlowPod();
 		FLORA_KALDIR_BRAMBLES = new BlockKaldirBrambles();
+		FLORA_ZERUS_LIGHTCAP = new BlockZerusLightcap();
 
 		/** miscellaneous blocks **/
 		TERRAN_WARNING_TAPE = new StarcraftBlock("terran.warningtape", RegistryType.FULL, Material.IRON, MapColor.YELLOW).setBlockSoundType(SoundType.METAL).setCreativeTab(StarcraftCreativeTabs.TERRAN);
@@ -359,9 +362,10 @@ public class BlockHandler {
 
 		registerCompleteBlock(GAS_VESPENE);
 		registerCompleteBlock(GAS_TERRAZINE);
-		
+
 		registerCompleteBlock(FLORA_ZERUS_GLOW_POD);
 		registerCompleteBlock(FLORA_KALDIR_BRAMBLES);
+		registerCompleteBlock(FLORA_ZERUS_LIGHTCAP);
 
 		registerBlock(STARCRAFT_SKULL, new ItemBlockStarcraftSkull());
 

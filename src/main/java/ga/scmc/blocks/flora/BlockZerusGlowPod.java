@@ -20,7 +20,7 @@ import net.minecraft.world.World;
 /**
  * @author Ocelot5836
  */
-public class BlockZerusGlowPod extends BlockContainer implements ITileEntityProvider {
+public class BlockZerusGlowPod extends BlockContainer {
 
 	public BlockZerusGlowPod() {
 		super(Material.GOURD, MapColor.BROWN);

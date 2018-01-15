@@ -42,6 +42,7 @@ import ga.scmc.entity.living.EntityZerglingPrimalDehaka;
 import ga.scmc.entity.living.EntityZerglingRaptor;
 import ga.scmc.entity.living.EntityZerglingSwarmling;
 import ga.scmc.lib.Library;
+import ga.scmc.tileentity.TileEntityZerusLightcap;
 import ga.scmc.tileentity.TileEntityEntitySpawner;
 import ga.scmc.tileentity.TileEntityGasCollector;
 import ga.scmc.tileentity.TileEntityKaldirBrambles;
@@ -138,6 +139,7 @@ public class EntityHandler {
 		registerTileEntity(TileEntityEntitySpawner.class);
 		registerTileEntity(TileEntityZerusGlowPod.class);
 		registerTileEntity(TileEntityKaldirBrambles.class);
+		registerTileEntity(TileEntityZerusLightcap.class);
 	}
 
 	/**

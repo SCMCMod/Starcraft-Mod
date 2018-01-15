@@ -55,6 +55,7 @@ import static ga.scmc.handlers.BlockHandler.FARMLAND_CHAR;
 import static ga.scmc.handlers.BlockHandler.FARMLAND_SHAKURAS;
 import static ga.scmc.handlers.BlockHandler.FLORA_KALDIR_BRAMBLES;
 import static ga.scmc.handlers.BlockHandler.FLORA_ZERUS_GLOW_POD;
+import static ga.scmc.handlers.BlockHandler.FLORA_ZERUS_LIGHTCAP;
 import static ga.scmc.handlers.BlockHandler.FLUID_ACID;
 import static ga.scmc.handlers.BlockHandler.FLUID_BLOOD;
 import static ga.scmc.handlers.BlockHandler.FLUID_TAR;
@@ -249,6 +250,7 @@ import ga.scmc.client.renderer.tileentity.RendererKaldirBrambles;
 import ga.scmc.client.renderer.tileentity.RendererStarcraftSkull;
 import ga.scmc.client.renderer.tileentity.RendererTest;
 import ga.scmc.client.renderer.tileentity.RendererZerusGlowPod;
+import ga.scmc.client.renderer.tileentity.RendererZerusLightcap;
 import ga.scmc.entity.EntityC14GaussRifleBullet;
 import ga.scmc.entity.EntityFlamethrowerFlame;
 import ga.scmc.entity.EntityHydraliskSpike;
@@ -305,6 +307,7 @@ import ga.scmc.tileentity.TileEntityKaldirBrambles;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
 import ga.scmc.tileentity.TileEntityTest;
 import ga.scmc.tileentity.TileEntityZerusGlowPod;
+import ga.scmc.tileentity.TileEntityZerusLightcap;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -427,6 +430,7 @@ public class RenderingHandler {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStarcraftSkull.class, new RendererStarcraftSkull());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityZerusGlowPod.class, new RendererZerusGlowPod());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityKaldirBrambles.class, new RendererKaldirBrambles());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityZerusLightcap.class, new RendererZerusLightcap());
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -635,8 +639,11 @@ public class RenderingHandler {
 
 		// Other
 		registerBlockModel(TEST);
+
+		// Flora
 		registerBlockModel(FLORA_ZERUS_GLOW_POD);
 		registerBlockModel(FLORA_KALDIR_BRAMBLES);
+		registerBlockModel(FLORA_ZERUS_LIGHTCAP);
 
 		// Protoss Blocks
 		registerBlockModel(PROTOSS_ENERGY_CHANNEL);
