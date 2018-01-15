@@ -248,7 +248,6 @@ import ga.scmc.client.renderer.projectiles.RenderFlamethrowerFlame;
 import ga.scmc.client.renderer.projectiles.RenderHydraliskSpike;
 import ga.scmc.client.renderer.tileentity.RendererKaldirBrambles;
 import ga.scmc.client.renderer.tileentity.RendererStarcraftSkull;
-import ga.scmc.client.renderer.tileentity.RendererTest;
 import ga.scmc.client.renderer.tileentity.RendererZerusGlowPod;
 import ga.scmc.client.renderer.tileentity.RendererZerusLightcap;
 import ga.scmc.entity.EntityC14GaussRifleBullet;
@@ -305,7 +304,6 @@ import ga.scmc.enums.EnumMetaItem.EnergyType;
 import ga.scmc.lib.Library;
 import ga.scmc.tileentity.TileEntityKaldirBrambles;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
-import ga.scmc.tileentity.TileEntityTest;
 import ga.scmc.tileentity.TileEntityZerusGlowPod;
 import ga.scmc.tileentity.TileEntityZerusLightcap;
 import net.minecraft.block.Block;
@@ -426,7 +424,6 @@ public class RenderingHandler {
 	}
 
 	private static void registerTileEntityRenders() {
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTest.class, new RendererTest());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStarcraftSkull.class, new RendererStarcraftSkull());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityZerusGlowPod.class, new RendererZerusGlowPod());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityKaldirBrambles.class, new RendererKaldirBrambles());

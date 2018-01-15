@@ -106,11 +106,6 @@ public class BlockKaldirBrambles extends BlockContainer implements IShearable {
 		return NULL_AABB;
 	}
 
-	@Override
-	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-		return FULL_BLOCK_AABB;
-	}
-
 	public enum Part implements IStringSerializable {
 		BOTTOM, TOP;
 

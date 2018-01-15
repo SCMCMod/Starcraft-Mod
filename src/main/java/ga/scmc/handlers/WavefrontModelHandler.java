@@ -29,6 +29,7 @@ public class WavefrontModelHandler {
 	 * Registers the obj models.
 	 */
 	public static void register() {
+		registerModel(BlockHandler.TEST);
 		registerModel(BlockHandler.PROTOSS_WARPGATE_WORMHOLE);
 	}
 

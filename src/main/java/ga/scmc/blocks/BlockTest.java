@@ -1,14 +1,12 @@
 package ga.scmc.blocks;
 
-import ga.scmc.tileentity.TileEntityTest;
-import net.minecraft.block.BlockContainer;
+import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
@@ -20,7 +18,7 @@ import net.minecraft.world.World;
  * @since 5.1
  * @author Ocelot5836
  */
-public class BlockTest extends BlockContainer {
+public class BlockTest extends Block {
 
 	public BlockTest() {
 		super(Material.WOOD, MapColor.WOOD);
@@ -28,7 +26,6 @@ public class BlockTest extends BlockContainer {
 		setRegistryName("test.block");
 		setSoundType(SoundType.WOOD);
 		setBlockUnbreakable();
-		setTickRandomly(true);
 		setCreativeTab(null);
 	}
 
@@ -48,10 +45,5 @@ public class BlockTest extends BlockContainer {
 	@Override
 	public boolean isFullCube(IBlockState state) {
 		return false;
-	}
-
-	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		return new TileEntityTest();
 	}
 }

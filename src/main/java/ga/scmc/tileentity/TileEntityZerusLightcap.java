@@ -14,15 +14,18 @@ public class TileEntityZerusLightcap extends TileEntity {
 	private static Random random = new Random();
 
 	private boolean variant;
+	private int rotation;
 
 	public TileEntityZerusLightcap() {
 		variant = random.nextBoolean();
+		rotation = random.nextInt(360) + 1;
 	}
 
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setBoolean("variant", this.variant);
+		nbt.setInteger("rotation", this.rotation);
 		return nbt;
 	}
 
@@ -30,6 +33,7 @@ public class TileEntityZerusLightcap extends TileEntity {
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
 		this.variant = nbt.getBoolean("variant");
+		this.rotation = nbt.getInteger("rotation");
 	}
 
 	@Override
@@ -53,5 +57,9 @@ public class TileEntityZerusLightcap extends TileEntity {
 
 	public boolean isVariant() {
 		return variant;
+	}
+
+	public int getRotation() {
+		return rotation;
 	}
 }
