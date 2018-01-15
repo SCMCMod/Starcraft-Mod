@@ -5,6 +5,7 @@ itemGroup.protoss=Protoss
 itemGroup.terran=Terran
 itemGroup.zerg=Zerg
 itemGroup.flora=Flora
+itemGroup.books=Logs
 
 itemGroup.terran.general=General
 itemGroup.terran.machine=Machines
@@ -141,6 +142,8 @@ tile.gas.collector.zerg.name=Extractor
 ### Flora ###
 #############################################################################################
 tile.flora.zerus.glowpod.name=Zerus Glow Pod
+tile.flora.kaldir.brambles.name=Kaldir Brambles
+tile.flora.zerus.lightcap.name=Zerus Lightcap
 #############################################################################################
 
 
@@ -516,13 +519,6 @@ tile.shakuras.portal.name=Shakuras Portal
 tile.korhal.portal.name=Korhal Portal
 tile.kaldir.portal.name=Kaldir Portal
 tile.slayn.portal.name=Slayn Portal
-#############################################################################################
-
-
-
-### Flora ###
-#############################################################################################
-tile.flora.kaldir.brambles.name=Kaldir Brambles
 #############################################################################################
 
 

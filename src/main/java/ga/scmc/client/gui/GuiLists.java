@@ -1,5 +1,8 @@
 package ga.scmc.client.gui;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.common.collect.ImmutableList;
 
 import ga.scmc.client.gui.element.LarvaOption;
@@ -16,11 +19,13 @@ import ga.scmc.items.metaitems.ItemMagazine;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import scala.actors.threadpool.Arrays;
 
 public class GuiLists {
 
 	public static final ImmutableList<Product>[] TRADES;
 	public static final ImmutableList<LarvaOption> LARVA_OPTIONS;
+	public static final List<List<String>> LOGS;
 
 	static {
 		TRADES = new ImmutableList[6];
@@ -104,6 +109,10 @@ public class GuiLists {
 		larvaOptions.add(new LarvaOption(100, 75).setTooltip(I18n.format("entity.starcraft.swarmHost.name")));
 		larvaOptions.add(new LarvaOption(300, 200).setTooltip(I18n.format("entity.starcraft.mutalisk.name")));
 		LARVA_OPTIONS = larvaOptions.build();
+
+		LOGS = new ArrayList<List<String>>();
+		LOGS.add(Arrays.asList(new String[] { "testing", "another one" }));
+		LOGS.add(Arrays.asList(new String[] { "spawn book here" }));
 	}
 
 	public static class Product {

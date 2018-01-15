@@ -1,15 +1,14 @@
 package ga.scmc.creativetabs;
 
 import ga.scmc.handlers.BlockHandler;
-import ga.scmc.handlers.ItemHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
-public class StarcraftCreativeTabFlora extends CreativeTabs{
+public class StarcraftCreativeTabFlora extends CreativeTabs {
 
 	public StarcraftCreativeTabFlora() {
 		super("flora");
-//		setBackgroundImageName("item_search.png");
+		// setBackgroundImageName("item_search.png");
 	}
 
 	@Override
