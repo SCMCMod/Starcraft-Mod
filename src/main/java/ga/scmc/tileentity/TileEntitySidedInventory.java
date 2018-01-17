@@ -76,7 +76,7 @@ public class TileEntitySidedInventory extends TileEntity {
      *
      * @return the calculated size
      */
-    private int calculateSizeOfMainHandler() {
+    protected int calculateSizeOfMainHandler() {
         int lastSlot = 0;
         for (int[] slots : this.slotsForFace) {
             for (int slot : slots) {
