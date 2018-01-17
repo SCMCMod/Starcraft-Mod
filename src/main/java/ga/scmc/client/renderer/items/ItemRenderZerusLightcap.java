@@ -1,8 +1,6 @@
 package ga.scmc.client.renderer.items;
 
-import ga.scmc.client.renderer.model.blocks.ModelZerusGlowPod;
 import ga.scmc.client.renderer.model.blocks.ModelZerusLightcap;
-import ga.scmc.client.renderer.model.blocks.ModelZerusLightcapVariant;
 import ga.scmc.lib.Library;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;

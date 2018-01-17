@@ -1,10 +1,8 @@
 package ga.scmc.client.renderer.tileentity;
 
-import ga.scmc.client.renderer.model.blocks.ModelKaldirBrambles;
 import ga.scmc.client.renderer.model.blocks.ModelZerusGlowPod;
 import ga.scmc.lib.Library;
 import ga.scmc.tileentity.TileEntityZerusGlowPod;
-import net.minecraft.block.BlockTallGrass;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.util.ResourceLocation;

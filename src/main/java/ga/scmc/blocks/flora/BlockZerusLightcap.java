@@ -3,8 +3,6 @@ package ga.scmc.blocks.flora;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.tileentity.TileEntityZerusLightcap;
 import net.minecraft.block.BlockContainer;
-import net.minecraft.block.BlockGrass;
-import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -14,8 +12,6 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.EnumPlantType;
-import net.minecraftforge.common.IPlantable;
 
 public class BlockZerusLightcap extends BlockContainer {
 

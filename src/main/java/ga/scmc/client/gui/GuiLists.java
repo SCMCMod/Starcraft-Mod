@@ -1,6 +1,7 @@
 package ga.scmc.client.gui;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.common.collect.ImmutableList;
@@ -19,7 +20,6 @@ import ga.scmc.items.metaitems.ItemMagazine;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import scala.actors.threadpool.Arrays;
 
 public class GuiLists {
 

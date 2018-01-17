@@ -6,7 +6,6 @@ import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.handlers.SoundHandler.SoundTypes;
 import ga.scmc.tileentity.TileEntityZerusGlowPod;
 import net.minecraft.block.BlockContainer;
-import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

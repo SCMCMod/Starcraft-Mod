@@ -6,7 +6,6 @@ import java.util.Random;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.tileentity.TileEntityKaldirBrambles;
 import net.minecraft.block.BlockContainer;
-import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
