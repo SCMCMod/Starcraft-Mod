@@ -71,6 +71,13 @@ public class TileEntityStarcraftFurnace extends TileEntitySidedInventory impleme
         return this.furnaceBurnTime > 0;
     }
 
+    @Override
+    protected boolean isStackValid(int slot, ItemStack stack) {
+        if(slot == 1)
+            return TileEntityFurnace.isItemFuel(stack);
+        return super.isStackValid(slot, stack);
+    }
+
     /**
      * @return can we smelt the current item?
      */
