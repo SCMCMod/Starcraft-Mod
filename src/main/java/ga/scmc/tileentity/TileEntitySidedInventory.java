@@ -76,7 +76,7 @@ public class TileEntitySidedInventory extends TileEntity {
      *
      * @return the calculated size
      */
-    private int calculateSizeOfMainHandler() {
+    protected int calculateSizeOfMainHandler() {
         int lastSlot = 0;
         for (int[] slots : this.slotsForFace) {
             for (int slot : slots) {
@@ -120,7 +120,7 @@ public class TileEntitySidedInventory extends TileEntity {
      * @param slot  The slot of the main handler that the {@link ItemStack} is in
      * @param stack The {@link ItemStack} to insert into all the of the faces handlers
      */
-    private void insertStack(int slot, ItemStack stack) {
+    public void insertStack(int slot, ItemStack stack) {
         this.transferringStacks = true;
         for (int i = 0; i < this.slotsForFace.length; i++) {
             for (int j = 0; j < this.slotsForFace[i].length; j++) {
@@ -158,7 +158,7 @@ public class TileEntitySidedInventory extends TileEntity {
      * @param slot   The slot of the main handler that the {@link ItemStack} is in
      * @param amount The amount of items to be extracted
      */
-    private void extractStack(int slot, int amount) {
+    public void extractStack(int slot, int amount) {
         this.transferringStacks = true;
         for (int i = 0; i < this.slotsForFace.length; i++) {
             for (int j = 0; j < this.slotsForFace[i].length; j++) {

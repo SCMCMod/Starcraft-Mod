@@ -51,7 +51,7 @@ public class ContainerStarcraftFurnace extends Container {
             currentStack = stackInSlot.copy();
 
             if (index == 2) {
-                if (!this.mergeItemStack(stackInSlot, 3, 39, true))
+                if (!this.mergeItemStack(stackInSlot, 8, 39, true))
                     return null;
                 slot.onSlotChange(stackInSlot, currentStack);
             } else if (index != 1 && index != 0) {

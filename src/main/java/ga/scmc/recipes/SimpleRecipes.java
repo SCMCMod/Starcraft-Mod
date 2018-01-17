@@ -41,10 +41,6 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.PROTOSS_METAL_T2, 1, EnumMetaBlock.ProtossMetalType.DARK.getID()), "DDD", "DZD", "DDD", 'D', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()), 'Z', new ItemStack(MetaBlockHandler.PROTOSS_METAL_T1, 1, EnumMetaBlock.ProtossMetalType.DARK.getID()));
 		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.PROTOSS_METAL_T3, 1, EnumMetaBlock.ProtossMetalType.DARK.getID()), "DDD", "DZD", "DDD", 'D', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()), 'Z', new ItemStack(MetaBlockHandler.PROTOSS_METAL_T2, 1, EnumMetaBlock.ProtossMetalType.DARK.getID()));
 
-		GameRegistry.addRecipe(new ItemStack(BlockHandler.ENERGY_BLOCK, 1, EnumMetaItem.EnergyType.PURE.getID()), "EEE", "EEE", "EEE", 'E', new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.PURE.getID()));
-		GameRegistry.addRecipe(new ItemStack(BlockHandler.ENERGY_BLOCK, 1, EnumMetaItem.EnergyType.CORRUPTED.getID()), "VVV", "VVV", "VVV", 'V', new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.CORRUPTED.getID()));
-		GameRegistry.addRecipe(new ItemStack(BlockHandler.ENERGY_BLOCK, 1, EnumMetaItem.EnergyType.VOID.getID()), "VVV", "VVV", "VVV", 'V', new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.VOID.getID()));
-
 		for (int i = 0; i < EnergyType.values().length; i++) {
 			GameRegistry.addRecipe(new ItemStack(BlockHandler.ENERGY_BLOCK, 1, EnumMetaItem.EnergyType.values()[i].getID()), "EEE", "EEE", "EEE", 'E', new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.values()[i].getID()));
 		}
@@ -296,5 +292,10 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(ItemHandler.PLEDGE, 1, EnumMetaItem.PledgeType.MAGENTA.getID()), " D ", "DXD", " D ", 'D', new ItemStack(Items.DIAMOND), 'X', new ItemStack(Items.DYE, 1, 13));
 		GameRegistry.addRecipe(new ItemStack(ItemHandler.PLEDGE, 1, EnumMetaItem.PledgeType.ORANGE.getID()), " D ", "DXD", " D ", 'D', new ItemStack(Items.DIAMOND), 'X', new ItemStack(Items.DYE, 1, 14));
 		GameRegistry.addRecipe(new ItemStack(ItemHandler.PLEDGE, 1, EnumMetaItem.PledgeType.WHITE.getID()), " D ", "DXD", " D ", 'D', new ItemStack(Items.DIAMOND), 'X', new ItemStack(Items.DYE, 1, 15));
+
+		// Protoss furnace and upgrades
+		GameRegistry.addRecipe(new ItemStack(BlockHandler.FURNACE_PROTOSS), "BBB", "B B", "BBB", 'B', MetaBlockHandler.PROTOSS_METAL_T1);
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.PROTOSS_UPGRADE, 1, EnumMetaItem.ProtossUpgradeType.SPEED.getID()), "DED", "EDE", "EEE", 'D', Items.DIAMOND, 'E', new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.PURE.getID()));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.PROTOSS_UPGRADE, 1, EnumMetaItem.ProtossUpgradeType.EFFICIENCY.getID()), "P P", "PDP", " P ", 'P', ItemHandler.PROTOSS_INGOT, 'D', Blocks.DIAMOND_BLOCK);
 	}
 }

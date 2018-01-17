@@ -6,6 +6,7 @@ import java.util.List;
 import ga.scmc.container.ContainerGasCollector;
 import ga.scmc.enums.EnumMetaBlock.GasCollectorType;
 import ga.scmc.handlers.ItemHandler;
+import ga.scmc.handlers.MetaBlockHandler;
 import ga.scmc.tileentity.TileEntityGasCollector;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -13,6 +14,7 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -48,20 +50,19 @@ public class GuiGasCollector extends GuiContainer {
 	public void initGui() {
 		this.guiLeft = 175;
 		this.guiTop = 165;
-		names = new String[] { I18n.format("item.protoss_ingot.name") + "s", I18n.format(Blocks.PLANKS.getUnlocalizedName() + ".name"), I18n.format(ItemHandler.ORGANIC_TISSUE.getUnlocalizedName() + ".name") + "s" };
+		names = new String[] { ItemHandler.PROTOSS_INGOT.getItemStackDisplayName(new ItemStack(ItemHandler.PROTOSS_INGOT, 4, 0)) + "s", Item.getItemFromBlock(Blocks.PLANKS).getItemStackDisplayName(new ItemStack(Blocks.PLANKS, 4)), ItemHandler.ORGANIC_TISSUE.getItemStackDisplayName(new ItemStack(ItemHandler.ORGANIC_TISSUE, 1, 0)) + "s" };
 		super.initGui();
 	}
 
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
 		bindTexture();
-		drawTexturedModalRect((width - xSize) / 2, (height - ySize) / 2, 0, 0, this.xSize, this.ySize);
 		GlStateManager.color(1F, 1F, 1F, 1F);
-		GlStateManager.pushMatrix();
-		{
-			GlStateManager.scale(0.5f, 0.5f, 0.5f);
-			drawTexturedModalRect(((width / 2) + 46) * 2, ((height / 2) - 48) * 2, xSize, 0, 32, 32);
-		}
+		drawTexturedModalRect((width - xSize) / 2, (height - ySize) / 2, 0, 0, this.xSize, this.ySize);
+		if (itemHandler.getStackInSlot(9) == null)
+			GlStateManager.pushMatrix();
+		GlStateManager.scale(0.5f, 0.5f, 0.5f);
+		drawTexturedModalRect(((width / 2) + 46) * 2, ((height / 2) - 48) * 2, xSize, 0, 32, 32);
 		GlStateManager.popMatrix();
 	}
 
@@ -81,7 +82,8 @@ public class GuiGasCollector extends GuiContainer {
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
 		int color = 4210752;
-		this.mc.fontRendererObj.drawString(I18n.format("gui.gas_collector." + GasCollectorType.values()[te.getType()]), this.xSize / 2 - this.mc.fontRendererObj.getStringWidth(I18n.format("gui.gas_collector." + GasCollectorType.values()[te.getType()])) / 2, 6, 4210752);
+		String title = Item.getItemFromBlock(MetaBlockHandler.GAS_COLLECTOR).getItemStackDisplayName(new ItemStack(MetaBlockHandler.GAS_COLLECTOR, 1, te.getType()));
+		this.mc.fontRendererObj.drawString(title, this.xSize / 2 - this.mc.fontRendererObj.getStringWidth(title) / 2, 6, 4210752);
 		this.mc.fontRendererObj.drawString(this.playerInv.getDisplayName().getFormattedText(), 8, 72, color);
 	}
 

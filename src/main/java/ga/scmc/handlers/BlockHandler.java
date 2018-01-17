@@ -17,6 +17,7 @@ import ga.scmc.blocks.BlockProtossEnergyChannelVoid;
 import ga.scmc.blocks.BlockProtossEnergyStabilizer;
 import ga.scmc.blocks.BlockProtossEnergyStabilizerDark;
 import ga.scmc.blocks.BlockProtossEnergyStabilizerVoid;
+import ga.scmc.blocks.BlockProtossFurnace;
 import ga.scmc.blocks.BlockProtossShield;
 import ga.scmc.blocks.BlockProtossWormhole;
 import ga.scmc.blocks.BlockShakurasFarmland;
@@ -34,6 +35,7 @@ import ga.scmc.blocks.BlockZergCreep;
 import ga.scmc.blocks.BlockZergKeratin;
 import ga.scmc.blocks.OreCharRedstone;
 import ga.scmc.blocks.OreShakurasRedstone;
+import ga.scmc.blocks.ProtossPowerCoreBlock;
 import ga.scmc.blocks.RegistryType;
 import ga.scmc.blocks.StarcraftBlock;
 import ga.scmc.blocks.StarcraftBlockFalling;
@@ -168,6 +170,7 @@ public class BlockHandler {
 	public static BlockStarcraftFurnace FURNACE_SHAKURAS;
 	public static BlockStarcraftFurnace FURNACE_CHAR;
 	public static BlockStarcraftFurnace FURNACE_SLAYN;
+	public static Block FURNACE_PROTOSS;
 	public static Block ZERG_CREEP;
 	public static Block STARCRAFT_SKULL;
 
@@ -270,7 +273,8 @@ public class BlockHandler {
 		FURNACE_SHAKURAS = new BlockStarcraftFurnace(MapColor.LIGHT_BLUE, EnumWorldType.SHAKURAS);
 		FURNACE_CHAR = new BlockStarcraftFurnace(MapColor.BLACK, EnumWorldType.CHAR);
 		FURNACE_SLAYN = new BlockStarcraftFurnace(MapColor.BLACK, EnumWorldType.SLAYN);
-
+		FURNACE_PROTOSS = new BlockProtossFurnace();
+		
 		/** protoss blocks **/
 		PROTOSS_ENERGY_CHANNEL = new BlockProtossEnergyChannel();
 		PROTOSS_ENERGY_STABILIZER = new BlockProtossEnergyStabilizer();
@@ -288,9 +292,9 @@ public class BlockHandler {
 		CORE_CYBERNETICSCORE_VOID = new StarcraftProtossCoreBlock("protoss.cyberneticscorecore.void", RegistryType.FULL, Material.IRON, MapColor.GREEN).setDomeSize(-5, 24, 24, 3);
 		CORE_CYBERNETICSCORE_DARK = new StarcraftProtossCoreBlock("protoss.cyberneticscorecore.dark", RegistryType.FULL, Material.IRON, MapColor.BLACK).setDomeSize(-5, 24, 24, 3);
 		CORE_CYBERNETICSCORE_KHALAI = new StarcraftProtossCoreBlock("protoss.cyberneticscorecore.khalai", RegistryType.FULL, Material.IRON, MapColor.YELLOW).setDomeSize(-5, 24, 24, 3);
-		CORE_PYLON_VOID = new StarcraftProtossCoreBlock("protoss.pyloncore.void", RegistryType.FULL, Material.IRON, MapColor.GREEN).setDomeSize(-10, 16, 10, 6);
-		CORE_PYLON_DARK = new StarcraftProtossCoreBlock("protoss.pyloncore.dark", RegistryType.FULL, Material.IRON, MapColor.BLACK).setDomeSize(-10, 16, 10, 6);
-		CORE_PYLON_KHALAI = new StarcraftProtossCoreBlock("protoss.pyloncore.khalai", RegistryType.FULL, Material.IRON, MapColor.YELLOW).setDomeSize(-10, 16, 10, 6);
+		CORE_PYLON_VOID = new ProtossPowerCoreBlock("protoss.pyloncore.void", Material.IRON, MapColor.GREEN).setDomeSize(-10, 16, 10, 6);
+		CORE_PYLON_DARK = new ProtossPowerCoreBlock("protoss.pyloncore.dark", Material.IRON, MapColor.BLACK).setDomeSize(-10, 16, 10, 6);
+		CORE_PYLON_KHALAI = new ProtossPowerCoreBlock("protoss.pyloncore.khalai", Material.IRON, MapColor.YELLOW).setDomeSize(-10, 16, 10, 6);
 		CORE_WARPGATE_VOID = new StarcraftProtossCoreBlock("protoss.warpgatecore.void", RegistryType.FULL, Material.IRON, MapColor.GREEN).setDomeSize(-5, 16, 13, 3);
 		CORE_WARPGATE_DARK = new StarcraftProtossCoreBlock("protoss.warpgatecore.dark", RegistryType.FULL, Material.IRON, MapColor.BLACK).setDomeSize(-5, 16, 13, 3);
 		CORE_WARPGATE_KHALAI = new StarcraftProtossCoreBlock("protoss.warpgatecore.khalai", RegistryType.FULL, Material.IRON, MapColor.YELLOW).setDomeSize(-5, 16, 13, 3);
@@ -347,6 +351,7 @@ public class BlockHandler {
 		registerBlock(FURNACE_SHAKURAS);
 		registerBlock(FURNACE_CHAR);
 		registerBlock(FURNACE_SLAYN);
+		registerBlock(FURNACE_PROTOSS);
 
 		registerBlock(LIGHT_SOURCE);
 

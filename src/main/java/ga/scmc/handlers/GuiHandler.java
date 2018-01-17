@@ -8,8 +8,10 @@ import ga.scmc.client.gui.GuiLarvaProgress;
 import ga.scmc.client.gui.GuiLog;
 import ga.scmc.client.gui.GuiPlayerMessage;
 import ga.scmc.client.gui.GuiPlayerMessage.EnumPlayerMessageType;
+import ga.scmc.client.gui.GuiProtossFurnace;
 import ga.scmc.client.gui.GuiStarcraftFurnace;
 import ga.scmc.container.ContainerGasCollector;
+import ga.scmc.container.ContainerProtossFurnace;
 import ga.scmc.container.ContainerStarcraftFurnace;
 import ga.scmc.enums.EnumWorldType;
 import ga.scmc.items.ItemLog.EnumLogType;
@@ -49,6 +51,7 @@ public class GuiHandler implements IGuiHandler {
 	public static final int CHAR_FURNACE = 6;
 	public static final int SHAKURAS_FURNACE = 7;
 	public static final int SLAYN_FURNACE = 8;
+	public static final int PROTOSS_FURNACE = 9;
 
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
@@ -57,6 +60,8 @@ public class GuiHandler implements IGuiHandler {
 			return new ContainerGasCollector(player, (TileEntityGasCollector) te);
 		if (ID == CHAR_FURNACE || ID == SHAKURAS_FURNACE || ID == SLAYN_FURNACE)
 			return new ContainerStarcraftFurnace(player, te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null));
+		if (ID == PROTOSS_FURNACE)
+			return new ContainerProtossFurnace(player, te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null));
 		return null;
 	}
 
@@ -84,6 +89,8 @@ public class GuiHandler implements IGuiHandler {
 			return new GuiStarcraftFurnace(player, te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), EnumWorldType.SHAKURAS, pos);
 		if (ID == SLAYN_FURNACE)
 			return new GuiStarcraftFurnace(player, te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), EnumWorldType.SLAYN, pos);
+		if (ID == PROTOSS_FURNACE)
+			return new GuiProtossFurnace(player, te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), pos);
 		return null;
 	}
 

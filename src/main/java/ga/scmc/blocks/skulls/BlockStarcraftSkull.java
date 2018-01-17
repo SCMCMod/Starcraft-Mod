@@ -72,19 +72,24 @@ public class BlockStarcraftSkull extends BlockContainer {
 
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-		switch ((EnumFacing) state.getValue(FACING)) {
-		case UP:
-		default:
+		// switch ((EnumFacing) state.getValue(FACING)) {
+		// default:
+		// return DEFAULT_AABB;
+		// case NORTH:
+		// return NORTH_AABB;
+		// case SOUTH:
+		// return SOUTH_AABB;
+		// case WEST:
+		// return WEST_AABB;
+		// case EAST:
+		// return EAST_AABB;t
+		// }
+		EnumFacing facing = state.getValue(FACING);
+		AxisAlignedBB[] DEFAULT = new AxisAlignedBB[] { new AxisAlignedBB(0.25D, 0.25D, 0.0D, 0.75D, 0.75D, 0.5D), new AxisAlignedBB(0.5D, 0.25D, 0.25D, 1.0D, 0.75D, 0.75D), new AxisAlignedBB(0.25D, 0.25D, 0.5D, 0.75D, 0.75D, 1.0D), new AxisAlignedBB(0.0D, 0.25D, 0.25D, 0.5D, 0.75D, 0.75D) };
+		if (facing.getIndex() < 3) {
 			return DEFAULT_AABB;
-		case NORTH:
-			return NORTH_AABB;
-		case SOUTH:
-			return SOUTH_AABB;
-		case WEST:
-			return WEST_AABB;
-		case EAST:
-			return EAST_AABB;
 		}
+		return DEFAULT[facing.getHorizontalIndex()];
 	}
 
 	/**
