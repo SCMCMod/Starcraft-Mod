@@ -5,7 +5,6 @@ import ga.scmc.client.renderer.model.IModelSkull;
 import ga.scmc.client.renderer.model.ModelBrutalisk;
 import ga.scmc.client.renderer.model.ModelHydralisk;
 import ga.scmc.client.renderer.model.ModelZergling;
-import ga.scmc.client.renderer.model.blocks.ModelTable;
 import ga.scmc.lib.Library;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelSkeletonHead;

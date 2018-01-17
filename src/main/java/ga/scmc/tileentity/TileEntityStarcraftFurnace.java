@@ -1,6 +1,7 @@
 package ga.scmc.tileentity;
 
 import javax.annotation.Nullable;
+
 import ga.scmc.blocks.BlockStarcraftFurnace;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;

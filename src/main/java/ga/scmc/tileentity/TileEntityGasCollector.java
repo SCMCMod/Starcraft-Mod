@@ -21,7 +21,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
-import net.minecraftforge.common.capabilities.ICapabilityProvider;
 
 /**
  * @author Ocelot5836

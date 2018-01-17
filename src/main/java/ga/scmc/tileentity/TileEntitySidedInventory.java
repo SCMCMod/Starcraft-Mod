@@ -1,6 +1,7 @@
 package ga.scmc.tileentity;
 
 import com.sun.istack.internal.Nullable;
+
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
@@ -130,35 +131,43 @@ public class TileEntitySidedInventory extends TileEntity {
      * @param stack The {@link ItemStack} to insert into all the of the faces handlers
      */
     private void insertStack(int slot, ItemStack stack) {
-        this.transferringStacks = true;
-        for (int i = 0; i < this.slotsForFace.length; i++) {
-            for (int j = 0; j < this.slotsForFace[i].length; j++) {
-                if (this.slotsForFace[i][j] == slot) {
-                    switch (i) {
-                        case 0:
-                            this.downHandler.insertItem(j, stack, false);
-                            break;
-                        case 1:
-                            this.upHandler.insertItem(j, stack, false);
-                            break;
-                        case 2:
-                            this.northHandler.insertItem(j, stack, false);
-                            break;
-                        case 3:
-                            this.southHandler.insertItem(j, stack, false);
-                            break;
-                        case 4:
-                            this.westHandler.insertItem(j, stack, false);
-                            break;
-                        case 5:
-                            this.eastHandler.insertItem(j, stack, false);
-                            break;
-                    }
-                    break;
-                }
-            }
-        }
-        this.transferringStacks = false;
+    	if(world.isRemote) {
+		    this.transferringStacks = true;
+		    for (int i = 0; i < this.slotsForFace.length; i++) {
+		        for (int j = 0; j < this.slotsForFace[i].length; j++) {
+		            if (this.slotsForFace[i][j] == slot) {
+		                switch (i) {
+		                    case 0:
+		                        this.downHandler.insertItem(j, stack, false);
+		                        System.out.println(stack.stackSize);
+		                        break;
+		                    case 1:
+		                        this.upHandler.insertItem(j, stack, false);
+		                        System.out.println(stack.stackSize);
+		                        break;
+		                    case 2:
+		                        this.northHandler.insertItem(j, stack, false);
+		                        System.out.println(stack.stackSize);
+		                        break;
+		                    case 3:
+		                        this.southHandler.insertItem(j, stack, false);
+		                        System.out.println(stack.stackSize);
+		                        break;
+		                    case 4:
+		                        this.westHandler.insertItem(j, stack, false);
+		                        System.out.println(stack.stackSize);
+		                        break;
+		                    case 5:
+		                        this.eastHandler.insertItem(j, stack, false);
+		                        System.out.println(stack.stackSize);
+		                        break;
+		                }
+		                break;
+		            }
+		        }
+		    }
+		    this.transferringStacks = false;
+    	}
     }
 
     /**
