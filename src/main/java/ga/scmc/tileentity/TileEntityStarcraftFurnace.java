@@ -43,7 +43,7 @@ public class TileEntityStarcraftFurnace extends TileEntitySidedInventory impleme
      * Create a new custom furnace
      */
     public TileEntityStarcraftFurnace() {
-        super(new int[]{2, 1}, new int[]{0}, new int[]{1}, new int[]{1}, new int[]{1}, new int[]{1});
+        super(new int[]{2}, new int[]{0}, new int[]{1}, new int[]{1}, new int[]{1}, new int[]{1});
         this.totalCookTime = getCurrentCookTime(null);
     }
 
