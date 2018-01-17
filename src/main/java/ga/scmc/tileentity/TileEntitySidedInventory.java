@@ -131,7 +131,7 @@ public class TileEntitySidedInventory extends TileEntity {
      * @param stack The {@link ItemStack} to insert into all the of the faces handlers
      */
     private void insertStack(int slot, ItemStack stack) {
-    	if(world.isRemote) {
+    	if(!world.isRemote) {
 		    this.transferringStacks = true;
 		    for (int i = 0; i < this.slotsForFace.length; i++) {
 		        for (int j = 0; j < this.slotsForFace[i].length; j++) {
