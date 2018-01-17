@@ -1,7 +1,6 @@
 package ga.scmc.tileentity;
 
 import javax.annotation.Nullable;
-
 import ga.scmc.blocks.BlockStarcraftFurnace;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -73,9 +72,10 @@ public class TileEntityStarcraftFurnace extends TileEntitySidedInventory impleme
 
     @Override
     protected boolean isStackValid(int slot, ItemStack stack) {
-
         if(slot == 1)
             return TileEntityFurnace.isItemFuel(stack);
+        if(slot == 0)
+            return FurnaceRecipes.instance().getSmeltingResult(stack) != null;
         return super.isStackValid(slot, stack);
     }
 
