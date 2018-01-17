@@ -76,7 +76,7 @@ public class TileEntitySidedInventory extends TileEntity {
      *
      * @return the calculated size
      */
-    protected int calculateSizeOfMainHandler() {
+    private int calculateSizeOfMainHandler() {
         int lastSlot = 0;
         for (int[] slots : this.slotsForFace) {
             for (int slot : slots) {
@@ -115,12 +115,24 @@ public class TileEntitySidedInventory extends TileEntity {
     }
 
     /**
+     * Returns whether the stack in the given slot is valid
+     * @param slot The slot in which the item stack is in
+     * @param stack The item stack which is in the slot
+     * @return whether the stack in the given slot is valid
+     */
+    protected boolean isStackValid(int slot, ItemStack stack) {
+        return true;
+    }
+
+    /**
      * Insert an {@link ItemStack} (used by the main handler) into all of the faces handlers
      *
      * @param slot  The slot of the main handler that the {@link ItemStack} is in
      * @param stack The {@link ItemStack} to insert into all the of the faces handlers
      */
-    public void insertStack(int slot, ItemStack stack) {
+    private void insertStack(int slot, ItemStack stack) {
+        if(!isStackValid(slot, stack))
+            return;
         this.transferringStacks = true;
         for (int i = 0; i < this.slotsForFace.length; i++) {
             for (int j = 0; j < this.slotsForFace[i].length; j++) {
@@ -158,7 +170,7 @@ public class TileEntitySidedInventory extends TileEntity {
      * @param slot   The slot of the main handler that the {@link ItemStack} is in
      * @param amount The amount of items to be extracted
      */
-    public void extractStack(int slot, int amount) {
+    private void extractStack(int slot, int amount) {
         this.transferringStacks = true;
         for (int i = 0; i < this.slotsForFace.length; i++) {
             for (int j = 0; j < this.slotsForFace[i].length; j++) {
