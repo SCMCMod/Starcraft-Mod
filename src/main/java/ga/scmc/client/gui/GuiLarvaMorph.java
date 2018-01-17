@@ -160,7 +160,7 @@ public class GuiLarvaMorph extends BasicGui {
 						InventoryUtils.removeItemWithAmount(player, ItemHandler.MINERAL_SHARD, option.getMineralCost(), 0);
 						InventoryUtils.removeItemWithAmount(player, ItemHandler.VESPENE, option.getVespeneCost(), 0);
 						NetworkHandler.sendToServer(new MessageMorphLarva(larva, option.getIconId()));
-						Minecraft.getMinecraft().player.closeScreen();
+						player.closeScreen();
 					}
 					return;
 				}
