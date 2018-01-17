@@ -24,7 +24,7 @@ import net.minecraft.world.World;
  */
 public class TileEntityProtossFurnace extends TileEntitySidedInventory implements ITickable, IProtossMachine {
 
-	private List<BlockPos> positions = null;;
+	private List<BlockPos> positions = null;
 
 	private int burnTime;
 	private boolean burning;

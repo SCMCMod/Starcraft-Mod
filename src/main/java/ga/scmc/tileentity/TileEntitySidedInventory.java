@@ -1,7 +1,6 @@
 package ga.scmc.tileentity;
 
-import javax.annotation.Nullable;
-
+import com.sun.istack.internal.Nullable;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
@@ -131,8 +130,6 @@ public class TileEntitySidedInventory extends TileEntity {
      * @param stack The {@link ItemStack} to insert into all the of the faces handlers
      */
     private void insertStack(int slot, ItemStack stack) {
-        if(!isStackValid(slot, stack))
-            return;
         this.transferringStacks = true;
         for (int i = 0; i < this.slotsForFace.length; i++) {
             for (int j = 0; j < this.slotsForFace[i].length; j++) {
@@ -278,6 +275,8 @@ public class TileEntitySidedInventory extends TileEntity {
         @Override
         public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
             // Insert into the main handler
+            if(!isStackValid(slotsForFace[side.getIndex()][slot], stack))
+                return stack;
             return transferringStacks ? super.insertItem(slot, stack, simulate) : handler.insertItem(slotsForFace[side.getIndex()][slot], stack, simulate);
         }
 

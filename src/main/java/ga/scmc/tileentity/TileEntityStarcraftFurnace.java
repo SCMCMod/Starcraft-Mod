@@ -73,6 +73,7 @@ public class TileEntityStarcraftFurnace extends TileEntitySidedInventory impleme
 
     @Override
     protected boolean isStackValid(int slot, ItemStack stack) {
+
         if(slot == 1)
             return TileEntityFurnace.isItemFuel(stack);
         return super.isStackValid(slot, stack);
