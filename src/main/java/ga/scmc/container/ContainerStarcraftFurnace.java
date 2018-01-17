@@ -3,6 +3,7 @@ package ga.scmc.container;
 import javax.annotation.Nullable;
 
 import ga.scmc.container.slot.SlotStarcraftFurnaceFuel;
+import ga.scmc.container.slot.SlotStarcraftFurnaceInput;
 import ga.scmc.container.slot.SlotStarcraftFurnaceOutput;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -26,7 +27,7 @@ public class ContainerStarcraftFurnace extends Container {
     public ContainerStarcraftFurnace(EntityPlayer player, IItemHandler furnaceInv) {
         this.playerInv = player.inventory;
 
-        this.addSlotToContainer(new SlotItemHandler(furnaceInv, 0, 56, 17));
+        this.addSlotToContainer(new SlotStarcraftFurnaceInput(furnaceInv, 0, 56, 17));
         this.addSlotToContainer(new SlotStarcraftFurnaceFuel(furnaceInv, 1, 56, 53));
         this.addSlotToContainer(new SlotStarcraftFurnaceOutput(player, furnaceInv, 2, 116, 35));
 
