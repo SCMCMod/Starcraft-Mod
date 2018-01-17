@@ -2,8 +2,6 @@ package ga.scmc.blocks;
 
 import java.util.Random;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.block.BlockGlass;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -35,30 +33,28 @@ public abstract class BlockGas extends BlockGlass {
 	}
 
 	@Override
-	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-		displayParticles(stateIn, worldIn, pos, rand);
-		super.randomDisplayTick(stateIn, worldIn, pos, rand);
+	public void randomDisplayTick(IBlockState stateIn, World world, BlockPos pos, Random rand) {
+		displayParticles(stateIn, world, pos, rand);
 	}
 
 	@SideOnly(Side.CLIENT)
-	public abstract void displayParticles(IBlockState stateIn, World worldIn, BlockPos pos, Random rand);
+	public abstract void displayParticles(IBlockState stateIn, World world, BlockPos pos, Random rand);
 
 	@Override
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
 		if (world.getBlockState(pos.up()) == Blocks.AIR.getDefaultState()) {
-			if (pos.getY() <= 100) {
+			if (pos.getY() <= 150) {
 				world.setBlockState(pos.up(), getDefaultState());
 				world.setBlockState(pos, Blocks.AIR.getDefaultState());
 			} else {
 				world.setBlockState(pos, Blocks.AIR.getDefaultState());
 			}
+			super.updateTick(world, pos, state, rand);
 		}
-		super.updateTick(world, pos, state, rand);
 	}
 
-	@Nullable
 	@Override
-	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos) {
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World world, BlockPos pos) {
 		return NULL_AABB;
 	}
 }

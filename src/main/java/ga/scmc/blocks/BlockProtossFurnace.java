@@ -7,9 +7,8 @@ import javax.annotation.Nullable;
 import ga.scmc.Starcraft;
 import ga.scmc.api.Utils;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
-import ga.scmc.enums.EnumWorldType;
-import ga.scmc.handlers.BlockHandler;
-import ga.scmc.tileentity.TileEntityStarcraftFurnace;
+import ga.scmc.handlers.GuiHandler;
+import ga.scmc.tileentity.TileEntityProtossFurnace;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.SoundType;
@@ -20,7 +19,6 @@ import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -36,40 +34,27 @@ import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 
-/**
- * A block which is used for all of the starcraft furnaces
- *
- * @author CJMinecraft
- */
-public class BlockStarcraftFurnace extends BlockContainer {
+public class BlockProtossFurnace extends BlockContainer {
 
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 	public static final PropertyBool BURNING = PropertyBool.create("burning");
 
-	private EnumWorldType type;
-
-	public BlockStarcraftFurnace(MapColor mapColor, EnumWorldType type) {
-		super(Material.ROCK, mapColor);
-		this.type = type;
-		this.setUnlocalizedName(type.getName() + ".furnace");
-		this.setRegistryName(type.getName() + ".furnace");
-		this.setCreativeTab(StarcraftCreativeTabs.MISC);
-		setSoundType(SoundType.STONE);
+	public BlockProtossFurnace() {
+		super(Material.IRON, MapColor.GOLD);
+		this.setUnlocalizedName("protoss.furnace");
+		this.setRegistryName("protoss.furnace");
+		this.setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		setSoundType(SoundType.METAL);
 		setHardness(3.5F);
 		setResistance(17.5F);
-		setHarvestLevel("pickaxe", 0);
+		setHarvestLevel("pickaxe", 2);
 		setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(BURNING, false));
-	}
-
-	public EnumWorldType getType() {
-		return type;
 	}
 
 	@Override
@@ -77,12 +62,12 @@ public class BlockStarcraftFurnace extends BlockContainer {
 		this.setDefaultFacing(worldIn, pos, state);
 	}
 
-	private void setDefaultFacing(World worldIn, BlockPos pos, IBlockState state) {
-		if (!worldIn.isRemote) {
-			IBlockState north = worldIn.getBlockState(pos.north());
-			IBlockState south = worldIn.getBlockState(pos.south());
-			IBlockState west = worldIn.getBlockState(pos.west());
-			IBlockState east = worldIn.getBlockState(pos.east());
+	private void setDefaultFacing(World world, BlockPos pos, IBlockState state) {
+		if (!world.isRemote) {
+			IBlockState north = world.getBlockState(pos.north());
+			IBlockState south = world.getBlockState(pos.south());
+			IBlockState west = world.getBlockState(pos.west());
+			IBlockState east = world.getBlockState(pos.east());
 			EnumFacing facing = state.getValue(FACING);
 
 			if (facing == EnumFacing.NORTH && north.isFullBlock() && !south.isFullBlock())
@@ -94,68 +79,15 @@ public class BlockStarcraftFurnace extends BlockContainer {
 			else if (facing == EnumFacing.EAST && east.isFullBlock() && !west.isFullBlock())
 				facing = EnumFacing.WEST;
 
-			worldIn.setBlockState(pos, state.withProperty(FACING, facing), 2);
+			world.setBlockState(pos, state.withProperty(FACING, facing), 2);
 		}
 	}
-
-	@SuppressWarnings("incomplete-switch")
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void randomDisplayTick(IBlockState state, World worldIn, BlockPos pos, Random rand) {
-		if (state.getValue(BURNING)) {
-			EnumFacing enumfacing = state.getValue(FACING);
-			double x = (double) pos.getX() + 0.5D;
-			double y = (double) pos.getY() + rand.nextDouble() * 6.0D / 16.0D;
-			double z = (double) pos.getZ() + 0.5D;
-			double randOffset = rand.nextDouble() * 0.6D - 0.3D;
-
-			if (rand.nextDouble() < 0.1D)
-				worldIn.playSound((double) pos.getX() + 0.5D, (double) pos.getY(), (double) pos.getZ() + 0.5D, SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
-
-			switch (enumfacing) {
-			case WEST:
-				worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x - 0.52D, y, z + randOffset, 0.0D, 0.0D, 0.0D, new int[0]);
-				worldIn.spawnParticle(EnumParticleTypes.FLAME, x - 0.52D, y, z + randOffset, 0.0D, 0.0D, 0.0D, new int[0]);
-				break;
-			case EAST:
-				worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x + 0.52D, y, z + randOffset, 0.0D, 0.0D, 0.0D, new int[0]);
-				worldIn.spawnParticle(EnumParticleTypes.FLAME, x + 0.52D, y, z + randOffset, 0.0D, 0.0D, 0.0D, new int[0]);
-				break;
-			case NORTH:
-				worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x + randOffset, y, z - 0.52D, 0.0D, 0.0D, 0.0D, new int[0]);
-				worldIn.spawnParticle(EnumParticleTypes.FLAME, x + randOffset, y, z - 0.52D, 0.0D, 0.0D, 0.0D, new int[0]);
-				break;
-			case SOUTH:
-				worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x + randOffset, y, z + 0.52D, 0.0D, 0.0D, 0.0D, new int[0]);
-				worldIn.spawnParticle(EnumParticleTypes.FLAME, x + randOffset, y, z + 0.52D, 0.0D, 0.0D, 0.0D, new int[0]);
-				break;
-			}
-		}
-	}
-
+	
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
-		if (world.isRemote)
-			return true;
-		else {
-			player.openGui(Starcraft.instance, type.getGuiId(), world, pos.getX(), pos.getY(), pos.getZ());
-			player.addStat(StatList.FURNACE_INTERACTION);
-			return true;
-		}
-	}
-
-	@Override
-	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
-		switch (this.type) {
-		case CHAR:
-			return new ItemStack(BlockHandler.FURNACE_CHAR);
-		case SHAKURAS:
-			return new ItemStack(BlockHandler.FURNACE_SHAKURAS);
-		case SLAYN:
-			return new ItemStack(BlockHandler.FURNACE_SLAYN);
-		default:
-			return super.getPickBlock(state, target, world, pos, player);
-		}
+		player.openGui(Starcraft.instance, GuiHandler.PROTOSS_FURNACE, world, pos.getX(), pos.getY(), pos.getZ());
+		player.addStat(StatList.FURNACE_INTERACTION);
+		return true;
 	}
 
 	/**
@@ -163,7 +95,7 @@ public class BlockStarcraftFurnace extends BlockContainer {
 	 */
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		return new TileEntityStarcraftFurnace();
+		return new TileEntityProtossFurnace();
 	}
 
 	/**

@@ -19,6 +19,7 @@ import ga.scmc.items.metaitems.ItemMagazine;
 import ga.scmc.items.metaitems.ItemMineralShard;
 import ga.scmc.items.metaitems.ItemPledge;
 import ga.scmc.items.metaitems.ItemProtossIngot;
+import ga.scmc.items.metaitems.ItemProtossUpgrade;
 import ga.scmc.items.metaitems.ItemPsiBladeFocuserUncharged;
 import ga.scmc.items.metaitems.ItemTerrazine;
 import ga.scmc.items.metaitems.ItemVespene;
@@ -74,6 +75,8 @@ public class ItemHandler {
 	public static Item VESPENE;
 	public static Item TERRAZINE;
 
+	public static Item PROTOSS_UPGRADE;
+	
 	public static Item MARINE_ARMOR_FRAME;
 	public static Item MARINE_HELMET_VISOR;
 	public static Item WIRE;
@@ -134,6 +137,8 @@ public class ItemHandler {
 		STIMPACK = new ItemStimpack();
 		CARBOTIFIER = new ItemCarbotifier();
 		LOG = new ItemLog();
+
+		PROTOSS_UPGRADE = new ItemProtossUpgrade();
 
 		MARINE_HELMET_VISOR = new ItemMarineHelmetVisor();
 
@@ -206,6 +211,8 @@ public class ItemHandler {
 		registerItem(STIMPACK);
 		registerItem(CARBOTIFIER);
 		registerItem(LOG);
+		
+		registerItem(PROTOSS_UPGRADE);
 
 		registerItem(MARINE_HELMET_VISOR);
 

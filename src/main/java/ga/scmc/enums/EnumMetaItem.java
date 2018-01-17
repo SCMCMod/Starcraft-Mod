@@ -485,4 +485,30 @@ public class EnumMetaItem {
 			return getName();
 		}
 	}
+	
+	public static enum ProtossUpgradeType implements IStringSerializable {
+		SPEED("speed", 0), EFFICIENCY("efficiency", 1);
+
+		private int ID;
+		private String name;
+
+		private ProtossUpgradeType(String name, int ID) {
+			this.ID = ID;
+			this.name = name;
+		}
+
+		public int getID() {
+			return ID;
+		}
+
+		@Override
+		public String getName() {
+			return name;
+		}
+
+		@Override
+		public String toString() {
+			return getName();
+		}
+	}
 }

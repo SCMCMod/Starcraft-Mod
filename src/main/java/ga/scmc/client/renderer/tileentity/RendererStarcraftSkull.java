@@ -26,10 +26,10 @@ public class RendererStarcraftSkull extends TileEntitySpecialRenderer<TileEntity
 
 	public static RendererStarcraftSkull instance;
 
-	private static final ModelSkeletonHead SKELETON = new ModelSkeletonHead(0, 0, 64, 64);
+	private static final ModelSkeletonHead SKELETON = new ModelSkeletonHead(0, 0, 64, 32);
 	private static final ModelZergling ZERGLING = new ModelZergling();
-	private static final ModelSkeletonHead HYDRALISK = new ModelSkeletonHead(0, 0, 64, 64);
-	private static final ModelSkeletonHead BRUTALISK = new ModelSkeletonHead(0, 0, 64, 64);
+	private static final ModelHydralisk HYDRALISK = new ModelHydralisk();
+	private static final ModelBrutalisk BRUTALISK = new ModelBrutalisk();
 
 	public static final ResourceLocation ZERGLING_BASE = new ResourceLocation(Library.MODID, "textures/entity/zergling_base.png");
 	public static final ResourceLocation ZERGLING_OVERLAY = new ResourceLocation(Library.MODID, "textures/entity/zergling_overlay.png");
@@ -50,7 +50,7 @@ public class RendererStarcraftSkull extends TileEntitySpecialRenderer<TileEntity
 	}
 
 	public void renderSkull(float x, float y, float z, EnumFacing facing, float rotation, int skullType, int destroyStage) {
-		ModelBase skullModel = new ModelSkeletonHead(0, 0, 64, 32);
+		ModelBase skullModel = SKELETON;
 
 		if (destroyStage >= 0) {
 			this.bindTexture(DESTROY_STAGES[destroyStage]);
@@ -62,7 +62,7 @@ public class RendererStarcraftSkull extends TileEntitySpecialRenderer<TileEntity
 		} else {
 			switch (skullType) {
 			default:
-				this.bindTexture(SKELETON_TEXTURE);
+				skullModel = SKELETON;
 				break;
 			case 0:
 				this.bindTexture(CIVILIAN);
@@ -131,6 +131,7 @@ public class RendererStarcraftSkull extends TileEntitySpecialRenderer<TileEntity
 				break;
 			}
 		} else {
+			this.bindTexture(SKELETON_TEXTURE);
 			skullModel.render((Entity) null, 0, 0.0F, 0.0F, 0, 0.0F, 0.0625F);
 		}
 

@@ -62,6 +62,7 @@ import static ga.scmc.handlers.BlockHandler.FLUID_TAR;
 import static ga.scmc.handlers.BlockHandler.FLUID_TERRAZINE;
 import static ga.scmc.handlers.BlockHandler.FLUID_VESPENE;
 import static ga.scmc.handlers.BlockHandler.FURNACE_CHAR;
+import static ga.scmc.handlers.BlockHandler.FURNACE_PROTOSS;
 import static ga.scmc.handlers.BlockHandler.FURNACE_SHAKURAS;
 import static ga.scmc.handlers.BlockHandler.FURNACE_SLAYN;
 import static ga.scmc.handlers.BlockHandler.GAS_TERRAZINE;
@@ -99,6 +100,7 @@ import static ga.scmc.handlers.ItemHandler.ORGANIC_TISSUE;
 import static ga.scmc.handlers.ItemHandler.PHOSPHORUS;
 import static ga.scmc.handlers.ItemHandler.PLEDGE;
 import static ga.scmc.handlers.ItemHandler.PROTOSS_INGOT;
+import static ga.scmc.handlers.ItemHandler.PROTOSS_UPGRADE;
 import static ga.scmc.handlers.ItemHandler.PSI_BLADE_FOCUSER_UNCHARGED;
 import static ga.scmc.handlers.ItemHandler.SPAWNER_PROTOSS_CYBERNETICSCORE;
 import static ga.scmc.handlers.ItemHandler.SPAWNER_PROTOSS_DARK_CYBERNETICSCORE;
@@ -301,6 +303,7 @@ import ga.scmc.entity.living.EntityZerglingSwarmling;
 import ga.scmc.enums.EnumMetaBlock;
 import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumMetaItem.EnergyType;
+import ga.scmc.enums.EnumMetaItem.ProtossUpgradeType;
 import ga.scmc.lib.Library;
 import ga.scmc.tileentity.TileEntityKaldirBrambles;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
@@ -354,6 +357,7 @@ public class RenderingHandler {
 		ModelBakery.registerItemVariants(ItemHandler.C14_PARTS, new ResourceLocation(Library.MODID, "part.c14rifle.body"), new ResourceLocation(Library.MODID, "part.c14rifle.barrel"), new ResourceLocation(Library.MODID, "part.c14rifle.grip"));
 		ModelBakery.registerItemVariants(ItemHandler.BULLET_MAGAZINE, new ResourceLocation(Library.MODID, "magazine.c14"));
 		ModelBakery.registerItemVariants(ItemHandler.ZERG_CARAPACE, new ResourceLocation(Library.MODID, "zerg_icarapace_t1"), new ResourceLocation(Library.MODID, "zerg_icarapace_t2"), new ResourceLocation(Library.MODID, "zerg_icarapace_t3"));
+		ModelBakery.registerItemVariants(ItemHandler.PROTOSS_UPGRADE, new ResourceLocation(Library.MODID, "protoss.upgrade.speed"), new ResourceLocation(Library.MODID, "protoss.upgrade.efficiency"));
 		ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.PROTOSS_METAL_T1), new ResourceLocation(Library.MODID, "protoss.metal.1.aiur"), new ResourceLocation(Library.MODID, "protoss.metal.1.dark"), new ResourceLocation(Library.MODID, "protoss.metal.1.green"), new ResourceLocation(Library.MODID, "protoss.metal.1.blue"), new ResourceLocation(Library.MODID, "protoss.metal.1.red"));
 		ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.PROTOSS_METAL_T2), new ResourceLocation(Library.MODID, "protoss.metal.2.aiur"), new ResourceLocation(Library.MODID, "protoss.metal.2.dark"), new ResourceLocation(Library.MODID, "protoss.metal.2.green"), new ResourceLocation(Library.MODID, "protoss.metal.2.blue"), new ResourceLocation(Library.MODID, "protoss.metal.2.red"));
 		ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.PROTOSS_METAL_T3), new ResourceLocation(Library.MODID, "protoss.metal.3.aiur"), new ResourceLocation(Library.MODID, "protoss.metal.3.dark"), new ResourceLocation(Library.MODID, "protoss.metal.3.green"), new ResourceLocation(Library.MODID, "protoss.metal.3.blue"), new ResourceLocation(Library.MODID, "protoss.metal.3.red"));
@@ -527,6 +531,9 @@ public class RenderingHandler {
 		for (int i = 0; i < EnumMetaItem.CarapaceType.values().length; i++) {
 			registerItemRender(ZERG_CARAPACE, i, "zerg.icarapace." + EnumMetaItem.CarapaceType.values()[i].getName());
 		}
+		for (int i = 0; i < EnumMetaItem.ProtossUpgradeType.values().length; i++) {
+			registerItemRender(PROTOSS_UPGRADE, i, "protoss.upgrade." + ProtossUpgradeType.values()[i].getName());
+		}
 	}
 
 	private static void registerToolItemRenderers() {
@@ -633,6 +640,7 @@ public class RenderingHandler {
 		registerBlockModel(FURNACE_SHAKURAS);
 		registerBlockModel(FURNACE_CHAR);
 		registerBlockModel(FURNACE_SLAYN);
+		registerBlockModel(FURNACE_PROTOSS);
 
 		// Other
 		registerBlockModel(TEST);
