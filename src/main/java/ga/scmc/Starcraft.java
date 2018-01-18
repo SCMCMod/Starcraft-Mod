@@ -75,6 +75,7 @@ public class Starcraft {
 		FluidHandler.preInit();
 		SoundHandler.preInit();
 		BlockHandler.preInit();
+		OreDictionaryHandler.preInit();
 		WorldGenerationHandler.preInit();
 		BiomeHandler.preInit();
 		DimensionHandler.preInit();
@@ -92,7 +93,6 @@ public class Starcraft {
 	public void init(FMLInitializationEvent event) {
 		EntityHandler.init();
 		Achievements.init();
-		OreDictionaryHandler.init();
 		SimpleRecipes.init();
 		ShapelessRecipes.init();
 		SmeltingRecipes.init();

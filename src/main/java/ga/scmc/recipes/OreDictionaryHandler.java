@@ -1,20 +1,28 @@
 package ga.scmc.recipes;
 
+import ga.scmc.enums.EnumMetaBlock;
 import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ItemHandler;
+import ga.scmc.handlers.MetaBlockHandler;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class OreDictionaryHandler {
 
-	public static void init() {
+	public static void preInit() {
+		
+		OreDictionary.registerOre("blockSteel", MetaBlockHandler.COMP_METAL_T1.getStateFromMeta(EnumMetaBlock.CompressedMetalType.TITANIUM.getID()).getBlock());
+		OreDictionary.registerOre("blockCopper", MetaBlockHandler.COMP_METAL_T1.getStateFromMeta(EnumMetaBlock.CompressedMetalType.TITANIUM.getID()).getBlock());
+		OreDictionary.registerOre("blockTitanium", MetaBlockHandler.COMP_METAL_T1.getStateFromMeta(EnumMetaBlock.CompressedMetalType.TITANIUM.getID()).getBlock());
+		
 		OreDictionary.registerOre("cobblestone", BlockHandler.COBBLESTONE_CHAR);
 		OreDictionary.registerOre("cobblestone", BlockHandler.COBBLESTONE_SHAKURAS);
 		OreDictionary.registerOre("cobblestone", BlockHandler.COBBLESTONE_SLAYN);
 		OreDictionary.registerOre("stone", BlockHandler.STONE_CHAR);
 		OreDictionary.registerOre("stone", BlockHandler.STONE_SHAKURAS);
 		OreDictionary.registerOre("stone", BlockHandler.STONE_SLAYN);
+		
 		OreDictionary.registerOre("oreGold", BlockHandler.ORE_GOLD_CHAR);
 		OreDictionary.registerOre("oreGold", BlockHandler.ORE_GOLD_SHAKURAS);
 		OreDictionary.registerOre("oreIron", BlockHandler.ORE_IRON_CHAR);
@@ -29,9 +37,23 @@ public class OreDictionaryHandler {
 		OreDictionary.registerOre("oreCoal", BlockHandler.ORE_COAL_SHAKURAS);
 		OreDictionary.registerOre("oreCopper", BlockHandler.ORE_COPPER_CHAR);
 		OreDictionary.registerOre("oreCopper", BlockHandler.ORE_COPPER_SHAKURAS);
+		OreDictionary.registerOre("oreCopper", BlockHandler.ORE_COPPER_OW);
+		OreDictionary.registerOre("oreTitanium", BlockHandler.ORE_TITANIUM_CHAR);
+		OreDictionary.registerOre("oreTitanium", BlockHandler.ORE_TITANIUM_SHAKURAS);
+		OreDictionary.registerOre("oreTitanium", BlockHandler.ORE_TITANIUM_OW);
+		OreDictionary.registerOre("oreUranium", BlockHandler.ORE_URANIUM_CHAR);
+		OreDictionary.registerOre("oreUranium", BlockHandler.ORE_URANIUM_SHAKURAS);
+		OreDictionary.registerOre("oreUranium", BlockHandler.ORE_URANIUM_OW);
+		OreDictionary.registerOre("orePhosphorus", BlockHandler.ORE_PHOSPHORUS_CHAR);
+		OreDictionary.registerOre("orePhosphorus", BlockHandler.ORE_PHOSPHORUS_SHAKURAS);
+		OreDictionary.registerOre("orePhosphorus", BlockHandler.ORE_PHOSPHORUS_OW);
 
 		OreDictionary.registerOre("dustSteel", new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.STEEL.getID()));
+		OreDictionary.registerOre("dustIron", new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.IRON.getID()));
+		OreDictionary.registerOre("dustCarbon", new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.CARBON.getID()));
+		
 		OreDictionary.registerOre("ingotCopper", new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()));
 		OreDictionary.registerOre("ingotSteel", new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()));
+		OreDictionary.registerOre("ingotTitanium", new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()));
 	}
 }
