@@ -4,7 +4,9 @@ import java.util.Random;
 
 import ga.scmc.worldgen.structure.SCWorldGenerator;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -72,6 +74,9 @@ public class StarcraftGenerator {
 	protected SCWorldGenerator ZERG_HYDRALISK_DEN;
 	protected SCWorldGenerator ZERG_SPIRE;
 	
+
+	protected SCWorldGenerator BOSS_SPAWNER;
+	
 	protected static void runGenerator(SCWorldGenerator generator, IBlockState state, IBlockState state2, World world, Random rand, int chunk_X, int chunk_Z, int offsetX, int offsetY, int offsetZ, int chancesToSpawn, int minHeight, int maxHeight, boolean flag) {
 		if (minHeight < 0 || maxHeight > 256 || minHeight > maxHeight) {
 			throw new IllegalArgumentException("Illegal Height Arguments for WorldGenerator");
@@ -84,6 +89,21 @@ public class StarcraftGenerator {
 			int z = chunk_Z * 16 + rand.nextInt(16);
 
 			generator.generate(state, state2, world, rand, offsetX, offsetY, offsetZ, new BlockPos(x, y, z), flag);
+		}
+	}
+	
+	protected static void runGenerator(SCWorldGenerator generator, int range, Entity entityToSpawn, TextFormatting color, World world, Random rand, int chunk_X, int chunk_Z, int offsetX, int offsetY, int offsetZ, int chancesToSpawn, int minHeight, int maxHeight, boolean flag) {
+		if (minHeight < 0 || maxHeight > 256 || minHeight > maxHeight) {
+			throw new IllegalArgumentException("Illegal Height Arguments for WorldGenerator");
+		}
+
+		int heightDiff = maxHeight - minHeight + 1;
+		for (int i = 0; i < chancesToSpawn; i++) {
+			int x = chunk_X * 16 + rand.nextInt(16);
+			int y = minHeight + rand.nextInt(heightDiff);
+			int z = chunk_Z * 16 + rand.nextInt(16);
+
+			generator.generate(range, entityToSpawn, color, world, rand, offsetX, offsetY, offsetZ, new BlockPos(x, y, z), flag);
 		}
 	}
 

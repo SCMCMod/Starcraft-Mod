@@ -2,8 +2,10 @@ package ga.scmc.handlers;
 
 import java.util.Random;
 
+import ga.scmc.entity.living.EntityNafash;
 import ga.scmc.worldgen.dimchar.CharWorldGenMinable;
 import ga.scmc.worldgen.dimshakuras.ShakurasWorldGenMinable;
+import ga.scmc.worldgen.structure.BossSpawner;
 import ga.scmc.worldgen.structure.StructureGeyserTemplate;
 import ga.scmc.worldgen.structure.StructureMineralPatchTemplate;
 import ga.scmc.worldgen.structure.StructureProtossCyberneticsCoreTemplate;
@@ -17,6 +19,7 @@ import ga.scmc.worldgen.structure.StructureZergSpawningPoolTemplate;
 import ga.scmc.worldgen.structure.StructureZergSpireTemplate;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkGenerator;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -102,6 +105,8 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 		GEYSER = new StructureGeyserTemplate();
 
 		MINERAL_PATCH = new StructureMineralPatchTemplate();
+		
+		BOSS_SPAWNER = new BossSpawner();
 	}
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -284,6 +289,9 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 				}
 				if (world.rand.nextInt(100) < 5 && world.getWorldInfo().isMapFeaturesEnabled()) {
 					runGenerator(MINERAL_PATCH, 1, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
+				}
+				if (world.rand.nextInt(100) < 100) {
+					runGenerator(BOSS_SPAWNER, 50, new EntityNafash(world), TextFormatting.RED, world, random, chunkX, chunkZ, 0, -34, 0, 1, 0, 0, true);
 				}
 			}
 			break;

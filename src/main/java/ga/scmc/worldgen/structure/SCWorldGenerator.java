@@ -5,12 +5,14 @@ import java.util.Random;
 import ga.scmc.lib.Library;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.gen.structure.template.PlacementSettings;
@@ -61,6 +63,10 @@ public abstract class SCWorldGenerator {
 	}
 	
 	public boolean generate(IBlockState state, IBlockState state2, World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos blockPos, boolean useSpawnReqs) {
+		return true;
+	}
+	
+	public boolean generate(int range, Entity entityToSpawn, TextFormatting color, World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos blockPos, boolean useSpawnReqs) {
 		return true;
 	}
 
