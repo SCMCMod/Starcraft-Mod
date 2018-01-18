@@ -11,7 +11,6 @@ import ga.scmc.handlers.ToolHandler;
 import ga.scmc.handlers.WeaponHandler;
 import ga.scmc.items.IItemCompressable;
 import ga.scmc.items.metaitems.ItemMagazine;
-import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;

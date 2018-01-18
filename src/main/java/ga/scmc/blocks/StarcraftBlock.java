@@ -1,7 +1,6 @@
 package ga.scmc.blocks;
 
 import java.util.List;
-import java.util.Random;
 
 import ga.scmc.lib.Library;
 import net.minecraft.block.Block;

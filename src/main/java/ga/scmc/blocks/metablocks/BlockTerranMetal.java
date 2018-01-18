@@ -5,8 +5,6 @@ import java.util.List;
 import ga.scmc.blocks.itemblocks.IMetaBlockName;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.enums.EnumMetaBlock.CompressedMetalType;
-import ga.scmc.handlers.ItemHandler;
-import ga.scmc.items.IItemCompressable;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
