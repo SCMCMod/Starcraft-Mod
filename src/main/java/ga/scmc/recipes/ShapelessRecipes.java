@@ -4,6 +4,7 @@ import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumMetaItem.EnergyType;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ItemHandler;
+import ga.scmc.handlers.MetaBlockHandler;
 import ga.scmc.handlers.WeaponHandler;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -22,6 +23,9 @@ import net.minecraftforge.oredict.ShapelessOreRecipe;
 public class ShapelessRecipes {
 
 	public static void init() {
+		// Khaydarin x9 crystal from khaydarin block
+		GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.KHAYDARIN_CRYSTAL, 9, 0), new ItemStack(MetaBlockHandler.KHAYDARIN_CRYSTAL_BLOCK, 1, 0));
+
 		// Iron Grain x2 from Iron Ores
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ItemHandler.DUST, 2, EnumMetaItem.DustType.IRON.getID()), "oreIron"));
 

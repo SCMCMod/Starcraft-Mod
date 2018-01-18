@@ -111,5 +111,4 @@ public class BlockNeosteelMetal extends Block implements IMetaBlockName {
 			list.add(new ItemStack(itemIn, 1, i));
 		}
 	}
-
 }

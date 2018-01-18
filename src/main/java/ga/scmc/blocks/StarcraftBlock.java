@@ -1,5 +1,6 @@
 package ga.scmc.blocks;
 
+import java.util.List;
 import java.util.Random;
 
 import ga.scmc.lib.Library;
@@ -11,16 +12,20 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import scala.actors.threadpool.Arrays;
 
 public class StarcraftBlock extends Block {
 
-	private Item droppedItem;
+	private Item[] droppedItems;
 	private ItemBlock item;
 
 	public StarcraftBlock(Material material) {
@@ -52,14 +57,13 @@ public class StarcraftBlock extends Block {
 				this.registerBlockWithItemBlock(item);
 			}
 			this.registerBlockModel();
+		} else if (type == RegistryType.BLOCK) {
+			this.registerBlock();
 		}
 	}
 
 	private void registerBlock() {
 		ForgeRegistries.BLOCKS.register(this);
-		ItemBlock item = new ItemBlock(this);
-		item.setRegistryName(this.getRegistryName());
-		ForgeRegistries.ITEMS.register(item);
 	}
 
 	private void registerFullBlock() {
@@ -88,18 +92,16 @@ public class StarcraftBlock extends Block {
 		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(this.getRegistryName(), "inventory"));
 	}
 
-	/**
-	 * Registers the blocks renders even if it has meta data.
-	 */
-	public void registerBlockModel(int meta, String fileName) {
+	@SideOnly(Side.CLIENT)
+	private void registerBlockModel(int meta, String fileName) {
 		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), meta, new ModelResourceLocation(new ResourceLocation(Library.MODID, fileName), "inventory"));
 	}
 
 	@Override
-	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		if (droppedItem != null)
-			return droppedItem;
-		return super.getItemDropped(state, rand, fortune);
+	public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+		if(droppedItems != null)
+			return Arrays.asList(droppedItems);
+		return super.getDrops(world, pos, state, fortune);
 	}
 
 	public void setNames(String name) {
@@ -140,8 +142,8 @@ public class StarcraftBlock extends Block {
 		return this;
 	}
 
-	public StarcraftBlock setItemDropped(Item droppedItem) {
-		this.droppedItem = droppedItem;
+	public StarcraftBlock setItemDropped(Item... droppedItems) {
+		this.droppedItems = droppedItems;
 		return this;
 	}
 

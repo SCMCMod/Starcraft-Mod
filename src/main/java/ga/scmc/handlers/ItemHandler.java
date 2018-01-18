@@ -15,6 +15,7 @@ import ga.scmc.items.metaitems.ItemEnergy;
 import ga.scmc.items.metaitems.ItemFlamethrowerParts;
 import ga.scmc.items.metaitems.ItemGasContainer;
 import ga.scmc.items.metaitems.ItemIngot;
+import ga.scmc.items.metaitems.ItemKhaydarinCrystal;
 import ga.scmc.items.metaitems.ItemMagazine;
 import ga.scmc.items.metaitems.ItemMineralShard;
 import ga.scmc.items.metaitems.ItemPledge;
@@ -76,7 +77,7 @@ public class ItemHandler {
 	public static Item TERRAZINE;
 
 	public static Item PROTOSS_UPGRADE;
-	
+
 	public static Item MARINE_ARMOR_FRAME;
 	public static Item MARINE_HELMET_VISOR;
 	public static Item WIRE;
@@ -84,6 +85,8 @@ public class ItemHandler {
 	public static Item AIR_CONDITIONER;
 	public static Item MARINE_ARMOR_BATTERY;
 	public static Item MARINE_ARMOR_COOLING_SYSTEM;
+
+	public static Item KHAYDARIN_CRYSTAL;
 
 	public static Item SPAWNER_PROTOSS_DARK_CYBERNETICSCORE;
 	public static Item SPAWNER_PROTOSS_VOID_CYBERNETICSCORE;
@@ -139,8 +142,9 @@ public class ItemHandler {
 		LOG = new ItemLog();
 
 		PROTOSS_UPGRADE = new ItemProtossUpgrade();
-
 		MARINE_HELMET_VISOR = new ItemMarineHelmetVisor();
+
+		KHAYDARIN_CRYSTAL = new ItemKhaydarinCrystal();
 
 		SPAWNER_PROTOSS_DARK_CYBERNETICSCORE = new ItemProtossDarkCyberneticsCoreSpawner();
 		SPAWNER_PROTOSS_VOID_CYBERNETICSCORE = new ItemProtossVoidCyberneticsCoreSpawner();
@@ -211,10 +215,11 @@ public class ItemHandler {
 		registerItem(STIMPACK);
 		registerItem(CARBOTIFIER);
 		registerItem(LOG);
-		
-		registerItem(PROTOSS_UPGRADE);
 
+		registerItem(PROTOSS_UPGRADE);
 		registerItem(MARINE_HELMET_VISOR);
+
+		registerItem(KHAYDARIN_CRYSTAL);
 
 		registerItem(SPAWNER_PROTOSS_DARK_CYBERNETICSCORE);
 		registerItem(SPAWNER_PROTOSS_VOID_CYBERNETICSCORE);

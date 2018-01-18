@@ -70,6 +70,8 @@ tile.protoss.pyloncrystal.void.name=Void Pylon Crystal
 tile.protoss.wormhole.name=Protoss Wormhole
 tile.protoss.shield.name=Protoss Shield
 
+tile.protoss.khaydarincrystal.block.normal.name=Khaydarin Crystal Block
+
 tile.gas.collector.protoss.name=Assimilator
 tile.protoss.furnace.name=Protoss Furnace
 #############################################################################################
@@ -318,6 +320,8 @@ item.protoss.blade.psi.dark.name=Bane Blade
 item.protoss.blade.warp.aiur.name=Khalai Psi Blade
 item.protoss.blade.warp.dark.name=Dark Warp Blade
 item.protoss.blade.master.name=Master Psi Blade
+
+item.protoss.khaydarincrystal.normal.name=Khaydarin Crystal
 
 item.protoss.upgrade.speed.name=Speed Module
 item.protoss.upgrade.efficiency.name=Efficiency Module

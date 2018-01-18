@@ -13,6 +13,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.items.IItemHandler;
 import ocelot.api.utils.TextureUtils;
 
@@ -66,9 +67,9 @@ public class GuiProtossFurnace extends GuiContainer {
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
 		String title = Item.getItemFromBlock(BlockHandler.FURNACE_PROTOSS).getItemStackDisplayName(new ItemStack(BlockHandler.FURNACE_PROTOSS, 1, 0));
-		String hasPylons = "Pylons Valid: N/A";
+		String hasPylons = "Active: N/A";
 		if (player.world.getTileEntity(pos) instanceof IProtossMachine)
-			hasPylons = "Pylons Valid: " + ((IProtossMachine) player.world.getTileEntity(pos)).hasPylons();
+			hasPylons = ((IProtossMachine) player.world.getTileEntity(pos)).hasPylons() ? "Active: " + TextFormatting.BLUE + "true" : "Active: " + TextFormatting.DARK_RED + "false";
 		this.fontRendererObj.drawString(title, this.xSize / 2 - this.fontRendererObj.getStringWidth(title) / 2, 7, 4210752);
 		this.fontRendererObj.drawString(hasPylons, this.xSize / 2 - this.fontRendererObj.getStringWidth(hasPylons) / 2, 70, 4210752);
 	}

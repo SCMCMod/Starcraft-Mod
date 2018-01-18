@@ -74,7 +74,6 @@ import static ga.scmc.handlers.BlockHandler.PROTOSS_ENERGY_CHANNEL;
 import static ga.scmc.handlers.BlockHandler.PROTOSS_ENERGY_STABILIZER;
 import static ga.scmc.handlers.BlockHandler.PROTOSS_VOID_ENERGY_CHANNEL;
 import static ga.scmc.handlers.BlockHandler.PROTOSS_VOID_ENERGY_STABILIZER;
-import static ga.scmc.handlers.BlockHandler.PROTOSS_WARPGATE_WORMHOLE;
 import static ga.scmc.handlers.BlockHandler.STARCRAFT_SKULL;
 import static ga.scmc.handlers.BlockHandler.TERRAN_WARNING_TAPE;
 import static ga.scmc.handlers.BlockHandler.TEST;
@@ -93,6 +92,7 @@ import static ga.scmc.handlers.ItemHandler.ICON_PROTOSS;
 import static ga.scmc.handlers.ItemHandler.ICON_TERRAN;
 import static ga.scmc.handlers.ItemHandler.ICON_ZERG;
 import static ga.scmc.handlers.ItemHandler.INGOT;
+import static ga.scmc.handlers.ItemHandler.KHAYDARIN_CRYSTAL;
 import static ga.scmc.handlers.ItemHandler.LOG;
 import static ga.scmc.handlers.ItemHandler.MARINE_HELMET_VISOR;
 import static ga.scmc.handlers.ItemHandler.MINERAL_SHARD;
@@ -124,6 +124,7 @@ import static ga.scmc.handlers.ItemHandler.ZERG_CARAPACE;
 import static ga.scmc.handlers.MetaBlockHandler.COMP_METAL_T1;
 import static ga.scmc.handlers.MetaBlockHandler.COMP_MINERAL;
 import static ga.scmc.handlers.MetaBlockHandler.GAS_COLLECTOR;
+import static ga.scmc.handlers.MetaBlockHandler.KHAYDARIN_CRYSTAL_BLOCK;
 import static ga.scmc.handlers.MetaBlockHandler.NEOSTEEL_METAL;
 import static ga.scmc.handlers.MetaBlockHandler.PARISTEEL_METAL;
 import static ga.scmc.handlers.MetaBlockHandler.PROTOSS_METAL_T1;
@@ -462,7 +463,6 @@ public class RenderingHandler {
 		registerItemRender(LOG);
 
 		registerItemRender(MARINE_HELMET_VISOR);
-
 		registerItemRender(PHOSPHORUS);
 
 		registerItemRender(SPAWNER_PROTOSS_DARK_CYBERNETICSCORE);
@@ -533,6 +533,9 @@ public class RenderingHandler {
 		}
 		for (int i = 0; i < EnumMetaItem.ProtossUpgradeType.values().length; i++) {
 			registerItemRender(PROTOSS_UPGRADE, i, "protoss.upgrade." + ProtossUpgradeType.values()[i].getName());
+		}
+		for (int i = 0; i < EnumMetaItem.KhaydarinCrystalType.values().length; i++) {
+			registerItemRender(KHAYDARIN_CRYSTAL, i, "protoss.khaydarincrystal." + EnumMetaItem.KhaydarinCrystalType.values()[i].getName());
 		}
 	}
 
@@ -634,8 +637,6 @@ public class RenderingHandler {
 	}
 
 	private static void registerBlockModels() {
-		registerBlockModel(PROTOSS_WARPGATE_WORMHOLE);
-
 		// Furnaces
 		registerBlockModel(FURNACE_SHAKURAS);
 		registerBlockModel(FURNACE_CHAR);
@@ -722,6 +723,9 @@ public class RenderingHandler {
 		for (int i = 0; i < EnumMetaBlock.EnumSkullType.values().length; i++) {
 			registerBlockModel(STARCRAFT_SKULL, i, "skull");
 		}
+		for (int i = 0; i < EnumMetaItem.KhaydarinCrystalType.values().length; i++) {
+			registerBlockModel(KHAYDARIN_CRYSTAL_BLOCK, i, "protoss.khaydarincrystal.block." + EnumMetaItem.KhaydarinCrystalType.values()[i].getName());
+		}
 	}
 
 	/**
@@ -729,7 +733,9 @@ public class RenderingHandler {
 	 */
 	@SideOnly(Side.CLIENT)
 	public static void registerItemRender(Item item) {
-		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+		if (item != null) {
+			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+		}
 	}
 
 	/**
@@ -737,7 +743,9 @@ public class RenderingHandler {
 	 */
 	@SideOnly(Side.CLIENT)
 	public static void registerItemRender(Item item, int meta, String fileName) {
-		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(new ResourceLocation(Library.MODID, fileName), "inventory"));
+		if (item != null) {
+			ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(new ResourceLocation(Library.MODID, fileName), "inventory"));
+		}
 	}
 
 	private static void registerBlockModelNoMeta(Block block) {

@@ -1,5 +1,6 @@
 package ga.scmc.enums;
 
+import net.minecraft.block.material.MapColor;
 import net.minecraft.util.IStringSerializable;
 
 /***
@@ -509,6 +510,38 @@ public class EnumMetaItem {
 		@Override
 		public String toString() {
 			return getName();
+		}
+	}
+	
+	public static enum KhaydarinCrystalType implements IStringSerializable {
+		NORMAL("normal", 0, MapColor.DIAMOND);
+
+		private int ID;
+		private String name;
+		private MapColor color;
+
+		private KhaydarinCrystalType(String name, int ID, MapColor color) {
+			this.ID = ID;
+			this.name = name;
+			this.color = color;
+		}
+
+		public int getID() {
+			return ID;
+		}
+
+		@Override
+		public String getName() {
+			return name;
+		}
+
+		@Override
+		public String toString() {
+			return getName();
+		}
+
+		public MapColor getMapColor() {
+			return color;
 		}
 	}
 }

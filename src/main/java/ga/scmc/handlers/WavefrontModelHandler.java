@@ -30,7 +30,7 @@ public class WavefrontModelHandler {
 	 */
 	public static void register() {
 		registerModel(BlockHandler.TEST);
-		registerModel(BlockHandler.PROTOSS_WARPGATE_WORMHOLE);
+		registerModel(BlockHandler.PROTOSS_WORMHOLE);
 	}
 
 	/**
