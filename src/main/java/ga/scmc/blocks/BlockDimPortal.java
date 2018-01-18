@@ -28,7 +28,7 @@ public class BlockDimPortal extends StarcraftBlock {
 	protected int dim = 0;
 
 	public BlockDimPortal(String name, int dim) {
-		super(name, RegistryType.FULL, Material.PORTAL, MapColor.BLACK);
+		super(name, RegistryType.BLOCK, Material.PORTAL, MapColor.BLACK);
 		setBlockUnbreakable();
 		setLightLevel(1.0F);
 		setCreativeTab(StarcraftCreativeTabs.MISC);

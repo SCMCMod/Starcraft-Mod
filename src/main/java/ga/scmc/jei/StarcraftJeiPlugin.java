@@ -36,6 +36,7 @@ public class StarcraftJeiPlugin extends BlankModPlugin {
 		registry.addRecipeCategoryCraftingItem(new ItemStack(BlockHandler.FURNACE_CHAR), VanillaRecipeCategoryUid.FUEL);
 		registry.addRecipeCategoryCraftingItem(new ItemStack(BlockHandler.FURNACE_SLAYN), VanillaRecipeCategoryUid.FUEL);
 
+		registry.addRecipeClickArea(GuiStarcraftFurnace.class, 185, 88, 30, 30, VanillaRecipeCategoryUid.FUEL);
 		registry.addRecipeClickArea(GuiStarcraftFurnace.class, 78, 32, 28, 23, VanillaRecipeCategoryUid.SMELTING);
 		registry.addRecipeClickArea(GuiProtossFurnace.class, 78, 32, 28, 23, VanillaRecipeCategoryUid.SMELTING);
 
@@ -45,6 +46,8 @@ public class StarcraftJeiPlugin extends BlankModPlugin {
 				for (int j = 0; j < 16; j++) {
 					if (tooltip.getTooltip(j) != null) {
 						registry.addDescription(new ItemStack(item, 1, j), tooltip.getTooltip(j));
+					} else {
+						continue;
 					}
 				}
 			}

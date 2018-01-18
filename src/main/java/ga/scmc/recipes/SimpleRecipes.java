@@ -2,16 +2,19 @@ package ga.scmc.recipes;
 
 import ga.scmc.enums.EnumMetaBlock;
 import ga.scmc.enums.EnumMetaItem;
-import ga.scmc.enums.EnumMetaItem.EnergyType;
+import ga.scmc.enums.EnumMetaItem.KhaydarinCrystalType;
 import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.MetaBlockHandler;
 import ga.scmc.handlers.ToolHandler;
 import ga.scmc.handlers.WeaponHandler;
+import ga.scmc.items.IItemCompressable;
 import ga.scmc.items.metaitems.ItemMagazine;
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
@@ -28,6 +31,19 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 public class SimpleRecipes {
 
 	public static void init() {
+		for (Item item : Item.REGISTRY) {
+			if (item != null && item instanceof IItemCompressable) {
+				IItemCompressable compressable = (IItemCompressable) item;
+				for (int j = 0; j < 16; j++) {
+					if (compressable.getCompressedForm(j) != null) {
+						GameRegistry.addRecipe(compressable.getCompressedForm(j), "###", "###", "###", '#', new ItemStack(item, 1, j));
+					} else {
+						continue;
+					}
+				}
+			}
+		}
+
 		// Charcoal from Carbon Grain x9
 		GameRegistry.addRecipe(new ItemStack(Items.COAL, 1, 1), "CCC", "CCC", "CCC", 'C', new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.CARBON.getID()));
 
@@ -41,24 +57,14 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.PROTOSS_METAL_T2, 1, EnumMetaBlock.ProtossMetalType.DARK.getID()), "DDD", "DZD", "DDD", 'D', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()), 'Z', new ItemStack(MetaBlockHandler.PROTOSS_METAL_T1, 1, EnumMetaBlock.ProtossMetalType.DARK.getID()));
 		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.PROTOSS_METAL_T3, 1, EnumMetaBlock.ProtossMetalType.DARK.getID()), "DDD", "DZD", "DDD", 'D', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()), 'Z', new ItemStack(MetaBlockHandler.PROTOSS_METAL_T2, 1, EnumMetaBlock.ProtossMetalType.DARK.getID()));
 
-		for (int i = 0; i < EnergyType.values().length; i++) {
-			GameRegistry.addRecipe(new ItemStack(BlockHandler.ENERGY_BLOCK, 1, EnumMetaItem.EnergyType.values()[i].getID()), "EEE", "EEE", "EEE", 'E', new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.values()[i].getID()));
-		}
-
-		// Block of Titanium
-		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.TITANIUM.getID()), "TTT", "TTT", "TTT", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()));
-
-		// Block of Copper
-		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.COPPER.getID()), "CCC", "CCC", "CCC", 'C', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()));
-
-		// Block of Steel
-		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.STEEL.getID()), "SSS", "SSS", "SSS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()));
-
-		// Block of Minerals
-		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.COMP_MINERAL, 1, EnumMetaBlock.CompressedMineralType.BLUE.getID()), "MMM", "MMM", "MMM", 'M', new ItemStack(ItemHandler.MINERAL_SHARD, 1, EnumMetaItem.MineralType.BLUE.getID()));
-
-		// Block of Rich Minerals
-		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.COMP_MINERAL, 1, EnumMetaBlock.CompressedMineralType.RICH.getID()), "RRR", "RRR", "RRR", 'R', new ItemStack(ItemHandler.MINERAL_SHARD, 1, EnumMetaItem.MineralType.RICH.getID()));
+//		// Block of Titanium
+//		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.TITANIUM.getID()), "TTT", "TTT", "TTT", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()));
+//
+//		// Block of Copper
+//		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.COPPER.getID()), "CCC", "CCC", "CCC", 'C', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()));
+//
+//		// Block of Steel
+//		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.STEEL.getID()), "SSS", "SSS", "SSS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()));
 
 		// Zerg Carapace T1
 		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.ZERG_CARAPACE_BLOCK, 1, EnumMetaBlock.ZergStructureCarapaceType.T1.getID()), "CCC", "CCC", "CCC", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T1.getID()));
@@ -294,8 +300,8 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(ItemHandler.PLEDGE, 1, EnumMetaItem.PledgeType.WHITE.getID()), " D ", "DXD", " D ", 'D', new ItemStack(Items.DIAMOND), 'X', new ItemStack(Items.DYE, 1, 15));
 
 		// Protoss furnace and upgrades
-		GameRegistry.addRecipe(new ItemStack(BlockHandler.FURNACE_PROTOSS), "BBB", "B B", "BBB", 'B', MetaBlockHandler.PROTOSS_METAL_T1);
-		GameRegistry.addRecipe(new ItemStack(ItemHandler.PROTOSS_UPGRADE, 1, EnumMetaItem.ProtossUpgradeType.SPEED.getID()), "DED", "EDE", "EEE", 'D', Items.DIAMOND, 'E', new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.PURE.getID()));
-		GameRegistry.addRecipe(new ItemStack(ItemHandler.PROTOSS_UPGRADE, 1, EnumMetaItem.ProtossUpgradeType.EFFICIENCY.getID()), "P P", "PDP", " P ", 'P', ItemHandler.PROTOSS_INGOT, 'D', Blocks.DIAMOND_BLOCK);
+		GameRegistry.addRecipe(new ItemStack(BlockHandler.FURNACE_PROTOSS), "BBB", "B B", "BBB", 'B', new ItemStack(MetaBlockHandler.PROTOSS_METAL_T1, 1, 0));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.PROTOSS_UPGRADE, 1, EnumMetaItem.ProtossUpgradeType.SPEED.getID()), "DED", "EDE", "EEE", 'D', new ItemStack(ItemHandler.KHAYDARIN_CRYSTAL, 1, KhaydarinCrystalType.NORMAL.getID()), 'E', new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.PURE.getID()));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.PROTOSS_UPGRADE, 1, EnumMetaItem.ProtossUpgradeType.EFFICIENCY.getID()), "P P", "PDP", " P ", 'P', ItemHandler.PROTOSS_INGOT, 'D', new ItemStack(MetaBlockHandler.KHAYDARIN_CRYSTAL_BLOCK, 1, KhaydarinCrystalType.NORMAL.getID()));
 	}
 }

@@ -101,7 +101,7 @@ public class BlockHandler {
 	public static Block FARMLAND_SHAKURAS;
 	public static Block DIRT_SHAKURAS;
 	public static Block ENERGY_BLOCK;
-	public static Block PROTOSS_WARPGATE_WORMHOLE;
+	public static Block PROTOSS_WORMHOLE;
 
 	public static Block FLUID_ACID;
 	public static Block FLUID_BLOOD;
@@ -274,7 +274,7 @@ public class BlockHandler {
 		FURNACE_CHAR = new BlockStarcraftFurnace(MapColor.BLACK, EnumWorldType.CHAR);
 		FURNACE_SLAYN = new BlockStarcraftFurnace(MapColor.BLACK, EnumWorldType.SLAYN);
 		FURNACE_PROTOSS = new BlockProtossFurnace();
-		
+
 		/** protoss blocks **/
 		PROTOSS_ENERGY_CHANNEL = new BlockProtossEnergyChannel();
 		PROTOSS_ENERGY_STABILIZER = new BlockProtossEnergyStabilizer();
@@ -313,13 +313,13 @@ public class BlockHandler {
 		FLORA_ZERUS_LIGHTCAP = new BlockZerusLightcap();
 
 		/** miscellaneous blocks **/
-		TERRAN_WARNING_TAPE = new StarcraftBlock("terran.warningtape", RegistryType.FULL, Material.IRON, MapColor.YELLOW).setBlockSoundType(SoundType.METAL).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		TERRAN_WARNING_TAPE = new StarcraftBlock("terran.warningtape", RegistryType.FULL, Material.IRON, MapColor.YELLOW).setBlockSoundType(SoundType.METAL).setHardness(3.5f).setResistance(10.0f).setCreativeTab(StarcraftCreativeTabs.TERRAN);
 		STARCRAFT_SKULL = new BlockStarcraftSkull();
 		CITY_STONE_KORHAL = new BlockKorhalCityStone();
 		TEST = new BlockTest();
 		ENERGY_BLOCK = new BlockEnergy();
 		LIGHT_SOURCE = new BlockMovingLightSource();
-		PROTOSS_WARPGATE_WORMHOLE = new BlockProtossWormhole();
+		PROTOSS_WORMHOLE = new BlockProtossWormhole();
 	}
 
 	public static void register() {
@@ -357,7 +357,7 @@ public class BlockHandler {
 
 		registerCompleteBlock(KERATIN_CHUNK);
 
-		registerBlock(PROTOSS_WARPGATE_WORMHOLE);
+		register(PROTOSS_WORMHOLE);
 
 		registerCompleteBlock(FLUID_ACID);
 		registerCompleteBlock(FLUID_BLOOD);
@@ -377,6 +377,17 @@ public class BlockHandler {
 		registerCompleteBlock(TEST);
 	}
 
+	/**
+	 * Regsters the base block.
+	 * 
+	 * @param block
+	 *            The block to register and the item block to register
+	 * @author Ocelot5836
+	 */
+	private static void register(Block block) {
+		ForgeRegistries.BLOCKS.register(block);
+	}
+	
 	/**
 	 * Regsters an itemblock and the base block.
 	 * 

@@ -1,6 +1,6 @@
 package ga.scmc.tileentity;
 
-import com.sun.istack.internal.Nullable;
+import javax.annotation.Nullable;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -139,27 +139,21 @@ public class TileEntitySidedInventory extends TileEntity {
 		                switch (i) {
 		                    case 0:
 		                        this.downHandler.insertItem(j, stack, false);
-		                        System.out.println(stack.stackSize);
 		                        break;
 		                    case 1:
 		                        this.upHandler.insertItem(j, stack, false);
-		                        System.out.println(stack.stackSize);
 		                        break;
 		                    case 2:
 		                        this.northHandler.insertItem(j, stack, false);
-		                        System.out.println(stack.stackSize);
 		                        break;
 		                    case 3:
 		                        this.southHandler.insertItem(j, stack, false);
-		                        System.out.println(stack.stackSize);
 		                        break;
 		                    case 4:
 		                        this.westHandler.insertItem(j, stack, false);
-		                        System.out.println(stack.stackSize);
 		                        break;
 		                    case 5:
 		                        this.eastHandler.insertItem(j, stack, false);
-		                        System.out.println(stack.stackSize);
 		                        break;
 		                }
 		                break;

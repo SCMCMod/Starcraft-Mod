@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.google.common.collect.ImmutableList;
 
+import ga.scmc.api.Utils;
 import ga.scmc.client.gui.element.LarvaOption;
 import ga.scmc.enums.EnumMetaBlock.NeosteelMetalType;
 import ga.scmc.enums.EnumMetaBlock.ParisteelMetalType;
@@ -17,9 +18,11 @@ import ga.scmc.handlers.MetaBlockHandler;
 import ga.scmc.handlers.ToolHandler;
 import ga.scmc.handlers.WeaponHandler;
 import ga.scmc.items.metaitems.ItemMagazine;
+import ga.scmc.lib.Library;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 
 public class GuiLists {
 
@@ -111,8 +114,8 @@ public class GuiLists {
 		LARVA_OPTIONS = larvaOptions.build();
 
 		LOGS = new ArrayList<List<String>>();
-		LOGS.add(Arrays.asList(new String[] { "testing", "another one" }));
-		LOGS.add(Arrays.asList(new String[] { "spawn book here" }));
+		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/test.txt")));
+		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/spawn.txt")));
 	}
 
 	public static class Product {

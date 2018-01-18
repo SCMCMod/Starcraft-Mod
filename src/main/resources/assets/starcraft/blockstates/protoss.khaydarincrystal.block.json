@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "type=normal": { "model": "starcraft:protoss.khaydarincrystal.block.normal" }
+    }
+}

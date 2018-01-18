@@ -1,13 +1,21 @@
 package ga.scmc.api;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.codec.language.bm.Lang;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.items.IItemHandler;
@@ -32,7 +40,7 @@ public class Utils {
 	private static Lang lang;
 
 	/**
-	 * Returns the logger. This makes System.our.println look shabby
+	 * Returns the logger. This makes System.out.println look shabby
 	 * 
 	 * @return The {@link Logger}
 	 */
@@ -41,6 +49,29 @@ public class Utils {
 			logger = LogManager.getFormatterLogger("Starcraft");
 		}
 		return logger;
+	}
+
+	/**
+	 * Gets the text from the path specified.
+	 * 
+	 * @param location
+	 *            The location of the text
+	 * @return an array holding each line of the text
+	 */
+	public static List<String> loadTextFromFile(ResourceLocation location) {
+		List<String> output = new ArrayList<String>();
+		try {
+			InputStreamReader is = new InputStreamReader(Minecraft.getMinecraft().getResourceManager().getResource(location).getInputStream());
+			BufferedReader reader = new BufferedReader(is);
+			String line = reader.readLine();
+			while (line != null) {
+				output.add(line);
+				line = reader.readLine();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return output;
 	}
 
 	/**

@@ -4,9 +4,7 @@ import java.util.List;
 
 import ga.scmc.blocks.itemblocks.IMetaBlockName;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
-import ga.scmc.enums.EnumMetaBlock.CompressedMetalType;
-import ga.scmc.handlers.ItemHandler;
-import ga.scmc.items.IItemCompressable;
+import ga.scmc.enums.EnumMetaItem.KhaydarinCrystalType;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -24,30 +22,23 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 /**
- * This block has three variants. Refer to {@link CompressedMetalType}
+ * @author Ocelot5836
  */
-public class BlockTerranMetal extends Block implements IMetaBlockName {
+public class BlockKhaydarinCrystal extends Block implements IMetaBlockName {
 
 	/** The type property */
-	public static final PropertyEnum<CompressedMetalType> TYPE = PropertyEnum.create("type", CompressedMetalType.class);
+	public static final PropertyEnum<KhaydarinCrystalType> TYPE = PropertyEnum.create("type", KhaydarinCrystalType.class);
 
-	/**
-	 * Default constructor
-	 * 
-	 * @param unlocalizedName
-	 *            The block's unlocalized name
-	 * @param registryName
-	 *            The block's registry name - defaultly the unlocalized name
-	 */
-	public BlockTerranMetal() {
+	public BlockKhaydarinCrystal() {
 		super(Material.IRON);
 		setSoundType(SoundType.METAL);
-		setUnlocalizedName("terran.metal");
-		setRegistryName("terran.metal");
-		setHardness(5.0F); // Sets how hard the block is to break
-		setResistance(10.0F); // Sets the blocks blast resistance to explosions
-		setDefaultState(blockState.getBaseState().withProperty(TYPE, CompressedMetalType.COPPER)); // Default state
-		setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		setUnlocalizedName("protoss.khaydarincrystal.block");
+		setRegistryName("protoss.khaydarincrystal.block");
+		setHardness(0.5F);
+		setResistance(2.5F);
+		setSoundType(SoundType.GLASS);
+		setDefaultState(blockState.getBaseState().withProperty(TYPE, KhaydarinCrystalType.NORMAL));
+		setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 	}
 
 	@Override
@@ -76,7 +67,7 @@ public class BlockTerranMetal extends Block implements IMetaBlockName {
 	 */
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		CompressedMetalType type = state.getValue(TYPE);
+		KhaydarinCrystalType type = state.getValue(TYPE);
 		return type.getID();
 	}
 
@@ -93,7 +84,7 @@ public class BlockTerranMetal extends Block implements IMetaBlockName {
 	 */
 	@Override
 	public String getSpecialName(ItemStack stack) {
-		return CompressedMetalType.values()[stack.getItemDamage()].getName();
+		return KhaydarinCrystalType.values()[stack.getItemDamage()].getName();
 	}
 
 	/**
@@ -101,7 +92,7 @@ public class BlockTerranMetal extends Block implements IMetaBlockName {
 	 */
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		return getDefaultState().withProperty(TYPE, CompressedMetalType.values()[meta]);
+		return getDefaultState().withProperty(TYPE, KhaydarinCrystalType.values()[meta]);
 	}
 
 	/**
@@ -109,7 +100,7 @@ public class BlockTerranMetal extends Block implements IMetaBlockName {
 	 */
 	@Override
 	public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list) {
-		for (int i = 0; i < CompressedMetalType.values().length; i++) {
+		for (int i = 0; i < KhaydarinCrystalType.values().length; i++) {
 			list.add(new ItemStack(itemIn, 1, i));
 		}
 	}

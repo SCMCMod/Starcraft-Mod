@@ -3,6 +3,7 @@ package ga.scmc.handlers;
 import ga.scmc.blocks.itemblocks.ItemBlockMeta;
 import ga.scmc.blocks.metablocks.BlockCompressedMinerals;
 import ga.scmc.blocks.metablocks.BlockGasCollector;
+import ga.scmc.blocks.metablocks.BlockKhaydarinCrystal;
 import ga.scmc.blocks.metablocks.BlockNeosteelMetal;
 import ga.scmc.blocks.metablocks.BlockParisteelMetal;
 import ga.scmc.blocks.metablocks.BlockProtossMetalT1;
@@ -37,6 +38,7 @@ public class MetaBlockHandler {
 	public static Block ZERG_CARAPACE_BLOCK;
 	public static Block ZERG_FLESH;
 	public static Block GAS_COLLECTOR;
+	public static Block KHAYDARIN_CRYSTAL_BLOCK;
 
 	/**
 	 * Instantiates and registers the blocks and items.
@@ -61,6 +63,7 @@ public class MetaBlockHandler {
 		PARISTEEL_METAL = new BlockParisteelMetal();
 		COMP_MINERAL = new BlockCompressedMinerals();
 		GAS_COLLECTOR = new BlockGasCollector();
+		KHAYDARIN_CRYSTAL_BLOCK = new BlockKhaydarinCrystal();
 	}
 
 	/**
@@ -78,6 +81,7 @@ public class MetaBlockHandler {
 		registerBlock(PARISTEEL_METAL);
 		registerBlock(COMP_MINERAL);
 		registerBlock(GAS_COLLECTOR);
+		registerBlock(KHAYDARIN_CRYSTAL_BLOCK);
 	}
 
 	/**
