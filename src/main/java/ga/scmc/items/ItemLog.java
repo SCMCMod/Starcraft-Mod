@@ -63,7 +63,20 @@ public class ItemLog extends Item {
 	}
 
 	public enum EnumLogType {
-		TEST("Testing"), SPAWN("Spawn");
+		TEST("Testing"), 
+		SPAWN("Spawn"), 
+		EGONLOGP1("Log 2133"),
+		EGONLOGP2("Log 2142"),
+		EGONLOGP3("Log 2204"),
+		EGONLOGP4("Log 2299"),
+		EGONLOGP5("Log 2318"),
+		EGONLOGP6("Log 2977"),
+		EGONLOGZ1("Log 2103"),
+		EGONLOGZ2("Log 2139"),
+		EGONLOGZ3("Log 2247"),
+		EGONLOGZ4("Log 2297"),
+		EGONLOGZ5("Log 2354"),
+		EGONLOGZ6("Log 2384");
 
 		private String name;
 

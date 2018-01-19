@@ -115,6 +115,18 @@ public class GuiLists {
 		LOGS = new ArrayList<List<String>>();
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/test.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/spawn.txt")));
+		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.egonstetmann.protoss1.txt")));
+		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.egonstetmann.protoss2.txt")));
+		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.egonstetmann.protoss3.txt")));
+		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.egonstetmann.protoss4.txt")));
+		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.egonstetmann.protoss5.txt")));
+		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.egonstetmann.protoss6.txt")));
+		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.egonstetmann.zerg1.txt")));
+		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.egonstetmann.zerg2.txt")));
+		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.egonstetmann.zerg3.txt")));
+		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.egonstetmann.zerg4.txt")));
+		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.egonstetmann.zerg5.txt")));
+		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.egonstetmann.zerg6.txt")));
 	}
 
 	public static class Product {

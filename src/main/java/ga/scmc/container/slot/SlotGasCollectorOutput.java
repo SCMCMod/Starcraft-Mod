@@ -2,8 +2,6 @@ package ga.scmc.container.slot;
 
 import javax.annotation.Nullable;
 
-import ga.scmc.recipes.gascollector.GasCollectorRecipes;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;

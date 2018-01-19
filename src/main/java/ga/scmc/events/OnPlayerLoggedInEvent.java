@@ -17,7 +17,7 @@ public class OnPlayerLoggedInEvent {
 	@SubscribeEvent
 	public void onPlayerLoggedInEvent(PlayerLoggedInEvent event) {
 		EntityPlayer player = event.player;
-		String message = "Running SCMC version 2.0.402!";
+		String message = "Running SCMC version 2.0.405!";
 		player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.BLUE)));
 		player.world.spawnEntity(new EntityItem(player.world, player.posX, player.posY, player.posZ, ItemLog.getBook(EnumLogType.SPAWN)));
 	}
