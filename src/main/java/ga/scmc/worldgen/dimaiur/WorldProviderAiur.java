@@ -6,7 +6,6 @@ import com.arisux.mdx.lib.client.render.world.IStormProvider;
 
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.DimensionHandler;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.chunk.IChunkGenerator;
@@ -74,26 +73,15 @@ public class WorldProviderAiur extends WorldProvider implements IClimateProvider
 		
 		//Always true
 		if(this instanceof WorldProviderAiur) {
-			return "Leaving Kaldir";
+			return "Leaving Aiur";
 		}
 		
 		return null;
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
-	public Vec3d getFogColor(float var1, float var2) {
-		return new Vec3d(.65D, 0.95D, 0.95D);
-	}
-
-	@Override
-	public Vec3d getCloudColor(float partialTicks) {
-		return new Vec3d(.65D, 0.95D, 0.95D);
-	}
-
-	@Override
 	public DimensionType getDimensionType() {
-		return DimensionHandler.kaldir_dt;
+		return DimensionHandler.aiur_dt;
 	}
 
 	/**
@@ -104,7 +92,7 @@ public class WorldProviderAiur extends WorldProvider implements IClimateProvider
 	 */
 	@Override
 	public int getRespawnDimension(net.minecraft.entity.player.EntityPlayerMP player) {
-		return ConfigurationHandler.INT_DIMENSION_KALDIR;
+		return ConfigurationHandler.INT_DIMENSION_AIUR;
 	}
 	
 	/**
@@ -116,7 +104,7 @@ public class WorldProviderAiur extends WorldProvider implements IClimateProvider
 		
 		//Always true
 		if(this instanceof WorldProviderAiur) {
-			return "Entering Kaldir";
+			return "Entering Aiur";
 		}
 		
 		return null;

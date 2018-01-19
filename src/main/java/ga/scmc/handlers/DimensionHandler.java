@@ -40,8 +40,8 @@ public class DimensionHandler {
 		slayn_dt = DimensionType.register("Slayn", "_starcraft", ConfigurationHandler.INT_DIMENSION_SLAYN, WorldProviderSlayn.class, true);
 		korhal_dt = DimensionType.register("Korhal", "_starcraft", ConfigurationHandler.INT_DIMENSION_KORHAL, WorldProviderKorhal.class, true);
 		kaldir_dt = DimensionType.register("Kaldir", "_starcraft", ConfigurationHandler.INT_DIMENSION_KALDIR, WorldProviderKaldir.class, true);
-		kaldir_dt = DimensionType.register("Aiur", "_starcraft", ConfigurationHandler.INT_DIMENSION_AIUR, WorldProviderAiur.class, true);
-		kaldir_dt = DimensionType.register("Zerus", "_starcraft", ConfigurationHandler.INT_DIMENSION_ZERUS, WorldProviderZerus.class, true);
+		aiur_dt = DimensionType.register("Aiur", "_starcraft", ConfigurationHandler.INT_DIMENSION_AIUR, WorldProviderAiur.class, true);
+		zerus_dt = DimensionType.register("Zerus", "_starcraft", ConfigurationHandler.INT_DIMENSION_ZERUS, WorldProviderZerus.class, true);
 		
 		DimensionManager.registerDimension(ConfigurationHandler.INT_DIMENSION_CHAR, char_dt);
 		DimensionManager.registerDimension(ConfigurationHandler.INT_DIMENSION_SHAKURAS, shakuras_dt);
