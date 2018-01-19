@@ -11,12 +11,11 @@ import mezz.jei.api.gui.IGuiItemStackGroup;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.BlankRecipeCategory;
-import mezz.jei.util.Translator;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.event.DrawBlockHighlightEvent;
 
 public class GasCollectorCategory extends BlankRecipeCategory<GasCollectorRecipe> {
 
@@ -30,7 +29,7 @@ public class GasCollectorCategory extends BlankRecipeCategory<GasCollectorRecipe
 	public GasCollectorCategory(IGuiHelper guiHelper) {
 		ResourceLocation location = new ResourceLocation(Library.RL_BASE + "textures/gui/container/gas_collector_base.png");
 		background = guiHelper.createDrawable(location, 0, 0, 63, 50);
-		localizedName = Translator.translateToLocal("gui." + Library.MODID + ".category.gascollector");
+		localizedName = I18n.format("gui." + Library.MODID + ".category.gascollector");
 	}
 
 	@Override

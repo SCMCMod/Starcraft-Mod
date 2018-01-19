@@ -1,12 +1,9 @@
 package ga.scmc.jei.gascollector;
 
+import ga.scmc.api.Utils;
 import ga.scmc.jei.StarcraftRecipeCategoryUid;
 import mezz.jei.api.recipe.IRecipeHandler;
 import mezz.jei.api.recipe.IRecipeWrapper;
-import mezz.jei.api.recipe.VanillaRecipeCategoryUid;
-import mezz.jei.util.ErrorUtil;
-import mezz.jei.util.Log;
-import scala.reflect.internal.Trees.Star;
 
 public class GasCollectorRecipeHandler implements IRecipeHandler<GasCollectorRecipe> {
 
@@ -33,12 +30,10 @@ public class GasCollectorRecipeHandler implements IRecipeHandler<GasCollectorRec
 	@Override
 	public boolean isRecipeValid(GasCollectorRecipe recipe) {
 		if (recipe.getInputs().isEmpty()) {
-			String recipeInfo = ErrorUtil.getInfoFromBrokenRecipe(recipe, this);
-			Log.error("Recipe has no inputs. {}", recipeInfo);
+			Utils.getLogger().error("Recipe has no inputs. {}");
 		}
 		if (recipe.getOutputs().isEmpty()) {
-			String recipeInfo = ErrorUtil.getInfoFromBrokenRecipe(recipe, this);
-			Log.error("Recipe has no outputs. {}", recipeInfo);
+			Utils.getLogger().error("Recipe has no outputs. {}");
 		}
 		return true;
 	}

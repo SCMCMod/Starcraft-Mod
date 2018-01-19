@@ -3,7 +3,6 @@ package ga.scmc.jei;
 import ga.scmc.client.gui.GuiGasCollector;
 import ga.scmc.client.gui.GuiProtossFurnace;
 import ga.scmc.client.gui.GuiStarcraftFurnace;
-import ga.scmc.container.ContainerGasCollector;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.MetaBlockHandler;
 import ga.scmc.jei.gascollector.GasCollectorCategory;
@@ -18,8 +17,6 @@ import mezz.jei.api.JEIPlugin;
 import mezz.jei.api.ingredients.IIngredientRegistry;
 import mezz.jei.api.recipe.VanillaRecipeCategoryUid;
 import mezz.jei.api.recipe.transfer.IRecipeTransferRegistry;
-import mezz.jei.plugins.vanilla.furnace.SmeltingRecipeMaker;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
@@ -53,7 +50,7 @@ public class StarcraftJeiPlugin extends BlankModPlugin {
 		registry.addRecipeCategoryCraftingItem(new ItemStack(MetaBlockHandler.GAS_COLLECTOR, 1, 0), StarcraftRecipeCategoryUid.GAS_COLLECTOR);
 		registry.addRecipeCategoryCraftingItem(new ItemStack(MetaBlockHandler.GAS_COLLECTOR, 1, 1), StarcraftRecipeCategoryUid.GAS_COLLECTOR);
 		registry.addRecipeCategoryCraftingItem(new ItemStack(MetaBlockHandler.GAS_COLLECTOR, 1, 2), StarcraftRecipeCategoryUid.GAS_COLLECTOR);
-		
+
 		registry.addRecipeCategoryCraftingItem(new ItemStack(BlockHandler.FURNACE_SHAKURAS), VanillaRecipeCategoryUid.SMELTING);
 		registry.addRecipeCategoryCraftingItem(new ItemStack(BlockHandler.FURNACE_CHAR), VanillaRecipeCategoryUid.SMELTING);
 		registry.addRecipeCategoryCraftingItem(new ItemStack(BlockHandler.FURNACE_SLAYN), VanillaRecipeCategoryUid.SMELTING);

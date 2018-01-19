@@ -7,11 +7,8 @@ import java.util.Map;
 import ga.scmc.recipes.gascollector.GasCollectorRecipes;
 import mezz.jei.api.IJeiHelpers;
 import mezz.jei.api.recipe.IStackHelper;
-import mezz.jei.plugins.vanilla.furnace.SmeltingRecipe;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.FurnaceRecipes;
 
 public class RecipeMaker {
 
