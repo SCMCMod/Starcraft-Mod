@@ -59,6 +59,8 @@ public class BiomeHandler extends Biome {
 	public static Biome biomeKaldirProtossCity;
 	public static Biome biomeKaldirCreepInfestation;
 
+	public static Biome biomeAiurPlains;
+
 	public static void preInit() {
 		registerBiomes();
 		GameRegistry.register(biomeAshPlains);

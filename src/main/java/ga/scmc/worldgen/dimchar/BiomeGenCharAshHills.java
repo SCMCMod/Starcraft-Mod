@@ -26,7 +26,7 @@ public class BiomeGenCharAshHills extends BiomeHandler {
 		spawnableCaveCreatureList.clear();
 	}
 
-	public final void genBiomeTerrainChar(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal) {
+	public final void genBiomeTerrain(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal) {
 
 		int seaLevel = worldIn.getSeaLevel();
 		IBlockState topBlock = this.topBlock;
@@ -81,6 +81,6 @@ public class BiomeGenCharAshHills extends BiomeHandler {
 
 	@Override
 	public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal) {
-		genBiomeTerrainChar(worldIn, rand, chunkPrimerIn, x, z, noiseVal);
+		genBiomeTerrain(worldIn, rand, chunkPrimerIn, x, z, noiseVal);
 	}
 }

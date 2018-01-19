@@ -24,6 +24,8 @@ public class ConfigurationHandler {
 	public static int INT_DIMENSION_SLAYN = FactorySettings.INT_DIMENSION_SLAYN;
 	public static int INT_DIMENSION_KORHAL = FactorySettings.INT_DIMENSION_KORHAL;
 	public static int INT_DIMENSION_KALDIR = FactorySettings.INT_DIMENSION_KALDIR;
+	public static int INT_DIMENSION_AIUR = FactorySettings.INT_DIMENSION_AIUR;
+	public static int INT_DIMENSION_ZERUS = FactorySettings.INT_DIMENSION_ZERUS;
 
 	public static void preInit() {
 		Configuration config = new Configuration(new File("config/Starcraft.cfg"));
