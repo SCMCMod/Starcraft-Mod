@@ -64,6 +64,8 @@ public class GuiGasCollector extends GuiContainer {
 		GlStateManager.scale(0.5f, 0.5f, 0.5f);
 		drawTexturedModalRect(((width / 2) + 46) * 2, ((height / 2) - 48) * 2, xSize, 0, 32, 32);
 		GlStateManager.popMatrix();
+		TextureUtils.bindTexture("textures/gui/container/gas_collector_base.png");
+		drawTexturedModalRect(guiLeft + 35, guiTop + 35, 63, 0, 16, 16);
 	}
 
 	@Override

@@ -11,10 +11,9 @@ import net.minecraftforge.oredict.OreDictionary;
 public class OreDictionaryHandler {
 
 	public static void preInit() {
-		
-		OreDictionary.registerOre("blockSteel", MetaBlockHandler.COMP_METAL_T1.getStateFromMeta(EnumMetaBlock.CompressedMetalType.TITANIUM.getID()).getBlock());
-		OreDictionary.registerOre("blockCopper", MetaBlockHandler.COMP_METAL_T1.getStateFromMeta(EnumMetaBlock.CompressedMetalType.TITANIUM.getID()).getBlock());
-		OreDictionary.registerOre("blockTitanium", MetaBlockHandler.COMP_METAL_T1.getStateFromMeta(EnumMetaBlock.CompressedMetalType.TITANIUM.getID()).getBlock());
+		OreDictionary.registerOre("blockSteel", new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.STEEL.getID()));
+		OreDictionary.registerOre("blockCopper", new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.COPPER.getID()));
+		OreDictionary.registerOre("blockTitanium", new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.TITANIUM.getID()));
 		
 		OreDictionary.registerOre("cobblestone", BlockHandler.COBBLESTONE_CHAR);
 		OreDictionary.registerOre("cobblestone", BlockHandler.COBBLESTONE_SHAKURAS);

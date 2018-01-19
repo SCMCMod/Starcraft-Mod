@@ -56,15 +56,6 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.PROTOSS_METAL_T2, 1, EnumMetaBlock.ProtossMetalType.DARK.getID()), "DDD", "DZD", "DDD", 'D', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()), 'Z', new ItemStack(MetaBlockHandler.PROTOSS_METAL_T1, 1, EnumMetaBlock.ProtossMetalType.DARK.getID()));
 		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.PROTOSS_METAL_T3, 1, EnumMetaBlock.ProtossMetalType.DARK.getID()), "DDD", "DZD", "DDD", 'D', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()), 'Z', new ItemStack(MetaBlockHandler.PROTOSS_METAL_T2, 1, EnumMetaBlock.ProtossMetalType.DARK.getID()));
 
-//		// Block of Titanium
-//		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.TITANIUM.getID()), "TTT", "TTT", "TTT", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()));
-//
-//		// Block of Copper
-//		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.COPPER.getID()), "CCC", "CCC", "CCC", 'C', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()));
-//
-//		// Block of Steel
-//		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.STEEL.getID()), "SSS", "SSS", "SSS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()));
-
 		// Zerg Carapace T1
 		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.ZERG_CARAPACE_BLOCK, 1, EnumMetaBlock.ZergStructureCarapaceType.T1.getID()), "CCC", "CCC", "CCC", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T1.getID()));
 
@@ -132,11 +123,11 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(WeaponHandler.DARK_WARP_BLADE), " D ", "DCD", " DD", 'D', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()), 'C', new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.CORRUPTED.getID()));
 
 		// Copper toolset
-		GameRegistry.addRecipe(new ItemStack(ToolHandler.COPPER_SHOVEL), " C ", " S ", " S ", 'C', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()), 'S', Items.STICK);
-		GameRegistry.addRecipe(new ItemStack(ToolHandler.COPPER_AXE), " CC", " SC", " S ", 'C', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()), 'S', Items.STICK);
-		GameRegistry.addRecipe(new ItemStack(ToolHandler.COPPER_PICKAXE), "CCC", " S ", " S ", 'C', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()), 'S', Items.STICK);
-		GameRegistry.addRecipe(new ItemStack(ToolHandler.COPPER_HOE), " CC", " S ", " S ", 'C', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()), 'S', Items.STICK);
-		GameRegistry.addRecipe(new ItemStack(WeaponHandler.COPPER_SWORD), " C ", " C ", " S ", 'C', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()), 'S', Items.STICK);
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ToolHandler.COPPER_SHOVEL), " C ", " S ", " S ", 'C', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()), 'S', "stickWood"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ToolHandler.COPPER_AXE), " CC", " SC", " S ", 'C', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()), 'S', "stickWood"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ToolHandler.COPPER_PICKAXE), "CCC", " S ", " S ", 'C', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()), 'S', "stickWood"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ToolHandler.COPPER_HOE), " CC", " S ", " S ", 'C', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()), 'S', "stickWood"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(WeaponHandler.COPPER_SWORD), " C ", " C ", " S ", 'C', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()), 'S', "stickWood"));
 
 		// Copper armorset
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.COPPER_HELMET), "CCC", "C C", "   ", 'C', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()));
@@ -145,11 +136,11 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.COPPER_BOOTS), "C C", "C C", 'C', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()));
 
 		// Titanium toolset
-		GameRegistry.addRecipe(new ItemStack(ToolHandler.TITANIUM_SHOVEL), " T ", " S ", " S ", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()), 'S', Items.STICK);
-		GameRegistry.addRecipe(new ItemStack(ToolHandler.TITANIUM_AXE), " TT", " ST", " S ", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()), 'S', Items.STICK);
-		GameRegistry.addRecipe(new ItemStack(ToolHandler.TITANIUM_PICKAXE), "TTT", " S ", " S ", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()), 'S', Items.STICK);
-		GameRegistry.addRecipe(new ItemStack(ToolHandler.TITANIUM_HOE), " TT", " S ", " S ", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()), 'S', Items.STICK);
-		GameRegistry.addRecipe(new ItemStack(WeaponHandler.TITANIUM_SWORD), " T ", " T ", " S ", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()), 'S', Items.STICK);
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ToolHandler.TITANIUM_SHOVEL), " T ", " S ", " S ", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()), 'S', "stickWood"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ToolHandler.TITANIUM_AXE), " TT", " ST", " S ", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()), 'S', "stickWood"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ToolHandler.TITANIUM_PICKAXE), "TTT", " S ", " S ", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()), 'S', "stickWood"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ToolHandler.TITANIUM_HOE), " TT", " S ", " S ", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()), 'S', "stickWood"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(WeaponHandler.TITANIUM_SWORD), " T ", " T ", " S ", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()), 'S', "stickWood"));
 
 		// Titanium armorset
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TITANIUM_HELMET), "TTT", "T T", "   ", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()));
@@ -158,11 +149,11 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TITANIUM_BOOTS), "T T", "T T", 'T', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()));
 
 		// Steel toolset
-		GameRegistry.addRecipe(new ItemStack(ToolHandler.STEEL_SHOVEL), " S ", " I ", " I ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'I', Items.STICK);
-		GameRegistry.addRecipe(new ItemStack(ToolHandler.STEEL_AXE), " SS", " IS", " I ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'I', Items.STICK);
-		GameRegistry.addRecipe(new ItemStack(ToolHandler.STEEL_PICKAXE), "SSS", " I ", " I ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'I', Items.STICK);
-		GameRegistry.addRecipe(new ItemStack(ToolHandler.STEEL_HOE), " SS", " I ", " I ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'I', Items.STICK);
-		GameRegistry.addRecipe(new ItemStack(WeaponHandler.STEEL_SWORD), " S ", " S ", " I ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'I', Items.STICK);
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ToolHandler.STEEL_SHOVEL), " S ", " I ", " I ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'I', "stickWood"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ToolHandler.STEEL_AXE), " SS", " IS", " I ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'I', "stickWood"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ToolHandler.STEEL_PICKAXE), "SSS", " I ", " I ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'I', "stickWood"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ToolHandler.STEEL_HOE), " SS", " I ", " I ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'I', "stickWood"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(WeaponHandler.STEEL_SWORD), " S ", " S ", " I ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'I', "stickWood"));
 
 		// Steel armorset
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.STEEL_HELMET), "SSS", "S S", "   ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()));

@@ -672,3 +672,10 @@ achievement.enterKorhal.desc=Arrive on Korhal!
 achievement.enterShakuras=We Linger, In Twilight
 achievement.enterShakuras.desc=Arrive on Shakuras!
 #############################################################################################
+
+
+
+### JEI ###
+#############################################################################################
+gui.starcraft.category.gascollector=Gas Collector
+#############################################################################################

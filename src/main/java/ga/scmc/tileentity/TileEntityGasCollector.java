@@ -3,12 +3,9 @@ package ga.scmc.tileentity;
 import com.mojang.authlib.GameProfile;
 
 import ga.scmc.api.Utils;
-import ga.scmc.blocks.BlockGas;
-import ga.scmc.blocks.BlockTerrazineGas;
-import ga.scmc.blocks.BlockVespeneGas;
-import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.MetaBlockHandler;
 import ga.scmc.handlers.SoundHandler;
+import ga.scmc.recipes.gascollector.GasCollectorRecipes;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDynamicLiquid;
 import net.minecraft.block.BlockStaticLiquid;
@@ -73,12 +70,10 @@ public class TileEntityGasCollector extends TileEntitySidedInventory implements 
 	 * @author CJMinecraft
 	 */
 	public void breakBlock(EnumFacing facing) {
-		BlockPos newPos = pos.offset(facing, 1); // Gets the block pos in front of the block breaker
-		IBlockState state = world.getBlockState(newPos); // Gets the block state
-		Block block = state.getBlock(); // Gets the block
-		// If the block is not air, is not unbreakable or a liquid it will try and break it
-		if (!block.isAir(state, world, newPos) && block.getBlockHardness(state, world, newPos) >= 0 && !(block instanceof BlockDynamicLiquid) && !(block instanceof BlockStaticLiquid) && block instanceof BlockGas) {
-			// Creates a fake player which will break the block
+		BlockPos newPos = pos.offset(facing, 1);
+		IBlockState state = world.getBlockState(newPos);
+		Block block = state.getBlock();
+		if (!block.isAir(state, world, newPos) && block.getBlockHardness(state, world, newPos) >= 0 && !(block instanceof BlockDynamicLiquid) && !(block instanceof BlockStaticLiquid)) {
 			EntityPlayer player = new EntityPlayer(world, new GameProfile(null, "GasCollector")) {
 				@Override
 				public boolean isSpectator() {
@@ -92,27 +87,49 @@ public class TileEntityGasCollector extends TileEntitySidedInventory implements 
 			};
 			if (this.handler.getStackInSlot(9) != null) {
 				if (this.handler.getStackInSlot(9).stackSize >= 4) {
-					block.harvestBlock(world, player, newPos, state, this, null);
+					if (canBreak(block, getType())) {
+						ItemStack stack = null;
 
-					if (block instanceof BlockVespeneGas)
-						Utils.addStackToInventory(this.handler, 9, new ItemStack(ItemHandler.VESPENE, 1, type + 1), false);
-					if (block instanceof BlockTerrazineGas)
-						Utils.addStackToInventory(this.handler, 9, new ItemStack(ItemHandler.TERRAZINE, 1, type + 1), false);
+						if (getType() == 0) {
+							stack = GasCollectorRecipes.instance().getProtossResult(block).copy();
+						}
+						if (getType() == 1) {
+							stack = GasCollectorRecipes.instance().getTerranResult(block).copy();
+						}
+						if (getType() == 2) {
+							stack = GasCollectorRecipes.instance().getZergResult(block).copy();
+						}
 
-					if (!Utils.isInventoryFull(this.handler, 9)) {
-						world.playEvent(2001, newPos, Block.getStateId(state));
-						if (getType() == 0)
-							world.playSound(null, pos, SoundHandler.BLOCK_GAS_COLLECTOR_PROTOSS, SoundCategory.BLOCKS, 1, 1);
-						if (getType() == 1)
-							world.playSound(null, pos, SoundHandler.BLOCK_GAS_COLLECTOR_TERRAN, SoundCategory.BLOCKS, 1, 1);
-						if (getType() == 2)
-							world.playSound(null, pos, SoundHandler.BLOCK_GAS_COLLECTOR_ZERG, SoundCategory.BLOCKS, 1, 1);
-						world.setBlockToAir(newPos);
-						this.handler.extractItem(9, 4, false);
+						if (stack != null) {
+							block.breakBlock(world, newPos, state);
+							Utils.addStackToInventory(handler, 9, stack, false);
+							if (!Utils.isInventoryFull(this.handler, 9)) {
+								world.playEvent(2001, newPos, Block.getStateId(state));
+								if (getType() == 0)
+									world.playSound(null, pos, SoundHandler.BLOCK_GAS_COLLECTOR_PROTOSS, SoundCategory.BLOCKS, 1, 1);
+								if (getType() == 1)
+									world.playSound(null, pos, SoundHandler.BLOCK_GAS_COLLECTOR_TERRAN, SoundCategory.BLOCKS, 1, 1);
+								if (getType() == 2)
+									world.playSound(null, pos, SoundHandler.BLOCK_GAS_COLLECTOR_ZERG, SoundCategory.BLOCKS, 1, 1);
+								world.setBlockToAir(newPos);
+								this.handler.extractItem(9, 4, false);
+							}
+						}
 					}
 				}
 			}
 		}
+	}
+
+	public boolean canBreak(Block block, int type) {
+		ItemStack stack = null;
+		if (getType() == 0)
+			stack = GasCollectorRecipes.instance().getProtossResult(block);
+		if (getType() == 1)
+			stack = GasCollectorRecipes.instance().getTerranResult(block);
+		if (getType() == 2)
+			stack = GasCollectorRecipes.instance().getZergResult(block);
+		return stack != null;
 	}
 
 	public int getType() {

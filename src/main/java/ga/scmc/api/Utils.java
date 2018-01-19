@@ -130,7 +130,7 @@ public class Utils {
 	 * @return The remainder left if the slot was full
 	 */
 	public static ItemStack addStackToInventory(IItemHandler handler, int maxSlot, ItemStack stack, boolean simulate) {
-		ItemStack remainder = stack;
+		ItemStack remainder = null;
 		for (int slot = 0; slot < maxSlot; slot++) {
 			remainder = handler.insertItem(slot, stack, simulate);
 			if (remainder == null)

@@ -1,5 +1,6 @@
 package ga.scmc.container;
 
+import ga.scmc.container.slot.SlotGasCollectorOutput;
 import ga.scmc.container.slot.SlotWhitelist;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.tileentity.TileEntityGasCollector;
@@ -26,12 +27,11 @@ public class ContainerGasCollector extends Container {
 		this.te = te;
 		this.handler = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
 
-		Item[] item = new Item[] { ItemHandler.VESPENE, ItemHandler.TERRAZINE };
 		Item[] fuel = new Item[] { ItemHandler.PROTOSS_INGOT, Item.getItemFromBlock(Blocks.PLANKS), ItemHandler.ORGANIC_TISSUE };
 
 		for (int x = 0; x < 3; x++) {
 			for (int y = 0; y < 3; y++) {
-				this.addSlotToContainer(new SlotWhitelist(player, handler, item, x + y * 3, 62 + (18 * x), 17 + (18 * y)));
+				this.addSlotToContainer(new SlotGasCollectorOutput(handler, x + y * 3, 62 + (18 * x), 17 + (18 * y)));
 			}
 		}
 

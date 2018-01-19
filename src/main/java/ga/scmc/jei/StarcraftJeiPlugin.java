@@ -1,13 +1,25 @@
 package ga.scmc.jei;
 
+import ga.scmc.client.gui.GuiGasCollector;
 import ga.scmc.client.gui.GuiProtossFurnace;
 import ga.scmc.client.gui.GuiStarcraftFurnace;
+import ga.scmc.container.ContainerGasCollector;
 import ga.scmc.handlers.BlockHandler;
+import ga.scmc.handlers.MetaBlockHandler;
+import ga.scmc.jei.gascollector.GasCollectorCategory;
+import ga.scmc.jei.gascollector.GasCollectorRecipeHandler;
+import ga.scmc.jei.gascollector.RecipeMaker;
 import mezz.jei.api.BlankModPlugin;
+import mezz.jei.api.IGuiHelper;
+import mezz.jei.api.IJeiHelpers;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
+import mezz.jei.api.ingredients.IIngredientRegistry;
 import mezz.jei.api.recipe.VanillaRecipeCategoryUid;
+import mezz.jei.api.recipe.transfer.IRecipeTransferRegistry;
+import mezz.jei.plugins.vanilla.furnace.SmeltingRecipeMaker;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
@@ -17,7 +29,7 @@ import net.minecraft.item.ItemStack;
  * <br>
  * </br>
  * 
- * This class allows for basic JEI support.
+ * This class allows for basic JEI support. It adds all the recipes, catalysts, and recipe click areas for JEI.
  * 
  * @author Ocelot5836
  * 
@@ -26,8 +38,22 @@ import net.minecraft.item.ItemStack;
 @JEIPlugin
 public class StarcraftJeiPlugin extends BlankModPlugin {
 
+	public static IJeiHelpers jeiHelpers;
+
 	@Override
 	public void register(IModRegistry registry) {
+		IIngredientRegistry ingredientRegistry = registry.getIngredientRegistry();
+		jeiHelpers = registry.getJeiHelpers();
+		IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
+		IRecipeTransferRegistry recipeTransferRegistry = registry.getRecipeTransferRegistry();
+
+		registry.addRecipeCategories(new GasCollectorCategory(guiHelper));
+		registry.addRecipeHandlers(new GasCollectorRecipeHandler());
+		registry.addRecipes(RecipeMaker.getGasCollectorRecipes(jeiHelpers));
+		registry.addRecipeCategoryCraftingItem(new ItemStack(MetaBlockHandler.GAS_COLLECTOR, 1, 0), StarcraftRecipeCategoryUid.GAS_COLLECTOR);
+		registry.addRecipeCategoryCraftingItem(new ItemStack(MetaBlockHandler.GAS_COLLECTOR, 1, 1), StarcraftRecipeCategoryUid.GAS_COLLECTOR);
+		registry.addRecipeCategoryCraftingItem(new ItemStack(MetaBlockHandler.GAS_COLLECTOR, 1, 2), StarcraftRecipeCategoryUid.GAS_COLLECTOR);
+		
 		registry.addRecipeCategoryCraftingItem(new ItemStack(BlockHandler.FURNACE_SHAKURAS), VanillaRecipeCategoryUid.SMELTING);
 		registry.addRecipeCategoryCraftingItem(new ItemStack(BlockHandler.FURNACE_CHAR), VanillaRecipeCategoryUid.SMELTING);
 		registry.addRecipeCategoryCraftingItem(new ItemStack(BlockHandler.FURNACE_SLAYN), VanillaRecipeCategoryUid.SMELTING);
@@ -39,6 +65,7 @@ public class StarcraftJeiPlugin extends BlankModPlugin {
 		registry.addRecipeClickArea(GuiStarcraftFurnace.class, 185, 88, 30, 30, VanillaRecipeCategoryUid.FUEL);
 		registry.addRecipeClickArea(GuiStarcraftFurnace.class, 78, 32, 28, 23, VanillaRecipeCategoryUid.SMELTING);
 		registry.addRecipeClickArea(GuiProtossFurnace.class, 78, 32, 28, 23, VanillaRecipeCategoryUid.SMELTING);
+		registry.addRecipeClickArea(GuiGasCollector.class, 34, 34, 18, 18, StarcraftRecipeCategoryUid.GAS_COLLECTOR);
 
 		for (Item item : Item.REGISTRY) {
 			if (item != null && item instanceof IJeiTooltip) {
