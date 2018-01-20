@@ -7,7 +7,7 @@ import net.minecraft.world.gen.layer.IntCache;
 
 public class GenLayerShakurasBiomes extends GenLayer {
 
-	public Biome[] dimBiomes = { BiomeHandler.biomeShakurasDesert, BiomeHandler.biomeShakurasHills, BiomeHandler.biomeShakurasOcean, BiomeHandler.biomeShakurasMountains, BiomeHandler.biomeShakurasCity};
+	public Biome[] dimBiomes = { BiomeHandler.biomeShakurasDesert, BiomeHandler.biomeShakurasHills, BiomeHandler.biomeShakurasOcean, BiomeHandler.biomeShakurasMountains, BiomeHandler.biomeShakurasProtossCity};
 
 	public GenLayerShakurasBiomes(long par1) {
 		super(par1);

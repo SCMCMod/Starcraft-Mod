@@ -51,14 +51,15 @@ public class GuiHandler implements IGuiHandler {
 	public static final int CHAR_FURNACE = 6;
 	public static final int SHAKURAS_FURNACE = 7;
 	public static final int SLAYN_FURNACE = 8;
-	public static final int PROTOSS_FURNACE = 9;
+	public static final int ZERUS_FURNACE = 9;
+	public static final int PROTOSS_FURNACE = 10;
 
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		TileEntity te = world.getTileEntity(new BlockPos(x, y, z));
 		if (ID == GAS_COLLECTOR_ID)
 			return new ContainerGasCollector(player, (TileEntityGasCollector) te);
-		if (ID == CHAR_FURNACE || ID == SHAKURAS_FURNACE || ID == SLAYN_FURNACE)
+		if (ID == CHAR_FURNACE || ID == SHAKURAS_FURNACE || ID == SLAYN_FURNACE || ID == ZERUS_FURNACE)
 			return new ContainerStarcraftFurnace(player, te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null));
 		if (ID == PROTOSS_FURNACE)
 			return new ContainerProtossFurnace(player, te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null));
@@ -89,6 +90,8 @@ public class GuiHandler implements IGuiHandler {
 			return new GuiStarcraftFurnace(player, te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), EnumWorldType.SHAKURAS, pos);
 		if (ID == SLAYN_FURNACE)
 			return new GuiStarcraftFurnace(player, te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), EnumWorldType.SLAYN, pos);
+		if (ID == ZERUS_FURNACE)
+			return new GuiStarcraftFurnace(player, te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), EnumWorldType.ZERUS, pos);
 		if (ID == PROTOSS_FURNACE)
 			return new GuiProtossFurnace(player, te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), pos);
 		return null;

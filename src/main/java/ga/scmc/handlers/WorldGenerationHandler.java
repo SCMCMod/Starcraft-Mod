@@ -5,6 +5,7 @@ import java.util.Random;
 import ga.scmc.entity.living.EntityNafash;
 import ga.scmc.worldgen.dimchar.CharWorldGenMinable;
 import ga.scmc.worldgen.dimshakuras.ShakurasWorldGenMinable;
+import ga.scmc.worldgen.dimzerus.ZerusWorldGenMinable;
 import ga.scmc.worldgen.structure.BossSpawner;
 import ga.scmc.worldgen.structure.StructureGeyserTemplate;
 import ga.scmc.worldgen.structure.StructureMineralPatchTemplate;
@@ -78,6 +79,21 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 		PHOSPHORUS_SHAKURAS = new ShakurasWorldGenMinable(BlockHandler.ORE_PHOSPHORUS_SHAKURAS.getDefaultState(), 4);
 		DIRT_SHAKURAS = new ShakurasWorldGenMinable(BlockHandler.DIRT_SHAKURAS.getDefaultState(), 33);
 		GRAVEL_SHAKURAS = new ShakurasWorldGenMinable(BlockHandler.GRAVEL_SHAKURAS.getDefaultState(), 33);
+		
+		TITANIUM_ZERUS = new ZerusWorldGenMinable(BlockHandler.ORE_TITANIUM_ZERUS.getDefaultState(), 8);
+		URANIUM_ZERUS = new ZerusWorldGenMinable(BlockHandler.ORE_URANIUM_ZERUS.getDefaultState(), 1);
+		COAL_ZERUS = new ZerusWorldGenMinable(BlockHandler.ORE_COAL_ZERUS.getDefaultState(), 16);
+		COPPER_ZERUS = new ZerusWorldGenMinable(BlockHandler.ORE_COPPER_ZERUS.getDefaultState(), 8);
+		DIAMOND_ZERUS = new ZerusWorldGenMinable(BlockHandler.ORE_DIAMOND_ZERUS.getDefaultState(), 8);
+		GOLD_ZERUS = new ZerusWorldGenMinable(BlockHandler.ORE_GOLD_ZERUS.getDefaultState(), 8);
+		IRON_ZERUS = new ZerusWorldGenMinable(BlockHandler.ORE_IRON_ZERUS.getDefaultState(), 8);
+		LAPIS_ZERUS = new ZerusWorldGenMinable(BlockHandler.ORE_LAPIS_ZERUS.getDefaultState(), 8);
+		MINERAL_ZERUS = new ZerusWorldGenMinable(BlockHandler.ORE_MINERAL_ZERUS.getDefaultState(), 8);
+		REDSTONE_ZERUS = new ZerusWorldGenMinable(BlockHandler.ORE_REDSTONE_ZERUS.getDefaultState(), 8);
+		RICHMINERAL_ZERUS = new ZerusWorldGenMinable(BlockHandler.ORE_RICHMINERAL_ZERUS.getDefaultState(), 8);
+		PHOSPHORUS_ZERUS = new ZerusWorldGenMinable(BlockHandler.ORE_PHOSPHORUS_ZERUS.getDefaultState(), 4);
+		DIRT_ZERUS = new ZerusWorldGenMinable(BlockHandler.DIRT_ZERUS.getDefaultState(), 33);
+		GRAVEL_ZERUS = new ZerusWorldGenMinable(BlockHandler.GRAVEL_ZERUS.getDefaultState(), 33);
 
 		TITANIUM_GENERIC = new WorldGenMinable(BlockHandler.ORE_TITANIUM_OW.getDefaultState(), 8);
 		COAL_GENERIC = new WorldGenMinable(Blocks.COAL_ORE.getDefaultState(), 16);
@@ -142,13 +158,13 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 				runGenerator(DIRT_CHAR, world, random, chunkX, chunkZ, 20, 0, 128);
 				runGenerator(GRAVEL_CHAR, world, random, chunkX, chunkZ, 10, 0, 128);
 
-				if (world.rand.nextInt(100) < 50 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeCharCreepInfestation) {
+				if (world.rand.nextInt(100) < 50 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeCharZergHive) {
 					runGenerator(SPAWNING_POOL, world, random, chunkX, chunkZ, 0, 1, 0, 1, 0, 100, true);
 				}
-				if (world.rand.nextInt(100) < 45 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeCharCreepInfestation) {
+				if (world.rand.nextInt(100) < 45 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeCharZergHive) {
 					runGenerator(ZERG_SPIRE, world, random, chunkX, chunkZ, 0, 1, 0, 1, 0, 100, true);
 				}
-				if (world.rand.nextInt(100) < 45 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeCharCreepInfestation) {
+				if (world.rand.nextInt(100) < 45 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeCharZergHive) {
 					runGenerator(ZERG_HYDRALISK_DEN, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100, true);
 				}
 				if (world.rand.nextInt(100) < 10 && world.getWorldInfo().isMapFeaturesEnabled()) {
@@ -184,13 +200,13 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 				runGenerator(DIRT_SHAKURAS, world, random, chunkX, chunkZ, 20, 0, 128);
 				runGenerator(GRAVEL_SHAKURAS, world, random, chunkX, chunkZ, 10, 0, 128);
 
-				if (world.rand.nextInt(100) < 10 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeShakurasCity) {
+				if (world.rand.nextInt(100) < 10 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeShakurasProtossCity) {
 					runGenerator(PROTOSS_PYLON, 1, 2, world, random, chunkX, chunkZ, 0, 3, 0, 3, 0, 100, true);
 				}
-				if (world.rand.nextInt(100) < 10 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeShakurasCity) {
+				if (world.rand.nextInt(100) < 10 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeShakurasProtossCity) {
 					runGenerator(PROTOSS_WARPGATE, 1, 2, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 				}
-				if (world.rand.nextInt(100) < 10 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeShakurasCity) {
+				if (world.rand.nextInt(100) < 10 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeShakurasProtossCity) {
 					runGenerator(PROTOSS_CYBERNETICS_CORE, 1, 2, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 				}
 				if (world.rand.nextInt(100) < 3 && world.getWorldInfo().isMapFeaturesEnabled()) {
@@ -222,16 +238,16 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 				runGenerator(DIRT_GENERIC, world, random, chunkX, chunkZ, 20, 0, 128);
 				runGenerator(GRAVEL_GENERIC, world, random, chunkX, chunkZ, 10, 0, 128);
 
-				if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKorhalCity) {
+				if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKorhalTerranCity) {
 					runGenerator(TERRAN_BUNKER, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 				}
-				if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKorhalCity) {
+				if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKorhalTerranCity) {
 					runGenerator(TERRAN_BARRACKS, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 				}
-				if (world.rand.nextInt(100) < 10 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKorhalCity) {
+				if (world.rand.nextInt(100) < 10 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKorhalTerranCity) {
 					runGenerator(TERRAN_COMMAND_CENTER, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100, true);
 				}
-				if (world.rand.nextInt(100) < 10 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) != BiomeHandler.biomeKorhalCity) {
+				if (world.rand.nextInt(100) < 10 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) != BiomeHandler.biomeKorhalTerranCity) {
 					runGenerator(PROTOSS_WARPGATE, 1, 0, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100, true);
 				}
 				if (world.rand.nextInt(100) < 2 && world.getWorldInfo().isMapFeaturesEnabled()) {
@@ -269,13 +285,13 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 				if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKaldirProtossCity) {
 					runGenerator(PROTOSS_CYBERNETICS_CORE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 				}
-				if (world.rand.nextInt(100) < 50 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKaldirCreepInfestation) {
+				if (world.rand.nextInt(100) < 50 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKaldirZergHive) {
 					runGenerator(SPAWNING_POOL, world, random, chunkX, chunkZ, 0, 1, 0, 1, 0, 100, true);
 				}
-				if (world.rand.nextInt(100) < 45 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKaldirCreepInfestation) {
+				if (world.rand.nextInt(100) < 45 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKaldirZergHive) {
 					runGenerator(ZERG_SPIRE, world, random, chunkX, chunkZ, 0, 1, 0, 1, 0, 100, true);
 				}
-				if (world.rand.nextInt(100) < 45 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKaldirCreepInfestation) {
+				if (world.rand.nextInt(100) < 45 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKaldirZergHive) {
 					runGenerator(ZERG_HYDRALISK_DEN, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100, true);
 				}
 				if (world.rand.nextInt(100) < 2 && world.getWorldInfo().isMapFeaturesEnabled()) {
@@ -293,6 +309,21 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 				if (world.rand.nextInt(100) < 100) {
 					runGenerator(BOSS_SPAWNER, 50, new EntityNafash(world), TextFormatting.RED, world, random, chunkX, chunkZ, 0, -34, 0, 1, 0, 0, true);
 				}
+			} else if (world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_ZERUS) {
+				runGenerator(COAL_ZERUS, world, random, chunkX, chunkZ, 20, 0, 128);
+				runGenerator(COPPER_ZERUS, world, random, chunkX, chunkZ, 15, 4, 64);
+				runGenerator(DIAMOND_ZERUS, world, random, chunkX, chunkZ, 1, 0, 16);
+				runGenerator(GOLD_ZERUS, world, random, chunkX, chunkZ, 2, 0, 32);
+				runGenerator(IRON_ZERUS, world, random, chunkX, chunkZ, 20, 0, 64);
+				runGenerator(LAPIS_ZERUS, world, random, chunkX, chunkZ, 1, 0, 16);
+				runGenerator(MINERAL_ZERUS, world, random, chunkX, chunkZ, 12, 28, 50);
+				runGenerator(REDSTONE_ZERUS, world, random, chunkX, chunkZ, 8, 0, 16);
+				runGenerator(RICHMINERAL_ZERUS, world, random, chunkX, chunkZ, 6, 4, 28);
+				runGenerator(TITANIUM_ZERUS, world, random, chunkX, chunkZ, 3, 4, 28);
+				runGenerator(URANIUM_ZERUS, world, random, chunkX, chunkZ, 1, 4, 20);
+				runGenerator(PHOSPHORUS_ZERUS, world, random, chunkX, chunkZ, 5, 12, 48);
+				runGenerator(DIRT_ZERUS, world, random, chunkX, chunkZ, 20, 0, 128);
+				runGenerator(GRAVEL_ZERUS, world, random, chunkX, chunkZ, 10, 0, 128);			
 			}
 			break;
 		}

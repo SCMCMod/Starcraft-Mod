@@ -67,7 +67,7 @@ public class ChunkProviderKorhal implements IChunkGenerator {
 		BlockPos blockpos = new BlockPos(i, 0, j);
 		Biome biome = worldObj.getBiomeForCoordsBody(blockpos.add(16, 0, 16));
 
-			if (biome != BiomeHandler.biomeKorhalCity && biome != BiomeHandler.biomeKorhalCity && this.settings.useWaterLakes && this.random.nextInt(this.settings.waterLakeChance * 10) == 0)
+			if (biome != BiomeHandler.biomeKorhalTerranCity && biome != BiomeHandler.biomeKorhalTerranCity && this.settings.useWaterLakes && this.random.nextInt(this.settings.waterLakeChance * 10) == 0)
 	        if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, worldObj, this.random, x, z, false, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE))
 	        {
 	            int i1 = this.random.nextInt(16) + 8;
@@ -76,7 +76,7 @@ public class ChunkProviderKorhal implements IChunkGenerator {
 	            (new KorhalGenCustomLakes(Blocks.WATER)).generate(worldObj, this.random, blockpos.add(i1, j1, k1));
 	        }
 
-	        if (biome != BiomeHandler.biomeKorhalCity && biome != BiomeHandler.biomeKorhalCity && this.random.nextInt(this.settings.lavaLakeChance / 5) == 0 && this.settings.useLavaLakes)
+	        if (biome != BiomeHandler.biomeKorhalTerranCity && biome != BiomeHandler.biomeKorhalTerranCity && this.random.nextInt(this.settings.lavaLakeChance / 5) == 0 && this.settings.useLavaLakes)
 	        if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, worldObj, this.random, x, z, false, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAVA))
 	        {
 	            int i2 = this.random.nextInt(16) + 8;
@@ -89,7 +89,7 @@ public class ChunkProviderKorhal implements IChunkGenerator {
 	            }
 	        }
 	        
-	        if (biome != BiomeHandler.biomeKorhalCity && biome != BiomeHandler.biomeKorhalCity && this.random.nextInt(this.settings.lavaLakeChance / 10) == 0 && this.settings.useLavaLakes)
+	        if (biome != BiomeHandler.biomeKorhalTerranCity && biome != BiomeHandler.biomeKorhalTerranCity && this.random.nextInt(this.settings.lavaLakeChance / 10) == 0 && this.settings.useLavaLakes)
 	        if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, worldObj, this.random, x, z, false, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAVA))
 	        {
 	            int i2 = this.random.nextInt(16) + 8;

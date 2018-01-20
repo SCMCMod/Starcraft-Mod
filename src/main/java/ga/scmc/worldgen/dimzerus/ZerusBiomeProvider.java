@@ -55,7 +55,7 @@ public class ZerusBiomeProvider extends BiomeProvider {
 			int[] aint = biomeIndexLayer.getInts(x, z, width, length);
 
 			for(int i = 0; i < width * length; ++i) {
-				listToReuse[i] = Biome.getBiome(aint[i], BiomeHandler.biomeAiurPlains);
+				listToReuse[i] = Biome.getBiome(aint[i], BiomeHandler.biomeZerusMountains);
 			}
 
 			return listToReuse;
@@ -76,7 +76,7 @@ public class ZerusBiomeProvider extends BiomeProvider {
 
 		try {
 			for(int i = 0; i < width * height; ++i) {
-				biomes[i] = Biome.getBiome(aint[i], BiomeHandler.biomeKaldirIcePlains);
+				biomes[i] = Biome.getBiome(aint[i], BiomeHandler.biomeZerusMountains);
 			}
 
 			// System.out.println("Biomes enabled are: "+biomes.toString());

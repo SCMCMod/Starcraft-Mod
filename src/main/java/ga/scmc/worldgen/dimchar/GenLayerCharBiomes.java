@@ -7,7 +7,7 @@ import net.minecraft.world.gen.layer.IntCache;
 
 public class GenLayerCharBiomes extends GenLayer {
 
-	public Biome[] dimBiomes = { BiomeHandler.biomeCharCreepInfestation, BiomeHandler.biomeAshPlains, BiomeHandler.biomeGlassPlains, BiomeHandler.biomeAshPlateau, BiomeHandler.biomeLavaOcean,
+	public Biome[] dimBiomes = { BiomeHandler.biomeCharZergHive, BiomeHandler.biomeAshPlains, BiomeHandler.biomeGlassPlains, BiomeHandler.biomeAshPlateau, BiomeHandler.biomeLavaOcean,
 			BiomeHandler.biomeAshHills, BiomeHandler.biomeCharHills};
 
 	public GenLayerCharBiomes(long par1) {

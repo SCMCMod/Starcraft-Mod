@@ -65,6 +65,7 @@ import static ga.scmc.handlers.BlockHandler.FURNACE_CHAR;
 import static ga.scmc.handlers.BlockHandler.FURNACE_PROTOSS;
 import static ga.scmc.handlers.BlockHandler.FURNACE_SHAKURAS;
 import static ga.scmc.handlers.BlockHandler.FURNACE_SLAYN;
+import static ga.scmc.handlers.BlockHandler.FURNACE_ZERUS;
 import static ga.scmc.handlers.BlockHandler.GAS_TERRAZINE;
 import static ga.scmc.handlers.BlockHandler.GAS_VESPENE;
 import static ga.scmc.handlers.BlockHandler.LIGHT_SOURCE;
@@ -641,6 +642,7 @@ public class RenderingHandler {
 		registerBlockModel(FURNACE_SHAKURAS);
 		registerBlockModel(FURNACE_CHAR);
 		registerBlockModel(FURNACE_SLAYN);
+		registerBlockModel(FURNACE_ZERUS);
 		registerBlockModel(FURNACE_PROTOSS);
 
 		// Other

@@ -1,4 +1,4 @@
-package ga.scmc.worldgen.dimkaldir;
+package ga.scmc.worldgen.dimslayn;
 
 import java.util.Random;
 
@@ -9,12 +9,12 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
 
-public class BiomeGenProtossCity extends BiomeHandler {
+public class BiomeGenSlaynProtossCity extends BiomeHandler {
 
-	public BiomeGenProtossCity(BiomeProperties id) {
+	public BiomeGenSlaynProtossCity(BiomeProperties id) {
 		super(id);
 
-		setRegistryName("kaldir_protoss_city");
+		setRegistryName("slayn_protoss_city");
 
 		topBlock = Blocks.STONE.getDefaultState();
 		fillerBlock = Blocks.STONE.getDefaultState();
@@ -39,7 +39,7 @@ public class BiomeGenProtossCity extends BiomeHandler {
 			if (yLoc <= rand.nextInt(5)) {
 				chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, BEDROCK);
 			}else if(yLoc == seaLevel) {
-				chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, MetaBlockHandler.PROTOSS_METAL_T1.getStateFromMeta(0));
+				chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, MetaBlockHandler.PROTOSS_METAL_T1.getStateFromMeta(1));
 			}else if(yLoc > seaLevel) {
 				chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, AIR);
 			}else {

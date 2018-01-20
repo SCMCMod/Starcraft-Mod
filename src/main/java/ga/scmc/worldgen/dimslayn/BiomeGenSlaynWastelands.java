@@ -1,24 +1,23 @@
-package ga.scmc.worldgen.dimkaldir;
+package ga.scmc.worldgen.dimslayn;
 
 import java.util.Random;
 
 import ga.scmc.handlers.BiomeHandler;
-import ga.scmc.handlers.BlockHandler;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
 
-public class BiomeGenKaldirCreepInfestation extends BiomeHandler {
+public class BiomeGenSlaynWastelands extends BiomeHandler {
 
-	public BiomeGenKaldirCreepInfestation(BiomeProperties id) {
+	public BiomeGenSlaynWastelands(BiomeProperties id) {
 		super(id);
 
-		setRegistryName("kaldir_creep_infestation");
+		setRegistryName("slayn_wastelands");
 
-		topBlock = BlockHandler.ZERG_CREEP.getDefaultState();
-		fillerBlock = Blocks.SNOW.getDefaultState();
+		topBlock = Blocks.GRASS.getDefaultState();
+		fillerBlock = Blocks.DIRT.getDefaultState();
 
 		spawnableMonsterList.clear();
 		spawnableCreatureList.clear();

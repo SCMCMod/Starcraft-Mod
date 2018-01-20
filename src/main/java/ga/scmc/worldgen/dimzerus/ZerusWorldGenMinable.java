@@ -4,9 +4,9 @@ import java.util.Random;
 
 import com.google.common.base.Predicate;
 
+import ga.scmc.handlers.BlockHandler;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockMatcher;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -20,7 +20,7 @@ public class ZerusWorldGenMinable extends WorldGenerator {
 	private final Predicate<IBlockState> predicate;
 
 	public ZerusWorldGenMinable(IBlockState state, int blockCount) {
-		this(state, blockCount, BlockMatcher.forBlock(Blocks.STONE));
+		this(state, blockCount, BlockMatcher.forBlock(BlockHandler.STONE_ZERUS));
 	}
 
 	public ZerusWorldGenMinable(IBlockState state, int blockCount, Predicate<IBlockState> p_i45631_3_) {

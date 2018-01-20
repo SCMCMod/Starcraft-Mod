@@ -1,6 +1,5 @@
 package ga.scmc.client.gui;
 
-import ga.scmc.api.Utils;
 import ga.scmc.items.ItemLog.EnumLogType;
 import ocelot.api.client.gui.book.GuiBookBase;
 import ocelot.api.utils.GuiUtils;

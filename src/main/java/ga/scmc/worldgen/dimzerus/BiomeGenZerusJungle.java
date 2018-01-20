@@ -3,6 +3,7 @@ package ga.scmc.worldgen.dimzerus;
 import java.util.Random;
 
 import ga.scmc.handlers.BiomeHandler;
+import ga.scmc.handlers.BlockHandler;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -14,10 +15,10 @@ public class BiomeGenZerusJungle extends BiomeHandler {
 	public BiomeGenZerusJungle(BiomeProperties id) {
 		super(id);
 
-		setRegistryName("aiur_jungle");
+		setRegistryName("zerus_jungle");
 
 		topBlock = Blocks.GRASS.getDefaultState();
-		fillerBlock = Blocks.DIRT.getDefaultState();
+		fillerBlock = BlockHandler.DIRT_ZERUS.getDefaultState();
 
 		spawnableMonsterList.clear();
 		spawnableCreatureList.clear();
@@ -43,11 +44,11 @@ public class BiomeGenZerusJungle extends BiomeHandler {
 
 				if (origState.getMaterial() == Material.AIR) { // If we're still in the air...
 					j = -1;
-				} else if (origState.getBlock() == Blocks.STONE) { // If we've hit the ground...
+				} else if (origState.getBlock() == BlockHandler.STONE_ZERUS) { // If we've hit the ground...
 					if (j == -1) { // If we were just in the air...
 						if (randHeight <= 0) {
 							topBlock = AIR;
-							fillerBlock = Blocks.STONE.getDefaultState();
+							fillerBlock = BlockHandler.STONE_ZERUS.getDefaultState();
 						} else if (yLoc >= seaLevel - 4 && yLoc <= seaLevel + 1) {
 							topBlock = this.topBlock;
 							fillerBlock = this.fillerBlock;
@@ -63,8 +64,8 @@ public class BiomeGenZerusJungle extends BiomeHandler {
 							chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, topBlock);
 						} else if (yLoc < seaLevel - 7 - randHeight) {
 							topBlock = AIR;
-							fillerBlock = Blocks.STONE.getDefaultState();
-							chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, Blocks.GRAVEL.getDefaultState());
+							fillerBlock = BlockHandler.STONE_ZERUS.getDefaultState();
+							chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, BlockHandler.GRAVEL_ZERUS.getDefaultState());
 						} else {
 							chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, fillerBlock);
 						}

@@ -14,7 +14,7 @@ public class BiomeGenKorhalCity extends BiomeHandler {
 	public BiomeGenKorhalCity(BiomeProperties id) {
 		super(id);
 
-		setRegistryName("korhal_city");
+		setRegistryName("korhal_terran_city");
 
 		topBlock = Blocks.STONE.getDefaultState();
 		fillerBlock = Blocks.STONE.getDefaultState();

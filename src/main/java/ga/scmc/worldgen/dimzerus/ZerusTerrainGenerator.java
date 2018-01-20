@@ -2,6 +2,7 @@ package ga.scmc.worldgen.dimzerus;
 
 import java.util.Random;
 
+import ga.scmc.handlers.BlockHandler;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -89,7 +90,7 @@ public class ZerusTerrainGenerator {
 
 							for (int z = 0; z < 4; ++z) {
 								if ((d15 += d16) > 0.0D) {
-									primer.setBlockState(x4 * 4 + x, height32 * 8 + h, z4 * 4 + z, Blocks.STONE.getDefaultState());
+									primer.setBlockState(x4 * 4 + x, height32 * 8 + h, z4 * 4 + z, BlockHandler.STONE_ZERUS.getDefaultState());
 								} else if (height < 63) {
 									primer.setBlockState(x4 * 4 + x, height32 * 8 + h, z4 * 4 + z, Blocks.WATER.getDefaultState());
 								}

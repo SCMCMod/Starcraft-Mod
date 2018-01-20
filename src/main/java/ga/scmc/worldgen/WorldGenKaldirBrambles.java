@@ -3,7 +3,6 @@ package ga.scmc.worldgen;
 import java.util.Random;
 
 import ga.scmc.handlers.BlockHandler;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
