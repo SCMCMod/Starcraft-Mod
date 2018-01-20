@@ -27,7 +27,7 @@ public class GuiLists {
 
 	public static final ImmutableList<Product>[] TRADES;
 	public static final ImmutableList<LarvaOption> LARVA_OPTIONS;
-	public static final List<List<String>> LOGS;
+	private static final List<List<String>> LOGS;
 
 	static {
 		TRADES = new ImmutableList[6];
@@ -113,8 +113,6 @@ public class GuiLists {
 		LARVA_OPTIONS = larvaOptions.build();
 
 		LOGS = new ArrayList<List<String>>();
-		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/test.txt")));
-		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/spawn.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.egonstetmann.protoss1.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.egonstetmann.protoss2.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.egonstetmann.protoss3.txt")));

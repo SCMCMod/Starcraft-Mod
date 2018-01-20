@@ -1,5 +1,6 @@
 package ga.scmc.client.gui;
 
+import ga.scmc.api.Utils;
 import ga.scmc.items.ItemLog.EnumLogType;
 import ocelot.api.client.gui.book.GuiBookBase;
 import ocelot.api.utils.GuiUtils;
@@ -17,16 +18,8 @@ public class GuiLog extends GuiBookBase {
 	@Override
 	public void initText() {
 		this.pages.get(0).title.setText(type.getName());
-		// this.addLine("blah");
-		// this.addLine("and BLAH");
-		// this.addLine("lollllllllllllolololololololololololollololoocelot");
-		// this.addLine("This is a really long line of text and should be wrapped around the sides of the book so it doesn't go off of the gui...", 0xff00ff);
-		// this.addLine("This book is only temporary and will need to have a lot of fixes...", 0x7f007f);
-		// this.addLine("This text should go onto the second page once it is implemented. that should be easy once I added pages and page buttons to increment the pages...", 0x074607);
-		// this.addLine("I didn't know you wanted to go to this page so much! Thank you for reading", 0x7f007f);
-		// this.addLine("- Ocelot5836");
-		for (int i = 0; i < GuiLists.LOGS.get(type.getId()).size(); i++) {
-			this.addLine(GuiLists.LOGS.get(type.getId()).get(i));
+		for (int i = 0; i < type.getText().size(); i++) {
+			this.addLine(type.getText().get(i));
 		}
 	}
 

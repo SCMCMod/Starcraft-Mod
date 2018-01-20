@@ -97,15 +97,21 @@ public abstract class GuiBookBase extends GuiBase {
 	}
 
 	int pageCounter = 0;
+	String carriedOver = "";
 
 	protected void addLine(String text, int color) {
 		if (this.pages.get(pageCounter).body.isTextRoom()) {
-			this.pages.get(pageCounter).body.addText(text, color);
+			carriedOver = this.pages.get(pageCounter).body.addText(text, color);
 		} else {
 			pageCounter++;
 			if (pageCounter >= maxPages)
 				addPage();
-			this.pages.get(pageCounter).body.addText(text, color);
+			carriedOver = this.pages.get(pageCounter).body.addText(text, color);
+		}
+
+		if (!carriedOver.isEmpty()) {
+			System.out.println(carriedOver);
+			this.addLine(carriedOver, color);
 		}
 	}
 
