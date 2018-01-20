@@ -37,7 +37,7 @@ public class EntityZerglingPrimalDehaka extends EntityZergMob implements IMob, P
 	public EntityZerglingPrimalDehaka(World world) {
 		super(world);
 		setSize(1.0F, 1.0F);
-		this.setTeamColor(EnumTeamColors.CYAN);
+		this.setTeamColor(EnumTeamColors.YELLOW);
 		this.setFactions(EnumFactionTypes.PRIMALZERG);
 		this.setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
 		experienceValue = 23;
