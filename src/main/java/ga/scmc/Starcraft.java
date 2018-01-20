@@ -51,7 +51,7 @@ import net.minecraftforge.fml.relauncher.Side;
  * @author Hypeirochus
  * @author wundrweapon
  */
-@Mod(modid = Library.MODID, acceptedMinecraftVersions = "[1.10.2]", useMetadata = true, version = "2.0.405", dependencies = "required-after:mdxlib")
+@Mod(modid = Library.MODID, acceptedMinecraftVersions = "[1.10.2]", useMetadata = true, version = "${version}", dependencies = "required-after:mdxlib")
 public class Starcraft {
 
 	/** The mod's instance. Used for GUI stuff. */
@@ -66,6 +66,8 @@ public class Starcraft {
 		FluidRegistry.enableUniversalBucket();
 	}
 
+
+	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		ConfigurationHandler.preInit();

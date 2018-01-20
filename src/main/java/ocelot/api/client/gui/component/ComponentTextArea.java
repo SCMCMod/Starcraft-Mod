@@ -14,15 +14,24 @@ public class ComponentTextArea extends Component {
 		text = new ArrayList<ComponentText>();
 	}
 
-	public void addText(String string, int color) {
+	public String addText(String string, int color) {
 		if (isTextRoom()) {
 			String[] tokens = getLinesFromString(string, width);
 			for (int i = 0; i < tokens.length; i++) {
 				if (this.isTextRoom()) {
 					this.text.add(new ComponentText(x, y + text.size() * 9, tokens[i], color));
+				} else {
+					StringBuilder b = new StringBuilder();
+					for (int j = i; j < tokens.length; j++) {
+						b.append(tokens[j] + " ");
+					}
+					return b.toString();
 				}
 			}
+		} else {
+			return string;
 		}
+		return "";
 	}
 
 	public boolean isTextRoom() {
@@ -46,5 +55,9 @@ public class ComponentTextArea extends Component {
 		for (int i = 0; i < text.size(); i++) {
 			text.get(i).renderForeground(mc, partialTicks, mouseX, mouseY);
 		}
+	}
+
+	public int getSize() {
+		return text.size();
 	}
 }
