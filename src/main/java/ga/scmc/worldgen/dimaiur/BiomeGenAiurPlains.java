@@ -14,7 +14,7 @@ public class BiomeGenAiurPlains extends BiomeHandler {
 	public BiomeGenAiurPlains(BiomeProperties id) {
 		super(id);
 
-		setRegistryName("kaldir_ice_plains");
+		setRegistryName("aiur_plains");
 
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();

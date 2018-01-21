@@ -1,4 +1,4 @@
-package ga.scmc.worldgen.dimslayn;
+package ga.scmc.worldgen.dimaiur;
 
 import java.util.Random;
 
@@ -9,12 +9,12 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
 
-public class BiomeGenProtossCity extends BiomeHandler {
+public class BiomeGenAiurProtossCity extends BiomeHandler {
 
-	public BiomeGenProtossCity(BiomeProperties id) {
+	public BiomeGenAiurProtossCity(BiomeProperties id) {
 		super(id);
 
-		setRegistryName("kaldir_protoss_city");
+		setRegistryName("aiur_protoss_city");
 
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();

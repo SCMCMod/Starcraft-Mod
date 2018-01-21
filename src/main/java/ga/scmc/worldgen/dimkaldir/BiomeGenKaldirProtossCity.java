@@ -1,4 +1,4 @@
-package ga.scmc.worldgen.dimaiur;
+package ga.scmc.worldgen.dimkaldir;
 
 import java.util.Random;
 
@@ -9,15 +9,15 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
 
-public class BiomeGenProtossCity extends BiomeHandler {
+public class BiomeGenKaldirProtossCity extends BiomeHandler {
 
-	public BiomeGenProtossCity(BiomeProperties id) {
+	public BiomeGenKaldirProtossCity(BiomeProperties id) {
 		super(id);
 
 		setRegistryName("kaldir_protoss_city");
 
-		topBlock = Blocks.GRASS.getDefaultState();
-		fillerBlock = Blocks.DIRT.getDefaultState();
+		topBlock = Blocks.STONE.getDefaultState();
+		fillerBlock = Blocks.STONE.getDefaultState();
 
 		spawnableMonsterList.clear();
 		spawnableCreatureList.clear();
@@ -25,7 +25,7 @@ public class BiomeGenProtossCity extends BiomeHandler {
 		spawnableCaveCreatureList.clear();
 	}
 
-	public final void genBiomeTerrainShakuras(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal) {
+	public final void genBiomeTerrain(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal) {
 
 		int seaLevel = worldIn.getSeaLevel();
 		IBlockState topBlock = this.topBlock;
@@ -50,6 +50,6 @@ public class BiomeGenProtossCity extends BiomeHandler {
 
 	@Override
 	public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal) {
-		genBiomeTerrainShakuras(worldIn, rand, chunkPrimerIn, x, z, noiseVal);
+		genBiomeTerrain(worldIn, rand, chunkPrimerIn, x, z, noiseVal);
 	}
 }

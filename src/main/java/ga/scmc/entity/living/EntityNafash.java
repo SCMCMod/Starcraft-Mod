@@ -222,26 +222,28 @@ public class EntityNafash extends EntityZergMob implements IMob, IRangedAttackMo
 	@Override
 	public void onLivingUpdate() {
 		if(this.world.isRemote) {
-			EntityPlayer player = this.world.getClosestPlayerToEntity(this, 32.0D);
-			if(this.tracker == 0 && this.getHealth() == this.getMaxHealth()) {
-				tracker++;
-				String message = "<Nafash> Who are you to challenge the true queen of the swarm?!";
-				player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
-			}
-			if(this.tracker == 1 && this.getHealth() <= this.getMaxHealth()*.75) {
-				tracker++;
-				String message = "<Nafash> Agh! I will snap your bones between my claws!";
-				player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
-			}
-			if(this.tracker == 2 && this.getHealth() <= this.getMaxHealth()*.50) {
-				tracker++;
-				String message = "<Nafash> I underestimated you. It will not happen again!";
-				player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
-			}
-			if(this.tracker == 3 && this.getHealth() <= this.getMaxHealth()*.25) {
-				tracker++;
-				String message = "<Nafash> No, this can not be... the swarm will triumph!";
-				player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
+			if(this.world.getClosestPlayerToEntity(this, 32.0D) != null) {
+				EntityPlayer player = this.world.getClosestPlayerToEntity(this, 32.0D);
+				if(this.tracker == 0 && this.getHealth() == this.getMaxHealth()) {
+					tracker++;
+					String message = "<Nafash> Who are you to challenge the true queen of the swarm?!";
+					player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
+				}
+				if(this.tracker == 1 && this.getHealth() <= this.getMaxHealth()*.75) {
+					tracker++;
+					String message = "<Nafash> Agh! I will snap your bones between my claws!";
+					player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
+				}
+				if(this.tracker == 2 && this.getHealth() <= this.getMaxHealth()*.50) {
+					tracker++;
+					String message = "<Nafash> I underestimated you. It will not happen again!";
+					player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
+				}
+				if(this.tracker == 3 && this.getHealth() <= this.getMaxHealth()*.25) {
+					tracker++;
+					String message = "<Nafash> No, this can not be... the swarm will triumph!";
+					player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
+				}
 			}
 		}
 		super.onLivingUpdate();

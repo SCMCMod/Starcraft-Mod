@@ -1,4 +1,4 @@
-package ga.scmc.worldgen.dimchar;
+package ga.scmc.worldgen.dimkaldir;
 
 import java.util.Random;
 
@@ -10,15 +10,15 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
 
-public class BiomeGenCharCreepInfestation extends BiomeHandler {
+public class BiomeGenKaldirZergHive extends BiomeHandler {
 
-	public BiomeGenCharCreepInfestation(BiomeProperties id) {
+	public BiomeGenKaldirZergHive(BiomeProperties id) {
 		super(id);
 
-		setRegistryName("char_creep_infestation");
+		setRegistryName("kaldir_zerg_hive");
 
-		topBlock = BlockHandler.DIRT_CHAR.getDefaultState();
-		fillerBlock = BlockHandler.DIRT_CHAR.getDefaultState();
+		topBlock = BlockHandler.ZERG_CREEP.getDefaultState();
+		fillerBlock = Blocks.SNOW.getDefaultState();
 
 		spawnableMonsterList.clear();
 		spawnableCreatureList.clear();
@@ -36,46 +36,40 @@ public class BiomeGenCharCreepInfestation extends BiomeHandler {
 		int zLoc = x & 15;
 		int xLoc = z & 15;
 
-		for(int yLoc = 255; yLoc >= 0; --yLoc) {
-			if(yLoc <= 0 + rand.nextInt(5)) {
+		for (int yLoc = 255; yLoc >= 0; --yLoc) {
+			if (yLoc <= rand.nextInt(5)) {
 				chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, BEDROCK);
 			} else {
 				IBlockState origState = chunkPrimerIn.getBlockState(xLoc, yLoc, zLoc);
 
-				if(origState.getMaterial() == Material.AIR) { // If we're still
-																	// in the air...
+				if (origState.getMaterial() == Material.AIR) { // If we're still in the air...
 					j = -1;
-				} else if(origState.getBlock() == BlockHandler.STONE_CHAR) { // If
-																				// we've
-																			// hit
-																			// the
-																			// ground...
-					if(j == -1) {
-						if(randHeight <= 0) {
+				} else if (origState.getBlock() == Blocks.STONE) { // If we've hit the ground...
+					if (j == -1) { // If we were just in the air...
+						if (randHeight <= 0) {
 							topBlock = AIR;
-							fillerBlock = BlockHandler.STONE_CHAR.getDefaultState();
-						} else if(yLoc >= seaLevel - 4 && yLoc <= seaLevel + 1) {
+							fillerBlock = Blocks.STONE.getDefaultState();
+						} else if (yLoc >= seaLevel - 4 && yLoc <= seaLevel + 1) {
 							topBlock = this.topBlock;
 							fillerBlock = this.fillerBlock;
 						}
 
-						if(yLoc < seaLevel && (topBlock == null || topBlock.getMaterial() == Material.AIR)) {
-							topBlock = Blocks.LAVA.getDefaultState();
+						if (yLoc < seaLevel && (topBlock == null || topBlock.getMaterial() == Material.AIR)) {
+							topBlock = Blocks.WATER.getDefaultState();
 						}
 
 						j = randHeight;
 
-						if(yLoc >= seaLevel - 1) {
+						if (yLoc >= seaLevel - 1) {
 							chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, topBlock);
-							chunkPrimerIn.setBlockState(xLoc, yLoc + 1, zLoc, BlockHandler.ZERG_CREEP.getDefaultState());
-						} else if(yLoc < seaLevel - 7 - randHeight) {
+						} else if (yLoc < seaLevel - 7 - randHeight) {
 							topBlock = AIR;
-							fillerBlock = BlockHandler.STONE_CHAR.getDefaultState();
-							chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, BlockHandler.GRAVEL_CHAR.getDefaultState());
+							fillerBlock = Blocks.STONE.getDefaultState();
+							chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, Blocks.GRAVEL.getDefaultState());
 						} else {
 							chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, fillerBlock);
 						}
-					} else if(j > 0) {
+					} else if (j > 0) {
 						--j;
 						chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, fillerBlock);
 					}
@@ -86,6 +80,6 @@ public class BiomeGenCharCreepInfestation extends BiomeHandler {
 
 	@Override
 	public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal) {
-		this.genBiomeTerrain(worldIn, rand, chunkPrimerIn, x, z, noiseVal);
+		genBiomeTerrain(worldIn, rand, chunkPrimerIn, x, z, noiseVal);
 	}
 }

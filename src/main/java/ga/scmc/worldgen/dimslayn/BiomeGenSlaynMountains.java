@@ -14,7 +14,7 @@ public class BiomeGenSlaynMountains extends BiomeHandler {
 	public BiomeGenSlaynMountains(BiomeProperties id) {
 		super(id);
 
-		setRegistryName("aiur_mountains");
+		setRegistryName("slayn_mountains");
 
 		topBlock = Blocks.GRASS.getDefaultState();
 		fillerBlock = Blocks.DIRT.getDefaultState();

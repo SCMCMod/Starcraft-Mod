@@ -9,12 +9,12 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
 
-public class BiomeGenShakurasCity extends BiomeHandler {
+public class BiomeGenShakurasProtossCity extends BiomeHandler {
 
-	public BiomeGenShakurasCity(BiomeProperties id) {
+	public BiomeGenShakurasProtossCity(BiomeProperties id) {
 		super(id);
 
-		setRegistryName("shakuras_city");
+		setRegistryName("shakuras_protoss_city");
 
 		topBlock = Blocks.STONE.getDefaultState();
 		fillerBlock = Blocks.STONE.getDefaultState();

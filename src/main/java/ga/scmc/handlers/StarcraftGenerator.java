@@ -12,26 +12,55 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class StarcraftGenerator {
 
-	protected WorldGenerator COAL_CHAR;
-	protected WorldGenerator COAL_SHAKURAS;
-	protected WorldGenerator COPPER_CHAR;
 	protected WorldGenerator COPPER_OVERWORLD;
-	protected WorldGenerator COPPER_SHAKURAS;
-	protected WorldGenerator DIAMOND_CHAR;
-	protected WorldGenerator DIAMOND_SHAKURAS;
 	protected WorldGenerator PHOSPHORUS_OVERWORLD;
-	
+	protected WorldGenerator TITANIUM_OVERWORLD;
+
+	protected WorldGenerator REDSTONE_CHAR;
+	protected WorldGenerator RICHMINERAL_CHAR;
+	protected WorldGenerator PHOSPHORUS_CHAR;
 	protected WorldGenerator DIRT_CHAR;
-	protected WorldGenerator DIRT_SHAKURAS;
 	protected WorldGenerator GOLD_CHAR;
-	protected WorldGenerator GOLD_SHAKURAS;
 	protected WorldGenerator GRAVEL_CHAR;
-	protected WorldGenerator GRAVEL_SHAKURAS;
 	protected WorldGenerator IRON_CHAR;
-	protected WorldGenerator IRON_SHAKURAS;
 	protected WorldGenerator URANIUM_CHAR;
+	protected WorldGenerator COPPER_CHAR;
+	protected WorldGenerator DIAMOND_CHAR;
+	protected WorldGenerator COAL_CHAR;
+	protected WorldGenerator TITANIUM_CHAR;
+	protected WorldGenerator LAPIS_CHAR;
+	protected WorldGenerator MAGMA_CHAR;
+	protected WorldGenerator MINERAL_CHAR;
+	
+	protected WorldGenerator DIRT_SHAKURAS;
+	protected WorldGenerator GOLD_SHAKURAS;
+	protected WorldGenerator GRAVEL_SHAKURAS;
+	protected WorldGenerator IRON_SHAKURAS;
 	protected WorldGenerator URANIUM_SHAKURAS;
 	protected WorldGenerator PHOSPHORUS_SHAKURAS;
+	protected WorldGenerator LAPIS_SHAKURAS;
+	protected WorldGenerator MINERAL_SHAKURAS;
+	protected WorldGenerator REDSTONE_SHAKURAS;
+	protected WorldGenerator COPPER_SHAKURAS;
+	protected WorldGenerator DIAMOND_SHAKURAS;
+	protected WorldGenerator COAL_SHAKURAS;
+	protected WorldGenerator TITANIUM_SHAKURAS;
+	protected WorldGenerator RICHMINERAL_SHAKURAS;
+	
+	protected WorldGenerator DIRT_ZERUS;
+	protected WorldGenerator GOLD_ZERUS;
+	protected WorldGenerator GRAVEL_ZERUS;
+	protected WorldGenerator IRON_ZERUS;
+	protected WorldGenerator URANIUM_ZERUS;
+	protected WorldGenerator PHOSPHORUS_ZERUS;
+	protected WorldGenerator LAPIS_ZERUS;
+	protected WorldGenerator MINERAL_ZERUS;
+	protected WorldGenerator REDSTONE_ZERUS;
+	protected WorldGenerator COPPER_ZERUS;
+	protected WorldGenerator DIAMOND_ZERUS;
+	protected WorldGenerator COAL_ZERUS;
+	protected WorldGenerator TITANIUM_ZERUS;
+	protected WorldGenerator RICHMINERAL_ZERUS;
 
 	protected WorldGenerator COAL_GENERIC;
 	protected WorldGenerator IRON_GENERIC;
@@ -46,27 +75,14 @@ public class StarcraftGenerator {
 	protected WorldGenerator MINERAL_GENERIC;
 	protected WorldGenerator RICHMINERAL_GENERIC;
 
-	protected WorldGenerator LAPIS_CHAR;
-	protected WorldGenerator LAPIS_SHAKURAS;
-	protected WorldGenerator MAGMA_CHAR;
-	protected WorldGenerator MINERAL_CHAR;
-	protected WorldGenerator MINERAL_SHAKURAS;
 	protected SCWorldGenerator PROTOSS_CYBERNETICS_CORE;
 	protected SCWorldGenerator PROTOSS_PYLON;
 	protected SCWorldGenerator PROTOSS_WARPGATE;
-	protected WorldGenerator REDSTONE_CHAR;
-	protected WorldGenerator REDSTONE_SHAKURAS;
-	protected WorldGenerator RICHMINERAL_CHAR;
-	protected WorldGenerator RICHMINERAL_SHAKURAS;
-	protected WorldGenerator PHOSPHORUS_CHAR;
 
 	protected SCWorldGenerator SPAWNING_POOL;
 	protected SCWorldGenerator TERRAN_BUNKER;
 	protected SCWorldGenerator TERRAN_BARRACKS;
 	protected SCWorldGenerator TERRAN_COMMAND_CENTER;
-	protected WorldGenerator TITANIUM_CHAR;
-	protected WorldGenerator TITANIUM_OVERWORLD;
-	protected WorldGenerator TITANIUM_SHAKURAS;
 
 	protected SCWorldGenerator GEYSER;
 	protected SCWorldGenerator MINERAL_PATCH;

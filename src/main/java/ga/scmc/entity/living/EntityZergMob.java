@@ -27,7 +27,8 @@ public class EntityZergMob extends EntityStarcraftMob {
 	@Override
 	public boolean getCanSpawnHere() {
 		if (this.world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_CHAR
-				|| this.world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_KALDIR) {
+				|| this.world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_KALDIR
+					|| this.world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_ZERUS) {
 			return true;
 		}
 		return false;

@@ -1,57 +1,12 @@
 package ga.scmc.worldgen.dimzerus;
 
-import com.arisux.mdx.lib.client.render.world.IClimateProvider;
-import com.arisux.mdx.lib.client.render.world.ICloudProvider;
-import com.arisux.mdx.lib.client.render.world.IStormProvider;
-
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.DimensionHandler;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.chunk.IChunkGenerator;
-import net.minecraftforge.client.IRenderHandler;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class WorldProviderZerus extends WorldProvider implements IClimateProvider {
-	
-	private StormProviderZerus storm = new StormProviderZerus();
-    private CloudProviderZerus clouds = new CloudProviderZerus();
-	private IRenderHandler skyRenderer;
-    private IRenderHandler climateProvider;
-
-    @SideOnly(Side.CLIENT)
-    @Override
-    public IRenderHandler getWeatherRenderer()
-    {
-        return null;
-    }
-
-    @SideOnly(Side.CLIENT)
-    @Override
-    public IRenderHandler getCloudRenderer()
-    {
-        return climateProvider == null ? climateProvider = new CloudProviderZerus() : climateProvider;
-    }
-
-    @SideOnly(Side.CLIENT)
-    @Override
-    public IRenderHandler getSkyRenderer()
-    {
-        return skyRenderer == null ? skyRenderer = new RenderSkyZerus() : skyRenderer;
-    }
-
-    @Override
-    public void onWorldUpdateEntities()
-    {
-        super.onWorldUpdateEntities();
-    }
-
-    @Override
-    public void updateWeather()
-    {
-        super.updateWeather();
-    }
+public class WorldProviderZerus extends WorldProvider {
     
     @Override
 	protected void createBiomeProvider() {
@@ -108,15 +63,5 @@ public class WorldProviderZerus extends WorldProvider implements IClimateProvide
 		}
 		
 		return null;
-	}
-
-	@Override
-	public ICloudProvider getCloudProvider() {
-		return clouds;
-	}
-
-	@Override
-	public IStormProvider getStormProvider() {
-		return storm;
 	}
 }

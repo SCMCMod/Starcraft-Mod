@@ -33,8 +33,11 @@ import ga.scmc.blocks.BlockVespeneFluid;
 import ga.scmc.blocks.BlockVespeneGas;
 import ga.scmc.blocks.BlockZergCreep;
 import ga.scmc.blocks.BlockZergKeratin;
+import ga.scmc.blocks.BlockZerusFarmland;
+import ga.scmc.blocks.BlockZerusOre;
 import ga.scmc.blocks.OreCharRedstone;
 import ga.scmc.blocks.OreShakurasRedstone;
+import ga.scmc.blocks.OreZerusRedstone;
 import ga.scmc.blocks.ProtossPowerCoreBlock;
 import ga.scmc.blocks.RegistryType;
 import ga.scmc.blocks.StarcraftBlock;
@@ -80,6 +83,7 @@ public class BlockHandler {
 
 	public static Block COBBLESTONE_CHAR;
 	public static Block COBBLESTONE_SHAKURAS;
+	public static Block COBBLESTONE_ZERUS;
 	public static Block CORE_CYBERNETICSCORE_DARK;
 	public static Block CORE_CYBERNETICSCORE_KHALAI;
 	public static Block CORE_CYBERNETICSCORE_VOID;
@@ -96,8 +100,12 @@ public class BlockHandler {
 	public static Block DIM_PORTAL_KALDIR;
 	public static Block DIM_PORTAL_KORHAL;
 	public static Block DIM_PORTAL_SLAYN;
+	public static Block DIM_PORTAL_AIUR;
+	public static Block DIM_PORTAL_ZERUS;
 	public static Block FARMLAND_CHAR;
+	public static Block FARMLAND_ZERUS;
 	public static Block DIRT_CHAR;
+	public static Block DIRT_ZERUS;
 	public static Block FARMLAND_SHAKURAS;
 	public static Block DIRT_SHAKURAS;
 	public static Block ENERGY_BLOCK;
@@ -118,60 +126,81 @@ public class BlockHandler {
 
 	public static Block TERRAN_WARNING_TAPE;
 
-	// TODO add the commented out blocks into the game.
-	public static Block GRAVEL_CHAR;
-	public static Block KERATIN_CHUNK;
-	public static Block MAGMA_CHAR;
-	// public static Block ORE_ALIEN_CHAR;
-	// public static Block ORE_ALIEN_SHAKURAS;
-	public static Block ORE_COAL_CHAR;
-	public static Block ORE_COAL_SHAKURAS;
-	public static Block ORE_COPPER_CHAR;
 	public static Block ORE_COPPER_OW;
-	public static Block ORE_COPPER_SHAKURAS;
-	public static Block ORE_DIAMOND_CHAR;
-	public static Block ORE_DIAMOND_SHAKURAS;
-	public static Block ORE_GOLD_CHAR;
-	public static Block ORE_GOLD_SHAKURAS;
-	public static Block ORE_IRON_CHAR;
-	public static Block ORE_IRON_SHAKURAS;
-	public static Block ORE_LAPIS_CHAR;
-	public static Block ORE_LAPIS_SHAKURAS;
-	public static Block ORE_MINERAL_CHAR;
+	public static Block ORE_TITANIUM_OW;
+	public static Block ORE_URANIUM_OW;
 	public static Block ORE_MINERAL_OW;
-	public static Block ORE_MINERAL_SHAKURAS;
-	public static Block ORE_PHOSPHORUS_CHAR;
-	public static Block ORE_PHOSPHORUS_SHAKURAS;
+	public static Block ORE_RICHMINERAL_OW;
 	public static Block ORE_PHOSPHORUS_OW;
+
+	public static Block STONE_CHAR;
+	public static Block MAGMA_CHAR;
+	public static Block GRAVEL_CHAR;
+	public static Block ORE_COAL_CHAR;
+	public static Block ORE_IRON_CHAR;
+	public static Block ORE_GOLD_CHAR;
+	public static Block ORE_DIAMOND_CHAR;
+	public static Block ORE_LAPIS_CHAR;
 	public static Block ORE_REDSTONE_CHAR;
 	public static Block ORE_REDSTONE_LIT_CHAR;
+	public static Block ORE_COPPER_CHAR;
+	public static Block ORE_TITANIUM_CHAR;
+	public static Block ORE_PHOSPHORUS_CHAR;
+	public static Block ORE_URANIUM_CHAR;
+	public static Block ORE_MINERAL_CHAR;
+	public static Block ORE_RICHMINERAL_CHAR;
+	
+	
+	public static Block ORE_COAL_SHAKURAS;	
+	public static Block ORE_COPPER_SHAKURAS;
+	public static Block ORE_DIAMOND_SHAKURAS;
+	public static Block ORE_GOLD_SHAKURAS;
+	public static Block ORE_IRON_SHAKURAS;
+	public static Block ORE_LAPIS_SHAKURAS;
+	public static Block ORE_MINERAL_SHAKURAS;
+	public static Block ORE_PHOSPHORUS_SHAKURAS;
 	public static Block ORE_REDSTONE_SHAKURAS;
 	public static Block ORE_REDSTONE_LIT_SHAKURAS;
-	public static Block ORE_RICHMINERAL_CHAR;
-	public static Block ORE_RICHMINERAL_OW;
 	public static Block ORE_RICHMINERAL_SHAKURAS;
-	public static Block ORE_URANIUM_CHAR;
-	public static Block ORE_URANIUM_OW;
 	public static Block ORE_URANIUM_SHAKURAS;
-	public static Block ORE_TITANIUM_CHAR;
-	public static Block ORE_TITANIUM_OW;
 	public static Block ORE_TITANIUM_SHAKURAS;
-	public static Block PROTOSS_DARK_ENERGY_CHANNEL;
-	public static Block PROTOSS_DARK_ENERGY_STABILIZER;
-	public static Block PROTOSS_ENERGY_CHANNEL;
-	public static Block PROTOSS_ENERGY_STABILIZER;
-	public static Block PROTOSS_SHIELD;
-	public static Block PROTOSS_VOID_ENERGY_CHANNEL;
-	public static Block PROTOSS_VOID_ENERGY_STABILIZER;
 	public static Block SAND_SHAKURAS;
 	public static Block GRAVEL_SHAKURAS;
-	public static Block STONE_CHAR;
 	public static Block STONE_SHAKURAS;
+	
+	public static Block ORE_COAL_ZERUS;	
+	public static Block ORE_COPPER_ZERUS;
+	public static Block ORE_DIAMOND_ZERUS;
+	public static Block ORE_GOLD_ZERUS;
+	public static Block ORE_IRON_ZERUS;
+	public static Block ORE_LAPIS_ZERUS;
+	public static Block ORE_MINERAL_ZERUS;
+	public static Block ORE_PHOSPHORUS_ZERUS;
+	public static Block ORE_REDSTONE_ZERUS;
+	public static Block ORE_REDSTONE_LIT_ZERUS;
+	public static Block ORE_RICHMINERAL_ZERUS;
+	public static Block ORE_URANIUM_ZERUS;
+	public static Block ORE_TITANIUM_ZERUS;
+	public static Block SAND_ZERUS;
+	public static Block GRAVEL_ZERUS;
+	public static Block STONE_ZERUS;
+	
 	public static BlockStarcraftFurnace FURNACE_SHAKURAS;
 	public static BlockStarcraftFurnace FURNACE_CHAR;
 	public static BlockStarcraftFurnace FURNACE_SLAYN;
+	public static BlockStarcraftFurnace FURNACE_ZERUS;
+	
 	public static Block FURNACE_PROTOSS;
+	public static Block PROTOSS_SHIELD;
+	public static Block PROTOSS_ENERGY_CHANNEL;
+	public static Block PROTOSS_ENERGY_STABILIZER;
+	public static Block PROTOSS_VOID_ENERGY_CHANNEL;
+	public static Block PROTOSS_VOID_ENERGY_STABILIZER;
+	public static Block PROTOSS_DARK_ENERGY_CHANNEL;
+	public static Block PROTOSS_DARK_ENERGY_STABILIZER;
+	
 	public static Block ZERG_CREEP;
+	public static Block KERATIN_CHUNK;
 	public static Block STARCRAFT_SKULL;
 
 	public static Block ENTITY_SPAWNER;
@@ -206,10 +235,12 @@ public class BlockHandler {
 		/** portals **/
 		DIM_PORTAL_OVERWORLD = new BlockDimPortal("overworld.portal", 0);
 		DIM_PORTAL_KORHAL = new BlockDimPortal("korhal.portal", ConfigurationHandler.INT_DIMENSION_KORHAL);
-		// DIM_PORTAL_SLAYN = new BlockDimPortal("slayn.portal", 0);
 		DIM_PORTAL_KALDIR = new BlockDimPortal("kaldir.portal", ConfigurationHandler.INT_DIMENSION_KALDIR);
 		DIM_PORTAL_CHAR = new BlockDimPortal("char.portal", ConfigurationHandler.INT_DIMENSION_CHAR);
 		DIM_PORTAL_SHAKURAS = new BlockDimPortal("shakuras.portal", ConfigurationHandler.INT_DIMENSION_SHAKURAS);
+		DIM_PORTAL_SLAYN = new BlockDimPortal("slayn.portal", ConfigurationHandler.INT_DIMENSION_SLAYN);
+		DIM_PORTAL_AIUR = new BlockDimPortal("aiur.portal", ConfigurationHandler.INT_DIMENSION_AIUR);
+		DIM_PORTAL_ZERUS = new BlockDimPortal("zerus.portal", ConfigurationHandler.INT_DIMENSION_ZERUS);
 
 		/** overworld blocks **/
 		ORE_COPPER_OW = new BlockOverworldOre("overworld.copper", RegistryType.FULL, Material.ROCK, MapColor.GRAY, 1).setBlockHarvestLevel("pickaxe", 1).setCreativeTab(StarcraftCreativeTabs.MISC);
@@ -262,6 +293,28 @@ public class BlockHandler {
 		GRAVEL_SHAKURAS = new BlockStarcraftGravel("shakuras.gravel", RegistryType.FULL, Material.GROUND, MapColor.LIGHT_BLUE, 0x55539B).setBlockSoundType(SoundType.GROUND).setHardness(0.6f).setResistance(1).setCreativeTab(StarcraftCreativeTabs.MISC);
 		SAND_SHAKURAS = new StarcraftBlockFalling("shakuras.sand", RegistryType.FULL, Material.SAND, MapColor.LIGHT_BLUE, 6724056).setBlockSoundType(SoundType.SAND).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0.5f).setResistance(0.83f);
 
+		/** Zerus Blocks */
+		ORE_COAL_ZERUS = new BlockZerusOre("zerus.coal", RegistryType.FULL, Material.ROCK, MapColor.BROWN, 0).setCreativeTab(StarcraftCreativeTabs.MISC);
+		ORE_COPPER_ZERUS = new BlockZerusOre("zerus.copper", RegistryType.FULL, Material.ROCK, MapColor.BROWN, 1).setCreativeTab(StarcraftCreativeTabs.MISC);
+		ORE_DIAMOND_ZERUS = new BlockZerusOre("zerus.diamond", RegistryType.FULL, Material.ROCK, MapColor.BROWN, 2).setCreativeTab(StarcraftCreativeTabs.MISC);
+		ORE_GOLD_ZERUS = new BlockZerusOre("zerus.gold", RegistryType.FULL, Material.ROCK, MapColor.BROWN, 2).setCreativeTab(StarcraftCreativeTabs.MISC);
+		ORE_IRON_ZERUS = new BlockZerusOre("zerus.iron", RegistryType.FULL, Material.ROCK, MapColor.BROWN, 1).setCreativeTab(StarcraftCreativeTabs.MISC);
+		ORE_LAPIS_ZERUS = new BlockZerusOre("zerus.lapis", RegistryType.FULL, Material.ROCK, MapColor.BROWN, 1).setCreativeTab(StarcraftCreativeTabs.MISC);
+		ORE_MINERAL_ZERUS = new BlockZerusOre("zerus.mineral", RegistryType.FULL, Material.ROCK, MapColor.BROWN, 1).setCreativeTab(StarcraftCreativeTabs.MISC);
+		ORE_RICHMINERAL_ZERUS = new BlockZerusOre("zerus.richmineral", RegistryType.FULL, Material.ROCK, MapColor.BROWN, 1).setCreativeTab(StarcraftCreativeTabs.MISC);
+		ORE_REDSTONE_ZERUS = new OreZerusRedstone(false);
+		ORE_REDSTONE_LIT_ZERUS = new OreZerusRedstone(true);
+		ORE_TITANIUM_ZERUS = new BlockZerusOre("zerus.titanium", RegistryType.FULL, Material.ROCK, MapColor.BROWN, 2).setCreativeTab(StarcraftCreativeTabs.MISC);
+		ORE_URANIUM_ZERUS = new BlockZerusOre("zerus.uranium", RegistryType.FULL, Material.ROCK, MapColor.BROWN, 2).setCreativeTab(StarcraftCreativeTabs.MISC);
+		ORE_PHOSPHORUS_ZERUS = new BlockShakurasOre("zerus.phosphorus", RegistryType.FULL, Material.ROCK, MapColor.BROWN, 1).setCreativeTab(StarcraftCreativeTabs.MISC);
+		FARMLAND_ZERUS = new BlockZerusFarmland();
+		DIRT_ZERUS = new BlockStarcraftDirt("zerus.dirt", MapColor.BROWN, FARMLAND_ZERUS.getDefaultState());
+		COBBLESTONE_ZERUS = new StarcraftBlock("zerus.cobblestone", RegistryType.FULL, Material.ROCK, MapColor.BROWN).setBlockHarvestLevel("pickaxe", 0).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(2).setResistance(10);
+		STONE_ZERUS = new StarcraftBlock("zerus.stone", RegistryType.FULL, Material.ROCK, MapColor.BROWN).setItemDropped(Item.getItemFromBlock(COBBLESTONE_ZERUS)).setHardness(1.5f).setResistance(10).setCreativeTab(StarcraftCreativeTabs.MISC);
+		GRAVEL_ZERUS = new BlockStarcraftGravel("zerus.gravel", RegistryType.FULL, Material.GROUND, MapColor.BROWN, 0x55539B).setBlockSoundType(SoundType.GROUND).setHardness(0.6f).setResistance(1).setCreativeTab(StarcraftCreativeTabs.MISC);
+		SAND_ZERUS = new StarcraftBlockFalling("zerus.sand", RegistryType.FULL, Material.SAND, MapColor.BROWN, 6724056).setBlockSoundType(SoundType.SAND).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0.5f).setResistance(0.83f);
+
+		
 		/** slayn blocks */
 		// SAND_SLAYN = new StarcraftBlockFalling("slayn.sand", RegistryType.FULL, Material.SAND, MapColor.BLACK, 0x000000).setBlockSoundType(SoundType.SAND).setBlockSoundType(SoundType.SAND).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0.5f).setResistance(0.83f);
 		// DIRT_SLAYN = new StarcraftBlock("slayn.dirt", RegistryType.FULL, Material.GROUND, MapColor.BLACK).setBlockSoundType(SoundType.GROUND).setBlockSoundType(SoundType.GROUND).setHardness(0.5f).setResistance(0.83f).setCreativeTab(StarcraftCreativeTabs.MISC);
@@ -273,6 +326,7 @@ public class BlockHandler {
 		FURNACE_SHAKURAS = new BlockStarcraftFurnace(MapColor.LIGHT_BLUE, EnumWorldType.SHAKURAS);
 		FURNACE_CHAR = new BlockStarcraftFurnace(MapColor.BLACK, EnumWorldType.CHAR);
 		FURNACE_SLAYN = new BlockStarcraftFurnace(MapColor.BLACK, EnumWorldType.SLAYN);
+		FURNACE_ZERUS = new BlockStarcraftFurnace(MapColor.BROWN, EnumWorldType.ZERUS);
 		FURNACE_PROTOSS = new BlockProtossFurnace();
 
 		/** protoss blocks **/
@@ -351,6 +405,7 @@ public class BlockHandler {
 		registerBlock(FURNACE_SHAKURAS);
 		registerBlock(FURNACE_CHAR);
 		registerBlock(FURNACE_SLAYN);
+		registerBlock(FURNACE_ZERUS);
 		registerBlock(FURNACE_PROTOSS);
 
 		registerBlock(LIGHT_SOURCE);

@@ -236,6 +236,28 @@ tile.slayn.furnace.name=Furnace
 
 ### Zerus ###
 #############################################################################################
+tile.zerus.titanium.name=Titanium Ore
+tile.zerus.phosphorus.name=Phosphorus Ore
+tile.zerus.uranium.name=Uranium Ore
+tile.zerus.copper.name=Copper Ore
+tile.zerus.coal.name=Coal Ore
+tile.zerus.iron.name=Iron Ore
+tile.zerus.lapis.name=Lapis Ore
+tile.zerus.redstone.name=Redstone Ore
+tile.zerus.redstone.lit.name=Redstone Ore
+tile.zerus.diamond.name=Diamond Ore
+tile.zerus.mineral.name=Mineral Ore
+tile.zerus.richmineral.name=Rich Mineral Ore
+tile.zerus.gold.name=Gold Ore
+
+tile.zerus.cobblestone.name=Cobblestone
+tile.zerus.stone.name=Stone
+tile.zerus.sand.name=Sand
+tile.zerus.gravel.name=Gravel
+tile.zerus.dirt.name=Dirt
+tile.zerus.farmland.name=Farmland
+
+tile.zerus.furnace.name=Furnace
 #############################################################################################
 
 
@@ -518,6 +540,7 @@ item.test.item.name=Test Item
 
 
 
+##### NOTE: These lang bindings are deprecated, as portal blocks were removed around 2.0.405 
 ### Portals ###
 #############################################################################################
 tile.overworld.portal.name=Earth Portal
@@ -526,6 +549,8 @@ tile.shakuras.portal.name=Shakuras Portal
 tile.korhal.portal.name=Korhal Portal
 tile.kaldir.portal.name=Kaldir Portal
 tile.slayn.portal.name=Slayn Portal
+tile.aiur.portal.name=Zerus Portal
+tile.zerus.portal.name=Aiur Portal
 #############################################################################################
 
 
