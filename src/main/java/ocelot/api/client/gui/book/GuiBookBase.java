@@ -110,7 +110,6 @@ public abstract class GuiBookBase extends GuiBase {
 		}
 
 		if (!carriedOver.isEmpty()) {
-			System.out.println(carriedOver);
 			this.addLine(carriedOver, color);
 		}
 	}

@@ -1,9 +1,11 @@
 package ocelot.api.client.gui.component;
 
+import java.awt.TextField;
 import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.util.text.TextFormatting;
 
 public class ComponentTextArea extends Component {
 

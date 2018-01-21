@@ -3,6 +3,7 @@ package ga.scmc.events;
 import java.awt.Color;
 
 import ga.scmc.api.CapabilityUtils;
+import ga.scmc.api.Utils;
 import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.ItemHandler;
 import net.minecraft.client.Minecraft;
@@ -20,7 +21,6 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import ocelot.api.utils.InventoryUtils;
 import ocelot.api.utils.TextureUtils;
 
 /**
@@ -51,7 +51,7 @@ public class GuiRenderEventHandler extends Gui {
 			ItemStack itemstack = player.inventory.armorItemInSlot(3);
 			if (mc.gameSettings.thirdPersonView == 0 && itemstack != null && itemstack.getItem() == ArmorHandler.TERRAN_MARINE_T1_HELMET && renderHelmetOverlay && event.getType() == ElementType.TEXT) {
 				renderHelmetOverlay(scaledresolution);
-				String ammo = "Ammo: " + InventoryUtils.getTotalAmmo(player, ItemHandler.BULLET_MAGAZINE);
+				String ammo = "Ammo: " + Utils.getTotalAmmo(player, ItemHandler.BULLET_MAGAZINE);
 				if (mc.player.isCreative())
 					ammo = "Ammo: Infinite";
 				drawString(fontRenderer, ammo, 8, height - 15, 0xffffff);

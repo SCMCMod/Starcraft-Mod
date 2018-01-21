@@ -252,7 +252,7 @@ public class GuiUtils {
 	public static class GuiType {
 
 		public static final GuiType DEFAULT = new GuiType(0, 0, 3, 3, 5);
-		public static final GuiType BOOK = new GuiType(15, 0, 3, 3, 5);
+		public static final GuiType BOOK = new GuiType(15, 0, 3, 3, 8);
 
 		private int u, v, width, height, cellSize;
 

@@ -12,12 +12,15 @@ import ga.scmc.client.renderer.model.IArmorItem;
 import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ItemHandler;
+import ga.scmc.lib.Library;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelBakeEvent;
+import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -27,6 +30,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ItemRenderRegistrationHandler {
 
 	private static ModelBakeEvent eventObj;
+
+	@SubscribeEvent
+	public void onMapStitchPre(TextureStitchEvent.Pre event) {
+		event.getMap().registerSprite(new ResourceLocation(Library.RL_BASE + "textures/items/logs/test.png"));
+	}
 
 	@SubscribeEvent
 	@SideOnly(Side.CLIENT)

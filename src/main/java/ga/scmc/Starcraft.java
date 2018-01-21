@@ -65,8 +65,6 @@ public class Starcraft {
 	static {
 		FluidRegistry.enableUniversalBucket();
 	}
-
-
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {

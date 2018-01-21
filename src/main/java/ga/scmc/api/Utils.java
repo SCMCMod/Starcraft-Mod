@@ -1,6 +1,7 @@
 package ga.scmc.api;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -10,10 +11,16 @@ import org.apache.commons.codec.language.bm.Lang;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.arisux.mdx.lib.world.entity.player.inventory.Inventories;
+import com.google.gson.Gson;
+
+import ga.scmc.items.metaitems.ItemMagazine;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
@@ -68,6 +75,24 @@ public class Utils {
 				output.add(line);
 				line = reader.readLine();
 			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return output;
+	}
+
+	/**
+	 * Gets the text from the path specified.
+	 * 
+	 * @param location
+	 *            The location of the text
+	 * @return an array holding each line of the text
+	 */
+	public static List<ColoredText> loadTextJsonFromFile(ResourceLocation location) {
+		List<ColoredText> output = new ArrayList<ColoredText>();
+		try {
+			InputStreamReader is = new InputStreamReader(Minecraft.getMinecraft().getResourceManager().getResource(location).getInputStream());
+			Gson gson = new Gson();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -240,6 +265,26 @@ public class Utils {
 				return EnumDyeColor.WHITE;
 		}
 		return EnumDyeColor.WHITE;
+	}
+	
+	/**
+	 * Recieves the amount of ammo a player has in the inventory.
+	 * 
+	 * @param player
+	 *            The player to search
+	 * @param item
+	 *            The item that has the tag BulletCount
+	 * @return The amount found if the tag was found. If it was not found it returns 0
+	 */
+	public static int getTotalAmmo(EntityPlayer player, Item item) {
+		int totalCount = 0;
+		if (Inventories.playerHas(item, player)) {
+			for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
+				ItemStack stack = player.inventory.getStackInSlot(i);
+				totalCount += ItemMagazine.getBulletCount(stack);
+			}
+		}
+		return totalCount;
 	}
 
 	public static boolean checkSurroundingBlocks(World world, IBlockState state) {
