@@ -11,7 +11,7 @@ import net.minecraft.util.math.MathHelper;
  * artosilope - cybercat5555
  * Created using Tabula 5.1.0
  */
-public class ModelTastelope extends Model {
+public class ModelLope extends Model {
     public ModelRenderer chest;
     public ModelRenderer stomach;
     public ModelRenderer neck01;
@@ -127,7 +127,7 @@ public class ModelTastelope extends Model {
     public ModelRenderer rForeHoofClaw03b;
     public ModelRenderer rForeHoofClaw03c;
 
-    public ModelTastelope() {
+    public ModelLope() {
         this.textureWidth = 128;
         this.textureHeight = 64;
         this.lHindHoofClaw01c = new ModelRenderer(this, 58, 53);

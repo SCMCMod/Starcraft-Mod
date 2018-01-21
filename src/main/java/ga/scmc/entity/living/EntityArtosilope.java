@@ -8,9 +8,9 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class EntityArtislope extends EntityCritterPassive {
+public class EntityArtosilope extends EntityCritterPassive {
 
-	public EntityArtislope(World world) {
+	public EntityArtosilope(World world) {
 		super(world);
 		setSize(1.0F, 1.5F);
 		tasks.addTask(0, new EntityAISwimming(this));

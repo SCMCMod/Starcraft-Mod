@@ -159,7 +159,7 @@ import static ga.scmc.handlers.WeaponHandler.TITANIUM_SWORD;
 import static ga.scmc.handlers.WeaponHandler.WARP_BLADE;
 
 import ga.scmc.client.renderer.entity.RenderAdept;
-import ga.scmc.client.renderer.entity.RenderArtislope;
+import ga.scmc.client.renderer.entity.RenderArtosilope;
 import ga.scmc.client.renderer.entity.RenderBroodling;
 import ga.scmc.client.renderer.entity.RenderBrutalisk;
 import ga.scmc.client.renderer.entity.RenderBrutaliskCocoon;
@@ -221,6 +221,7 @@ import ga.scmc.client.renderer.model.ModelInfestedCivilian;
 import ga.scmc.client.renderer.model.ModelKakaru;
 import ga.scmc.client.renderer.model.ModelLarva;
 import ga.scmc.client.renderer.model.ModelLarvaCocoon;
+import ga.scmc.client.renderer.model.ModelLope;
 import ga.scmc.client.renderer.model.ModelMarauder;
 import ga.scmc.client.renderer.model.ModelMarine;
 import ga.scmc.client.renderer.model.ModelMutalisk;
@@ -234,7 +235,6 @@ import ga.scmc.client.renderer.model.ModelQueen;
 import ga.scmc.client.renderer.model.ModelSCV;
 import ga.scmc.client.renderer.model.ModelScarab;
 import ga.scmc.client.renderer.model.ModelStalker;
-import ga.scmc.client.renderer.model.ModelTastelope;
 import ga.scmc.client.renderer.model.ModelUrsadon;
 import ga.scmc.client.renderer.model.ModelVoidProbe;
 import ga.scmc.client.renderer.model.ModelZealot;
@@ -258,7 +258,7 @@ import ga.scmc.entity.EntityC14GaussRifleBullet;
 import ga.scmc.entity.EntityFlamethrowerFlame;
 import ga.scmc.entity.EntityHydraliskSpike;
 import ga.scmc.entity.living.EntityAdept;
-import ga.scmc.entity.living.EntityArtislope;
+import ga.scmc.entity.living.EntityArtosilope;
 import ga.scmc.entity.living.EntityBroodling;
 import ga.scmc.entity.living.EntityBrutalisk;
 import ga.scmc.entity.living.EntityBrutaliskCocoon;
@@ -419,8 +419,8 @@ public class RenderingHandler {
 		RenderingRegistry.registerEntityRenderingHandler(EntityMarauder.class, new RenderMarauder(Minecraft.getMinecraft().getRenderManager(), new ModelMarauder(), 0.4f));
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityKakaru.class, new RenderKakaru(Minecraft.getMinecraft().getRenderManager(), new ModelKakaru(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityTastelope.class, new RenderTastelope(Minecraft.getMinecraft().getRenderManager(), new ModelTastelope(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityArtislope.class, new RenderArtislope(Minecraft.getMinecraft().getRenderManager(), new ModelTastelope(), 0.4f));
+		RenderingRegistry.registerEntityRenderingHandler(EntityTastelope.class, new RenderTastelope(Minecraft.getMinecraft().getRenderManager(), new ModelLope(), 0.4f));
+		RenderingRegistry.registerEntityRenderingHandler(EntityArtosilope.class, new RenderArtosilope(Minecraft.getMinecraft().getRenderManager(), new ModelLope(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityUrsadon.class, new RenderUrsadon(Minecraft.getMinecraft().getRenderManager(), new ModelUrsadon(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityUrsadonMatriarch.class, new RenderUrsadonMatriarch(Minecraft.getMinecraft().getRenderManager(), new ModelUrsadon(), 0.4f));
 

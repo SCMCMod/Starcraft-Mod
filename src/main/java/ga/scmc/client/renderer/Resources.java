@@ -4,7 +4,7 @@ import ga.scmc.lib.Library;
 
 public class Resources {
 
-	public static final String ARTISLOPE_BASE					= Library.RL_BASE + "textures/entity/artislope_base.png";
+	public static final String ARTOSILOPE_BASE					= Library.RL_BASE + "textures/entity/artosilope_base.png";
 	public static final String BROODLING_BASE 					= Library.RL_BASE + "textures/entity/broodling_base.png";
 	public static final String BROODLING_OVERLAY				= Library.RL_BASE + "textures/entity/broodling_overlay.png";
 	public static final String BROODMOTHER_BASE		 			= Library.RL_BASE + "textures/entity/broodmother_base.png";

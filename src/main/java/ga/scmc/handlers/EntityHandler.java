@@ -4,7 +4,7 @@ import ga.scmc.Starcraft;
 import ga.scmc.entity.EntityC14GaussRifleBullet;
 import ga.scmc.entity.EntityFlamethrowerFlame;
 import ga.scmc.entity.EntityHydraliskSpike;
-import ga.scmc.entity.living.EntityArtislope;
+import ga.scmc.entity.living.EntityArtosilope;
 import ga.scmc.entity.living.EntityBroodling;
 import ga.scmc.entity.living.EntityBrutalisk;
 import ga.scmc.entity.living.EntityCivilian;
@@ -125,7 +125,7 @@ public class EntityHandler {
 		// EntityRegistry.registerEgg(EntitySCV.class, 7566195, 16639);
 
 		EntityRegistry.registerEgg(EntityTastelope.class, 6847625, 13157029);
-		EntityRegistry.registerEgg(EntityArtislope.class, 4226620, 12038721);
+		EntityRegistry.registerEgg(EntityArtosilope.class, 4226620, 12038721);
 		EntityRegistry.registerEgg(EntityKakaru.class, 6632556, 14183716);
 		EntityRegistry.registerEgg(EntityUrsadon.class, 13686740, 8175830);
 		EntityRegistry.registerEgg(EntityUrsadonMatriarch.class, 13686740, 15296610);
@@ -195,7 +195,7 @@ public class EntityHandler {
 		registerEntity(EntityHydraliskSpike.class, "HydraliskSpike", 64, 1, true);
 		registerEntity(EntityFlamethrowerFlame.class, "flamethrowerFlame", 64, 1, true);
 
-		registerEntity(EntityArtislope.class, "artislope", 64, 1, true);
+		registerEntity(EntityArtosilope.class, "artosilope", 64, 1, true);
 		registerEntity(EntityTastelope.class, "tastelope", 64, 1, true);
 		registerEntity(EntityKakaru.class, "kakaru", 64, 1, true);
 		registerEntity(EntityUrsadon.class, "ursadon", 64, 1, true);
