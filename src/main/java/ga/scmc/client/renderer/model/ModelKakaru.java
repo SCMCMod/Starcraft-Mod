@@ -468,6 +468,7 @@ public class ModelKakaru extends Model {
 
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(this.spineBone01.offsetX, this.spineBone01.offsetY, this.spineBone01.offsetZ);
