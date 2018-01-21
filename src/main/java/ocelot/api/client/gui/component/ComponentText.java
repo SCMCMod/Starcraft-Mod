@@ -1,8 +1,6 @@
 package ocelot.api.client.gui.component;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiScreenBook;
-import net.minecraft.util.ChatAllowedCharacters;
 
 public class ComponentText extends Component {
 

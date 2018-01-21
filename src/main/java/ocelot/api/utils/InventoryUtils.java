@@ -1,8 +1,5 @@
 package ocelot.api.utils;
 
-import com.arisux.mdx.lib.world.entity.player.inventory.Inventories;
-
-import ga.scmc.items.metaitems.ItemMagazine;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
