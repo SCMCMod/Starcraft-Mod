@@ -86,10 +86,10 @@ public class EntityHandler {
 		// EntityRegistry.registerEgg(EntityAdept.class, 13022529, 2412228);
 		// EntityRegistry.registerEgg(EntityStalker.class, 13022529, 2412228);
 		// EntityRegistry.registerEgg(EntityDragoon.class, 13022529, 2412228);
-		EntityRegistry.registerEgg(EntityDarkTemplar.class, 5066061, 45824);
 		EntityRegistry.registerEgg(EntityVoidProbe.class, 1447446, 45824);
 		EntityRegistry.registerEgg(EntityDarkProbe.class, 1447446, 13369344);
 
+		EntityRegistry.registerEgg(EntityDarkTemplar.class, 5066061, 45824);
 		EntityRegistry.registerEgg(EntityZeratul.class, 5066061, 45824);
 
 		EntityRegistry.registerEgg(EntityBrutalisk.class, 11403519, 7684608);
@@ -107,8 +107,8 @@ public class EntityHandler {
 		EntityRegistry.registerEgg(EntityNafash.class, 11403519, 7684608);
 		EntityRegistry.registerEgg(EntityMutalisk.class, 11403519, 7684608);
 		EntityRegistry.registerEgg(EntityMutaliskBroodlord.class, 11403519, 7684608);
-		EntityRegistry.registerEgg(EntityMutaliskPrimal.class, 6986824, 65535);
 		EntityRegistry.registerEgg(EntityMutaliskViper.class, 11403519, 7684608);
+		EntityRegistry.registerEgg(EntityMutaliskPrimal.class, 6986824, 65535);
 		EntityRegistry.registerEgg(EntityZerglingPrimal1.class, 6986824, 65535);
 		EntityRegistry.registerEgg(EntityZerglingPrimal2.class, 6986824, 65535);
 		EntityRegistry.registerEgg(EntityZerglingPrimal3.class, 6986824, 65535);
