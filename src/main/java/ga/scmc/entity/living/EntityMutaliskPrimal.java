@@ -83,7 +83,7 @@ public class EntityMutaliskPrimal extends EntityZergFlying implements IMob {
 
 	@Override
 	protected float getSoundVolume() {
-		return 5;
+		return 2.5F;
 	}
 
 	static class AILookAround extends EntityAIBase {
