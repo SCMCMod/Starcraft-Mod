@@ -125,7 +125,7 @@ public class EntityHandler {
 		// EntityRegistry.registerEgg(EntitySCV.class, 7566195, 16639);
 
 		EntityRegistry.registerEgg(EntityTastelope.class, 6847625, 13157029);
-		EntityRegistry.registerEgg(EntityArtislope.class, 6847625, 13157029);
+		EntityRegistry.registerEgg(EntityArtislope.class, 4226620, 12038721);
 		EntityRegistry.registerEgg(EntityKakaru.class, 6632556, 14183716);
 		EntityRegistry.registerEgg(EntityUrsadon.class, 13686740, 8175830);
 		EntityRegistry.registerEgg(EntityUrsadonMatriarch.class, 13686740, 15296610);
