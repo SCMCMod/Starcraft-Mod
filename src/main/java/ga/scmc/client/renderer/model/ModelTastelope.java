@@ -731,10 +731,10 @@ public class ModelTastelope extends Model {
     	EntityLivingBase base = (EntityLivingBase) obj;
     	head.rotateAngleX = headPitch(obj) * 0.017453292F;
 		head.rotateAngleY = headYaw(obj) * 0.017453292F;
-		lForeleg01.rotateAngleX = MathHelper.cos(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj);
-		rForeleg01.rotateAngleX = MathHelper.sin(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj);
-		lHindLeg01.rotateAngleX = MathHelper.cos(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj) + 0.6F;
-		rHindLeg01.rotateAngleX = MathHelper.sin(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj) + 0.6F;
+		lThigh.rotateAngleX = MathHelper.cos(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj) + 0.5F;
+		rThigh.rotateAngleX = MathHelper.sin(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj) + 0.5F;
+		lForeleg01.rotateAngleX = MathHelper.cos(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj) - 0.1F;
+		rForeleg01.rotateAngleX = MathHelper.sin(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj) - 0.1F;
 		lowerJaw.rotateAngleX = (MathHelper.sin(swingProgress(obj) * 0.01F) + 0.3F) * 0.667F * swingProgressPrev(obj);
 	}
 }

@@ -930,5 +930,6 @@ public class ModelUrsadon extends Model {
 		tail03.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.05f) * 0.16675f + swingProgressPrev(obj) * 0.025f;
 		rShoulderFur.rotateAngleZ = MathHelper.sin(swingProgress(obj) * 0.05f) * 0.16675f;
 		lShoulderFur.rotateAngleZ = MathHelper.cos(swingProgress(obj) * 0.05f) * 0.16675f;
+		lowerJaw.rotateAngleX = (MathHelper.sin(swingProgress(obj) * 0.01F) + 0.3F) * 0.667F * swingProgressPrev(obj);
 	}
 }
