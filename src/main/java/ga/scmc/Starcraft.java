@@ -66,6 +66,7 @@ public class Starcraft {
 		FluidRegistry.enableUniversalBucket();
 	}
 	
+	/** Pre Initialization **/
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		ConfigurationHandler.preInit();
