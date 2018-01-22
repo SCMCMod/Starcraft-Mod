@@ -1,20 +1,25 @@
 package ga.scmc.tileentity;
 
-import ga.scmc.blocks.ProtossPowerCoreBlock;
+import java.util.LinkedList;
+
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 
 public class TileEntityProtossPowerCore extends TileEntity {
 
-	public TileEntityProtossPowerCore() {
-	}
-	
-	//TODO: Fixme, I don't remove my position once the block is removed from the world!
+	public static final LinkedList<BlockPos> CORE_POSITIONS = new LinkedList<BlockPos>();
+
 	@Override
-	public void readFromNBT(NBTTagCompound compound) {
-			ProtossPowerCoreBlock.CORE_POSITIONS.add(new BlockPos(compound.getInteger("x"), compound.getInteger("y"), compound.getInteger("z")));
-		System.out.println(compound.getKeySet());
-		super.readFromNBT(compound);
+	public void readFromNBT(NBTTagCompound nbt) {
+		super.readFromNBT(nbt);
+		CORE_POSITIONS.remove(getPos());
+		CORE_POSITIONS.add(getPos());
+	}
+
+	@Override
+	public void invalidate() {
+		super.invalidate();
+		CORE_POSITIONS.remove(getPos());
 	}
 }

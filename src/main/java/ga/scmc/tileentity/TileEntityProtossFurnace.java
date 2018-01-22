@@ -84,8 +84,8 @@ public class TileEntityProtossFurnace extends TileEntitySidedInventory implement
 	@Override
 	public boolean hasPylons() {
 		positions = new ArrayList<BlockPos>();
-		for (int i = 0; i < ProtossPowerCoreBlock.CORE_POSITIONS.size(); i++) {
-			BlockPos pos = ProtossPowerCoreBlock.CORE_POSITIONS.get(i);
+		for (int i = 0; i < TileEntityProtossPowerCore.CORE_POSITIONS.size(); i++) {
+			BlockPos pos = TileEntityProtossPowerCore.CORE_POSITIONS.get(i);
 			if (pos.getDistance(getPos().getX(), getPos().getY(), getPos().getZ()) < 30.0D) {
 				positions.add(pos);
 			}

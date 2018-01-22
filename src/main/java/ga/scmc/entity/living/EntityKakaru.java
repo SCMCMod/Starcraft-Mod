@@ -213,7 +213,6 @@ public class EntityKakaru extends EntityCritterFlying {
 
 	@Override
 	public EntityAgeable createChild(EntityAgeable ageable) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }
