@@ -57,7 +57,7 @@ public class EntityZerglingPrimalDehaka extends EntityZergMob implements IMob, P
 		if (!entity.isInvisible()) {
 			if (entity instanceof EntityStarcraftMob) {
 				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if (!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.PRIMALZERG)) {
+					if (!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.PRIMALPACKDEHAKA)) {
 						if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						} else {
@@ -69,7 +69,7 @@ public class EntityZerglingPrimalDehaka extends EntityZergMob implements IMob, P
 				}
 			} else if (entity instanceof EntityStarcraftPassive) {
 				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if (!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.PRIMALZERG)) {
+					if (!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.PRIMALPACKDEHAKA)) {
 						if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
 						} else {

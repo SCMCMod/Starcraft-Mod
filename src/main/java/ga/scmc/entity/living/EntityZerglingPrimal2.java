@@ -37,7 +37,7 @@ public class EntityZerglingPrimal2 extends EntityZergMob implements IMob, Predic
 	public EntityZerglingPrimal2(World world) {
 		super(world);
 		setSize(1.0F, 1.0F);
-		this.setTeamColor(EnumTeamColors.CYAN);
+		this.setTeamColor(EnumTeamColors.GREEN);
 		this.setFactions(EnumFactionTypes.PRIMALZERG);
 		this.setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
 		experienceValue = 23;

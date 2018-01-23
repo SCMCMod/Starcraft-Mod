@@ -22,17 +22,17 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityMutaliskPrimal extends EntityZergFlying implements IMob {
+public class EntityMutaliskPrimalDehaka extends EntityZergFlying implements IMob {
 
-	public EntityMutaliskPrimal(World world) {
+	public EntityMutaliskPrimalDehaka(World world) {
 		super(world);
 		setSize(4.0F, 1.5F);
-		this.setTeamColor(EnumTeamColors.GREEN);
-		this.setFactions(EnumFactionTypes.PRIMALZERG);
+		this.setTeamColor(EnumTeamColors.YELLOW);
+		this.setFactions(EnumFactionTypes.PRIMALPACKDEHAKA);
 		this.setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.AIR);
-		this.moveHelper = new EntityMutaliskPrimal.MutaliskMoveHelper(this);
-		this.tasks.addTask(5, new EntityMutaliskPrimal.AIRandomFly(this));
-		this.tasks.addTask(7, new EntityMutaliskPrimal.AILookAround(this));
+		this.moveHelper = new EntityMutaliskPrimalDehaka.MutaliskMoveHelper(this);
+		this.tasks.addTask(5, new EntityMutaliskPrimalDehaka.AIRandomFly(this));
+		this.tasks.addTask(7, new EntityMutaliskPrimalDehaka.AILookAround(this));
 		this.targetTasks.addTask(1, new EntityAIFindEntityNearestPlayer(this));
 	}
 	
@@ -87,9 +87,9 @@ public class EntityMutaliskPrimal extends EntityZergFlying implements IMob {
 	}
 
 	static class AILookAround extends EntityAIBase {
-		private final EntityMutaliskPrimal parentEntity;
+		private final EntityMutaliskPrimalDehaka parentEntity;
 
-		public AILookAround(EntityMutaliskPrimal kakaru) {
+		public AILookAround(EntityMutaliskPrimalDehaka kakaru) {
 			this.parentEntity = kakaru;
 			this.setMutexBits(2);
 		}
@@ -124,9 +124,9 @@ public class EntityMutaliskPrimal extends EntityZergFlying implements IMob {
 	}
 
 	static class AIRandomFly extends EntityAIBase {
-		private final EntityMutaliskPrimal parentEntity;
+		private final EntityMutaliskPrimalDehaka parentEntity;
 
-		public AIRandomFly(EntityMutaliskPrimal kakaru) {
+		public AIRandomFly(EntityMutaliskPrimalDehaka kakaru) {
 			this.parentEntity = kakaru;
 			this.setMutexBits(1);
 		}
@@ -168,10 +168,10 @@ public class EntityMutaliskPrimal extends EntityZergFlying implements IMob {
 	}
 
 	static class MutaliskMoveHelper extends EntityMoveHelper {
-		private final EntityMutaliskPrimal parentEntity;
+		private final EntityMutaliskPrimalDehaka parentEntity;
 		private int courseChangeCooldown;
 
-		public MutaliskMoveHelper(EntityMutaliskPrimal kakaru) {
+		public MutaliskMoveHelper(EntityMutaliskPrimalDehaka kakaru) {
 			super(kakaru);
 			this.parentEntity = kakaru;
 		}

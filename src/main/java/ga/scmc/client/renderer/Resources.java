@@ -5,6 +5,9 @@ import ga.scmc.lib.Library;
 public class Resources {
 
 	public static final String ARTOSILOPE_BASE					= Library.RL_BASE + "textures/entity/artosilope_base.png";
+	public static final String BRAKK_BASE 						= Library.RL_BASE + "textures/entity/brakk_base.png";
+	public static final String BRAKK_GLOW_DYNAMIC				= Library.RL_BASE + "textures/entity/brakk_glow_dynamic.png";
+	public static final String BRAKK_OVERLAY					= Library.RL_BASE + "textures/entity/brakk_overlay.png";
 	public static final String BROODLING_BASE 					= Library.RL_BASE + "textures/entity/broodling_base.png";
 	public static final String BROODLING_OVERLAY				= Library.RL_BASE + "textures/entity/broodling_overlay.png";
 	public static final String BROODMOTHER_BASE		 			= Library.RL_BASE + "textures/entity/broodmother_base.png";
@@ -43,6 +46,9 @@ public class Resources {
 	public static final String MUTALISKBROODLORD_OVERLAY		= Library.RL_BASE + "textures/entity/mutaliskbroodlord_overlay.png";
 	public static final String MUTALISKPRIMAL_BASE				= Library.RL_BASE + "textures/entity/mutaliskprimal_base.png";
 	public static final String MUTALISKPRIMAL_OVERLAY			= Library.RL_BASE + "textures/entity/mutaliskprimal_overlay.png";
+	public static final String MUTALISKPRIMALDEHAKA_BASE		= Library.RL_BASE + "textures/entity/mutaliskprimaldehaka_base.png";
+	public static final String MUTALISKPRIMALDEHAKA_GLOW_STATIC = Library.RL_BASE + "textures/entity/mutaliskprimaldehaka_base.png";
+	public static final String MUTALISKPRIMALDEHAKA_OVERLAY		= Library.RL_BASE + "textures/entity/mutaliskprimaldehaka_overlay.png";
 	public static final String MUTALISKVIPER_BASE				= Library.RL_BASE + "textures/entity/mutaliskviper_base.png";
 	public static final String MUTALISKVIPER_OVERLAY			= Library.RL_BASE + "textures/entity/mutaliskviper_overlay.png";
 	public static final String PREAVER_BASE		 				= Library.RL_BASE + "textures/entity/preaver_base.png";
@@ -62,6 +68,13 @@ public class Resources {
 	public static final String SCARAB 							= Library.RL_BASE + "textures/entity/scarab.png";
 	public static final String TASTELOPE_BASE 					= Library.RL_BASE + "textures/entity/tastelope_base.png";
 	public static final String TASTELOPE_GLOW_STATIC 			= Library.RL_BASE + "textures/entity/tastelope_glow_static.png";
+	public static final String TYRANNOZOR_BASE 					= Library.RL_BASE + "textures/entity/tyrannozor_base.png";
+	public static final String TYRANNOZOR_GLOW_DYNAMIC 			= Library.RL_BASE + "textures/entity/tyrannozor_glow_dynamic.png";
+	public static final String TYRANNOZOR_OVERLAY 				= Library.RL_BASE + "textures/entity/tyrannozor_overlay.png";
+	public static final String TYRANNOZORDEHAKA_BASE 			= Library.RL_BASE + "textures/entity/tyrannozordehaka_base.png";
+	public static final String TYRANNOZORDEHAKA_GLOW_DYNAMIC 	= Library.RL_BASE + "textures/entity/tyrannozordehaka_glow_dynamic.png";
+	public static final String TYRANNOZORDEHAKA_GLOW_STATIC 	= Library.RL_BASE + "textures/entity/tyrannozordehaka_glow_static.png";
+	public static final String TYRANNOZORDEHAKA_OVERLAY 		= Library.RL_BASE + "textures/entity/tyrannozordehaka_overlay.png";
 	public static final String URSADON_BASE 					= Library.RL_BASE + "textures/entity/ursadon_base.png";
 	public static final String URSADON_MATRIARCH_BASE 			= Library.RL_BASE + "textures/entity/ursadon_matriarch_base.png";
 	public static final String VOID_PROBE_BASE 					= Library.RL_BASE + "textures/entity/voidprobe_base.png";

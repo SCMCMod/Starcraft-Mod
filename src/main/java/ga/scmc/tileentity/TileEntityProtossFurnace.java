@@ -6,7 +6,6 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import ga.scmc.blocks.BlockStarcraftFurnace;
-import ga.scmc.blocks.ProtossPowerCoreBlock;
 import ga.scmc.enums.EnumMetaItem.ProtossUpgradeType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
