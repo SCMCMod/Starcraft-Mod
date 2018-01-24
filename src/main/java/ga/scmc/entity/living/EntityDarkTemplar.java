@@ -42,7 +42,7 @@ public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predica
 
 	public EntityDarkTemplar(World world) {
 		super(world);
-		setSize(1.0F, 3.0F);
+		setSize(1.0F, 2.9F);
 		experienceValue = 80;
 		this.setTeamColor(EnumTeamColors.LIGHT_BLUE);
 		this.setFactions(EnumFactionTypes.DAELAAM);
