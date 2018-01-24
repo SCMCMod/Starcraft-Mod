@@ -177,7 +177,6 @@ public class ModelKaldirBrambles extends ModelBase {
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageIn, float netHeadYaw, float headPitch, float scale, Entity entity) {
 		if (ageIn != 0) {
 			float age = ageIn + Game.partialTicks();
-			age *= 100;
 			this.branch11.rotateAngleX = MathHelper.sin(age * 0.1f) * 0.1f;
 			this.branch09.rotateAngleX = MathHelper.sin(age * 0.05f) * 0.1f;
 			this.branch02.rotateAngleX = MathHelper.sin(age * 0.05f) * 0.15f;
