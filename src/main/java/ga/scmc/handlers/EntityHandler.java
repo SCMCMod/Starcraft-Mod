@@ -115,9 +115,9 @@ public class EntityHandler {
 		EntityRegistry.registerEgg(EntityHydraliskPrimal.class, 6986824, 65535);
 		EntityRegistry.registerEgg(EntityBrakk.class, 6986824, 65535);
 		EntityRegistry.registerEgg(EntityTyrannozor.class, 6986824, 65535);
-		EntityRegistry.registerEgg(EntityMutaliskPrimalDehaka.class, 6986824, 65535);
-		EntityRegistry.registerEgg(EntityTyrannozorDehaka.class, 6986824, 65535);
-		EntityRegistry.registerEgg(EntityZerglingPrimalDehaka.class, 6986824, 65535);
+		EntityRegistry.registerEgg(EntityMutaliskPrimalDehaka.class, 8952745, 15066368);
+		EntityRegistry.registerEgg(EntityTyrannozorDehaka.class, 8952745, 15066368);
+		EntityRegistry.registerEgg(EntityZerglingPrimalDehaka.class, 8952745, 15066368);
 
 		EntityRegistry.registerEgg(EntityCivilian.class, 7566195, 16639);
 		EntityRegistry.registerEgg(EntityPredator.class, 7566195, 16639);
