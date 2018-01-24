@@ -38,6 +38,11 @@ public class BlockKaldirBrambles extends BlockContainer implements IShearable {
 	}
 
 	@Override
+	public boolean isReplaceable(IBlockAccess world, BlockPos pos) {
+		return false;
+	}
+
+	@Override
 	public IBlockState getStateFromMeta(int meta) {
 		return this.getDefaultState().withProperty(PART, Part.values()[meta % 2]);
 	}

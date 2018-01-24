@@ -26,14 +26,12 @@ public class BlockZerusLightcap extends BlockContainer {
 	@Override
 	public boolean isReplaceable(IBlockAccess world, BlockPos pos) {
 		return false;
-	}	
-	
+	}
+
 	@Override
 	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos) {
 		return NULL_AABB;
 	}
-	
-	
 
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {

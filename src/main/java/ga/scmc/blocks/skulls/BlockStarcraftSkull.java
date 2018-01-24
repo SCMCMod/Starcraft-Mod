@@ -107,7 +107,7 @@ public class BlockStarcraftSkull extends BlockContainer {
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
 		return new TileEntityStarcraftSkull();
 	}
-
+	
 	@Override
 	public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
 		int i = 0;
