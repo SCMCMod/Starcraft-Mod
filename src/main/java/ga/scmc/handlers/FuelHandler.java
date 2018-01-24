@@ -15,11 +15,12 @@ public class FuelHandler implements IFuelHandler {
 
 	@Override
 	public int getBurnTime(ItemStack fuel) {
-
 		if (fuel.getItem() == ItemHandler.VESPENE)
 			return 3200;
 		if (fuel.getItem() == ItemHandler.TERRAZINE)
 			return 3200;
+		if (fuel.getItem() == ItemHandler.LOG)
+			return 2000;
 
 		return 0;
 	}
