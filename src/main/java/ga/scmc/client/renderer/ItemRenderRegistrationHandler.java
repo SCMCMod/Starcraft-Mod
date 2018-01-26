@@ -6,6 +6,7 @@ import ga.scmc.client.renderer.items.ItemRenderFlamethrower;
 import ga.scmc.client.renderer.items.ItemRenderKaldirBrambles;
 import ga.scmc.client.renderer.items.ItemRenderModelArmorItem;
 import ga.scmc.client.renderer.items.ItemRenderStarcraftSkull;
+import ga.scmc.client.renderer.items.ItemRenderTable;
 import ga.scmc.client.renderer.items.ItemRenderZerusGlowPod;
 import ga.scmc.client.renderer.items.ItemRenderZerusLightcap;
 import ga.scmc.client.renderer.model.IArmorItem;
@@ -41,6 +42,7 @@ public class ItemRenderRegistrationHandler {
 	public static void onModelBake(ModelBakeEvent event) {
 		eventObj = event;
 
+		registerItemModel(Item.getItemFromBlock(BlockHandler.TEST), new ItemRenderTable());
 		registerItemModel(ItemHandler.C14_GAUSS_RIFLE, new ItemRenderC14GaussRifle());
 		registerItemModel(ItemHandler.FLAMETHROWER, new ItemRenderFlamethrower());
 		registerItemModel(Item.getItemFromBlock(BlockHandler.STARCRAFT_SKULL), new ItemRenderStarcraftSkull());

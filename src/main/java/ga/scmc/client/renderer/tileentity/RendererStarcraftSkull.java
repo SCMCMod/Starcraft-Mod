@@ -26,7 +26,8 @@ public class RendererStarcraftSkull extends TileEntitySpecialRenderer<TileEntity
 
 	public static RendererStarcraftSkull instance;
 
-	private static final ModelSkeletonHead SKELETON = new ModelSkeletonHead(0, 0, 32, 64);
+	private static final ModelSkeletonHead SKELETON = new ModelSkeletonHead(0, 0, 64, 32);
+	private static final ModelSkeletonHead PLAYER_HEAD = new ModelSkeletonHead(0, 0, 64, 64);
 	private static final ModelZergling ZERGLING = new ModelZergling();
 	private static final ModelHydralisk HYDRALISK = new ModelHydralisk();
 	private static final ModelBrutalisk BRUTALISK = new ModelBrutalisk();
@@ -65,7 +66,7 @@ public class RendererStarcraftSkull extends TileEntitySpecialRenderer<TileEntity
 				skullModel = SKELETON;
 				break;
 			case 0:
-				skullModel = SKELETON;
+				skullModel = PLAYER_HEAD;
 				break;
 			case 1:
 				skullModel = ZERGLING;
