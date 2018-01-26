@@ -4,30 +4,58 @@ import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformT
 import net.minecraft.entity.Entity;
 
 /**
- * Specifies the rendering for each transform type for each piece of armor.
+ * Specifies the rendering for each piece of armor used for special rendering.
  * 
  * @author Ocelot5836
  */
 public interface IArmorItem {
 
 	/**
-	 * Renders the helmet.
+	 * Renders the helmet by itself for special renderers.
+	 * 
+	 * @param type
+	 *            The transformation that is being used
+	 * @param entity
+	 *            The entity that is rendering the armor part
+	 * @param scale
+	 *            The scale of the armor model
 	 */
 	void renderHelmet(TransformType type, Entity entity, float scale);
 
 	/**
-	 * Renders the chestplate.
+	 * Renders the chestplate by itself for special renderers.
+	 * 
+	 * @param type
+	 *            The transformation that is being used
+	 * @param entity
+	 *            The entity that is rendering the armor part
+	 * @param scale
+	 *            The scale of the armor model
 	 */
 	void renderChestplate(TransformType type, Entity entity, float scale);
 
 	/**
-	 * Renders the leggings.
+	 * Renders the leggings by itself for special renderers.
+	 * 
+	 * @param type
+	 *            The transformation that is being used
+	 * @param entity
+	 *            The entity that is rendering the armor part
+	 * @param scale
+	 *            The scale of the armor model
 	 */
 	void renderLeggings(TransformType type, Entity entity, float scale);
 
 	/**
-	 * Renders the boots.
+	 * Renders the boots by itself for special renderers.
+	 * 
+	 * @param type
+	 *            The transformation that is being used
+	 * @param entity
+	 *            The entity that is rendering the armor part
+	 * @param scale
+	 *            The scale of the armor model
 	 */
 	void renderBoots(TransformType type, Entity entity, float scale);
-	
+
 }

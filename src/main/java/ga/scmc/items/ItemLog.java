@@ -24,6 +24,9 @@ import net.minecraftforge.fml.relauncher.Side;
 
 public class ItemLog extends Item {
 
+	public static final int DEFAULT_SKIN = 0;
+	public static final int TEST_SKIN = 1;
+	
 	public ItemLog() {
 		setRegistryName("log");
 		setUnlocalizedName("log");
@@ -74,7 +77,7 @@ public class ItemLog extends Item {
 	}
 
 	public enum EnumLogType {
-		SPAWN(TextFormatting.BLUE + "Spawn Log", new ResourceLocation(Library.RL_BASE + "texts/logs/log.test.txt"), 1), 
+		SPAWN(TextFormatting.BLUE + "Spawn Log", new ResourceLocation(Library.RL_BASE + "texts/logs/log.test.txt"), TEST_SKIN), 
 		EGONLOGP1("Log 2133", new ResourceLocation(Library.RL_BASE + "texts/logs/log.egonstetmann.protoss1.txt")), 
 		EGONLOGP2("Log 2142", new ResourceLocation(Library.RL_BASE + "texts/logs/log.egonstetmann.protoss2.txt")), 
 		EGONLOGP3("Log 2204", new ResourceLocation(Library.RL_BASE + "texts/logs/log.egonstetmann.protoss3.txt")), 

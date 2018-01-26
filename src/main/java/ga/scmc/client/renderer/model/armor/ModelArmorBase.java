@@ -62,6 +62,7 @@ public abstract class ModelArmorBase extends ModelBiped {
 		this.rArm.setRotationPoint(-5.0F, 2.0F, 0.0F);
 		this.rArm.addBox(-3.0F, -2.0F, -2.0F, 4, 12, 4, 0.0F);
 		this.setRotateAngle(rArm, 0.0F, 0.0F, 0.10000736613927509F);
+		this.setInvisible(true);
 	}
 
 	@Override
