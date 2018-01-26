@@ -1,5 +1,7 @@
 package ga.scmc;
 
+import org.apache.logging.log4j.Logger;
+
 import ga.scmc.achievement.Achievements;
 import ga.scmc.capabilities.CapabilityHandler;
 import ga.scmc.capabilities.Color;
@@ -62,6 +64,8 @@ public class Starcraft {
 	@SidedProxy(clientSide = Library.CLIENT_SIDE_PROXY, serverSide = Library.SERVER_SIDE_PROXY)
 	public static CommonProxy proxy;
 
+	private static Logger logger;
+	
 	static {
 		FluidRegistry.enableUniversalBucket();
 	}
@@ -69,6 +73,8 @@ public class Starcraft {
 	/** Pre Initialization **/
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
+		logger = event.getModLog();
+		
 		ConfigurationHandler.preInit();
 
 		NetworkHandler.preInit();
@@ -113,5 +119,9 @@ public class Starcraft {
 	public void postInit(FMLPostInitializationEvent event) {
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 		}
+	}
+
+	public static Logger getLogger() {
+		return logger;
 	}
 }

@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.codec.language.bm.Lang;
-import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.arisux.mdx.lib.world.entity.player.inventory.Inventories;
 import com.google.gson.Gson;
 
+import ga.scmc.Starcraft;
 import ga.scmc.items.metaitems.ItemMagazine;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -42,7 +42,6 @@ public class Utils {
 	/**
 	 * Makes the variables which will be initialized when there getter method is called
 	 */
-	private static Logger logger;
 	private static Lang lang;
 
 	/**
@@ -51,10 +50,7 @@ public class Utils {
 	 * @return The {@link Logger}
 	 */
 	public static Logger getLogger() {
-		if (logger == null) {
-			logger = LogManager.getFormatterLogger("Starcraft");
-		}
-		return logger;
+		return Starcraft.getLogger();
 	}
 
 	/**
@@ -265,7 +261,7 @@ public class Utils {
 		}
 		return EnumDyeColor.WHITE;
 	}
-	
+
 	/**
 	 * Recieves the amount of ammo a player has in the inventory.
 	 * 
