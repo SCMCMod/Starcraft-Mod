@@ -1,0 +1,13 @@
+UED Military Academy Commandant's Log
+
+(Commandant Miloshek) "Gentlemen, we need to give our cadets a new challenge in the training simulators this week. Suggestions?"
+
+(Major Kilbourne) "Well, sir, it has been several weeks since we have had any deep space combat simulations. The last few exercises have mostly been recreations of ground battles."
+
+(CM) "An excellent idea, but I'd like to throw a twist into this sim."
+
+(MK) "Did you have anything specific in mind, sir?"
+
+(CM) "Hmm... give our Cadets an extreme amount of resources to start the campaign with so they won't feel the need to expand, but then create the additional resource nodes with even more Minerals and Vespene gas. Those that choose to expand should gain a huge advantage over those who simply stay put. I want battlefield commanders that are always on the move, gentlemen -- ones that are always looking for an edge in combat."
+
+(MK) "Very well, sir. We'll have the scenario programmed for this afternoon's exercise."
