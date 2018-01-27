@@ -47,5 +47,20 @@ public class PlayerEventHandler {
 			e.player.addStat(Achievements.getRegisteredAchievement(Achievements.ENTER_KALDIR), 1);
 			// add sound here
 		}
+
+		if (e.toDim == ConfigurationHandler.INT_DIMENSION_SLAYN) {
+			e.player.addStat(Achievements.getRegisteredAchievement(Achievements.ENTER_KALDIR), 1);
+			// add sound here
+		}
+		
+		if (e.toDim == ConfigurationHandler.INT_DIMENSION_AIUR) {
+			e.player.addStat(Achievements.getRegisteredAchievement(Achievements.ENTER_KALDIR), 1);
+			// add sound here
+		}
+
+		if (e.toDim == ConfigurationHandler.INT_DIMENSION_ZERUS) {
+			e.player.addStat(Achievements.getRegisteredAchievement(Achievements.ENTER_KALDIR), 1);
+			// add sound here
+		}
 	}
 }

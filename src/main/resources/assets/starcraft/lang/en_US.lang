@@ -229,6 +229,27 @@ tile.korhal.stone.city.name=Korhal City Stone
 
 ### Slayn ###
 #############################################################################################
+tile.slayn.titanium.name=Titanium Ore
+tile.slayn.phosphorus.name=Phosphorus Ore
+tile.slayn.uranium.name=Uranium Ore
+tile.slayn.copper.name=Copper Ore
+tile.slayn.coal.name=Coal Ore
+tile.slayn.iron.name=Iron Ore
+tile.slayn.lapis.name=Lapis Ore
+tile.slayn.redstone.name=Redstone Ore
+tile.slayn.redstone.lit.name=Redstone Ore
+tile.slayn.diamond.name=Diamond Ore
+tile.slayn.mineral.name=Mineral Ore
+tile.slayn.richmineral.name=Rich Mineral Ore
+tile.slayn.gold.name=Gold Ore
+
+tile.slayn.cobblestone.name=Cobblestone
+tile.slayn.stone.name=Stone
+tile.slayn.sand.name=Sand
+tile.slayn.gravel.name=Gravel
+tile.slayn.dirt.name=Dirt
+tile.slayn.farmland.name=Farmland
+
 tile.slayn.furnace.name=Furnace
 #############################################################################################
 
@@ -695,6 +716,15 @@ achievement.enterKorhal.desc=Arrive on Korhal!
 
 achievement.enterShakuras=We Linger, In Twilight
 achievement.enterShakuras.desc=Arrive on Shakuras!
+
+achievement.enterSlayn=The Forged
+achievement.enterShakuras.desc=Arrive on Slayn!
+
+achievement.enterAiur=A Beacon Of Progress
+achievement.enterAiur.desc=Arrive on Aiur!
+
+achievement.enterZerus=Primordial Soup
+achievement.enterShakuras.desc=Arrive on Zerus!
 #############################################################################################
 
 

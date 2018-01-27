@@ -39,6 +39,8 @@ public class Achievements {
 	public static final String ENTER_CHAR = "enterChar";
 	public static final String ENTER_SHAKURAS = "enterShakuras";
 	public static final String ENTER_SLAYN = "enterSlayn";
+	public static final String ENTER_AIUR = "enterAiur";
+	public static final String ENTER_ZERUS = "enterZerus";
 	public static final String ENTER_KORHAL = "enterKorhal";
 	public static final String ENTER_KALDIR = "enterKaldir";
 
