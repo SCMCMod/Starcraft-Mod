@@ -5,6 +5,7 @@ import java.util.Random;
 import ga.scmc.entity.living.EntityNafash;
 import ga.scmc.worldgen.dimchar.CharWorldGenMinable;
 import ga.scmc.worldgen.dimshakuras.ShakurasWorldGenMinable;
+import ga.scmc.worldgen.dimslayn.SlaynWorldGenMinable;
 import ga.scmc.worldgen.dimzerus.ZerusWorldGenMinable;
 import ga.scmc.worldgen.structure.BossSpawner;
 import ga.scmc.worldgen.structure.StructureGeyserTemplate;
@@ -95,6 +96,21 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 		PHOSPHORUS_ZERUS = new ZerusWorldGenMinable(BlockHandler.ORE_PHOSPHORUS_ZERUS.getDefaultState(), 4);
 		DIRT_ZERUS = new ZerusWorldGenMinable(BlockHandler.DIRT_ZERUS.getDefaultState(), 33);
 		GRAVEL_ZERUS = new ZerusWorldGenMinable(BlockHandler.GRAVEL_ZERUS.getDefaultState(), 33);
+		
+		TITANIUM_SLAYN = new SlaynWorldGenMinable(BlockHandler.ORE_TITANIUM_SLAYN.getDefaultState(), 8);
+		URANIUM_SLAYN = new SlaynWorldGenMinable(BlockHandler.ORE_URANIUM_SLAYN.getDefaultState(), 1);
+		COAL_SLAYN = new SlaynWorldGenMinable(BlockHandler.ORE_COAL_SLAYN.getDefaultState(), 16);
+		COPPER_SLAYN = new SlaynWorldGenMinable(BlockHandler.ORE_COPPER_SLAYN.getDefaultState(), 8);
+		DIAMOND_SLAYN = new SlaynWorldGenMinable(BlockHandler.ORE_DIAMOND_SLAYN.getDefaultState(), 8);
+		GOLD_SLAYN = new SlaynWorldGenMinable(BlockHandler.ORE_GOLD_SLAYN.getDefaultState(), 8);
+		IRON_SLAYN = new SlaynWorldGenMinable(BlockHandler.ORE_IRON_SLAYN.getDefaultState(), 8);
+		LAPIS_SLAYN = new SlaynWorldGenMinable(BlockHandler.ORE_LAPIS_SLAYN.getDefaultState(), 8);
+		MINERAL_SLAYN = new SlaynWorldGenMinable(BlockHandler.ORE_MINERAL_SLAYN.getDefaultState(), 8);
+		REDSTONE_SLAYN = new SlaynWorldGenMinable(BlockHandler.ORE_REDSTONE_SLAYN.getDefaultState(), 8);
+		RICHMINERAL_SLAYN = new SlaynWorldGenMinable(BlockHandler.ORE_RICHMINERAL_SLAYN.getDefaultState(), 8);
+		PHOSPHORUS_SLAYN = new SlaynWorldGenMinable(BlockHandler.ORE_PHOSPHORUS_SLAYN.getDefaultState(), 4);
+		DIRT_SLAYN = new SlaynWorldGenMinable(BlockHandler.DIRT_SLAYN.getDefaultState(), 33);
+		GRAVEL_SLAYN = new SlaynWorldGenMinable(BlockHandler.GRAVEL_SLAYN.getDefaultState(), 33);
 
 		TITANIUM_GENERIC = new WorldGenMinable(BlockHandler.ORE_TITANIUM_OW.getDefaultState(), 8);
 		COAL_GENERIC = new WorldGenMinable(Blocks.COAL_ORE.getDefaultState(), 16);
@@ -232,22 +248,28 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 					runGenerator(MINERAL_PATCH, 1, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
 				}
 			} else if (world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_SLAYN) {
-				runGenerator(COAL_GENERIC, world, random, chunkX, chunkZ, 20, 0, 128);
-				runGenerator(COPPER_GENERIC, world, random, chunkX, chunkZ, 15, 4, 64);
-				runGenerator(DIAMOND_GENERIC, world, random, chunkX, chunkZ, 1, 0, 16);
-				runGenerator(GOLD_GENERIC, world, random, chunkX, chunkZ, 2, 0, 32);
-				runGenerator(IRON_GENERIC, world, random, chunkX, chunkZ, 20, 0, 64);
-				runGenerator(LAPIS_GENERIC, world, random, chunkX, chunkZ, 1, 0, 16);
-				runGenerator(MINERAL_GENERIC, world, random, chunkX, chunkZ, 12, 28, 50);
-				runGenerator(REDSTONE_GENERIC, world, random, chunkX, chunkZ, 8, 0, 16);
-				runGenerator(RICHMINERAL_GENERIC, world, random, chunkX, chunkZ, 6, 4, 28);
-				runGenerator(TITANIUM_GENERIC, world, random, chunkX, chunkZ, 3, 4, 28);
-				runGenerator(PHOSPHORUS_OVERWORLD, world, random, chunkX, chunkZ, 5, 12, 48);
-				runGenerator(DIRT_GENERIC, world, random, chunkX, chunkZ, 20, 0, 128);
-				runGenerator(GRAVEL_GENERIC, world, random, chunkX, chunkZ, 10, 0, 128);
+				runGenerator(COAL_SLAYN, world, random, chunkX, chunkZ, 20, 0, 128);
+				runGenerator(COPPER_SLAYN, world, random, chunkX, chunkZ, 15, 4, 64);
+				runGenerator(DIAMOND_SLAYN, world, random, chunkX, chunkZ, 1, 0, 16);
+				runGenerator(GOLD_SLAYN, world, random, chunkX, chunkZ, 2, 0, 32);
+				runGenerator(IRON_SLAYN, world, random, chunkX, chunkZ, 20, 0, 64);
+				runGenerator(LAPIS_SLAYN, world, random, chunkX, chunkZ, 1, 0, 16);
+				runGenerator(MINERAL_SLAYN, world, random, chunkX, chunkZ, 12, 28, 50);
+				runGenerator(REDSTONE_SLAYN, world, random, chunkX, chunkZ, 8, 0, 16);
+				runGenerator(RICHMINERAL_SLAYN, world, random, chunkX, chunkZ, 6, 4, 28);
+				runGenerator(TITANIUM_SLAYN, world, random, chunkX, chunkZ, 3, 4, 28);
+				runGenerator(PHOSPHORUS_SLAYN, world, random, chunkX, chunkZ, 5, 12, 48);
+				runGenerator(DIRT_SLAYN, world, random, chunkX, chunkZ, 20, 0, 128);
+				runGenerator(GRAVEL_SLAYN, world, random, chunkX, chunkZ, 10, 0, 128);
 				
-				if (world.getWorldInfo().isMapFeaturesEnabled()) {
+				if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeSlaynProtossCity) {
 					runGenerator(PROTOSS_WARPGATE, 1, 4, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
+				}
+				if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeSlaynProtossCity) {
+					runGenerator(PROTOSS_WARPGATE, 1, 4, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
+				}
+				if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeSlaynProtossCity) {
+					runGenerator(PROTOSS_CYBERNETICS_CORE, 1, 4, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 				}
 			} else if (world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_KORHAL) {
 				runGenerator(COAL_GENERIC, world, random, chunkX, chunkZ, 20, 0, 128);
