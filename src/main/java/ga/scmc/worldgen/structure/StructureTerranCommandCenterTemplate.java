@@ -1263,7 +1263,7 @@ public class StructureTerranCommandCenterTemplate extends SCWorldGenerator {
 		worldIn.setBlockState(bp.add(i + 9, j + 14, k + 16), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(3));
 		worldIn.setBlockState(bp.add(i + 9, j + 14, k + 17), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(3));
 		worldIn.setBlockState(bp.add(i + 9, j + 14, k + 18), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(3));
-		worldIn.setBlockState(bp.add(i + 10, j + 0, k + 0), Blocks.GOLD_BLOCK.getDefaultState());
+		worldIn.setBlockState(bp.add(i + 10, j + 0, k + 0), BlockHandler.TERRAN_WARNING_TAPE.getDefaultState());
 		worldIn.setBlockState(bp.add(i + 10, j + 1, k + 1), (IBlockState)Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.SOUTH));
 		worldIn.setBlockState(bp.add(i + 10, j + 1, k + 2), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 10, j + 1, k + 3), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
@@ -1441,7 +1441,7 @@ public class StructureTerranCommandCenterTemplate extends SCWorldGenerator {
 		worldIn.setBlockState(bp.add(i + 10, j + 14, k + 17), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(3));
 		worldIn.setBlockState(bp.add(i + 10, j + 14, k + 18), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(3));
 		worldIn.setBlockState(bp.add(i + 10, j + 14, k + 19), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(3));
-		worldIn.setBlockState(bp.add(i + 11, j + 0, k + 0), Blocks.GOLD_BLOCK.getDefaultState());
+		worldIn.setBlockState(bp.add(i + 11, j + 0, k + 0), BlockHandler.TERRAN_WARNING_TAPE.getDefaultState());
 		worldIn.setBlockState(bp.add(i + 11, j + 1, k + 1), (IBlockState)Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.SOUTH));
 		worldIn.setBlockState(bp.add(i + 11, j + 1, k + 2), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 11, j + 1, k + 3), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
@@ -1628,7 +1628,7 @@ public class StructureTerranCommandCenterTemplate extends SCWorldGenerator {
 		worldIn.setBlockState(bp.add(i + 11, j + 15, k + 14), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 11, j + 15, k + 15), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 11, j + 15, k + 16), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
-		worldIn.setBlockState(bp.add(i + 12, j + 0, k + 0), Blocks.GOLD_BLOCK.getDefaultState());
+		worldIn.setBlockState(bp.add(i + 12, j + 0, k + 0), BlockHandler.TERRAN_WARNING_TAPE.getDefaultState());
 		worldIn.setBlockState(bp.add(i + 12, j + 1, k + 1), (IBlockState)Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.SOUTH));
 		worldIn.setBlockState(bp.add(i + 12, j + 1, k + 2), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 12, j + 1, k + 3), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
@@ -1827,7 +1827,7 @@ public class StructureTerranCommandCenterTemplate extends SCWorldGenerator {
 		worldIn.setBlockState(bp.add(i + 12, j + 15, k + 14), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 12, j + 15, k + 15), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 12, j + 15, k + 16), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
-		worldIn.setBlockState(bp.add(i + 13, j + 0, k + 0), Blocks.GOLD_BLOCK.getDefaultState());
+		worldIn.setBlockState(bp.add(i + 13, j + 0, k + 0), BlockHandler.TERRAN_WARNING_TAPE.getDefaultState());
 		worldIn.setBlockState(bp.add(i + 13, j + 1, k + 1), (IBlockState)Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.SOUTH));
 		worldIn.setBlockState(bp.add(i + 13, j + 1, k + 2), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 13, j + 1, k + 3), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
@@ -2035,7 +2035,7 @@ public class StructureTerranCommandCenterTemplate extends SCWorldGenerator {
 		worldIn.setBlockState(bp.add(i + 13, j + 15, k + 14), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 13, j + 15, k + 15), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 13, j + 15, k + 16), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
-		worldIn.setBlockState(bp.add(i + 14, j + 0, k + 0), Blocks.GOLD_BLOCK.getDefaultState());
+		worldIn.setBlockState(bp.add(i + 14, j + 0, k + 0), BlockHandler.TERRAN_WARNING_TAPE.getDefaultState());
 		worldIn.setBlockState(bp.add(i + 14, j + 1, k + 1), (IBlockState)Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.SOUTH));
 		worldIn.setBlockState(bp.add(i + 14, j + 1, k + 2), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 14, j + 1, k + 3), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
@@ -2234,7 +2234,7 @@ public class StructureTerranCommandCenterTemplate extends SCWorldGenerator {
 		worldIn.setBlockState(bp.add(i + 14, j + 15, k + 14), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 14, j + 15, k + 15), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 14, j + 15, k + 16), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
-		worldIn.setBlockState(bp.add(i + 15, j + 0, k + 0), Blocks.GOLD_BLOCK.getDefaultState());
+		worldIn.setBlockState(bp.add(i + 15, j + 0, k + 0), BlockHandler.TERRAN_WARNING_TAPE.getDefaultState());
 		worldIn.setBlockState(bp.add(i + 15, j + 1, k + 1), (IBlockState)Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.SOUTH));
 		worldIn.setBlockState(bp.add(i + 15, j + 1, k + 2), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 15, j + 1, k + 3), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
@@ -2421,7 +2421,7 @@ public class StructureTerranCommandCenterTemplate extends SCWorldGenerator {
 		worldIn.setBlockState(bp.add(i + 15, j + 15, k + 14), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 15, j + 15, k + 15), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 15, j + 15, k + 16), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
-		worldIn.setBlockState(bp.add(i + 16, j + 0, k + 0), Blocks.GOLD_BLOCK.getDefaultState());
+		worldIn.setBlockState(bp.add(i + 16, j + 0, k + 0), BlockHandler.TERRAN_WARNING_TAPE.getDefaultState());
 		worldIn.setBlockState(bp.add(i + 16, j + 1, k + 1), (IBlockState)Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.SOUTH));
 		worldIn.setBlockState(bp.add(i + 16, j + 1, k + 2), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 16, j + 1, k + 3), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
