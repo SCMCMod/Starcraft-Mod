@@ -135,25 +135,7 @@ public class RenderSkyAiur extends IRenderHandler {
 				Draw.tessellate();
 			}
 			OpenGL.popMatrix();
-
-			OpenGL.pushMatrix();
-			{
-				float scale = 175.0F;
-				OpenGL.translate(30F, 0F, 0F);
-				OpenGL.rotate(DimensionUtil.calculateCelestialAngle(world.getWorldTime(), partialTicks) * 360.0F, 0.0F, 1.0F, 0.0F);
-				OpenGL.color(1.0F, 1.0F, 1.0F, 1.0F);
-				OpenGL.rotate(DimensionUtil.calculateCelestialAngle(world.getWorldTime(), partialTicks) * 360.0F, 10.0F, -6.0F, -20.0F);
-				OpenGL.rotate(135F, 0.0F, 1.0F, 0.0F);
-				TextureUtils.bindTexture("textures/world/Midr-IV.png");
-				Draw.startQuads();
-				Draw.vertex(-scale, 150.0D, -scale, 0.0D, 0.0D).endVertex();
-				Draw.vertex(scale, 150.0D, -scale, 1.0D, 0.0D).endVertex();
-				Draw.vertex(scale, 150.0D, scale, 1.0D, 1.0D).endVertex();
-				Draw.vertex(-scale, 150.0D, scale, 0.0D, 1.0D).endVertex();
-				Draw.tessellate();
-			}
-			OpenGL.popMatrix();
-
+			
 			OpenGL.blendClear();
 			GlStateManager.disableBlend();
 			GlStateManager.enableAlpha();
