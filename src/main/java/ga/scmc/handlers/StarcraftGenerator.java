@@ -61,6 +61,21 @@ public class StarcraftGenerator {
 	protected WorldGenerator COAL_ZERUS;
 	protected WorldGenerator TITANIUM_ZERUS;
 	protected WorldGenerator RICHMINERAL_ZERUS;
+	
+	protected WorldGenerator DIRT_SLAYN;
+	protected WorldGenerator GOLD_SLAYN;
+	protected WorldGenerator GRAVEL_SLAYN;
+	protected WorldGenerator IRON_SLAYN;
+	protected WorldGenerator URANIUM_SLAYN;
+	protected WorldGenerator PHOSPHORUS_SLAYN;
+	protected WorldGenerator LAPIS_SLAYN;
+	protected WorldGenerator MINERAL_SLAYN;
+	protected WorldGenerator REDSTONE_SLAYN;
+	protected WorldGenerator COPPER_SLAYN;
+	protected WorldGenerator DIAMOND_SLAYN;
+	protected WorldGenerator COAL_SLAYN;
+	protected WorldGenerator TITANIUM_SLAYN;
+	protected WorldGenerator RICHMINERAL_SLAYN;
 
 	protected WorldGenerator COAL_GENERIC;
 	protected WorldGenerator IRON_GENERIC;

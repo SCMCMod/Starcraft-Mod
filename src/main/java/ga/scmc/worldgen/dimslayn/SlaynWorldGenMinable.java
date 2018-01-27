@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.google.common.base.Predicate;
 
+import ga.scmc.handlers.BlockHandler;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.init.Blocks;
@@ -20,7 +21,7 @@ public class SlaynWorldGenMinable extends WorldGenerator {
 	private final Predicate<IBlockState> predicate;
 
 	public SlaynWorldGenMinable(IBlockState state, int blockCount) {
-		this(state, blockCount, BlockMatcher.forBlock(Blocks.STONE));
+		this(state, blockCount, BlockMatcher.forBlock(BlockHandler.STONE_SLAYN));
 	}
 
 	public SlaynWorldGenMinable(IBlockState state, int blockCount, Predicate<IBlockState> p_i45631_3_) {
