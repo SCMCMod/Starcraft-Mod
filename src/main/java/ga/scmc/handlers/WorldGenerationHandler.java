@@ -340,6 +340,10 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 				if (world.getWorldInfo().isMapFeaturesEnabled()) {
 					runGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 				}
+			} else if(world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_AIUR) {
+				if (world.getWorldInfo().isMapFeaturesEnabled()) {
+					runGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
+				}
 			}
 			break;
 		}
