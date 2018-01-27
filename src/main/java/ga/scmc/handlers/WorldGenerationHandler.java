@@ -247,7 +247,7 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 				runGenerator(GRAVEL_GENERIC, world, random, chunkX, chunkZ, 10, 0, 128);
 				
 				if (world.getWorldInfo().isMapFeaturesEnabled()) {
-					runGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
+					runGenerator(PROTOSS_WARPGATE, 1, 4, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 				}
 			} else if (world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_KORHAL) {
 				runGenerator(COAL_GENERIC, world, random, chunkX, chunkZ, 20, 0, 128);
