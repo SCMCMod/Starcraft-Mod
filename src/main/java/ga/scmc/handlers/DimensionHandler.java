@@ -14,25 +14,12 @@ import net.minecraftforge.common.DimensionManager;
 public class DimensionHandler {
 	
 	public static DimensionType char_dt = null;
-	public static final WorldType CHAR_WT = new WorldType("CHAR");
-
 	public static DimensionType shakuras_dt = null;
-	public static final WorldType SHAKURAS_WT = new WorldType("SHAKURAS");
-
 	public static DimensionType slayn_dt = null;
-	public static final WorldType SLAYN_WT = new WorldType("SLAYN");
-	
 	public static DimensionType korhal_dt = null;
-	public static final WorldType KORHAL_WT = new WorldType("KORHAL");
-	
 	public static DimensionType kaldir_dt = null;
-	public static final WorldType KALDIR_WT = new WorldType("KALDIR");
-
 	public static DimensionType aiur_dt = null;
-	public static final WorldType AIUR_WT = new WorldType("AIUR");
-
 	public static DimensionType zerus_dt = null;
-	public static final WorldType ZERUS_WT = new WorldType("ZERUS");
 
 	public static void preInit() {
 		char_dt = DimensionType.register("Char", "_starcraft", ConfigurationHandler.INT_DIMENSION_CHAR, WorldProviderChar.class, true);

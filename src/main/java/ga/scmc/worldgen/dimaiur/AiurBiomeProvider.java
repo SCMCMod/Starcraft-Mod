@@ -36,7 +36,7 @@ public class AiurBiomeProvider extends BiomeProvider {
 	}
 
 	public AiurBiomeProvider(WorldInfo info) {
-		this(info.getSeed(), DimensionHandler.AIUR_WT, info.getGeneratorOptions());
+		this(info.getSeed(), WorldType.DEFAULT, info.getGeneratorOptions());
 	}
 
 	@Override

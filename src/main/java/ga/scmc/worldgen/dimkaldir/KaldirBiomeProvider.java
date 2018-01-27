@@ -36,7 +36,7 @@ public class KaldirBiomeProvider extends BiomeProvider {
 	}
 
 	public KaldirBiomeProvider(WorldInfo info) {
-		this(info.getSeed(), DimensionHandler.KALDIR_WT, info.getGeneratorOptions());
+		this(info.getSeed(), WorldType.DEFAULT, info.getGeneratorOptions());
 	}
 
 	@Override

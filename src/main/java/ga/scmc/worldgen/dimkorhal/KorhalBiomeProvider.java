@@ -36,7 +36,7 @@ public class KorhalBiomeProvider extends BiomeProvider {
 	}
 
 	public KorhalBiomeProvider(WorldInfo info) {
-		this(info.getSeed(), DimensionHandler.KORHAL_WT, info.getGeneratorOptions());
+		this(info.getSeed(), WorldType.DEFAULT, info.getGeneratorOptions());
 	}
 
 	@Override

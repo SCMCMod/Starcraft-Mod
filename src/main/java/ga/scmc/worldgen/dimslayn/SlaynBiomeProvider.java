@@ -36,7 +36,7 @@ public class SlaynBiomeProvider extends BiomeProvider {
 	}
 
 	public SlaynBiomeProvider(WorldInfo info) {
-		this(info.getSeed(), DimensionHandler.AIUR_WT, info.getGeneratorOptions());
+		this(info.getSeed(), WorldType.DEFAULT, info.getGeneratorOptions());
 	}
 
 	@Override

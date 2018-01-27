@@ -36,7 +36,7 @@ public class CharBiomeProvider extends BiomeProvider {
 	}
 
 	public CharBiomeProvider(WorldInfo info) {
-		this(info.getSeed(), DimensionHandler.CHAR_WT, info.getGeneratorOptions());
+		this(info.getSeed(), WorldType.DEFAULT, info.getGeneratorOptions());
 	}
 	
 	@Override

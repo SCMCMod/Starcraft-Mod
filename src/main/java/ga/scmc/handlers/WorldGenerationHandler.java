@@ -22,6 +22,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldType;
 import net.minecraft.world.chunk.IChunkGenerator;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
@@ -133,8 +134,17 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 		case 0: // Overworld
 			runGenerator(COPPER_OVERWORLD, world, random, chunkX, chunkZ, 15, 4, 64);
 			runGenerator(TITANIUM_OVERWORLD, world, random, chunkX, chunkZ, 3, 4, 28);
-			if (world.rand.nextInt(100) < 25 && world.getWorldInfo().isMapFeaturesEnabled()) {
-				runGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100, true);
+			if (world.getWorldInfo().isMapFeaturesEnabled() && world.getWorldInfo().getTerrainType() != WorldType.FLAT) {
+				runGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 10, 0, 100, true);
+			}
+			if (world.getWorldInfo().isMapFeaturesEnabled() && world.getWorldInfo().getTerrainType() != WorldType.FLAT) {
+				runGenerator(TERRAN_BUNKER, world, random, chunkX, chunkZ, 0, 0, 0, 10, 0, 100, true);
+			}
+			if (world.getWorldInfo().isMapFeaturesEnabled() && world.getWorldInfo().getTerrainType() != WorldType.FLAT) {
+				runGenerator(TERRAN_BARRACKS, world, random, chunkX, chunkZ, 0, 0, 0, 10, 0, 100, true);
+			}
+			if (world.getWorldInfo().isMapFeaturesEnabled() && world.getWorldInfo().getTerrainType() != WorldType.FLAT) {
+				runGenerator(TERRAN_COMMAND_CENTER, world, random, chunkX, chunkZ, 0, 0, 0, 10, 0, 100, true);
 			}
 
 		case -1: // Nether
