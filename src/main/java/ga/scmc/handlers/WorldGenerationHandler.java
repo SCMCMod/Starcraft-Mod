@@ -232,6 +232,20 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 					runGenerator(MINERAL_PATCH, 1, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
 				}
 			} else if (world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_SLAYN) {
+				runGenerator(COAL_GENERIC, world, random, chunkX, chunkZ, 20, 0, 128);
+				runGenerator(COPPER_GENERIC, world, random, chunkX, chunkZ, 15, 4, 64);
+				runGenerator(DIAMOND_GENERIC, world, random, chunkX, chunkZ, 1, 0, 16);
+				runGenerator(GOLD_GENERIC, world, random, chunkX, chunkZ, 2, 0, 32);
+				runGenerator(IRON_GENERIC, world, random, chunkX, chunkZ, 20, 0, 64);
+				runGenerator(LAPIS_GENERIC, world, random, chunkX, chunkZ, 1, 0, 16);
+				runGenerator(MINERAL_GENERIC, world, random, chunkX, chunkZ, 12, 28, 50);
+				runGenerator(REDSTONE_GENERIC, world, random, chunkX, chunkZ, 8, 0, 16);
+				runGenerator(RICHMINERAL_GENERIC, world, random, chunkX, chunkZ, 6, 4, 28);
+				runGenerator(TITANIUM_GENERIC, world, random, chunkX, chunkZ, 3, 4, 28);
+				runGenerator(PHOSPHORUS_OVERWORLD, world, random, chunkX, chunkZ, 5, 12, 48);
+				runGenerator(DIRT_GENERIC, world, random, chunkX, chunkZ, 20, 0, 128);
+				runGenerator(GRAVEL_GENERIC, world, random, chunkX, chunkZ, 10, 0, 128);
+				
 				if (world.getWorldInfo().isMapFeaturesEnabled()) {
 					runGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 				}
@@ -341,6 +355,20 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 					runGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 				}
 			} else if(world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_AIUR) {
+				runGenerator(COAL_GENERIC, world, random, chunkX, chunkZ, 20, 0, 128);
+				runGenerator(COPPER_GENERIC, world, random, chunkX, chunkZ, 15, 4, 64);
+				runGenerator(DIAMOND_GENERIC, world, random, chunkX, chunkZ, 1, 0, 16);
+				runGenerator(GOLD_GENERIC, world, random, chunkX, chunkZ, 2, 0, 32);
+				runGenerator(IRON_GENERIC, world, random, chunkX, chunkZ, 20, 0, 64);
+				runGenerator(LAPIS_GENERIC, world, random, chunkX, chunkZ, 1, 0, 16);
+				runGenerator(MINERAL_GENERIC, world, random, chunkX, chunkZ, 12, 28, 50);
+				runGenerator(REDSTONE_GENERIC, world, random, chunkX, chunkZ, 8, 0, 16);
+				runGenerator(RICHMINERAL_GENERIC, world, random, chunkX, chunkZ, 6, 4, 28);
+				runGenerator(TITANIUM_GENERIC, world, random, chunkX, chunkZ, 3, 4, 28);
+				runGenerator(PHOSPHORUS_OVERWORLD, world, random, chunkX, chunkZ, 5, 12, 48);
+				runGenerator(DIRT_GENERIC, world, random, chunkX, chunkZ, 20, 0, 128);
+				runGenerator(GRAVEL_GENERIC, world, random, chunkX, chunkZ, 10, 0, 128);
+				
 				if (world.getWorldInfo().isMapFeaturesEnabled()) {
 					runGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 				}
