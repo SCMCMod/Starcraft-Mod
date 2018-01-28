@@ -51,9 +51,10 @@ import ga.scmc.tileentity.TileEntityGasCollector;
 import ga.scmc.tileentity.TileEntityKaldirBrambles;
 import ga.scmc.tileentity.TileEntityProtossFurnace;
 import ga.scmc.tileentity.TileEntityProtossPowerCore;
+import ga.scmc.tileentity.TileEntityProtossWormhole;
 import ga.scmc.tileentity.TileEntityStarcraftFurnace;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
-import ga.scmc.tileentity.TileEntityWarpGateWormhole;
+import ga.scmc.tileentity.TileEntityProtossWormhole;
 import ga.scmc.tileentity.TileEntityZerusGlowPod;
 import ga.scmc.tileentity.TileEntityZerusLightcap;
 import net.minecraft.entity.Entity;
@@ -133,7 +134,7 @@ public class EntityHandler {
 	private static void registerTileEntities() {
 		registerTileEntity(TileEntityGasCollector.class);
 		registerTileEntity(TileEntityProtossPowerCore.class);
-		registerTileEntity(TileEntityWarpGateWormhole.class);
+		registerTileEntity(TileEntityProtossWormhole.class);
 		registerTileEntity(TileEntityStarcraftSkull.class);
 		registerTileEntity(TileEntityStarcraftFurnace.class);
 		registerTileEntity(TileEntityProtossFurnace.class);

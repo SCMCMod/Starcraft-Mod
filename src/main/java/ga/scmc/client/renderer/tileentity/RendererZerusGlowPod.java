@@ -6,7 +6,13 @@ import ga.scmc.tileentity.TileEntityZerusGlowPod;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
+/**
+ * @author Ocelot5836
+ */
+@SideOnly(Side.CLIENT)
 public class RendererZerusGlowPod extends TileEntitySpecialRenderer<TileEntityZerusGlowPod> {
 
 	private static final ModelZerusGlowPod MODEL = new ModelZerusGlowPod();

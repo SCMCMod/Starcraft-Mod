@@ -6,13 +6,19 @@
     "overrides": [
         {
             "predicate": {
-                "skin": 0
+                "skin": 1
+            },
+            "model": "starcraft:item/log/missing"
+        },
+		{
+            "predicate": {
+                "skin": 2
             },
             "model": "starcraft:item/log/default"
         },
         {
             "predicate": {
-                "skin": 1
+                "skin": 3
             },
             "model": "starcraft:item/log/test"
         }

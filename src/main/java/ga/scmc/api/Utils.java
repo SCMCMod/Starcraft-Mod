@@ -3,11 +3,14 @@ package ga.scmc.api;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.FloatBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.codec.language.bm.Lang;
 import org.apache.logging.log4j.Logger;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.util.vector.Matrix4f;
 
 import com.arisux.mdx.lib.world.entity.player.inventory.Inventories;
 import com.google.gson.Gson;
@@ -16,6 +19,8 @@ import ga.scmc.Starcraft;
 import ga.scmc.items.metaitems.ItemMagazine;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.GLAllocation;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumDyeColor;
@@ -39,11 +44,26 @@ import net.minecraftforge.oredict.OreDictionary;
  */
 public class Utils {
 
+	public static final FloatBuffer projection = GLAllocation.createDirectFloatBuffer(16);
+	public static final FloatBuffer modelview = GLAllocation.createDirectFloatBuffer(16);
+
 	/**
 	 * Makes the variables which will be initialized when there getter method is called
 	 */
 	private static Lang lang;
 
+	/**
+	 * @return The player's projection matrix
+	 */
+	public static Matrix4f getProjectionMatrix() {
+		GlStateManager.getFloat(GL11.GL_PROJECTION_MATRIX, projection);
+		GlStateManager.getFloat(GL11.GL_MODELVIEW_MATRIX, modelview);
+		Matrix4f projectionMatrix = (Matrix4f) new Matrix4f().load(projection.asReadOnlyBuffer());
+		Matrix4f modelViewMatrix = (Matrix4f) new Matrix4f().load(modelview.asReadOnlyBuffer());
+		Matrix4f result = Matrix4f.mul(modelViewMatrix, projectionMatrix, null);
+		return result;
+	}
+	
 	/**
 	 * Returns the logger. This makes System.out.println look shabby
 	 * 

@@ -5,7 +5,7 @@ import java.util.Random;
 import com.arisux.mdx.lib.client.entityfx.EntityFXElectricArc;
 import com.arisux.mdx.lib.game.Game;
 
-import ga.scmc.tileentity.TileEntityWarpGateWormhole;
+import ga.scmc.tileentity.TileEntityProtossWormhole;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
@@ -40,11 +40,13 @@ public class BlockProtossWormhole extends Block implements ITileEntityProvider {
 	}
 
 	@Override
-	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-		TileEntityWarpGateWormhole te = (TileEntityWarpGateWormhole) worldIn.getTileEntity(pos);
-		this.spawnElectricArc(worldIn, pos, rand, pos.getX(), pos.getY(), pos.getZ(), te.getColor());
+	public void randomDisplayTick(IBlockState stateIn, World world, BlockPos pos, Random rand) {
+		if (world.getTileEntity(pos) instanceof TileEntityProtossWormhole) {
+			TileEntityProtossWormhole te = (TileEntityProtossWormhole) world.getTileEntity(pos);
+			this.spawnElectricArc(world, pos, rand, pos.getX(), pos.getY(), pos.getZ(), te.getColor());
+		}
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	private void spawnElectricArc(World world, BlockPos pos, Random rand, double posX, double posY, double posZ, int color) {
 		Game.minecraft().effectRenderer.addEffect(new EntityFXElectricArc(world, pos.getX(), pos.getY(), pos.getZ(), posX + (rand.nextInt(4) - 2), posY, posZ + (rand.nextInt(4) - 2), 10, 2.5F, 0.5F, 0.05F, color));
@@ -68,6 +70,6 @@ public class BlockProtossWormhole extends Block implements ITileEntityProvider {
 
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		return new TileEntityWarpGateWormhole();
+		return new TileEntityProtossWormhole();
 	}
 }
