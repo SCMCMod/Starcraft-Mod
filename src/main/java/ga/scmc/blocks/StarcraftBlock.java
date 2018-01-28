@@ -1,5 +1,6 @@
 package ga.scmc.blocks;
 
+import java.util.Arrays;
 import java.util.List;
 
 import ga.scmc.lib.Library;
@@ -20,11 +21,10 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import scala.actors.threadpool.Arrays;
 
 public class StarcraftBlock extends Block {
 
-	private Item[] droppedItems;
+	private ItemStack[] droppedItems;
 	private ItemBlock item;
 
 	public StarcraftBlock(Material material) {
@@ -141,7 +141,7 @@ public class StarcraftBlock extends Block {
 		return this;
 	}
 
-	public StarcraftBlock setItemDropped(Item... droppedItems) {
+	public StarcraftBlock setItemDropped(ItemStack... droppedItems) {
 		this.droppedItems = droppedItems;
 		return this;
 	}
