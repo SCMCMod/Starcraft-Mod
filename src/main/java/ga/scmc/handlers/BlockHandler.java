@@ -97,6 +97,7 @@ public class BlockHandler {
 	public static Block CORE_WARPGATE_KHALAI;
 	public static Block CORE_WARPGATE_VOID;
 	public static Block CORE_BARRACKS;
+	public static Block CORE_COMMANDCENTER;
 	public static Block DIM_PORTAL_CHAR;
 	public static Block DIM_PORTAL_OVERWORLD;
 	public static Block DIM_PORTAL_SHAKURAS;
@@ -384,6 +385,7 @@ public class BlockHandler {
 		CORE_WARPGATE_KHALAI = new StarcraftProtossCoreBlock("protoss.warpgatecore.khalai", RegistryType.FULL, Material.IRON, MapColor.YELLOW).setDomeSize(-5, 16, 13, 3);
 
 		CORE_BARRACKS = new StarcraftTerranCoreBlock("terran.barrackscore", RegistryType.FULL, Material.IRON, MapColor.BLUE);
+		CORE_COMMANDCENTER = new StarcraftTerranCoreBlock("terran.commandcentercore", RegistryType.FULL, Material.IRON, MapColor.BLUE);
 
 		ENTITY_SPAWNER = new BlockEntitySpawner("block.entityspawner", 5);
 
