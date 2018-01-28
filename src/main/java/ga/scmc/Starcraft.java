@@ -52,6 +52,7 @@ import net.minecraftforge.fml.relauncher.Side;
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
  * 
  * @author Hypeirochus
+ * @author Ocelot
  */
 @Mod(modid = Library.MODID, acceptedMinecraftVersions = "[1.10.2]", useMetadata = true, version = "${version}", dependencies = "required-after:mdxlib")
 public class Starcraft {
