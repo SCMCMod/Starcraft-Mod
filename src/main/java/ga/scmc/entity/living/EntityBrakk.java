@@ -53,8 +53,8 @@ public class EntityBrakk extends EntityZergMob implements IMob, Predicate<Entity
 	public EntityBrakk(World world) {
 		super(world);
 		setSize(3.0F, 3.0F);
-		experienceValue = 300;
-		this.baseHealth = 300;
+		experienceValue = 1000;
+		this.baseHealth = 1000;
 		this.setTeamColor(EnumTeamColors.CYAN);
 		this.setFactions(EnumFactionTypes.PRIMALPACKBRAKK);
 		setTypes(EnumTypeAttributes.MASSIVE, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND, EnumTypeAttributes.ARMORED, EnumTypeAttributes.HEROIC);
@@ -142,7 +142,7 @@ public class EntityBrakk extends EntityZergMob implements IMob, Predicate<Entity
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(300.0D);
+		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1000.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.17000000417232513D);
 		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(16.0D);
 		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12.0D);
