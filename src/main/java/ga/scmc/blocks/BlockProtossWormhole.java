@@ -6,7 +6,8 @@ import com.arisux.mdx.lib.client.entityfx.EntityFXElectricArc;
 import com.arisux.mdx.lib.game.Game;
 
 import ga.scmc.tileentity.TileEntityProtossWormhole;
-import net.minecraft.block.BlockContainer;
+import net.minecraft.block.Block;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -21,7 +22,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockProtossWormhole extends BlockContainer {
+public class BlockProtossWormhole extends Block implements ITileEntityProvider {
 
 	public BlockProtossWormhole() {
 		super(Material.ROCK, MapColor.BLACK);

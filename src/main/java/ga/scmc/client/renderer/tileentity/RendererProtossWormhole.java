@@ -20,8 +20,5 @@ public class RendererProtossWormhole extends TileEntitySpecialRenderer<TileEntit
 	
 	@Override
 	public void renderTileEntityAt(TileEntityProtossWormhole te, double x, double y, double z, float partialTicks, int destroyStage) {
-		GlStateManager.pushMatrix();
-		
-		GlStateManager.popMatrix();
 	}
 }

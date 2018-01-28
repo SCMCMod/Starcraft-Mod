@@ -1,8 +1,5 @@
 package ga.scmc.events;
 
-import ga.scmc.items.ItemLog;
-import ga.scmc.items.ItemLog.EnumLogType;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentString;
@@ -19,6 +16,5 @@ public class OnPlayerLoggedInEvent {
 		EntityPlayer player = event.player;
 		String message = "Running SCMC version 2.0.456!";
 		player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.BLUE)));
-		player.world.spawnEntity(new EntityItem(player.world, player.posX, player.posY, player.posZ, ItemLog.getBook(EnumLogType.SPAWN)));
 	}
 }
