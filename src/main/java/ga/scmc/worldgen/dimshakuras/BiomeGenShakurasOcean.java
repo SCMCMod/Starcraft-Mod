@@ -11,10 +11,10 @@ import net.minecraft.world.chunk.ChunkPrimer;
 
 public class BiomeGenShakurasOcean extends BiomeHandler {
 
-	public BiomeGenShakurasOcean(BiomeProperties id) {
+	public BiomeGenShakurasOcean(BiomeProperties id, String name) {
 		super(id);
 
-		setRegistryName("shakuras_deep_ocean");
+		setRegistryName(name);
 		topBlock = BlockHandler.SAND_SHAKURAS.getDefaultState();
 		fillerBlock = BlockHandler.SAND_SHAKURAS.getDefaultState();
 

@@ -54,7 +54,7 @@ public class CharBiomeProvider extends BiomeProvider {
 			int[] aint = biomeIndexLayer.getInts(x, z, width, length);
 
 			for(int i = 0; i < width * length; ++i) {
-				listToReuse[i] = Biome.getBiome(aint[i], BiomeHandler.biomeAshPlains);
+				listToReuse[i] = Biome.getBiome(aint[i], BiomeHandler.biomeCharAshPlains);
 			}
 
 			return listToReuse;
@@ -76,7 +76,7 @@ public class CharBiomeProvider extends BiomeProvider {
 
 		try {
 			for(int i = 0; i < width * height; ++i) {
-				biomes[i] = Biome.getBiome(aint[i], BiomeHandler.biomeAshPlains);
+				biomes[i] = Biome.getBiome(aint[i], BiomeHandler.biomeCharAshPlains);
 			}
 
 			return biomes;

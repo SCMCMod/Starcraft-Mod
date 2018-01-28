@@ -11,10 +11,10 @@ import net.minecraft.world.chunk.ChunkPrimer;
 
 public class BiomeGenKorhalDesert extends BiomeHandler {
 
-	public BiomeGenKorhalDesert(BiomeProperties id) {
+	public BiomeGenKorhalDesert(BiomeProperties id, String name) {
 		super(id);
 
-		setRegistryName("korhal_desert");
+		setRegistryName(name);
 
 		topBlock = Blocks.SAND.getStateFromMeta(1);
 		fillerBlock = Blocks.RED_SANDSTONE.getDefaultState();

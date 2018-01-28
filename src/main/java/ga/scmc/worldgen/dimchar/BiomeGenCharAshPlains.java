@@ -12,10 +12,10 @@ import net.minecraft.world.chunk.ChunkPrimer;
 
 public class BiomeGenCharAshPlains extends BiomeHandler {
 
-	public BiomeGenCharAshPlains(BiomeProperties id) {
+	public BiomeGenCharAshPlains(BiomeProperties id, String name) {
 		super(id);
 
-		setRegistryName("ash_plains");
+		setRegistryName(name);
 
 		topBlock = BlockHandler.DIRT_CHAR.getDefaultState();
 		fillerBlock = BlockHandler.DIRT_CHAR.getDefaultState();
