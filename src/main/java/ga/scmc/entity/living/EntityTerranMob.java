@@ -11,10 +11,7 @@ public class EntityTerranMob extends EntityStarcraftMob {
 	
 	@Override
 	public boolean getCanSpawnHere() {
-		if(this.world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_KORHAL) {
-			return true;
-		}
-		return false;
+		return true;
 	}
 
 }

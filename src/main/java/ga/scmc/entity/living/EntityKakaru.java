@@ -34,14 +34,6 @@ public class EntityKakaru extends EntityCritterFlying {
 	}
 
 	@Override
-	public boolean getCanSpawnHere() {
-		if (this.dimension == ConfigurationHandler.INT_DIMENSION_SHAKURAS) {
-			return true;
-		}
-		return false;
-	}
-
-	@Override
 	public int getMaxSpawnedInChunk() {
 		return 1;
 	}

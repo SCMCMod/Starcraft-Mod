@@ -35,6 +35,11 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	public EntityStarcraftMob(World world) {
 		super(world);
 	}
+	
+	@Override
+	public boolean getCanSpawnHere() {
+		return true;
+	}
 
 	public boolean isType(EnumTypeAttributes type) {
 		for (int x = 0; x < types.size(); x++) {

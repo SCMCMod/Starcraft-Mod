@@ -13,4 +13,9 @@ public class EntityProtossPassive extends EntityStarcraftPassive {
 	public EntityAgeable createChild(EntityAgeable entity) {
 		return null;
 	}
+	
+	@Override
+	public boolean getCanSpawnHere() {
+		return true;
+	}
 }
