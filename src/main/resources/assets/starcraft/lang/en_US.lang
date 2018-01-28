@@ -682,31 +682,34 @@ gui.buy=Buy
 achievement.pageStarcraft=Starcraft
 
 achievement.mineMinerals=Ooo, Shiny!
-achievement.mineMinerals.desc=Get mineral shards!
+achievement.mineMinerals.desc=Get Mineral Shards!
 
 achievement.mineRichMinerals=Shinier!
-achievement.mineRichMinerals.desc=Get rich mineral shards!
+achievement.mineRichMinerals.desc=Get Rich Mineral Shards!
 
 achievement.mineVespene=Vespene Geyser Depleted!
-achievement.mineVespene.desc=Obtain vespene!
+achievement.mineVespene.desc=Obtain Vespene!
 				
 achievement.getC14GaussRifle=Hell, It's About Time!
-achievement.getC14GaussRifle.desc=Obtain a C14 gauss rifle!
+achievement.getC14GaussRifle.desc=Obtain a C14 Gauss Rifle!
+
+achievement.getFlamethrower=Let's Burn!
+achievement.getFlamethrower.desc=Obtain a Flamethrower!
 
 achievement.getPsiBladeFocuser=Embrace Purity
-achievement.getPsiBladeFocuser.desc=Obtain a psi blade focuser!
+achievement.getPsiBladeFocuser.desc=Obtain a Psi Blade Focuser!
 
 achievement.getPsiBladeFocuserDark=Embrace Corruption
-achievement.getPsiBladeFocuserDark.desc=Obtain a psi blade focuser (dark)!
+achievement.getPsiBladeFocuserDark.desc=Obtain a Psi Blade Focuser (dark)!
 
 achievement.getPsiBlade=My Life for Aiur!
-achievement.getPsiBlade.desc=Obtain a psi blade!
+achievement.getPsiBlade.desc=Obtain a Psi Blade!
 
 achievement.getPsiBladeDark=Amon's Will
-achievement.getPsiBladeDark.desc=Obtain a bane blade!
+achievement.getPsiBladeDark.desc=Obtain a Bane Blade!
 
 achievement.getWarpBlade=For Shakuras!
-achievement.getWarpBlade.desc=Obtain a warp blade!
+achievement.getWarpBlade.desc=Obtain a Warp Blade!
 
 achievement.getMasterPsiBlade=En Taro Zeratul...
 achievement.getMasterPsiBlade.desc=Obtain Zeratul's Master Psi Blade!

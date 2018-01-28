@@ -17,6 +17,7 @@ public enum EnumAchievements {
 	MINED_RICH_MINERALS(Achievements.MINED_RICH_MINERALS, 1, 0, new ItemStack(ItemHandler.MINERAL_SHARD, 1, 1), Achievements.MINED_MINERALS), 
 	MINED_VESPENE(Achievements.MINED_VESPENE, 0, 1, new ItemStack(ItemHandler.VESPENE, 0, 3)), 
 	GET_C14_GAUSS_RIFLE(Achievements.GET_C14_GAUSS_RIFLE, 6, 0, new ItemStack(ItemHandler.C14_GAUSS_RIFLE), null, true), 
+	GET_FLAMETHROWER(Achievements.GET_FLAMETHROWER, 6, 1, new ItemStack(ItemHandler.FLAMETHROWER), null, true), 
 	GET_PSI_BLADE_FOCUSER(Achievements.GET_PSI_BLADE_FOCUSER, 3, 0, new ItemStack(ItemHandler.PSI_BLADE_FOCUSER_UNCHARGED)), 
 	GET_PSI_BLADE(Achievements.GET_PSI_BLADE, 3, 1, new ItemStack(WeaponHandler.PSI_BLADE), Achievements.GET_PSI_BLADE_FOCUSER), 
 	GET_PSI_BLADE_FOCUSER_DARK(Achievements.GET_PSI_BLADE_FOCUSER_DARK, 4, 0, new ItemStack(ItemHandler.PSI_BLADE_FOCUSER_UNCHARGED, 1, 1)), 
