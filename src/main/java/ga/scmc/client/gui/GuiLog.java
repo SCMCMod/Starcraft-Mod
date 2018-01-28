@@ -1,24 +1,24 @@
 package ga.scmc.client.gui;
 
-import ga.scmc.items.ItemLog.EnumLogType;
+import ga.scmc.log.Log;
 import ocelot.api.client.gui.book.GuiBookBase;
 import ocelot.api.utils.GuiUtils;
 import ocelot.api.utils.GuiUtils.GuiType;
 
 public class GuiLog extends GuiBookBase {
 
-	private EnumLogType type;
+	private Log log;
 
-	public GuiLog(EnumLogType type) {
+	public GuiLog(Log log) {
 		super(147, 180);
-		this.type = type;
+		this.log = log;
 	}
 
 	@Override
 	public void initText() {
-		this.pages.get(0).title.setText(type.getName());
-		for (int i = 0; i < type.getText().size(); i++) {
-			this.addLine(type.getText().get(i));
+		this.pages.get(0).title.setText(log.getTitle());
+		for (int i = 0; i < log.getText().size(); i++) {
+			this.addLine(log.getText().get(i));
 		}
 	}
 

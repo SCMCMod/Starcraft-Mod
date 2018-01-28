@@ -27,6 +27,7 @@ import ga.scmc.handlers.SoundHandler;
 import ga.scmc.handlers.WavefrontModelHandler;
 import ga.scmc.handlers.WorldGenerationHandler;
 import ga.scmc.lib.Library;
+import ga.scmc.log.LogRegistry;
 import ga.scmc.network.NetworkHandler;
 import ga.scmc.proxy.CommonProxy;
 import ga.scmc.recipes.OreDictionaryHandler;
@@ -65,6 +66,7 @@ public class Starcraft {
 	public static CommonProxy proxy;
 
 	private static Logger logger;
+	private static LogRegistry logRegistry;
 
 	static {
 		FluidRegistry.enableUniversalBucket();
@@ -98,6 +100,8 @@ public class Starcraft {
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
+		logRegistry = new LogRegistry();
+
 		EntityHandler.init();
 		Achievements.init();
 		SimpleRecipes.init();
@@ -123,5 +127,9 @@ public class Starcraft {
 
 	public static Logger getLogger() {
 		return logger;
+	}
+
+	public static LogRegistry getLogRegistry() {
+		return logRegistry;
 	}
 }
