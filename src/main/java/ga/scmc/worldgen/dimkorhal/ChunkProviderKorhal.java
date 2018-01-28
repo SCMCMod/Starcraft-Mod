@@ -5,10 +5,11 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import ga.scmc.handlers.BiomeHandler;
+import ga.scmc.handlers.BlockHandler;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -26,7 +27,6 @@ import net.minecraft.world.gen.MapGenCaves;
 import net.minecraft.world.gen.MapGenRavine;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
-import net.minecraft.world.gen.feature.WorldGenLakes;
 
 public class ChunkProviderKorhal implements IChunkGenerator
 {
@@ -351,28 +351,40 @@ public class ChunkProviderKorhal implements IChunkGenerator
 
         net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.world, this.rand, x, z, flag);
 
-        //TODO: Fix the lake spawning for this
-        if (biome != Biomes.DESERT && biome != Biomes.DESERT_HILLS && this.settings.useWaterLakes && !flag && this.rand.nextInt(this.settings.waterLakeChance) == 0)
-        if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, x, z, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE))
-        {
-            int i1 = this.rand.nextInt(16) + 8;
-            int j1 = this.rand.nextInt(256);
-            int k1 = this.rand.nextInt(16) + 8;
-            (new WorldGenLakes(Blocks.WATER)).generate(this.world, this.rand, blockpos.add(i1, j1, k1));
-        }
+        if (biome != BiomeHandler.biomeKorhalTerranCity && biome != BiomeHandler.biomeKorhalTerranCity && this.settings.useWaterLakes && this.rand.nextInt(this.settings.waterLakeChance * 10) == 0)
+	        if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, world, this.rand, x, z, false, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE))
+	        {
+	            int i1 = this.rand.nextInt(16) + 8;
+	            int j1 = this.rand.nextInt(256);
+	            int k1 = this.rand.nextInt(16) + 8;
+	            (new KorhalGenCustomLakes(Blocks.WATER)).generate(world, this.rand, blockpos.add(i1, j1, k1));
+	        }
 
-        if (!flag && this.rand.nextInt(this.settings.lavaLakeChance / 10) == 0 && this.settings.useLavaLakes)
-        if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, x, z, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAVA))
-        {
-            int i2 = this.rand.nextInt(16) + 8;
-            int l2 = this.rand.nextInt(this.rand.nextInt(248) + 8);
-            int k3 = this.rand.nextInt(16) + 8;
+	        if (biome != BiomeHandler.biomeKorhalTerranCity && biome != BiomeHandler.biomeKorhalTerranCity && this.rand.nextInt(this.settings.lavaLakeChance / 5) == 0 && this.settings.useLavaLakes)
+	        if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, world, this.rand, x, z, false, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAVA))
+	        {
+	            int i2 = this.rand.nextInt(16) + 8;
+	            int l2 = this.rand.nextInt(this.rand.nextInt(248) + 8);
+	            int k3 = this.rand.nextInt(16) + 8;
 
-            if (l2 < this.world.getSeaLevel() || this.rand.nextInt(this.settings.lavaLakeChance / 8) == 0)
-            {
-                (new WorldGenLakes(Blocks.LAVA)).generate(this.world, this.rand, blockpos.add(i2, l2, k3));
-            }
-        }
+	            if (l2 < world.getSeaLevel() || this.rand.nextInt(this.settings.lavaLakeChance / 8) == 0)
+	            {
+	                (new KorhalGenCustomLakes(Blocks.LAVA)).generate(world, this.rand, blockpos.add(i2, l2, k3));
+	            }
+	        }
+	        
+	        if (biome != BiomeHandler.biomeKorhalTerranCity && biome != BiomeHandler.biomeKorhalTerranCity && this.rand.nextInt(this.settings.lavaLakeChance / 10) == 0 && this.settings.useLavaLakes)
+	        if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, world, this.rand, x, z, false, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAVA))
+	        {
+	            int i2 = this.rand.nextInt(16) + 8;
+	            int l2 = this.rand.nextInt(this.rand.nextInt(248) + 8);
+	            int k3 = this.rand.nextInt(16) + 8;
+
+	            if (l2 < world.getSeaLevel() || this.rand.nextInt(this.settings.lavaLakeChance / 8) == 0)
+	            {
+	                (new KorhalGenCustomLakes(BlockHandler.FLUID_TAR)).generate(world, this.rand, blockpos.add(i2, l2, k3));
+	            }
+	        }
 
         //biome.decorate(this.world, this.rand, new BlockPos(i, 0, j));
         if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, x, z, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.ANIMALS))

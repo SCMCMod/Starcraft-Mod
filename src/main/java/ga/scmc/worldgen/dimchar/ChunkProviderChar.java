@@ -352,28 +352,27 @@ public class ChunkProviderChar implements IChunkGenerator
 
         net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.world, this.rand, x, z, flag);
 
-        //TODO: Fix the lake spawning for this
-        if (biome != Biomes.DESERT && biome != Biomes.DESERT_HILLS && this.settings.useWaterLakes && !flag && this.rand.nextInt(this.settings.waterLakeChance) == 0)
-        if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, x, z, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE))
-        {
-            int i1 = this.rand.nextInt(16) + 8;
-            int j1 = this.rand.nextInt(256);
-            int k1 = this.rand.nextInt(16) + 8;
-            (new WorldGenLakes(Blocks.WATER)).generate(this.world, this.rand, blockpos.add(i1, j1, k1));
-        }
+        if (this.settings.useWaterLakes && this.rand.nextInt(this.settings.waterLakeChance * 100) == 0)
+	        if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, world, this.rand, x, z, false, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE))
+	        {
+	            int i1 = this.rand.nextInt(16) + 8;
+	            int j1 = this.rand.nextInt(256);
+	            int k1 = this.rand.nextInt(16) + 8;
+	            (new CharGenCustomLakes(Blocks.WATER)).generate(world, this.rand, blockpos.add(i1, j1, k1));
+	        }
 
-        if (!flag && this.rand.nextInt(this.settings.lavaLakeChance / 10) == 0 && this.settings.useLavaLakes)
-        if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, x, z, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAVA))
-        {
-            int i2 = this.rand.nextInt(16) + 8;
-            int l2 = this.rand.nextInt(this.rand.nextInt(248) + 8);
-            int k3 = this.rand.nextInt(16) + 8;
+	        if (this.rand.nextInt(this.settings.lavaLakeChance / 10) == 0 && this.settings.useLavaLakes)
+	        if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, world, this.rand, x, z, false, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAVA))
+	        {
+	            int i2 = this.rand.nextInt(16) + 8;
+	            int l2 = this.rand.nextInt(this.rand.nextInt(248) + 8);
+	            int k3 = this.rand.nextInt(16) + 8;
 
-            if (l2 < this.world.getSeaLevel() || this.rand.nextInt(this.settings.lavaLakeChance / 8) == 0)
-            {
-                (new WorldGenLakes(Blocks.LAVA)).generate(this.world, this.rand, blockpos.add(i2, l2, k3));
-            }
-        }
+	            if (l2 < world.getSeaLevel() || this.rand.nextInt(this.settings.lavaLakeChance / 8) == 0)
+	            {
+	                (new CharGenCustomLakes(Blocks.LAVA)).generate(world, this.rand, blockpos.add(i2, l2, k3));
+	            }
+	        }
 
        // biome.decorate(this.world, this.rand, new BlockPos(i, 0, j));
         if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, x, z, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.ANIMALS))
