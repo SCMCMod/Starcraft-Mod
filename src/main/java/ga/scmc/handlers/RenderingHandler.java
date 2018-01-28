@@ -259,6 +259,7 @@ import ga.scmc.client.renderer.projectiles.RenderC14GaussRifleBullet;
 import ga.scmc.client.renderer.projectiles.RenderFlamethrowerFlame;
 import ga.scmc.client.renderer.projectiles.RenderHydraliskSpike;
 import ga.scmc.client.renderer.tileentity.RendererKaldirBrambles;
+import ga.scmc.client.renderer.tileentity.RendererProtossWormhole;
 import ga.scmc.client.renderer.tileentity.RendererStarcraftSkull;
 import ga.scmc.client.renderer.tileentity.RendererZerusGlowPod;
 import ga.scmc.client.renderer.tileentity.RendererZerusLightcap;
@@ -320,6 +321,7 @@ import ga.scmc.enums.EnumMetaItem.EnergyType;
 import ga.scmc.enums.EnumMetaItem.ProtossUpgradeType;
 import ga.scmc.lib.Library;
 import ga.scmc.tileentity.TileEntityKaldirBrambles;
+import ga.scmc.tileentity.TileEntityProtossWormhole;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
 import ga.scmc.tileentity.TileEntityZerusGlowPod;
 import ga.scmc.tileentity.TileEntityZerusLightcap;
@@ -450,6 +452,7 @@ public class RenderingHandler {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityZerusGlowPod.class, new RendererZerusGlowPod());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityKaldirBrambles.class, new RendererKaldirBrambles());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityZerusLightcap.class, new RendererZerusLightcap());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityProtossWormhole.class, new RendererProtossWormhole());
 	}
 
 	@SideOnly(Side.CLIENT)

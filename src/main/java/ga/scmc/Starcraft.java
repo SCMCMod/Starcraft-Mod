@@ -65,16 +65,16 @@ public class Starcraft {
 	public static CommonProxy proxy;
 
 	private static Logger logger;
-	
+
 	static {
 		FluidRegistry.enableUniversalBucket();
 	}
-	
+
 	/** Pre Initialization **/
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		logger = event.getModLog();
-		
+
 		ConfigurationHandler.preInit();
 
 		NetworkHandler.preInit();
@@ -87,7 +87,7 @@ public class Starcraft {
 		BiomeHandler.preInit();
 		DimensionHandler.preInit();
 		EntityHandler.preInit();
-		
+
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 			WavefrontModelHandler.preInit();
 			FuelHandler.preInit();
