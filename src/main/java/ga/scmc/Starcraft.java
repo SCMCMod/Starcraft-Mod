@@ -100,8 +100,6 @@ public class Starcraft {
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-		logRegistry = new LogRegistry();
-
 		EntityHandler.init();
 		Achievements.init();
 		SimpleRecipes.init();
@@ -113,7 +111,9 @@ public class Starcraft {
 
 		MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
 		MinecraftForge.EVENT_BUS.register(new OnPlayerLoggedInEvent());
+		
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+			logRegistry = new LogRegistry();
 			MinecraftForge.EVENT_BUS.register(new GuiRenderEventHandler());
 			RenderingHandler.init();
 		}
