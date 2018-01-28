@@ -589,8 +589,8 @@ entity.starcraft.infestedCivilian.name=Infested Civilian
 entity.starcraft.brutalisk.name=Brutalisk
 entity.starcraft.hydralisk.name=Hydralisk
 entity.starcraft.mutalisk.name=Mutalisk
-entity.starcraft.mutaliskBroodlord=Mutalisk (Broodlord Strain)
-entity.starcraft.mutaliskViper=Mutalisk (Viper Strain)
+entity.starcraft.mutaliskBroodlord.name=Mutalisk (Broodlord Strain)
+entity.starcraft.mutaliskViper.name=Mutalisk (Viper Strain)
 
 entity.starcraft.queen.name=Queen
 entity.starcraft.nafash.name=Nafash
@@ -599,8 +599,13 @@ entity.starcraft.mutaliskPrimal.name=Primal Mutalisk
 entity.starcraft.zerglingPrimal1.name=Primal Zergling
 entity.starcraft.zerglingPrimal2.name=Primal Zergling
 entity.starcraft.zerglingPrimal3.name=Primal Zergling
-entity.starcraft.zerglingPrimalDehaka.name=Primal Zergling (Dehaka)
 entity.starcraft.hydraliskPrimal.name=Primal Hydralisk
+entity.starcraft.tyrannozor.name=Tyrannozor
+entity.starcraft.brakk.name=Brakk
+
+entity.starcraft.zerglingPrimalDehaka.name=Primal Zergling (Dehaka)
+entity.starcraft.mutaliskPrimalDehaka.name=Primal Mutalisk (Dehaka)
+entity.starcraft.tyrannozorDehaka.name=Tyrannozor (Dehaka)
 
 entity.starcraft.probe.name=Probe
 entity.starcraft.darkProbe.name=Dark Probe
