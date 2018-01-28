@@ -2,7 +2,6 @@ package ga.scmc.entity.living;
 
 import java.util.Random;
 
-import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.SoundHandler;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
