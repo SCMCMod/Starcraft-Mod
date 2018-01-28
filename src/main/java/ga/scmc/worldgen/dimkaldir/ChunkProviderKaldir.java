@@ -47,8 +47,8 @@ public class ChunkProviderKaldir implements IChunkGenerator
     private ChunkProviderSettings settings;
     private IBlockState oceanBlock = Blocks.WATER.getDefaultState();
     private double[] depthBuffer = new double[256];
-    private MapGenBase caveGenerator = new MapGenCaves();
-    private MapGenBase ravineGenerator = new MapGenRavine();
+    private MapGenBase caveGenerator = new KaldirGenCaves();
+    private MapGenBase ravineGenerator = new KaldirGenRavine();
     private Biome[] biomesForGeneration;
     double[] mainNoiseRegion;
     double[] minLimitRegion;

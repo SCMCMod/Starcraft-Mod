@@ -48,8 +48,8 @@ public class ChunkProviderZerus implements IChunkGenerator
     private ChunkProviderSettings settings;
     private IBlockState oceanBlock = Blocks.WATER.getDefaultState();
     private double[] depthBuffer = new double[256];
-    private MapGenBase caveGenerator = new MapGenCaves();
-    private MapGenBase ravineGenerator = new MapGenRavine();
+    private MapGenBase caveGenerator = new ZerusGenCaves();
+    private MapGenBase ravineGenerator = new ZerusGenRavine();
     private Biome[] biomesForGeneration;
     double[] mainNoiseRegion;
     double[] minLimitRegion;
@@ -359,7 +359,7 @@ public class ChunkProviderZerus implements IChunkGenerator
             int i1 = this.rand.nextInt(16) + 8;
             int j1 = this.rand.nextInt(256);
             int k1 = this.rand.nextInt(16) + 8;
-            (new WorldGenLakes(Blocks.WATER)).generate(this.world, this.rand, blockpos.add(i1, j1, k1));
+            (new ZerusGenCustomLakes(Blocks.WATER)).generate(this.world, this.rand, blockpos.add(i1, j1, k1));
         }
 
         if (!flag && this.rand.nextInt(this.settings.lavaLakeChance / 10) == 0 && this.settings.useLavaLakes)
@@ -371,7 +371,7 @@ public class ChunkProviderZerus implements IChunkGenerator
 
             if (l2 < this.world.getSeaLevel() || this.rand.nextInt(this.settings.lavaLakeChance / 8) == 0)
             {
-                (new WorldGenLakes(Blocks.LAVA)).generate(this.world, this.rand, blockpos.add(i2, l2, k3));
+                (new ZerusGenCustomLakes(Blocks.LAVA)).generate(this.world, this.rand, blockpos.add(i2, l2, k3));
             }
         }
 

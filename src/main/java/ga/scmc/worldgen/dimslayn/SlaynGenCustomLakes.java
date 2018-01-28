@@ -96,7 +96,7 @@ public class SlaynGenCustomLakes extends WorldGenerator {
 						if(aboolean[(i2 * 16 + j3) * 8 + j4]) {
 							BlockPos blockpos = position.add(i2, j4 - 1, j3);
 
-							if(worldIn.getBlockState(blockpos).getBlock() == Blocks.DIRT && worldIn.getLightFor(EnumSkyBlock.SKY, position.add(i2, j4, j3)) > 0) {
+							if(worldIn.getBlockState(blockpos).getBlock() == BlockHandler.DIRT_SLAYN && worldIn.getLightFor(EnumSkyBlock.SKY, position.add(i2, j4, j3)) > 0) {
 								Biome biome = worldIn.getBiomeForCoordsBody(blockpos);
 
 								if(biome.topBlock.getBlock() == Blocks.MYCELIUM) {
