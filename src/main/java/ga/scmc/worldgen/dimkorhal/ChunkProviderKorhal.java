@@ -349,7 +349,7 @@ public class ChunkProviderKorhal implements IChunkGenerator
 
         net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.world, this.rand, x, z, flag);
 
-        if (biome != BiomeHandler.biomeKorhalTerranCity && biome != BiomeHandler.biomeKorhalTerranCity && this.settings.useWaterLakes && this.rand.nextInt(this.settings.waterLakeChance * 10) == 0)
+        if (biome != BiomeHandler.biomeKorhalTerranCity && this.settings.useWaterLakes && this.rand.nextInt(this.settings.waterLakeChance * 100) == 0)
 	        if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, world, this.rand, x, z, false, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE))
 	        {
 	            int i1 = this.rand.nextInt(16) + 8;
@@ -358,7 +358,7 @@ public class ChunkProviderKorhal implements IChunkGenerator
 	            (new KorhalGenCustomLakes(Blocks.WATER)).generate(world, this.rand, blockpos.add(i1, j1, k1));
 	        }
 
-	        if (biome != BiomeHandler.biomeKorhalTerranCity && biome != BiomeHandler.biomeKorhalTerranCity && this.rand.nextInt(this.settings.lavaLakeChance / 5) == 0 && this.settings.useLavaLakes)
+	        if (biome != BiomeHandler.biomeKorhalTerranCity && this.rand.nextInt(this.settings.lavaLakeChance / 5) == 0 && this.settings.useLavaLakes)
 	        if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, world, this.rand, x, z, false, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAVA))
 	        {
 	            int i2 = this.rand.nextInt(16) + 8;
@@ -371,7 +371,7 @@ public class ChunkProviderKorhal implements IChunkGenerator
 	            }
 	        }
 	        
-	        if (biome != BiomeHandler.biomeKorhalTerranCity && biome != BiomeHandler.biomeKorhalTerranCity && this.rand.nextInt(this.settings.lavaLakeChance / 10) == 0 && this.settings.useLavaLakes)
+	        if (biome != BiomeHandler.biomeKorhalTerranCity && this.rand.nextInt(this.settings.lavaLakeChance / 10) == 0 && this.settings.useLavaLakes)
 	        if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, world, this.rand, x, z, false, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAVA))
 	        {
 	            int i2 = this.rand.nextInt(16) + 8;
