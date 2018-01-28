@@ -1245,7 +1245,7 @@ public class StructureTerranBarracksTemplate extends SCWorldGenerator {
 		worldIn.setBlockState(bp.add(i + 15, j + 5, k + 4), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(15));
 		worldIn.setBlockState(bp.add(i + 15, j + 5, k + 5), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(15));
 		worldIn.setBlockState(bp.add(i + 15, j + 5, k + 6), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
-		worldIn.setBlockState(bp.add(i + 15, j + 5, k + 12), Blocks.REDSTONE_BLOCK.getDefaultState());
+		worldIn.setBlockState(bp.add(i + 15, j + 5, k + 12), BlockHandler.CORE_BARRACKS.getDefaultState());
 		worldIn.setBlockState(bp.add(i + 15, j + 5, k + 18), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 15, j + 5, k + 19), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(15));
 		worldIn.setBlockState(bp.add(i + 15, j + 5, k + 20), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(15));

@@ -108,6 +108,7 @@ tile.terran.paristeel.black.name=Black Paristeel
 tile.gas.collector.terran.name=Refinery
 
 tile.terran.barrackscore.name=Terran Barracks Core
+tile.terran.commandcentercore.name=Terran Command Center Core
 #############################################################################################
 
 
@@ -229,6 +230,27 @@ tile.korhal.stone.city.name=Korhal City Stone
 
 ### Slayn ###
 #############################################################################################
+tile.slayn.titanium.name=Titanium Ore
+tile.slayn.phosphorus.name=Phosphorus Ore
+tile.slayn.uranium.name=Uranium Ore
+tile.slayn.copper.name=Copper Ore
+tile.slayn.coal.name=Coal Ore
+tile.slayn.iron.name=Iron Ore
+tile.slayn.lapis.name=Lapis Ore
+tile.slayn.redstone.name=Redstone Ore
+tile.slayn.redstone.lit.name=Redstone Ore
+tile.slayn.diamond.name=Diamond Ore
+tile.slayn.mineral.name=Mineral Ore
+tile.slayn.richmineral.name=Rich Mineral Ore
+tile.slayn.gold.name=Gold Ore
+
+tile.slayn.cobblestone.name=Cobblestone
+tile.slayn.stone.name=Stone
+tile.slayn.sand.name=Sand
+tile.slayn.gravel.name=Gravel
+tile.slayn.dirt.name=Dirt
+tile.slayn.farmland.name=Farmland
+
 tile.slayn.furnace.name=Furnace
 #############################################################################################
 
@@ -568,8 +590,8 @@ entity.starcraft.infestedCivilian.name=Infested Civilian
 entity.starcraft.brutalisk.name=Brutalisk
 entity.starcraft.hydralisk.name=Hydralisk
 entity.starcraft.mutalisk.name=Mutalisk
-entity.starcraft.mutaliskBroodlord=Mutalisk (Broodlord Strain)
-entity.starcraft.mutaliskViper=Mutalisk (Viper Strain)
+entity.starcraft.mutaliskBroodlord.name=Mutalisk (Broodlord Strain)
+entity.starcraft.mutaliskViper.name=Mutalisk (Viper Strain)
 
 entity.starcraft.queen.name=Queen
 entity.starcraft.nafash.name=Nafash
@@ -578,8 +600,13 @@ entity.starcraft.mutaliskPrimal.name=Primal Mutalisk
 entity.starcraft.zerglingPrimal1.name=Primal Zergling
 entity.starcraft.zerglingPrimal2.name=Primal Zergling
 entity.starcraft.zerglingPrimal3.name=Primal Zergling
-entity.starcraft.zerglingPrimalDehaka.name=Primal Zergling (Dehaka)
 entity.starcraft.hydraliskPrimal.name=Primal Hydralisk
+entity.starcraft.tyrannozor.name=Tyrannozor
+entity.starcraft.brakk.name=Brakk
+
+entity.starcraft.zerglingPrimalDehaka.name=Primal Zergling (Dehaka)
+entity.starcraft.mutaliskPrimalDehaka.name=Primal Mutalisk (Dehaka)
+entity.starcraft.tyrannozorDehaka.name=Tyrannozor (Dehaka)
 
 entity.starcraft.probe.name=Probe
 entity.starcraft.darkProbe.name=Dark Probe
@@ -655,31 +682,34 @@ gui.buy=Buy
 achievement.pageStarcraft=Starcraft
 
 achievement.mineMinerals=Ooo, Shiny!
-achievement.mineMinerals.desc=Get mineral shards!
+achievement.mineMinerals.desc=Get Mineral Shards!
 
 achievement.mineRichMinerals=Shinier!
-achievement.mineRichMinerals.desc=Get rich mineral shards!
+achievement.mineRichMinerals.desc=Get Rich Mineral Shards!
 
 achievement.mineVespene=Vespene Geyser Depleted!
-achievement.mineVespene.desc=Obtain vespene!
+achievement.mineVespene.desc=Obtain Vespene!
 				
 achievement.getC14GaussRifle=Hell, It's About Time!
-achievement.getC14GaussRifle.desc=Obtain a C14 gauss rifle!
+achievement.getC14GaussRifle.desc=Obtain a C14 Gauss Rifle!
+
+achievement.getFlamethrower=Let's Burn!
+achievement.getFlamethrower.desc=Obtain a Flamethrower!
 
 achievement.getPsiBladeFocuser=Embrace Purity
-achievement.getPsiBladeFocuser.desc=Obtain a psi blade focuser!
+achievement.getPsiBladeFocuser.desc=Obtain a Psi Blade Focuser!
 
 achievement.getPsiBladeFocuserDark=Embrace Corruption
-achievement.getPsiBladeFocuserDark.desc=Obtain a psi blade focuser (dark)!
+achievement.getPsiBladeFocuserDark.desc=Obtain a Psi Blade Focuser (dark)!
 
 achievement.getPsiBlade=My Life for Aiur!
-achievement.getPsiBlade.desc=Obtain a psi blade!
+achievement.getPsiBlade.desc=Obtain a Psi Blade!
 
 achievement.getPsiBladeDark=Amon's Will
-achievement.getPsiBladeDark.desc=Obtain a bane blade!
+achievement.getPsiBladeDark.desc=Obtain a Bane Blade!
 
 achievement.getWarpBlade=For Shakuras!
-achievement.getWarpBlade.desc=Obtain a warp blade!
+achievement.getWarpBlade.desc=Obtain a Warp Blade!
 
 achievement.getMasterPsiBlade=En Taro Zeratul...
 achievement.getMasterPsiBlade.desc=Obtain Zeratul's Master Psi Blade!
@@ -695,6 +725,15 @@ achievement.enterKorhal.desc=Arrive on Korhal!
 
 achievement.enterShakuras=We Linger, In Twilight
 achievement.enterShakuras.desc=Arrive on Shakuras!
+
+achievement.enterSlayn=The Forged
+achievement.enterShakuras.desc=Arrive on Slayn!
+
+achievement.enterAiur=A Beacon Of Progress
+achievement.enterAiur.desc=Arrive on Aiur!
+
+achievement.enterZerus=Primordial Soup
+achievement.enterShakuras.desc=Arrive on Zerus!
 #############################################################################################
 
 

@@ -180,21 +180,6 @@ public class RenderSkyChar extends IRenderHandler
             OpenGL.enable(GL11.GL_ALPHA_TEST);
             OpenGL.enable(GL11.GL_TEXTURE_2D);
             GL11.glDepthMask(true);
-
-//            if (Game.minecraft().gameSettings.shouldRenderClouds() >= 1)
-//            {
-//                OpenGL.pushMatrix();
-//                {
-//                    if (Game.minecraft().gameSettings.fancyGraphics)
-//                    {
-//                        OpenGL.enable(GL11.GL_FOG);
-//                    }
-//
-//                    this.renderClouds(partialTicks);
-//                    OpenGL.disable(GL11.GL_FOG);
-//                }
-//                OpenGL.popMatrix();
-//            }
         }
     }
 }

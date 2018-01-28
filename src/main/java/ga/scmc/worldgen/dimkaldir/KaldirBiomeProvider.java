@@ -1,7 +1,6 @@
 package ga.scmc.worldgen.dimkaldir;
 
 import ga.scmc.handlers.BiomeHandler;
-import ga.scmc.handlers.DimensionHandler;
 import net.minecraft.crash.CrashReport;
 import net.minecraft.crash.CrashReportCategory;
 import net.minecraft.util.ReportedException;
@@ -36,7 +35,7 @@ public class KaldirBiomeProvider extends BiomeProvider {
 	}
 
 	public KaldirBiomeProvider(WorldInfo info) {
-		this(info.getSeed(), DimensionHandler.KALDIR_WT, info.getGeneratorOptions());
+		this(info.getSeed(), WorldType.DEFAULT, info.getGeneratorOptions());
 	}
 
 	@Override

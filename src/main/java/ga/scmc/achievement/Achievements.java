@@ -29,6 +29,7 @@ public class Achievements {
 	public static final String MINED_RICH_MINERALS = "mineRichMinerals";
 	public static final String MINED_VESPENE = "mineVespene";
 	public static final String GET_C14_GAUSS_RIFLE = "getC14GaussRifle";
+	public static final String GET_FLAMETHROWER = "getFlamethrower";
 	public static final String GET_PSI_BLADE_FOCUSER = "getPsiBladeFocuser";
 	public static final String GET_PSI_BLADE = "getPsiBlade";
 	public static final String GET_PSI_BLADE_FOCUSER_DARK = "getPsiBladeFocuserDark";
@@ -39,6 +40,8 @@ public class Achievements {
 	public static final String ENTER_CHAR = "enterChar";
 	public static final String ENTER_SHAKURAS = "enterShakuras";
 	public static final String ENTER_SLAYN = "enterSlayn";
+	public static final String ENTER_AIUR = "enterAiur";
+	public static final String ENTER_ZERUS = "enterZerus";
 	public static final String ENTER_KORHAL = "enterKorhal";
 	public static final String ENTER_KALDIR = "enterKaldir";
 

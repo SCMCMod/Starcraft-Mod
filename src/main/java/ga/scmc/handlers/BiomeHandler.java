@@ -149,7 +149,7 @@ public class BiomeHandler extends Biome {
 		biomeKaldirIcePlains = new BiomeGenKaldirIcePlains((new Biome.BiomeProperties("Kaldir Ice Plains")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(0.1F).setRainfall(0.5F));
 		biomeKaldirSnowPlains = new BiomeGenKaldirSnowPlains((new Biome.BiomeProperties("Kaldir Snow Plains")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(0.1F).setRainfall(0.5F));
 		biomeKaldirMountains = new BiomeGenKaldirMountains((new Biome.BiomeProperties("Kaldir Mountains")).setBaseHeight(1.0F).setHeightVariation(0.55F).setTemperature(0.1F).setRainfall(0.5F));
-		biomeKaldirProtossCity = new BiomeGenKaldirProtossCity((new Biome.BiomeProperties("Kaldir Protosss City")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(0.1F).setRainfall(0.5F));
+		biomeKaldirProtossCity = new BiomeGenKaldirProtossCity((new Biome.BiomeProperties("Kaldir Protoss City")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(0.1F).setRainfall(0.5F));
 		biomeKaldirZergHive = new BiomeGenKaldirZergHive((new Biome.BiomeProperties("Kaldir Zerg Hive")).setBaseHeight(0.0F).setHeightVariation(0.1F).setTemperature(2.0F).setRainfall(0.5F));
 		
 		// add or remove spawn biomes here

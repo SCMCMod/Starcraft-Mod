@@ -1,7 +1,6 @@
 package ga.scmc.worldgen.dimaiur;
 
 import ga.scmc.handlers.BiomeHandler;
-import ga.scmc.handlers.DimensionHandler;
 import net.minecraft.crash.CrashReport;
 import net.minecraft.crash.CrashReportCategory;
 import net.minecraft.util.ReportedException;
@@ -36,7 +35,7 @@ public class AiurBiomeProvider extends BiomeProvider {
 	}
 
 	public AiurBiomeProvider(WorldInfo info) {
-		this(info.getSeed(), DimensionHandler.AIUR_WT, info.getGeneratorOptions());
+		this(info.getSeed(), WorldType.DEFAULT, info.getGeneratorOptions());
 	}
 
 	@Override

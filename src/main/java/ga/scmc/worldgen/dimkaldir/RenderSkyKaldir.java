@@ -7,7 +7,6 @@ import org.lwjgl.opengl.GL11;
 import com.arisux.mdx.lib.client.render.Color;
 import com.arisux.mdx.lib.client.render.Draw;
 import com.arisux.mdx.lib.client.render.OpenGL;
-import com.arisux.mdx.lib.game.Game;
 import com.arisux.mdx.lib.game.GameResources;
 
 import ga.scmc.worldgen.DimensionUtil;
@@ -15,11 +14,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.GLAllocation;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.client.IRenderHandler;
 import ocelot.api.utils.TextureUtils;
 
@@ -159,136 +156,6 @@ public class RenderSkyKaldir extends IRenderHandler {
 			GlStateManager.enableAlpha();
 			GlStateManager.enableTexture2D();
 			GlStateManager.depthMask(true);
-
-			if (Game.minecraft().gameSettings.shouldRenderClouds() == 1) {
-				OpenGL.pushMatrix();
-				{
-					if (Game.minecraft().gameSettings.fancyGraphics) {
-						GlStateManager.enableFog();
-					}
-
-					this.renderClouds(partialTicks);
-					GlStateManager.disableFog();
-				}
-				OpenGL.popMatrix();
-			}
-		}
-	}
-
-	public void renderClouds(float renderPartialTicks) {
-		for (int cloudPass = 1; cloudPass > 0; cloudPass--) {
-			float relativeHeight = (float) (Game.minecraft().getRenderViewEntity().lastTickPosY + (Game.minecraft().getRenderViewEntity().posY - Game.minecraft().getRenderViewEntity().lastTickPosY) * renderPartialTicks);
-			float cloudSpan = 18.0F;
-			float cloudHeight = 7.0F * cloudPass;
-			float cloudSpeed = 10;
-			double time = Game.minecraft().world.getWorldTime() * cloudSpeed + renderPartialTicks;
-			double viewX = (Game.minecraft().getRenderViewEntity().prevPosX + (Game.minecraft().getRenderViewEntity().posX - Game.minecraft().getRenderViewEntity().prevPosX) * renderPartialTicks + time * 0.029999999329447746D) / cloudSpan;
-			double viewZ = (Game.minecraft().getRenderViewEntity().prevPosZ + (Game.minecraft().getRenderViewEntity().posZ - Game.minecraft().getRenderViewEntity().prevPosZ) * renderPartialTicks) / cloudSpan + 0.33000001311302185D;
-			float cloudY = Game.minecraft().world.provider.getCloudHeight() - relativeHeight;
-			viewX -= (MathHelper.floor(viewX / 2048.0D)) * 2048;
-			viewZ -= (MathHelper.floor(viewZ / 2048.0D)) * 2048;
-			float scaleUV = 0.00390625F;
-			float offsetU = MathHelper.floor(viewX) * scaleUV;
-			float offsetV = MathHelper.floor(viewZ) * scaleUV;
-			byte dist = (byte) (Game.minecraft().gameSettings.renderDistanceChunks);
-			byte cloudSections = 2;
-
-			OpenGL.disableCullFace();
-			TextureUtils.bindTexture("textures/world/varda-clouds.png");
-			OpenGL.enableBlend();
-			OpenGlHelper.glBlendFunc(GL11.GL_ONE_MINUS_DST_COLOR, GL11.GL_ONE_MINUS_SRC_ALPHA, 1, 0);
-			OpenGL.scale(cloudSpan, 1.0F, cloudSpan);
-
-			for (int pass = 0; pass < 2; pass++) {
-				if (pass == 0) {
-					GL11.glColorMask(false, false, false, false);
-				} else {
-					GL11.glColorMask(true, true, true, true);
-				}
-
-				for (int x = -cloudSections + 1; x <= cloudSections; ++x) {
-					for (int z = -cloudSections + 1; z <= cloudSections; ++z) {
-						float cloudU = x * dist;
-						float cloudV = z * dist;
-						float cloudX = cloudU - ((float) (viewX - MathHelper.floor(viewX)));
-						float cloudZ = cloudV - ((float) (viewZ - MathHelper.floor(viewZ)));
-
-						Draw.startQuads();
-
-						if (cloudY > -cloudHeight - 1.0F) {
-							Draw.buffer().color(cloudColor.r * 0.7F, cloudColor.g * 0.7F, cloudColor.b * 0.7F, cloudColor.a + 0.1F);
-							Draw.buffer().normal(0.0F, -1.0F, 0.0F);
-							Draw.vertex(cloudX + 0.0F, cloudY + 0.0F, cloudZ + dist, (cloudU + 0.0F) * scaleUV + offsetU, (cloudV + dist) * scaleUV + offsetV).endVertex();
-							Draw.vertex(cloudX + dist, cloudY + 0.0F, cloudZ + dist, (cloudU + dist) * scaleUV + offsetU, (cloudV + dist) * scaleUV + offsetV).endVertex();
-							Draw.vertex(cloudX + dist, cloudY + 0.0F, cloudZ + 0.0F, (cloudU + dist) * scaleUV + offsetU, (cloudV + 0.0F) * scaleUV + offsetV).endVertex();
-							Draw.vertex(cloudX + 0.0F, cloudY + 0.0F, cloudZ + 0.0F, (cloudU + 0.0F) * scaleUV + offsetU, (cloudV + 0.0F) * scaleUV + offsetV).endVertex();
-						}
-
-						if (cloudY <= cloudHeight + 1.0F) {
-							Draw.buffer().color(cloudColor.r, cloudColor.g, cloudColor.b, cloudColor.a + 0.15F);
-							Draw.buffer().normal(0.0F, 1.0F, 0.0F);
-							Draw.vertex(cloudX + 0.0F, cloudY + cloudHeight, cloudZ + dist, (cloudU + 0.0F) * scaleUV + offsetU, (cloudV + dist) * scaleUV + offsetV).endVertex();
-							Draw.vertex(cloudX + dist, cloudY + cloudHeight, cloudZ + dist, (cloudU + dist) * scaleUV + offsetU, (cloudV + dist) * scaleUV + offsetV).endVertex();
-							Draw.vertex(cloudX + dist, cloudY + cloudHeight, cloudZ + 0.0F, (cloudU + dist) * scaleUV + offsetU, (cloudV + 0.0F) * scaleUV + offsetV).endVertex();
-							Draw.vertex(cloudX + 0.0F, cloudY + cloudHeight, cloudZ + 0.0F, (cloudU + 0.0F) * scaleUV + offsetU, (cloudV + 0.0F) * scaleUV + offsetV).endVertex();
-						}
-
-						Draw.buffer().color(cloudColor.r * 0.9F, cloudColor.g * 0.9F, cloudColor.b * 0.9F, cloudColor.a);
-
-						if (x > -1) {
-							Draw.buffer().normal(-1.0F, 0.0F, 0.0F);
-
-							for (int size = 0; size < dist; ++size) {
-								Draw.vertex(cloudX + size + 0.0F, cloudY + 0.0F, cloudZ + dist, (cloudU + size + 0.5F) * scaleUV + offsetU, (cloudV + dist) * scaleUV + offsetV).endVertex();
-								Draw.vertex(cloudX + size + 0.0F, cloudY + cloudHeight, cloudZ + dist, (cloudU + size + 0.5F) * scaleUV + offsetU, (cloudV + dist) * scaleUV + offsetV).endVertex();
-								Draw.vertex(cloudX + size + 0.0F, cloudY + cloudHeight, cloudZ + 0.0F, (cloudU + size + 0.5F) * scaleUV + offsetU, (cloudV + 0.0F) * scaleUV + offsetV).endVertex();
-								Draw.vertex(cloudX + size + 0.0F, cloudY + 0.0F, cloudZ + 0.0F, (cloudU + size + 0.5F) * scaleUV + offsetU, (cloudV + 0.0F) * scaleUV + offsetV).endVertex();
-							}
-						}
-
-						if (x <= 1) {
-							Draw.buffer().normal(1.0F, 0.0F, 0.0F);
-
-							for (int size = 0; size < dist; ++size) {
-								Draw.vertex(cloudX + size + 1.0F, cloudY + 0.0F, cloudZ + dist, (cloudU + size + 0.5F) * scaleUV + offsetU, (cloudV + dist) * scaleUV + offsetV).endVertex();
-								Draw.vertex(cloudX + size + 1.0F, cloudY + cloudHeight, cloudZ + dist, (cloudU + size + 0.5F) * scaleUV + offsetU, (cloudV + dist) * scaleUV + offsetV).endVertex();
-								Draw.vertex(cloudX + size + 1.0F, cloudY + cloudHeight, cloudZ + 0.0F, (cloudU + size + 0.5F) * scaleUV + offsetU, (cloudV + 0.0F) * scaleUV + offsetV).endVertex();
-								Draw.vertex(cloudX + size + 1.0F, cloudY + 0.0F, cloudZ + 0.0F, (cloudU + size + 0.5F) * scaleUV + offsetU, (cloudV + 0.0F) * scaleUV + offsetV).endVertex();
-							}
-						}
-
-						Draw.buffer().color(cloudColor.r * 0.8F, cloudColor.g * 0.8F, cloudColor.b * 0.8F, 0.8F);
-
-						if (z > -1) {
-							Draw.buffer().normal(0.0F, 0.0F, -1.0F);
-
-							for (int size = 0; size < dist; ++size) {
-								Draw.vertex(cloudX + 0.0F, cloudY + cloudHeight, cloudZ + size + 0.0F, (cloudU + 0.0F) * scaleUV + offsetU, (cloudV + size + 0.5F) * scaleUV + offsetV).endVertex();
-								Draw.vertex(cloudX + dist, cloudY + cloudHeight, cloudZ + size + 0.0F, (cloudU + dist) * scaleUV + offsetU, (cloudV + size + 0.5F) * scaleUV + offsetV).endVertex();
-								Draw.vertex(cloudX + dist, cloudY + 0.0F, cloudZ + size + 0.0F, (cloudU + dist) * scaleUV + offsetU, (cloudV + size + 0.5F) * scaleUV + offsetV).endVertex();
-								Draw.vertex(cloudX + 0.0F, cloudY + 0.0F, cloudZ + size + 0.0F, (cloudU + 0.0F) * scaleUV + offsetU, (cloudV + size + 0.5F) * scaleUV + offsetV).endVertex();
-							}
-						}
-
-						if (z <= 1) {
-							Draw.buffer().normal(0.0F, 0.0F, 1.0F);
-
-							for (int size = 0; size < dist; ++size) {
-								Draw.vertex(cloudX + 0.0F, cloudY + cloudHeight, cloudZ + size + 1.0F, (cloudU + 0.0F) * scaleUV + offsetU, (cloudV + size + 0.5F) * scaleUV + offsetV).endVertex();
-								Draw.vertex(cloudX + dist, cloudY + cloudHeight, cloudZ + size + 1.0F, (cloudU + dist) * scaleUV + offsetU, (cloudV + size + 0.5F) * scaleUV + offsetV).endVertex();
-								Draw.vertex(cloudX + dist, cloudY + 0.0F, cloudZ + size + 1.0F, (cloudU + dist) * scaleUV + offsetU, (cloudV + size + 0.5F) * scaleUV + offsetV).endVertex();
-								Draw.vertex(cloudX + 0.0F, cloudY + 0.0F, cloudZ + size + 1.0F, (cloudU + 0.0F) * scaleUV + offsetU, (cloudV + size + 0.5F) * scaleUV + offsetV).endVertex();
-							}
-						}
-
-						Draw.tessellate();
-					}
-				}
-			}
-
-			OpenGL.color(1.0F, 1.0F, 1.0F, 1.0F);
-			GlStateManager.disableBlend();
-			GlStateManager.enableCull();
 		}
 	}
 }

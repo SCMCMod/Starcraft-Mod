@@ -25,21 +25,7 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 		this.metaSecColor = metaSecColor;
 		this.metaDim = rand.nextInt(100);
 		if (world.provider.getDimension() == 0) {
-			if (metaDim <= 14) {
-				dimBlock = BlockHandler.DIM_PORTAL_CHAR;
-			} else if (metaDim >= 15 && metaDim <= 29) {
-				dimBlock = BlockHandler.DIM_PORTAL_SHAKURAS;
-			} else if (metaDim >= 30 && metaDim <= 44) {
-				dimBlock = BlockHandler.DIM_PORTAL_KORHAL;
-			} else if(metaDim >= 45 && metaDim <= 59) {
-				dimBlock = BlockHandler.DIM_PORTAL_KALDIR;
-			} else if(metaDim >= 60 && metaDim <= 74) {
-				dimBlock = BlockHandler.DIM_PORTAL_SLAYN;
-			} else if(metaDim >= 75 && metaDim <= 89) {
-				dimBlock = BlockHandler.DIM_PORTAL_AIUR;
-			} else if(metaDim >= 90 && metaDim <= 100) {
-				dimBlock = BlockHandler.DIM_PORTAL_ZERUS;
-			}			
+			dimBlock = BlockHandler.DIM_PORTAL_SHAKURAS;
 		}else if (world.provider.getDimension() == -1) {
 			if (metaDim <= 14) {
 				dimBlock = BlockHandler.DIM_PORTAL_CHAR;

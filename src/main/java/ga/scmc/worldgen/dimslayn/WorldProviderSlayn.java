@@ -6,6 +6,8 @@ import com.arisux.mdx.lib.client.render.world.IStormProvider;
 
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.DimensionHandler;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.chunk.IChunkGenerator;
@@ -93,6 +95,36 @@ public class WorldProviderSlayn extends WorldProvider implements IClimateProvide
 	@Override
 	public int getRespawnDimension(net.minecraft.entity.player.EntityPlayerMP player) {
 		return ConfigurationHandler.INT_DIMENSION_SLAYN;
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public Vec3d getFogColor(float var1, float var2) {
+		return new Vec3d(0.0D, 0.0D, 0.0D);
+	}
+
+	@Override
+	public Vec3d getCloudColor(float partialTicks) {
+		return new Vec3d(0.0D, 0.0D, 0.0D);
+	}
+
+	@Override
+	public float getSunBrightness(float angle) {
+		float celestialAngle = this.world.getCelestialAngle(angle);
+		float brightness = 1.0F - (MathHelper.cos(celestialAngle * (float) Math.PI * 2.0F) * 2.0F + 0.2F);
+
+		if (brightness < 0.0F) {
+			brightness = 0.0F;
+		}
+
+		if (brightness > 1.0F) {
+			brightness = 1.0F;
+		}
+
+		brightness = 1.0F - brightness;
+		brightness = (float) (brightness * (1.0D - this.world.getRainStrength(angle) * 5.0F / 16.0D));
+		brightness = (float) (brightness * (1.0D - this.world.getThunderStrength(angle) * 5.0F / 16.0D));
+		return brightness * 0.45F;
 	}
 	
 	/**

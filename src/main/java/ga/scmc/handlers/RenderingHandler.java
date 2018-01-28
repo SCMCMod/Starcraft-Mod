@@ -53,6 +53,8 @@ import static ga.scmc.handlers.BlockHandler.CORE_BARRACKS;
 import static ga.scmc.handlers.BlockHandler.ENERGY_BLOCK;
 import static ga.scmc.handlers.BlockHandler.FARMLAND_CHAR;
 import static ga.scmc.handlers.BlockHandler.FARMLAND_SHAKURAS;
+import static ga.scmc.handlers.BlockHandler.FARMLAND_SLAYN;
+import static ga.scmc.handlers.BlockHandler.FARMLAND_ZERUS;
 import static ga.scmc.handlers.BlockHandler.FLORA_KALDIR_BRAMBLES;
 import static ga.scmc.handlers.BlockHandler.FLORA_ZERUS_GLOW_POD;
 import static ga.scmc.handlers.BlockHandler.FLORA_ZERUS_LIGHTCAP;
@@ -703,6 +705,8 @@ public class RenderingHandler {
 
 		registerBlockModelNoMeta(FARMLAND_SHAKURAS);
 		registerBlockModelNoMeta(FARMLAND_CHAR);
+		registerBlockModelNoMeta(FARMLAND_ZERUS);
+		registerBlockModelNoMeta(FARMLAND_SLAYN);
 	}
 
 	/**

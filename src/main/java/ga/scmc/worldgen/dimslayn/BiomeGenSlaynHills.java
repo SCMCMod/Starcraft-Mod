@@ -17,8 +17,8 @@ public class BiomeGenSlaynHills extends BiomeHandler {
 
 		setRegistryName("slayn_hills");
 
-		topBlock = BlockHandler.DIRT_SHAKURAS.getDefaultState();
-		fillerBlock = BlockHandler.DIRT_SHAKURAS.getDefaultState();
+		topBlock = BlockHandler.DIRT_SLAYN.getDefaultState();
+		fillerBlock = BlockHandler.DIRT_SLAYN.getDefaultState();
 
 		spawnableMonsterList.clear();
 		spawnableCreatureList.clear();
@@ -44,11 +44,11 @@ public class BiomeGenSlaynHills extends BiomeHandler {
 
 				if (origState.getMaterial() == Material.AIR) { // If we're still in the air...
 					j = -1;
-				} else if (origState.getBlock() == BlockHandler.STONE_SHAKURAS) { // If we've hit the ground...
+				} else if (origState.getBlock() == BlockHandler.STONE_SLAYN) { // If we've hit the ground...
 					if (j == -1) { // If we were just in the air...
 						if (randHeight <= 0) {
 							topBlock = AIR;
-							fillerBlock = BlockHandler.STONE_SHAKURAS.getDefaultState();
+							fillerBlock = BlockHandler.STONE_SLAYN.getDefaultState();
 						} else if (yLoc >= seaLevel - 4 && yLoc <= seaLevel + 1) {
 							topBlock = this.topBlock;
 							fillerBlock = this.fillerBlock;
@@ -62,10 +62,10 @@ public class BiomeGenSlaynHills extends BiomeHandler {
 
 						if (yLoc >= seaLevel - 1) {
 							chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, topBlock);
-							chunkPrimerIn.setBlockState(xLoc, yLoc + 1, zLoc, BlockHandler.DIRT_SHAKURAS.getDefaultState());
+							chunkPrimerIn.setBlockState(xLoc, yLoc + 1, zLoc, BlockHandler.DIRT_SLAYN.getDefaultState());
 						} else if (yLoc < seaLevel - 7 - randHeight) {
 							topBlock = AIR;
-							fillerBlock = BlockHandler.STONE_SHAKURAS.getDefaultState();
+							fillerBlock = BlockHandler.STONE_SLAYN.getDefaultState();
 							chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, GRAVEL);
 						} else {
 							chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, fillerBlock);
