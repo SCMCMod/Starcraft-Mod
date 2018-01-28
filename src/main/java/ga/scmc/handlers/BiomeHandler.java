@@ -75,6 +75,8 @@ public class BiomeHandler extends Biome {
 	public static Biome biomeKaldirIceHills;
 	public static Biome biomeKaldirIcePlateau;
 	public static Biome biomeKaldirSnowPlains;
+	public static Biome biomeKaldirSnowHills;
+	public static Biome biomeKaldirSnowPlateau;
 	public static Biome biomeKaldirMountains;
 	public static Biome biomeKaldirProtossCity;
 	public static Biome biomeKaldirZergHive;
@@ -146,6 +148,8 @@ public class BiomeHandler extends Biome {
 		GameRegistry.register(biomeKaldirIcePlateau);
 		
 		GameRegistry.register(biomeKaldirSnowPlains);
+		GameRegistry.register(biomeKaldirSnowHills);
+		GameRegistry.register(biomeKaldirSnowPlateau);
 		
 		GameRegistry.register(biomeKaldirMountains);
 		
@@ -215,7 +219,9 @@ public class BiomeHandler extends Biome {
 		biomeKaldirIceHills = new BiomeGenKaldirIcePlains((new Biome.BiomeProperties("Kaldir Ice Hills")).setBaseHeight(0.25F).setHeightVariation(0.25F).setTemperature(0.1F).setRainfall(0.5F), "kaldir_ice_hills");
 		biomeKaldirIcePlateau = new BiomeGenKaldirIcePlains((new Biome.BiomeProperties("Kaldir Ice Plateau")).setBaseHeight(0.75F).setHeightVariation(0.05F).setTemperature(0.1F).setRainfall(0.5F), "kaldir_ice_plateau");
 		
-		biomeKaldirSnowPlains = new BiomeGenKaldirSnowPlains((new Biome.BiomeProperties("Kaldir Snow Plains")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(0.1F).setRainfall(0.5F));
+		biomeKaldirSnowPlains = new BiomeGenKaldirSnowPlains((new Biome.BiomeProperties("Kaldir Snow Plains")).setBaseHeight(0.0F).setHeightVariation(0.025F).setTemperature(0.1F).setRainfall(0.5F), "kaldir_snow_plains");
+		biomeKaldirSnowHills = new BiomeGenKaldirSnowPlains((new Biome.BiomeProperties("Kaldir Snow Hills")).setBaseHeight(0.25F).setHeightVariation(0.25F).setTemperature(0.1F).setRainfall(0.5F), "kaldir_snow_hills");
+		biomeKaldirSnowPlateau = new BiomeGenKaldirSnowPlains((new Biome.BiomeProperties("Kaldir Snow Plateau")).setBaseHeight(0.75F).setHeightVariation(0.05F).setTemperature(0.1F).setRainfall(0.5F), "kaldir_snow_plateau");
 		
 		biomeKaldirMountains = new BiomeGenKaldirMountains((new Biome.BiomeProperties("Kaldir Mountains")).setBaseHeight(0.75F).setHeightVariation(0.35F).setTemperature(0.1F).setRainfall(0.5F));
 		
