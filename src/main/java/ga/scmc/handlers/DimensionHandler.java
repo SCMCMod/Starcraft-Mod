@@ -8,7 +8,6 @@ import ga.scmc.worldgen.dimshakuras.WorldProviderShakuras;
 import ga.scmc.worldgen.dimslayn.WorldProviderSlayn;
 import ga.scmc.worldgen.dimzerus.WorldProviderZerus;
 import net.minecraft.world.DimensionType;
-import net.minecraft.world.WorldType;
 import net.minecraftforge.common.DimensionManager;
 
 public class DimensionHandler {

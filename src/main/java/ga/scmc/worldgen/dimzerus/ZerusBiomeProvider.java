@@ -1,7 +1,6 @@
 package ga.scmc.worldgen.dimzerus;
 
 import ga.scmc.handlers.BiomeHandler;
-import ga.scmc.handlers.DimensionHandler;
 import net.minecraft.crash.CrashReport;
 import net.minecraft.crash.CrashReportCategory;
 import net.minecraft.util.ReportedException;

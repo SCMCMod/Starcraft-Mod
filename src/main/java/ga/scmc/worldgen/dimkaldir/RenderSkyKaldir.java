@@ -7,7 +7,6 @@ import org.lwjgl.opengl.GL11;
 import com.arisux.mdx.lib.client.render.Color;
 import com.arisux.mdx.lib.client.render.Draw;
 import com.arisux.mdx.lib.client.render.OpenGL;
-import com.arisux.mdx.lib.game.Game;
 import com.arisux.mdx.lib.game.GameResources;
 
 import ga.scmc.worldgen.DimensionUtil;
@@ -15,11 +14,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.GLAllocation;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.client.IRenderHandler;
 import ocelot.api.utils.TextureUtils;
 
