@@ -6,6 +6,7 @@ import com.arisux.mdx.lib.client.render.world.IStormProvider;
 
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.DimensionHandler;
+import ga.scmc.worldgen.dimkorhal.ChunkProviderKorhal;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.chunk.IChunkGenerator;
@@ -58,9 +59,9 @@ public class WorldProviderAiur extends WorldProvider implements IClimateProvider
 		biomeProvider = new AiurBiomeProvider(world.getWorldInfo());
 	}
 
-	@Override
+    @Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkProviderAiur(world);
+		return new ChunkProviderAiur(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
 	}
 
 	/**

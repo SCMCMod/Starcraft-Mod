@@ -59,7 +59,7 @@ public class WorldProviderChar extends WorldProvider implements IClimateProvider
 
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkProviderChar(world);
+		return new ChunkProviderChar(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
 	}
 
 	/**

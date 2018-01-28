@@ -51,7 +51,7 @@ public class WorldProviderShakuras extends WorldProvider {
 
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkProviderShakuras(world);
+		return new ChunkProviderShakuras(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
 	}
 
 	/**

@@ -59,9 +59,9 @@ public class WorldProviderKaldir extends WorldProvider implements IClimateProvid
 		biomeProvider = new KaldirBiomeProvider(world.getWorldInfo());
 	}
 
-	@Override
+    @Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkProviderKaldir(world);
+		return new ChunkProviderKaldir(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
 	}
 
 	/**

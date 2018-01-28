@@ -60,9 +60,9 @@ public class WorldProviderSlayn extends WorldProvider implements IClimateProvide
 		biomeProvider = new SlaynBiomeProvider(world.getWorldInfo());
 	}
 
-	@Override
+    @Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkProviderSlayn(world);
+		return new ChunkProviderSlayn(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
 	}
 
 	/**

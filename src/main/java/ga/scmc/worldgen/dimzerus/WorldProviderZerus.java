@@ -15,7 +15,7 @@ public class WorldProviderZerus extends WorldProvider {
 
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkProviderZerus(world);
+		return new ChunkProviderZerus(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
 	}
 
 	/**
@@ -25,8 +25,6 @@ public class WorldProviderZerus extends WorldProvider {
 	 */
 	@Override
 	public String getDepartMessage() {
-		
-		//Always true
 		if(this instanceof WorldProviderZerus) {
 			return "Leaving Zerus";
 		}

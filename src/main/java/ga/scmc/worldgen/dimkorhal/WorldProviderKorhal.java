@@ -15,7 +15,7 @@ public class WorldProviderKorhal extends WorldProvider {
 
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkProviderKorhal(world);
+		return new ChunkProviderKorhal(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
 	}
 
 	/**
