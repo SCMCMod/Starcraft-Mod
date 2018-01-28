@@ -14,7 +14,6 @@ import ga.scmc.container.ContainerGasCollector;
 import ga.scmc.container.ContainerProtossFurnace;
 import ga.scmc.container.ContainerStarcraftFurnace;
 import ga.scmc.enums.EnumWorldType;
-import ga.scmc.items.ItemLog.EnumLogType;
 import ga.scmc.tileentity.TileEntityGasCollector;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;

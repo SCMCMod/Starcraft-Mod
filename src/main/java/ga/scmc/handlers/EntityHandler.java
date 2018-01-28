@@ -54,7 +54,6 @@ import ga.scmc.tileentity.TileEntityProtossPowerCore;
 import ga.scmc.tileentity.TileEntityProtossWormhole;
 import ga.scmc.tileentity.TileEntityStarcraftFurnace;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
-import ga.scmc.tileentity.TileEntityProtossWormhole;
 import ga.scmc.tileentity.TileEntityZerusGlowPod;
 import ga.scmc.tileentity.TileEntityZerusLightcap;
 import net.minecraft.entity.Entity;
