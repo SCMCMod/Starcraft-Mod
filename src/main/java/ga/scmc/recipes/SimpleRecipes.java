@@ -290,7 +290,7 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(ItemHandler.PLEDGE, 1, EnumMetaItem.PledgeType.WHITE.getID()), " D ", "DXD", " D ", 'D', new ItemStack(Items.DIAMOND), 'X', new ItemStack(Items.DYE, 1, 15));
 
 		// Protoss furnace and upgrades
-		GameRegistry.addRecipe(new ItemStack(BlockHandler.FURNACE_PROTOSS), "BCB", "BCB", "BCB", 'B', new ItemStack(MetaBlockHandler.PROTOSS_METAL_T1, 1, 0), 'C', new ItemStack(MetaBlockHandler.KHAYDARIN_CRYSTAL_BLOCK, 1, 0));
+		GameRegistry.addRecipe(new ItemStack(BlockHandler.FURNACE_PROTOSS), "BCB", "BCB", "BCB", 'B', new ItemStack(MetaBlockHandler.PROTOSS_METAL_T1, 1, 0), 'C', new ItemStack(MetaBlockHandler.KHAYDARIN_CRYSTAL_BLOCK, 1, KhaydarinCrystalType.NORMAL.getID()));
 		GameRegistry.addRecipe(new ItemStack(ItemHandler.PROTOSS_UPGRADE, 1, EnumMetaItem.ProtossUpgradeType.SPEED.getID()), "DED", "EDE", "EEE", 'D', new ItemStack(ItemHandler.KHAYDARIN_CRYSTAL, 1, KhaydarinCrystalType.NORMAL.getID()), 'E', new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.PURE.getID()));
 		GameRegistry.addRecipe(new ItemStack(ItemHandler.PROTOSS_UPGRADE, 1, EnumMetaItem.ProtossUpgradeType.EFFICIENCY.getID()), "P P", "PDP", " P ", 'P', ItemHandler.PROTOSS_INGOT, 'D', new ItemStack(MetaBlockHandler.KHAYDARIN_CRYSTAL_BLOCK, 1, KhaydarinCrystalType.NORMAL.getID()));
 	}

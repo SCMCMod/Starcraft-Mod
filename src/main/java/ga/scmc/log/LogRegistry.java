@@ -3,6 +3,9 @@ package ga.scmc.log;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
 /**
  * Handles all of the registry involved with the starcraft logs.
  * 
@@ -14,9 +17,13 @@ public class LogRegistry {
 
 	public LogRegistry() {
 		logs = new HashMap<Integer, Log>();
+	}
+	
+	public void init() {
 		this.registerLogs();
 	}
 
+	@SideOnly(Side.CLIENT)
 	private void registerLogs() {
 		register(new Log(0, "test"));
 	}

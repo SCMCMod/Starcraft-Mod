@@ -66,7 +66,7 @@ public class Starcraft {
 	public static CommonProxy proxy;
 
 	private static Logger logger;
-	private static LogRegistry logRegistry;
+	private static LogRegistry logRegistry = new LogRegistry();
 
 	static {
 		FluidRegistry.enableUniversalBucket();
@@ -100,8 +100,6 @@ public class Starcraft {
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-		logRegistry = new LogRegistry();
-
 		EntityHandler.init();
 		Achievements.init();
 		SimpleRecipes.init();
@@ -116,6 +114,7 @@ public class Starcraft {
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 			MinecraftForge.EVENT_BUS.register(new GuiRenderEventHandler());
 			RenderingHandler.init();
+			getLogRegistry().init();
 		}
 	}
 

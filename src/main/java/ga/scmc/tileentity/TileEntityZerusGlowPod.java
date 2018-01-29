@@ -24,8 +24,9 @@ public class TileEntityZerusGlowPod extends TileEntity implements ITickable {
 	@Override
 	public void update() {
 		pulsingProgress += pulsingSpeed;
-		
+
 		if (pulsingProgress >= 1.1f || pulsingProgress < 1) {
+			pulsingSpeed = 0.005f;
 			pulsingSpeed *= -1;
 		}
 	}
