@@ -2,7 +2,6 @@ package ga.scmc.entity.living;
 
 import java.util.Random;
 
-import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.SoundHandler;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
@@ -31,14 +30,6 @@ public class EntityKakaru extends EntityCritterFlying {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.39000000298023224D);
-	}
-
-	@Override
-	public boolean getCanSpawnHere() {
-		if (this.dimension == ConfigurationHandler.INT_DIMENSION_SHAKURAS) {
-			return true;
-		}
-		return false;
 	}
 
 	@Override

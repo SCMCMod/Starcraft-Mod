@@ -11,7 +11,6 @@ import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.ItemHandler;
-import ga.scmc.handlers.MetaBlockHandler;
 import ga.scmc.handlers.SoundHandler.SoundTypes;
 import ga.scmc.items.armor.ArmorZergArmorT1;
 import ga.scmc.items.armor.ArmorZergArmorT2;
@@ -111,16 +110,17 @@ public class BlockZergCreep extends Block {
 
 					IBlockState iblockstate = worldIn.getBlockState(blockpos);
 
-					if (iblockstate.isOpaqueCube() 
-							&& iblockstate.getBlock() != Blocks.BEDROCK 
-							&& iblockstate.getBlock() != BlockHandler.ZERG_CREEP 
-							&& iblockstate.getBlock() != MetaBlockHandler.ZERG_FLESH
-							&& iblockstate.getBlock() != BlockHandler.KERATIN_CHUNK 
-							&& iblockstate.getBlock() != MetaBlockHandler.ZERG_CARAPACE_BLOCK 
-							&& iblockstate.getBlock() != MetaBlockHandler.PROTOSS_METAL_T1 
-							&& iblockstate.getBlock() != MetaBlockHandler.PROTOSS_METAL_T2 
-							&& iblockstate.getBlock() != MetaBlockHandler.PROTOSS_METAL_T3 
-							&& !Library.checkCube(worldIn, Blocks.AIR.getDefaultState(), blockpos, 3).isEmpty()) {
+					if (iblockstate.isOpaqueCube() && !Library.checkCube(worldIn, Blocks.AIR.getDefaultState(), blockpos, 3).isEmpty() 
+							&& (iblockstate.getBlock() == Blocks.GRASS
+							|| iblockstate.getBlock() == Blocks.SAND
+							|| iblockstate.getBlock() == Blocks.SNOW
+							|| iblockstate.getBlock() == BlockHandler.DIRT_SLAYN
+							|| iblockstate.getBlock() == BlockHandler.SAND_SLAYN
+							|| iblockstate.getBlock() == BlockHandler.SAND_SHAKURAS
+							|| iblockstate.getBlock() == BlockHandler.DIRT_SHAKURAS
+							|| iblockstate.getBlock() == BlockHandler.SAND_ZERUS
+							|| iblockstate.getBlock() == BlockHandler.DIRT_ZERUS
+							|| iblockstate.getBlock() == BlockHandler.DIRT_CHAR)) {
 						worldIn.setBlockState(blockpos, BlockHandler.ZERG_CREEP.getDefaultState());
 					}
 				}

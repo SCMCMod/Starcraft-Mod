@@ -52,7 +52,7 @@ import net.minecraftforge.fml.relauncher.Side;
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
  * 
  * @author Hypeirochus
- * @author wundrweapon
+ * @author Ocelot
  */
 @Mod(modid = Library.MODID, acceptedMinecraftVersions = "[1.10.2]", useMetadata = true, version = "${version}", dependencies = "required-after:mdxlib")
 public class Starcraft {
@@ -111,7 +111,9 @@ public class Starcraft {
 
 		MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
 		MinecraftForge.EVENT_BUS.register(new OnPlayerLoggedInEvent());
+		
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+			logRegistry = new LogRegistry();
 			MinecraftForge.EVENT_BUS.register(new GuiRenderEventHandler());
 			RenderingHandler.init();
 			getLogRegistry().init();

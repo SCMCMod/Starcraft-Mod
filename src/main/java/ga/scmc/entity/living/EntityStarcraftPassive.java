@@ -31,6 +31,11 @@ public abstract class EntityStarcraftPassive extends EntityTameable implements I
 	public EntityStarcraftPassive(World world) {
 		super(world);
 	}
+	
+	@Override
+	public boolean getCanSpawnHere() {
+		return true;
+	}
 
 	public int secondsToTicks(int seconds) {
 		return seconds * 20;

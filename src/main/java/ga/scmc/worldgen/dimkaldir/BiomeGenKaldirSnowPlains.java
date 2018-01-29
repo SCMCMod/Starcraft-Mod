@@ -11,10 +11,10 @@ import net.minecraft.world.chunk.ChunkPrimer;
 
 public class BiomeGenKaldirSnowPlains extends BiomeHandler {
 
-	public BiomeGenKaldirSnowPlains(BiomeProperties id) {
+	public BiomeGenKaldirSnowPlains(BiomeProperties id, String name) {
 		super(id);
 
-		setRegistryName("kaldir_snow_plains");
+		setRegistryName(name);
 
 		topBlock = Blocks.SNOW.getDefaultState();
 		fillerBlock = Blocks.SNOW.getDefaultState();

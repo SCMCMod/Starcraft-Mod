@@ -3,7 +3,6 @@ package ga.scmc.entity.living;
 import java.util.ArrayList;
 
 import ga.scmc.enums.EnumTypeAttributes;
-import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.ItemHandler;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -26,12 +25,7 @@ public class EntityZergMob extends EntityStarcraftMob {
 
 	@Override
 	public boolean getCanSpawnHere() {
-		if (this.world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_CHAR
-				|| this.world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_KALDIR
-					|| this.world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_ZERUS) {
-			return true;
-		}
-		return false;
+		return true;
 	}
 
 	@Override

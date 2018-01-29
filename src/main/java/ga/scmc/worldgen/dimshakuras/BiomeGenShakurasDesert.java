@@ -12,10 +12,10 @@ import net.minecraft.world.chunk.ChunkPrimer;
 
 public class BiomeGenShakurasDesert extends BiomeHandler {
 
-	public BiomeGenShakurasDesert(BiomeProperties id) {
+	public BiomeGenShakurasDesert(BiomeProperties id, String name) {
 		super(id);
 
-		setRegistryName("shakuras_desert");
+		setRegistryName(name);
 
 		topBlock = BlockHandler.SAND_SHAKURAS.getDefaultState();
 		fillerBlock = BlockHandler.SAND_SHAKURAS.getDefaultState();

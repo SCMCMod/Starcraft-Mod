@@ -1,23 +1,24 @@
-package ga.scmc.worldgen.dimkorhal;
+package ga.scmc.worldgen.dimslayn;
 
 import java.util.Random;
 
 import ga.scmc.handlers.BiomeHandler;
+import ga.scmc.handlers.BlockHandler;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
 
-public class BiomeGenKorhalDesertHills extends BiomeHandler {
+public class BiomeGenSlaynDesert extends BiomeHandler {
 
-	public BiomeGenKorhalDesertHills(BiomeProperties id) {
+	public BiomeGenSlaynDesert(BiomeProperties id, String name) {
 		super(id);
 
-		setRegistryName("korhal_desert_hills");
+		setRegistryName(name);
 
-		topBlock = Blocks.SAND.getStateFromMeta(1);
-		fillerBlock = Blocks.RED_SANDSTONE.getDefaultState();
+		topBlock = BlockHandler.DIRT_SLAYN.getDefaultState();
+		fillerBlock = BlockHandler.DIRT_SLAYN.getDefaultState();
 
 		spawnableMonsterList.clear();
 		spawnableCreatureList.clear();
@@ -43,11 +44,11 @@ public class BiomeGenKorhalDesertHills extends BiomeHandler {
 
 				if (origState.getMaterial() == Material.AIR) { // If we're still in the air...
 					j = -1;
-				} else if (origState.getBlock() == Blocks.STONE) { // If we've hit the ground...
+				} else if (origState.getBlock() == BlockHandler.STONE_SLAYN) { // If we've hit the ground...
 					if (j == -1) { // If we were just in the air...
 						if (randHeight <= 0) {
 							topBlock = AIR;
-							fillerBlock = Blocks.STONE.getDefaultState();
+							fillerBlock = BlockHandler.STONE_SLAYN.getDefaultState();
 						} else if (yLoc >= seaLevel - 4 && yLoc <= seaLevel + 1) {
 							topBlock = this.topBlock;
 							fillerBlock = this.fillerBlock;
@@ -63,8 +64,8 @@ public class BiomeGenKorhalDesertHills extends BiomeHandler {
 							chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, topBlock);
 						} else if (yLoc < seaLevel - 7 - randHeight) {
 							topBlock = AIR;
-							fillerBlock = Blocks.STONE.getDefaultState();
-							chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, Blocks.GRAVEL.getDefaultState());
+							fillerBlock = BlockHandler.STONE_SLAYN.getDefaultState();
+							chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, BlockHandler.GRAVEL_SLAYN.getDefaultState());
 						} else {
 							chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, fillerBlock);
 						}

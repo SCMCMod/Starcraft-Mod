@@ -2,6 +2,7 @@ package ocelot.api.client.gui;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import net.minecraft.client.gui.GuiScreen;
@@ -9,7 +10,6 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import ocelot.api.client.gui.component.Component;
-import scala.actors.threadpool.Arrays;
 
 public abstract class GuiBase extends GuiScreen {
 

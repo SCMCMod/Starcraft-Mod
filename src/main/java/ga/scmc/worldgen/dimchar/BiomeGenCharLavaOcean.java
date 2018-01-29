@@ -11,10 +11,10 @@ import net.minecraft.world.chunk.ChunkPrimer;
 
 public class BiomeGenCharLavaOcean extends BiomeHandler {
 
-	public BiomeGenCharLavaOcean(BiomeProperties id) {
+	public BiomeGenCharLavaOcean(BiomeProperties id, String name) {
 		super(id);
 
-		setRegistryName("char_deep_ocean");
+		setRegistryName(name);
 		topBlock = BlockHandler.DIRT_CHAR.getDefaultState();
 		fillerBlock = BlockHandler.DIRT_CHAR.getDefaultState();
 

@@ -12,10 +12,10 @@ import net.minecraft.world.chunk.ChunkPrimer;
 
 public class BiomeGenShakurasMountains extends BiomeHandler {
 
-	public BiomeGenShakurasMountains(BiomeProperties id) {
+	public BiomeGenShakurasMountains(BiomeProperties id, String name) {
 		super(id);
 
-		setRegistryName("shakuras_mountains");
+		setRegistryName(name);
 
 		topBlock = BlockHandler.STONE_SHAKURAS.getDefaultState();
 		fillerBlock = BlockHandler.STONE_SHAKURAS.getDefaultState();

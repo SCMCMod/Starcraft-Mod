@@ -58,9 +58,9 @@ public class WorldProviderAiur extends WorldProvider implements IClimateProvider
 		biomeProvider = new AiurBiomeProvider(world.getWorldInfo());
 	}
 
-	@Override
+    @Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkProviderAiur(world);
+		return new ChunkProviderAiur(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
 	}
 
 	/**

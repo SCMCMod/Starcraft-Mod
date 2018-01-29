@@ -50,11 +50,6 @@ public class EntityMutalisk extends EntityZergFlying implements IMob {
 	}
 	
 	@Override
-	public boolean getCanSpawnHere() {
-		return true;
-	}
-
-	@Override
 	public int getMaxSpawnedInChunk() {
 		return 1;
 	}

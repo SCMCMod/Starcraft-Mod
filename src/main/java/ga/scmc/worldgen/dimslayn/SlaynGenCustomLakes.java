@@ -2,6 +2,7 @@ package ga.scmc.worldgen.dimslayn;
 
 import java.util.Random;
 
+import ga.scmc.handlers.BlockHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -95,7 +96,7 @@ public class SlaynGenCustomLakes extends WorldGenerator {
 						if(aboolean[(i2 * 16 + j3) * 8 + j4]) {
 							BlockPos blockpos = position.add(i2, j4 - 1, j3);
 
-							if(worldIn.getBlockState(blockpos).getBlock() == Blocks.DIRT && worldIn.getLightFor(EnumSkyBlock.SKY, position.add(i2, j4, j3)) > 0) {
+							if(worldIn.getBlockState(blockpos).getBlock() == BlockHandler.DIRT_SLAYN && worldIn.getLightFor(EnumSkyBlock.SKY, position.add(i2, j4, j3)) > 0) {
 								Biome biome = worldIn.getBiomeForCoordsBody(blockpos);
 
 								if(biome.topBlock.getBlock() == Blocks.MYCELIUM) {
@@ -119,7 +120,7 @@ public class SlaynGenCustomLakes extends WorldGenerator {
 											|| k4 < 7 && aboolean[(j2 * 16 + k3) * 8 + k4 + 1] || k4 > 0 && aboolean[(j2 * 16 + k3) * 8 + (k4 - 1)]);
 
 							if(flag1 && (k4 < 4 || rand.nextInt(2) != 0) && worldIn.getBlockState(position.add(j2, k4, k3)).getMaterial().isSolid()) {
-								worldIn.setBlockState(position.add(j2, k4, k3), Blocks.STONE.getDefaultState(), 2);
+								worldIn.setBlockState(position.add(j2, k4, k3), BlockHandler.STONE_SLAYN.getDefaultState(), 2);
 							}
 						}
 					}

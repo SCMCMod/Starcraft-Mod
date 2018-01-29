@@ -12,10 +12,10 @@ import net.minecraft.world.chunk.ChunkPrimer;
 
 public class BiomeGenCharGlassPlains extends BiomeHandler {
 
-	public BiomeGenCharGlassPlains(BiomeProperties id) {
+	public BiomeGenCharGlassPlains(BiomeProperties id, String name) {
 		super(id);
 
-		setRegistryName("glass_plains");
+		setRegistryName(name);
 
 		topBlock = Blocks.OBSIDIAN.getDefaultState();
 		fillerBlock = Blocks.OBSIDIAN.getDefaultState();
