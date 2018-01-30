@@ -85,12 +85,12 @@ public class TileEntityProtossFurnace extends TileEntitySidedInventory implement
 		positions = new ArrayList<BlockPos>();
 		for (int i = 0; i < TileEntityProtossPowerCore.CORE_POSITIONS.size(); i++) {
 			BlockPos pos = TileEntityProtossPowerCore.CORE_POSITIONS.get(i);
-			if (pos.getDistance(getPos().getX(), getPos().getY(), getPos().getZ()) < 30.0D) {
+			if (pos.getDistance(getPos().getX(), getPos().getY(), getPos().getZ()) < 100.0D) {
 				positions.add(pos);
 			}
 		}
 
-		return positions.size() >= getSpeedBonus() / 2 && positions.size() - getSpeedBonus() / 2 >= getEfficiencyBonus() / 2;
+		return positions.size() >= getSpeedBonus() / 2 && positions.size() - getSpeedBonus() / 2 >= getEfficiencyBonus() / 2 && positions.size() > 0;
 	}
 
 	private void smeltItem() {

@@ -26,7 +26,6 @@ public class TileEntityZerusGlowPod extends TileEntity implements ITickable {
 		pulsingProgress += pulsingSpeed;
 
 		if (pulsingProgress >= 1.1f || pulsingProgress < 1) {
-			pulsingSpeed = 0.005f;
 			pulsingSpeed *= -1;
 		}
 	}
@@ -35,6 +34,7 @@ public class TileEntityZerusGlowPod extends TileEntity implements ITickable {
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setFloat("pulsingProgress", this.pulsingProgress);
+		nbt.setBoolean("direction", this.pulsingSpeed < 0);
 		return nbt;
 	}
 
@@ -42,7 +42,7 @@ public class TileEntityZerusGlowPod extends TileEntity implements ITickable {
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
 		this.pulsingProgress = nbt.getFloat("pulsingProgress");
-		this.pulsingSpeed = 0.005f;
+		this.pulsingSpeed = nbt.getBoolean("direction") ? -0.005f : 0.005f;
 	}
 
 	@Override

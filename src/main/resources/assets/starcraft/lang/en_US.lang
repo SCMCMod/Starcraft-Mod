@@ -365,7 +365,9 @@ item.protoss.blade.warp.aiur.name=Khalai Psi Blade
 item.protoss.blade.warp.dark.name=Dark Warp Blade
 item.protoss.blade.master.name=Master Psi Blade
 
-item.protoss.khaydarincrystal.normal.name=Khaydarin Crystal
+item.protoss.khaydarincrystal.pure.name=Pure Khaydarin Crystal
+item.protoss.khaydarincrystal.dark.name=Dark Khaydarin Crystal
+item.protoss.khaydarincrystal.void.name=Void Khaydarin Crystal
 
 item.protoss.upgrade.speed.name=Speed Module
 item.protoss.upgrade.efficiency.name=Efficiency Module

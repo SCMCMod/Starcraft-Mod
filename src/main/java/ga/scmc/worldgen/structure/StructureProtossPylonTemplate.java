@@ -133,11 +133,11 @@ public class StructureProtossPylonTemplate extends SCWorldGenerator {
 		world.setBlockState(pos.add(3, 10 + offsetY, 4), MetaBlockHandler.PYLON_CRYSTAL.getStateFromMeta(metaSecColor));
 		world.setBlockState(pos.add(4, 10 + offsetY, 4), MetaBlockHandler.PYLON_CRYSTAL.getStateFromMeta(metaSecColor));
 		if(metaSecColor == 0) {
-			world.setBlockState(pos.add(4, 6 + offsetY, 4), BlockHandler.CORE_PYLON_KHALAI.getDefaultState(), 2);
+			setBlockStateAndUpdate(world, pos.add(4, 6 + offsetY, 4), BlockHandler.CORE_PYLON_KHALAI.getDefaultState(), 2);
 		}else if(metaSecColor == 2) {
-			world.setBlockState(pos.add(4, 6 + offsetY, 4), BlockHandler.CORE_PYLON_VOID.getDefaultState(), 2);
+			setBlockStateAndUpdate(world, pos.add(4, 6 + offsetY, 4), BlockHandler.CORE_PYLON_VOID.getDefaultState(), 2);
 		}else if(metaSecColor == 1) {
-			world.setBlockState(pos.add(4, 6 + offsetY, 4), BlockHandler.CORE_PYLON_DARK.getDefaultState(), 2);
+			setBlockStateAndUpdate(world, pos.add(4, 6 + offsetY, 4), BlockHandler.CORE_PYLON_DARK.getDefaultState(), 2);
 		}
 		return true;
 

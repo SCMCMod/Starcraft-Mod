@@ -127,7 +127,6 @@ import static ga.scmc.handlers.ItemHandler.ZERG_CARAPACE;
 import static ga.scmc.handlers.MetaBlockHandler.COMP_METAL_T1;
 import static ga.scmc.handlers.MetaBlockHandler.COMP_MINERAL;
 import static ga.scmc.handlers.MetaBlockHandler.GAS_COLLECTOR;
-import static ga.scmc.handlers.MetaBlockHandler.KHAYDARIN_CRYSTAL_BLOCK;
 import static ga.scmc.handlers.MetaBlockHandler.NEOSTEEL_METAL;
 import static ga.scmc.handlers.MetaBlockHandler.PARISTEEL_METAL;
 import static ga.scmc.handlers.MetaBlockHandler.PROTOSS_METAL_T1;
@@ -556,8 +555,8 @@ public class RenderingHandler {
 		for (int i = 0; i < EnumMetaItem.ProtossUpgradeType.values().length; i++) {
 			registerItemRender(PROTOSS_UPGRADE, i, "protoss.upgrade." + ProtossUpgradeType.values()[i].getName());
 		}
-		for (int i = 0; i < EnumMetaItem.KhaydarinCrystalType.values().length; i++) {
-			registerItemRender(KHAYDARIN_CRYSTAL, i, "protoss.khaydarincrystal." + EnumMetaItem.KhaydarinCrystalType.values()[i].getName());
+		for (int i = 0; i < EnumMetaBlock.PylonCrystalType.values().length; i++) {
+			registerItemRender(KHAYDARIN_CRYSTAL, i, "protoss.khaydarincrystal." + EnumMetaBlock.PylonCrystalType.values()[i].getName());
 		}
 	}
 
@@ -747,9 +746,6 @@ public class RenderingHandler {
 		}
 		for (int i = 0; i < EnumMetaBlock.EnumSkullType.values().length; i++) {
 			registerBlockModel(STARCRAFT_SKULL, i, "skull");
-		}
-		for (int i = 0; i < EnumMetaItem.KhaydarinCrystalType.values().length; i++) {
-			registerBlockModel(KHAYDARIN_CRYSTAL_BLOCK, i, "protoss.khaydarincrystal.block." + EnumMetaItem.KhaydarinCrystalType.values()[i].getName());
 		}
 	}
 

@@ -45,7 +45,7 @@ public abstract class SCWorldGenerator {
 	public boolean generate(int metaColor, int metaSecColor, World worldIn, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos position) {
 		return true;
 	}
-	
+
 	public boolean generate(int metaColor, int metaSecColor, World worldIn, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos position, boolean useSpawnReqs) {
 		return true;
 	}
@@ -53,19 +53,19 @@ public abstract class SCWorldGenerator {
 	public boolean generate(World worldIn, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos position) {
 		return true;
 	}
-	
+
 	public boolean generate(int Meta, World worldIn, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos position) {
 		return true;
 	}
-	
+
 	public boolean generate(World worldIn, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos position, boolean useSpawnReqs) {
 		return true;
 	}
-	
+
 	public boolean generate(IBlockState state, IBlockState state2, World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos blockPos, boolean useSpawnReqs) {
 		return true;
 	}
-	
+
 	public boolean generate(int range, Entity entityToSpawn, TextFormatting color, World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos blockPos, boolean useSpawnReqs) {
 		return true;
 	}
@@ -95,7 +95,7 @@ public abstract class SCWorldGenerator {
 			TemplateManager templatemanager = worldserver.getStructureTemplateManager();
 			ResourceLocation loc = new ResourceLocation(Library.MODID, name);
 			Template template = templatemanager.getTemplate(minecraftserver, loc);
-			// 1.12-Template template = templatemanager.get(minecraftserver, loc);
+			// 1.12:Template template = templatemanager.get(minecraftserver, loc);
 
 			if (template != null) {
 				IBlockState iblockstate = world.getBlockState(pos);
@@ -108,5 +108,16 @@ public abstract class SCWorldGenerator {
 			return false;
 		}
 		return false;
+	}
+
+	protected void setBlockStateAndUpdate(World world, BlockPos pos, IBlockState state) {
+		this.setBlockStateAndUpdate(world, pos, state, 3);
+	}
+
+	protected void setBlockStateAndUpdate(World world, BlockPos pos, IBlockState state, int flags) {
+		IBlockState oldState = world.getBlockState(pos);
+		world.setBlockState(pos, state, flags);
+		world.setTileEntity(pos, state.getBlock().createTileEntity(world, oldState));
+		state.getBlock().onBlockAdded(world, pos, oldState);
 	}
 }

@@ -2643,11 +2643,11 @@ public class StructureProtossCyberneticsCoreTemplate extends SCWorldGenerator {
 		world.setBlockState(pos.add(x+15, y+18, z+22), MetaBlockHandler.PROTOSS_METAL_T1.getStateFromMeta(metaPrimColor));
 		world.setBlockState(pos.add(x+14, y+19, z+22), MetaBlockHandler.PROTOSS_METAL_T1.getStateFromMeta(metaPrimColor));
 		if(metaSecColor == 3) {
-			world.setBlockState(pos.add(x+12, y+2, z+11), BlockHandler.CORE_CYBERNETICSCORE_KHALAI.getDefaultState(), 2);
+			setBlockStateAndUpdate(world, pos.add(x+12, y+2, z+11), BlockHandler.CORE_CYBERNETICSCORE_KHALAI.getDefaultState(), 2);
 		}else if(metaSecColor == 2) {
-			world.setBlockState(pos.add(x+12, y+2, z+11), BlockHandler.CORE_CYBERNETICSCORE_VOID.getDefaultState(), 2);
+			setBlockStateAndUpdate(world, pos.add(x+12, y+2, z+11), BlockHandler.CORE_CYBERNETICSCORE_VOID.getDefaultState(), 2);
 		}else if(metaSecColor == 4) {
-			world.setBlockState(pos.add(x+12, y+2, z+11), BlockHandler.CORE_CYBERNETICSCORE_DARK.getDefaultState(), 2);
+			setBlockStateAndUpdate(world, pos.add(x+12, y+2, z+11), BlockHandler.CORE_CYBERNETICSCORE_DARK.getDefaultState(), 2);
 		}
 		return true;
 	}

@@ -69,7 +69,6 @@ public class ItemLog extends Item {
 		NBTTagCompound nbt = new NBTTagCompound();
 		nbt.setInteger("type", log.getId());
 		nbt.setInteger("skin", log.getSkinId());
-		System.out.println(log.getSkinId());
 		stack.setTagCompound(nbt);
 		return stack;
 	}

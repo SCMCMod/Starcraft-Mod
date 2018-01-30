@@ -3,7 +3,7 @@ package ga.scmc.items.metaitems;
 import java.util.List;
 
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
-import ga.scmc.enums.EnumMetaItem.KhaydarinCrystalType;
+import ga.scmc.enums.EnumMetaBlock.PylonCrystalType;
 import ga.scmc.handlers.MetaBlockHandler;
 import ga.scmc.items.IItemCompressable;
 import net.minecraft.creativetab.CreativeTabs;
@@ -24,27 +24,27 @@ public class ItemKhaydarinCrystal extends Item implements IItemCompressable {
 
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> items) {
-		for (int i = 0; i < KhaydarinCrystalType.values().length; i++) {
+		for (int i = 0; i < PylonCrystalType.values().length; i++) {
 			items.add(new ItemStack(item, 1, i));
 		}
 	}
 
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		for (int i = 0; i < KhaydarinCrystalType.values().length; i++) {
+		for (int i = 0; i < PylonCrystalType.values().length; i++) {
 			if (stack.getItemDamage() == i) {
-				return getUnlocalizedName() + "." + KhaydarinCrystalType.values()[i].getName();
+				return getUnlocalizedName() + "." + PylonCrystalType.values()[i].getName();
 			} else {
 				continue;
 			}
 		}
-		return getUnlocalizedName() + "." + KhaydarinCrystalType.NORMAL.getName();
+		return getUnlocalizedName() + "." + PylonCrystalType.PURE.getName();
 	}
 
 	@Override
 	public ItemStack getCompressedForm(int metadata) {
-		if (metadata < KhaydarinCrystalType.values().length)
-			return new ItemStack(MetaBlockHandler.KHAYDARIN_CRYSTAL_BLOCK, 1, 0);
+		if (metadata < PylonCrystalType.values().length)
+			return new ItemStack(MetaBlockHandler.PYLON_CRYSTAL, 1, metadata);
 		return null;
 	}
 }

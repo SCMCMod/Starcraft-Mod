@@ -1912,7 +1912,7 @@ public class StructureTerranCommandCenterTemplate extends SCWorldGenerator {
 		worldIn.setBlockState(bp.add(i + 13, j + 5, k + 17), (IBlockState)Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.SOUTH));
 		worldIn.setBlockState(bp.add(i + 13, j + 5, k + 18), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 13, j + 5, k + 19), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
-		worldIn.setBlockState(bp.add(i + 13, j + 5, k + 20), BlockHandler.CORE_COMMANDCENTER.getDefaultState());
+		setBlockStateAndUpdate(worldIn, bp.add(i + 13, j + 5, k + 20), BlockHandler.CORE_COMMANDCENTER.getDefaultState());
 		worldIn.setBlockState(bp.add(i + 13, j + 5, k + 26), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 13, j + 6, k + 18), (IBlockState)Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.SOUTH));
 		worldIn.setBlockState(bp.add(i + 13, j + 6, k + 19), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));

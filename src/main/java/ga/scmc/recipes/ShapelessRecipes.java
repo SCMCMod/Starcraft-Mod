@@ -1,5 +1,6 @@
 package ga.scmc.recipes;
 
+import ga.scmc.enums.EnumMetaBlock.PylonCrystalType;
 import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumMetaItem.EnergyType;
 import ga.scmc.handlers.BlockHandler;
@@ -24,7 +25,9 @@ public class ShapelessRecipes {
 
 	public static void init() {
 		// Khaydarin x9 crystal from khaydarin block
-		GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.KHAYDARIN_CRYSTAL, 9, 0), new ItemStack(MetaBlockHandler.KHAYDARIN_CRYSTAL_BLOCK, 1, 0));
+		for (int i = 0; i < PylonCrystalType.values().length; i++) {
+			GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.KHAYDARIN_CRYSTAL, 9, i), new ItemStack(MetaBlockHandler.PYLON_CRYSTAL, 1, i));
+		}
 
 		// Iron Grain x2 from Iron Ores
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ItemHandler.DUST, 2, EnumMetaItem.DustType.IRON.getID()), "oreIron"));
@@ -66,7 +69,7 @@ public class ShapelessRecipes {
 		// GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.ENERGY, 9, EnumMetaItem.EnergyType.VOID.getID()), new ItemStack(BlockHandler.ENERGY_BLOCK, 1, EnumMetaItem.EnergyType.VOID.getID()));
 
 		for (int i = 0; i < EnergyType.values().length; i++) {
-			GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.ENERGY, 9, EnumMetaItem.EnergyType.values()[i].getID()), new ItemStack(BlockHandler.ENERGY_BLOCK, 1, EnumMetaItem.EnergyType.values()[i].getID()));
+			GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.ENERGY, 9, EnumMetaItem.EnergyType.values()[i].getID()), new ItemStack(BlockHandler.ENERGY_BLOCK, 1, i));
 		}
 	}
 }
