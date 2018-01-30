@@ -201,10 +201,10 @@ public class SimpleRecipes {
 
 		// Marine armor
 		GameRegistry.addRecipe(new ItemStack(ItemHandler.MARINE_HELMET_VISOR), "GGG", "GGG", "GGG", 'G', new ItemStack(Blocks.STAINED_GLASS_PANE, 1, 1));
-		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T1_HELMET), "SSS", "SGS", 'S', new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.STEEL.getID()), 'G', new ItemStack(ItemHandler.MARINE_HELMET_VISOR));
-		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T1_CHESTPLATE), "S S", "SSS", "SSS", 'S', new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.STEEL.getID()));
-		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T1_LEGGINGS), "SSS", "S S", "S S", 'S', new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.STEEL.getID()));
-		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T1_BOOTS), "S S", "S S", 'S', new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.STEEL.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T1_HELMET), "SSS", "SGS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.NEOSTEEL.getID()), 'G', new ItemStack(ItemHandler.MARINE_HELMET_VISOR));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T1_CHESTPLATE), "S S", "SSS", "SSS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.NEOSTEEL.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T1_LEGGINGS), "SSS", "S S", "S S", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.NEOSTEEL.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T1_BOOTS), "S S", "S S", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.NEOSTEEL.getID()));
 
 		// Ammo for weapons
 		GameRegistry.addRecipe(((ItemMagazine) ItemHandler.BULLET_MAGAZINE).getDefaultStack(EnumMetaItem.BulletMagazineType.C14.getID()), " S ", "SIS", " S ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'I', Items.GUNPOWDER);

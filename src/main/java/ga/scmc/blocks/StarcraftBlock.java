@@ -1,8 +1,5 @@
 package ga.scmc.blocks;
 
-import java.util.Arrays;
-import java.util.List;
-
 import ga.scmc.lib.Library;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -12,10 +9,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;

@@ -22,6 +22,9 @@ public class SmeltingRecipes {
 		// Steel Ingot from Steel Dust
 		GameRegistry.addSmelting(new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.STEEL.getID()), new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 0);
 
+		//Steel to neosteel
+		GameRegistry.addSmelting(new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.NEOSTEEL.getID()), 0);
+
 		// Blue Stained Glass
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.SAND_SHAKURAS), new ItemStack(Blocks.STAINED_GLASS, 1, 11), 0.1F);
 

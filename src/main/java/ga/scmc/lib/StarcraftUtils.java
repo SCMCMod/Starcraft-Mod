@@ -1,8 +1,9 @@
 package ga.scmc.lib;
 
+import java.util.Random;
+
 import ga.scmc.enums.EnumTeamColors;
 import net.minecraft.world.World;
-import java.util.Random;
 
 /**
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>

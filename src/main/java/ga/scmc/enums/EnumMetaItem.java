@@ -1,6 +1,5 @@
 package ga.scmc.enums;
 
-import net.minecraft.block.material.MapColor;
 import net.minecraft.util.IStringSerializable;
 
 /***
@@ -280,7 +279,10 @@ public class EnumMetaItem {
 	}
 
 	public static enum IngotType implements IStringSerializable {
-		COPPER("copper", 0), TITANIUM("titanium", 1), STEEL("steel", 2);
+		COPPER("copper", 0), 
+		TITANIUM("titanium", 1), 
+		STEEL("steel", 2), 
+		NEOSTEEL("neosteel", 3);
 
 		private int ID;
 		private String name;
