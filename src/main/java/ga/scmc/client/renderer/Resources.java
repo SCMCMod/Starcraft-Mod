@@ -47,7 +47,7 @@ public class Resources {
 	public static final String MUTALISKPRIMAL_BASE				= Library.RL_BASE + "textures/entity/mutaliskprimal_base.png";
 	public static final String MUTALISKPRIMAL_OVERLAY			= Library.RL_BASE + "textures/entity/mutaliskprimal_overlay.png";
 	public static final String MUTALISKPRIMALDEHAKA_BASE		= Library.RL_BASE + "textures/entity/mutaliskprimaldehaka_base.png";
-	public static final String MUTALISKPRIMALDEHAKA_GLOW_STATIC = Library.RL_BASE + "textures/entity/mutaliskprimaldehaka_base.png";
+	public static final String MUTALISKPRIMALDEHAKA_GLOW_STATIC = Library.RL_BASE + "textures/entity/mutaliskprimaldehaka_glow_static.png";
 	public static final String MUTALISKPRIMALDEHAKA_OVERLAY		= Library.RL_BASE + "textures/entity/mutaliskprimaldehaka_overlay.png";
 	public static final String MUTALISKVIPER_BASE				= Library.RL_BASE + "textures/entity/mutaliskviper_base.png";
 	public static final String MUTALISKVIPER_OVERLAY			= Library.RL_BASE + "textures/entity/mutaliskviper_overlay.png";

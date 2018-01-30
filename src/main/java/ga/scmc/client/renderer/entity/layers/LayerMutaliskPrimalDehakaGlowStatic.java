@@ -14,9 +14,9 @@ public class LayerMutaliskPrimalDehakaGlowStatic<T extends EntityMutaliskPrimalD
     private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.MUTALISKPRIMALDEHAKA_GLOW_STATIC);
     private final RenderMutaliskPrimalDehaka<T> RENDERER;
 
-    public LayerMutaliskPrimalDehakaGlowStatic(RenderMutaliskPrimalDehaka<T> zerglingSC2RendererIn)
+    public LayerMutaliskPrimalDehakaGlowStatic(RenderMutaliskPrimalDehaka<T> renderer)
     {
-        this.RENDERER = zerglingSC2RendererIn;
+        this.RENDERER = renderer;
     }
 
     public void doRenderLayer(EntityMutaliskPrimalDehaka entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
