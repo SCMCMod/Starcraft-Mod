@@ -27,6 +27,8 @@ public class SmeltingRecipes {
 
 		// Blue Stained Glass
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.SAND_SHAKURAS), new ItemStack(Blocks.STAINED_GLASS, 1, 11), 0.1F);
+		GameRegistry.addSmelting(new ItemStack(BlockHandler.SAND_SLAYN), new ItemStack(Blocks.STAINED_GLASS, 1, 15), 0.1F);
+		GameRegistry.addSmelting(new ItemStack(BlockHandler.SAND_ZERUS), new ItemStack(Blocks.STAINED_GLASS, 1, 12), 0.1F);
 
 		// Shakuras Stone
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.COBBLESTONE_SHAKURAS), new ItemStack(BlockHandler.STONE_SHAKURAS, 1, 0), 0);
