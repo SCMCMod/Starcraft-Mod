@@ -40,7 +40,10 @@ public class ShapelessRecipes {
 		// Carbon Grain x9 from Coal (not Charcoal as Coal is natural, and iirc has more carbon)
 		GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.DUST, 9, EnumMetaItem.DustType.CARBON.getID()), new ItemStack(Items.COAL, 1, 1));
 
-		// Steel Dust from Carbon and Iron Grains
+		// Gunpowder from Carbon and Phosphorus
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.GUNPOWDER, 1, 0), new ItemStack(ItemHandler.DUST, 3, EnumMetaItem.DustType.CARBON.getID()), new ItemStack(ItemHandler.DUST, 3, EnumMetaItem.DustType.CARBON.getID()), new ItemStack(ItemHandler.PHOSPHORUS, 3, 0), new ItemStack(ItemHandler.PHOSPHORUS, 3, 0));
+
+		// Steel Dust from Carbon and Iron Dusts
 		GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.STEEL.getID()), new ItemStack(ItemHandler.DUST, 3, EnumMetaItem.DustType.CARBON.getID()), new ItemStack(ItemHandler.DUST, 3, EnumMetaItem.DustType.CARBON.getID()), new ItemStack(ItemHandler.DUST, 3, EnumMetaItem.DustType.IRON.getID()), new ItemStack(ItemHandler.DUST, 3, EnumMetaItem.DustType.IRON.getID()));
 
 		// 1 Dark Protoss Ingot (using Dye on a normal Protoss Ingot)
