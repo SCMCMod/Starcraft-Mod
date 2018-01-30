@@ -87,7 +87,9 @@ public class StarcraftGenerator {
 	protected WorldGenerator DIRT_GENERIC;
 	protected WorldGenerator GRAVEL_GENERIC;
 	protected WorldGenerator REDSTONE_GENERIC;
+	protected WorldGenerator PHOSPHORUS_GENERIC;
 	protected WorldGenerator MINERAL_GENERIC;
+	protected WorldGenerator URANIUM_GENERIC;
 	protected WorldGenerator RICHMINERAL_GENERIC;
 
 	protected SCWorldGenerator PROTOSS_CYBERNETICS_CORE;
