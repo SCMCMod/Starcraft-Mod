@@ -36,7 +36,7 @@ import net.minecraft.world.World;
 public class EntityLarvaCocoon extends EntityZergPassive {
 
 	/** This is the entity that this guy will hatch into. It's saved in a byte id because we only need about 15 */
-	private byte transformId;
+	private int transformId;
 
 	public EntityLarvaCocoon(World world) {
 		this(world, 0);
@@ -45,7 +45,7 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 	public EntityLarvaCocoon(World world, int id) {
 		super(world);
 		this.setSize(1.0F, 1.0F);
-		this.transformId = (byte) id;
+		this.transformId = id;
 		this.setTeamColor(EnumTeamColors.PURPLE);
 		this.setFactions(EnumFactionTypes.SWARM);
 		this.setTypes(EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
@@ -91,7 +91,7 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 
 	@Override
 	protected void updateAITasks() {
-		if (ticksExisted > secondsToTicks(85)) {
+		if (ticksExisted > getTransformTime()) {
 			if (getEntityById(world, transformId) instanceof EntityStarcraftMob) {
 				Library.replaceEntity(true, this, ((EntityStarcraftMob) getEntityById(world, transformId)).setTeamColor(teamColor));
 			} else if (getEntityById(world, transformId) instanceof EntityStarcraftPassive) {
@@ -312,8 +312,12 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 		rotationPitch = 0;
 	}
 
-	public byte getTransformId() {
+	public int getTransformId() {
 		return transformId;
+	}
+	
+	public int getTransformTime() {
+		return secondsToTicks(85);
 	}
 
 	public static EntityLivingBase getEntityById(World world, int id) {
@@ -328,7 +332,7 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 			return new EntityZerglingSwarmling(world);
 		case 4:
 			return new EntityZerglingRaptor(world);
-		case 6:
+		case 9:
 			return new EntityHydralisk(world);
 		}
 	}

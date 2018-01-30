@@ -1,10 +1,12 @@
 package ga.scmc.blocks.metablocks;
 
 import java.util.List;
+import java.util.Random;
 
 import ga.scmc.blocks.itemblocks.IMetaBlockName;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.enums.EnumMetaBlock.PylonCrystalType;
+import ga.scmc.handlers.ItemHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -70,6 +72,11 @@ public class BlockPylonCrystal extends Block implements IMetaBlockName {
 	@Override
 	public int damageDropped(IBlockState state) {
 		return getMetaFromState(state);
+	}
+
+	@Override
+	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+		return rand.nextFloat() <= 0.1 ? ItemHandler.KHAYDARIN_CRYSTAL : null;
 	}
 
 	/**

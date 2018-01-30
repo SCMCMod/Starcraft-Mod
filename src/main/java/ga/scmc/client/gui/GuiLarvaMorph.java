@@ -15,6 +15,7 @@ import ga.scmc.network.NetworkHandler;
 import ga.scmc.network.message.MessageMorphLarva;
 import ga.scmc.network.message.MessageSyncLarvaGui;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
@@ -68,6 +69,10 @@ public class GuiLarvaMorph extends BasicGui {
 				int index = x + y * 5;
 				if (index < GuiLists.LARVA_OPTIONS.size()) {
 					GuiLists.LARVA_OPTIONS.get(index).render(false, 8 + x * 18, 8 + y * 18);
+					if (!canPurchase(mc.player, GuiLists.LARVA_OPTIONS.get(index))) {
+						drawRect(8 + x * 18, 8 + y * 18, (8 + x * 18) + 16, (8 + y * 18) + 16, GuiLists.NO_FUNDS_COLOR);
+						GlStateManager.color(1, 1, 1, 1);
+					}
 				}
 			}
 		}
@@ -81,6 +86,10 @@ public class GuiLarvaMorph extends BasicGui {
 			for (int index = 0; index < subOptions.size(); index++) {
 				GuiUtils.drawSlot(x + index * 18, y, 18, 18);
 				subOptions.get(index).render(true, 1 + x + index * 18, 1 + y);
+				if (!canPurchase(mc.player, subOptions.get(index))) {
+					drawRect(1 + x + index * 18, 1 + y, (1 + x + index * 18) + 16, (1 + y) + 16, GuiLists.NO_FUNDS_COLOR);
+					GlStateManager.color(1, 1, 1, 1);
+				}
 			}
 		}
 	}
@@ -126,20 +135,20 @@ public class GuiLarvaMorph extends BasicGui {
 						int index = x + y * 5;
 						if (index < GuiLists.LARVA_OPTIONS.size()) {
 							if (GuiUtils.isMouseInside(guiLeft + 7 + x * 18, guiTop + 7 + y * 18, 17, 18, mouseX, mouseY)) {
-								LarvaOption larvaOption = GuiLists.LARVA_OPTIONS.get(index);
+								LarvaOption option = GuiLists.LARVA_OPTIONS.get(index);
 								EntityPlayer player = Minecraft.getMinecraft().player;
 								SoundUtils.playButtonClick();
 
-								if (larvaOption.getChildren().length > 0) {
-									for (int i = 0; i < larvaOption.getChildren().length; i++)
-										subOptions.add(larvaOption.getChildren()[i]);
+								if (option.getChildren().length > 0) {
+									for (int i = 0; i < option.getChildren().length; i++)
+										subOptions.add(option.getChildren()[i]);
 									subOptionsX = mouseX + 8;
 									subOptionsY = mouseY - 8;
 								} else {
-									if (InventoryUtils.hasItemAndAmount(player, ItemHandler.MINERAL_SHARD, larvaOption.getMineralCost(), 0) && InventoryUtils.hasItemAndAmount(player, ItemHandler.VESPENE, larvaOption.getVespeneCost())) {
-										InventoryUtils.removeItemWithAmount(player, ItemHandler.MINERAL_SHARD, larvaOption.getMineralCost(), 0);
-										InventoryUtils.removeItemWithAmount(player, ItemHandler.VESPENE, larvaOption.getVespeneCost(), 0);
-										NetworkHandler.sendToServer(new MessageMorphLarva(larva, index));
+									if (canPurchase(mc.player, option)) {
+										InventoryUtils.removeItemWithAmount(player, ItemHandler.MINERAL_SHARD, option.getMineralCost(), 0);
+										InventoryUtils.removeItemWithAmount(player, ItemHandler.VESPENE, option.getVespeneCost(), 0);
+										NetworkHandler.sendToServer(new MessageMorphLarva(larva, option.getId()));
 										Minecraft.getMinecraft().player.closeScreen();
 										break;
 									}
@@ -156,10 +165,10 @@ public class GuiLarvaMorph extends BasicGui {
 					LarvaOption option = subOptions.get(i);
 					EntityPlayer player = Minecraft.getMinecraft().player;
 					SoundUtils.playButtonClick();
-					if (InventoryUtils.hasItemAndAmount(player, ItemHandler.MINERAL_SHARD, option.getMineralCost(), 0) && InventoryUtils.hasItemAndAmount(player, ItemHandler.VESPENE, option.getVespeneCost())) {
+					if (canPurchase(mc.player, option)) {
 						InventoryUtils.removeItemWithAmount(player, ItemHandler.MINERAL_SHARD, option.getMineralCost(), 0);
 						InventoryUtils.removeItemWithAmount(player, ItemHandler.VESPENE, option.getVespeneCost(), 0);
-						NetworkHandler.sendToServer(new MessageMorphLarva(larva, option.getIconId()));
+						NetworkHandler.sendToServer(new MessageMorphLarva(larva, option.getId()));
 						player.closeScreen();
 					}
 					return;
@@ -167,6 +176,10 @@ public class GuiLarvaMorph extends BasicGui {
 			}
 			subOptions.clear();
 		}
+	}
+
+	public static boolean canPurchase(EntityPlayer player, LarvaOption option) {
+		return InventoryUtils.hasItemAndAmount(player, ItemHandler.MINERAL_SHARD, option.getMineralCost(), 0) && InventoryUtils.hasItemAndAmount(player, ItemHandler.VESPENE, option.getVespeneCost());
 	}
 
 	@Override

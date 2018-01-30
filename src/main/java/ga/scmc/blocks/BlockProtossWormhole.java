@@ -12,6 +12,7 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -49,8 +50,12 @@ public class BlockProtossWormhole extends Block implements ITileEntityProvider {
 
 	@SideOnly(Side.CLIENT)
 	private void spawnElectricArc(World world, BlockPos pos, Random rand, double posX, double posY, double posZ, int color) {
+		GlStateManager.enableBlend();
+		GlStateManager.pushMatrix();
 		Game.minecraft().effectRenderer.addEffect(new EntityFXElectricArc(world, pos.getX(), pos.getY(), pos.getZ(), posX + (rand.nextInt(4) - 2), posY, posZ + (rand.nextInt(4) - 2), 10, 2.5F, 0.5F, 0.05F, color));
 		Game.minecraft().effectRenderer.addEffect(new EntityFXElectricArc(world, pos.getX(), pos.getY(), pos.getZ(), posX - (rand.nextInt(2) - 2), posY, posZ - (rand.nextInt(2) - 2), 10, 2.5F, 0.5F, 0.05F, color));
+		GlStateManager.popMatrix();
+		GlStateManager.disableBlend();
 	}
 
 	@Override

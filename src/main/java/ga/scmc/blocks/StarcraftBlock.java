@@ -24,7 +24,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class StarcraftBlock extends Block {
 
-	private ItemStack[] droppedItems;
 	private ItemBlock item;
 
 	public StarcraftBlock(Material material) {
@@ -96,13 +95,6 @@ public class StarcraftBlock extends Block {
 		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), meta, new ModelResourceLocation(new ResourceLocation(Library.MODID, fileName), "inventory"));
 	}
 
-	@Override
-	public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
-		if(droppedItems != null)
-			return Arrays.asList(droppedItems);
-		return super.getDrops(world, pos, state, fortune);
-	}
-
 	public void setNames(String name) {
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
@@ -138,11 +130,6 @@ public class StarcraftBlock extends Block {
 	 */
 	public StarcraftBlock setBlockHarvestLevel(String toolClass, int level, IBlockState state) {
 		setHarvestLevel(toolClass, level, state);
-		return this;
-	}
-
-	public StarcraftBlock setItemDropped(ItemStack... droppedItems) {
-		this.droppedItems = droppedItems;
 		return this;
 	}
 

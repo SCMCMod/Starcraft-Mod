@@ -1,6 +1,5 @@
 package ga.scmc.client.gui;
 
-import java.awt.Color;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,8 +39,6 @@ public class GuiItemShop extends BasicGui {
 
 	private static final ItemStack MINERAL = new ItemStack(ItemHandler.MINERAL_SHARD);
 	private static final ItemStack VESPENE = new ItemStack(ItemHandler.VESPENE, 1, 2);
-	private static final int HIGHLIGHT_COLOR = new Color(246, 255, 0, 60).getRGB();
-	private static final int NO_FUNDS_COLOR = new Color(200, 50, 0, 60).getRGB();
 
 	public List<ItemShopTab> tabs = new ArrayList<ItemShopTab>();
 	private int tab;
@@ -153,20 +150,19 @@ public class GuiItemShop extends BasicGui {
 			GlStateManager.color(0.1F, 0.1F, 0.1F, 0.1F);
 			int xOffset = 25;
 			int yOffset = 25;
-			drawRect(xOffset + selectedX * 18, yOffset + selectedY * 22, xOffset + (selectedX * 18) + 16, yOffset + (selectedY * 22) + 16, HIGHLIGHT_COLOR);
+			drawRect(xOffset + selectedX * 18, yOffset + selectedY * 22, xOffset + (selectedX * 18) + 16, yOffset + (selectedY * 22) + 16, GuiLists.HIGHLIGHT_COLOR);
 		}
 
 		for (int i = 0; i < 7; i++) {
 			for (int j = 0; j < 4; j++) {
 				int index = 4 * i + j;
 				if (index < tabs.get(tab).getItems().size()) {
-					if (index != selectedIndex && (InventoryUtils.getStackAmount(customer, MINERAL) < tabs.get(tab).getItems().get(index).getMineralCost() || InventoryUtils.getItemAmount(customer, VESPENE.getItem()) < tabs.get(tab).getItems().get(index).getVespeneCost())) {
+					if (index != selectedIndex && (MINERAL.stackSize < tabs.get(tab).getItems().get(index).getMineralCost() || VESPENE.stackSize < tabs.get(tab).getItems().get(index).getVespeneCost())) {
 						int selectedX = index % 4;
 						int selectedY = index / 4;
-						GlStateManager.color(0.1F, 0.1F, 0.1F, 0.1F);
 						int xOffset = 25;
 						int yOffset = 25;
-						drawRect(xOffset + selectedX * 18, yOffset + selectedY * 22, xOffset + (selectedX * 18) + 16, yOffset + (selectedY * 22) + 16, NO_FUNDS_COLOR);
+						drawRect(xOffset + selectedX * 18, yOffset + selectedY * 22, xOffset + (selectedX * 18) + 16, yOffset + (selectedY * 22) + 16, GuiLists.NO_FUNDS_COLOR);
 					}
 					Minecraft.getMinecraft().getRenderItem().renderItemAndEffectIntoGUI(tabs.get(tab).getItems().get(index).getStack(), 25 + j * 18, 25 + i * 22);
 					Minecraft.getMinecraft().getRenderItem().renderItemOverlays(mc.fontRendererObj, tabs.get(tab).getItems().get(index).getStack(), 25 + j * 18, 25 + i * 22);
@@ -183,8 +179,8 @@ public class GuiItemShop extends BasicGui {
 			this.fontRendererObj.drawString(I18n.format("gui.item_shop.christmas"), xSize / 2 - this.fontRendererObj.getStringWidth(I18n.format("gui.item_shop.christmas")) / 2, 206, 0x005f00);
 		}
 
-		MINERAL.stackSize = InventoryUtils.getStackAmount(customer, MINERAL);
-		VESPENE.stackSize = InventoryUtils.getStackAmount(customer, VESPENE);
+		MINERAL.stackSize = InventoryUtils.getItemAmount(customer, MINERAL.getItem(), MINERAL.getItemDamage());
+		VESPENE.stackSize = InventoryUtils.getItemAmount(customer, VESPENE.getItem(), VESPENE.getItemDamage());
 
 		if (MINERAL.stackSize > 0) {
 			Minecraft.getMinecraft().getRenderItem().renderItemAndEffectIntoGUI(MINERAL, 105, 91);
@@ -264,7 +260,7 @@ public class GuiItemShop extends BasicGui {
 
 	@Override
 	public void updateScreen() {
-		if (selectedIndex == -1 || InventoryUtils.getStackAmount(customer, MINERAL) < tabs.get(tab).getItems().get(selectedIndex).getMineralCost() || InventoryUtils.getItemAmount(customer, VESPENE.getItem()) < tabs.get(tab).getItems().get(selectedIndex).getVespeneCost()) {
+		if (selectedIndex == -1 || MINERAL.stackSize < tabs.get(tab).getItems().get(selectedIndex).getMineralCost() || VESPENE.stackSize < tabs.get(tab).getItems().get(selectedIndex).getVespeneCost()) {
 			buttonBuy.enabled = false;
 		} else {
 			buttonBuy.enabled = true;
@@ -285,7 +281,7 @@ public class GuiItemShop extends BasicGui {
 	protected void actionPerformed(GuiButton button) throws IOException {
 		switch (button.id) {
 		case BUTTON_BUY:
-			if (selectedIndex != -1 && InventoryUtils.getStackAmount(customer, MINERAL) >= tabs.get(tab).getItems().get(selectedIndex).getMineralCost() && InventoryUtils.getItemAmount(customer, VESPENE.getItem()) >= tabs.get(tab).getItems().get(selectedIndex).getVespeneCost()) {
+			if (selectedIndex != -1 && MINERAL.stackSize >= tabs.get(tab).getItems().get(selectedIndex).getMineralCost() && VESPENE.stackSize >= tabs.get(tab).getItems().get(selectedIndex).getVespeneCost()) {
 				NetworkHandler.sendToServer(new MessageSpawnItem(tabs.get(tab).getItems().get(selectedIndex).getStack()));
 				InventoryUtils.removeItemWithAmount(customer, MINERAL.getItem(), tabs.get(tab).getItems().get(selectedIndex).getMineralCost());
 				InventoryUtils.removeItemWithAmount(customer, VESPENE.getItem(), tabs.get(tab).getItems().get(selectedIndex).getVespeneCost());

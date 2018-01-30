@@ -22,7 +22,7 @@ public class LarvaOption {
 
 	private static int nextIconId;
 
-	private int iconId;
+	private int id;
 	private List<String> tooltip;
 	private List<LarvaOption> children;
 	private boolean isChild;
@@ -38,10 +38,10 @@ public class LarvaOption {
 	 * @param vespeneCost
 	 *            The cost in vespene
 	 */
-	public LarvaOption(int mineralCost, int vespeneCost) {
+	public LarvaOption(int id, int mineralCost, int vespeneCost) {
 		this.mineralCost = mineralCost;
 		this.vespeneCost = vespeneCost;
-		this.iconId = nextIconId++;
+		this.id = id;
 		this.tooltip = new ArrayList<String>();
 		this.children = new ArrayList<LarvaOption>();
 		this.isChild = false;
@@ -54,25 +54,29 @@ public class LarvaOption {
 	 *            The options to be added as children
 	 */
 	public LarvaOption(LarvaOption... options) {
-		this.mineralCost = -1;
-		this.vespeneCost = -1;
-		this.tooltip = new ArrayList<String>();
-		this.children = new ArrayList<LarvaOption>();
-		this.isChild = false;
+		if (options.length > 0) {
+			this.mineralCost = -1;
+			this.vespeneCost = -1;
+			this.tooltip = new ArrayList<String>();
+			this.children = new ArrayList<LarvaOption>();
+			this.isChild = false;
 
-		for (int i = 0; i < options.length; i++) {
-			if (options[i] != null) {
-				addChild(options[i]);
+			for (int i = 0; i < options.length; i++) {
+				if (options[i] != null) {
+					addChild(options[i]);
+				}
 			}
-		}
 
-		this.tooltip = children.get(0).getTooltip();
+			this.tooltip = children.get(0).getTooltip();
+		} else {
+			throw new IllegalArgumentException("A larva option with children must have at least 1 child!");
+		}
 	}
 
 	public void render(boolean renderingOveray, int x, int y) {
 		Minecraft mc = Minecraft.getMinecraft();
 
-		EntityLivingBase entity = hasChildren() ? EntityLarvaCocoon.getEntityById(mc.world, children.get(0).iconId) : EntityLarvaCocoon.getEntityById(mc.world, iconId);
+		EntityLivingBase entity = hasChildren() ? EntityLarvaCocoon.getEntityById(mc.world, children.get(0).id) : EntityLarvaCocoon.getEntityById(mc.world, id);
 		int xx = x + 8;
 		int yy = y + 12;
 		int scale = 12;
@@ -97,6 +101,7 @@ public class LarvaOption {
 				yy += 2;
 			}
 
+			GlStateManager.color(1, 1, 1, 1);
 			GuiUtils.drawEntityOnScreen(xx, yy, scale, 100, -50, entity);
 		} else {
 			GlStateManager.enableDepth();
@@ -107,10 +112,10 @@ public class LarvaOption {
 	}
 
 	/**
-	 * @return The id the option uses to render
+	 * @return The id of this option
 	 */
-	public int getIconId() {
-		return iconId;
+	public int getId() {
+		return id;
 	}
 
 	public List<String> getTooltip() {

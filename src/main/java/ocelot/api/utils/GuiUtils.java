@@ -5,7 +5,6 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.List;
 
-import com.arisux.mdx.lib.game.Game;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 

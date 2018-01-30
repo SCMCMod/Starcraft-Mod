@@ -45,6 +45,8 @@ public class SimpleRecipes {
 
 		// Charcoal from Carbon Grain x9
 		GameRegistry.addRecipe(new ItemStack(Items.COAL, 1, 1), "CCC", "CCC", "CCC", 'C', new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.CARBON.getID()));
+		// Gunpowder from Carbon Grain x1 and Phosphorus x3
+		GameRegistry.addRecipe(new ItemStack(Items.GUNPOWDER, 1, 1), "OO", "OP", 'O', ItemHandler.PHOSPHORUS, 'P', Items.PAPER);
 
 		// Protoss Metal
 		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.PROTOSS_METAL_T1, 1, EnumMetaBlock.ProtossMetalType.AIUR.getID()), "AAA", "AAA", "AAA", 'A', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.KHALAI.getID()));

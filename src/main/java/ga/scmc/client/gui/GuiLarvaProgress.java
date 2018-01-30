@@ -23,10 +23,6 @@ public class GuiLarvaProgress extends BasicGui {
 
 	private EntityLarvaCocoon cocoon;
 
-	public GuiLarvaProgress() {
-
-	}
-
 	@Override
 	public void initGui() {
 		xSize = 140;
@@ -49,7 +45,7 @@ public class GuiLarvaProgress extends BasicGui {
 		TextureUtils.bindTexture("textures/gui/larva_progress.png");
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		if (cocoon != null) {
-			float percentage = (cocoon.ticksExisted / 20f) / 85f;
+			float percentage = (cocoon.ticksExisted / 20f) / (float) (cocoon.getTransformTime() / 20);
 			drawTexturedModalRect(guiLeft + 6, guiTop + 33, 140, 0, (int) (percentage * 85), 9);
 		}
 		int entityX = guiLeft + xSize - 29;
@@ -65,7 +61,7 @@ public class GuiLarvaProgress extends BasicGui {
 	@Override
 	protected void drawTooltips(int mouseX, int mouseY) {
 		if (cocoon != null) {
-			float percentage = (cocoon.ticksExisted / 20f) / 85f;
+			float percentage = (cocoon.ticksExisted / 20f) / (float) (cocoon.getTransformTime() / 20);
 			drawTooltip(I18n.format("gui.larva_progress.bar_percentage", (int) (percentage * 100), "%"), guiLeft + 5, guiTop + 32, 87, 11, mouseX, mouseY);
 		}
 	}
