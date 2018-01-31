@@ -193,7 +193,7 @@ public class BiomeHandler extends Biome {
 		biomeShakurasMountainsPlus = new BiomeGenShakurasMountains((new Biome.BiomeProperties("Shakuras Mountains+")).setBaseHeight(0.85F).setHeightVariation(0.55F).setTemperature(0.3F).setRainfall(0.3F), "shakuras_mountains+");
 		
 		/** Slayn biomes **/
-		biomeSlaynProtossCity = new BiomeGenSlaynProtossCity((new Biome.BiomeProperties("Slayn Protoss City")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(0.3F).setRainfall(0.3F));
+		biomeSlaynProtossCity = new BiomeGenSlaynProtossCity((new Biome.BiomeProperties("Slayn Protoss City")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(1.0F).setRainfall(0.3F));
 		
 		biomeSlaynDesert = new BiomeGenSlaynDesert((new Biome.BiomeProperties("Slayn Desert")).setBaseHeight(0.0F).setHeightVariation(0.025F).setTemperature(0.3F).setRainfall(0.3F), "slayn_desert");
 		biomeSlaynDesertHills = new BiomeGenSlaynDesert((new Biome.BiomeProperties("Slayn Desert Hills")).setBaseHeight(0.25F).setHeightVariation(0.25F).setTemperature(0.3F).setRainfall(0.3F), "slayn_desert_hills");
@@ -205,7 +205,7 @@ public class BiomeHandler extends Biome {
 		biomeSlaynMountains = new BiomeGenSlaynMountains((new Biome.BiomeProperties("Slayn Mountains")).setBaseHeight(0.75F).setHeightVariation(0.35F).setTemperature(0.3F).setRainfall(0.3F));
 		
 		/** Korhal biomes **/
-		biomeKorhalTerranCity = new BiomeGenKorhalCity((new Biome.BiomeProperties("Korhal Terran City")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(0.3F).setRainfall(0.3F));
+		biomeKorhalTerranCity = new BiomeGenKorhalCity((new Biome.BiomeProperties("Korhal Terran City")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(1.0F).setRainfall(0.3F));
 		
 		biomeKorhalDesert = new BiomeGenKorhalDesert((new Biome.BiomeProperties("Korhal Desert")).setBaseHeight(0.0F).setHeightVariation(0.025F).setTemperature(0.3F).setRainfall(0.3F), "korhal_desert");
 		biomeKorhalDesertHills = new BiomeGenKorhalDesert((new Biome.BiomeProperties("Korhal Desert Hills")).setBaseHeight(0.0F).setHeightVariation(0.25F).setTemperature(0.3F).setRainfall(0.3F), "korhal_desert_hills");
@@ -225,8 +225,8 @@ public class BiomeHandler extends Biome {
 		
 		biomeKaldirMountains = new BiomeGenKaldirMountains((new Biome.BiomeProperties("Kaldir Mountains")).setBaseHeight(0.75F).setHeightVariation(0.35F).setTemperature(0.1F).setRainfall(0.5F));
 		
-		biomeKaldirProtossCity = new BiomeGenKaldirProtossCity((new Biome.BiomeProperties("Kaldir Protoss City")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(0.1F).setRainfall(0.5F));
-		biomeKaldirZergHive = new BiomeGenKaldirZergHive((new Biome.BiomeProperties("Kaldir Zerg Hive")).setBaseHeight(0.0F).setHeightVariation(0.1F).setTemperature(2.0F).setRainfall(0.5F));
+		biomeKaldirProtossCity = new BiomeGenKaldirProtossCity((new Biome.BiomeProperties("Kaldir Protoss City")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(1.0F).setRainfall(0.5F));
+		biomeKaldirZergHive = new BiomeGenKaldirZergHive((new Biome.BiomeProperties("Kaldir Zerg Hive")).setBaseHeight(0.0F).setHeightVariation(0.1F).setTemperature(1.0F).setRainfall(0.5F));
 		
 		// add or remove spawn biomes here
 
