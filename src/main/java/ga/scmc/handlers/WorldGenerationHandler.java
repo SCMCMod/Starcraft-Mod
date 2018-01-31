@@ -238,10 +238,10 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 					runGenerator(PROTOSS_CYBERNETICS_CORE, 1, 2, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 				}
 				if (world.rand.nextInt(100) < 3 && world.getWorldInfo().isMapFeaturesEnabled()) {
-					runGenerator(GEYSER, BlockHandler.STONE_SHAKURAS.getDefaultState(), BlockHandler.FLUID_VESPENE.getDefaultState(), world, random, chunkX, chunkZ, 0, -32, 0, 1, 60, 80, true);
+					runGenerator(GEYSER, BlockHandler.STONE_SHAKURAS.getDefaultState(), BlockHandler.FLUID_VESPENE.getDefaultState(), world, random, chunkX, chunkZ, 0, -35, 0, 1, 60, 80, true);
 				}
 				if (world.rand.nextInt(100) < 1 && world.getWorldInfo().isMapFeaturesEnabled()) {
-					runGenerator(GEYSER, BlockHandler.STONE_SHAKURAS.getDefaultState(), BlockHandler.FLUID_TERRAZINE.getDefaultState(), world, random, chunkX, chunkZ, 0, -32, 0, 1, 60, 80, true);
+					runGenerator(GEYSER, BlockHandler.STONE_SHAKURAS.getDefaultState(), BlockHandler.FLUID_TERRAZINE.getDefaultState(), world, random, chunkX, chunkZ, 0, -35, 0, 1, 60, 80, true);
 				}
 				if (world.rand.nextInt(100) < 10 && world.getWorldInfo().isMapFeaturesEnabled()) {
 					runGenerator(MINERAL_PATCH, 0, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
@@ -275,10 +275,10 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 					runGenerator(PROTOSS_CYBERNETICS_CORE, 1, 4, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 				}
 				if (world.rand.nextInt(100) < 4 && world.getWorldInfo().isMapFeaturesEnabled()) {
-					runGenerator(GEYSER, BlockHandler.STONE_SLAYN.getDefaultState(), BlockHandler.FLUID_VESPENE.getDefaultState(), world, random, chunkX, chunkZ, 0, -32, 0, 1, 60, 80, true);
+					runGenerator(GEYSER, BlockHandler.STONE_SLAYN.getDefaultState(), BlockHandler.FLUID_VESPENE.getDefaultState(), world, random, chunkX, chunkZ, 0, -35, 0, 1, 60, 80, true);
 				}
 				if (world.rand.nextInt(100) < 2 && world.getWorldInfo().isMapFeaturesEnabled()) {
-					runGenerator(GEYSER, BlockHandler.STONE_SLAYN.getDefaultState(), BlockHandler.FLUID_TERRAZINE.getDefaultState(), world, random, chunkX, chunkZ, 0, -32, 0, 1, 60, 80, true);
+					runGenerator(GEYSER, BlockHandler.STONE_SLAYN.getDefaultState(), BlockHandler.FLUID_TERRAZINE.getDefaultState(), world, random, chunkX, chunkZ, 0, -35, 0, 1, 60, 80, true);
 				}
 				if (world.rand.nextInt(100) < 60 && world.getWorldInfo().isMapFeaturesEnabled()) {
 					runGenerator(MINERAL_PATCH, 0, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
@@ -315,10 +315,10 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 					runGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100, true);
 				}
 				if (world.rand.nextInt(100) < 4 && world.getWorldInfo().isMapFeaturesEnabled()) {
-					runGenerator(GEYSER, Blocks.RED_SANDSTONE.getDefaultState(), BlockHandler.FLUID_VESPENE.getDefaultState(), world, random, chunkX, chunkZ, 0, -32, 0, 1, 60, 80, true);
+					runGenerator(GEYSER, Blocks.RED_SANDSTONE.getDefaultState(), BlockHandler.FLUID_VESPENE.getDefaultState(), world, random, chunkX, chunkZ, 0, -35, 0, 1, 60, 80, true);
 				}
 				if (world.rand.nextInt(100) < 2 && world.getWorldInfo().isMapFeaturesEnabled()) {
-					runGenerator(GEYSER, Blocks.RED_SANDSTONE.getDefaultState(), BlockHandler.FLUID_TERRAZINE.getDefaultState(), world, random, chunkX, chunkZ, 0, -32, 0, 1, 60, 80, true);
+					runGenerator(GEYSER, Blocks.RED_SANDSTONE.getDefaultState(), BlockHandler.FLUID_TERRAZINE.getDefaultState(), world, random, chunkX, chunkZ, 0, -35, 0, 1, 60, 80, true);
 				}
 				if (world.rand.nextInt(100) < 60 && world.getWorldInfo().isMapFeaturesEnabled()) {
 					runGenerator(MINERAL_PATCH, 0, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
@@ -360,10 +360,10 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 					runGenerator(ZERG_HYDRALISK_DEN, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100, true);
 				}
 				if (world.rand.nextInt(100) < 2 && world.getWorldInfo().isMapFeaturesEnabled()) {
-					runGenerator(GEYSER, Blocks.STONE.getDefaultState(), BlockHandler.FLUID_VESPENE.getDefaultState(), world, random, chunkX, chunkZ, 0, -32, 0, 1, 60, 80, true);
+					runGenerator(GEYSER, Blocks.STONE.getDefaultState(), BlockHandler.FLUID_VESPENE.getDefaultState(), world, random, chunkX, chunkZ, 0, -35, 0, 1, 60, 80, true);
 				}
 				if (world.rand.nextInt(100) < 1 && world.getWorldInfo().isMapFeaturesEnabled()) {
-					runGenerator(GEYSER, Blocks.STONE.getDefaultState(), BlockHandler.FLUID_TERRAZINE.getDefaultState(), world, random, chunkX, chunkZ, 0, -32, 0, 1, 60, 80, true);
+					runGenerator(GEYSER, Blocks.STONE.getDefaultState(), BlockHandler.FLUID_TERRAZINE.getDefaultState(), world, random, chunkX, chunkZ, 0, -35, 0, 1, 60, 80, true);
 				}
 				if (world.rand.nextInt(100) < 30 && world.getWorldInfo().isMapFeaturesEnabled()) {
 					runGenerator(MINERAL_PATCH, 0, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
