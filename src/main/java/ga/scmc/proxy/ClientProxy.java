@@ -2,6 +2,7 @@ package ga.scmc.proxy;
 
 import ga.scmc.client.renderer.model.armor.ModelArmorBase;
 import ga.scmc.client.renderer.model.armor.ModelProtossArmor;
+import ga.scmc.client.renderer.model.armor.ModelProtossNerazimArmor;
 import ga.scmc.client.renderer.model.armor.ModelProtossTaldarimArmor;
 import ga.scmc.client.renderer.model.armor.ModelTerranMarineArmor;
 import ga.scmc.client.renderer.model.armor.ModelZergArmorT1;
@@ -47,6 +48,10 @@ public class ClientProxy extends CommonProxy {
 			return new ModelProtossTaldarimArmor(1.0f);
 		case 11:
 			return new ModelProtossTaldarimArmor(0.5f);
+		case 12:
+			return new ModelProtossNerazimArmor(1.0f);
+		case 13:
+			return new ModelProtossNerazimArmor(0.5f);
 		}
 	}
 }

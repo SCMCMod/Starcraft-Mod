@@ -82,6 +82,18 @@ public class ItemRenderRegistrationHandler {
 		register(ArmorHandler.PROTOSS_T3_LEGGINGS, new ItemRenderModelArmorItem(EntityEquipmentSlot.LEGS, (IArmorItem) Starcraft.proxy.getArmorModel(9), ArmorHandler.PROTOSS_ARMOR_MATERIAL_T3));
 		register(ArmorHandler.PROTOSS_T3_BOOTS, new ItemRenderModelArmorItem(EntityEquipmentSlot.FEET, (IArmorItem) Starcraft.proxy.getArmorModel(9), ArmorHandler.PROTOSS_ARMOR_MATERIAL_T3));
 		
+		register(ArmorHandler.PROTOSS_NERAZIM_T1_CHESTPLATE, new ItemRenderModelArmorItem(EntityEquipmentSlot.CHEST, (IArmorItem) Starcraft.proxy.getArmorModel(12), ArmorHandler.PROTOSS_NERAZIM_ARMOR_MATERIAL_T1));
+		register(ArmorHandler.PROTOSS_NERAZIM_T1_LEGGINGS, new ItemRenderModelArmorItem(EntityEquipmentSlot.LEGS, (IArmorItem) Starcraft.proxy.getArmorModel(13), ArmorHandler.PROTOSS_NERAZIM_ARMOR_MATERIAL_T1));
+		register(ArmorHandler.PROTOSS_NERAZIM_T1_BOOTS, new ItemRenderModelArmorItem(EntityEquipmentSlot.FEET, (IArmorItem) Starcraft.proxy.getArmorModel(13), ArmorHandler.PROTOSS_NERAZIM_ARMOR_MATERIAL_T1));
+		register(ArmorHandler.PROTOSS_NERAZIM_T2_HELMET, new ItemRenderModelArmorItem(EntityEquipmentSlot.HEAD, (IArmorItem) Starcraft.proxy.getArmorModel(12), ArmorHandler.PROTOSS_NERAZIM_ARMOR_MATERIAL_T2));
+		register(ArmorHandler.PROTOSS_NERAZIM_T2_CHESTPLATE, new ItemRenderModelArmorItem(EntityEquipmentSlot.CHEST, (IArmorItem) Starcraft.proxy.getArmorModel(12), ArmorHandler.PROTOSS_NERAZIM_ARMOR_MATERIAL_T2));
+		register(ArmorHandler.PROTOSS_NERAZIM_T2_LEGGINGS, new ItemRenderModelArmorItem(EntityEquipmentSlot.LEGS, (IArmorItem) Starcraft.proxy.getArmorModel(13), ArmorHandler.PROTOSS_NERAZIM_ARMOR_MATERIAL_T2));
+		register(ArmorHandler.PROTOSS_NERAZIM_T2_BOOTS, new ItemRenderModelArmorItem(EntityEquipmentSlot.FEET, (IArmorItem) Starcraft.proxy.getArmorModel(13), ArmorHandler.PROTOSS_NERAZIM_ARMOR_MATERIAL_T2));
+		register(ArmorHandler.PROTOSS_NERAZIM_T3_HELMET, new ItemRenderModelArmorItem(EntityEquipmentSlot.HEAD, (IArmorItem) Starcraft.proxy.getArmorModel(12), ArmorHandler.PROTOSS_NERAZIM_ARMOR_MATERIAL_T3));
+		register(ArmorHandler.PROTOSS_NERAZIM_T3_CHESTPLATE, new ItemRenderModelArmorItem(EntityEquipmentSlot.CHEST, (IArmorItem) Starcraft.proxy.getArmorModel(12), ArmorHandler.PROTOSS_NERAZIM_ARMOR_MATERIAL_T3));
+		register(ArmorHandler.PROTOSS_NERAZIM_T3_LEGGINGS, new ItemRenderModelArmorItem(EntityEquipmentSlot.LEGS, (IArmorItem) Starcraft.proxy.getArmorModel(13), ArmorHandler.PROTOSS_NERAZIM_ARMOR_MATERIAL_T3));
+		register(ArmorHandler.PROTOSS_NERAZIM_T3_BOOTS, new ItemRenderModelArmorItem(EntityEquipmentSlot.FEET, (IArmorItem) Starcraft.proxy.getArmorModel(13), ArmorHandler.PROTOSS_NERAZIM_ARMOR_MATERIAL_T3));
+	
 		register(ArmorHandler.PROTOSS_TALDARIM_T1_HELMET, new ItemRenderModelArmorItem(EntityEquipmentSlot.HEAD, (IArmorItem) Starcraft.proxy.getArmorModel(10), ArmorHandler.PROTOSS_TALDARIM_ARMOR_MATERIAL_T1));
 		register(ArmorHandler.PROTOSS_TALDARIM_T1_CHESTPLATE, new ItemRenderModelArmorItem(EntityEquipmentSlot.CHEST, (IArmorItem) Starcraft.proxy.getArmorModel(10), ArmorHandler.PROTOSS_TALDARIM_ARMOR_MATERIAL_T1));
 		register(ArmorHandler.PROTOSS_TALDARIM_T1_LEGGINGS, new ItemRenderModelArmorItem(EntityEquipmentSlot.LEGS, (IArmorItem) Starcraft.proxy.getArmorModel(11), ArmorHandler.PROTOSS_TALDARIM_ARMOR_MATERIAL_T1));
@@ -94,6 +106,7 @@ public class ItemRenderRegistrationHandler {
 		register(ArmorHandler.PROTOSS_TALDARIM_T3_CHESTPLATE, new ItemRenderModelArmorItem(EntityEquipmentSlot.CHEST, (IArmorItem) Starcraft.proxy.getArmorModel(10), ArmorHandler.PROTOSS_TALDARIM_ARMOR_MATERIAL_T3));
 		register(ArmorHandler.PROTOSS_TALDARIM_T3_LEGGINGS, new ItemRenderModelArmorItem(EntityEquipmentSlot.LEGS, (IArmorItem) Starcraft.proxy.getArmorModel(11), ArmorHandler.PROTOSS_TALDARIM_ARMOR_MATERIAL_T3));
 		register(ArmorHandler.PROTOSS_TALDARIM_T3_BOOTS, new ItemRenderModelArmorItem(EntityEquipmentSlot.FEET, (IArmorItem) Starcraft.proxy.getArmorModel(11), ArmorHandler.PROTOSS_TALDARIM_ARMOR_MATERIAL_T3));
+	
 	}
 
 	/**

@@ -16,6 +16,18 @@ import static ga.scmc.handlers.ArmorHandler.PROTOSS_T3_BOOTS;
 import static ga.scmc.handlers.ArmorHandler.PROTOSS_T3_CHESTPLATE;
 import static ga.scmc.handlers.ArmorHandler.PROTOSS_T3_HELMET;
 import static ga.scmc.handlers.ArmorHandler.PROTOSS_T3_LEGGINGS;
+import static ga.scmc.handlers.ArmorHandler.PROTOSS_NERAZIM_T1_BOOTS;
+import static ga.scmc.handlers.ArmorHandler.PROTOSS_NERAZIM_T1_CHESTPLATE;
+import static ga.scmc.handlers.ArmorHandler.PROTOSS_NERAZIM_T1_HELMET;
+import static ga.scmc.handlers.ArmorHandler.PROTOSS_NERAZIM_T1_LEGGINGS;
+import static ga.scmc.handlers.ArmorHandler.PROTOSS_NERAZIM_T2_BOOTS;
+import static ga.scmc.handlers.ArmorHandler.PROTOSS_NERAZIM_T2_CHESTPLATE;
+import static ga.scmc.handlers.ArmorHandler.PROTOSS_NERAZIM_T2_HELMET;
+import static ga.scmc.handlers.ArmorHandler.PROTOSS_NERAZIM_T2_LEGGINGS;
+import static ga.scmc.handlers.ArmorHandler.PROTOSS_NERAZIM_T3_BOOTS;
+import static ga.scmc.handlers.ArmorHandler.PROTOSS_NERAZIM_T3_CHESTPLATE;
+import static ga.scmc.handlers.ArmorHandler.PROTOSS_NERAZIM_T3_HELMET;
+import static ga.scmc.handlers.ArmorHandler.PROTOSS_NERAZIM_T3_LEGGINGS;
 import static ga.scmc.handlers.ArmorHandler.PROTOSS_TALDARIM_T1_BOOTS;
 import static ga.scmc.handlers.ArmorHandler.PROTOSS_TALDARIM_T1_CHESTPLATE;
 import static ga.scmc.handlers.ArmorHandler.PROTOSS_TALDARIM_T1_HELMET;
@@ -667,6 +679,21 @@ public class RenderingHandler {
 		registerItemRender(PROTOSS_T3_CHESTPLATE);
 		registerItemRender(PROTOSS_T3_LEGGINGS);
 		registerItemRender(PROTOSS_T3_BOOTS);
+		
+		registerItemRender(PROTOSS_NERAZIM_T1_HELMET);
+		registerItemRender(PROTOSS_NERAZIM_T1_CHESTPLATE);
+		registerItemRender(PROTOSS_NERAZIM_T1_LEGGINGS);
+		registerItemRender(PROTOSS_NERAZIM_T1_BOOTS);
+
+		registerItemRender(PROTOSS_NERAZIM_T2_HELMET);
+		registerItemRender(PROTOSS_NERAZIM_T2_CHESTPLATE);
+		registerItemRender(PROTOSS_NERAZIM_T2_LEGGINGS);
+		registerItemRender(PROTOSS_NERAZIM_T2_BOOTS);
+
+		registerItemRender(PROTOSS_NERAZIM_T3_HELMET);
+		registerItemRender(PROTOSS_NERAZIM_T3_CHESTPLATE);
+		registerItemRender(PROTOSS_NERAZIM_T3_LEGGINGS);
+		registerItemRender(PROTOSS_NERAZIM_T3_BOOTS);
 		
 		registerItemRender(PROTOSS_TALDARIM_T1_HELMET);
 		registerItemRender(PROTOSS_TALDARIM_T1_CHESTPLATE);

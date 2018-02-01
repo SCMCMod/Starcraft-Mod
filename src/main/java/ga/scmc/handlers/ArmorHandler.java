@@ -41,6 +41,10 @@ public class ArmorHandler {
 	public static final ArmorMaterial PROTOSS_ARMOR_MATERIAL_T2 = EnumHelper.addArmorMaterial("protossArmorMaterialT2", Library.RL_BASE + "protoss_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 	public static final ArmorMaterial PROTOSS_ARMOR_MATERIAL_T3 = EnumHelper.addArmorMaterial("protossArmorMaterialT3", Library.RL_BASE + "protoss_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 	
+	public static final ArmorMaterial PROTOSS_NERAZIM_ARMOR_MATERIAL_T1 = EnumHelper.addArmorMaterial("protossNerazimArmorMaterialT1", Library.RL_BASE + "protoss_nerazim_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial PROTOSS_NERAZIM_ARMOR_MATERIAL_T2 = EnumHelper.addArmorMaterial("protossNerazimArmorMaterialT2", Library.RL_BASE + "protoss_nerazim_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial PROTOSS_NERAZIM_ARMOR_MATERIAL_T3 = EnumHelper.addArmorMaterial("protossNerazimArmorMaterialT3", Library.RL_BASE + "protoss_nerazim_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+
 	public static final ArmorMaterial PROTOSS_TALDARIM_ARMOR_MATERIAL_T1 = EnumHelper.addArmorMaterial("protossTaldarimArmorMaterialT1", Library.RL_BASE + "protoss_taldarim_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 	public static final ArmorMaterial PROTOSS_TALDARIM_ARMOR_MATERIAL_T2 = EnumHelper.addArmorMaterial("protossTaldarimArmorMaterialT2", Library.RL_BASE + "protoss_taldarim_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 	public static final ArmorMaterial PROTOSS_TALDARIM_ARMOR_MATERIAL_T3 = EnumHelper.addArmorMaterial("protossTaldarimArmorMaterialT3", Library.RL_BASE + "protoss_taldarim_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
@@ -93,6 +97,21 @@ public class ArmorHandler {
 	public static Item PROTOSS_T3_CHESTPLATE;
 	public static Item PROTOSS_T3_HELMET;
 	public static Item PROTOSS_T3_LEGGINGS;
+	
+	public static Item PROTOSS_NERAZIM_T1_BOOTS;
+	public static Item PROTOSS_NERAZIM_T1_CHESTPLATE;
+	public static Item PROTOSS_NERAZIM_T1_HELMET;
+	public static Item PROTOSS_NERAZIM_T1_LEGGINGS;
+
+	public static Item PROTOSS_NERAZIM_T2_BOOTS;
+	public static Item PROTOSS_NERAZIM_T2_CHESTPLATE;
+	public static Item PROTOSS_NERAZIM_T2_HELMET;
+	public static Item PROTOSS_NERAZIM_T2_LEGGINGS;
+
+	public static Item PROTOSS_NERAZIM_T3_BOOTS;
+	public static Item PROTOSS_NERAZIM_T3_CHESTPLATE;
+	public static Item PROTOSS_NERAZIM_T3_HELMET;
+	public static Item PROTOSS_NERAZIM_T3_LEGGINGS;
 	
 	public static Item PROTOSS_TALDARIM_T1_BOOTS;
 	public static Item PROTOSS_TALDARIM_T1_CHESTPLATE;
@@ -184,6 +203,21 @@ public class ArmorHandler {
 		PROTOSS_T3_CHESTPLATE = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.CHEST, 8, 9).setUnlocalizedName("protoss.chestplate.3").setRegistryName("protoss.chestplate.3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 		PROTOSS_T3_LEGGINGS = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.LEGS, 8, 9).setUnlocalizedName("protoss.leggings.3").setRegistryName("protoss.leggings.3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 		PROTOSS_T3_BOOTS = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.FEET, 8, 9).setUnlocalizedName("protoss.boots.3").setRegistryName("protoss.boots.3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		
+		PROTOSS_NERAZIM_T1_HELMET = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.HEAD, 12, 13).setUnlocalizedName("protoss.nerazim.helmet.1").setRegistryName("protoss.nerazim.helmet.1").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PROTOSS_NERAZIM_T1_CHESTPLATE = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.CHEST, 12, 13).setUnlocalizedName("protoss.nerazim.chestplate.1").setRegistryName("protoss.nerazim.chestplate.1").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PROTOSS_NERAZIM_T1_LEGGINGS = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.LEGS, 12, 13).setUnlocalizedName("protoss.nerazim.leggings.1").setRegistryName("protoss.nerazim.leggings.1").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PROTOSS_NERAZIM_T1_BOOTS = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.FEET, 12, 13).setUnlocalizedName("protoss.nerazim.boots.1").setRegistryName("protoss.nerazim.boots.1").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+
+		PROTOSS_NERAZIM_T2_HELMET = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.HEAD, 12, 13).setUnlocalizedName("protoss.nerazim.helmet.2").setRegistryName("protoss.nerazim.helmet.2").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PROTOSS_NERAZIM_T2_CHESTPLATE = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.CHEST, 12, 13).setUnlocalizedName("protoss.nerazim.chestplate.2").setRegistryName("protoss.nerazim.chestplate.2").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PROTOSS_NERAZIM_T2_LEGGINGS = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.LEGS, 12, 13).setUnlocalizedName("protoss.nerazim.leggings.2").setRegistryName("protoss.nerazim.leggings.2").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PROTOSS_NERAZIM_T2_BOOTS = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.FEET, 12, 13).setUnlocalizedName("protoss.nerazim.boots.2").setRegistryName("protoss.nerazim.boots.2").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+
+		PROTOSS_NERAZIM_T3_HELMET = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.HEAD, 12, 13).setUnlocalizedName("protoss.nerazim.helmet.3").setRegistryName("protoss.nerazim.helmet.3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PROTOSS_NERAZIM_T3_CHESTPLATE = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.CHEST, 12, 13).setUnlocalizedName("protoss.nerazim.chestplate.3").setRegistryName("protoss.nerazim.chestplate.3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PROTOSS_NERAZIM_T3_LEGGINGS = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.LEGS, 12, 13).setUnlocalizedName("protoss.nerazim.leggings.3").setRegistryName("protoss.nerazim.leggings.3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PROTOSS_NERAZIM_T3_BOOTS = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.FEET, 12, 13).setUnlocalizedName("protoss.nerazim.boots.3").setRegistryName("protoss.nerazim.boots.3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 	
 		PROTOSS_TALDARIM_T1_HELMET = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.HEAD, 10, 11).setUnlocalizedName("protoss.taldarim.helmet.1").setRegistryName("protoss.taldarim.helmet.1").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 		PROTOSS_TALDARIM_T1_CHESTPLATE = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.CHEST, 10, 11).setUnlocalizedName("protoss.taldarim.chestplate.1").setRegistryName("protoss.taldarim.chestplate.1").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
@@ -199,6 +233,7 @@ public class ArmorHandler {
 		PROTOSS_TALDARIM_T3_CHESTPLATE = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.CHEST, 10, 11).setUnlocalizedName("protoss.taldarim.chestplate.3").setRegistryName("protoss.taldarim.chestplate.3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 		PROTOSS_TALDARIM_T3_LEGGINGS = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.LEGS, 10, 11).setUnlocalizedName("protoss.taldarim.leggings.3").setRegistryName("protoss.taldarim.leggings.3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 		PROTOSS_TALDARIM_T3_BOOTS = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.FEET, 10, 11).setUnlocalizedName("protoss.taldarim.boots.3").setRegistryName("protoss.taldarim.boots.3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+	
 	}
 
 	public static void register() {
@@ -247,6 +282,21 @@ public class ArmorHandler {
 		registerItem(PROTOSS_T3_CHESTPLATE);
 		registerItem(PROTOSS_T3_LEGGINGS);
 		registerItem(PROTOSS_T3_BOOTS);
+		
+		registerItem(PROTOSS_NERAZIM_T1_HELMET);
+		registerItem(PROTOSS_NERAZIM_T1_CHESTPLATE);
+		registerItem(PROTOSS_NERAZIM_T1_LEGGINGS);
+		registerItem(PROTOSS_NERAZIM_T1_BOOTS);
+
+		registerItem(PROTOSS_NERAZIM_T2_HELMET);
+		registerItem(PROTOSS_NERAZIM_T2_CHESTPLATE);
+		registerItem(PROTOSS_NERAZIM_T2_LEGGINGS);
+		registerItem(PROTOSS_NERAZIM_T2_BOOTS);
+
+		registerItem(PROTOSS_NERAZIM_T3_HELMET);
+		registerItem(PROTOSS_NERAZIM_T3_CHESTPLATE);
+		registerItem(PROTOSS_NERAZIM_T3_LEGGINGS);
+		registerItem(PROTOSS_NERAZIM_T3_BOOTS);
 
 		registerItem(PROTOSS_TALDARIM_T1_HELMET);
 		registerItem(PROTOSS_TALDARIM_T1_CHESTPLATE);
