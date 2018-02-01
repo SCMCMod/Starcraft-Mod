@@ -359,6 +359,36 @@ item.protoss.chestplate.3.name=T3 Protoss Chestplate
 item.protoss.leggings.3.name=T3 Protoss Leggings
 item.protoss.boots.3.name=T3 Protoss Boots
 
+item.protoss.nerazim.helmet.1.name=T1 Nerazim Protoss Helmet
+item.protoss.nerazim.chestplate.1.name=T1 Nerazim Protoss Chestplate
+item.protoss.nerazim.leggings.1.name=T1 Nerazim Protoss Leggings
+item.protoss.nerazim.boots.1.name=T1 Nerazim Protoss Boots
+
+item.protoss.nerazim.helmet.2.name=T2 Nerazim Protoss Helmet
+item.protoss.nerazim.chestplate.2.name=T2 Nerazim Protoss Chestplate
+item.protoss.nerazim.leggings.2.name=T2 Nerazim Protoss Leggings
+item.protoss.nerazim.boots.2.name=T2 Nerazim Protoss Boots
+
+item.protoss.nerazim.helmet.3.name=T3 Nerazim Protoss Helmet
+item.protoss.nerazim.chestplate.3.name=T3 Nerazim Protoss Chestplate
+item.protoss.nerazim.leggings.3.name=T3 Nerazim Protoss Leggings
+item.protoss.nerazim.boots.3.name=T3 Nerazim Protoss Boots
+
+item.protoss.taldarim.helmet.1.name=T1 Dark Protoss Helmet
+item.protoss.taldarim.chestplate.1.name=T1 Dark Protoss Chestplate
+item.protoss.taldarim.leggings.1.name=T1 Dark Protoss Leggings
+item.protoss.taldarim.boots.1.name=T1 Dark Protoss Boots
+
+item.protoss.taldarim.helmet.2.name=T2 Dark Protoss Helmet
+item.protoss.taldarim.chestplate.2.name=T2 Dark Protoss Chestplate
+item.protoss.taldarim.leggings.2.name=T2 Dark Protoss Leggings
+item.protoss.taldarim.boots.2.name=T2 Dark Protoss Boots
+
+item.protoss.taldarim.helmet.3.name=T3 Dark Protoss Helmet
+item.protoss.taldarim.chestplate.3.name=T3 Dark Protoss Chestplate
+item.protoss.taldarim.leggings.3.name=T3 Dark Protoss Leggings
+item.protoss.taldarim.boots.3.name=T3 Dark Protoss Boots
+
 item.protoss.blade.psi.aiur.name=Khalai Psi Blade
 item.protoss.blade.psi.dark.name=Bane Blade
 item.protoss.blade.warp.aiur.name=Khalai Psi Blade
@@ -434,6 +464,11 @@ item.terran.marine.helmet.3.name=T3 Marine Helmet
 item.terran.marine.chestplate.3.name=T3 Marine Chestplate
 item.terran.marine.leggings.3.name=T3 Marine Leggings
 item.terran.marine.boots.3.name=T3 Marine Boots
+
+item.terran.raynor.helmet.1.name=Raynor's Helmet
+item.terran.raynor.chestplate.1.name=Raynor's Chestplate
+item.terran.raynor.leggings.1.name=Raynor's Leggings
+item.terran.raynor.boots.1.name=Raynor's Boots
 
 item.balisong.name=Balisong
 item.terran.knife.military.name=Military Knife
