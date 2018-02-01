@@ -56,6 +56,10 @@ import static ga.scmc.handlers.ArmorHandler.TERRAN_MARINE_T3_BOOTS;
 import static ga.scmc.handlers.ArmorHandler.TERRAN_MARINE_T3_CHESTPLATE;
 import static ga.scmc.handlers.ArmorHandler.TERRAN_MARINE_T3_HELMET;
 import static ga.scmc.handlers.ArmorHandler.TERRAN_MARINE_T3_LEGGINGS;
+import static ga.scmc.handlers.ArmorHandler.TERRAN_RAYNOR_BOOTS;
+import static ga.scmc.handlers.ArmorHandler.TERRAN_RAYNOR_CHESTPLATE;
+import static ga.scmc.handlers.ArmorHandler.TERRAN_RAYNOR_HELMET;
+import static ga.scmc.handlers.ArmorHandler.TERRAN_RAYNOR_LEGGINGS;
 import static ga.scmc.handlers.ArmorHandler.TITANIUM_BOOTS;
 import static ga.scmc.handlers.ArmorHandler.TITANIUM_CHESTPLATE;
 import static ga.scmc.handlers.ArmorHandler.TITANIUM_HELMET;
@@ -664,6 +668,11 @@ public class RenderingHandler {
 		registerItemRender(TERRAN_MARINE_T3_CHESTPLATE);
 		registerItemRender(TERRAN_MARINE_T3_LEGGINGS);
 		registerItemRender(TERRAN_MARINE_T3_BOOTS);
+		
+		registerItemRender(TERRAN_RAYNOR_HELMET);
+		registerItemRender(TERRAN_RAYNOR_CHESTPLATE);
+		registerItemRender(TERRAN_RAYNOR_LEGGINGS);
+		registerItemRender(TERRAN_RAYNOR_BOOTS);
 
 		registerItemRender(PROTOSS_T1_HELMET);
 		registerItemRender(PROTOSS_T1_CHESTPLATE);

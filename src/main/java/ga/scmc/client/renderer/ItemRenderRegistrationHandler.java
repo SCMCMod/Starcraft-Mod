@@ -56,6 +56,12 @@ public class ItemRenderRegistrationHandler {
 		register(ArmorHandler.TERRAN_MARINE_T3_LEGGINGS, new ItemRenderModelArmorItem(EntityEquipmentSlot.LEGS, (IArmorItem) Starcraft.proxy.getArmorModel(7), ArmorHandler.TERRAN_MARINE_ARMOR_MATERIAL_T3));
 		register(ArmorHandler.TERRAN_MARINE_T3_BOOTS, new ItemRenderModelArmorItem(EntityEquipmentSlot.FEET, (IArmorItem) Starcraft.proxy.getArmorModel(7), ArmorHandler.TERRAN_MARINE_ARMOR_MATERIAL_T3));
 
+		register(ArmorHandler.TERRAN_RAYNOR_HELMET, new ItemRenderModelArmorItem(EntityEquipmentSlot.HEAD, (IArmorItem) Starcraft.proxy.getArmorModel(6), ArmorHandler.TERRAN_RAYNOR_ARMOR_MATERIAL));
+		register(ArmorHandler.TERRAN_RAYNOR_CHESTPLATE, new ItemRenderModelArmorItem(EntityEquipmentSlot.CHEST, (IArmorItem) Starcraft.proxy.getArmorModel(6), ArmorHandler.TERRAN_RAYNOR_ARMOR_MATERIAL));
+		register(ArmorHandler.TERRAN_RAYNOR_LEGGINGS, new ItemRenderModelArmorItem(EntityEquipmentSlot.LEGS, (IArmorItem) Starcraft.proxy.getArmorModel(7), ArmorHandler.TERRAN_RAYNOR_ARMOR_MATERIAL));
+		register(ArmorHandler.TERRAN_RAYNOR_BOOTS, new ItemRenderModelArmorItem(EntityEquipmentSlot.FEET, (IArmorItem) Starcraft.proxy.getArmorModel(7), ArmorHandler.TERRAN_RAYNOR_ARMOR_MATERIAL));
+		
+		
 		register(ArmorHandler.ZERG_T1_HELMET, new ItemRenderModelArmorItem(EntityEquipmentSlot.HEAD, (IArmorItem) Starcraft.proxy.getArmorModel(0), ArmorHandler.ZERG_ARMOR_MATERIAL_T1));
 		register(ArmorHandler.ZERG_T1_CHESTPLATE, new ItemRenderModelArmorItem(EntityEquipmentSlot.CHEST, (IArmorItem) Starcraft.proxy.getArmorModel(0), ArmorHandler.ZERG_ARMOR_MATERIAL_T1));
 		register(ArmorHandler.ZERG_T1_LEGGINGS, new ItemRenderModelArmorItem(EntityEquipmentSlot.LEGS, (IArmorItem) Starcraft.proxy.getArmorModel(1), ArmorHandler.ZERG_ARMOR_MATERIAL_T1));

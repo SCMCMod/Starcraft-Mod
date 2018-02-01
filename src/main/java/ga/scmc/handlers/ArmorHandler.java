@@ -52,7 +52,9 @@ public class ArmorHandler {
 	public static final ArmorMaterial TERRAN_MARINE_ARMOR_MATERIAL_T1 = EnumHelper.addArmorMaterial("terranArmorMaterialT1", Library.RL_BASE + "terran_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 	public static final ArmorMaterial TERRAN_MARINE_ARMOR_MATERIAL_T2 = EnumHelper.addArmorMaterial("terranArmorMaterialT2", Library.RL_BASE + "terran_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 	public static final ArmorMaterial TERRAN_MARINE_ARMOR_MATERIAL_T3 = EnumHelper.addArmorMaterial("terranArmorMaterialT3", Library.RL_BASE + "terran_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
-
+	
+	public static final ArmorMaterial TERRAN_RAYNOR_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("terranRaynorMaterialT1", Library.RL_BASE + "terran_raynor_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	
 	public static Item COPPER_BOOTS;
 	public static Item COPPER_CHESTPLATE;
 	public static Item COPPER_HELMET;
@@ -143,6 +145,11 @@ public class ArmorHandler {
 	public static Item TERRAN_MARINE_T3_HELMET;
 	public static Item TERRAN_MARINE_T3_LEGGINGS;
 
+	public static Item TERRAN_RAYNOR_BOOTS;
+	public static Item TERRAN_RAYNOR_CHESTPLATE;
+	public static Item TERRAN_RAYNOR_HELMET;
+	public static Item TERRAN_RAYNOR_LEGGINGS;
+	
 	public static void init() {
 		TITANIUM_HELMET = new ItemArmor(TITANIUM_ARMOR_MATERIAL, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("titanium.helmet").setRegistryName("titanium.helmet").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 		TITANIUM_CHESTPLATE = new ItemArmor(TITANIUM_ARMOR_MATERIAL, 0, EntityEquipmentSlot.CHEST).setUnlocalizedName("titanium.chestplate").setRegistryName("titanium.chestplate").setCreativeTab(StarcraftCreativeTabs.TERRAN);
@@ -188,6 +195,11 @@ public class ArmorHandler {
 		TERRAN_MARINE_T3_CHESTPLATE = new ItemCustomArmor(TERRAN_MARINE_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.CHEST, 6, 7).setUnlocalizedName("terran.marine.chestplate.3").setRegistryName("terran.marine.chestplate.3").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 		TERRAN_MARINE_T3_LEGGINGS = new ItemCustomArmor(TERRAN_MARINE_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.LEGS, 6, 7).setUnlocalizedName("terran.marine.leggings.3").setRegistryName("terran.marine.leggings.3").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 		TERRAN_MARINE_T3_BOOTS = new ItemCustomArmor(TERRAN_MARINE_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.FEET, 6, 7).setUnlocalizedName("terran.marine.boots.3").setRegistryName("terran.marine.boots.3").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+
+		TERRAN_RAYNOR_HELMET = new ItemCustomArmor(TERRAN_RAYNOR_ARMOR_MATERIAL, 0, EntityEquipmentSlot.HEAD, 6, 7).setUnlocalizedName("terran.raynor.helmet.1").setRegistryName("terran.raynor.helmet.1").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		TERRAN_RAYNOR_CHESTPLATE = new ItemCustomArmor(TERRAN_RAYNOR_ARMOR_MATERIAL, 0, EntityEquipmentSlot.CHEST, 6, 7).setUnlocalizedName("terran.raynor.chestplate.1").setRegistryName("terran.raynor.chestplate.1").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		TERRAN_RAYNOR_LEGGINGS = new ItemCustomArmor(TERRAN_RAYNOR_ARMOR_MATERIAL, 1, EntityEquipmentSlot.LEGS, 6, 7).setUnlocalizedName("terran.raynor.leggings.1").setRegistryName("terran.raynor.leggings.1").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		TERRAN_RAYNOR_BOOTS = new ItemCustomArmor(TERRAN_RAYNOR_ARMOR_MATERIAL, 1, EntityEquipmentSlot.FEET, 6, 7).setUnlocalizedName("terran.raynor.boots.1").setRegistryName("terran.raynor.boots.1").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 
 		PROTOSS_T1_HELMET = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.HEAD, 8, 9).setUnlocalizedName("protoss.helmet.1").setRegistryName("protoss.helmet.1").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 		PROTOSS_T1_CHESTPLATE = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.CHEST, 8, 9).setUnlocalizedName("protoss.chestplate.1").setRegistryName("protoss.chestplate.1").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
@@ -327,6 +339,11 @@ public class ArmorHandler {
 		registerItem(TERRAN_MARINE_T3_CHESTPLATE);
 		registerItem(TERRAN_MARINE_T3_LEGGINGS);
 		registerItem(TERRAN_MARINE_T3_BOOTS);
+		
+		registerItem(TERRAN_RAYNOR_HELMET);
+		registerItem(TERRAN_RAYNOR_CHESTPLATE);
+		registerItem(TERRAN_RAYNOR_LEGGINGS);
+		registerItem(TERRAN_RAYNOR_BOOTS);
 	}
 
 	private static void registerItem(Item item) {
