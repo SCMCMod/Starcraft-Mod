@@ -8,6 +8,7 @@ import ga.scmc.entity.living.EntityQueen;
 import ga.scmc.entity.living.EntityZergMob;
 import ga.scmc.entity.living.EntityZergPassive;
 import ga.scmc.enums.EnumFactionTypes;
+import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.ItemHandler;
@@ -71,22 +72,22 @@ public class BlockZergCreep extends Block {
 		if (entityIn instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) entityIn;
 			try {
-				if (player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() instanceof ArmorZergArmorT1
-						&& player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() instanceof ArmorZergArmorT1
-						&& player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() instanceof ArmorZergArmorT1
-						&& player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() instanceof ArmorZergArmorT1) {
+				if (player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() == ArmorHandler.ZERG_T1_HELMET
+						&& player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == ArmorHandler.ZERG_T1_CHESTPLATE
+						&& player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() == ArmorHandler.ZERG_T1_LEGGINGS
+						&& player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == ArmorHandler.ZERG_T1_BOOTS) {
 					player.motionX *= 1.1D;
 					player.motionZ *= 1.1D;
-				}else if(player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() instanceof ArmorZergArmorT2
-						&& player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() instanceof ArmorZergArmorT2
-						&& player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() instanceof ArmorZergArmorT2
-						&& player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() instanceof ArmorZergArmorT2){
+				}else if (player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() == ArmorHandler.ZERG_T2_HELMET
+						&& player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == ArmorHandler.ZERG_T2_CHESTPLATE
+						&& player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() == ArmorHandler.ZERG_T2_LEGGINGS
+						&& player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == ArmorHandler.ZERG_T2_BOOTS) {
 					player.motionX *= 1.2D;
 					player.motionZ *= 1.2D;
-				}else if(player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() instanceof ArmorZergArmorT3
-						&& player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() instanceof ArmorZergArmorT3
-						&& player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() instanceof ArmorZergArmorT3
-						&& player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() instanceof ArmorZergArmorT3) {
+				}else if (player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() == ArmorHandler.ZERG_T3_HELMET
+						&& player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == ArmorHandler.ZERG_T3_CHESTPLATE
+						&& player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() == ArmorHandler.ZERG_T3_LEGGINGS
+						&& player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == ArmorHandler.ZERG_T3_BOOTS) {
 					player.motionX *= 1.3D;
 					player.motionZ *= 1.3D;
 				}else {
