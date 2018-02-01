@@ -197,6 +197,25 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.PROTOSS_T3_LEGGINGS), "PPP", "PAP", "PPP", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.KHALAI.getID()), 'A', new ItemStack(ArmorHandler.PROTOSS_T3_LEGGINGS, 1, 0));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.PROTOSS_T3_BOOTS), "PPP", "PAP", "PPP", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.KHALAI.getID()), 'A', new ItemStack(ArmorHandler.PROTOSS_T3_BOOTS, 1, 0));
 
+		// T1 protoss armorset
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.PROTOSS_TALDARIM_T1_HELMET), "PPP", "P P", "   ", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.PROTOSS_TALDARIM_T1_CHESTPLATE), "P P", "PPP", "PPP", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.PROTOSS_TALDARIM_T1_LEGGINGS), "PPP", "P P", "P P", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.PROTOSS_TALDARIM_T1_BOOTS), "P P", "P P", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()));
+
+		// T2 protoss armorset
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.PROTOSS_TALDARIM_T2_HELMET), "PPP", "PAP", "PPP", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()), 'A', new ItemStack(ArmorHandler.PROTOSS_TALDARIM_T1_HELMET, 1, 0));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.PROTOSS_TALDARIM_T2_CHESTPLATE), "PPP", "PAP", "PPP", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()), 'A', new ItemStack(ArmorHandler.PROTOSS_TALDARIM_T1_CHESTPLATE, 1, 0));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.PROTOSS_TALDARIM_T2_LEGGINGS), "PPP", "PAP", "PPP", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()), 'A', new ItemStack(ArmorHandler.PROTOSS_TALDARIM_T1_LEGGINGS, 1, 0));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.PROTOSS_TALDARIM_T2_BOOTS), "PPP", "PAP", "PPP", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()), 'A', new ItemStack(ArmorHandler.PROTOSS_TALDARIM_T1_BOOTS, 1, 0));
+
+		// T3 protoss armorset
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.PROTOSS_TALDARIM_T3_HELMET), "PPP", "PAP", "PPP", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()), 'A', new ItemStack(ArmorHandler.PROTOSS_TALDARIM_T3_HELMET, 1, 0));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.PROTOSS_TALDARIM_T3_CHESTPLATE), "PPP", "PAP", "PPP", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()), 'A', new ItemStack(ArmorHandler.PROTOSS_TALDARIM_T3_CHESTPLATE, 1, 0));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.PROTOSS_TALDARIM_T3_LEGGINGS), "PPP", "PAP", "PPP", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()), 'A', new ItemStack(ArmorHandler.PROTOSS_TALDARIM_T3_LEGGINGS, 1, 0));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.PROTOSS_TALDARIM_T3_BOOTS), "PPP", "PAP", "PPP", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()), 'A', new ItemStack(ArmorHandler.PROTOSS_TALDARIM_T3_BOOTS, 1, 0));
+
+				
 		// Marine armor
 		GameRegistry.addRecipe(new ItemStack(ItemHandler.MARINE_HELMET_VISOR), "GGG", "GGG", "GGG", 'G', new ItemStack(Blocks.STAINED_GLASS_PANE, 1, 1));
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T1_HELMET), "SSS", "SGS", "   ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.NEOSTEEL.getID()), 'G', new ItemStack(ItemHandler.MARINE_HELMET_VISOR));
