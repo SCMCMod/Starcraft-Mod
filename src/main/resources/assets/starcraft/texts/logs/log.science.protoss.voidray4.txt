@@ -1,1 +1,3 @@
+#skinId:1
+#name: Void Ray: Phase Crystals
 These translucent crystals are manufactured to exacting standards by a coalition of Khalai and Nerazim craftsmen. Capable of enduring the intense energy streams that surge from the Prismatic Core, these crystals were the result of the first attempts to create an unlimited power source. Instead of discarding their “failures”, the Protoss, a dwindling race that can’t afford wasting resources, have found use for these Phase Crystals as focusing mediums for some of their weapons.

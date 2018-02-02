@@ -1,1 +1,3 @@
+#skinId:1
+#name: Mothership: Hull
 The Mothership’s hull, comprised of three slowly rotating wings, projects a tightly woven energy dome which allows for a life-sustaining atmosphere within the confines of the vessel, and turns harmful deep-space radiation into surplus energy for shields and primary systems. The Mothership’s core itself has a similar barrier whose sole function is to keep the crew on the rest of the ship safe from the powerful energies it generates.

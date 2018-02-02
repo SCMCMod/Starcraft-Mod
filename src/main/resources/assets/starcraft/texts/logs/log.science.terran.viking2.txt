@@ -1,1 +1,3 @@
+#skinId:1
+#name: Viking: Engines
 The Viking is equipped with a large reactor—housed in the central area of the vehicle—that powers all electrical systems and provides torque for walker mode locomotion. A set of thrusters in the Viking’s underbelly, which allow for hover/VTOL capabilities, keep it stable during transformations, and four low bypass turbines generate propulsion during flight.

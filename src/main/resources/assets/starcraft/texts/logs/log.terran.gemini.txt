@@ -1,3 +1,5 @@
+#skinId:1
+#name: The Gemini Series
 [[Universal News Network]]
 [[DEC HQ, Moria]]
 New Station Design Available

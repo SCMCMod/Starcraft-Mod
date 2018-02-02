@@ -1,1 +1,3 @@
+#skinId:1
+#name: Grand Opening Of The Creek
 Terran Wildlife Services, in conjunction with LarsCorp Technologies, is proud to announce the grand opening of another soon to be wildly successful hunting preserve: The Creek. Designed as a small, intimate, and quiet locale with some of the finest combat fishing in the galaxy, the park caters to the tastes of the discriminating sportsman. "This new preserve should serve as a welcome haven for those seeking to avoid the crowds created by the overwhelming success of the better known ‘Hunters’ preserves," noted John Andrews, host of the popular "Better Living through Maximum Firepower" sporting show on the Galactic Entertainment Network.

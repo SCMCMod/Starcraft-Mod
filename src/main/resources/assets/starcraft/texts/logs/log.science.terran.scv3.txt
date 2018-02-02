@@ -1,1 +1,3 @@
+#skinId:1
+#name: SCV: Power Drill
 SCV pilots use this dependable tool to cut mineral crystals down to manageable sizes for transportation and processing, or to assemble pre-fabricated structures. In the right hands, the power drill can serve as an effective weapon, a plasteel container opener, or a pneumatic hammer. Truly, it is a shining example of Terran resourcefulness and adaptability.

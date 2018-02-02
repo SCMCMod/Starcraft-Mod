@@ -1,1 +1,3 @@
+#skinId:1
+#name: Elder Lands
 One of the most sacred spots on Aiur is an ancient graveyard known as Ni Monn Adun, "Heart of Adun". Here the greatest of Adun's companions were laid to rest, and their psionic energy permeates the very air around the ancient site. Despite repeated attempts during their invasion, the Zerg were unable to occupy these grounds, for the Protoss fought with incredible ferocity to maintain the purity of Adun's Heart.

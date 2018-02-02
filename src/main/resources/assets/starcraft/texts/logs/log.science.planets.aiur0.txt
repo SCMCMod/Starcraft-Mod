@@ -1,3 +1,5 @@
+#skinId:1
+#name: Aiur: Overview
 Before the zerg Swarm invaded it, Aiur was a verdant world of pristine oceans, lush jungles, and gleaming cities. Its moderate greenhouse-gas levels and low orbital eccentricity allowed the planet to develop a climate conducive to life. Over the eons, Aiur’s humid rain forests teemed with a variety of species, but by far the planet’s most advanced native life-forms were the protoss.
 
 Aiur witnessed the ebb and flow of protoss history, from the psionic race’s primitive origins to its accelerated evolution at the hands of the mysterious xel’naga. Eventually, due to growing antagonism among the protoss that led to the loss of their primal psychic link, the xel’naga left Aiur. The Departure, as this event was later known, caused protoss society to devolve into the most violent civil war ever recorded in galactic history: the Aeon of Strife. This conflict raged for generations, and during this period Aiur’s greater landmasses were devastated, and many of its lesser life-forms were pushed to the brink of extinction.

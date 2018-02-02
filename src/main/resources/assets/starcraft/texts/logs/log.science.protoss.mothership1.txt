@@ -1,1 +1,3 @@
+#skinId:1
+#name: Mothership: Purifier Beam
 The Purifier Beam—a destructive discharge of crystal energy—constitutes the Mothership primary means of defense. In combat, it rapid-fires six controlled bursts which, while not very powerful on their own, can track and strike both air and ground targets effectively.

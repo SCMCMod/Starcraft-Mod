@@ -1,3 +1,5 @@
+#skinId:1
+#name:Log 2354
 The zerg sample has developed a large neural cortex. I've noticed it reacting to external stimuli, but in a very disturbing way. When it detects my presence, it stops moving. Is it trying to "play dead"? Can it react at that level?
 
 I noticed earlier that zerg alpha amino acids have unique R groups. I've run a full regimen on some. Results are stunning. Zerg aminos are able to combine dead cell matter with normal proteins to biosynthesize new cells. They don't suffer generational cell degradation. Simply put, a zerg will never die of old age. They can constantly renew themselves, albeit with radically changing cell structure.

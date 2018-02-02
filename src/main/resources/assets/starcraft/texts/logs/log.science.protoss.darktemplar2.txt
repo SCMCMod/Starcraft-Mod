@@ -1,1 +1,3 @@
+#skinId:1
+#name: Dark Templar: Stealth
 Prior to their banishment from Aiur, Executor Adun taught the Dark Templar how to bend light around them, and wear darkness as a cloak. The ability to merge with the shadows served the Nerazim well, allowing them to adapt and survive on Shakuras, a planet of eternal twilight. As their culture flourished, the Nerazim enhanced their formidable ability to hide in plain sight through the power of the Void.

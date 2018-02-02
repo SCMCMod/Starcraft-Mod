@@ -1,3 +1,5 @@
+#skinId:1
+#name: Orbital Platform Damage
 "Who designed this [censored] place? What [censored] "engineer" crawled out from his [censored] hole to inflict this [censored] [censored] upon my people? A [censored] platform split into two [censored] halves?
 
 [CENSORED]!

@@ -1,1 +1,3 @@
+#skinId:1
+#name: Hellion: Overview
 The Hellion is a high-speed raider built around a lightweight four-wheel chassis. Hellions are capable of causing damage disproportionate to their size, particularly against enemy infantry, thanks to their heavy Infernal Flame Throwers. Additionally, their remarkable acceleration allows for improvisational tactics in the field. Some Hellion drivers will deliberately outrun their enemies only to turn and attack when they have reached maximum range. The low cost, exceptional agility, and devastating firepower of these vehicles have made them extremely popular with mercenary companies.

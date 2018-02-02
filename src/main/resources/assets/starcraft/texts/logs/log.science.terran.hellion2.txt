@@ -1,1 +1,3 @@
+#skinId:1
+#name: Hellion: Tires
 When Hellions entered service, they came equipped with all-terrain tires capable of running flat for up to 100 km—supposedly enough to get out of a hot zone. Untraversable locations, however, proved the need for a better tire. The Raiders, who favor reconnaissance and guerrilla warfare, developed an armored, non-pneumatic tire with a high shock absorption index. Soon after, the Dominion—thanks to its network of spies—secured the blueprints and upgraded its entire Hellion motor pool.

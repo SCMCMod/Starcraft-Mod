@@ -4,7 +4,6 @@ import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.entity.layers.LayerMutaliskBroodlordColor;
 import ga.scmc.client.renderer.entity.layers.LayerMutaliskBroodlordGlowStatic;
 import ga.scmc.client.renderer.model.ModelMutaliskBroodlord;
-import ga.scmc.entity.living.EntityMutalisk;
 import ga.scmc.entity.living.EntityMutaliskBroodlord;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;

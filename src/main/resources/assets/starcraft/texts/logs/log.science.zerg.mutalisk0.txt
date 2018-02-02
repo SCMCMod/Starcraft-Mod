@@ -1,1 +1,3 @@
+#skinId:1
+#name: Mutalisk: Overview
 The Mutalisk has changed little from its original incarnation as the spacefaring Mantis Screamer of the desolate Dinares sector. Mutalisks form the primary flying force of the Zerg, making hit-and-run attacks against vulnerable installations and wheeling across the skies in prodigious numbers above Zerg Hives or land-based forces. Mutalisks are agile and dangerous opponents. They can attack foes both in the air and on the ground by expelling a voracious symbiote known as the Glave Wurm, which can rapidly strike at several opponents as it explosively disintegrates. In large numbers or against weak defenses, Mutalisks are a deadly threat.

@@ -1,1 +1,3 @@
+#skinId:1
+#name: Marauder: Armored Infantry Unit
 Marauders wear a heavily modified version of the CMC-660 Heavy Combat Suit issued to Firebats—roughly the same weight, but with a few key differences. The plasma tanks on the back have been replaced with an auxiliary generator to power the K12 autoloader’s manufacturing plant, and some of its fire insulation has been removed in favor of thicker neosteel plating. The “5-4 suit,” as it’s lovingly known among the troops, is less a suit than a sleek, man-sized bipedal tank.

@@ -1,1 +1,3 @@
+#skinId:1
+#name: Battlecruiser: Crew Facilities
 Battlecruisers are not unlike small, self-contained cities. Housing crews from 4000 – 7000, counting support personnel, these massive behemoths have everything the soldiers need to call it a home away from home. Besides the facilities required by a warship, Battlecruisers boast an assortment of cantinas and rec rooms. When the daily routine sets in, and conflict is not in the troops’ face, the broadcasts from the Universe News Network are omnipresent, itemizing Zerg assimilations and Protoss planet glassings taking place outside the vessel’s thick neosteel hull.

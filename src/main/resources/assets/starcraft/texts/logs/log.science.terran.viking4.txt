@@ -1,1 +1,3 @@
+#skinId:1
+#name: Viking: Cockpit
 The pilot’s seat has more than double the straps, pads, and packing than any other fighter craft to account for the violent ups and downs the vehicle undergoes when switching from aircraft to walker mode. Besides the standard fare gauges, targeting system, and terrain mapper, the Viking has a detailed 3D wireframe that shows the condition of its every servo and actuator. In case of damage to the craft, the pilot is well aware of what works and what doesn’t, preventing fatalities due to system malfunctions.

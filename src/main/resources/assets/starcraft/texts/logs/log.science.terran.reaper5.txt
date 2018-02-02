@@ -1,1 +1,3 @@
+#skinId:1
+#name: Reaper: D-8 Charges
 Deuterium eight charges are a very unstable type of explosive historically used in controlled civil demolitions. When they became optional requisitions for Reaper squads, chaos ensued. High civilian casualty rates, destruction of allied installations, and death of key personnel led the Dominion military to stop issuing these charges to the Reaper Corps. That hasn’t put an end to illegal acquisitions, however, and rumors abound of heavily modified versions of the base explosive in the hands of renegade units.

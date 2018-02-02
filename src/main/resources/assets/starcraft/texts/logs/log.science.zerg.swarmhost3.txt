@@ -1,1 +1,3 @@
+#skinId:1
+#name: Swarm Host: Bone Stabilizers
 Flexible osseous structures of varying thickness slide and lock into position when the Swarm Host prepares to strike. Bearing a resemblance to Terran Siege Tank hydraulics, this specialized skeletal system allows the Swarm Host to maintain position and balance when spewing Locusts or when under heavy fire.

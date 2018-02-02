@@ -1,1 +1,3 @@
+#skinId:1
+#name: Oracle: Precognition
 The Oracle does not have a central computer to deal with the minutiae of navigation and targeting. Instead, it is equipped with a multi-node hub that links the pilot directly to the ship. Oracle pilots are masters of time that use their knowledge of future and past to gain the upper hand in battle. They rely exclusively on their temporal mastery to direct the deadly salvos of the vessel’s Pulsar Beam.

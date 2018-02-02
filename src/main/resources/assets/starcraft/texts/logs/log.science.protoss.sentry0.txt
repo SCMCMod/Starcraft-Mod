@@ -1,1 +1,3 @@
+#skinId:1
+#name: Sentry: Overview
 Sentries are combat drones that are equipped with force field generators and holo-projectors. These deadly automatons are used to bolster the dwindling numbers of the protoss race, and to manipulate the outcome of major battles. Sentries can deploy massive guardian shields that protect friendly units, and reduce the damage they take from ranged attacks. They can also project force field barriers to stall or split up opposing forces. Sentries also have the ability to create hallucinatory images that can draw enemy fire while a real protoss strike force maneuvers into position to deliver the killing blow.

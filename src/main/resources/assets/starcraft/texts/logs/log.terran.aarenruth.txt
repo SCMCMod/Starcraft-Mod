@@ -1,3 +1,5 @@
+#skinId:1
+#name: Data Entry 1027AM0440
 Data Entry 1027AM0440:
 
 It looks like we've finally found a new place to call home. This planet where the Dark Templar have set up shop is very strange, though. I can get over the fact that everything here is blue -- in fact, it's actually kind of relaxing, sometimes. No, the true surrealism of this place is that I have never seen a single plant! No grass, no trees, not even a single bush to break up the landscape. All they do seem to have are lots and lots of rocks. It's damn odd...

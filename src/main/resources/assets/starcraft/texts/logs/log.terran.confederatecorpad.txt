@@ -1,3 +1,5 @@
+#skinId:1
+#name: Join The Confederate Corps!
 These ideals have enabled the Confederate Marine Corps and Colonial Fleet to defend Confederate interests along the Galactic Rim for more than two centuries. Marines come from all walks of life, but they are united in their devotion to the preservation of the Confederate way of life.
 
 The Corps offers countless opportunities for young men and women to see the sector and gain valuable real world experience. We will train you. We will teach you. We will shape you into an efficient warrior, garnering respect and admiration from your peers. We can even help you work past criminal and/or anti-social tendencies through counseling, drug therapy, and neural resocialization.

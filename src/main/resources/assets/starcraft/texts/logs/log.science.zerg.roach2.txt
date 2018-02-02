@@ -1,1 +1,3 @@
+#skinId:1
+#name: Roach: Armored Shell
 The absorption of soil compounds, especially rare earths and metals, has allowed Roaches to develop extremely thick carapaces. These creatures are nearly impervious to small-arms fire, and nigh immune to flame-based weapons. Explosives and artillery support are a must when these monstrosities are on the field.

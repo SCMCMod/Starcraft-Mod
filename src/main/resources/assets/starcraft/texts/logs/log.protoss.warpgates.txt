@@ -1,1 +1,3 @@
+#skinId:1
+#name: Ancient Warp Gates
 In the Aeon of Strife, Protoss warriors created warp gates to travel great distances instantaneously. The knowledge involved in their creation has been lost, but on some planets, these gates still remain. When these sites are discovered, they spawn some of the most violent battles as great powers try and control these ancient places of power.

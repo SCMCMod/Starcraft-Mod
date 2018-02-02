@@ -1,1 +1,3 @@
+#skinId:1
+#name: Tempest: Overview
 Recent protoss efforts to engineer new war machines have resulted in the Tempest, an immense capital ship designed as an answer to zerg and terran long range weaponry. In battle, Tempest pilots overload the kinetic matrix that powers their vessel, resulting in a buildup of extremely volatile energies. These forces are then propelled through the ship's hull and fused into a contained sphere of highly charged particles that can be launched at distant targets. But this firepower doesn't come without risks. Tempest pilots, known for their fanaticism and bravery, must wear bulky dampening armor to protect their bodies from the destructive energies coursing through their ships.

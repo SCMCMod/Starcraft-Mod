@@ -1,1 +1,3 @@
+#skinId:1
+#name: Zergling: Toughened Skin
 Exposure to the harsh weather conditions in Zz’gash made the Dune Runners a fairly adaptable species, an attribute inherited by the Zerglings. Their leathery skin developed seven distinct layers with specialized humidity-retention ducts. These prevent moisture loss, while still allowing fluid circulation to keep the creature’s temperature at appropriate levels.

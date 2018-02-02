@@ -1,3 +1,5 @@
+#skinId:1
+#name: The Letters Of Tenarsis Excerpt
 My Brethren,
 
 Since the time of Khas, the visions have remained the same.

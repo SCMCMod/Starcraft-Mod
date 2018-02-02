@@ -1,3 +1,5 @@
+#skinId:1
+#name: Excerpt From UED Naming Committee
 Excerpt from the minutes of a recent meeting of the UED Naming Committee
 
 (Mr. Johnson) "Ok, ladies and gentlemen, we have been given the task of providing a name for the new orbital space station being built at Reynif II. We have been provided schematics of the station which I will put up on the holoprojector. Initial impressions?"

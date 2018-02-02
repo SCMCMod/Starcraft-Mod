@@ -1,1 +1,3 @@
+#skinId:1
+#name: The Summer Storms Of Aiur
 The summer storms that ravage the high plateaus of Aiur appear and vanish in the blink of an eye. Fierce battles for control of the plateaus’ vast mineral fields are as swift as the storms that envelop them. The current devastation wrought upon Aiur has forced the combatants to this new proving ground, where the fighting has begun anew.

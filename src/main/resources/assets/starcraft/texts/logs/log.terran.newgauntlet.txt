@@ -1,1 +1,3 @@
+#skinId:1
+#name: The New Guantlet
 After the Swarms settled the world where the old Gauntlet had been built and all attempts to dislodge them failed, Emperor Mengsk decreed that a new one be erected. This new Gauntlet was built in a sector of space much harder for the swarms to overrun. The engineers who built this new Gauntlet tried to use the original blueprints, but there is no doubt that some minor but nevertheless important differences crept into its construction. 

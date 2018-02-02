@@ -1,1 +1,3 @@
+#skinId:1
+#name: Brood Lord: Deadly Offspring
 The Brood Lord has clusters of Broodlings squirming under its carapace at any given time. In combat, the Brood Lord supercharges the Broodlings’ aggression and metabolism, turning them into short-lived—but very effective—air-to-ground weapons that tear through personal armor and vehicular plating with ease.

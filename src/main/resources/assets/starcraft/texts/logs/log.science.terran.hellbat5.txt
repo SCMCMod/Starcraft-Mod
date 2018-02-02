@@ -1,1 +1,3 @@
+#skinId:1
+#name: Hellbat: Napalm Spray
 The original incarnation of the Infernal Flamethrower was ineffective in close quarters, and installing a second weapon on an already taxed chassis proved unfeasible. To solve the issue, handy Hellbat operators added a home-made, manually activated system—useful only in walker mode as it reduces effective weapon range—to pump polystyrene foam into the barrel of the Infernal Flamethrower prior to firing. The foam alters the density of the plasma fuel, which increases the flame’s intensity when ignited—very deadly against unarmored or lightly armored targets. This foam system is now standard issue in all Dominion Hellbats.

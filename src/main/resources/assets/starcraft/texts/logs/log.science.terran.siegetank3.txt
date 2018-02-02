@@ -1,1 +1,3 @@
+#skinId:1
+#name: Siege Tank: Ordnance
 The Crucio’s turret has a dual-mode weapon system. When in tank mode, twin 90mm cannons are the main line of defense, firing powerful blasts—effective against enemy armor. Yet, the true might of this tank lies in its siege mode. On activation, the twin plasma cannons become the dreaded 180mm Shock Cannon. This long-range weapon can fire diverse munitions, like armor-piercing Maelstrom shells, and the new “smart shells,” which reduce friendly fire fatalities by up to 75%. Just the roar of Shock Cannon fire has been known to send the enemies of the Dominion in full retreat.

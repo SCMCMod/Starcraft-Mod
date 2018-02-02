@@ -1,1 +1,3 @@
+#skinId:1
+#name: Zealot: Psi-Blade Focusers
 These wrist-mounted devices enable the fierce warriors of Aiur to shape raw psionic power into deadly close combat weapons. By harnessing the Zealots’ violent psionic energies, Psi-Blade Focusers generate incandescent blades that can cut through any material regardless of density.  Over time, the Khalai have further refined the focusers’ construction, allowing Psi-Blades to increase in power as the Zealot’s fury mounts in the heat of battle.

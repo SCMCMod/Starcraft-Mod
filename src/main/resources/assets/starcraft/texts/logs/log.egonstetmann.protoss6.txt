@@ -1,3 +1,5 @@
+#skinId:1
+#name:Log 2977
 All of the containment and reinforced structural integrity theorems I've developed from studying this crystal are starting to... well... crystallize. I think we might be able to contain energies that once required huge machines. Or even manufacture structures capable of hot landings from orbital origins with acceptable stresses.
 
 I'm a sham. I haven't truly learned anything from this crystal. I've just observed the smallest details from it and somehow wrangled a few tidbits when the crystal... helped me. I don't understand how the protoss can possess technology of this magnitude and not rule the known universe. Perhaps they simply don't want to?

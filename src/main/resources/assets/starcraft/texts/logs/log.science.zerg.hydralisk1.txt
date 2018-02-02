@@ -1,1 +1,3 @@
+#skinId:1
+#name: Hydralisk: Serrated Mandibles
 Recent studies suggest that the thick mandibles of the herbivorous Slothien were subjected to forced evolution to increase their effectiveness. With an estimated bite force of 5000 pounds per square inch, the Hydralisk’s jaw can easily cut through flesh, bone, or neosteel.

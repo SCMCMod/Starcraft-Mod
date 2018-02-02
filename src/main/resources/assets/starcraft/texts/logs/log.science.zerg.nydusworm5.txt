@@ -1,1 +1,3 @@
+#skinId:1
+#name: Nydus Worm: Creep Glands
 Nydus Worms generate tons of detritus, but they dispose of them in a rather efficient way. First, the crushed rock and soil is covered with a strain of corrosive creep secreted by glands located around the creature’s large maw. Once it liquefies, the detritus trickles down into twin passages that transfer it to a specialized layer under the epidermis, improving the weight distribution of the tunnels they support with their skin and ribs.

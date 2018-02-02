@@ -1,3 +1,5 @@
+#skinId:1
+#name: Tarsonis: Overview
 Tarsonis was the landfall planet of the giant supercarrier Nagglfar, one of four colony ships that first brought terrans to the Koprulu sector. The Nagglfar had led the flotilla and contained the ATLAS supercomputer that had controlled all four vessels on their twenty-eight-year voyage. Even though the ATLAS had suffered many critical failures, it was vital to giving the new inhabitants of Tarsonis a head start when it came to establishing themselves.
 
 The technological bases of the colonies that were founded after the other ships had crash-landed on Moria and Umoja were always a step behind that of Tarsonis. (The fourth ship was lost with all hands when it had attempted to land.) When the colonies made contact with one another sixty years later, Tarsonis was the most advanced and prosperous among them.

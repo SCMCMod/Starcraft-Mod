@@ -1,1 +1,3 @@
+#skinId:1
+#name: Viper: Jagged Forelegs
 Despite their formidable appearance, the Swarm has crippled the offensive capability of these limbs, relegating them to the role of simplistic vice-grips. The protruding spikes are porous bone structures—able to pierce flesh and immobilize prey without inflicting lethal damage—directly linked to the creature’s lymphatic system. When on the prowl, the spikes exude a pheromone that makes the Viper seem innocuous and non-threatening to its hapless victims.

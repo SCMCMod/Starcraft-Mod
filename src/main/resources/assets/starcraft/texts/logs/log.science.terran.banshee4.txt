@@ -1,1 +1,3 @@
+#skinId:1
+#name: Banshee: Cloak Generator
 Initially, salvaged Wraith cloaking devices were jury-rigged onto the AH/G-24’s fuselage, turning the ship into a formidable stealth raider. Impressed by the craft’s effectiveness, the Dominion developed the DN51, a top of the line cloak generator that offered higher uptime, tighter field cohesion, and a more significant light refraction index than its predecessor. The DN51 turned the Banshee into the Dominion’s stealth darling, and it is widely rumored that special teams are on standby to recover DN51 units from any Banshees that end up missing in action.

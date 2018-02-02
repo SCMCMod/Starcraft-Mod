@@ -1,1 +1,3 @@
+#skinId:1
+#name: Drone: Overview
 The savage Gashyrr Wasps of Eldersthine were initially inducted into the Swarm to serve as resource gatherers. Over time they became Drones, engineered with the Larvae’s ability to break down their own genetic code. Drones can transform themselves into rudimentary Zerg structures. A mutating Drone needs creep to provide nourishment and biomass to support its new form. Like Larvae, Drones are controlled by the Overlords, who monitor their progress through a type of instinctive telepathy. Drones are single-minded about their tasks, diligently working even in the face of raging combat and the possible destruction of the Hive.

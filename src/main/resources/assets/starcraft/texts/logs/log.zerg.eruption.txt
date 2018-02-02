@@ -1,1 +1,3 @@
+#skinId:1
+#name: Zerg Presence On Char
 The Zerg chose Char as a launching point not only for its remote location and rich resources, but because the rough terrain provided many hiding places for various Brood hatcheries. While this undoubtedly heLPed the Zerg conceal their numbers from Terran and Protoss scouts, it worked against them when Kerrigan was forced to hunt down the Dark Templar. This map is typical of the twisting cliffs and magma pools of Char.

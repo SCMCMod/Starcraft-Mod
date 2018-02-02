@@ -1,3 +1,5 @@
+#skinId:1
+#name: Pirates And The Kel-Morian Combine
 "In all my years of duty as a merchant captain in the space cargo lanes, the one thing I can be sure of is that there's pirates out there who will do just about anything to get your cargo. You can also be sure that the customs agents of the Kel-Morian Combine have hearts colder than the void of space, but that's entirely another story. The pirates, though, are always a problem for every honest trader trying to make a buck. Just when you think you've got your cargo home -- BAM -- those bastards come out of the woodwork to ruin your day and your pocketbook. One of these days they'll all get what's coming to them."
 
 -Captain Roberto Lamas 

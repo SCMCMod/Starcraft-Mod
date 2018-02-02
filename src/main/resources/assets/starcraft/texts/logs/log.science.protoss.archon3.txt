@@ -1,1 +1,3 @@
+#skinId:1
+#name: Archon: Psionic Shockwave
 Archons use rage and will to shape their energy into deadly Psionic Shockwaves. These powerful blasts rip organic tissue apart, causing massive damage through rapid cellular degeneration—like preternaturally sharp subatomic scalpels performing a dissection—and the transfer of thermal energy. While Psionic Shockwaves are most effective against biological targets, even heavy plating yields before their might.

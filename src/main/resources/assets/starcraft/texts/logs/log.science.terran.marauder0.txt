@@ -1,1 +1,3 @@
+#skinId:1
+#name: Marauder: Overview
 Primarily a support unit, the remodeled heavyweight Firebat suit packs Quad K12 Punisher grenade launchers that devastate enemy structures and vehicles from a distance. As the Dominion military began to reevaluate its systems, it determined that it was still geared to fight Terran-vs.-Terran battles that were imagined pre-Zerg. There needed to be an increase in armor-shattering combat units with weapons capable of piercing through hardened Zerg carapaces. The Marauder was the answer. These virtual walking tanks have given the Dominion infantry the hard-hitting, easy-to-produce support that had been missing on the front lines.

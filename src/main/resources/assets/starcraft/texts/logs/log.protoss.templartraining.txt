@@ -1,1 +1,3 @@
+#skinId:1
+#name: Templar Training
 The Protoss Templar train constantly to maintain their fighting skills even during times of peace, rare as they are. Strategic wargames are carried out with a combination of real troops and hallucinations, and battlefields are chosen to allow the combatants an opportunity to hone a variety of tactical skills. 

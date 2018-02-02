@@ -1,1 +1,3 @@
+#skinId:1
+#name: Drone: Stabilizer Membrane
 The Gashyrr Wasps were savage flying insects that lived in nests throughout planet Eldersthine. After being assimilated by the Swarm, Drones lost the ability to fly and are now relegated to hovering. Their wings and legs became fleshy, webbed membranes that keep them steady while in motion. Dedicated analysis has revealed that the aforementioned membrane is capable of expanding rapidly with a proper source of nourishment—creep, for example.

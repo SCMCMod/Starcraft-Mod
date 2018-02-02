@@ -1,3 +1,5 @@
+#skinId:1
+#name: Mar Sara: Overview
 Mar Sara was the eighth colony world settled by the old Terran Confederacy. Although the planet is considered a backwater, its mining industry was once seen as a key strategic asset. It was overrun by the zerg and later incinerated by the protoss. Intrepid terrans terraformed and re-colonized Mar Sara in 2502.
 
 The Sara system was initially catalogued by freelance prospectors and colonized by an expedition from Tarsonis several years later. Mar Sara formed the eighth of the thirteen core colonies of the Terran Confederacy. The Sara system was unusual for having two habitable planets, but Mar Sara was always a backwater colony compared to the more prosperous Chau Sara.

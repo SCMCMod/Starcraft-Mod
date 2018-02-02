@@ -1,1 +1,3 @@
+#skinId:1
+#name: Larva: Shared DNA
 Larvae in young colonies only have access to a fraction of the DNA strains available to fully developed hives. As the cluster cycle progresses, living Larvae absorb new genetic data, while the freshly-spawned ones already have the additional blocks of the Swarm’s genome hard-coded in their DNA.

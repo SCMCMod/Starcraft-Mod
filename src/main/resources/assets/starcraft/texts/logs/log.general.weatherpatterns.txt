@@ -1,1 +1,3 @@
+#skinId:1
+#name: Weather Patterns
 From the tranquil jungle climate of J'larre to the unrelenting firestorms that rage across the plains of Char, weather patterns across the galaxy can vary radically. It should come as no real surprise that the constant, torrential downpour from the skies over Grissom IV appears to ignore all common laws of meteorological science. The chaotic ferocity of these storms has resulted in the severe erosion of the planet's surface, creating strange shapes in the terrain -- and occasionally uncovering vast amounts of resources. Prospectors foolish enough to tempt the tempests that thunder across this world must be desperate souls indeed.

@@ -1,1 +1,3 @@
+#skinId:1
+#name: Hydralisk: Overview
 The evolutionary matrix of the caterpillar-like herbivorous Slothien was supercharged by the original Overmind, who twisted the hapless creatures into nightmarish killers known as Hydralisks. Within the plates of their carapaces, Hydralisks house hundreds of armor-piercing spines that can be fired in volleys at enemies approaching from ground or air. The remarkable musculature of the Hydralisk  (4,000 muscles compared to a Terran’s 629) can launch a Needle Spine at astounding speeds, easily penetrating 2 centimeters of solid neosteel even at maximum range. Under any circumstances, massed groups of Hydralisks should be approached with extreme caution, and preferably with Siege Tank support.

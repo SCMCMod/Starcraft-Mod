@@ -1,3 +1,5 @@
+#skinId:1
+#name: Recruit Testing On Braxis
 "The icy wastes of the planet Braxis provide a perfect environment to test both the physical and psychological fortitude of Dominion Defense Force recruits. Our soldiers must remain in fighting form in all possible battlefield conditions, and we have an impressive series of tests to weed out all the undesirables. My favorite training scenario is codenamed "Mountain Stronghold": a treacherous test of willpower and physical conditioning. The recruits must withstand an enemy onslaught for seven days with only three days worth of provisions. When the recruits begin to grow cold, and starvation sets in, we begin to bombard the fortress over a 72 hour stretch, culminating in a massive storming of their defenses by one of our crack assault teams. Those recruits who are able to overcome and survive this attack are rewarded with a new, tougher mission: Glacier Bay. Those who do not-- are quickly disposed of." 
 
      	--Colonel Francis McCauly

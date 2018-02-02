@@ -1,1 +1,3 @@
+#skinId:1
+#name: Nydus Worm: Latching Spikes
 These gigantic spikes protract from the body of the Nydus Worm when it emerges, stabilizing the creature and supporting its weight while the Swarm advances from the depths of the Nydus Network onto its target area.

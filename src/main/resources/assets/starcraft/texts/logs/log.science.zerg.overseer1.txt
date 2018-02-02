@@ -1,1 +1,3 @@
+#skinId:1
+#name: Overseer: Multi-Spectrum Ocelli
 When the Overlord is subjected to the Overseer strain mutation, its eyes melt into a luminescent substance that floats inside a semi-transparent skull. Sensory tentacles and twin photoreceptors—capable of sight in any environment—sprout from said substance, in between the openings of their thick, armored “faceplate”. To further enhance the creature’s capabilities, the main body expands and grows six new hypersensitive optical receptors in strategic positions—ensuring that not even cloaked threats escape the Overseer.

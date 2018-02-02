@@ -1,1 +1,3 @@
+#skinId:1
+#name: Archon: Archon Warp
 In times of great need, two High Templar or Dark Templar can merge into a single entity that radiates overwhelming psionic power and rage. The decision to lay down the lives of valuable Templar is never made lightly. Perhaps their energy was spent. Maybe the warriors themselves chose this final act of sacrifice over succumbing to their injuries. Regardless of its origins, the Archon’s presence on the battlefield fills the minds of all beings—psionic or otherwise—with primal fear and awe.

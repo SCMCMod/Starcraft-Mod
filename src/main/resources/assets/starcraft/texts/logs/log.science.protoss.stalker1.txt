@@ -1,1 +1,3 @@
+#skinId:1
+#name: Stalker: Void Displacer
 When enabled, the displacer grants Stalkers the ability to fade and materialize instantly at a different location, affording them an unprecedented degree of mobility—perfect for quick strikes against the enemy. Each “Blink” generates a flux that taxes the Stalker’s systems; it must go through a brief recharge period before initiating another displacement.

@@ -1,1 +1,3 @@
+#skinId:1
+#name: Viper: Prehensile Proboscis
 This elongated organ—the Viper’s digestive system—spans the entire length of the creature’s body. Just as a frog uses its tongue to catch prey, the Viper regurgitates its flexible intestines with great force in order to grab and pull a target towards its location.

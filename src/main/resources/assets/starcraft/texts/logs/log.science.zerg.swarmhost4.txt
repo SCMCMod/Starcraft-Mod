@@ -1,1 +1,3 @@
+#skinId:1
+#name: Swarm Host: Blood Symbiotes
 Millions of these diminutive larvae swim through the acid bloodstream of the Swarm Host, feeding off of damaged tissue, sealing wounds, and destroying anything foreign that may enter their domain. When the creature is threatened or engaged in combat, a subtle chemical reaction signals the larva to head for the Incubator, where they are evolved into living weapons.

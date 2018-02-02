@@ -1,1 +1,3 @@
+#skinId:1
+#name: Queen: Skating Legs
 All Zerg land-based strains move faster on creep than they do on regular ground. This is due to a collection of microscopic filaments that allow them to “skate” on the surface of the viscous substance without breaking through it. Queens are no exception; however, their legs have been modified to impair their movement when traversing terrain not covered by creep. It is speculated that this was done on purpose to keep the more intelligent Queens in the vicinity of the hive and reduce the incentive for them to wander off on their own.

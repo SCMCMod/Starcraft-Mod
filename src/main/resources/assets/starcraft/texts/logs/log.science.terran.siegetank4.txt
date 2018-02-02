@@ -1,1 +1,3 @@
+#skinId:1
+#name: Siege Tank: Outrigger
 In siege mode, the Crucio’s main tracks turn outwards and the secondary tracks slide into the hull, while thick hydraulic outriggers—also called legs—deploy from the sides of the tank. Once the legs are locked in, they push against the ground for added stability. The base of the outrigger, known as the pad or foot, is similar to a large claw. It comes with retractable talons that activate on rough terrain, and microscopic weep holes which secrete a rubbery substance for greater grip on metal and pavement. While the system is generally reliable, the legs stick from time to time—a significant Achilles’ heel for this terrifying war machine.

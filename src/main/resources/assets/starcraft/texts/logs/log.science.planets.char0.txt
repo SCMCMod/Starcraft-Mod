@@ -1,3 +1,5 @@
+#skinId:1
+#name: Char: Overview
 The ash-world of Char serves as the zerg base of operations in the Koprulu sector. The planet’s brutal volcanic landscape is riddled with extended hive colonies and labyrinthine tunnel systems that teem with millions of malevolent zerg.
 
 Char was formerly one of the thirteen core worlds of the Confederacy, but it is now most notorious as the primary hive planet of the alien zerg. Despite its remote location, Char earned a place among the core worlds because it was one of the original planets settled by the Confederacy. Upon its discovery, Char was found to be an inhospitable volcanic planet with thick ash covering most of its surface and tainting its acrid atmosphere. The hazardous environment is further intensified by extremely high levels of cosmic radiation from Char’s volatile pairing of binary stars, a class VI F0 subdwarf orbiting an M8 irregular variable. Char’s elliptical orbit means whole regions of the planet’s sunward face can become molten seas during a close approach, with temporary islands forming in them due to rapid cooling as the planet swings away to the frozen outer reaches of the system.

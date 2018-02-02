@@ -1,1 +1,3 @@
+#skinId:1
+#name: Colossus: Overview
 The towering Colossus is a Protoss robot design dating back to the bloody conflicts of the Kalath Intercession. It strides across the battlefield on four tall, slender legs that allow it to cross steep elevations with ease. The Colossus’ heavily armored hull carries two powerful Thermal Lances, with one on each side of its body. The robot’s beam attack cuts a broad swath across its targets, making the Colossus an ideal anti-infantry weapon. Unlike most other Protoss robots, the Colossus was created purely for destruction. Manufacturing Colossi has been outlawed for centuries, but the increasingly desperate war against the Zerg has forced the Protoss to revive the line. 

@@ -1,1 +1,3 @@
+#skinId:1
+#name: Observer: Cloaking Field
 Observers have a micro-cloaking field that renders them invisible to anything not equipped with advanced detection systems. The Observer’s hull is fashioned out of a buoyant material that refracts light and masks its diminutive energy signature, greatly enhancing its stealth capabilities.

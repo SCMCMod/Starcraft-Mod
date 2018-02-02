@@ -1,2 +1,4 @@
+#skinId:1
+#name: Recruit Testing
 "Each Dominion Defense Force recruit must pass a battery of tests that are designed to determine if they are truly worthy to serve with the finest fighting force in the galaxy. The most grueling of these trials is code named Glacier Bay. The recruits are informed that they will be stationed at an outpost overlooking Glacier Bay for routine training exercises. To their dismay, Dropships land them on a nearby island and the prospective soldiers are forced to live off the meager resources that their landing zone provides. This requires these prospective soldiers to work up enough intestinal fortitude -- or disdain for their situation -- to swim across the freezing waters to the mainland. This point is pressed once simulated hostile forces are thrown into the exercise."
 -- General Edmund Duke

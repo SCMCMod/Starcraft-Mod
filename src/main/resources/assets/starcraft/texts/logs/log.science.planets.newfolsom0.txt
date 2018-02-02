@@ -1,3 +1,5 @@
+#skinId:1
+#name: New Folsom: Overview
 New Folsom is deadly, unstable, and inaccessible to any but the most heavily armored military starships due to an erratic orbit that passes through not one, but two major asteroid fields.
 
 The first three attempts to establish a mining colony on this geologically abundant planet met with disaster. Within Confederate territory, New Folsom was the richest source of the catalytic elements required to forge neosteel, and the government was determined to establish a foothold on the planet’s volcanic surface. A team of experts, materials specialists, and terraforming engineers was conscripted for this task, and it spent long months designing a platform system that would flex and shift with New Folsom’s volatile crust – all while providing a habitat that was “minimally survivable” for a human workforce. The project went ahead at no small cost in credits and lives: the New Folsom Confederate Mine was constructed on one of the stabler lava lakes on the planet, and it was soon producing the materials necessary for the Confederacy to begin building a new fleet of battlecruisers.

@@ -1,1 +1,3 @@
+#skinId:1
+#name: Liberator: Overview
 In order to combat clusters of agile aerial threats, the Dominion created the Liberator; a gunship-class vessel inspired by the old United Earth Directorate Valkyrie. This new generation air-superiority craft boasts twin missile launchers and heavy plating, but its initial lack of versatility brought its operational effectiveness into question. In order to make it more adaptable to different combat scenarios, the ship was fitted with Terran transformation technology and a powerful air-to-ground plasma cannon. The Liberator cannot move when the cannon is deployed, but its immense firepower more than makes up for it.

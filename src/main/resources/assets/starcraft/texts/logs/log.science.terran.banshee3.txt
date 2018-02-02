@@ -1,1 +1,3 @@
+#skinId:1
+#name: Banshee: Backlash Rockets
 Air-to-ground rockets with a high-explosive, plasteel-lined warhead designed to burn through the heaviest neosteel plating known to man. The shoddy guidance systems in these munitions, coupled with massive collateral damage in urban settings, have earned the craft an infamous reputation as a Dominion terror weapon. While little can be done to change the public’s perception of the Banshee, it has a permanent place in the airforce due to its low cost and easy maintenance.

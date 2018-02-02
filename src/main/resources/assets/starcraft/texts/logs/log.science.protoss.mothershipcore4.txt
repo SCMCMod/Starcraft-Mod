@@ -1,1 +1,3 @@
+#skinId:1
+#name: Mothership Core: Mass Recall
 Mothership Cores share a strong psionic link with the Khaydarin Crystals present in every Protoss Nexus, and can use the crystals’ location as a warp beacon. By releasing a large amount of energy, a Mothership Core can unravel the weave of space-time, teleporting groups of warriors to any Nexus point in the vicinity.

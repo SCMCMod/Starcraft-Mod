@@ -1,1 +1,3 @@
+#skinId:1
+#name: Mutalisk: Chemosynthesis
 To survive in deep space, the Mutalisk became self-sufficient. Every cell in its body is host to myriad bacteria that either produce chemicals or assimilate them in order to generate compounds for sustenance. New Mutalisk strains present certain genetic alterations to their cellular flora, resulting in more efficient bio-processes—to the point of tissue regenerating capabilities.

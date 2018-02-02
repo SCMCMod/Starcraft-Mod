@@ -1,3 +1,5 @@
+#skinId:1
+#name: Asari
 "Long ago, the Asari hunting grounds were favored by the mighty Protoss who Stalked through their jungle-infested valleys. Now, as the world of Aiur has been invaded by marauding alien races, the Protoss rush to protect their once sacred lands. The hunters shall hunt again… And no creature shall leave Asari alive."
 
 	- Unknown Protoss Historian

@@ -1,1 +1,3 @@
+#skinId:1
+#name: Viking: Overview
 In the aftermath of the Brood War, weapon technicians proposed a radical new concept to resolve the critical weaknesses in Terran anti-air capabilities. Based on technologies used in the Siege Tank, the Viking was designed to be the ultimate anti-air and ground-support weapon system. With the ability to change from an assault walker to an air-superiority fighter, the Viking can fulfill different tactical needs in a developing battle. However, finding pilots who excel in both modes has proven difficult. Those who survive the adaptation become the ultimate Terran aces.

@@ -1,1 +1,3 @@
+#skinId:1
+#name: SCV: Systems
 The SCV is equipped with multiple displays that provide critical information to the pilot: fuel readouts, structural integrity data, and real-time 3D topography mapping algorithms. Designed to operate in hazardous atmospheres, all SCVs boast the latest version of the COMFORtroller climate control system, which regulates, cycles and purifies the air inside the cabin—allowing the vehicle to operate for up to two weeks in a vacuum. Nonetheless, it’s common to see jury-rigged SCVs successfully getting the job done, despite being held together with components as unusual as gardening equipment or beer cans.

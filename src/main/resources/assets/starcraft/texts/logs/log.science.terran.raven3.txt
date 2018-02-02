@@ -1,1 +1,3 @@
+#skinId:1
+#name: Raven: Manufacturing Plant
 The Raven is equipped with an advanced manufacturing plant. Hundreds of thousands of AI-operated nanomachines diligently assemble a diversity of mission critical equipment, such as: armored auto-turrets, point defense drones, and thermobaric, laser-guided seeker missiles. Onboard production capabilities afford the Raven greater operative flexibility than its predecessor, the costlier and less efficient Science Vessel.

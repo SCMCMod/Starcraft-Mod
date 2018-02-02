@@ -1,1 +1,3 @@
+#skinId:1
+#name: Brood Lord: Broodling Sacs
 The glowing bulbs on the Brood Lord’s back are an evolution of the cancerous growths in the Corruptor’s tentacles. Alterations at the genetic level have turned the growths into sacs capable of rapidly spawning large batches of Broodlings. These small creatures regulate some of the Brood Lord’s biological functions, and can also serve as living ammunition.

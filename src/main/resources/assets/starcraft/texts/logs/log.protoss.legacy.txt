@@ -1,1 +1,3 @@
+#skinId:1
+#name: A Legacy
 Many religious sites were destroyed in the great war, and the ancient temples of Braken were of no exception. The invasive jungles of this verdant world have all but restored the planet to its natural state. It is still rich -- not only with the resources that fuel the great war machines of the stars -- but also in arcane religious significance. The prophesies foretell that "he who harnesses this world will someday wield great a power, sanctified by the ancient ones". Securing this essential part of the sector would bring great honor, glory and riches to the one who could hold it...

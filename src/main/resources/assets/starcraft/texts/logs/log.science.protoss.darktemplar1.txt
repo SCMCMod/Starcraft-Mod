@@ -1,1 +1,3 @@
+#skinId:1
+#name: Dark Templar: Void Energy
 The Nerazim had to live in secrecy for centuries to avoid discovery by their Khalai brethren. Without the psionic focus afforded by the Khala, these exiles were forced to delve into the mysteries of the Void, eventually learning how to wrest its power by means of rigorous training, discipline, and will. They walk this path with diligence and reverence, for they know full well the dangers lurking in the shadows of the Void.

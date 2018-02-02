@@ -1,1 +1,3 @@
+#skinId:1
+#name: Hydralisk: Needle Spines
 The caterpillar-like Slothien were once covered in fine bristles coated with mild paralytic venom to discourage predators. After their assimilation, this innocuous defensive trait gave way to highly poisonous armor-piercing spines. When ready to attack, the formidable musculature of the Hydralisk contracts, releasing large volleys of lethal biological ordnance.

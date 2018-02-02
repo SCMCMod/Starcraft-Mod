@@ -1,1 +1,3 @@
+#skinId:1
+#name: Lurker: Overview
 Lurkers are subterranean creatures which were evolved to deal with ground threats. They are rarely seen above ground—and were believed lost after the Brood War—but recent intelligence reports indicate that Lurker presence is on the rise throughout the Koprulu sector. This peculiar Zerg strain can only attack from within the soil, using high-density extendable spines to tear through flesh and neosteel—and evoking sheer terror in the hearts of the Swarm’s enemies.

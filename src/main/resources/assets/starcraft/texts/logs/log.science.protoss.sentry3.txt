@@ -1,1 +1,3 @@
+#skinId:1
+#name: Sentry: Force Field
 Sentries can turn bursts of energy into a small, impenetrable barrier to hinder, block, or funnel the advance of enemy troops. While creatures or machines of prodigious size can shatter the cohesion of these translucent Force Fields, ordinary soldiers and vehicles become fodder to Protoss particle disrupters, disruption beams, thermal lances, and purifier beams.

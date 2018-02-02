@@ -1,1 +1,3 @@
+#skinId:1
+#name: Baneling: Overview
 Banelings are so bloated with fluid-filled sacs that they can barely walk; they have even been observed tucking into a tight ball and rolling! When a Baneling gets close enough to an enemy, it triggers a reaction within its volatile chemical payload, causing the creature to explode with a shower of searing acid. The explosion destroys the Baneling but also inflicts terrible damage to its enemies. The Baneling’s lethality is enhanced by the Zerg predilection for burrowing. An apparently safe area can turn into a death trap as these monstrosities emerge and charge into the midst of their foes, giving little time to react.

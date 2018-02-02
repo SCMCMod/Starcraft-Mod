@@ -1,1 +1,3 @@
+#skinId:1
+#name: SCV: Overview
 Initially used during the reconstruction of the old Confederacy’s Tarsonian orbital platforms, the T-280 SCV is a staple of construction and repair across the Dominion. The SCV is the workhorse of the Terran planets due to its ability to perform a multitude of tasks, including constructing new buildings, repairing damaged structures and units, and harvesting and transporting raw resource materials. This versatility and unmatched reliability make the SCV an invaluable tool in rapidly establishing Marine encampments on any terrain.

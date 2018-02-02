@@ -1,1 +1,3 @@
+#skinId:1
+#name: Zergling: Basic DNA
 The Dune Runners’ genetic code and cellular composition have been distilled to their simplest form, allowing the Swarm to field waves of savage monsters against their enemies. Zergling replication is so efficient that they thrive even when exposed to exceedingly high mortality rates.

@@ -1,1 +1,3 @@
+#skinId:1
+#name: Oracle: Warp Torrent
 The Oracle’s core generates a warp field of immense power to contain large amounts of chaotic energy, which is then funneled into an intricate network of miniature crystals and psionically receptive mono-filaments. The stream of raw energy splits and stabilizes as it ebbs through the network, supplying power to the Oracle’s systems.

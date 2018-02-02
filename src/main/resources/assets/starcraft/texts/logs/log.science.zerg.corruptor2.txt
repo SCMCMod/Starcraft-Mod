@@ -1,1 +1,3 @@
+#skinId:1
+#name: Corruptor: Neuronal Armor
 The bulbous protrusions on the top and the sides of the creature constitute its raw brain mass, which also functions as a disposable protective measure. When something hits it with enough force, the tissue becomes a foamy substance that absorbs and redirects the kinetic energy of the impact. The damaged brain tissue is then discarded and regenerated.

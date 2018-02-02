@@ -1,3 +1,5 @@
+#skinId:1
+#name:Log 2103
 Zerg sample recovered by Raynor's Raiders, 6.10.2504.
 
 Sample appeared dead when brought in, including tissue necrosis. However, tests now reveal frantic cellular activity, and it is moving.

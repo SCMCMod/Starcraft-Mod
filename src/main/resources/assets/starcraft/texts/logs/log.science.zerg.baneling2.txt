@@ -1,1 +1,3 @@
+#skinId:1
+#name: Baneling: Ambulatory Legs
 To support and stabilize its new mass, the Baneling’s legs have become thicker than the Zergling’s—feet replaced by sharp spikes that allow them to navigate rough terrain, albeit at a slower pace. Imperfections notwithstanding, it didn’t take long for the Swarm to figure out a way to further increase the speed and lethality of the Baneling strain.

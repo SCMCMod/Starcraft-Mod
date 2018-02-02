@@ -1,1 +1,3 @@
+#skinId:1
+#name: Viper: Flexible Tail
 While the tail’s purpose remains largely unchanged from the original Defiler template, it has been evolved to allow the Viper to maintain its balance and direction while flying—as well as steering. What truly stands out, however, are the ingrown, crystalline spikes on the tip’s surface. These “crystals” emit a powerful pulse that the Viper uses to locate its targets with pinpoint accuracy.

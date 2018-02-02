@@ -1,1 +1,3 @@
+#skinId:1
+#name: Larva: Overview
 The creatures most similar to the original Zerg insectoids are the Zerg Larvae. Each Larva contains within it the genetic makeup of every other Zerg strain available to the Hive. A young Hive will have only the genetic codes for the most basic of Zerg strains, such as the Drone, but as the Hive grows and develops new structures, the Larvae can expand its library of genetic strains. With a command from the Overlords, Larvae will enter a pupal state and begin the metamorphosis into whichever strains the Hive requires.

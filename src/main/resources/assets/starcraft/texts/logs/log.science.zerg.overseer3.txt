@@ -1,1 +1,3 @@
+#skinId:1
+#name: Overseer: DNA Splicing
 By incorporating Terran DNA into the Overseer’s genetic makeup—particularly during its later stages of pupation—the creature displays a peculiar evolution pattern. Its creep glands expand and turn into stores of sentient, unfertilized bio-matter, and its organs no longer liquefy into creep, but instead a nourishing paste. At the Overseer’s will, this paste bonds with the bio-matter in the sacs and quickly becomes an insidious infiltrator known as the Changeling.

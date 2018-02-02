@@ -1,3 +1,5 @@
+#skinId:1
+#name: Big Sky Inc. Advertisement
 I have a dream, ladies and gentlemen. Mankind has been traveling amongst the heavens for generations, but our kind has never actually called space home. We've built orbital defense space platforms, 'space stations' that provide waypoints for trade and commerce, and research facilities in space, but do we ever think of these places as home? No, we do not, and I aim to change that today. I've had the sector's finest engineers and designers build a place in the stars that humans can finally call home: Megalopolis. This new city will provide everything a family could need: great living quarters, great schools for all the kids, and great jobs for parents. We'll be opening up the city for new residents soon, so if you're interested in this wonderful opportunity contact us immediately! Space on the station is quite limited, and you don't want to be left out in the cold!
 
      	-Alan Johnson, Founder and CEO, Big Sky Inc.

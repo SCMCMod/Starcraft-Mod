@@ -1,3 +1,5 @@
+#skinId:1
+#name: UED Military Academy Commandant's Log
 UED Military Academy Commandant's Log
 
 (Commandant Miloshek) "Gentlemen, we need to give our cadets a new challenge in the training simulators this week. Suggestions?"

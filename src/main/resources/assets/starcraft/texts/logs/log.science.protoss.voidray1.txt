@@ -1,1 +1,3 @@
+#skinId:1
+#name: Void Ray: Prismatic Core
 In the central section of the Void Ray lies an oblong synthetic crystal that holds and channels massive amounts of swirling energy. This Prismatic Core has multiple layers to contain and stabilize the violent maelstrom within, transforming a perpetual state of flux into usable energy for the vessel’s weapons, engines, and systems.
