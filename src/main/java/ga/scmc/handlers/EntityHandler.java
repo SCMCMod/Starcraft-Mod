@@ -13,6 +13,7 @@ import ga.scmc.entity.living.EntityDarkProbe;
 import ga.scmc.entity.living.EntityDarkTemplar;
 import ga.scmc.entity.living.EntityHydralisk;
 import ga.scmc.entity.living.EntityHydraliskPrimal;
+import ga.scmc.entity.living.EntityHydraliskPrimalDehaka;
 import ga.scmc.entity.living.EntityInfestedCivilian;
 import ga.scmc.entity.living.EntityKakaru;
 import ga.scmc.entity.living.EntityLarva;
@@ -118,6 +119,7 @@ public class EntityHandler {
 		EntityRegistry.registerEgg(EntityMutaliskPrimalDehaka.class, 8952745, 15066368);
 		EntityRegistry.registerEgg(EntityTyrannozorDehaka.class, 8952745, 15066368);
 		EntityRegistry.registerEgg(EntityZerglingPrimalDehaka.class, 8952745, 15066368);
+		EntityRegistry.registerEgg(EntityHydraliskPrimalDehaka.class, 8952745, 15066368);
 
 		EntityRegistry.registerEgg(EntityCivilian.class, 7566195, 16639);
 		EntityRegistry.registerEgg(EntityPredator.class, 7566195, 16639);
@@ -181,6 +183,7 @@ public class EntityHandler {
 		registerEntity(EntityMutaliskPrimalDehaka.class, "mutaliskPrimalDehaka", 64, 1, true);
 		registerEntity(EntityTyrannozorDehaka.class, "tyrannozorDehaka", 64, 1, true);
 		registerEntity(EntityZerglingPrimalDehaka.class, "zerglingPrimalDehaka", 64, 1, true);
+		registerEntity(EntityHydraliskPrimalDehaka.class, "hydraliskPrimalDehaka", 64, 1, true);
 
 		registerEntity(EntityCivilian.class, "civilian", 64, 1, true);
 		registerEntity(EntityPredator.class, "predator", 64, 1, true);
@@ -233,6 +236,7 @@ public class EntityHandler {
 		EntityRegistry.addSpawn(EntityZerglingPrimalDehaka.class, 15, 1, 6, EnumCreatureType.MONSTER, BiomeHandler.biomeZerusJungle);
 		EntityRegistry.addSpawn(EntityTyrannozorDehaka.class, 1, 1, 1, EnumCreatureType.MONSTER, BiomeHandler.biomeZerusJungle);
 		EntityRegistry.addSpawn(EntityMutaliskPrimalDehaka.class, 5, 1, 1, EnumCreatureType.MONSTER, BiomeHandler.biomeZerusJungle);
+		EntityRegistry.addSpawn(EntityHydraliskPrimalDehaka.class, 10, 1, 1, EnumCreatureType.MONSTER, BiomeHandler.biomeZerusJungle);
 		EntityRegistry.addSpawn(EntityMutaliskPrimal.class, 20, 1, 1, EnumCreatureType.MONSTER, BiomeHandler.biomeZerusJungle);
 		EntityRegistry.addSpawn(EntityHydraliskPrimal.class, 20, 1, 1, EnumCreatureType.MONSTER, BiomeHandler.biomeZerusJungle);
 
