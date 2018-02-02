@@ -262,6 +262,7 @@ import ga.scmc.client.renderer.model.ModelMarauder;
 import ga.scmc.client.renderer.model.ModelMarine;
 import ga.scmc.client.renderer.model.ModelMutalisk;
 import ga.scmc.client.renderer.model.ModelMutaliskBroodlord;
+import ga.scmc.client.renderer.model.ModelMutaliskGlaiveWurm;
 import ga.scmc.client.renderer.model.ModelMutaliskPrimal;
 import ga.scmc.client.renderer.model.ModelMutaliskPrimalDehaka;
 import ga.scmc.client.renderer.model.ModelMutaliskViper;
@@ -289,6 +290,7 @@ import ga.scmc.client.renderer.model.ModelZerglingSwarmling;
 import ga.scmc.client.renderer.projectiles.RenderC14GaussRifleBullet;
 import ga.scmc.client.renderer.projectiles.RenderFlamethrowerFlame;
 import ga.scmc.client.renderer.projectiles.RenderHydraliskSpike;
+import ga.scmc.client.renderer.projectiles.RenderMutaliskGlaiveWurm;
 import ga.scmc.client.renderer.tileentity.RendererKaldirBrambles;
 import ga.scmc.client.renderer.tileentity.RendererProtossWormhole;
 import ga.scmc.client.renderer.tileentity.RendererStarcraftSkull;
@@ -297,6 +299,7 @@ import ga.scmc.client.renderer.tileentity.RendererZerusLightcap;
 import ga.scmc.entity.EntityC14GaussRifleBullet;
 import ga.scmc.entity.EntityFlamethrowerFlame;
 import ga.scmc.entity.EntityHydraliskSpike;
+import ga.scmc.entity.EntityMutaliskGlaiveWurm;
 import ga.scmc.entity.living.EntityAdept;
 import ga.scmc.entity.living.EntityArtosilope;
 import ga.scmc.entity.living.EntityBrakk;
@@ -477,6 +480,7 @@ public class RenderingHandler {
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityC14GaussRifleBullet.class, new RenderC14GaussRifleBullet(Minecraft.getMinecraft().getRenderManager(), new ModelBullet()));
 		RenderingRegistry.registerEntityRenderingHandler(EntityHydraliskSpike.class, new RenderHydraliskSpike(Minecraft.getMinecraft().getRenderManager(), new ModelHydraliskSpike()));
+		RenderingRegistry.registerEntityRenderingHandler(EntityMutaliskGlaiveWurm.class, new RenderMutaliskGlaiveWurm(Minecraft.getMinecraft().getRenderManager(), new ModelMutaliskGlaiveWurm()));
 		RenderingRegistry.registerEntityRenderingHandler(EntityFlamethrowerFlame.class, new RenderFlamethrowerFlame(Minecraft.getMinecraft().getRenderManager(), null));
 	}
 

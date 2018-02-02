@@ -7,13 +7,14 @@ import com.google.common.base.Predicate;
 
 import ga.scmc.capabilities.ColorProvider;
 import ga.scmc.capabilities.IColor;
-import ga.scmc.entity.EntityHydraliskSpike;
+import ga.scmc.entity.EntityMutaliskGlaiveWurm;
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.IRangedAttackMob;
@@ -21,11 +22,8 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackRanged;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAIFindEntityNearestPlayer;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.ai.EntityMoveHelper;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
@@ -44,75 +42,77 @@ public class EntityMutalisk extends EntityZergFlying implements IMob, IRangedAtt
 		this.setFactions(EnumFactionTypes.SWARM);
 		setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.AIR);
 		moveHelper = new EntityMutalisk.MutaliskMoveHelper(this);
-        tasks.addTask(2, new EntityAIAttackRanged(this, 1.0D, 40, 20.0F));
+		tasks.addTask(2, new EntityAIAttackRanged(this, 1.0D, 40, 20.0F));
 		tasks.addTask(5, new EntityMutalisk.AIRandomFly(this));
 		tasks.addTask(7, new EntityMutalisk.AILookAround(this));
-		targetTasks.addTask(1, new EntityAIFindEntityNearestPlayer(this));
-		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, true, false, this));
-		
+		targetTasks.addTask(1, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0,
+				true, false, this));
+
 	}
 
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float distanceFactor) {
-		EntityHydraliskSpike spike = new EntityHydraliskSpike(this.world, this);
-		double d0 = target.posY + (double) target.getEyeHeight() - 1.000000023841858D - target.getDistanceSq(target.getPosition());
+		EntityMutaliskGlaiveWurm wurm = new EntityMutaliskGlaiveWurm(this.world, this);
+		double d0 = target.posY + (double) target.getEyeHeight() - 1.000000023841858D
+				- target.getDistanceSq(target.getPosition());
 		double d1 = target.posX - this.posX;
-		double d2 = d0 - spike.posY;
+		double d2 = d0 - wurm.posY;
 		double d3 = target.posZ - this.posZ;
 		float f = MathHelper.sqrt(d1 * d1 + d3 * d3) * 0.2F;
-		spike.setThrowableHeading(d1, d2 + (double) f, d3, 1.6F, .0F);
-		this.playSound(SoundHandler.FX_HYDRALISK_FIRE, 0.5F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
-		this.world.spawnEntity(spike);
+		wurm.setThrowableHeading(d1, d2 + (double) f, d3, 1.6F, .0F);
+		this.playSound(SoundHandler.FX_MUTALISK_FIRE, 0.5F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+		this.world.spawnEntity(wurm);
 	}
 
 	@Override
 	public boolean apply(EntityLivingBase entity) {
-		if(!entity.isInvisible()) {
-			if(entity instanceof EntityStarcraftMob) {
-				if(entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if(!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.SWARM)) {
-						if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+		if (!entity.isInvisible()) {
+			if (entity instanceof EntityStarcraftMob) {
+				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
+					if (!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.SWARM)) {
+						if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
-						}else {
+						} else {
 							return false;
 						}
-					}else if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+					} else if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityStarcraftPassive) {
-				if(entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if(!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.SWARM)) {
-						if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
+			} else if (entity instanceof EntityStarcraftPassive) {
+				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
+					if (!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.SWARM)) {
+						if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
-						}else {
+						} else {
 							return false;
 						}
-					}else if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
+					} else if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityPlayer) {
+			} else if (entity instanceof EntityPlayer) {
 				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
-				if(color.getColor() == this.getTeamColor().getId()) {
+				if (color.getColor() == this.getTeamColor().getId()) {
 					return false;
-				}else {
+				} else {
 					return true;
 				}
 			} else {
 				return true;
 			}
-		}else if(entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)){
+		} else if (entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 		return false;
 	}
-	
+
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
-		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), EnumMetaItem.CarapaceType.T2.getID()));
+		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2),
+				EnumMetaItem.CarapaceType.T2.getID()));
 		drop.tryDrop(this);
 	}
 
@@ -122,7 +122,7 @@ public class EntityMutalisk extends EntityZergFlying implements IMob, IRangedAtt
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.39000000298023224D);
 	}
-	
+
 	@Override
 	public int getMaxSpawnedInChunk() {
 		return 1;

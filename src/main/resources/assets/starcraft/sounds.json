@@ -370,6 +370,13 @@
 			"stream": false
 		}]
 	},
+    "fx.mutalisk.fire": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:fx/mutalisk/mutalisk-fire",
+            "stream": false
+        }]
+    },
 	"block.flesh.break": {
 		"category": "block",
 		"sounds": [{

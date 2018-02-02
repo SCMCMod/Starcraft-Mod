@@ -674,6 +674,7 @@ death.attack.acid=%s melted into a puddle.
 death.attack.vespene=%s had their skin melt off.
 death.attack.vespene_gas=%s suffocated.
 death.attack.hydraneedle=%s was impaled by Hydralisk needles.
+death.attack.mutaglaive=%s was pummeled by Mutalisk glaive wurms.
 #############################################################################################
 
 

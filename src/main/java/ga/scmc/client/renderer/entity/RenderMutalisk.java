@@ -15,7 +15,6 @@ import net.minecraft.util.math.MathHelper;
 public class RenderMutalisk<T> extends RenderLiving<EntityMutalisk> {
 	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.MUTALISK_BASE);
 	protected ModelMutalisk model;
-	int x = 0;
 	public RenderMutalisk(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelMutalisk) mainModel);
@@ -39,14 +38,6 @@ public class RenderMutalisk<T> extends RenderLiving<EntityMutalisk> {
 
 	@Override
 	protected void preRenderCallback(EntityMutalisk entitylivingbaseIn, float partialTickTime) {
-		if(entitylivingbaseIn.motionY > 0) {
-			GlStateManager.rotate(MathHelper.clamp(x--, -30, 0), 1.0F, 0, 0);
-			x = MathHelper.clamp(x--, -50, 0);
-		}
-		if(entitylivingbaseIn.motionY < 0) {
-			GlStateManager.rotate(MathHelper.clamp(x++, 0, 30), 1.0F, 0, 0);
-			x = MathHelper.clamp(x++, 0, 50);
-		}
 		//GlStateManager.scale(1.0F + (entitylivingbaseIn.getBiomass() / 60), 1.0F + (entitylivingbaseIn.getBiomass() / 60), 1.0F + (entitylivingbaseIn.getBiomass() / 60));
 	}
 }

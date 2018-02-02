@@ -4,6 +4,7 @@ import ga.scmc.Starcraft;
 import ga.scmc.entity.EntityC14GaussRifleBullet;
 import ga.scmc.entity.EntityFlamethrowerFlame;
 import ga.scmc.entity.EntityHydraliskSpike;
+import ga.scmc.entity.EntityMutaliskGlaiveWurm;
 import ga.scmc.entity.living.EntityArtosilope;
 import ga.scmc.entity.living.EntityBrakk;
 import ga.scmc.entity.living.EntityBroodling;
@@ -191,6 +192,7 @@ public class EntityHandler {
 
 		registerEntity(EntityC14GaussRifleBullet.class, "c14GaussRifleBullet", 64, 1, true);
 		registerEntity(EntityHydraliskSpike.class, "HydraliskSpike", 64, 1, true);
+		registerEntity(EntityMutaliskGlaiveWurm.class, "MutaliskGlaiveWurm", 64, 1, true);
 		registerEntity(EntityFlamethrowerFlame.class, "flamethrowerFlame", 64, 1, true);
 
 		registerEntity(EntityArtosilope.class, "artosilope", 64, 1, true);

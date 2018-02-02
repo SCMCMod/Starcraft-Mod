@@ -13,6 +13,7 @@ public class StarcraftDamageSources extends DamageSource {
 
 	public static DamageSource bullet = (new DamageSource("bullet")).setProjectile();
 	public static DamageSource hydraNeedle = (new DamageSource("hydraneedle")).setProjectile();
+	public static DamageSource mutaGlaive = (new DamageSource("mutaglaive")).setProjectile();
 	/** @author Ocelot5836 */
 	public static DamageSource acid = (new DamageSource("acid")).setDamageBypassesArmor().setFireDamage();
 	/** @author Ocelot5836 */
@@ -46,5 +47,18 @@ public class StarcraftDamageSources extends DamageSource {
 	 */
 	public static DamageSource causeHydraliskNeedleDamage(Entity source, @Nullable Entity indirectEntityIn) {
 		return (new EntityDamageSource(hydraNeedle.getDamageType(), source));
+	}
+	
+	/**
+	 * Causes Mutalisk glaive wurm damage to an entity.
+	 * 
+	 * @param source
+	 *            The source of the damage
+	 * @param indirectEntityIn
+	 *            The indirect entity that causes the damage
+	 * @return The damage source that hurt the entity
+	 */
+	public static DamageSource causeMutaliskGlaiveWurmDamage(Entity source, @Nullable Entity indirectEntityIn) {
+		return (new EntityDamageSource(mutaGlaive.getDamageType(), source));
 	}
 }

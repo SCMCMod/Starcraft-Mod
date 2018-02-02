@@ -9,15 +9,15 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class EntityHydraliskSpike extends EntityThrowable {
+public class EntityMutaliskGlaiveWurm extends EntityThrowable {
 	
-	public EntityHydraliskSpike(World worldIn) {
+	public EntityMutaliskGlaiveWurm(World worldIn) {
 		super(worldIn);
 		float size = 0.05f;
 		this.setSize(size, size);
 	}
 
-	public EntityHydraliskSpike(World worldIn, EntityLivingBase throwerIn) {
+	public EntityMutaliskGlaiveWurm(World worldIn, EntityLivingBase throwerIn) {
 		super(worldIn, throwerIn);
         this.setLocationAndAngles(throwerIn.posX, throwerIn.posY + throwerIn.getEyeHeight(), throwerIn.posZ, throwerIn.rotationYaw, throwerIn.rotationPitch);
         this.posX -= MathHelper.cos((rotationYaw / 180F) * 3.141593F) * 0.16F;
@@ -31,7 +31,7 @@ public class EntityHydraliskSpike extends EntityThrowable {
 	}
 
 	public static void registerFixesSnowball(DataFixer fixer) {
-		EntityThrowable.registerFixesThrowable(fixer, "HydraliskSpike");
+		EntityThrowable.registerFixesThrowable(fixer, "MutaliskGlaiveWurm");
 	}
 	
 	@Override
@@ -46,7 +46,7 @@ public class EntityHydraliskSpike extends EntityThrowable {
 	protected void onImpact(RayTraceResult result) {
 		if (result.entityHit != null) {
         	float i = 6.0F;
-        	 result.entityHit.attackEntityFrom(StarcraftDamageSources.causeHydraliskNeedleDamage(this, this.getThrower()), i);
+        	 result.entityHit.attackEntityFrom(StarcraftDamageSources.causeMutaliskGlaiveWurmDamage(this, this.getThrower()), i);
             this.setDead();
         }
 	}

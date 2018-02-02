@@ -8,6 +8,7 @@ import com.google.common.base.Predicate;
 import ga.scmc.capabilities.ColorProvider;
 import ga.scmc.capabilities.IColor;
 import ga.scmc.entity.EntityHydraliskSpike;
+import ga.scmc.entity.EntityMutaliskGlaiveWurm;
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumTeamColors;
@@ -49,15 +50,15 @@ public class EntityMutaliskPrimalDehaka extends EntityZergFlying implements IMob
 	
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float distanceFactor) {
-		EntityHydraliskSpike spike = new EntityHydraliskSpike(this.world, this);
+		EntityMutaliskGlaiveWurm wurm = new EntityMutaliskGlaiveWurm(this.world, this);
 		double d0 = target.posY + (double) target.getEyeHeight() - 1.000000023841858D - target.getDistanceSq(target.getPosition());
 		double d1 = target.posX - this.posX;
-		double d2 = d0 - spike.posY;
+		double d2 = d0 - wurm.posY;
 		double d3 = target.posZ - this.posZ;
 		float f = MathHelper.sqrt(d1 * d1 + d3 * d3) * 0.2F;
-		spike.setThrowableHeading(d1, d2 + (double) f, d3, 1.6F, .0F);
-		this.playSound(SoundHandler.FX_HYDRALISK_FIRE, 0.5F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
-		this.world.spawnEntity(spike);
+		wurm.setThrowableHeading(d1, d2 + (double) f, d3, 1.6F, .0F);
+		this.playSound(SoundHandler.FX_MUTALISK_FIRE, 0.5F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+		this.world.spawnEntity(wurm);
 	}
 
 	@Override
