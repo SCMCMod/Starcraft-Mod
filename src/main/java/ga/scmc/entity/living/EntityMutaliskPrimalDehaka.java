@@ -3,7 +3,11 @@ package ga.scmc.entity.living;
 import java.util.Random;
 
 import com.arisux.mdx.lib.world.entity.ItemDrop;
+import com.google.common.base.Predicate;
 
+import ga.scmc.capabilities.ColorProvider;
+import ga.scmc.capabilities.IColor;
+import ga.scmc.entity.EntityHydraliskSpike;
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumTeamColors;
@@ -11,18 +15,23 @@ import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIAttackRanged;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAIFindEntityNearestPlayer;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityMoveHelper;
 import net.minecraft.entity.monster.IMob;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityMutaliskPrimalDehaka extends EntityZergFlying implements IMob {
+public class EntityMutaliskPrimalDehaka extends EntityZergFlying implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
 
 	public EntityMutaliskPrimalDehaka(World world) {
 		super(world);
@@ -30,10 +39,70 @@ public class EntityMutaliskPrimalDehaka extends EntityZergFlying implements IMob
 		this.setTeamColor(EnumTeamColors.YELLOW);
 		this.setFactions(EnumFactionTypes.PRIMALPACKDEHAKA);
 		this.setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.AIR);
-		this.moveHelper = new EntityMutaliskPrimalDehaka.MutaliskMoveHelper(this);
-		this.tasks.addTask(5, new EntityMutaliskPrimalDehaka.AIRandomFly(this));
-		this.tasks.addTask(7, new EntityMutaliskPrimalDehaka.AILookAround(this));
-		this.targetTasks.addTask(1, new EntityAIFindEntityNearestPlayer(this));
+		moveHelper = new EntityMutaliskPrimalDehaka.MutaliskMoveHelper(this);
+        tasks.addTask(2, new EntityAIAttackRanged(this, 1.0D, 40, 20.0F));
+		tasks.addTask(5, new EntityMutaliskPrimalDehaka.AIRandomFly(this));
+		tasks.addTask(7, new EntityMutaliskPrimalDehaka.AILookAround(this));
+		targetTasks.addTask(1, new EntityAIFindEntityNearestPlayer(this));
+		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, true, false, this));
+	}
+	
+	@Override
+	public void attackEntityWithRangedAttack(EntityLivingBase target, float distanceFactor) {
+		EntityHydraliskSpike spike = new EntityHydraliskSpike(this.world, this);
+		double d0 = target.posY + (double) target.getEyeHeight() - 1.000000023841858D - target.getDistanceSq(target.getPosition());
+		double d1 = target.posX - this.posX;
+		double d2 = d0 - spike.posY;
+		double d3 = target.posZ - this.posZ;
+		float f = MathHelper.sqrt(d1 * d1 + d3 * d3) * 0.2F;
+		spike.setThrowableHeading(d1, d2 + (double) f, d3, 1.6F, .0F);
+		this.playSound(SoundHandler.FX_HYDRALISK_FIRE, 0.5F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+		this.world.spawnEntity(spike);
+	}
+
+	@Override
+	public boolean apply(EntityLivingBase entity) {
+		if(!entity.isInvisible()) {
+			if(entity instanceof EntityStarcraftMob) {
+				if(entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
+					if(!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.PRIMALPACKDEHAKA)) {
+						if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+							return true;
+						}else {
+							return false;
+						}
+					}else if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+						return true;
+					}
+				}
+			}else if(entity instanceof EntityStarcraftPassive) {
+				if(entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
+					if(!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.PRIMALPACKDEHAKA)) {
+						if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
+							return true;
+						}else {
+							return false;
+						}
+					}else if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
+						return true;
+					}
+				}
+			}else if(entity instanceof EntityPlayer) {
+				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
+				if(color.getColor() == this.getTeamColor().getId()) {
+					return false;
+				}else {
+					return true;
+				}
+			} else {
+				return true;
+			}
+		}else if(entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)){
+			return true;
+		}else {
+			return false;
+		}
+		return false;
 	}
 	
 	@Override
