@@ -118,6 +118,7 @@ import static ga.scmc.handlers.ItemHandler.DUST;
 import static ga.scmc.handlers.ItemHandler.ENERGY;
 import static ga.scmc.handlers.ItemHandler.FLAMETHROWER;
 import static ga.scmc.handlers.ItemHandler.FLAMETHROWER_PARTS;
+import static ga.scmc.handlers.ItemHandler.SOLARITE_REAPER;
 import static ga.scmc.handlers.ItemHandler.GAS_CONTAINER;
 import static ga.scmc.handlers.ItemHandler.ICON_PROTOSS;
 import static ga.scmc.handlers.ItemHandler.ICON_TERRAN;
@@ -509,6 +510,7 @@ public class RenderingHandler {
 	private static void registerStandardItemRenderers() {
 		registerItemRender(C14_GAUSS_RIFLE);
 		registerItemRender(FLAMETHROWER);
+		registerItemRender(SOLARITE_REAPER);
 
 		registerItemRender(CREEP_RESIN);
 		registerItemRender(ORGANIC_TISSUE);

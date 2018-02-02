@@ -6,6 +6,7 @@ import ga.scmc.client.renderer.items.ItemRenderC14GaussRifle;
 import ga.scmc.client.renderer.items.ItemRenderFlamethrower;
 import ga.scmc.client.renderer.items.ItemRenderKaldirBrambles;
 import ga.scmc.client.renderer.items.ItemRenderModelArmorItem;
+import ga.scmc.client.renderer.items.ItemRenderSolariteReaper;
 import ga.scmc.client.renderer.items.ItemRenderStarcraftSkull;
 import ga.scmc.client.renderer.items.ItemRenderTable;
 import ga.scmc.client.renderer.items.ItemRenderZerusGlowPod;
@@ -38,6 +39,7 @@ public class ItemRenderRegistrationHandler {
 		register(BlockHandler.TEST, new ItemRenderTable());
 		register(ItemHandler.C14_GAUSS_RIFLE, new ItemRenderC14GaussRifle());
 		register(ItemHandler.FLAMETHROWER, new ItemRenderFlamethrower());
+		register(ItemHandler.SOLARITE_REAPER, new ItemRenderSolariteReaper());
 		register(BlockHandler.STARCRAFT_SKULL, new ItemRenderStarcraftSkull());
 		register(BlockHandler.FLORA_ZERUS_GLOW_POD, new ItemRenderZerusGlowPod());
 		register(BlockHandler.FLORA_KALDIR_BRAMBLES, new ItemRenderKaldirBrambles());

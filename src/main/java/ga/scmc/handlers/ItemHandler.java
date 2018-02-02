@@ -7,6 +7,7 @@ import ga.scmc.items.ItemFlamethrower;
 import ga.scmc.items.ItemLog;
 import ga.scmc.items.ItemMarineHelmetVisor;
 import ga.scmc.items.ItemPhosphorus;
+import ga.scmc.items.ItemSolariteReaper;
 import ga.scmc.items.ItemStimpack;
 import ga.scmc.items.ItemTest;
 import ga.scmc.items.metaitems.ItemC14GaussRifleParts;
@@ -52,6 +53,7 @@ public class ItemHandler {
 	public static Item BULLET_MAGAZINE;
 	public static ItemC14GaussRifle C14_GAUSS_RIFLE;
 	public static ItemFlamethrower FLAMETHROWER;
+	public static ItemSolariteReaper SOLARITE_REAPER;
 	public static Item C14_PARTS;
 	public static Item FLAMETHROWER_PARTS;
 	public static Item CREEP_RESIN;
@@ -126,6 +128,7 @@ public class ItemHandler {
 		INGOT = new ItemIngot();
 		PROTOSS_INGOT = new ItemProtossIngot();
 		C14_GAUSS_RIFLE = new ItemC14GaussRifle();
+		SOLARITE_REAPER = new ItemSolariteReaper();
 		C14_PARTS = new ItemC14GaussRifleParts();
 		FLAMETHROWER_PARTS = new ItemFlamethrowerParts();
 		FLAMETHROWER = new ItemFlamethrower();
@@ -202,6 +205,7 @@ public class ItemHandler {
 		registerItem(PROTOSS_INGOT);
 		registerItem(C14_GAUSS_RIFLE);
 		registerItem(FLAMETHROWER);
+		registerItem(SOLARITE_REAPER);
 		registerItem(C14_PARTS);
 		registerItem(FLAMETHROWER_PARTS);
 		registerItem(BULLET_MAGAZINE);
