@@ -4,7 +4,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 /**
- * Allows support for nbt structures at ease
+ * Allows support for basic NBT structures at ease.
  * @author Ocelot5836
  */
 public class BasicNBTStructure extends SCWorldGenerator implements INBTStructure {

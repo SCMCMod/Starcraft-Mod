@@ -94,7 +94,7 @@ public class GuiRenderEventHandler extends Gui {
 					}
 				}
 
-				TextureUtils.bindTexture("minecraft", "textures/gui/icons.png");
+				TextureUtils.bindTexture(Gui.ICONS);
 			}
 		}
 	}

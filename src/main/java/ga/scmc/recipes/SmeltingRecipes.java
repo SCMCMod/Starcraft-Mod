@@ -22,7 +22,7 @@ public class SmeltingRecipes {
 		// Steel Ingot from Steel Dust
 		GameRegistry.addSmelting(new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.STEEL.getID()), new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 0);
 
-		//Steel to neosteel
+		// Steel to neosteel
 		GameRegistry.addSmelting(new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.NEOSTEEL.getID()), 0);
 
 		// Blue Stained Glass
@@ -33,10 +33,10 @@ public class SmeltingRecipes {
 		// Shakuras Stone
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.COBBLESTONE_SHAKURAS), new ItemStack(BlockHandler.STONE_SHAKURAS, 1, 0), 0);
 
-		// Shakuras Stone
+		// Zerus Stone
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.COBBLESTONE_ZERUS), new ItemStack(BlockHandler.STONE_ZERUS, 1, 0), 0);
-		
-		// Shakuras Stone
+
+		// Slayn Stone
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.COBBLESTONE_SLAYN), new ItemStack(BlockHandler.STONE_SLAYN, 1, 0), 0);
 
 		// Char Stone
@@ -45,6 +45,7 @@ public class SmeltingRecipes {
 		// These are all of the various smelting recipes for the various ores. Self explanatory
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_TITANIUM_OW), new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()), 0.8F);
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_COPPER_OW), new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()), 0.5F);
+		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_PHOSPHORUS_OW), new ItemStack(ItemHandler.PHOSPHORUS), 0.25F);
 
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_COAL_CHAR), new ItemStack(Items.COAL, 1, 0), 0);
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_IRON_CHAR), new ItemStack(Items.IRON_INGOT, 1, 0), 0.7F);
@@ -54,6 +55,7 @@ public class SmeltingRecipes {
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_DIAMOND_CHAR), new ItemStack(Items.DIAMOND, 1, 0), 0);
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_TITANIUM_CHAR), new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()), 0.8F);
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_COPPER_CHAR), new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()), 0.5F);
+		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_PHOSPHORUS_CHAR), new ItemStack(ItemHandler.PHOSPHORUS), 0.25F);
 
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_COAL_SHAKURAS), new ItemStack(Items.COAL, 1, 0), 0);
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_IRON_SHAKURAS), new ItemStack(Items.IRON_INGOT, 1, 0), 0.7F);
@@ -63,7 +65,8 @@ public class SmeltingRecipes {
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_DIAMOND_SHAKURAS), new ItemStack(Items.DIAMOND, 1, 0), 1.0F);
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_TITANIUM_SHAKURAS), new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()), 0.8F);
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_COPPER_SHAKURAS), new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()), 0.5F);
-		
+		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_PHOSPHORUS_SHAKURAS), new ItemStack(ItemHandler.PHOSPHORUS), 0.25F);
+
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_COAL_SLAYN), new ItemStack(Items.COAL, 1, 0), 0);
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_IRON_SLAYN), new ItemStack(Items.IRON_INGOT, 1, 0), 0.7F);
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_GOLD_SLAYN), new ItemStack(Items.GOLD_INGOT, 1, 0), 1.0F);
@@ -72,7 +75,8 @@ public class SmeltingRecipes {
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_DIAMOND_SLAYN), new ItemStack(Items.DIAMOND, 1, 0), 1.0F);
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_TITANIUM_SLAYN), new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()), 0.8F);
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_COPPER_SLAYN), new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()), 0.5F);
-		
+		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_PHOSPHORUS_SLAYN), new ItemStack(ItemHandler.PHOSPHORUS), 0.25F);
+
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_COAL_ZERUS), new ItemStack(Items.COAL, 1, 0), 0);
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_IRON_ZERUS), new ItemStack(Items.IRON_INGOT, 1, 0), 0.7F);
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_GOLD_ZERUS), new ItemStack(Items.GOLD_INGOT, 1, 0), 1.0F);
@@ -81,5 +85,6 @@ public class SmeltingRecipes {
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_DIAMOND_ZERUS), new ItemStack(Items.DIAMOND, 1, 0), 1.0F);
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_TITANIUM_ZERUS), new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()), 0.8F);
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_COPPER_ZERUS), new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()), 0.5F);
+		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_PHOSPHORUS_ZERUS), new ItemStack(ItemHandler.PHOSPHORUS), 0.25F);
 	}
 }

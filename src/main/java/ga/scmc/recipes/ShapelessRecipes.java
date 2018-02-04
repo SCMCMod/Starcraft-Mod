@@ -38,7 +38,7 @@ public class ShapelessRecipes {
 		GameRegistry.addShapelessRecipe(new ItemStack(BlockHandler.ORE_IRON_CHAR), new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.IRON.getID()), new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.IRON.getID()), new ItemStack(BlockHandler.STONE_CHAR));
 
 		// Carbon Grain x9 from Coal (not Charcoal as Coal is natural, and iirc has more carbon)
-		GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.DUST, 9, EnumMetaItem.DustType.CARBON.getID()), new ItemStack(Items.COAL, 1, 1));
+		GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.DUST, 9, EnumMetaItem.DustType.CARBON.getID()), Items.COAL);
 
 		// Gunpowder from Carbon and Phosphorus
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.GUNPOWDER, 1, 0), new ItemStack(ItemHandler.DUST, 3, EnumMetaItem.DustType.CARBON.getID()), new ItemStack(ItemHandler.DUST, 3, EnumMetaItem.DustType.CARBON.getID()), new ItemStack(ItemHandler.PHOSPHORUS, 3, 0), new ItemStack(ItemHandler.PHOSPHORUS, 3, 0));
