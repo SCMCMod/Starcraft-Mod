@@ -7,7 +7,6 @@ import com.google.common.base.Predicate;
 
 import ga.scmc.capabilities.ColorProvider;
 import ga.scmc.capabilities.IColor;
-import ga.scmc.entity.EntityHydraliskSpike;
 import ga.scmc.entity.EntityMutaliskGlaiveWurm;
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumMetaItem;

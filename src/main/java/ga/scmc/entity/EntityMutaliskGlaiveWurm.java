@@ -1,7 +1,6 @@
 package ga.scmc.entity;
 
 import ga.scmc.StarcraftDamageSources;
-import ga.scmc.entity.living.EntityHydralisk;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.datafix.DataFixer;

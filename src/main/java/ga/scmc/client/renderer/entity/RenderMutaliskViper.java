@@ -6,11 +6,9 @@ import ga.scmc.client.renderer.entity.layers.LayerMutaliskViperGlowStatic;
 import ga.scmc.client.renderer.model.ModelMutaliskViper;
 import ga.scmc.entity.living.EntityMutaliskViper;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.MathHelper;
 
 public class RenderMutaliskViper<T> extends RenderLiving<EntityMutaliskViper> {
 	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.MUTALISKVIPER_BASE);

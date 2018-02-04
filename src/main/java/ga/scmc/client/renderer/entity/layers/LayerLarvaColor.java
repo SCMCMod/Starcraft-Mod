@@ -1,13 +1,8 @@
 package ga.scmc.client.renderer.entity.layers;
 
-import org.lwjgl.opengl.GL11;
-
-import com.arisux.mdx.lib.client.render.OpenGL;
-
 import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.entity.RenderLarva;
 import ga.scmc.entity.living.EntityLarva;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;

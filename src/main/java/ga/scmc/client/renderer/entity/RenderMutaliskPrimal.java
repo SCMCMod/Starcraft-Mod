@@ -6,11 +6,9 @@ import ga.scmc.client.renderer.entity.layers.LayerMutaliskPrimalGlowStatic;
 import ga.scmc.client.renderer.model.ModelMutaliskPrimal;
 import ga.scmc.entity.living.EntityMutaliskPrimal;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.MathHelper;
 
 public class RenderMutaliskPrimal<T> extends RenderLiving<EntityMutaliskPrimal> {
 	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.MUTALISKPRIMAL_BASE);

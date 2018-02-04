@@ -1,10 +1,10 @@
-package ga.scmc.worldgen.dimchar;
+package ga.scmc.worldgen;
 
 import java.util.Random;
 
 import com.google.common.base.Predicate;
 
-import ga.scmc.handlers.BlockHandler;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.util.math.BlockPos;
@@ -12,18 +12,18 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class CharWorldGenMinable extends WorldGenerator {
+public class StarcraftWorldGenMinable extends WorldGenerator {
 
 	/** The number of blocks to generate. */
 	private final int numberOfBlocks;
 	private final IBlockState oreBlock;
 	private final Predicate<IBlockState> predicate;
 
-	public CharWorldGenMinable(IBlockState state, int blockCount) {
-		this(state, blockCount, BlockMatcher.forBlock(BlockHandler.STONE_CHAR));
+	public StarcraftWorldGenMinable(Block fillerBlock, IBlockState state, int blockCount) {
+		this(state, blockCount, BlockMatcher.forBlock(fillerBlock));
 	}
 
-	public CharWorldGenMinable(IBlockState state, int blockCount, Predicate<IBlockState> p_i45631_3_) {
+	public StarcraftWorldGenMinable(IBlockState state, int blockCount, Predicate<IBlockState> p_i45631_3_) {
 		oreBlock = state;
 		numberOfBlocks = blockCount;
 		predicate = p_i45631_3_;

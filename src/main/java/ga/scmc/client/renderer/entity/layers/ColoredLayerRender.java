@@ -2,8 +2,6 @@ package ga.scmc.client.renderer.entity.layers;
 
 import org.lwjgl.opengl.GL11;
 
-import com.arisux.mdx.lib.client.render.OpenGL;
-
 import ga.scmc.api.IEntityTeamColorable;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;

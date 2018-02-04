@@ -6,11 +6,9 @@ import ga.scmc.client.renderer.entity.layers.LayerMutaliskBroodlordGlowStatic;
 import ga.scmc.client.renderer.model.ModelMutaliskBroodlord;
 import ga.scmc.entity.living.EntityMutaliskBroodlord;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.MathHelper;
 
 public class RenderMutaliskBroodlord<T> extends RenderLiving<EntityMutaliskBroodlord> {
 	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.MUTALISKBROODLORD_BASE);
