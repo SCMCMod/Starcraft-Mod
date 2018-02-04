@@ -78,7 +78,6 @@ import static ga.scmc.handlers.ArmorHandler.ZERG_T3_HELMET;
 import static ga.scmc.handlers.ArmorHandler.ZERG_T3_LEGGINGS;
 import static ga.scmc.handlers.BlockHandler.ASH_CHAR;
 import static ga.scmc.handlers.BlockHandler.CORE_BARRACKS;
-import static ga.scmc.handlers.BlockHandler.ENERGY_BLOCK;
 import static ga.scmc.handlers.BlockHandler.FARMLAND_CHAR;
 import static ga.scmc.handlers.BlockHandler.FARMLAND_SHAKURAS;
 import static ga.scmc.handlers.BlockHandler.FARMLAND_SLAYN;
@@ -678,7 +677,7 @@ public class RenderingHandler {
 		registerItemRender(TERRAN_MARINE_T3_CHESTPLATE);
 		registerItemRender(TERRAN_MARINE_T3_LEGGINGS);
 		registerItemRender(TERRAN_MARINE_T3_BOOTS);
-		
+
 		registerItemRender(TERRAN_RAYNOR_HELMET);
 		registerItemRender(TERRAN_RAYNOR_CHESTPLATE);
 		registerItemRender(TERRAN_RAYNOR_LEGGINGS);
@@ -698,7 +697,7 @@ public class RenderingHandler {
 		registerItemRender(PROTOSS_T3_CHESTPLATE);
 		registerItemRender(PROTOSS_T3_LEGGINGS);
 		registerItemRender(PROTOSS_T3_BOOTS);
-		
+
 		registerItemRender(PROTOSS_NERAZIM_T1_HELMET);
 		registerItemRender(PROTOSS_NERAZIM_T1_CHESTPLATE);
 		registerItemRender(PROTOSS_NERAZIM_T1_LEGGINGS);
@@ -713,7 +712,7 @@ public class RenderingHandler {
 		registerItemRender(PROTOSS_NERAZIM_T3_CHESTPLATE);
 		registerItemRender(PROTOSS_NERAZIM_T3_LEGGINGS);
 		registerItemRender(PROTOSS_NERAZIM_T3_BOOTS);
-		
+
 		registerItemRender(PROTOSS_TALDARIM_T1_HELMET);
 		registerItemRender(PROTOSS_TALDARIM_T1_CHESTPLATE);
 		registerItemRender(PROTOSS_TALDARIM_T1_LEGGINGS);
@@ -812,7 +811,7 @@ public class RenderingHandler {
 			registerBlockModel(COMP_MINERAL, i, "mineral.compressed." + EnumMetaBlock.CompressedMineralType.values()[i].getName());
 		}
 		for (int i = 0; i < EnergyType.values().length; i++) {
-			registerBlockModel(ENERGY_BLOCK, i, "block.energy." + EnergyType.values()[i].getName());
+			registerBlockModel(MetaBlockHandler.ENERGY, i, "block.energy." + EnergyType.values()[i].getName());
 		}
 		for (int i = 0; i < EnumMetaBlock.GasCollectorType.values().length; i++) {
 			registerBlockModel(GAS_COLLECTOR, i, "gas.collector." + EnumMetaBlock.GasCollectorType.values()[i].getName());

@@ -91,7 +91,10 @@ public class ItemRenderKaldirBrambles extends ItemRenderer {
 		GlStateManager.translate(0.5, 1.5, 0.5);
 		GlStateManager.rotate(180, 0, 0, 1);
 		bindTexture();
-		MODEL.render((float) scale, 0);
+		int ticksAlive = 0;
+		if (entity != null)
+			ticksAlive = entity.ticksExisted;
+		MODEL.render((float) scale, ticksAlive);
 		GlStateManager.popMatrix();
 	}
 }

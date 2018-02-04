@@ -50,7 +50,7 @@ public class ItemEnergy extends Item implements IItemCompressable {
 	@Override
 	public ItemStack getCompressedForm(int metadata) {
 		if (metadata < EnergyType.values().length)
-			return new ItemStack(MetaBlockHandler.COMP_MINERAL, 1, metadata);
+			return new ItemStack(MetaBlockHandler.ENERGY, 1, metadata);
 		return null;
 	}
 }

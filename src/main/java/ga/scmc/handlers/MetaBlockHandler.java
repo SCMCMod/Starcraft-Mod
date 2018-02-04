@@ -2,6 +2,7 @@ package ga.scmc.handlers;
 
 import ga.scmc.blocks.itemblocks.ItemBlockMeta;
 import ga.scmc.blocks.metablocks.BlockCompressedMinerals;
+import ga.scmc.blocks.metablocks.BlockEnergy;
 import ga.scmc.blocks.metablocks.BlockGasCollector;
 import ga.scmc.blocks.metablocks.BlockNeosteelMetal;
 import ga.scmc.blocks.metablocks.BlockParisteelMetal;
@@ -33,6 +34,7 @@ public class MetaBlockHandler {
 	public static Block PROTOSS_METAL_T1;
 	public static Block PROTOSS_METAL_T2;
 	public static Block PROTOSS_METAL_T3;
+	public static Block ENERGY;
 	public static Block PYLON_CRYSTAL;
 	public static Block ZERG_CARAPACE_BLOCK;
 	public static Block ZERG_FLESH;
@@ -53,6 +55,7 @@ public class MetaBlockHandler {
 		PROTOSS_METAL_T1 = new BlockProtossMetalT1();
 		PROTOSS_METAL_T2 = new BlockProtossMetalT2();
 		PROTOSS_METAL_T3 = new BlockProtossMetalT3();
+		ENERGY = new BlockEnergy();
 		PYLON_CRYSTAL = new BlockPylonCrystal();
 		ZERG_CARAPACE_BLOCK = new BlockZergStructureCarapace();
 		ZERG_FLESH = new BlockZergStructureFlesh();
@@ -70,6 +73,7 @@ public class MetaBlockHandler {
 		registerBlock(PROTOSS_METAL_T1);
 		registerBlock(PROTOSS_METAL_T2);
 		registerBlock(PROTOSS_METAL_T3);
+		registerBlock(ENERGY);
 		registerBlock(PYLON_CRYSTAL);
 		registerBlock(ZERG_CARAPACE_BLOCK);
 		registerBlock(ZERG_FLESH);

@@ -115,7 +115,6 @@ public class BlockHandler {
 	public static Block DIRT_ZERUS;
 	public static Block FARMLAND_SHAKURAS;
 	public static Block DIRT_SHAKURAS;
-	public static Block ENERGY_BLOCK;
 	public static Block PROTOSS_WORMHOLE;
 
 	public static Block FLUID_ACID;
@@ -407,7 +406,6 @@ public class BlockHandler {
 		STARCRAFT_SKULL = new BlockStarcraftSkull();
 		CITY_STONE_KORHAL = new BlockKorhalCityStone();
 		TEST = new BlockTest();
-		ENERGY_BLOCK = new BlockEnergy();
 		LIGHT_SOURCE = new BlockMovingLightSource();
 		PROTOSS_WORMHOLE = new BlockProtossWormhole();
 	}
@@ -429,7 +427,6 @@ public class BlockHandler {
 		registerCompleteBlock(MAGMA_CHAR);
 		registerBlock(ASH_CHAR, new ItemBlockAsh(ASH_CHAR));
 		registerCompleteBlock(CITY_STONE_KORHAL);
-		registerCompleteBlock(ENERGY_BLOCK, new ItemBlockMeta(ENERGY_BLOCK));
 
 		registerCompleteBlock(FARMLAND_SHAKURAS);
 		registerCompleteBlock(FARMLAND_CHAR);

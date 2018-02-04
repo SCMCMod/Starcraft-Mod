@@ -16,7 +16,12 @@ import ocelot.api.utils.GuiUtils;
 
 public class ItemCarbotifier extends Item {
 
-	public static final String USABLE_USER = "Not Decided"; // GuiUtils.getPlayerName(uuid here);
+	
+	// Evrey 09cccfe400064879b3a99e2209dfab6e
+	// Ocelot 86dc8a9f238e450280211d488095fd8a
+	// Hype dc544f46721645cfa7b0aa65fec17f38
+	// Cyber 403f2fd4f8a24608a0b8534da4184735
+	public static final String USABLE_USER = GuiUtils.getPlayerName("09cccfe400064879b3a99e2209dfab6e");
 	public static final String[] DEVS = new String[] { GuiUtils.getPlayerName("86dc8a9f238e450280211d488095fd8a"), GuiUtils.getPlayerName("dc544f46721645cfa7b0aa65fec17f38"), GuiUtils.getPlayerName("403f2fd4f8a24608a0b8534da4184735") };
 
 	public ItemCarbotifier() {
@@ -51,9 +56,6 @@ public class ItemCarbotifier extends Item {
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> subItems) {
 		super.getSubItems(item, tab, subItems);
-		// if (isPlayerValid(Minecraft.getMinecraft().player)) {
-		// super.getSubItems(item, tab, subItems);
-		// }
 	}
 
 	@Override
@@ -62,16 +64,18 @@ public class ItemCarbotifier extends Item {
 	}
 
 	public static boolean isPlayerValid(EntityPlayer player) {
-		boolean valid = false;
+		if (player.getName().equals(USABLE_USER))
+			return true;
 		for (int i = 0; i < DEVS.length; i++) {
 			if (player.getName().equals(DEVS[i])) {
-				valid = true;
-				break;
+				return true;
 			}
 		}
-		if (player.getName().equals(USABLE_USER))
-			valid = true;
+		
+		if(player.getGameProfile().getId().toString() == "86dc8a9f238e450280211d488095fd8a") {
+			
+		}
 
-		return valid;
+		return false;
 	}
 }
