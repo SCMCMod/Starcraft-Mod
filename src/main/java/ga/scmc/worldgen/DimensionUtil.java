@@ -1,9 +1,5 @@
 package ga.scmc.worldgen;
 
-import java.util.Random;
-
-import com.arisux.mdx.lib.client.render.Draw;
-
 public class DimensionUtil {
 
 	public static float calculateCelestialAngle(long worldTime, float renderPartialTicks) {
