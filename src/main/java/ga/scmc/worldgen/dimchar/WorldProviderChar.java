@@ -118,12 +118,6 @@ public class WorldProviderChar extends WorldProvider implements IClimateProvider
 	}
 
 	@Override
-	public Vec3d getCloudColor(float partialTicks) {
-		return new Vec3d(0.9D - this.getWorldTime() / 18000D,
-				MathHelper.clamp(1D - this.getWorldTime() / 18000D, 0.0D, 0.055D), 0.0D);
-	}
-
-	@Override
 	public float getSunBrightness(float angle) {
 		float celestialAngle = this.world.getCelestialAngle(angle);
 		float brightness = 1.0F - (MathHelper.cos(celestialAngle * (float) Math.PI * 2.0F) * 2.0F + 0.2F);
