@@ -1,8 +1,8 @@
 package ocelot.api.utils;
 
 import java.awt.image.BufferedImage;
-
-import com.arisux.mdx.lib.client.render.Draw;
+import java.util.HashMap;
+import java.util.Map;
 
 import ga.scmc.lib.Library;
 import net.minecraft.client.Minecraft;
@@ -24,6 +24,8 @@ public class TextureUtils {
 
 	private static Minecraft mc = Minecraft.getMinecraft();
 
+	private static Map<String, ResourceLocation> textures = new HashMap<String, ResourceLocation>();
+
 	/**
 	 * Creates a texture from a buffered image.
 	 * 
@@ -34,7 +36,7 @@ public class TextureUtils {
 	public static ResourceLocation createBufferedImageTexture(BufferedImage image) {
 		return mc.getTextureManager().getDynamicTextureLocation(" ", new DynamicTexture(image));
 	}
-	
+
 	/**
 	 * Deletes the specified texture from memory.
 	 * 
@@ -44,7 +46,7 @@ public class TextureUtils {
 	public static void deleteTexture(ResourceLocation texture) {
 		mc.getTextureManager().deleteTexture(texture);
 	}
-	
+
 	/**
 	 * Binds the specified texture.
 	 * 
@@ -52,7 +54,7 @@ public class TextureUtils {
 	 *            The texture to bind
 	 */
 	public static void bindTexture(ResourceLocation texture) {
-		Draw.bindTexture(texture);
+		mc.getTextureManager().bindTexture(texture);
 	}
 
 	/**
@@ -64,7 +66,14 @@ public class TextureUtils {
 	 *            The path to the texture
 	 */
 	public static void bindTexture(String domain, String path) {
-		Draw.bindTexture(new ResourceLocation(domain, path));
+		String locationString = domain + ":" + path;
+		if (textures.containsKey(locationString)) {
+			mc.getTextureManager().bindTexture(textures.get(locationString));
+		} else {
+			ResourceLocation location = new ResourceLocation(locationString);
+			textures.put(locationString, location);
+			mc.getTextureManager().bindTexture(location);
+		}
 	}
 
 	/**
@@ -74,9 +83,16 @@ public class TextureUtils {
 	 *            The path to the texture
 	 */
 	public static void bindTexture(String path) {
-		Draw.bindTexture(new ResourceLocation(Library.MODID, path));
+		String locationString = Library.RL_BASE + path;
+		if (textures.containsKey(locationString)) {
+			mc.getTextureManager().bindTexture(textures.get(locationString));
+		} else {
+			ResourceLocation location = new ResourceLocation(locationString);
+			textures.put(locationString, location);
+			mc.getTextureManager().bindTexture(location);
+		}
 	}
-	
+
 	/**
 	 * @return The default missing image texture
 	 */

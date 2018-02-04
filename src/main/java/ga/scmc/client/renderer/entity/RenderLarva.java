@@ -6,6 +6,7 @@ import ga.scmc.client.renderer.entity.layers.LayerLarvaGlowStatic;
 import ga.scmc.client.renderer.model.ModelLarva;
 import ga.scmc.entity.living.EntityLarva;
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
@@ -17,7 +18,7 @@ public class RenderLarva<T> extends RenderLiving<EntityLarva> {
 
 	public RenderLarva(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		model = ((ModelLarva) mainModel);
+		GlStateManager.disableBlend();
 		addLayer(new LayerLarvaColor(this));
 		addLayer(new LayerLarvaGlowStatic(this));
 	}
