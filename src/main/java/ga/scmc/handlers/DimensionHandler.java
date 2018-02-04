@@ -12,23 +12,15 @@ import net.minecraftforge.common.DimensionManager;
 
 public class DimensionHandler {
 	
-	public static DimensionType char_dt = null;
-	public static DimensionType shakuras_dt = null;
-	public static DimensionType slayn_dt = null;
-	public static DimensionType korhal_dt = null;
-	public static DimensionType kaldir_dt = null;
-	public static DimensionType aiur_dt = null;
-	public static DimensionType zerus_dt = null;
+	public static DimensionType char_dt 		= DimensionType.register("Char", "_starcraft", ConfigurationHandler.INT_DIMENSION_CHAR, WorldProviderChar.class, true);
+	public static DimensionType shakuras_dt 	= DimensionType.register("Shakuras", "_starcraft", ConfigurationHandler.INT_DIMENSION_SHAKURAS, WorldProviderShakuras.class, true);
+	public static DimensionType slayn_dt 		= DimensionType.register("Slayn", "_starcraft", ConfigurationHandler.INT_DIMENSION_SLAYN, WorldProviderSlayn.class, true);
+	public static DimensionType korhal_dt 		= DimensionType.register("Korhal", "_starcraft", ConfigurationHandler.INT_DIMENSION_KORHAL, WorldProviderKorhal.class, true);
+	public static DimensionType kaldir_dt 		= DimensionType.register("Kaldir", "_starcraft", ConfigurationHandler.INT_DIMENSION_KALDIR, WorldProviderKaldir.class, true);
+	public static DimensionType aiur_dt 		= DimensionType.register("Aiur", "_starcraft", ConfigurationHandler.INT_DIMENSION_AIUR, WorldProviderAiur.class, true);
+	public static DimensionType zerus_dt 		= DimensionType.register("Zerus", "_starcraft", ConfigurationHandler.INT_DIMENSION_ZERUS, WorldProviderZerus.class, true);
 
 	public static void preInit() {
-		char_dt = DimensionType.register("Char", "_starcraft", ConfigurationHandler.INT_DIMENSION_CHAR, WorldProviderChar.class, true);
-		shakuras_dt = DimensionType.register("Shakuras", "_starcraft", ConfigurationHandler.INT_DIMENSION_SHAKURAS, WorldProviderShakuras.class, true);
-		slayn_dt = DimensionType.register("Slayn", "_starcraft", ConfigurationHandler.INT_DIMENSION_SLAYN, WorldProviderSlayn.class, true);
-		korhal_dt = DimensionType.register("Korhal", "_starcraft", ConfigurationHandler.INT_DIMENSION_KORHAL, WorldProviderKorhal.class, true);
-		kaldir_dt = DimensionType.register("Kaldir", "_starcraft", ConfigurationHandler.INT_DIMENSION_KALDIR, WorldProviderKaldir.class, true);
-		aiur_dt = DimensionType.register("Aiur", "_starcraft", ConfigurationHandler.INT_DIMENSION_AIUR, WorldProviderAiur.class, true);
-		zerus_dt = DimensionType.register("Zerus", "_starcraft", ConfigurationHandler.INT_DIMENSION_ZERUS, WorldProviderZerus.class, true);
-		
 		DimensionManager.registerDimension(ConfigurationHandler.INT_DIMENSION_CHAR, char_dt);
 		DimensionManager.registerDimension(ConfigurationHandler.INT_DIMENSION_SHAKURAS, shakuras_dt);
 		DimensionManager.registerDimension(ConfigurationHandler.INT_DIMENSION_KORHAL, korhal_dt);
