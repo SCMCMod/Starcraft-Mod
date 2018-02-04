@@ -5,6 +5,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import ga.scmc.handlers.BiomeHandler;
 import ga.scmc.handlers.BlockHandler;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.state.IBlockState;
@@ -348,7 +349,7 @@ public class ChunkProviderShakuras implements IChunkGenerator
 
         net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.world, this.rand, x, z, flag);
 
-        if (this.settings.useWaterLakes && this.rand.nextInt(this.settings.waterLakeChance) == 0)
+        if (biome != BiomeHandler.biomeShakurasProtossCity && this.settings.useWaterLakes && this.rand.nextInt(this.settings.waterLakeChance) == 0)
 	        if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, world, this.rand, x, z, false, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE))
 	        {
 	            int i1 = this.rand.nextInt(16) + 8;
@@ -357,7 +358,7 @@ public class ChunkProviderShakuras implements IChunkGenerator
 	            (new ShakurasGenCustomLakes(Blocks.WATER)).generate(world, this.rand, blockpos.add(i1, j1, k1));
 	        }
 
-	        if (this.rand.nextInt(this.settings.lavaLakeChance / 20) == 0 && this.settings.useLavaLakes)
+	        if (biome != BiomeHandler.biomeShakurasProtossCity && this.rand.nextInt(this.settings.lavaLakeChance / 20) == 0 && this.settings.useLavaLakes)
 	        if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, world, this.rand, x, z, false, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAVA))
 	        {
 	            int i2 = this.rand.nextInt(16) + 8;
