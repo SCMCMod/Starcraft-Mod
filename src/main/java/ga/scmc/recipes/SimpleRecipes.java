@@ -224,14 +224,14 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T1_BOOTS), "S S", "S S", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.NEOSTEEL.getID()));
 		
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T2_HELMET), "SSS", "SAS", "SSS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.NEOSTEEL.getID()), 'A', new ItemStack(ArmorHandler.TERRAN_MARINE_T1_HELMET));
-		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T2_CHESTPLATE), "SSS", "SAS", "SSS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.NEOSTEEL.getID()), 'A', new ItemStack(ArmorHandler.TERRAN_MARINE_T1_HELMET));
-		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T2_LEGGINGS), "SSS", "SAS", "SSS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.NEOSTEEL.getID()), 'A', new ItemStack(ArmorHandler.TERRAN_MARINE_T1_HELMET));
-		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T2_BOOTS), "SSS", "SAS", "SSS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.NEOSTEEL.getID()), 'A', new ItemStack(ArmorHandler.TERRAN_MARINE_T1_HELMET));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T2_CHESTPLATE), "SSS", "SAS", "SSS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.NEOSTEEL.getID()), 'A', new ItemStack(ArmorHandler.TERRAN_MARINE_T1_CHESTPLATE));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T2_LEGGINGS), "SSS", "SAS", "SSS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.NEOSTEEL.getID()), 'A', new ItemStack(ArmorHandler.TERRAN_MARINE_T1_LEGGINGS));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T2_BOOTS), "SSS", "SAS", "SSS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.NEOSTEEL.getID()), 'A', new ItemStack(ArmorHandler.TERRAN_MARINE_T1_BOOTS));
 		
 		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T3_HELMET), "SSS", "SAS", "SSS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.NEOSTEEL.getID()), 'A', new ItemStack(ArmorHandler.TERRAN_MARINE_T2_HELMET));
-		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T3_CHESTPLATE), "SSS", "SAS", "SSS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.NEOSTEEL.getID()), 'A', new ItemStack(ArmorHandler.TERRAN_MARINE_T2_HELMET));
-		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T3_LEGGINGS), "SSS", "SAS", "SSS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.NEOSTEEL.getID()), 'A', new ItemStack(ArmorHandler.TERRAN_MARINE_T2_HELMET));
-		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T3_BOOTS), "SSS", "SAS", "SSS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.NEOSTEEL.getID()), 'A', new ItemStack(ArmorHandler.TERRAN_MARINE_T2_HELMET));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T3_CHESTPLATE), "SSS", "SAS", "SSS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.NEOSTEEL.getID()), 'A', new ItemStack(ArmorHandler.TERRAN_MARINE_T2_CHESTPLATE));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T3_LEGGINGS), "SSS", "SAS", "SSS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.NEOSTEEL.getID()), 'A', new ItemStack(ArmorHandler.TERRAN_MARINE_T2_LEGGINGS));
+		GameRegistry.addRecipe(new ItemStack(ArmorHandler.TERRAN_MARINE_T3_BOOTS), "SSS", "SAS", "SSS", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.NEOSTEEL.getID()), 'A', new ItemStack(ArmorHandler.TERRAN_MARINE_T2_BOOTS));
 		
 		// Ammo for weapons
 		GameRegistry.addRecipe(((ItemMagazine) ItemHandler.BULLET_MAGAZINE).getDefaultStack(EnumMetaItem.BulletMagazineType.C14.getID()), " S ", "SIS", " S ", 'S', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'I', Items.GUNPOWDER);
