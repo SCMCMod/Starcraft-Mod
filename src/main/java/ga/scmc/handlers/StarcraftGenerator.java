@@ -3,6 +3,7 @@ package ga.scmc.handlers;
 import java.util.Random;
 
 import ga.scmc.worldgen.StarcraftWorldGenMinable;
+import ga.scmc.worldgen.StarcraftWorldGenMinableRandomized;
 import ga.scmc.worldgen.structure.BossSpawner;
 import ga.scmc.worldgen.structure.SCWorldGenerator;
 import ga.scmc.worldgen.structure.StructureGeyserTemplate;
@@ -26,6 +27,8 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class StarcraftGenerator {
+	
+	public static final StarcraftGenerator instance = new StarcraftGenerator();
 			
 	protected WorldGenerator TITANIUM_CHAR 				= new StarcraftWorldGenMinable(BlockHandler.STONE_CHAR, BlockHandler.ORE_TITANIUM_CHAR.getDefaultState(), 8);
 	protected WorldGenerator URANIUM_CHAR 				= new StarcraftWorldGenMinable(BlockHandler.STONE_CHAR, BlockHandler.ORE_URANIUM_CHAR.getDefaultState(), 1);
@@ -87,6 +90,8 @@ public class StarcraftGenerator {
 	protected WorldGenerator PHOSPHORUS_SLAYN 			= new StarcraftWorldGenMinable(BlockHandler.STONE_SLAYN, BlockHandler.ORE_PHOSPHORUS_SLAYN.getDefaultState(), 8);
 	protected WorldGenerator DIRT_SLAYN 				= new StarcraftWorldGenMinable(BlockHandler.STONE_SLAYN, BlockHandler.DIRT_SLAYN.getDefaultState(), 33);
 	protected WorldGenerator GRAVEL_SLAYN 				= new StarcraftWorldGenMinable(BlockHandler.STONE_SLAYN, BlockHandler.GRAVEL_SLAYN.getDefaultState(), 33);
+	
+	protected WorldGenerator COAL_SPACE 				= new StarcraftWorldGenMinableRandomized(Blocks.AIR, Blocks.STONE.getDefaultState(), Blocks.COAL_ORE.getDefaultState(), 30, 64);
 
 	protected WorldGenerator TITANIUM_GENERIC 			= new WorldGenMinable(BlockHandler.ORE_TITANIUM_OW.getDefaultState(), 8);
 	protected WorldGenerator COAL_GENERIC 				= new WorldGenMinable(Blocks.COAL_ORE.getDefaultState(), 16);

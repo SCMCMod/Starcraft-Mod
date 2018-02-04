@@ -14,6 +14,7 @@ public class FactorySettings {
 	public static int INT_DIMENSION_KALDIR = 6;
 	public static int INT_DIMENSION_AIUR = 7;
 	public static int INT_DIMENSION_ZERUS = 8;
+	public static int INT_DIMENSION_SPACE = 9;
 
 	// Booleans
 	public static boolean BOOL_VANILLA_MOB_SPAWNING_DISABLED = false;

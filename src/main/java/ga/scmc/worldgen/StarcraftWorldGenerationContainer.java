@@ -416,4 +416,19 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 			runMetaGenerator(MINERAL_PATCH, 1, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
 		}
 	}
+	
+	/**
+	 * Generates structures and ores for deep space.
+	 * 
+	 * @param random A random object.
+	 * @param chunkX The x position of the current chunk.
+	 * @param chunkZ The z position of the current chunk.
+	 * @param world the world.
+	 * @param chunkGenerator the chunk generator.
+	 * @param chunkProvider the chunk provider.
+	 */
+	public void generateSpace(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
+
+		if(random.nextInt(30) == 0)	runOreGenerator(COAL_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+	}
 }

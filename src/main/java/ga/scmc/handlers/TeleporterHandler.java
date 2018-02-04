@@ -17,12 +17,14 @@ public class TeleporterHandler extends Teleporter {
 	private double y;
 	private double z;
 
-	public TeleporterHandler(WorldServer world, double x, double y, double z) {
+	public TeleporterHandler(WorldServer world, double x, double y, double z, boolean hasNoSurface) {
 		super(world);
 		worldServer = world;
 		BlockPos playerSpawn = new BlockPos(x, 100, z);
-		while(world.isAirBlock(playerSpawn)) {
-			playerSpawn = playerSpawn.down();
+		if(hasNoSurface == false) {
+			while(world.isAirBlock(playerSpawn)) {
+				playerSpawn = playerSpawn.down();
+			}
 		}
 		this.x = x;
 		this.y = playerSpawn.getY()+1;

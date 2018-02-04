@@ -72,12 +72,16 @@ public class BlockDimPortal extends StarcraftBlock {
 
 	@Override
 	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
+		boolean hasNoSurface = false;
+		if(dim == 9) {
+			hasNoSurface = true;
+		}
 		if (!entity.isRiding() && !entity.isBeingRidden() && !world.isRemote) {
 			try {
 				if (entity instanceof EntityPlayer) {
 					EntityPlayerMP player = (EntityPlayerMP) entity;
 					if (player.dimension != dim) {
-						player.getServer().getPlayerList().transferPlayerToDimension(player, dim, new TeleporterHandler(player.mcServer.worldServerForDimension(dim), player.posX, player.posY, player.posZ));
+						player.getServer().getPlayerList().transferPlayerToDimension(player, dim, new TeleporterHandler(player.mcServer.worldServerForDimension(dim), player.posX, player.posY, player.posZ, hasNoSurface));
 					}
 				}
 			} catch (Exception e) {

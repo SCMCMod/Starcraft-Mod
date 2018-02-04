@@ -102,6 +102,7 @@ public class BlockHandler {
 	public static Block CORE_COMMANDCENTER;
 	public static Block DIM_PORTAL_CHAR;
 	public static Block DIM_PORTAL_OVERWORLD;
+	public static Block DIM_PORTAL_SPACE;
 	public static Block DIM_PORTAL_SHAKURAS;
 	public static Block DIM_PORTAL_KALDIR;
 	public static Block DIM_PORTAL_KORHAL;
@@ -261,6 +262,7 @@ public class BlockHandler {
 		DIM_PORTAL_SLAYN = new BlockDimPortal("slayn.portal", ConfigurationHandler.INT_DIMENSION_SLAYN);
 		DIM_PORTAL_AIUR = new BlockDimPortal("aiur.portal", ConfigurationHandler.INT_DIMENSION_AIUR);
 		DIM_PORTAL_ZERUS = new BlockDimPortal("zerus.portal", ConfigurationHandler.INT_DIMENSION_ZERUS);
+		DIM_PORTAL_SPACE = new BlockDimPortal("space.portal", ConfigurationHandler.INT_DIMENSION_SPACE);
 
 		/** overworld blocks **/
 		ORE_COPPER_OW = new BlockOverworldOre("overworld.copper", RegistryType.FULL, Material.ROCK, MapColor.GRAY, 1).setBlockHarvestLevel("pickaxe", 1).setCreativeTab(StarcraftCreativeTabs.MISC);

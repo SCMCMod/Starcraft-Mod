@@ -23,6 +23,7 @@ import ga.scmc.worldgen.dimslayn.BiomeGenSlaynHills;
 import ga.scmc.worldgen.dimslayn.BiomeGenSlaynMountains;
 import ga.scmc.worldgen.dimslayn.BiomeGenSlaynOcean;
 import ga.scmc.worldgen.dimslayn.BiomeGenSlaynProtossCity;
+import ga.scmc.worldgen.dimspace.BiomeGenSpace;
 import ga.scmc.worldgen.dimzerus.BiomeGenZerusJungle;
 import ga.scmc.worldgen.dimzerus.BiomeGenZerusMountains;
 import net.minecraft.world.biome.Biome;
@@ -91,6 +92,9 @@ public class BiomeHandler extends Biome {
 	public static Biome biomeAiurProtossCity;
 
 	public static Biome biomeAiurPlains;
+	
+
+	public static Biome biomeSpace;
 
 	public static void preInit() {
 		registerBiomes();
@@ -155,6 +159,9 @@ public class BiomeHandler extends Biome {
 		
 		GameRegistry.register(biomeKaldirProtossCity);
 		GameRegistry.register(biomeKaldirZergHive);
+		
+
+		GameRegistry.register(biomeSpace);
 	}
 
 	public static void registerBiomes() {
@@ -227,6 +234,9 @@ public class BiomeHandler extends Biome {
 		
 		biomeKaldirProtossCity = new BiomeGenKaldirProtossCity((new Biome.BiomeProperties("Kaldir Protoss City")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(1.0F).setRainfall(0.5F));
 		biomeKaldirZergHive = new BiomeGenKaldirZergHive((new Biome.BiomeProperties("Kaldir Zerg Hive")).setBaseHeight(0.0F).setHeightVariation(0.1F).setTemperature(1.0F).setRainfall(0.5F));
+		
+		
+		biomeSpace = new BiomeGenSpace((new Biome.BiomeProperties("Space")).setBaseHeight(0.0F).setHeightVariation(0.0F).setTemperature(-500.0F).setRainfall(0.0F));
 		
 		// add or remove spawn biomes here
 

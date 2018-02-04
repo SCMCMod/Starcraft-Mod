@@ -36,9 +36,20 @@ public class LivingEventHandler {
 	@SubscribeEvent
 	public static void onLivingUpdate(LivingUpdateEvent event) {
 		if (event.getEntity() != null) {
+			
+			/** Handling Char gravity **/
 			if (event.getEntity().motionY > 0 && event.getEntity().dimension == ConfigurationHandler.INT_DIMENSION_CHAR) {
 				event.getEntity().motionY = event.getEntity().motionY * 1.0375;
-			} else if (event.getEntity() instanceof EntityPlayer) {
+			
+			}
+			
+			/** Handling Space gravity **/
+			if(event.getEntity().dimension == ConfigurationHandler.INT_DIMENSION_SPACE) {
+				System.out.println(event.getEntity().motionY);
+		
+			} 
+			
+			else if (event.getEntity() instanceof EntityPlayer) {
 
 				EntityPlayer player = ((EntityPlayer) event.getEntity());
 

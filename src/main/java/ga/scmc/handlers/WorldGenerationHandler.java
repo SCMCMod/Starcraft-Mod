@@ -51,6 +51,9 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 				
 			 if(world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_AIUR) 
 				StarcraftWorldGenerationContainer.instance.generateAiur(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
+			 
+			 if(world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_SPACE) 
+					StarcraftWorldGenerationContainer.instance.generateSpace(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
 				
 			
 			break;
