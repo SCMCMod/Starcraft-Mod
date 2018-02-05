@@ -43,10 +43,11 @@ public class LivingEventHandler {
 			
 			}
 			
-			/** Handling Space gravity **/
+			/** TODO: Handling Space gravity **/
 			if(event.getEntity().dimension == ConfigurationHandler.INT_DIMENSION_SPACE) {
-				System.out.println(event.getEntity().motionY);
-		
+				
+				
+				
 			} 
 			
 			else if (event.getEntity() instanceof EntityPlayer) {

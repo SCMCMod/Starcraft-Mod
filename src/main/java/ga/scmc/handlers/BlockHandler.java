@@ -11,6 +11,7 @@ import ga.scmc.blocks.BlockEntitySpawner;
 import ga.scmc.blocks.BlockKorhalCityStone;
 import ga.scmc.blocks.BlockMovingLightSource;
 import ga.scmc.blocks.BlockOverworldOre;
+import ga.scmc.blocks.BlockPlanetTeleporter;
 import ga.scmc.blocks.BlockProtossEnergyChannel;
 import ga.scmc.blocks.BlockProtossEnergyChannelDark;
 import ga.scmc.blocks.BlockProtossEnergyChannelVoid;
@@ -230,6 +231,7 @@ public class BlockHandler {
 	public static Block STARCRAFT_SKULL;
 
 	public static Block ENTITY_SPAWNER;
+	public static Block PLANET_TELEPORTER;
 
 	public static Block CITY_STONE_KORHAL;
 
@@ -391,6 +393,7 @@ public class BlockHandler {
 		CORE_COMMANDCENTER = new StarcraftTerranCoreBlock("terran.commandcentercore", RegistryType.FULL, Material.IRON, MapColor.BLUE);
 
 		ENTITY_SPAWNER = new BlockEntitySpawner("block.entityspawner", 5);
+		PLANET_TELEPORTER = new BlockPlanetTeleporter("block.planetteleporter", 100);
 
 		/** gases **/
 		GAS_VESPENE = new BlockVespeneGas();

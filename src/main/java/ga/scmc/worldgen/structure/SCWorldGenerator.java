@@ -57,6 +57,10 @@ public abstract class SCWorldGenerator {
 	public boolean generate(int Meta, World worldIn, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos position) {
 		return true;
 	}
+	
+	public boolean generatePlanet(int dim, int planetSize, int range, IBlockState surface, World worldIn, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos position) {
+		return true;
+	}
 
 	public boolean generate(World worldIn, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos position, boolean useSpawnReqs) {
 		return true;

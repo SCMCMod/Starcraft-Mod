@@ -8,6 +8,7 @@ import ga.scmc.worldgen.structure.BossSpawner;
 import ga.scmc.worldgen.structure.SCWorldGenerator;
 import ga.scmc.worldgen.structure.StructureGeyserTemplate;
 import ga.scmc.worldgen.structure.StructureMineralPatchTemplate;
+import ga.scmc.worldgen.structure.StructurePlanetTemplate;
 import ga.scmc.worldgen.structure.StructureProtossCyberneticsCoreTemplate;
 import ga.scmc.worldgen.structure.StructureProtossPylonTemplate;
 import ga.scmc.worldgen.structure.StructureProtossWarpGateTemplate;
@@ -123,6 +124,9 @@ public class StarcraftGenerator {
 	protected SCWorldGenerator GEYSER 					= new StructureGeyserTemplate();
 	protected SCWorldGenerator MINERAL_PATCH 			= new StructureMineralPatchTemplate();
 	
+
+	protected SCWorldGenerator PLANET_TEMPLATE 			= new StructurePlanetTemplate();
+	
 	protected SCWorldGenerator BOSS_SPAWNER 			= new BossSpawner();
 	
 	
@@ -165,7 +169,7 @@ public class StarcraftGenerator {
 		}
 	}
 
-	protected static void runGenericGenerator(SCWorldGenerator generator, World world, Random rand, int chunk_X, int chunk_Z, int offsetX, int offsetY, int offsetZ, int chancesToSpawn, int minHeight, int maxHeight, boolean flag) {
+	protected static void runGenericFlagGenerator(SCWorldGenerator generator, World world, Random rand, int chunk_X, int chunk_Z, int offsetX, int offsetY, int offsetZ, int chancesToSpawn, int minHeight, int maxHeight, boolean flag) {
 		
 		checkHeight(minHeight, maxHeight);
 		
@@ -174,6 +178,21 @@ public class StarcraftGenerator {
 		for (int i = 0; i < chancesToSpawn; i++) {
 			generator.generate(world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + rand.nextInt(16), minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + rand.nextInt(16)), flag);
 		}
+	}
+	
+	protected static void runGenericGenerator(SCWorldGenerator generator, World world, Random rand, int chunk_X, int chunk_Z, int offsetX, int offsetY, int offsetZ, int chancesToSpawn, int minHeight, int maxHeight) {
+		
+		checkHeight(minHeight, maxHeight);
+		
+		int heightDiff = maxHeight - minHeight + 1;
+		
+		for (int i = 0; i < chancesToSpawn; i++) {
+			generator.generate(world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + rand.nextInt(16), minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + rand.nextInt(16)));
+		}
+	}
+	
+	protected static void runPlanetGenerator(SCWorldGenerator generator, int id, int planetSize, int range, IBlockState block, World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos pos) {
+			generator.generatePlanet(id, planetSize, range, block, world, rand, offsetX, offsetY, offsetZ, pos);
 	}
 
 	protected static void runMetaGenerator(SCWorldGenerator generator, int meta, World world, Random rand, int chunk_X, int chunk_Z, int offsetX, int offsetY, int offsetZ, int chancesToSpawn, int minHeight, int maxHeight) {
