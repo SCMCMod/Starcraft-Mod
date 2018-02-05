@@ -25,6 +25,7 @@ import ga.scmc.blocks.BlockShakurasFarmland;
 import ga.scmc.blocks.BlockShakurasOre;
 import ga.scmc.blocks.BlockSlaynFarmland;
 import ga.scmc.blocks.BlockSlaynOre;
+import ga.scmc.blocks.BlockSolarCore;
 import ga.scmc.blocks.BlockStarcraftDirt;
 import ga.scmc.blocks.BlockStarcraftFurnace;
 import ga.scmc.blocks.BlockStarcraftGravel;
@@ -53,9 +54,7 @@ import ga.scmc.blocks.flora.BlockKaldirBrambles;
 import ga.scmc.blocks.flora.BlockZerusGlowPod;
 import ga.scmc.blocks.flora.BlockZerusLightcap;
 import ga.scmc.blocks.itemblocks.ItemBlockAsh;
-import ga.scmc.blocks.itemblocks.ItemBlockMeta;
 import ga.scmc.blocks.itemblocks.ItemBlockStarcraftSkull;
-import ga.scmc.blocks.metablocks.BlockEnergy;
 import ga.scmc.blocks.skulls.BlockStarcraftSkull;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.enums.EnumWorldType;
@@ -232,6 +231,7 @@ public class BlockHandler {
 
 	public static Block ENTITY_SPAWNER;
 	public static Block PLANET_TELEPORTER;
+	public static Block SOLAR_CORE;
 
 	public static Block CITY_STONE_KORHAL;
 
@@ -394,6 +394,7 @@ public class BlockHandler {
 
 		ENTITY_SPAWNER = new BlockEntitySpawner("block.entityspawner", 5);
 		PLANET_TELEPORTER = new BlockPlanetTeleporter("block.planetteleporter", 100);
+		SOLAR_CORE = new BlockSolarCore("block.solarcore", 100);
 
 		/** gases **/
 		GAS_VESPENE = new BlockVespeneGas();

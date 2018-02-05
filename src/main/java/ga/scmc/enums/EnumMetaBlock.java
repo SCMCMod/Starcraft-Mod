@@ -13,6 +13,90 @@ import net.minecraft.util.IStringSerializable;
  */
 public class EnumMetaBlock {
 
+	public static enum StarSurfaceType implements IStringSerializable {
+		BLUE("blue", 0, MapColor.BLUE), 
+		LIGHTBLUE("lightblue", 1, MapColor.LIGHT_BLUE), 
+		ORANGE("orange", 2, MapColor.ADOBE), 
+		YELLOW("yellow", 3, MapColor.GOLD), 
+		LIGHTYELLOW("lightyellow", 4, MapColor.YELLOW), 
+		RED("red", 5, MapColor.RED);
+
+		private int ID;
+		private String name;
+		private MapColor color;
+
+		private StarSurfaceType(String name, int ID, MapColor color) {
+			this.ID = ID;
+			this.name = name;
+			this.color = color;
+		}
+
+		public int getID() {
+			return ID;
+		}
+
+		@Override
+		public String getName() {
+			return name;
+		}
+
+		public MapColor getMapColor() {
+			return color;
+		}
+
+		@Override
+		public String toString() {
+			return getName();
+		}
+	}
+	
+	public static enum PlanetSurfaceType implements IStringSerializable {
+		BLUE("blue", 0, MapColor.BLUE), 
+		BROWN("brown", 1, MapColor.BROWN), 
+		CYAN("cyan", 2, MapColor.CYAN), 
+		GRAY("gray", 3, MapColor.GRAY), 
+		GREEN("green", 4, MapColor.GREEN), 
+		LIGHTBLUE("lightblue", 5, MapColor.LIGHT_BLUE), 
+		LIME("lime", 6, MapColor.LIME), 
+		MAGENTA("magenta", 7, MapColor.MAGENTA), 
+		ORANGE("orange", 8, MapColor.ADOBE), 
+		PINK("pink", 9, MapColor.PINK), 
+		PURPLE("purple", 10, MapColor.PURPLE), 
+		RED("red", 11, MapColor.RED), 
+		WHITE("white", 12, MapColor.SNOW), 
+		SILVER("silver", 13, MapColor.SILVER),
+		BLACK("black", 14, MapColor.BLUE),
+		YELLOW("yellow", 15, MapColor.YELLOW); 
+
+		private int ID;
+		private String name;
+		private MapColor color;
+
+		private PlanetSurfaceType(String name, int ID, MapColor color) {
+			this.ID = ID;
+			this.name = name;
+			this.color = color;
+		}
+
+		public int getID() {
+			return ID;
+		}
+
+		@Override
+		public String getName() {
+			return name;
+		}
+
+		public MapColor getMapColor() {
+			return color;
+		}
+
+		@Override
+		public String toString() {
+			return getName();
+		}
+	}
+	
 	public static enum CompressedMetalType implements IStringSerializable {
 		COPPER("copper", 0, MapColor.ADOBE), STEEL("steel", 1, MapColor.BLACK), TITANIUM("titanium", 2, MapColor.IRON);
 

@@ -5,7 +5,7 @@ import java.util.Random;
 import ga.scmc.entity.living.EntityNafash;
 import ga.scmc.handlers.BiomeHandler;
 import ga.scmc.handlers.BlockHandler;
-import ga.scmc.handlers.ConfigurationHandler;
+import ga.scmc.handlers.MetaBlockHandler;
 import ga.scmc.handlers.StarcraftGenerator;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -22,6 +22,7 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 	 * The instance of this class. Used in WorldGenerationHandler.java to generate ores, structures, and bosses.
 	 */
 	public static final StarcraftWorldGenerationContainer instance = new StarcraftWorldGenerationContainer();
+	public static boolean generationCompleted = false;
 	
 	
 	/**
@@ -430,8 +431,12 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 	 */
 	public void generateSpace(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 
-		this.runPlanetGenerator(PLANET_TEMPLATE, 0, 31, 34, Blocks.STONE.getDefaultState(), world, random, 0, 0, 0, new BlockPos(0, 128, 0));
-		
+		/** Earth **/
+		if(this.generationCompleted == false) {
+			this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, 0, 21, 31, MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(0), MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(4), world, random, 0, 0, 0, new BlockPos(0, 128, 0));
+			this.runStarGenerator(STAR_TEMPLATE, 51, 75, MetaBlockHandler.STAR_SURFACE.getStateFromMeta(2), world, random, 0, 0, 0, new BlockPos(200, 128, 0));
+			this.generationCompleted = true;
+		}
 		if(random.nextInt(30) == 0)	runOreGenerator(COAL_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
 	}
 }

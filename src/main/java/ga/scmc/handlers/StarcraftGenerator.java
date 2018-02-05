@@ -8,10 +8,12 @@ import ga.scmc.worldgen.structure.BossSpawner;
 import ga.scmc.worldgen.structure.SCWorldGenerator;
 import ga.scmc.worldgen.structure.StructureGeyserTemplate;
 import ga.scmc.worldgen.structure.StructureMineralPatchTemplate;
+import ga.scmc.worldgen.structure.StructureMultisurfacePlanetTemplate;
 import ga.scmc.worldgen.structure.StructurePlanetTemplate;
 import ga.scmc.worldgen.structure.StructureProtossCyberneticsCoreTemplate;
 import ga.scmc.worldgen.structure.StructureProtossPylonTemplate;
 import ga.scmc.worldgen.structure.StructureProtossWarpGateTemplate;
+import ga.scmc.worldgen.structure.StructureStarTemplate;
 import ga.scmc.worldgen.structure.StructureTerranBarracksTemplate;
 import ga.scmc.worldgen.structure.StructureTerranBunkerTemplate;
 import ga.scmc.worldgen.structure.StructureTerranCommandCenterTemplate;
@@ -125,9 +127,11 @@ public class StarcraftGenerator {
 	protected SCWorldGenerator MINERAL_PATCH 			= new StructureMineralPatchTemplate();
 	
 
-	protected SCWorldGenerator PLANET_TEMPLATE 			= new StructurePlanetTemplate();
+	protected SCWorldGenerator MULTISURFACE_PLANET_TEMPLATE 			= new StructureMultisurfacePlanetTemplate();
+	protected SCWorldGenerator PLANET_TEMPLATE 							= new StructurePlanetTemplate();
+	protected SCWorldGenerator STAR_TEMPLATE 							= new StructureStarTemplate();
 	
-	protected SCWorldGenerator BOSS_SPAWNER 			= new BossSpawner();
+	protected SCWorldGenerator BOSS_SPAWNER 							= new BossSpawner();
 	
 	
 	private static void checkHeight(int minHeight, int maxHeight) {
@@ -193,6 +197,14 @@ public class StarcraftGenerator {
 	
 	protected static void runPlanetGenerator(SCWorldGenerator generator, int id, int planetSize, int range, IBlockState block, World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos pos) {
 			generator.generatePlanet(id, planetSize, range, block, world, rand, offsetX, offsetY, offsetZ, pos);
+	}
+	
+	protected static void runMultisurfacePlanetGenerator(SCWorldGenerator generator, int id, int planetSize, int range, IBlockState block1, IBlockState block2, World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos pos) {
+		generator.generateMultisurfacePlanet(id, planetSize, range, block1, block2, world, rand, offsetX, offsetY, offsetZ, pos);
+}
+	
+	protected static void runStarGenerator(SCWorldGenerator generator, int planetSize, int range, IBlockState block, World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos pos) {
+		generator.generateStar(planetSize, range, block, world, rand, offsetX, offsetY, offsetZ, pos);
 	}
 
 	protected static void runMetaGenerator(SCWorldGenerator generator, int meta, World world, Random rand, int chunk_X, int chunk_Z, int offsetX, int offsetY, int offsetZ, int chancesToSpawn, int minHeight, int maxHeight) {

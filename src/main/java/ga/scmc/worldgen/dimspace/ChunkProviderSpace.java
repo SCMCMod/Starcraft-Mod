@@ -6,6 +6,7 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import ga.scmc.handlers.BlockHandler;
+import ga.scmc.handlers.StarcraftGenerator;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
@@ -21,7 +22,7 @@ import net.minecraft.world.gen.ChunkProviderSettings;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 
-public class ChunkProviderSpace implements IChunkGenerator
+public class ChunkProviderSpace extends StarcraftGenerator implements IChunkGenerator
 {
     protected static final IBlockState STONE = BlockHandler.STONE_SLAYN.getDefaultState();
     private final Random rand;
@@ -271,7 +272,5 @@ public class ChunkProviderSpace implements IChunkGenerator
 
 	@Override
 	public void populate(int x, int z) {
-		// TODO Auto-generated method stub
-		
 	}
 }

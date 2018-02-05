@@ -157,10 +157,12 @@ import static ga.scmc.handlers.MetaBlockHandler.COMP_MINERAL;
 import static ga.scmc.handlers.MetaBlockHandler.GAS_COLLECTOR;
 import static ga.scmc.handlers.MetaBlockHandler.NEOSTEEL_METAL;
 import static ga.scmc.handlers.MetaBlockHandler.PARISTEEL_METAL;
+import static ga.scmc.handlers.MetaBlockHandler.PLANET_SURFACE;
 import static ga.scmc.handlers.MetaBlockHandler.PROTOSS_METAL_T1;
 import static ga.scmc.handlers.MetaBlockHandler.PROTOSS_METAL_T2;
 import static ga.scmc.handlers.MetaBlockHandler.PROTOSS_METAL_T3;
 import static ga.scmc.handlers.MetaBlockHandler.PYLON_CRYSTAL;
+import static ga.scmc.handlers.MetaBlockHandler.STAR_SURFACE;
 import static ga.scmc.handlers.MetaBlockHandler.ZERG_CARAPACE_BLOCK;
 import static ga.scmc.handlers.MetaBlockHandler.ZERG_FLESH;
 import static ga.scmc.handlers.ToolHandler.COPPER_AXE;
@@ -818,6 +820,12 @@ public class RenderingHandler {
 		}
 		for (int i = 0; i < EnumMetaBlock.EnumSkullType.values().length; i++) {
 			registerBlockModel(STARCRAFT_SKULL, i, "skull");
+		}
+		for (int i = 0; i < EnumMetaBlock.StarSurfaceType.values().length; i++) {
+			registerBlockModel(STAR_SURFACE, i, "block.star." + EnumMetaBlock.StarSurfaceType.values()[i].getName());
+		}
+		for (int i = 0; i < EnumMetaBlock.PlanetSurfaceType.values().length; i++) {
+			registerBlockModel(PLANET_SURFACE, i, "block.planet." + EnumMetaBlock.PlanetSurfaceType.values()[i].getName());
 		}
 	}
 

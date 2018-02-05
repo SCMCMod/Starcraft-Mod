@@ -1,6 +1,6 @@
 package ga.scmc.blocks;
 
-import ga.scmc.tileentity.TileEntityPlanetTeleporter;
+import ga.scmc.tileentity.TileEntitySolarCore;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -14,11 +14,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class BlockPlanetTeleporter extends StarcraftBlock implements ITileEntityProvider {
+public class BlockSolarCore extends StarcraftBlock implements ITileEntityProvider {
 
 	private int range;
 
-	public BlockPlanetTeleporter(String name, int range) {
+	public BlockSolarCore(String name, int range) {
 		super(name, RegistryType.FULL, Material.IRON, MapColor.IRON);
 		this.range = range;
 		setSoundType(SoundType.METAL);
@@ -47,11 +47,11 @@ public class BlockPlanetTeleporter extends StarcraftBlock implements ITileEntity
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
-		return new TileEntityPlanetTeleporter();
+		return new TileEntitySolarCore();
 	}
 
 	@Override
 	public TileEntity createTileEntity(World world, IBlockState state) {
-		return new TileEntityPlanetTeleporter();
+		return new TileEntitySolarCore();
 	}
 }

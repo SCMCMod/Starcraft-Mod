@@ -6,10 +6,12 @@ import ga.scmc.blocks.metablocks.BlockEnergy;
 import ga.scmc.blocks.metablocks.BlockGasCollector;
 import ga.scmc.blocks.metablocks.BlockNeosteelMetal;
 import ga.scmc.blocks.metablocks.BlockParisteelMetal;
+import ga.scmc.blocks.metablocks.BlockPlanetSurface;
 import ga.scmc.blocks.metablocks.BlockProtossMetalT1;
 import ga.scmc.blocks.metablocks.BlockProtossMetalT2;
 import ga.scmc.blocks.metablocks.BlockProtossMetalT3;
 import ga.scmc.blocks.metablocks.BlockPylonCrystal;
+import ga.scmc.blocks.metablocks.BlockStarSurface;
 import ga.scmc.blocks.metablocks.BlockTerranMetal;
 import ga.scmc.blocks.metablocks.BlockZergStructureCarapace;
 import ga.scmc.blocks.metablocks.BlockZergStructureFlesh;
@@ -39,6 +41,8 @@ public class MetaBlockHandler {
 	public static Block ZERG_CARAPACE_BLOCK;
 	public static Block ZERG_FLESH;
 	public static Block GAS_COLLECTOR;
+	public static Block STAR_SURFACE;
+	public static Block PLANET_SURFACE;
 
 	/**
 	 * Instantiates and registers the blocks and items.
@@ -64,6 +68,8 @@ public class MetaBlockHandler {
 		PARISTEEL_METAL = new BlockParisteelMetal();
 		COMP_MINERAL = new BlockCompressedMinerals();
 		GAS_COLLECTOR = new BlockGasCollector();
+		STAR_SURFACE = new BlockStarSurface();
+		PLANET_SURFACE = new BlockPlanetSurface();
 	}
 
 	/**
@@ -82,6 +88,8 @@ public class MetaBlockHandler {
 		registerBlock(PARISTEEL_METAL);
 		registerBlock(COMP_MINERAL);
 		registerBlock(GAS_COLLECTOR);
+		registerBlock(STAR_SURFACE);
+		registerBlock(PLANET_SURFACE);
 	}
 
 	/**

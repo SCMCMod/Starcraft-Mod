@@ -55,6 +55,7 @@ import ga.scmc.tileentity.TileEntityPlanetTeleporter;
 import ga.scmc.tileentity.TileEntityProtossFurnace;
 import ga.scmc.tileentity.TileEntityProtossPowerCore;
 import ga.scmc.tileentity.TileEntityProtossWormhole;
+import ga.scmc.tileentity.TileEntitySolarCore;
 import ga.scmc.tileentity.TileEntityStarcraftFurnace;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
 import ga.scmc.tileentity.TileEntityZerusGlowPod;
@@ -143,6 +144,7 @@ public class EntityHandler {
 		registerTileEntity(TileEntityProtossFurnace.class);
 		registerTileEntity(TileEntityEntitySpawner.class);
 		registerTileEntity(TileEntityPlanetTeleporter.class);
+		registerTileEntity(TileEntitySolarCore.class);
 		registerTileEntity(TileEntityZerusGlowPod.class);
 		registerTileEntity(TileEntityKaldirBrambles.class);
 		registerTileEntity(TileEntityZerusLightcap.class);
