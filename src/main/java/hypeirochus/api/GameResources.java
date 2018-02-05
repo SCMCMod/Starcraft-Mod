@@ -1,6 +1,6 @@
 package hypeirochus.api;
 
-import com.arisux.mdx.lib.client.render.Texture;
+import hypeirochus.api.client.render.Texture;
 
 public class GameResources {
 	public static final Texture PARTICLES = new Texture("textures/particle/particles.png");
