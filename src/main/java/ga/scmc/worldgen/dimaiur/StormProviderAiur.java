@@ -1,16 +1,15 @@
 package ga.scmc.worldgen.dimaiur;
 
-import com.arisux.mdx.lib.client.render.Texture;
-import com.arisux.mdx.lib.client.render.world.StormProvider;
-import com.arisux.mdx.lib.world.Pos;
-import com.arisux.mdx.lib.world.Worlds;
-
 import ga.scmc.lib.Library;
+import hypeirochus.api.client.render.Texture;
+import hypeirochus.api.client.render.world.StormProvider;
+import hypeirochus.api.world.Worlds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.Biome;
@@ -35,7 +34,7 @@ public class StormProviderAiur extends StormProvider
 
                     if (entity.world.provider instanceof WorldProviderAiur)
                     {
-                        if (this.apply(entity) && Worlds.canSeeSky(new Pos(entity), world))
+                        if (this.apply(entity) && Worlds.canSeeSky(new BlockPos(entity), world))
                         {
                             entity.fallDistance = 0F;
                             

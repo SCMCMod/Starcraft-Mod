@@ -12,11 +12,11 @@ import org.apache.logging.log4j.Logger;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.vector.Matrix4f;
 
-import com.arisux.mdx.lib.world.entity.player.inventory.Inventories;
 import com.google.gson.Gson;
 
 import ga.scmc.Starcraft;
 import ga.scmc.items.metaitems.ItemMagazine;
+import hypeirochus.api.world.entity.player.inventory.Inventories;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GLAllocation;

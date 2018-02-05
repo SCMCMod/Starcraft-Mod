@@ -1,10 +1,9 @@
 package ga.scmc.worldgen.dimspace;
 
-import com.arisux.mdx.lib.client.render.world.IClimateProvider;
-import com.arisux.mdx.lib.client.render.world.ICloudProvider;
-import com.arisux.mdx.lib.client.render.world.IStormProvider;
-
 import ga.scmc.handlers.DimensionHandler;
+import hypeirochus.api.client.render.world.IClimateProvider;
+import hypeirochus.api.client.render.world.ICloudProvider;
+import hypeirochus.api.client.render.world.IStormProvider;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;

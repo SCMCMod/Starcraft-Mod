@@ -4,12 +4,11 @@ import java.util.Random;
 
 import org.lwjgl.opengl.GL11;
 
-import com.arisux.mdx.lib.client.render.Color;
-import com.arisux.mdx.lib.client.render.Draw;
-import com.arisux.mdx.lib.client.render.OpenGL;
-import com.arisux.mdx.lib.game.GameResources;
-
 import ga.scmc.worldgen.DimensionUtil;
+import hypeirochus.api.GameResources;
+import hypeirochus.api.client.render.Color;
+import hypeirochus.api.client.render.Draw;
+import hypeirochus.api.client.render.OpenGL;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.GLAllocation;

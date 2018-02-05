@@ -3,9 +3,6 @@ package ga.scmc.entity.living;
 import java.util.ArrayList;
 import java.util.Random;
 
-import com.arisux.mdx.lib.client.entityfx.EntityFXElectricArc;
-import com.arisux.mdx.lib.game.Game;
-import com.arisux.mdx.lib.world.entity.ItemDrop;
 import com.google.common.base.Predicate;
 
 import ga.scmc.capabilities.ColorProvider;
@@ -15,7 +12,10 @@ import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.ItemHandler;
+import ga.scmc.handlers.MinecraftHandler;
 import ga.scmc.handlers.SoundHandler;
+import hypeirochus.api.client.entityfx.EntityFXElectricArc;
+import hypeirochus.api.world.entity.ItemDrop;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -158,7 +158,7 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 	@SideOnly(Side.CLIENT)
 	private void spawnElectricArc(double posX, double posY, double posZ) {
 		for (int x = 0; x < 5; x++) {
-			Game.minecraft().effectRenderer.addEffect(new EntityFXElectricArc(this.world, this.posX, this.posY, this.posZ, posX + this.rand.nextInt(2), posY, posZ + this.rand.nextInt(2), 10, 2.5F, 0.5F, 0.05F, 0xFF00FFFF));
+			MinecraftHandler.getMinecraft().effectRenderer.addEffect(new EntityFXElectricArc(this.world, this.posX, this.posY, this.posZ, posX + this.rand.nextInt(2), posY, posZ + this.rand.nextInt(2), 10, 2.5F, 0.5F, 0.05F, 0xFF00FFFF));
 		}
 	}
 

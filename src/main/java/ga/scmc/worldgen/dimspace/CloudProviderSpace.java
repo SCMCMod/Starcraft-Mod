@@ -1,9 +1,8 @@
 package ga.scmc.worldgen.dimspace;
 
-import com.arisux.mdx.lib.client.render.Texture;
-import com.arisux.mdx.lib.client.render.world.CloudProvider;
-import com.arisux.mdx.lib.client.render.world.IStormProvider;
-
+import hypeirochus.api.client.render.Texture;
+import hypeirochus.api.client.render.world.CloudProvider;
+import hypeirochus.api.client.render.world.IStormProvider;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.world.World;

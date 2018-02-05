@@ -11,7 +11,7 @@
   "credits": "",
   "logoFile": "",
   "screenshots": [],
-  "useDependencyInformation": true,
+  "useDependencyInformation": false,
   "dependencies": []
 }
 ]

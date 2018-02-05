@@ -10,13 +10,10 @@ import java.util.List;
 
 import org.lwjgl.opengl.GL11;
 
-import com.arisux.mdx.lib.client.gui.GuiCustomScreen;
-import com.arisux.mdx.lib.game.Game;
-import com.arisux.mdx.lib.game.GameResources;
-import com.arisux.mdx.lib.util.MDXMath;
-import com.arisux.mdx.lib.world.Worlds;
-import com.arisux.mdx.lib.world.entity.player.Players;
-
+import ga.scmc.handlers.MinecraftHandler;
+import hypeirochus.api.GameResources;
+import hypeirochus.api.world.Worlds;
+import hypeirochus.api.world.entity.player.Players;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
@@ -367,11 +364,11 @@ public class Draw {
 		}
 
 		if (shadow) {
-			Game.fontRenderer().drawStringWithShadow(text, x, y, color);
+			MinecraftHandler.getFontRenderer().drawStringWithShadow(text, x, y, color);
 		}
 
 		if (!shadow) {
-			Game.fontRenderer().drawString(text, x, y, color);
+			MinecraftHandler.getFontRenderer().drawString(text, x, y, color);
 		}
 
 		OpenGL.color3i(0xFFFFFF);
@@ -514,21 +511,7 @@ public class Draw {
 	 * @return The render width of the specified String.
 	 */
 	public static int getStringRenderWidth(String s) {
-		return Game.fontRenderer().getStringWidth(TextFormatting.getTextWithoutFormattingCodes(s));
-	}
-
-	/**
-	 * Draws a tooltip at the specified cordinates.
-	 * 
-	 * @param x
-	 *            - x coordinate
-	 * @param y
-	 *            - y coordinate
-	 * @param text
-	 *            - Text to show in the tooltip.
-	 */
-	public static void drawToolTip(int x, int y, String text) {
-		Draw.drawMultilineToolTip(x, y, Arrays.asList(text));
+		return MinecraftHandler.getFontRenderer().getStringWidth(TextFormatting.getTextWithoutFormattingCodes(s));
 	}
 
 	public static final String TOOLTIP_LINESPACE = "\u00A7h";
@@ -542,65 +525,6 @@ public class Draw {
 
 	public static ITooltipLineHandler getTipLine(String line) {
 		return !line.startsWith(TOOLTIP_HANDLER) ? null : tipLineHandlers.get(Integer.parseInt(line.substring(2)));
-	}
-
-	/**
-	 * Draws a multi-line tooltip at the specified cordinates.
-	 * 
-	 * @param x
-	 *            - x coordinate
-	 * @param y
-	 *            - y coordinate
-	 * @param list
-	 *            - List of Strings to show in the tooltip.
-	 */
-	public static void drawMultilineToolTip(int x, int y, List<String> list) {
-		if (list.isEmpty()) {
-			return;
-		}
-
-		OpenGL.disableRescaleNormal();
-		OpenGL.disableDepthTest();
-		OpenGL.disableStandardItemLighting();
-
-		int w = 0;
-		int h = -2;
-		for (int i = 0; i < list.size(); i++) {
-			String s = list.get(i);
-			ITooltipLineHandler line = getTipLine(s);
-			Dimension d = line != null ? line.getSize()
-					: new Dimension(getStringRenderWidth(s),
-							list.get(i).endsWith(TOOLTIP_LINESPACE) && i + 1 < list.size() ? 12 : 10);
-			w = java.lang.Math.max(w, d.width);
-			h += d.height;
-		}
-
-		if (x < 8) {
-			x = 8;
-		} else if (x > Screen.scaledDisplayResolution().getScaledWidth() - w - 8) {
-			x -= 24 + w;
-		}
-		y = (int) MDXMath.clip(y, 8, Screen.scaledDisplayResolution().getScaledHeight() - 8 - h);
-
-		Draw.GUI_HOOK.incZLevel(300);
-		Draw.drawTooltipBox(x - 4, y - 4, w + 7, h + 7);
-
-		for (String s : list) {
-			ITooltipLineHandler line = getTipLine(s);
-			if (line != null) {
-				line.draw(x, y);
-				y += line.getSize().height;
-			} else {
-				Game.fontRenderer().drawStringWithShadow(s, x, y, -1);
-				y += s.endsWith(TOOLTIP_LINESPACE) ? 12 : 10;
-			}
-		}
-
-		tipLineHandlers.clear();
-		Draw.GUI_HOOK.incZLevel(-300);
-
-		OpenGL.enableDepthTest();
-		OpenGL.enableRescaleNormal();
 	}
 
 	/**
@@ -684,10 +608,10 @@ public class Draw {
 				}
 			}
 
-			Game.fontRenderer()
+			MinecraftHandler.getFontRenderer()
 					.drawStringWithShadow(label,
-							posX + (barWidth / 2) - Game.fontRenderer().getStringWidth(label)
-									+ (Game.fontRenderer().getStringWidth(label) / 2),
+							posX + (barWidth / 2) - MinecraftHandler.getFontRenderer().getStringWidth(label)
+									+ (MinecraftHandler.getFontRenderer().getStringWidth(label) / 2),
 							(posY - 1) + stringPosY, 0xFFFFFFFF);
 		}
 		OpenGL.popMatrix();
@@ -956,31 +880,10 @@ public class Draw {
 			OpenGL.rotate(180.0F, 0.0F, 0.0F, 1.0F);
 			OpenGL.rotate(yaw, 0.0F, 1.0F, 0.0F);
 			OpenGL.rotate(pitch, 1.0F, 0.0F, 0.0F);
-			Game.minecraft().getRenderManager().renderEntityStatic(entity, Game.partialTicks(), true);
+			MinecraftHandler.getMinecraft().getRenderManager().renderEntityStatic(entity, MinecraftHandler.getPartialTicks(), true);
 			OpenGL.enableLightMapping();
 		}
 		OpenGL.popMatrix();
-	}
-
-	/**
-	 * Draw the player's face with the specified username. Requires a network
-	 * connection. Will default to a Steve face if one is not present.
-	 * 
-	 * @param username
-	 *            - Username of the player's face to draw.
-	 * @param x
-	 *            - x coordinate
-	 * @param y
-	 *            - y coordinate
-	 * @param width
-	 *            - Width to render the face at.
-	 * @param height
-	 *            - Height to render the face at.
-	 */
-	public static void drawPlayerFace(String username, int x, int y, int width, int height) {
-		Draw.bindTexture(Players.getPlayerSkin(username));
-		drawQuad(x, y, width, height, 90, 0.125F, 0.25F, 0.125F, 0.25F);
-		drawQuad(x, y, width, height, 90, 0.625F, 0.75F, 0.125F, 0.25F);
 	}
 
 	/**
@@ -1203,8 +1106,8 @@ public class Draw {
 		OpenGL.translate(0F, 0F, -100F);
 
 		GlStateManager.pushMatrix();
-		Game.minecraft().getTextureManager().bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
-		Game.minecraft().getTextureManager().getTexture(TextureMap.LOCATION_BLOCKS_TEXTURE).setBlurMipmap(false, false);
+		MinecraftHandler.getMinecraft().getTextureManager().bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
+		MinecraftHandler.getMinecraft().getTextureManager().getTexture(TextureMap.LOCATION_BLOCKS_TEXTURE).setBlurMipmap(false, false);
 		GlStateManager.enableRescaleNormal();
 		GlStateManager.enableAlpha();
 		GlStateManager.alphaFunc(516, 0.1F);
@@ -1217,19 +1120,19 @@ public class Draw {
 		GlStateManager.scale(1.0F, -1.0F, 1.0F);
 		GlStateManager.scale(16.0F, 16.0F, 16.0F);
 
-		IBakedModel ibakedmodel = Game.minecraft().getRenderItem().getItemModelMesher().getItemModel(stack);
-		ibakedmodel = ibakedmodel.getOverrides().handleItemState(ibakedmodel, stack, Game.minecraft().world,
-				Game.minecraft().player);
+		IBakedModel ibakedmodel = MinecraftHandler.getMinecraft().getRenderItem().getItemModelMesher().getItemModel(stack);
+		ibakedmodel = ibakedmodel.getOverrides().handleItemState(ibakedmodel, stack, MinecraftHandler.getMinecraft().world,
+				MinecraftHandler.getMinecraft().player);
 		ibakedmodel = net.minecraftforge.client.ForgeHooksClient.handleCameraTransforms(ibakedmodel,
 				ItemCameraTransforms.TransformType.GUI, false);
 
-		Game.minecraft().getRenderItem().renderItem(stack, ibakedmodel);
+		MinecraftHandler.getMinecraft().getRenderItem().renderItem(stack, ibakedmodel);
 		GlStateManager.disableAlpha();
 		GlStateManager.disableRescaleNormal();
 		GlStateManager.disableLighting();
 		GlStateManager.popMatrix();
-		Game.minecraft().getTextureManager().bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
-		Game.minecraft().getTextureManager().getTexture(TextureMap.LOCATION_BLOCKS_TEXTURE).restoreLastBlurMipmap();
+		MinecraftHandler.getMinecraft().getTextureManager().bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
+		MinecraftHandler.getMinecraft().getTextureManager().getTexture(TextureMap.LOCATION_BLOCKS_TEXTURE).restoreLastBlurMipmap();
 
 		OpenGL.popMatrix();
 	}
@@ -1254,9 +1157,9 @@ public class Draw {
 	 *            - y coordinate of the texture offset
 	 */
 	public static void drawItem(ItemStack stack, int x, int y, int width, int height) {
-		IBakedModel ibakedmodel = Game.minecraft().getRenderItem().getItemModelMesher().getItemModel(stack);
-		ibakedmodel = ibakedmodel.getOverrides().handleItemState(ibakedmodel, stack, Game.minecraft().world,
-				Game.minecraft().player);
+		IBakedModel ibakedmodel = MinecraftHandler.getMinecraft().getRenderItem().getItemModelMesher().getItemModel(stack);
+		ibakedmodel = ibakedmodel.getOverrides().handleItemState(ibakedmodel, stack, MinecraftHandler.getMinecraft().world,
+				MinecraftHandler.getMinecraft().player);
 
 		GlStateManager.pushMatrix();
 		GlStateManager.enableRescaleNormal();
@@ -1273,86 +1176,7 @@ public class Draw {
 		GlStateManager.disableLighting();
 		GlStateManager.popMatrix();
 	}
-
-	/**
-	 * Draw the IRecipe on screen of the specified Item or Block
-	 * 
-	 * @param obj
-	 *            - Item or Block instance
-	 * @param x
-	 *            - x coordinate
-	 * @param y
-	 *            - y coordinate
-	 * @param size
-	 *            - Scale of the recipe
-	 * @param slotPadding
-	 *            - Padding between each slot drawn
-	 * @param backgroundColor
-	 *            - Background color of each slot drawn.
-	 */
-	public static void drawRecipe(Object obj, int x, int y, int size, int slotPadding, int backgroundColor) {
-		IRecipe irecipe = obj instanceof Item ? (Game.getRecipe(obj))
-				: obj instanceof Block ? (Game.getRecipe(obj)) : null;
-
-		if (irecipe == null) {
-			return;
-		}
-
-		for (int gX = 0; gX < 3; ++gX) {
-			for (int gY = 0; gY < 3; ++gY) {
-				drawRect(x + slotPadding + gX * (size + slotPadding), y + slotPadding + gY * (size + slotPadding), size,
-						size, backgroundColor);
-
-				if (irecipe instanceof ShapedRecipes) {
-					ItemStack slotStack = ((ShapedRecipes) irecipe).recipeItems[gX + gY * 3];
-
-					if (slotStack != null) {
-						drawItem(slotStack, x + slotPadding + gX * (size + slotPadding),
-								y + slotPadding + gY * (size + slotPadding), size, size);
-					}
-				}
-
-				if (irecipe instanceof ShapedOreRecipe) {
-					ShapedOreRecipe recipe = (ShapedOreRecipe) irecipe;
-
-					for (Object o : recipe.getInput()) {
-						try {
-							Class<?> unmodifiableArrayList = Class
-									.forName("net.minecraftforge.oredict.OreDictionary$UnmodifiableArrayList");
-
-							if (unmodifiableArrayList.isInstance(o)) {
-								String domain = o.toString().contains("item.") ? o.toString()
-										.substring(o.toString().indexOf("x") + 1, o.toString().indexOf("item."))
-										.equalsIgnoreCase("") ? "minecraft"
-												: o.toString().substring(o.toString().indexOf("x") + 1,
-														o.toString().indexOf("item."))
-										: "null";
-								Item item = GameRegistry.findItem(domain, o.toString()
-										.substring(o.toString().indexOf(".") + 1, o.toString().indexOf("@")));
-
-								if (item != null) {
-									drawItem(new ItemStack(item, 1), x + slotPadding + gX * (size + slotPadding),
-											y + slotPadding + gY * (size + slotPadding), size, size);
-								}
-							} else if ((gX + gY * 3) < recipe.getInput().length) {
-								if (recipe.getInput()[gX + gY * 3] instanceof ItemStack) {
-									ItemStack slotStack = (ItemStack) recipe.getInput()[gX + gY * 3];
-
-									if (slotStack != null) {
-										drawItem(slotStack, x + slotPadding + gX * (size + slotPadding),
-												y + slotPadding + gY * (size + slotPadding), size, size);
-									}
-								}
-							}
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
-					}
-				}
-			}
-		}
-	}
-
+	
 	/**
 	 * Binds a texture to OpenGL using Minecraft's render engine.
 	 * 
@@ -1360,7 +1184,7 @@ public class Draw {
 	 *            - The ResourceLocation of the resource to bind.
 	 */
 	public static void bindTexture(ResourceLocation resource) {
-		Game.minecraft().renderEngine.bindTexture(resource);
+		MinecraftHandler.getMinecraft().renderEngine.bindTexture(resource);
 	}
 
 	/**
@@ -1376,12 +1200,12 @@ public class Draw {
 	}
 
 	public static ResourceLocation getMissingTexture() {
-		return getResourceLocationPartialPath(Game.minecraft().getTextureMapBlocks().getMissingSprite());
+		return getResourceLocationPartialPath(MinecraftHandler.getMinecraft().getTextureMapBlocks().getMissingSprite());
 	}
 
 	public static ResourceLocation getResourceLocationFullPath(TextureAtlasSprite sprite) {
 		if (sprite != null) {
-			Minecraft mc = Game.minecraft();
+			Minecraft mc = MinecraftHandler.getMinecraft();
 			ResourceLocation r = new ResourceLocation(sprite.getIconName());
 			return new ResourceLocation(r.getResourceDomain(), String.format("%s/%s%s",
 					new Object[] { mc.getTextureMapBlocks().getBasePath(), r.getResourcePath(), ".png" }));
@@ -1399,8 +1223,6 @@ public class Draw {
 
 		return getMissingTexture();
 	}
-
-	public static final GuiCustomScreen GUI_HOOK = new GuiCustomScreen();
 
 	public static void lightingHelper(Entity entity, float offset) {
 

@@ -1,6 +1,5 @@
 package ga.scmc.entity.living;
 
-import com.arisux.mdx.lib.world.entity.ItemDrop;
 import com.google.common.base.Predicate;
 
 import ga.scmc.capabilities.ColorProvider;
@@ -12,6 +11,7 @@ import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
 import ga.scmc.handlers.WeaponHandler;
+import hypeirochus.api.world.entity.ItemDrop;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;

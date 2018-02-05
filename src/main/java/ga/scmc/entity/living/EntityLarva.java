@@ -3,8 +3,6 @@ package ga.scmc.entity.living;
 import java.util.List;
 import java.util.Random;
 
-import com.arisux.mdx.lib.world.entity.ItemDrop;
-
 import ga.scmc.Starcraft;
 import ga.scmc.client.gui.GuiLarvaMorph;
 import ga.scmc.enums.EnumFactionTypes;
@@ -16,6 +14,7 @@ import ga.scmc.handlers.GuiHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.MetaBlockHandler;
 import ga.scmc.handlers.SoundHandler;
+import hypeirochus.api.world.entity.ItemDrop;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.BlockFenceGate;

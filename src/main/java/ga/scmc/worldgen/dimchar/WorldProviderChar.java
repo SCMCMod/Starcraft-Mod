@@ -1,11 +1,10 @@
 package ga.scmc.worldgen.dimchar;
 
-import com.arisux.mdx.lib.client.render.world.IClimateProvider;
-import com.arisux.mdx.lib.client.render.world.ICloudProvider;
-import com.arisux.mdx.lib.client.render.world.IStormProvider;
-
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.DimensionHandler;
+import hypeirochus.api.client.render.world.IClimateProvider;
+import hypeirochus.api.client.render.world.ICloudProvider;
+import hypeirochus.api.client.render.world.IStormProvider;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -23,6 +22,7 @@ public class WorldProviderChar extends WorldProvider implements IClimateProvider
 	private CloudProviderChar clouds = new CloudProviderChar();
 	private IRenderHandler skyRenderer;
 	private IRenderHandler cliimateProvider;
+	private Vec3d vec = new Vec3d(0.0D, 0.0D, 0.0D);
 
 	@SideOnly(Side.CLIENT)
 	@Override
@@ -134,6 +134,11 @@ public class WorldProviderChar extends WorldProvider implements IClimateProvider
 		brightness = (float) (brightness * (1.0D - this.world.getRainStrength(angle) * 5.0F / 16.0D));
 		brightness = (float) (brightness * (1.0D - this.world.getThunderStrength(angle) * 5.0F / 16.0D));
 		return brightness * 0.45F;
+	}
+	
+	@Override
+	public Vec3d getCloudColor(float partialTicks) {
+		return vec;
 	}
 
 	@Override

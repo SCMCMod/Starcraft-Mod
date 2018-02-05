@@ -1,12 +1,11 @@
 package ga.scmc.items;
 
-import com.arisux.mdx.lib.world.entity.player.inventory.Inventories;
-
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.entity.EntityFlamethrowerFlame;
 import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
+import hypeirochus.api.world.entity.player.inventory.Inventories;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;

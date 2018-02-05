@@ -1,67 +1,82 @@
 package ga.scmc.worldgen.dimchar;
 
-import com.arisux.mdx.lib.client.render.Texture;
-import com.arisux.mdx.lib.client.render.world.StormProvider;
-
 import ga.scmc.lib.Library;
+import ga.scmc.worldgen.dimkaldir.WorldProviderKaldir;
+import hypeirochus.api.client.render.Texture;
+import hypeirochus.api.client.render.world.StormProvider;
+import hypeirochus.api.world.Worlds;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.Biome;
 
-public class StormProviderChar extends StormProvider
-{
-    public static final Texture STORM_TEXTURE = new Texture(Library.MODID, "textures/world/hellfire.png");
+public class StormProviderChar extends StormProvider {
+	@Override
+	public void updateStorm(World world) {
+		if (world != null && this.isStormActive(world)) {
+			for (Object o : world.loadedEntityList.toArray()) {
+				if (o instanceof Entity) {
+					Entity entity = (Entity) o;
 
-    public boolean isStormActive(World world)
-    {
-        return world.getWorldTime() >= 3000 && world.getWorldTime() <= 4000;
-    }
+					if (entity.world.provider instanceof WorldProviderKaldir) {
+						if (this.apply(entity) && Worlds.canSeeSky(new BlockPos(entity), world)) {
+							entity.fallDistance = 0F;
 
-    @Override
-    public boolean isStormVisibleInBiome(Biome biome)
-    {
-        return true;
-    }
+							if (entity instanceof EntityLivingBase) {
+								entity.setFire(5);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 
-    @Override
-    public float getStormDownfallSpeed()
-    {
-        return 14.0F;
-    }
+	public static final Texture STORM_TEXTURE = new Texture(Library.MODID, "textures/world/hellfire.png");
 
-    @Override
-    public float getStormWindSpeed()
-    {
-        return 4.0F;
-    }
+	public boolean isStormActive(World world) {
+		return world.getWorldTime() >= 3000 && world.getWorldTime() <= 4000;
+	}
 
-    @Override
-    public boolean doesLightingApply()
-    {
-        return false;
-    }
+	@Override
+	public boolean isStormVisibleInBiome(Biome biome) {
+		return true;
+	}
 
-    @Override
-    public float getStormDirection()
-    {
-        return 90F;
-    }
+	@Override
+	public float getStormDownfallSpeed() {
+		return 14.0F;
+	}
 
-    @Override
-    public Texture getStormTexture(World world, Biome biome)
-    {
-        return STORM_TEXTURE;
-    }
+	@Override
+	public float getStormWindSpeed() {
+		return 4.0F;
+	}
 
-    @Override
-    public int getStormSize()
-    {
-        return 32;
-    }
+	@Override
+	public boolean doesLightingApply() {
+		return false;
+	}
 
-    @Override
-    public boolean isStormApplicableTo(WorldProvider provider)
-    {
-        return provider instanceof WorldProviderChar;
-    }
+	@Override
+	public float getStormDirection() {
+		return 90F;
+	}
+
+	@Override
+	public Texture getStormTexture(World world, Biome biome) {
+		return STORM_TEXTURE;
+	}
+
+	@Override
+	public int getStormSize() {
+		return 32;
+	}
+
+	@Override
+	public boolean isStormApplicableTo(WorldProvider provider) {
+		return provider instanceof WorldProviderChar;
+	}
 }

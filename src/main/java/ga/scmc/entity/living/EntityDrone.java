@@ -1,12 +1,11 @@
 package ga.scmc.entity.living;
 
-import com.arisux.mdx.lib.world.entity.ItemDrop;
-
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.ItemHandler;
+import hypeirochus.api.world.entity.ItemDrop;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAvoidEntity;

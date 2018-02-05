@@ -2,10 +2,9 @@ package ga.scmc.blocks;
 
 import java.util.Random;
 
-import com.arisux.mdx.lib.client.entityfx.EntityFXElectricArc;
-import com.arisux.mdx.lib.game.Game;
-
+import ga.scmc.handlers.MinecraftHandler;
 import ga.scmc.tileentity.TileEntityProtossWormhole;
+import hypeirochus.api.client.entityfx.EntityFXElectricArc;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
@@ -52,8 +51,8 @@ public class BlockProtossWormhole extends Block implements ITileEntityProvider {
 	private void spawnElectricArc(World world, BlockPos pos, Random rand, double posX, double posY, double posZ, int color) {
 		GlStateManager.enableBlend();
 		GlStateManager.pushMatrix();
-		Game.minecraft().effectRenderer.addEffect(new EntityFXElectricArc(world, pos.getX(), pos.getY(), pos.getZ(), posX + (rand.nextInt(4) - 2), posY, posZ + (rand.nextInt(4) - 2), 10, 2.5F, 0.5F, 0.05F, color));
-		Game.minecraft().effectRenderer.addEffect(new EntityFXElectricArc(world, pos.getX(), pos.getY(), pos.getZ(), posX - (rand.nextInt(2) - 2), posY, posZ - (rand.nextInt(2) - 2), 10, 2.5F, 0.5F, 0.05F, color));
+		MinecraftHandler.getMinecraft().effectRenderer.addEffect(new EntityFXElectricArc(world, pos.getX(), pos.getY(), pos.getZ(), posX + (rand.nextInt(4) - 2), posY, posZ + (rand.nextInt(4) - 2), 10, 2.5F, 0.5F, 0.05F, color));
+		MinecraftHandler.getMinecraft().effectRenderer.addEffect(new EntityFXElectricArc(world, pos.getX(), pos.getY(), pos.getZ(), posX - (rand.nextInt(2) - 2), posY, posZ - (rand.nextInt(2) - 2), 10, 2.5F, 0.5F, 0.05F, color));
 		GlStateManager.popMatrix();
 		GlStateManager.disableBlend();
 	}

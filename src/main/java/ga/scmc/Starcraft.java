@@ -54,7 +54,7 @@ import net.minecraftforge.fml.relauncher.Side;
  * @author Hypeirochus
  * @author Ocelot
  */
-@Mod(modid = Library.MODID, acceptedMinecraftVersions = "[1.10.2]", useMetadata = true, version = "${version}", dependencies = "required-after:mdxlib")
+@Mod(modid = Library.MODID, acceptedMinecraftVersions = "[1.10.2]", useMetadata = true, version = "${version}")
 public class Starcraft {
 
 	/** The mod's instance. Used for GUI stuff. */

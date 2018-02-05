@@ -1,7 +1,6 @@
 package ga.scmc.client.renderer.model.blocks;
 
-import com.arisux.mdx.lib.game.Game;
-
+import ga.scmc.handlers.MinecraftHandler;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -176,7 +175,7 @@ public class ModelKaldirBrambles extends ModelBase {
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageIn, float netHeadYaw, float headPitch, float scale, Entity entity) {
 		if (ageIn != 0) {
-			float age = ageIn + Game.partialTicks();
+			float age = ageIn + MinecraftHandler.getPartialTicks();
 			this.branch11.rotateAngleX = MathHelper.sin(age * 0.1f) * 0.1f;
 			this.branch09.rotateAngleX = MathHelper.sin(age * 0.05f) * 0.1f;
 			this.branch02.rotateAngleX = MathHelper.sin(age * 0.05f) * 0.15f;

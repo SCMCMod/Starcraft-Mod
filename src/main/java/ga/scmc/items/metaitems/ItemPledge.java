@@ -2,13 +2,12 @@ package ga.scmc.items.metaitems;
 
 import java.util.List;
 
-import com.arisux.mdx.lib.world.entity.player.inventory.Inventories;
-
 import ga.scmc.capabilities.ColorProvider;
 import ga.scmc.capabilities.IColor;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.enums.EnumMetaItem.PledgeType;
 import ga.scmc.enums.EnumTeamColors;
+import hypeirochus.api.world.entity.player.inventory.Inventories;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;

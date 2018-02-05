@@ -1,9 +1,8 @@
 package ga.scmc.worldgen.dimspace;
 
-import com.arisux.mdx.lib.client.render.Texture;
-import com.arisux.mdx.lib.client.render.world.StormProvider;
-
 import ga.scmc.worldgen.dimchar.WorldProviderChar;
+import hypeirochus.api.client.render.Texture;
+import hypeirochus.api.client.render.world.StormProvider;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.Biome;
