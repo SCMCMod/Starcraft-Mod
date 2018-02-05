@@ -1,7 +1,6 @@
 package ga.scmc.client.renderer.model;
 
-import com.arisux.mdx.lib.client.Model;
-
+import hypeirochus.api.client.render.model.Model;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

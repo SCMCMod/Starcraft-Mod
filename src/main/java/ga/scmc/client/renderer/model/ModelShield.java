@@ -2,11 +2,12 @@ package ga.scmc.client.renderer.model;
 
 import org.lwjgl.opengl.GL11;
 
-import com.arisux.mdx.lib.client.Model;
 import com.arisux.mdx.lib.client.render.Color;
 import com.arisux.mdx.lib.client.render.Draw;
 import com.arisux.mdx.lib.client.render.OpenGL;
 import com.arisux.mdx.lib.client.render.Vertex;
+
+import hypeirochus.api.client.render.model.Model;
 
 public class ModelShield extends Model {
 	private Color color;
