@@ -5,7 +5,7 @@ import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.ItemHandler;
-import ga.scmc.handlers.MinecraftHandler;
+import ga.scmc.handlers.Access;
 import ga.scmc.handlers.SoundHandler;
 import hypeirochus.api.client.entityfx.EntityFXElectricArc;
 import hypeirochus.api.world.entity.ItemDrop;
@@ -93,7 +93,7 @@ public class EntityDarkProbe extends EntityProtossPassive {
 	@SideOnly(Side.CLIENT)
 	private void spawnElectricArc(double posX, double posY, double posZ) {
 		for (int x = 0; x < 5; x++) {
-			MinecraftHandler.getMinecraft().effectRenderer.addEffect(new EntityFXElectricArc(this.world, this.posX, this.posY, this.posZ, posX + this.rand.nextInt(2), posY, posZ + this.rand.nextInt(2), 10, 2.5F, 0.5F, 0.05F, 0xFFFF0000));
+			Access.getMinecraft().effectRenderer.addEffect(new EntityFXElectricArc(this.world, this.posX, this.posY, this.posZ, posX + this.rand.nextInt(2), posY, posZ + this.rand.nextInt(2), 10, 2.5F, 0.5F, 0.05F, 0xFFFF0000));
 		}
 	}
 	

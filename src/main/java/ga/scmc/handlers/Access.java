@@ -13,23 +13,19 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * A utility class for handling all things to do with the game (which normally we don't have access to)
  * @author CJMinecraft
  */
-@SideOnly(Side.CLIENT)
-public class MinecraftHandler {
+public class Access {
 
     public static Minecraft getMinecraft() {
         return Minecraft.getMinecraft();
     }
 
-    public static RenderManager getRenderManager() {
-        return getMinecraft().getRenderManager();
-    }
-
+	@SideOnly(Side.CLIENT)
     public static FontRenderer getFontRenderer() {
         return getMinecraft().fontRendererObj;
     }
-
+	
     public static float getPartialTicks() {
-        return ((Timer) ReflectionHelper.getPrivateValue(Minecraft.class, getMinecraft(), "field_71428_T", "timer")).renderPartialTicks;
+        return Minecraft.theMinecraft.getRenderPartialTicks();
     }
 
     public static boolean isDevEnvironment() {

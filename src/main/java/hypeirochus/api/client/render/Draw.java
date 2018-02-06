@@ -10,7 +10,7 @@ import java.util.List;
 
 import org.lwjgl.opengl.GL11;
 
-import ga.scmc.handlers.MinecraftHandler;
+import ga.scmc.handlers.Access;
 import hypeirochus.api.GameResources;
 import hypeirochus.api.world.Worlds;
 import hypeirochus.api.world.entity.player.Players;
@@ -364,11 +364,11 @@ public class Draw {
 		}
 
 		if (shadow) {
-			MinecraftHandler.getFontRenderer().drawStringWithShadow(text, x, y, color);
+			Access.getFontRenderer().drawStringWithShadow(text, x, y, color);
 		}
 
 		if (!shadow) {
-			MinecraftHandler.getFontRenderer().drawString(text, x, y, color);
+			Access.getFontRenderer().drawString(text, x, y, color);
 		}
 
 		OpenGL.color3i(0xFFFFFF);
@@ -511,7 +511,7 @@ public class Draw {
 	 * @return The render width of the specified String.
 	 */
 	public static int getStringRenderWidth(String s) {
-		return MinecraftHandler.getFontRenderer().getStringWidth(TextFormatting.getTextWithoutFormattingCodes(s));
+		return Access.getFontRenderer().getStringWidth(TextFormatting.getTextWithoutFormattingCodes(s));
 	}
 
 	public static final String TOOLTIP_LINESPACE = "\u00A7h";
@@ -608,10 +608,10 @@ public class Draw {
 				}
 			}
 
-			MinecraftHandler.getFontRenderer()
+			Access.getFontRenderer()
 					.drawStringWithShadow(label,
-							posX + (barWidth / 2) - MinecraftHandler.getFontRenderer().getStringWidth(label)
-									+ (MinecraftHandler.getFontRenderer().getStringWidth(label) / 2),
+							posX + (barWidth / 2) - Access.getFontRenderer().getStringWidth(label)
+									+ (Access.getFontRenderer().getStringWidth(label) / 2),
 							(posY - 1) + stringPosY, 0xFFFFFFFF);
 		}
 		OpenGL.popMatrix();
@@ -872,18 +872,20 @@ public class Draw {
 	 *            - The Entity instance that is being rendered.
 	 */
 	public static void drawEntity(int x, int y, int scale, float yaw, float pitch, Entity entity) {
-		GlStateManager.enableColorMaterial();
-		OpenGL.pushMatrix();
-		{
-			OpenGL.translate(x, y, 100.0F);
-			OpenGL.scale(-scale, scale, scale);
-			OpenGL.rotate(180.0F, 0.0F, 0.0F, 1.0F);
-			OpenGL.rotate(yaw, 0.0F, 1.0F, 0.0F);
-			OpenGL.rotate(pitch, 1.0F, 0.0F, 0.0F);
-			MinecraftHandler.getMinecraft().getRenderManager().renderEntityStatic(entity, MinecraftHandler.getPartialTicks(), true);
-			OpenGL.enableLightMapping();
+		if(!Access.getMinecraft().world.isRemote) {
+			GlStateManager.enableColorMaterial();
+			OpenGL.pushMatrix();
+			{
+				OpenGL.translate(x, y, 100.0F);
+				OpenGL.scale(-scale, scale, scale);
+				OpenGL.rotate(180.0F, 0.0F, 0.0F, 1.0F);
+				OpenGL.rotate(yaw, 0.0F, 1.0F, 0.0F);
+				OpenGL.rotate(pitch, 1.0F, 0.0F, 0.0F);
+				Access.getMinecraft().getRenderManager().renderEntityStatic(entity, Access.getPartialTicks(), true);
+				OpenGL.enableLightMapping();
+			}
+			OpenGL.popMatrix();
 		}
-		OpenGL.popMatrix();
 	}
 
 	/**
@@ -1106,8 +1108,8 @@ public class Draw {
 		OpenGL.translate(0F, 0F, -100F);
 
 		GlStateManager.pushMatrix();
-		MinecraftHandler.getMinecraft().getTextureManager().bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
-		MinecraftHandler.getMinecraft().getTextureManager().getTexture(TextureMap.LOCATION_BLOCKS_TEXTURE).setBlurMipmap(false, false);
+		Access.getMinecraft().getTextureManager().bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
+		Access.getMinecraft().getTextureManager().getTexture(TextureMap.LOCATION_BLOCKS_TEXTURE).setBlurMipmap(false, false);
 		GlStateManager.enableRescaleNormal();
 		GlStateManager.enableAlpha();
 		GlStateManager.alphaFunc(516, 0.1F);
@@ -1120,19 +1122,19 @@ public class Draw {
 		GlStateManager.scale(1.0F, -1.0F, 1.0F);
 		GlStateManager.scale(16.0F, 16.0F, 16.0F);
 
-		IBakedModel ibakedmodel = MinecraftHandler.getMinecraft().getRenderItem().getItemModelMesher().getItemModel(stack);
-		ibakedmodel = ibakedmodel.getOverrides().handleItemState(ibakedmodel, stack, MinecraftHandler.getMinecraft().world,
-				MinecraftHandler.getMinecraft().player);
+		IBakedModel ibakedmodel = Access.getMinecraft().getRenderItem().getItemModelMesher().getItemModel(stack);
+		ibakedmodel = ibakedmodel.getOverrides().handleItemState(ibakedmodel, stack, Access.getMinecraft().world,
+				Access.getMinecraft().player);
 		ibakedmodel = net.minecraftforge.client.ForgeHooksClient.handleCameraTransforms(ibakedmodel,
 				ItemCameraTransforms.TransformType.GUI, false);
 
-		MinecraftHandler.getMinecraft().getRenderItem().renderItem(stack, ibakedmodel);
+		Access.getMinecraft().getRenderItem().renderItem(stack, ibakedmodel);
 		GlStateManager.disableAlpha();
 		GlStateManager.disableRescaleNormal();
 		GlStateManager.disableLighting();
 		GlStateManager.popMatrix();
-		MinecraftHandler.getMinecraft().getTextureManager().bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
-		MinecraftHandler.getMinecraft().getTextureManager().getTexture(TextureMap.LOCATION_BLOCKS_TEXTURE).restoreLastBlurMipmap();
+		Access.getMinecraft().getTextureManager().bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
+		Access.getMinecraft().getTextureManager().getTexture(TextureMap.LOCATION_BLOCKS_TEXTURE).restoreLastBlurMipmap();
 
 		OpenGL.popMatrix();
 	}
@@ -1157,9 +1159,9 @@ public class Draw {
 	 *            - y coordinate of the texture offset
 	 */
 	public static void drawItem(ItemStack stack, int x, int y, int width, int height) {
-		IBakedModel ibakedmodel = MinecraftHandler.getMinecraft().getRenderItem().getItemModelMesher().getItemModel(stack);
-		ibakedmodel = ibakedmodel.getOverrides().handleItemState(ibakedmodel, stack, MinecraftHandler.getMinecraft().world,
-				MinecraftHandler.getMinecraft().player);
+		IBakedModel ibakedmodel = Access.getMinecraft().getRenderItem().getItemModelMesher().getItemModel(stack);
+		ibakedmodel = ibakedmodel.getOverrides().handleItemState(ibakedmodel, stack, Access.getMinecraft().world,
+				Access.getMinecraft().player);
 
 		GlStateManager.pushMatrix();
 		GlStateManager.enableRescaleNormal();
@@ -1184,7 +1186,7 @@ public class Draw {
 	 *            - The ResourceLocation of the resource to bind.
 	 */
 	public static void bindTexture(ResourceLocation resource) {
-		MinecraftHandler.getMinecraft().renderEngine.bindTexture(resource);
+		Access.getMinecraft().renderEngine.bindTexture(resource);
 	}
 
 	/**
@@ -1200,12 +1202,12 @@ public class Draw {
 	}
 
 	public static ResourceLocation getMissingTexture() {
-		return getResourceLocationPartialPath(MinecraftHandler.getMinecraft().getTextureMapBlocks().getMissingSprite());
+		return getResourceLocationPartialPath(Access.getMinecraft().getTextureMapBlocks().getMissingSprite());
 	}
 
 	public static ResourceLocation getResourceLocationFullPath(TextureAtlasSprite sprite) {
 		if (sprite != null) {
-			Minecraft mc = MinecraftHandler.getMinecraft();
+			Minecraft mc = Access.getMinecraft();
 			ResourceLocation r = new ResourceLocation(sprite.getIconName());
 			return new ResourceLocation(r.getResourceDomain(), String.format("%s/%s%s",
 					new Object[] { mc.getTextureMapBlocks().getBasePath(), r.getResourcePath(), ".png" }));

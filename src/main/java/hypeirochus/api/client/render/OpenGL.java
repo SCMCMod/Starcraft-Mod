@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import ga.scmc.handlers.MinecraftHandler;
+import ga.scmc.handlers.Access;
 import hypeirochus.api.world.tile.IRotatableXAxis;
 import hypeirochus.api.world.tile.IRotatableYAxis;
 import net.minecraft.client.renderer.GlStateManager;
@@ -225,7 +225,7 @@ public class OpenGL {
 	 * @return Returns the GL texture ID of the specified ResourceLocation
 	 */
 	public static int getTextureId(ResourceLocation resource) {
-		Object object = MinecraftHandler.getMinecraft().getTextureManager().getTexture(resource);
+		Object object = Access.getMinecraft().getTextureManager().getTexture(resource);
 		object = object == null ? new SimpleTexture(resource) : object;
 		return ((ITextureObject) object).getGlTextureId();
 	}

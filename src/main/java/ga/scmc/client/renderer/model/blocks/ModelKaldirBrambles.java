@@ -1,10 +1,12 @@
 package ga.scmc.client.renderer.model.blocks;
 
-import ga.scmc.handlers.MinecraftHandler;
+import ga.scmc.handlers.Access;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * kaldirbrambles - cybercat5555 Created using Tabula 6.0.0
@@ -173,9 +175,10 @@ public class ModelKaldirBrambles extends ModelBase {
 	}
 
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageIn, float netHeadYaw, float headPitch, float scale, Entity entity) {
 		if (ageIn != 0) {
-			float age = ageIn + MinecraftHandler.getPartialTicks();
+			float age = ageIn + Access.getPartialTicks();
 			this.branch11.rotateAngleX = MathHelper.sin(age * 0.1f) * 0.1f;
 			this.branch09.rotateAngleX = MathHelper.sin(age * 0.05f) * 0.1f;
 			this.branch02.rotateAngleX = MathHelper.sin(age * 0.05f) * 0.15f;

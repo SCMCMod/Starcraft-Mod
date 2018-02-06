@@ -4,7 +4,7 @@ import java.util.Random;
 
 import com.google.common.base.Predicate;
 
-import ga.scmc.handlers.MinecraftHandler;
+import ga.scmc.handlers.Access;
 import hypeirochus.api.client.render.Draw;
 import hypeirochus.api.client.render.OpenGL;
 import hypeirochus.api.world.Worlds;
@@ -52,18 +52,18 @@ public abstract class StormProvider implements Predicate<Entity>, IStormProvider
     @SubscribeEvent
     public static void clientTickEvent(ClientTickEvent event)
     {
-        if (MinecraftHandler.getMinecraft().world != null && MinecraftHandler.getMinecraft().world.provider instanceof IClimateProvider && !MinecraftHandler.getMinecraft().isGamePaused())
+        if (Access.getMinecraft().world != null && Access.getMinecraft().world.provider instanceof IClimateProvider && !Access.getMinecraft().isGamePaused())
         {
-            IClimateProvider climate = (IClimateProvider) MinecraftHandler.getMinecraft().world.provider;
+            IClimateProvider climate = (IClimateProvider) Access.getMinecraft().world.provider;
 
             if (climate.getStormProvider() instanceof StormProvider)
             {
                 StormProvider storm = (StormProvider) climate.getStormProvider();
 
-                if (storm.isStormApplicableTo(MinecraftHandler.getMinecraft().world.provider))
+                if (storm.isStormApplicableTo(Access.getMinecraft().world.provider))
                 {
                     int s = storm.getStormSize();
-                    storm.updateStorm(MinecraftHandler.getMinecraft().world);
+                    storm.updateStorm(Access.getMinecraft().world);
 
                     if (storm.stormX == null || storm.stormZ == null)
                     {
@@ -83,7 +83,7 @@ public abstract class StormProvider implements Predicate<Entity>, IStormProvider
                         }
                     }
 
-                    if (storm.isStormActive(MinecraftHandler.getMinecraft().world))
+                    if (storm.isStormActive(Access.getMinecraft().world))
                     {
                         storm.renderStorm = true;
 
@@ -105,18 +105,18 @@ public abstract class StormProvider implements Predicate<Entity>, IStormProvider
                         }
                     }
 
-                    if (storm.isStormActive(MinecraftHandler.getMinecraft().world))
+                    if (storm.isStormActive(Access.getMinecraft().world))
                     {
                         float strength = storm.getStormStrength();
 
-                        if (!MinecraftHandler.getMinecraft().gameSettings.fancyGraphics)
+                        if (!Access.getMinecraft().gameSettings.fancyGraphics)
                         {
                             strength /= 2.0F;
                         }
 
                         if (strength != 0.0F)
                         {
-                            Entity entity = MinecraftHandler.getMinecraft().getRenderViewEntity();
+                            Entity entity = Access.getMinecraft().getRenderViewEntity();
                             World world = entity.world;
                             BlockPos blockpos = new BlockPos(entity);
                             double x = 0.0D;
@@ -125,11 +125,11 @@ public abstract class StormProvider implements Predicate<Entity>, IStormProvider
                             int particleCount = 0;
                             int passes = (int) (100.0F * strength * strength);
 
-                            if (MinecraftHandler.getMinecraft().gameSettings.particleSetting == 1)
+                            if (Access.getMinecraft().gameSettings.particleSetting == 1)
                             {
                                 passes >>= 1;
                             }
-                            else if (MinecraftHandler.getMinecraft().gameSettings.particleSetting == 2)
+                            else if (Access.getMinecraft().gameSettings.particleSetting == 2)
                             {
                                 passes = 0;
                             }
@@ -228,12 +228,12 @@ public abstract class StormProvider implements Predicate<Entity>, IStormProvider
     @SubscribeEvent
     public static void renderLast(RenderWorldLastEvent event)
     {
-        if (MinecraftHandler.getMinecraft().world != null)
+        if (Access.getMinecraft().world != null)
         {
-            if (MinecraftHandler.getMinecraft().world.provider instanceof IClimateProvider)
+            if (Access.getMinecraft().world.provider instanceof IClimateProvider)
             {
-                IClimateProvider climate = (IClimateProvider) MinecraftHandler.getMinecraft().world.provider;
-                climate.getStormProvider().renderStorm(event.getPartialTicks(), MinecraftHandler.getMinecraft().world, Minecraft.getMinecraft());
+                IClimateProvider climate = (IClimateProvider) Access.getMinecraft().world.provider;
+                climate.getStormProvider().renderStorm(event.getPartialTicks(), Access.getMinecraft().world, Minecraft.getMinecraft());
             }
         }
     }
@@ -253,7 +253,7 @@ public abstract class StormProvider implements Predicate<Entity>, IStormProvider
 
         OpenGL.pushMatrix();
         OpenGL.enableLight();
-        Entity entity = MinecraftHandler.getMinecraft().getRenderViewEntity();
+        Entity entity = Access.getMinecraft().getRenderViewEntity();
         int posX = MathHelper.floor(entity.posX);
         int posY = MathHelper.floor(entity.posY);
         int posZ = MathHelper.floor(entity.posZ);
@@ -277,7 +277,7 @@ public abstract class StormProvider implements Predicate<Entity>, IStormProvider
         int stormDepth = 5;
         int stormHeight = 6 + stormDepth;
 
-        if (MinecraftHandler.getMinecraft().gameSettings.fancyGraphics)
+        if (Access.getMinecraft().gameSettings.fancyGraphics)
         {
             stormDepth = 10;
         }
@@ -338,8 +338,8 @@ public abstract class StormProvider implements Predicate<Entity>, IStormProvider
                             buffer.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR_NORMAL);
                         }
 
-                        float vTravel = -(((MinecraftHandler.getMinecraft().world.getWorldTime() + (x * x) + x + (z * z) + z) & 31) + partialTicks) / getStormDownfallSpeed();
-                        float hTravel = (((MinecraftHandler.getMinecraft().world.getWorldTime() + (x * x) + x + (z * z) + z) & 31) + partialTicks) / getStormWindSpeed();
+                        float vTravel = -(((Access.getMinecraft().world.getWorldTime() + (x * x) + x + (z * z) + z) & 31) + partialTicks) / getStormDownfallSpeed();
+                        float hTravel = (((Access.getMinecraft().world.getWorldTime() + (x * x) + x + (z * z) + z) & 31) + partialTicks) / getStormWindSpeed();
 
                         double offsetX = (double) ((float) x + 0.5F) - entity.posX;
                         double offsetZ = (double) ((float) z + 0.5F) - entity.posZ;

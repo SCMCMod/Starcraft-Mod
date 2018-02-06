@@ -1,6 +1,6 @@
 package hypeirochus.api.client.render.model;
 
-import ga.scmc.handlers.MinecraftHandler;
+import ga.scmc.handlers.Access;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -223,7 +223,7 @@ public abstract class Model extends ModelBase {
 	 * @return TicksExisted + partialTicks of the entity.
 	 */
 	public static float getIdleProgress(EntityLivingBase base) {
-		return base.ticksExisted + MinecraftHandler.getPartialTicks();
+		return base.ticksExisted + Access.getPartialTicks();
 	}
 
 	/**
@@ -236,7 +236,7 @@ public abstract class Model extends ModelBase {
 	 * @return How far along the entity is from completing its swing.
 	 */
 	public static float getSwingProgress(EntityLivingBase base) {
-		return base.limbSwing - base.limbSwingAmount * (1.0F - MinecraftHandler.getPartialTicks());
+		return base.limbSwing - base.limbSwingAmount * (1.0F - Access.getPartialTicks());
 	}
 
 	/**
@@ -250,7 +250,7 @@ public abstract class Model extends ModelBase {
 	 * @return The time since the last limb swing of the entity was completed.
 	 */
 	public static float getSwingProgressPrev(EntityLivingBase base) {
-		return base.prevLimbSwingAmount + (base.limbSwingAmount - base.prevLimbSwingAmount) * MinecraftHandler.getPartialTicks();
+		return base.prevLimbSwingAmount + (base.limbSwingAmount - base.prevLimbSwingAmount) * Access.getPartialTicks();
 	}
 
 	/**
@@ -263,9 +263,9 @@ public abstract class Model extends ModelBase {
 	 */
 	public static float getHeadYaw(EntityLivingBase base) {
 		float yawOffset = SCMathHelper.interpolateRotation(base.prevRenderYawOffset, base.renderYawOffset,
-				MinecraftHandler.getPartialTicks());
+				Access.getPartialTicks());
 		float yawHead = SCMathHelper.interpolateRotation(base.prevRotationYawHead, base.rotationYawHead,
-				MinecraftHandler.getPartialTicks());
+				Access.getPartialTicks());
 		return yawHead - yawOffset;
 	}
 
@@ -278,7 +278,7 @@ public abstract class Model extends ModelBase {
 	 * @return The value of the pitch rotation the head is at.
 	 */
 	public static float getHeadPitch(EntityLivingBase base) {
-		return (base.prevRotationPitch + (base.rotationPitch - base.prevRotationPitch) * MinecraftHandler.getPartialTicks());
+		return (base.prevRotationPitch + (base.rotationPitch - base.prevRotationPitch) * Access.getPartialTicks());
 	}
 
 	/**
