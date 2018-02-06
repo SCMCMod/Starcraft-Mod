@@ -8,7 +8,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
-@EventBusSubscriber
 public class CloudProviderKaldir extends CloudProvider
 {
     private static final Texture CLOUDS = new Texture(Library.MODID, "textures/world/varda-clouds.png");

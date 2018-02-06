@@ -9,7 +9,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
-@EventBusSubscriber
 public class CloudProviderSpace extends CloudProvider {
 
     private IStormProvider       stormProvider;

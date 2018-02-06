@@ -14,6 +14,8 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraftforge.client.IRenderHandler;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class RenderSkyShakuras extends IRenderHandler {
 	private Color skyColor = new Color(0.0F, 0.0F, 0.0F, 1F);
@@ -88,6 +90,7 @@ public class RenderSkyShakuras extends IRenderHandler {
 		Tessellator.getInstance().draw();
 	}
 
+	@SideOnly(Side.CLIENT)
 	@Override
 	public void render(float partialTicks, WorldClient world, Minecraft mc) {
 		if (world.provider instanceof WorldProviderShakuras) {
