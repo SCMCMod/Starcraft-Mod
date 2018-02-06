@@ -6,7 +6,6 @@ import hypeirochus.api.client.render.world.CloudProvider;
 import hypeirochus.api.client.render.world.IStormProvider;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
 public class CloudProviderSlayn extends CloudProvider
 {

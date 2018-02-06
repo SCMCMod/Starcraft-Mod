@@ -8,7 +8,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
 public class CloudProviderChar extends CloudProvider
 {

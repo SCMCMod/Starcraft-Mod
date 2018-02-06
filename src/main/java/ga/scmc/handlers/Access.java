@@ -2,10 +2,7 @@ package ga.scmc.handlers;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.launchwrapper.Launch;
-import net.minecraft.util.Timer;
-import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 

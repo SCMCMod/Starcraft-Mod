@@ -5,7 +5,6 @@ import static org.lwjgl.opengl.GL11.GL_SRC_ALPHA;
 
 import java.awt.Dimension;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.lwjgl.opengl.GL11;
@@ -13,8 +12,6 @@ import org.lwjgl.opengl.GL11;
 import ga.scmc.handlers.Access;
 import hypeirochus.api.GameResources;
 import hypeirochus.api.world.Worlds;
-import hypeirochus.api.world.entity.player.Players;
-import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.gui.Gui;
@@ -30,15 +27,10 @@ import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.oredict.ShapedOreRecipe;
 
 public class Draw {
 	public static VertexBuffer buffer() {

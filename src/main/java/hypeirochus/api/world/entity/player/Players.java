@@ -4,12 +4,8 @@ import java.math.BigInteger;
 import java.util.List;
 import java.util.UUID;
 
-import com.mojang.authlib.GameProfile;
-
-import net.minecraft.client.network.NetworkPlayerInfo;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
