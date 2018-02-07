@@ -95,6 +95,10 @@ public class StarcraftGenerator {
 	protected WorldGenerator GRAVEL_SLAYN 				= new StarcraftWorldGenMinable(BlockHandler.STONE_SLAYN, BlockHandler.GRAVEL_SLAYN.getDefaultState(), 33);
 	
 	protected WorldGenerator COAL_SPACE 				= new StarcraftWorldGenMinableRandomized(Blocks.AIR, Blocks.STONE.getDefaultState(), Blocks.COAL_ORE.getDefaultState(), 30, 64);
+	protected WorldGenerator DIAMOND_SPACE 				= new StarcraftWorldGenMinableRandomized(Blocks.AIR, Blocks.STONE.getDefaultState(), Blocks.DIAMOND_ORE.getDefaultState(), 30, 64);
+	protected WorldGenerator GOLD_SPACE 				= new StarcraftWorldGenMinableRandomized(Blocks.AIR, Blocks.STONE.getDefaultState(), Blocks.GOLD_ORE.getDefaultState(), 30, 64);
+	protected WorldGenerator IRON_SPACE 				= new StarcraftWorldGenMinableRandomized(Blocks.AIR, Blocks.STONE.getDefaultState(), Blocks.IRON_ORE.getDefaultState(), 30, 64);
+	protected WorldGenerator COPPER_SPACE 				= new StarcraftWorldGenMinableRandomized(Blocks.AIR, Blocks.STONE.getDefaultState(), BlockHandler.ORE_COPPER_OW.getDefaultState(), 30, 64);
 
 	protected WorldGenerator TITANIUM_GENERIC 			= new WorldGenMinable(BlockHandler.ORE_TITANIUM_OW.getDefaultState(), 8);
 	protected WorldGenerator COAL_GENERIC 				= new WorldGenMinable(Blocks.COAL_ORE.getDefaultState(), 16);
@@ -203,8 +207,18 @@ public class StarcraftGenerator {
 		generator.generateMultisurfacePlanet(id, planetSize, range, block1, block2, world, rand, offsetX, offsetY, offsetZ, pos);
 }
 	
-	protected static void runStarGenerator(SCWorldGenerator generator, int planetSize, int range, IBlockState block, World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos pos) {
-		generator.generateStar(planetSize, range, block, world, rand, offsetX, offsetY, offsetZ, pos);
+	protected static void runStarGenerator(SCWorldGenerator generator, int starSize, int range, IBlockState block, World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos pos) {
+		generator.generateStar(starSize, range, block, world, rand, offsetX, offsetY, offsetZ, pos);
+	}
+	
+	protected static void runRandomStarGenerator(SCWorldGenerator generator, int starSize, World world, Random rand, int chunk_X, int chunk_Z, int offsetX, int offsetY, int offsetZ, int chancesToSpawn, int minHeight, int maxHeight) {
+		checkHeight(minHeight, maxHeight);
+		
+		int heightDiff = maxHeight - minHeight + 1;
+		
+		for (int i = 0; i < chancesToSpawn; i++) {
+			generator.generateRandomStar(starSize, world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + rand.nextInt(16), minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + rand.nextInt(16)));
+		}
 	}
 
 	protected static void runMetaGenerator(SCWorldGenerator generator, int meta, World world, Random rand, int chunk_X, int chunk_Z, int offsetX, int offsetY, int offsetZ, int chancesToSpawn, int minHeight, int maxHeight) {

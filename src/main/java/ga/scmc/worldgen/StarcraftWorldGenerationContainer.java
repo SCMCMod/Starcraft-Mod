@@ -437,6 +437,13 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 			this.runStarGenerator(STAR_TEMPLATE, 51, 75, MetaBlockHandler.STAR_SURFACE.getStateFromMeta(2), world, random, 0, 0, 0, new BlockPos(200, 128, 0));
 			this.generationCompleted = true;
 		}
-		if(random.nextInt(30) == 0)	runOreGenerator(COAL_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		
+		if(random.nextInt(1500) == 0) 	runRandomStarGenerator(STAR_TEMPLATE, random.nextInt(50) + 25, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 255);
+		
+		if(random.nextInt(300) < 10)	runOreGenerator(COAL_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		if(random.nextInt(300) < 7)		runOreGenerator(COPPER_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		if(random.nextInt(300) < 1)		runOreGenerator(DIAMOND_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		if(random.nextInt(300) < 2)		runOreGenerator(GOLD_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		if(random.nextInt(300) < 10)	runOreGenerator(IRON_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
 	}
 }
