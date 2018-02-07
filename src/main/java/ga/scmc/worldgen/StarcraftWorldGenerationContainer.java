@@ -440,10 +440,16 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		
 		if(random.nextInt(1500) == 0) 	runRandomStarGenerator(STAR_TEMPLATE, random.nextInt(50) + 25, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 255);
 		
-		if(random.nextInt(300) < 10)	runOreGenerator(COAL_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
-		if(random.nextInt(300) < 7)		runOreGenerator(COPPER_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
-		if(random.nextInt(300) < 1)		runOreGenerator(DIAMOND_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
-		if(random.nextInt(300) < 2)		runOreGenerator(GOLD_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
-		if(random.nextInt(300) < 10)	runOreGenerator(IRON_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		if(random.nextInt(700) < 10)	runOreGenerator(COAL_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		if(random.nextInt(700) < 7)		runOreGenerator(COPPER_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		if(random.nextInt(700) < 1)		runOreGenerator(DIAMOND_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		if(random.nextInt(700) < 2)		runOreGenerator(GOLD_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		if(random.nextInt(700) < 10)	runOreGenerator(IRON_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		if(random.nextInt(700) < 12)	runOreGenerator(MINERAL_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		if(random.nextInt(700) < 6)		runOreGenerator(RICHMINERAL_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		if(random.nextInt(700) < 3)		runOreGenerator(TITANIUM_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		if(random.nextInt(700) < 2)		runOreGenerator(URANIUM_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		if(random.nextInt(700) < 20)	runOreGenerator(STONE_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		if(random.nextInt(700) < 20)	runOreGenerator(ICE_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
 	}
 }
