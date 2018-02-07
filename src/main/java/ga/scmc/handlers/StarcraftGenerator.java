@@ -95,9 +95,9 @@ public class StarcraftGenerator {
 	protected WorldGenerator GRAVEL_SLAYN 				= new StarcraftWorldGenMinable(BlockHandler.STONE_SLAYN, BlockHandler.GRAVEL_SLAYN.getDefaultState(), 33);
 	
 	protected WorldGenerator COAL_SPACE 				= new StarcraftWorldGenMinableRandomized(Blocks.AIR, Blocks.STONE.getDefaultState(), Blocks.COAL_ORE.getDefaultState(), 30, 64);
-	protected WorldGenerator DIAMOND_SPACE 				= new StarcraftWorldGenMinableRandomized(Blocks.AIR, Blocks.STONE.getDefaultState(), Blocks.DIAMOND_ORE.getDefaultState(), 30, 64);
-	protected WorldGenerator GOLD_SPACE 				= new StarcraftWorldGenMinableRandomized(Blocks.AIR, Blocks.STONE.getDefaultState(), Blocks.GOLD_ORE.getDefaultState(), 30, 64);
-	protected WorldGenerator IRON_SPACE 				= new StarcraftWorldGenMinableRandomized(Blocks.AIR, Blocks.STONE.getDefaultState(), Blocks.IRON_ORE.getDefaultState(), 30, 64);
+	protected WorldGenerator DIAMOND_SPACE 				= new StarcraftWorldGenMinableRandomized(Blocks.AIR, Blocks.STONE.getDefaultState(), Blocks.DIAMOND_ORE.getDefaultState(), 10, 64);
+	protected WorldGenerator GOLD_SPACE 				= new StarcraftWorldGenMinableRandomized(Blocks.AIR, Blocks.STONE.getDefaultState(), Blocks.GOLD_ORE.getDefaultState(), 15, 64);
+	protected WorldGenerator IRON_SPACE 				= new StarcraftWorldGenMinableRandomized(Blocks.AIR, Blocks.STONE.getDefaultState(), Blocks.IRON_ORE.getDefaultState(), 20, 64);
 	protected WorldGenerator COPPER_SPACE 				= new StarcraftWorldGenMinableRandomized(Blocks.AIR, Blocks.STONE.getDefaultState(), BlockHandler.ORE_COPPER_OW.getDefaultState(), 30, 64);
 
 	protected WorldGenerator TITANIUM_GENERIC 			= new WorldGenMinable(BlockHandler.ORE_TITANIUM_OW.getDefaultState(), 8);
