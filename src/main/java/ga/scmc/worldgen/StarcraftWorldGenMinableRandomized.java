@@ -89,7 +89,7 @@ public class StarcraftWorldGenMinableRandomized extends WorldGenerator {
 	}
 	
 	public IBlockState getRandomizedOreBlocks(IBlockState state1, IBlockState state2, int oreWeight) {
-		if(oreWeight < rand.nextInt(100)) {
+		if(oreWeight > rand.nextInt(100)) {
 			return state2;
 		}else {
 			return state1;
