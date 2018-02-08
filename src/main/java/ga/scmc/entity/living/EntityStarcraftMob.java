@@ -10,6 +10,7 @@ import ga.scmc.capabilities.IColor;
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
+import ga.scmc.handlers.ConfigurationHandler;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
@@ -40,7 +41,15 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	public boolean getCanSpawnHere() {
 		if (this.world.getDifficulty() != EnumDifficulty.PEACEFUL) {
 			return true;
-		} else {
+		} else if (this.dimension == ConfigurationHandler.INT_DIMENSION_SPACE) {
+			if (this.posX / 16 < 10 && this.posX / 16 > 40 && this.posZ / 16 > 20 && this.posZ / 16 < -16) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		else {
 			return false;
 		}
 	}

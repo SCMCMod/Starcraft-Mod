@@ -4,6 +4,7 @@ import java.util.Random;
 
 import org.lwjgl.opengl.GL11;
 
+import hypeirochus.api.client.render.Draw;
 import hypeirochus.api.client.render.OpenGL;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
@@ -15,6 +16,7 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import ocelot.api.utils.TextureUtils;
 
 public class RenderSkySpace extends IRenderHandler {
 	public int glCallListStars = GLAllocation.generateDisplayLists(3);
@@ -111,7 +113,55 @@ public class RenderSkySpace extends IRenderHandler {
 
 			OpenGL.enable(GL11.GL_TEXTURE_2D);
 			OpenGL.blendFunc(GL11.GL_SRC_ALPHA, 1);
+			
+			OpenGL.pushMatrix();
+			{
+				float scale = 15.0F;
+				OpenGL.rotate(90.0F, 0.2F, 0.5F, 0.0F);
+				OpenGL.color(1.0F, 1.0F, 1.0F, 0.8F);
+				OpenGL.rotate(world.getCelestialAngle(partialTicks) * 360.0F, 1.0F, 0.0F, 0.0F);
+				TextureUtils.bindTexture("textures/world/galaxy.png");
+				Draw.startQuads();
+				Draw.vertex(-scale, 150.0D, -scale, 0.0D, 0.0D).endVertex();
+				Draw.vertex(scale, 150.0D, -scale, 1.0D, 0.0D).endVertex();
+				Draw.vertex(scale, 150.0D, scale, 1.0D, 1.0D).endVertex();
+				Draw.vertex(-scale, 150.0D, scale, 0.0D, 1.0D).endVertex();
+				Draw.tessellate();
+			}
+			OpenGL.popMatrix();
+			
+			OpenGL.pushMatrix();
+			{
+				float scale = 50.0F;
+				OpenGL.rotate(90.0F, 0.5F, 0.5F, 0.7F);
+				OpenGL.color(1.0F, 1.0F, 1.0F, 0.8F);
+				OpenGL.rotate(world.getCelestialAngle(partialTicks) * 360.0F, 1.0F, 0.0F, 0.0F);
+				TextureUtils.bindTexture("textures/world/nebula.png");
+				Draw.startQuads();
+				Draw.vertex(-scale, 150.0D, -scale, 0.0D, 0.0D).endVertex();
+				Draw.vertex(scale, 150.0D, -scale, 1.0D, 0.0D).endVertex();
+				Draw.vertex(scale, 150.0D, scale, 1.0D, 1.0D).endVertex();
+				Draw.vertex(-scale, 150.0D, scale, 0.0D, 1.0D).endVertex();
+				Draw.tessellate();
+			}
+			OpenGL.popMatrix();
 
+			OpenGL.pushMatrix();
+			{
+				float scale = 100.0F;
+				OpenGL.rotate(90.0F, -0.7F, -0.2F, 0.1F);
+				OpenGL.color(1.0F, 1.0F, 1.0F, 1.0F);
+				OpenGL.rotate(world.getCelestialAngle(partialTicks) * 360.0F, 1.0F, 0.3F, 0.0F);
+				TextureUtils.bindTexture("textures/world/cluster.png");
+				Draw.startQuads();
+				Draw.vertex(-scale, 150.0D, -scale, 0.0D, 0.0D).endVertex();
+				Draw.vertex(scale, 150.0D, -scale, 1.0D, 0.0D).endVertex();
+				Draw.vertex(scale, 150.0D, scale, 1.0D, 1.0D).endVertex();
+				Draw.vertex(-scale, 150.0D, scale, 0.0D, 1.0D).endVertex();
+				Draw.tessellate();
+			}
+			OpenGL.popMatrix();
+			
 			OpenGL.blendClear();
 			// OpenGL.disable(GL11.GL_BLEND);
 			OpenGL.enable(GL11.GL_FOG);
