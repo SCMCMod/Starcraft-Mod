@@ -7,6 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
@@ -33,8 +34,16 @@ public abstract class SCWorldGenerator {
 	public SCWorldGenerator(boolean notify) {
 		doBlockNotify = notify;
 	}
+	
+	public boolean generateTileEntity(TileEntity entity, World worldIn, Random rand, BlockPos position) {
+		return true;
+	}
+	
+	public boolean generateSingleBlock(IBlockState state, World worldIn, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos position) {
+		return true;
+	}
 
-	public boolean generate(IBlockState state, IBlockState state2, World worldIn, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos position) {
+	public boolean generateDoubleBlock(IBlockState state, IBlockState state2, World worldIn, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos position) {
 		return true;
 	}
 

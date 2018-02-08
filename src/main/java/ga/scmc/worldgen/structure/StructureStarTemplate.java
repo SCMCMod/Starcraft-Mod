@@ -6,9 +6,7 @@ import ga.scmc.enums.EnumMetaBlock;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.MetaBlockHandler;
 import ga.scmc.tileentity.TileEntitySolarCore;
-import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 

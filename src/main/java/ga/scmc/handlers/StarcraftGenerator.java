@@ -13,6 +13,7 @@ import ga.scmc.worldgen.structure.StructurePlanetTemplate;
 import ga.scmc.worldgen.structure.StructureProtossCyberneticsCoreTemplate;
 import ga.scmc.worldgen.structure.StructureProtossPylonTemplate;
 import ga.scmc.worldgen.structure.StructureProtossWarpGateTemplate;
+import ga.scmc.worldgen.structure.StructureSingleBlockTemplate;
 import ga.scmc.worldgen.structure.StructureStarTemplate;
 import ga.scmc.worldgen.structure.StructureTerranBarracksTemplate;
 import ga.scmc.worldgen.structure.StructureTerranBunkerTemplate;
@@ -23,6 +24,7 @@ import ga.scmc.worldgen.structure.StructureZergSpireTemplate;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
@@ -144,6 +146,8 @@ public class StarcraftGenerator {
 	
 	protected SCWorldGenerator BOSS_SPAWNER 							= new BossSpawner();
 	
+	protected SCWorldGenerator TILEENTITY_SPAWNER 						= new StructureSingleBlockTemplate();
+	
 	
 	private static void checkHeight(int minHeight, int maxHeight) {
 		if (minHeight < 0 || maxHeight > 256 || minHeight > maxHeight) {
@@ -250,4 +254,14 @@ public class StarcraftGenerator {
 		}
 	}
 	
+	protected static void runTileEntityGenerator(SCWorldGenerator generator, TileEntity entity, World world, Random rand, int chunk_X, int chunk_Z, int chancesToSpawn, int minHeight, int maxHeight) {
+		
+		checkHeight(minHeight, maxHeight);
+		
+		int heightDiff = maxHeight - minHeight + 1;
+		
+		for (int i = 0; i < chancesToSpawn; i++) {
+			generator.generateTileEntity(entity, world, rand, new BlockPos(chunk_X * 16 + rand.nextInt(16), minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + rand.nextInt(16)));
+		}
+	}
 }

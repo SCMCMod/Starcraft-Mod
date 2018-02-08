@@ -7,6 +7,7 @@ import ga.scmc.handlers.BiomeHandler;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.MetaBlockHandler;
 import ga.scmc.handlers.StarcraftGenerator;
+import ga.scmc.tileentity.TileEntityZerusGlowPod;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
@@ -282,6 +283,7 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		if (world.getWorldInfo().isMapFeaturesEnabled()) {
 			runTeamColorGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 		}
+		this.runTileEntityGenerator(TILEENTITY_SPAWNER, new TileEntityZerusGlowPod(), world, random, chunkX, chunkZ, 5, 65, 70);
 	}
 	
 	
