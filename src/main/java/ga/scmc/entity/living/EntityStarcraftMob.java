@@ -20,6 +20,7 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.EnumHand;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public abstract class EntityStarcraftMob extends EntityMob implements IEntityTeamColorable<EntityStarcraftMob> {
@@ -38,7 +39,11 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	
 	@Override
 	public boolean getCanSpawnHere() {
-		return true;
+		if(this.world.getDifficulty() != EnumDifficulty.PEACEFUL) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 	public boolean isType(EnumTypeAttributes type) {

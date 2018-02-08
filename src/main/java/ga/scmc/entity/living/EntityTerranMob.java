@@ -1,5 +1,6 @@
 package ga.scmc.entity.living;
 
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EntityTerranMob extends EntityStarcraftMob {
@@ -10,7 +11,11 @@ public class EntityTerranMob extends EntityStarcraftMob {
 	
 	@Override
 	public boolean getCanSpawnHere() {
-		return true;
+		if(this.world.getDifficulty() != EnumDifficulty.PEACEFUL) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 }

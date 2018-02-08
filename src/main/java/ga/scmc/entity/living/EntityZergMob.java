@@ -12,6 +12,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EntityZergMob extends EntityStarcraftMob {
@@ -25,7 +26,11 @@ public class EntityZergMob extends EntityStarcraftMob {
 
 	@Override
 	public boolean getCanSpawnHere() {
-		return true;
+		if(this.world.getDifficulty() != EnumDifficulty.PEACEFUL) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 	@Override

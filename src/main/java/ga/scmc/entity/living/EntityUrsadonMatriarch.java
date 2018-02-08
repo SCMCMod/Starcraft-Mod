@@ -19,6 +19,7 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 /**
@@ -41,7 +42,7 @@ public class EntityUrsadonMatriarch extends EntityMob implements IMob, Predicate
 	
 	@Override
 	public boolean getCanSpawnHere() {
-		if(this.world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_KALDIR) {
+		if(this.world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_KALDIR && world.getDifficulty() != EnumDifficulty.PEACEFUL) {
 			return true;
 		}
 		return false;
