@@ -72,13 +72,14 @@ public class ItemLog extends Item {
 		stack.setTagCompound(nbt);
 		return stack;
 	}
-	
+
 	// private String name;
 	// private ResourceLocation text;
 	// private int skinId;
 	//
 	// private EnumLogType(String name) {
-	// this(name, new ResourceLocation(Library.RL_BASE + "texts/logs/log.missing.txt"), 0);
+	// this(name, new ResourceLocation(Library.RL_BASE +
+	// "texts/logs/log.missing.txt"), 0);
 	// }
 	//
 	// private EnumLogType(String name, ResourceLocation text) {
@@ -86,7 +87,8 @@ public class ItemLog extends Item {
 	// }
 	//
 	// private EnumLogType(String name, int skinId) {
-	// this(name, new ResourceLocation(Library.RL_BASE + "texts/logs/log.missing.txt"), skinId);
+	// this(name, new ResourceLocation(Library.RL_BASE +
+	// "texts/logs/log.missing.txt"), skinId);
 	// }
 	//
 	// private EnumLogType(String name, ResourceLocation text, int skinId) {

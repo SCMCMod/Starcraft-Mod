@@ -66,7 +66,7 @@ public class BiomeGenCharAshPlains extends BiomeHandler {
 						} else if (yLoc < seaLevel - 7 - randHeight) {
 							topBlock = AIR;
 							fillerBlock = BlockHandler.STONE_CHAR.getDefaultState();
-							chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc,  BlockHandler.GRAVEL_CHAR.getDefaultState());
+							chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, BlockHandler.GRAVEL_CHAR.getDefaultState());
 						} else {
 							chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, fillerBlock);
 						}

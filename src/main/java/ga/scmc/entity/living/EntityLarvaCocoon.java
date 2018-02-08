@@ -35,7 +35,10 @@ import net.minecraft.world.World;
 
 public class EntityLarvaCocoon extends EntityZergPassive {
 
-	/** This is the entity that this guy will hatch into. It's saved in a byte id because we only need about 15 */
+	/**
+	 * This is the entity that this guy will hatch into. It's saved in a byte id
+	 * because we only need about 15
+	 */
 	private int transformId;
 
 	public EntityLarvaCocoon(World world) {
@@ -315,7 +318,7 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 	public int getTransformId() {
 		return transformId;
 	}
-	
+
 	public int getTransformTime() {
 		return secondsToTicks(85);
 	}

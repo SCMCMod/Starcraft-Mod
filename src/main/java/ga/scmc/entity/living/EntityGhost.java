@@ -35,8 +35,7 @@ import net.minecraft.world.World;
  */
 public class EntityGhost extends EntityTerranMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
 
-	private static final DataParameter<Float> ENERGY = EntityDataManager.createKey(EntityQueen.class,
-			DataSerializers.FLOAT);
+	private static final DataParameter<Float> ENERGY = EntityDataManager.createKey(EntityQueen.class, DataSerializers.FLOAT);
 
 	public EntityGhost(World world) {
 		super(world);
@@ -51,8 +50,7 @@ public class EntityGhost extends EntityTerranMob implements IMob, IRangedAttackM
 		tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
 		tasks.addTask(5, new EntityAILookIdle(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
-		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0,
-				false, false, this));
+		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, false, false, this));
 	}
 
 	@Override
@@ -110,14 +108,14 @@ public class EntityGhost extends EntityTerranMob implements IMob, IRangedAttackM
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityPlayer) {
+			} else if (entity instanceof EntityPlayer) {
 				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
-				if(color.getColor() == this.getTeamColor().getId()) {
+				if (color.getColor() == this.getTeamColor().getId()) {
 					return false;
-				}else {
+				} else {
 					return true;
 				}
-			}else {
+			} else {
 				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
 					return false;
 				}
@@ -139,8 +137,7 @@ public class EntityGhost extends EntityTerranMob implements IMob, IRangedAttackM
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float p_82196_2_) {
 		EntityC14GaussRifleBullet bullet = new EntityC14GaussRifleBullet(this.world, this);
-		double d0 = target.posY + (double) target.getEyeHeight() - 1.800000023841858D
-				- target.getDistanceSq(target.getPosition());
+		double d0 = target.posY + (double) target.getEyeHeight() - 1.800000023841858D - target.getDistanceSq(target.getPosition());
 		double d1 = target.posX - this.posX;
 		double d2 = d0 - bullet.posY;
 		double d3 = target.posZ - this.posZ;

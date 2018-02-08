@@ -4,7 +4,8 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.EnumHandSide;
 
 /**
- * This class makes the programmers' (Ocelot5836) life easier by translating to the default minecraft model translations.
+ * This class makes the programmers' (Ocelot5836) life easier by translating to
+ * the default minecraft model translations.
  * 
  * @author Ocelot5836
  */

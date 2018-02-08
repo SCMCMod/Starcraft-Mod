@@ -1,4 +1,5 @@
 package ga.scmc.worldgen.structure;
+
 import java.util.Random;
 
 import ga.scmc.handlers.BlockHandler;
@@ -14,7 +15,10 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-/** @author SoggyMustache's Structure Converter (http://soggymustache.net/tools.html) */
+/**
+ * @author SoggyMustache's Structure Converter
+ *         (http://soggymustache.net/tools.html)
+ */
 public class StructureTerranBarracksTemplate extends SCWorldGenerator {
 
 	@Override
@@ -22,9 +26,10 @@ public class StructureTerranBarracksTemplate extends SCWorldGenerator {
 		generate(world, pos, flag);
 		return true;
 	}
+
 	public boolean generate(World worldIn, BlockPos bp, boolean flag) {
-		if(flag) {
-			if(!LocationIsValidSpawn(worldIn, bp) || !LocationIsValidSpawn(worldIn, bp.add(19, 0, 0)) || !LocationIsValidSpawn(worldIn, bp.add(19, 0, 24)) || !LocationIsValidSpawn(worldIn, bp.add(0, 0, 24))) {
+		if (flag) {
+			if (!LocationIsValidSpawn(worldIn, bp) || !LocationIsValidSpawn(worldIn, bp.add(19, 0, 0)) || !LocationIsValidSpawn(worldIn, bp.add(19, 0, 24)) || !LocationIsValidSpawn(worldIn, bp.add(0, 0, 24))) {
 				return false;
 			}
 		}
@@ -112,19 +117,19 @@ public class StructureTerranBarracksTemplate extends SCWorldGenerator {
 		worldIn.setBlockState(bp.add(i + 3, j + 5, k + 19), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 3, j + 5, k + 20), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 3, j + 5, k + 21), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
-		worldIn.setBlockState(bp.add(i + 3, j + 6, k + 3), (IBlockState)Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
-		worldIn.setBlockState(bp.add(i + 3, j + 6, k + 4), (IBlockState)Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
-		worldIn.setBlockState(bp.add(i + 3, j + 6, k + 5), (IBlockState)Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
-		worldIn.setBlockState(bp.add(i + 3, j + 6, k + 6), (IBlockState)Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
-		worldIn.setBlockState(bp.add(i + 3, j + 6, k + 10), (IBlockState)Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
-		worldIn.setBlockState(bp.add(i + 3, j + 6, k + 11), (IBlockState)Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
-		worldIn.setBlockState(bp.add(i + 3, j + 6, k + 12), (IBlockState)Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
-		worldIn.setBlockState(bp.add(i + 3, j + 6, k + 13), (IBlockState)Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
-		worldIn.setBlockState(bp.add(i + 3, j + 6, k + 14), (IBlockState)Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
-		worldIn.setBlockState(bp.add(i + 3, j + 6, k + 18), (IBlockState)Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
-		worldIn.setBlockState(bp.add(i + 3, j + 6, k + 19), (IBlockState)Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
-		worldIn.setBlockState(bp.add(i + 3, j + 6, k + 20), (IBlockState)Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
-		worldIn.setBlockState(bp.add(i + 3, j + 6, k + 21), (IBlockState)Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
+		worldIn.setBlockState(bp.add(i + 3, j + 6, k + 3), (IBlockState) Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
+		worldIn.setBlockState(bp.add(i + 3, j + 6, k + 4), (IBlockState) Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
+		worldIn.setBlockState(bp.add(i + 3, j + 6, k + 5), (IBlockState) Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
+		worldIn.setBlockState(bp.add(i + 3, j + 6, k + 6), (IBlockState) Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
+		worldIn.setBlockState(bp.add(i + 3, j + 6, k + 10), (IBlockState) Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
+		worldIn.setBlockState(bp.add(i + 3, j + 6, k + 11), (IBlockState) Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
+		worldIn.setBlockState(bp.add(i + 3, j + 6, k + 12), (IBlockState) Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
+		worldIn.setBlockState(bp.add(i + 3, j + 6, k + 13), (IBlockState) Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
+		worldIn.setBlockState(bp.add(i + 3, j + 6, k + 14), (IBlockState) Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
+		worldIn.setBlockState(bp.add(i + 3, j + 6, k + 18), (IBlockState) Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
+		worldIn.setBlockState(bp.add(i + 3, j + 6, k + 19), (IBlockState) Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
+		worldIn.setBlockState(bp.add(i + 3, j + 6, k + 20), (IBlockState) Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
+		worldIn.setBlockState(bp.add(i + 3, j + 6, k + 21), (IBlockState) Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
 		worldIn.setBlockState(bp.add(i + 3, j + 7, k + 3), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(3));
 		worldIn.setBlockState(bp.add(i + 3, j + 7, k + 4), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(3));
 		worldIn.setBlockState(bp.add(i + 3, j + 7, k + 5), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(3));
@@ -231,14 +236,14 @@ public class StructureTerranBarracksTemplate extends SCWorldGenerator {
 		worldIn.setBlockState(bp.add(i + 4, j + 5, k + 19), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 4, j + 5, k + 20), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 4, j + 5, k + 21), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
-		worldIn.setBlockState(bp.add(i + 4, j + 6, k + 3), (IBlockState)Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
+		worldIn.setBlockState(bp.add(i + 4, j + 6, k + 3), (IBlockState) Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
 		worldIn.setBlockState(bp.add(i + 4, j + 6, k + 7), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 4, j + 6, k + 8), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
-		worldIn.setBlockState(bp.add(i + 4, j + 6, k + 9), (IBlockState)Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
-		worldIn.setBlockState(bp.add(i + 4, j + 6, k + 15), (IBlockState)Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
+		worldIn.setBlockState(bp.add(i + 4, j + 6, k + 9), (IBlockState) Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
+		worldIn.setBlockState(bp.add(i + 4, j + 6, k + 15), (IBlockState) Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
 		worldIn.setBlockState(bp.add(i + 4, j + 6, k + 16), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 4, j + 6, k + 17), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
-		worldIn.setBlockState(bp.add(i + 4, j + 6, k + 21), (IBlockState)Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
+		worldIn.setBlockState(bp.add(i + 4, j + 6, k + 21), (IBlockState) Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
 		worldIn.setBlockState(bp.add(i + 4, j + 7, k + 3), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(3));
 		worldIn.setBlockState(bp.add(i + 4, j + 7, k + 4), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 4, j + 7, k + 5), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
@@ -355,10 +360,10 @@ public class StructureTerranBarracksTemplate extends SCWorldGenerator {
 		worldIn.setBlockState(bp.add(i + 5, j + 5, k + 17), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 5, j + 5, k + 20), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 5, j + 5, k + 21), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
-		worldIn.setBlockState(bp.add(i + 5, j + 6, k + 3), (IBlockState)Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
+		worldIn.setBlockState(bp.add(i + 5, j + 6, k + 3), (IBlockState) Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
 		worldIn.setBlockState(bp.add(i + 5, j + 6, k + 7), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 5, j + 6, k + 17), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
-		worldIn.setBlockState(bp.add(i + 5, j + 6, k + 21), (IBlockState)Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
+		worldIn.setBlockState(bp.add(i + 5, j + 6, k + 21), (IBlockState) Blocks.STAINED_GLASS.getDefaultState().withProperty(BlockStainedGlass.COLOR, EnumDyeColor.YELLOW));
 		worldIn.setBlockState(bp.add(i + 5, j + 7, k + 3), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(3));
 		worldIn.setBlockState(bp.add(i + 5, j + 7, k + 4), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 5, j + 7, k + 7), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
@@ -576,9 +581,9 @@ public class StructureTerranBarracksTemplate extends SCWorldGenerator {
 		worldIn.setBlockState(bp.add(i + 7, j + 12, k + 11), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 7, j + 12, k + 12), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 7, j + 12, k + 13), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
-		worldIn.setBlockState(bp.add(i + 8, j + 0, k + 11), (IBlockState)Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
-		worldIn.setBlockState(bp.add(i + 8, j + 0, k + 12), (IBlockState)Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
-		worldIn.setBlockState(bp.add(i + 8, j + 0, k + 13), (IBlockState)Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
+		worldIn.setBlockState(bp.add(i + 8, j + 0, k + 11), (IBlockState) Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
+		worldIn.setBlockState(bp.add(i + 8, j + 0, k + 12), (IBlockState) Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
+		worldIn.setBlockState(bp.add(i + 8, j + 0, k + 13), (IBlockState) Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
 		worldIn.setBlockState(bp.add(i + 8, j + 3, k + 3), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 8, j + 3, k + 4), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 8, j + 3, k + 5), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
@@ -662,9 +667,9 @@ public class StructureTerranBarracksTemplate extends SCWorldGenerator {
 		worldIn.setBlockState(bp.add(i + 8, j + 12, k + 11), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 8, j + 12, k + 12), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 8, j + 12, k + 13), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
-		worldIn.setBlockState(bp.add(i + 9, j + 1, k + 11), (IBlockState)Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
-		worldIn.setBlockState(bp.add(i + 9, j + 1, k + 12), (IBlockState)Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
-		worldIn.setBlockState(bp.add(i + 9, j + 1, k + 13), (IBlockState)Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
+		worldIn.setBlockState(bp.add(i + 9, j + 1, k + 11), (IBlockState) Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
+		worldIn.setBlockState(bp.add(i + 9, j + 1, k + 12), (IBlockState) Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
+		worldIn.setBlockState(bp.add(i + 9, j + 1, k + 13), (IBlockState) Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
 		worldIn.setBlockState(bp.add(i + 9, j + 3, k + 3), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 9, j + 3, k + 4), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 9, j + 3, k + 5), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
@@ -752,9 +757,9 @@ public class StructureTerranBarracksTemplate extends SCWorldGenerator {
 		worldIn.setBlockState(bp.add(i + 9, j + 12, k + 11), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 9, j + 12, k + 12), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 9, j + 12, k + 13), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
-		worldIn.setBlockState(bp.add(i + 10, j + 2, k + 11), (IBlockState)Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
-		worldIn.setBlockState(bp.add(i + 10, j + 2, k + 12), (IBlockState)Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
-		worldIn.setBlockState(bp.add(i + 10, j + 2, k + 13), (IBlockState)Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
+		worldIn.setBlockState(bp.add(i + 10, j + 2, k + 11), (IBlockState) Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
+		worldIn.setBlockState(bp.add(i + 10, j + 2, k + 12), (IBlockState) Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
+		worldIn.setBlockState(bp.add(i + 10, j + 2, k + 13), (IBlockState) Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
 		worldIn.setBlockState(bp.add(i + 10, j + 3, k + 3), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 10, j + 3, k + 4), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 10, j + 3, k + 5), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
@@ -841,9 +846,9 @@ public class StructureTerranBarracksTemplate extends SCWorldGenerator {
 		worldIn.setBlockState(bp.add(i + 11, j + 3, k + 8), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 11, j + 3, k + 9), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 11, j + 3, k + 10), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
-		worldIn.setBlockState(bp.add(i + 11, j + 3, k + 11), (IBlockState)Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
-		worldIn.setBlockState(bp.add(i + 11, j + 3, k + 12), (IBlockState)Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
-		worldIn.setBlockState(bp.add(i + 11, j + 3, k + 13), (IBlockState)Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
+		worldIn.setBlockState(bp.add(i + 11, j + 3, k + 11), (IBlockState) Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
+		worldIn.setBlockState(bp.add(i + 11, j + 3, k + 12), (IBlockState) Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
+		worldIn.setBlockState(bp.add(i + 11, j + 3, k + 13), (IBlockState) Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
 		worldIn.setBlockState(bp.add(i + 11, j + 3, k + 14), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 11, j + 3, k + 15), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 11, j + 3, k + 16), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
@@ -945,9 +950,9 @@ public class StructureTerranBarracksTemplate extends SCWorldGenerator {
 		worldIn.setBlockState(bp.add(i + 12, j + 4, k + 8), MetaBlockHandler.NEOSTEEL_METAL.getStateFromMeta(1));
 		worldIn.setBlockState(bp.add(i + 12, j + 4, k + 9), MetaBlockHandler.NEOSTEEL_METAL.getStateFromMeta(1));
 		worldIn.setBlockState(bp.add(i + 12, j + 4, k + 10), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
-		worldIn.setBlockState(bp.add(i + 12, j + 4, k + 11), (IBlockState)Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
-		worldIn.setBlockState(bp.add(i + 12, j + 4, k + 12), (IBlockState)Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
-		worldIn.setBlockState(bp.add(i + 12, j + 4, k + 13), (IBlockState)Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
+		worldIn.setBlockState(bp.add(i + 12, j + 4, k + 11), (IBlockState) Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
+		worldIn.setBlockState(bp.add(i + 12, j + 4, k + 12), (IBlockState) Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
+		worldIn.setBlockState(bp.add(i + 12, j + 4, k + 13), (IBlockState) Blocks.STONE_BRICK_STAIRS.getDefaultState().withProperty(BlockStairs.FACING, EnumFacing.EAST));
 		worldIn.setBlockState(bp.add(i + 12, j + 4, k + 14), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 12, j + 4, k + 15), MetaBlockHandler.NEOSTEEL_METAL.getStateFromMeta(1));
 		worldIn.setBlockState(bp.add(i + 12, j + 4, k + 16), MetaBlockHandler.NEOSTEEL_METAL.getStateFromMeta(1));
@@ -1562,11 +1567,11 @@ public class StructureTerranBarracksTemplate extends SCWorldGenerator {
 		worldIn.setBlockState(bp.add(i + 19, j + 0, k + 22), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		return true;
 	}
-	
+
 	protected Block[] GetValidSpawnBlocks() {
 		return new Block[] { Blocks.GRASS, Blocks.STONE, Blocks.DIRT, Blocks.SAND, BlockHandler.CITY_STONE_KORHAL };
 	}
-	
+
 	public boolean LocationIsValidSpawn(World world, BlockPos pos) {
 		Block checkBlock = world.getBlockState(pos).getBlock();
 		Material m = checkBlock.getBlockState().getBaseState().getMaterial();

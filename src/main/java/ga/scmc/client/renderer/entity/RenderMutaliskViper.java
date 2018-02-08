@@ -37,6 +37,8 @@ public class RenderMutaliskViper<T> extends RenderLiving<EntityMutaliskViper> {
 
 	@Override
 	protected void preRenderCallback(EntityMutaliskViper entitylivingbaseIn, float partialTickTime) {
-		//GlStateManager.scale(1.0F + (entitylivingbaseIn.getBiomass() / 60), 1.0F + (entitylivingbaseIn.getBiomass() / 60), 1.0F + (entitylivingbaseIn.getBiomass() / 60));
+		// GlStateManager.scale(1.0F + (entitylivingbaseIn.getBiomass() / 60), 1.0F +
+		// (entitylivingbaseIn.getBiomass() / 60), 1.0F +
+		// (entitylivingbaseIn.getBiomass() / 60));
 	}
 }

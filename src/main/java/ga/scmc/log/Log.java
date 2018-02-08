@@ -16,7 +16,8 @@ import net.minecraft.client.resources.IResourceManagerReloadListener;
 import net.minecraft.util.ResourceLocation;
 
 /**
- * Contains the basic information for each log in the game. Used in the new registry system.
+ * Contains the basic information for each log in the game. Used in the new
+ * registry system.
  * 
  * @author Ocelot5836
  */

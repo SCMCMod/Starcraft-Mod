@@ -60,7 +60,7 @@ public class StarcraftUtils {
 	}
 
 	public static boolean shouldGasDissipate(World world, int maxHeight, int currentHeight) {
-		int lowestHeight = world.getSeaLevel()+20;
+		int lowestHeight = world.getSeaLevel() + 20;
 		float chance = (float) currentHeight / ((float) maxHeight + (float) lowestHeight);
 
 		System.out.println(chance);

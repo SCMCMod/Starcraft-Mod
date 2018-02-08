@@ -37,8 +37,7 @@ public class Blocks {
 		return data;
 	}
 
-	public static ArrayList<BlockPos> getCoordDataInRangeIncluding(int posX, int posY, int posZ, int range, World world,
-			Block... types) {
+	public static ArrayList<BlockPos> getCoordDataInRangeIncluding(int posX, int posY, int posZ, int range, World world, Block... types) {
 		ArrayList<BlockPos> data = new ArrayList<BlockPos>();
 
 		for (int x = posX - range; x < posX + range * 2; x++) {
@@ -57,8 +56,7 @@ public class Blocks {
 		return data;
 	}
 
-	public static ArrayList<BlockPos> getBlocksInRangeIncluding(int posX, int posY, int posZ, int range, World world,
-			Block... types) {
+	public static ArrayList<BlockPos> getBlocksInRangeIncluding(int posX, int posY, int posZ, int range, World world, Block... types) {
 		ArrayList<BlockPos> data = new ArrayList<BlockPos>();
 
 		for (int x = posX - range; x < posX + range * 2; x++) {
@@ -76,8 +74,7 @@ public class Blocks {
 		return data;
 	}
 
-	public static ArrayList<BlockPos> getCoordDataInRangeExcluding(int posX, int posY, int posZ, int range, World world,
-			Block... types) {
+	public static ArrayList<BlockPos> getCoordDataInRangeExcluding(int posX, int posY, int posZ, int range, World world, Block... types) {
 		ArrayList<BlockPos> data = new ArrayList<BlockPos>();
 
 		for (int x = posX - range; x < posX + range * 2; x++) {
@@ -112,13 +109,11 @@ public class Blocks {
 		}
 	}
 
-	/* TODO: Fix these
-	public static float getBlockResistance(Block blockParent) {
-		return MDX.access().getBlockResistance(blockParent);
-	}
-
-	public static float getBlockHardness(Block blockParent) {
-		return MDX.access().getBlockResistance(blockParent);
-	}
-	*/
+	/*
+	 * TODO: Fix these public static float getBlockResistance(Block blockParent) {
+	 * return MDX.access().getBlockResistance(blockParent); }
+	 * 
+	 * public static float getBlockHardness(Block blockParent) { return
+	 * MDX.access().getBlockResistance(blockParent); }
+	 */
 }

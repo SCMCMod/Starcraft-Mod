@@ -61,7 +61,8 @@ public class InventoryUtils {
 	 * @param player
 	 *            The player to check
 	 * @param stack
-	 *            The item stack to be searched for. Can be used for meta searching as well as item searching
+	 *            The item stack to be searched for. Can be used for meta searching
+	 *            as well as item searching
 	 * @return The amount of items found
 	 */
 	public static int getStackAmount(EntityPlayer player, ItemStack stack) {

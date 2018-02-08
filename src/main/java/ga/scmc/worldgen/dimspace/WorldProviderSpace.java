@@ -75,8 +75,7 @@ public class WorldProviderSpace extends WorldProvider implements IClimateProvide
 
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkProviderSpace(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(),
-				world.getWorldInfo().getGeneratorOptions());
+		return new ChunkProviderSpace(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
 	}
 
 	/**

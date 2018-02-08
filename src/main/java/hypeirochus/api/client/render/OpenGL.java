@@ -287,8 +287,7 @@ public class OpenGL {
 		OpenGL.enableBlend();
 		OpenGL.blendFunc(GL_ONE, GL_ONE);
 		OpenGL.depthMask(true);
-		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float) light % 65536 / 1.0F,
-				(float) light / 65536 / 1.0F);
+		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float) light % 65536 / 1.0F, (float) light / 65536 / 1.0F);
 		OpenGL.color(1.0F, 1.0F, 1.0F, 1.0F);
 	}
 
@@ -300,8 +299,7 @@ public class OpenGL {
 		char light = 61680;
 		OpenGL.disableBlend();
 		OpenGL.depthMask(true);
-		OpenGL.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float) light % 65536 / 1.0F,
-				(float) light / 65536 / 1.0F);
+		OpenGL.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float) light % 65536 / 1.0F, (float) light / 65536 / 1.0F);
 		OpenGL.color(1.0F, 1.0F, 1.0F, 1.0F);
 	}
 
@@ -360,13 +358,11 @@ public class OpenGL {
 		GL11.glCopyTexSubImage1D(target, level, xoffset, yoffset, x, y);
 	}
 
-	public static void copyTexSubImage(int target, int level, int xoffset, int yoffset, int x, int y, int width,
-			int height) {
+	public static void copyTexSubImage(int target, int level, int xoffset, int yoffset, int x, int y, int width, int height) {
 		GL11.glCopyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height);
 	}
 
-	public static void copyDownsizedRender(TextureManager manager, ResourceLocation target, int x, int y, int w, int h,
-			int index) {
+	public static void copyDownsizedRender(TextureManager manager, ResourceLocation target, int x, int y, int w, int h, int index) {
 		ITextureObject textureObject = manager.getTexture(target);
 
 		if (textureObject != null) {

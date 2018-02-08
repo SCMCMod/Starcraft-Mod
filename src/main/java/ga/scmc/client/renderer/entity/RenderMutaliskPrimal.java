@@ -37,6 +37,8 @@ public class RenderMutaliskPrimal<T> extends RenderLiving<EntityMutaliskPrimal> 
 
 	@Override
 	protected void preRenderCallback(EntityMutaliskPrimal entitylivingbaseIn, float partialTickTime) {
-		//GlStateManager.scale(1.0F + (entitylivingbaseIn.getBiomass() / 60), 1.0F + (entitylivingbaseIn.getBiomass() / 60), 1.0F + (entitylivingbaseIn.getBiomass() / 60));
+		// GlStateManager.scale(1.0F + (entitylivingbaseIn.getBiomass() / 60), 1.0F +
+		// (entitylivingbaseIn.getBiomass() / 60), 1.0F +
+		// (entitylivingbaseIn.getBiomass() / 60));
 	}
 }

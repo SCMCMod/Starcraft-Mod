@@ -7,7 +7,7 @@ import net.minecraft.world.gen.layer.IntCache;
 
 public class GenLayerSpaceBiomes extends GenLayer {
 
-	public Biome[] dimBiomes = { BiomeHandler.biomeSpace};
+	public Biome[] dimBiomes = { BiomeHandler.biomeSpace };
 
 	public GenLayerSpaceBiomes(long par1) {
 		super(par1);
@@ -16,13 +16,12 @@ public class GenLayerSpaceBiomes extends GenLayer {
 	@Override
 	public int[] getInts(int x, int z, int width, int depth) {
 		int[] dest = IntCache.getIntCache(width * depth);
-		for(int dz = 0; dz < depth; dz++) {
-			for(int dx = 0; dx < width; dx++) {
+		for (int dz = 0; dz < depth; dz++) {
+			for (int dx = 0; dx < width; dx++) {
 				initChunkSeed(dx + x, dz + z);
 				// dest[(dx + dz * width)] =
 				// dimBiomes[nextInt(dimBiomes.length)].getIdForBiome(dimBiomes[dz]);
-				dest[(dx + dz * width)] = Biome
-						.getIdForBiome(/* dimBiomes[dz] */dimBiomes[nextInt(dimBiomes.length)]);
+				dest[(dx + dz * width)] = Biome.getIdForBiome(/* dimBiomes[dz] */dimBiomes[nextInt(dimBiomes.length)]);
 			}
 		}
 

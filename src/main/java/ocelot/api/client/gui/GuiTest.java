@@ -33,28 +33,28 @@ public class GuiTest extends GuiBase {
 		item.setMouseListener(new MouseListener() {
 			@Override
 			public void mousePressed(int mouseButton, int mouseX, int mouseY) {
-				
+
 			}
-			
+
 			@Override
 			public void mouseReleased(int mouseButton, int mouseX, int mouseY) {
-				
+
 			}
 		});
-		
+
 		button = new ComponentButton(xSize / 2 - 40, ySize - 25, 80, 20, "Test");
 		button.setMouseListener(new MouseListener() {
 			@Override
 			public void mouseReleased(int mouseButton, int mouseX, int mouseY) {
-				
+
 			}
-			
+
 			@Override
 			public void mousePressed(int mouseButton, int mouseX, int mouseY) {
 				Minecraft.getMinecraft().player.closeScreen();
 			}
 		});
-		
+
 		addComponent(item);
 		addComponent(button);
 	}

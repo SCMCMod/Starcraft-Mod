@@ -13,7 +13,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ArmorZergArmorT1 extends ItemArmor {
 
 	ModelArmorBase armorModel = null;
-	
+
 	public ArmorZergArmorT1(ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
 		super(materialIn, renderIndexIn, equipmentSlotIn);
 	}

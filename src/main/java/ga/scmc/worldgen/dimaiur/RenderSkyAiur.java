@@ -129,7 +129,7 @@ public class RenderSkyAiur extends IRenderHandler {
 				Draw.tessellate();
 			}
 			OpenGL.popMatrix();
-			
+
 			OpenGL.blendClear();
 			GlStateManager.disableBlend();
 			GlStateManager.enableAlpha();

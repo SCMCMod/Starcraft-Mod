@@ -13,7 +13,8 @@ import net.minecraft.util.IStringSerializable;
 public class EnumMetaItem {
 
 	public enum BulletMagazineType implements IStringSerializable {
-		C14("c14", 0, 32), FLAMETHROWER("flamethrower", 1, 100);
+		C14("c14", 0, 32),
+		FLAMETHROWER("flamethrower", 1, 100);
 
 		private int bulletCount;
 		private int ID;
@@ -45,7 +46,9 @@ public class EnumMetaItem {
 	}
 
 	public static enum C14PartType implements IStringSerializable {
-		BARREL("barrel", 0), BODY("body", 1), GRIP("grip", 2);
+		BARREL("barrel", 0),
+		BODY("body", 1),
+		GRIP("grip", 2);
 
 		private int ID;
 		private String name;
@@ -71,7 +74,10 @@ public class EnumMetaItem {
 	}
 
 	public static enum FlamethrowerPartType implements IStringSerializable {
-		NOZZLE("nozzle", 0), BASE("base", 1), HANDLE("handle", 2), CHAMBERS("chambers", 3);
+		NOZZLE("nozzle", 0),
+		BASE("base", 1),
+		HANDLE("handle", 2),
+		CHAMBERS("chambers", 3);
 
 		private int ID;
 		private String name;
@@ -97,7 +103,9 @@ public class EnumMetaItem {
 	}
 
 	public static enum CarapaceType implements IStringSerializable {
-		T1("1", 0), T2("2", 1), T3("3", 2);
+		T1("1", 0),
+		T2("2", 1),
+		T3("3", 2);
 
 		private int ID;
 		private String name;
@@ -123,7 +131,9 @@ public class EnumMetaItem {
 	}
 
 	public static enum CrystalType implements IStringSerializable {
-		KHAYDARIN("khaydarin", 0), BLOODSHARD("bloodshard", 1), URAJ("uraj", 2);
+		KHAYDARIN("khaydarin", 0),
+		BLOODSHARD("bloodshard", 1),
+		URAJ("uraj", 2);
 
 		private int ID;
 		private String name;
@@ -149,7 +159,9 @@ public class EnumMetaItem {
 	}
 
 	public static enum DustType implements IStringSerializable {
-		STEEL("steel", 0), IRON("iron", 1), CARBON("carbon", 2);
+		STEEL("steel", 0),
+		IRON("iron", 1),
+		CARBON("carbon", 2);
 
 		private int ID;
 		private String name;
@@ -175,7 +187,22 @@ public class EnumMetaItem {
 	}
 
 	public static enum PledgeType implements IStringSerializable {
-		WHITE("white", 0), ORANGE("orange", 1), MAGENTA("magenta", 2), LIGHTBLUE("lightblue", 3), YELLOW("yellow", 4), LIME("lime", 5), PINK("pink", 6), GRAY("gray", 7), SILVER("silver", 8), CYAN("cyan", 9), PURPLE("purple", 10), BLUE("blue", 11), BROWN("brown", 12), GREEN("green", 13), RED("red", 14), BLACK("black", 15);
+		WHITE("white", 0),
+		ORANGE("orange", 1),
+		MAGENTA("magenta", 2),
+		LIGHTBLUE("lightblue", 3),
+		YELLOW("yellow", 4),
+		LIME("lime", 5),
+		PINK("pink", 6),
+		GRAY("gray", 7),
+		SILVER("silver", 8),
+		CYAN("cyan", 9),
+		PURPLE("purple", 10),
+		BLUE("blue", 11),
+		BROWN("brown", 12),
+		GREEN("green", 13),
+		RED("red", 14),
+		BLACK("black", 15);
 
 		private int ID;
 		private String name;
@@ -201,7 +228,9 @@ public class EnumMetaItem {
 	}
 
 	public static enum EnergyType implements IStringSerializable {
-		PURE("pure", 0), CORRUPTED("corrupted", 1), VOID("void", 2);
+		PURE("pure", 0),
+		CORRUPTED("corrupted", 1),
+		VOID("void", 2);
 
 		private int ID;
 		private String name;
@@ -227,7 +256,9 @@ public class EnumMetaItem {
 	}
 
 	public static enum EssenceType implements IStringSerializable {
-		PROTOSS("protoss", 0), TERRAN("terran", 1), ZERG("zerg", 2);
+		PROTOSS("protoss", 0),
+		TERRAN("terran", 1),
+		ZERG("zerg", 2);
 
 		private int ID;
 		private String name;
@@ -253,7 +284,8 @@ public class EnumMetaItem {
 	}
 
 	public static enum FocuserType implements IStringSerializable {
-		AIUR("aiur", 0), DARK("dark", 1);
+		AIUR("aiur", 0),
+		DARK("dark", 1);
 
 		private int ID;
 		private String name;
@@ -279,9 +311,9 @@ public class EnumMetaItem {
 	}
 
 	public static enum IngotType implements IStringSerializable {
-		COPPER("copper", 0), 
-		TITANIUM("titanium", 1), 
-		STEEL("steel", 2), 
+		COPPER("copper", 0),
+		TITANIUM("titanium", 1),
+		STEEL("steel", 2),
 		NEOSTEEL("neosteel", 3);
 
 		private int ID;
@@ -308,7 +340,8 @@ public class EnumMetaItem {
 	}
 
 	public static enum MineralType implements IStringSerializable {
-		BLUE("blue", 0), RICH("rich", 1);
+		BLUE("blue", 0),
+		RICH("rich", 1);
 
 		private int ID;
 		private String name;
@@ -334,7 +367,21 @@ public class EnumMetaItem {
 	}
 
 	public static enum MutaliskWingType implements IStringSerializable {
-		PURPLE("purple", 0), BROWN("brown", 1), PINK("pink", 2), BLUE("blue", 3), CYAN("cyan", 4), GRAY("gray", 5), GREEN("green", 6), LIGHT_BLUE("lightblue", 7), LIME("lime", 8), MAGENTA("magenta", 9), ORANGE("orange", 10), RED("red", 11), SILVER("silver", 12), WHITE("white", 13), YELLOW("yellow", 14);
+		PURPLE("purple", 0),
+		BROWN("brown", 1),
+		PINK("pink", 2),
+		BLUE("blue", 3),
+		CYAN("cyan", 4),
+		GRAY("gray", 5),
+		GREEN("green", 6),
+		LIGHT_BLUE("lightblue", 7),
+		LIME("lime", 8),
+		MAGENTA("magenta", 9),
+		ORANGE("orange", 10),
+		RED("red", 11),
+		SILVER("silver", 12),
+		WHITE("white", 13),
+		YELLOW("yellow", 14);
 
 		private int ID;
 		private String name;
@@ -360,7 +407,14 @@ public class EnumMetaItem {
 	}
 
 	public static enum ProtossArmorPiecesType implements IStringSerializable {
-		KHAYDARIN_NODES("knodes", 0), WRIST_MOUNTS("wmounts", 1), ARCH("arch", 2), GUARD("guard", 3), DARK_KHAYDARIN_NODES("dark_knodes", 4), DARK_WRIST_MOUNTS("dark_wmounts", 5), DARK_ARCH("dark_arch", 6), DARK_GUARD("dark_guard", 7);
+		KHAYDARIN_NODES("knodes", 0),
+		WRIST_MOUNTS("wmounts", 1),
+		ARCH("arch", 2),
+		GUARD("guard", 3),
+		DARK_KHAYDARIN_NODES("dark_knodes", 4),
+		DARK_WRIST_MOUNTS("dark_wmounts", 5),
+		DARK_ARCH("dark_arch", 6),
+		DARK_GUARD("dark_guard", 7);
 
 		private int ID;
 		private String name;
@@ -386,7 +440,8 @@ public class EnumMetaItem {
 	}
 
 	public static enum ProtossIngotType implements IStringSerializable {
-		KHALAI("khalai", 0), DARK("dark", 1);
+		KHALAI("khalai", 0),
+		DARK("dark", 1);
 
 		private int ID;
 		private String name;
@@ -412,7 +467,10 @@ public class EnumMetaItem {
 	}
 
 	public static enum VespeneType implements IStringSerializable {
-		RAW("raw", 0), PROTOSS("protoss", 1), TERRAN("terran", 2), ZERG("zerg", 3);
+		RAW("raw", 0),
+		PROTOSS("protoss", 1),
+		TERRAN("terran", 2),
+		ZERG("zerg", 3);
 
 		private int ID;
 		private String name;
@@ -438,7 +496,10 @@ public class EnumMetaItem {
 	}
 
 	public static enum TerrazineType implements IStringSerializable {
-		RAW("raw", 0), PROTOSS("protoss", 1), TERRAN("terran", 2), ZERG("zerg", 3);
+		RAW("raw", 0),
+		PROTOSS("protoss", 1),
+		TERRAN("terran", 2),
+		ZERG("zerg", 3);
 
 		private int ID;
 		private String name;
@@ -464,7 +525,9 @@ public class EnumMetaItem {
 	}
 
 	public static enum ContainerType implements IStringSerializable {
-		PROTOSS("protoss", 0), TERRAN("terran", 1), ZERG("zerg", 2);
+		PROTOSS("protoss", 0),
+		TERRAN("terran", 1),
+		ZERG("zerg", 2);
 
 		private int ID;
 		private String name;
@@ -488,9 +551,10 @@ public class EnumMetaItem {
 			return getName();
 		}
 	}
-	
+
 	public static enum ProtossUpgradeType implements IStringSerializable {
-		SPEED("speed", 0), EFFICIENCY("efficiency", 1);
+		SPEED("speed", 0),
+		EFFICIENCY("efficiency", 1);
 
 		private int ID;
 		private String name;

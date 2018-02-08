@@ -14,6 +14,7 @@ import net.minecraft.item.Item;
 /**
  * Dark Protoss Energy Channel block.<br>
  * Copyright 2017 the Starcraft Minecraft (SCMC) mod team
+ * 
  * @author Hypeirochus
  */
 public class BlockProtossEnergyChannelDark extends Block {
@@ -33,7 +34,9 @@ public class BlockProtossEnergyChannelDark extends Block {
 
 	/**
 	 * Gets the state of the block being dropped
-	 * @param state the state of the block
+	 * 
+	 * @param state
+	 *            the state of the block
 	 */
 	@Override
 	public int damageDropped(IBlockState state) {
@@ -42,9 +45,13 @@ public class BlockProtossEnergyChannelDark extends Block {
 
 	/**
 	 * Returns the item dropped by this block
-	 * @param state the state of the block
-	 * @param rand an object of the Random class
-	 * @param fortune the magnitude of the fortune enchantment effect
+	 * 
+	 * @param state
+	 *            the state of the block
+	 * @param rand
+	 *            an object of the Random class
+	 * @param fortune
+	 *            the magnitude of the fortune enchantment effect
 	 */
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {

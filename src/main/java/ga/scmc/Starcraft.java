@@ -111,7 +111,7 @@ public class Starcraft {
 
 		MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
 		MinecraftForge.EVENT_BUS.register(new OnPlayerLoggedInEvent());
-		
+
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 			logRegistry = new LogRegistry();
 			MinecraftForge.EVENT_BUS.register(new GuiRenderEventHandler());

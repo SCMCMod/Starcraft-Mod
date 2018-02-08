@@ -667,13 +667,13 @@ public class ModelProtossReaver extends Model {
 		setRotationAngles(f, f1, f2, f3, f4, f4, entity);
 		chassis00a.render(f5);
 	}
-	
+
 	@Override
-   	public void render(Object obj) {
-       	EntityLivingBase base = (EntityLivingBase) obj;
-       	this.chassis2a.offsetZ = MathHelper.cos(swingProgress(obj) * 0.65F) * 0.117F * swingProgressPrev(obj);
+	public void render(Object obj) {
+		EntityLivingBase base = (EntityLivingBase) obj;
+		this.chassis2a.offsetZ = MathHelper.cos(swingProgress(obj) * 0.65F) * 0.117F * swingProgressPrev(obj);
 		this.chassis3a.offsetZ = MathHelper.sin(swingProgress(obj) * 0.65F) * 0.117F * swingProgressPrev(obj);
 		this.chassis4a.offsetZ = MathHelper.cos(swingProgress(obj) * 0.65F) * 0.117F * swingProgressPrev(obj);
 		this.chassis5a.offsetZ = MathHelper.sin(swingProgress(obj) * 0.65F) * 0.117F * swingProgressPrev(obj);
-   	}
+	}
 }

@@ -38,13 +38,13 @@ public class BlockShakurasOre extends StarcraftBlock {
 		setCreativeTab(StarcraftCreativeTabs.MISC);
 		setSoundType(SoundType.STONE);
 	}
-	
+
 	/**
 	 * Get the Item that this Block should drop when harvested.
 	 */
 	@Nullable
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		return this == BlockHandler.ORE_COAL_SHAKURAS ? Items.COAL : (this == BlockHandler.ORE_DIAMOND_SHAKURAS ? Items.DIAMOND : this== BlockHandler.ORE_PHOSPHORUS_SHAKURAS ? ItemHandler.PHOSPHORUS : (this == BlockHandler.ORE_LAPIS_SHAKURAS ? Items.DYE : (this == BlockHandler.ORE_RICHMINERAL_SHAKURAS || this == BlockHandler.ORE_MINERAL_SHAKURAS ? ItemHandler.MINERAL_SHARD : Item.getItemFromBlock(this))));
+		return this == BlockHandler.ORE_COAL_SHAKURAS ? Items.COAL : (this == BlockHandler.ORE_DIAMOND_SHAKURAS ? Items.DIAMOND : this == BlockHandler.ORE_PHOSPHORUS_SHAKURAS ? ItemHandler.PHOSPHORUS : (this == BlockHandler.ORE_LAPIS_SHAKURAS ? Items.DYE : (this == BlockHandler.ORE_RICHMINERAL_SHAKURAS || this == BlockHandler.ORE_MINERAL_SHAKURAS ? ItemHandler.MINERAL_SHARD : Item.getItemFromBlock(this))));
 	}
 
 	/**
@@ -110,7 +110,9 @@ public class BlockShakurasOre extends StarcraftBlock {
 	}
 
 	/**
-	 * Gets the metadata of the item this Block can drop. This method is called when the block gets destroyed. It returns the metadata of the dropped item based on the old metadata of the block.
+	 * Gets the metadata of the item this Block can drop. This method is called when
+	 * the block gets destroyed. It returns the metadata of the dropped item based
+	 * on the old metadata of the block.
 	 */
 	public int damageDropped(IBlockState state) {
 		if (this == BlockHandler.ORE_LAPIS_SHAKURAS) {

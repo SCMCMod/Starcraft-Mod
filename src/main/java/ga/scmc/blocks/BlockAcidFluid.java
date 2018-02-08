@@ -24,7 +24,7 @@ public class BlockAcidFluid extends BlockFluidClassic {
 		setRegistryName("fluid.acid");
 		setCreativeTab(null);
 	}
-	
+
 	@Override
 	public MapColor getMapColor(IBlockState state) {
 		return MapColor.GREEN;

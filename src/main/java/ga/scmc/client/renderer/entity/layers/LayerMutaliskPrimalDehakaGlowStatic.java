@@ -9,24 +9,20 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class LayerMutaliskPrimalDehakaGlowStatic<T extends EntityMutaliskPrimalDehaka> implements LayerRenderer<T>
-{
-    private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.MUTALISKPRIMALDEHAKA_GLOW_STATIC);
-    private final RenderMutaliskPrimalDehaka<T> RENDERER;
+public class LayerMutaliskPrimalDehakaGlowStatic<T extends EntityMutaliskPrimalDehaka> implements LayerRenderer<T> {
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.MUTALISKPRIMALDEHAKA_GLOW_STATIC);
+	private final RenderMutaliskPrimalDehaka<T> RENDERER;
 
-    public LayerMutaliskPrimalDehakaGlowStatic(RenderMutaliskPrimalDehaka<T> renderer)
-    {
-        this.RENDERER = renderer;
-    }
+	public LayerMutaliskPrimalDehakaGlowStatic(RenderMutaliskPrimalDehaka<T> renderer) {
+		this.RENDERER = renderer;
+	}
 
-    public void doRenderLayer(EntityMutaliskPrimalDehaka entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
-    {
-        ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, TEXTURE, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
-    }
+	public void doRenderLayer(EntityMutaliskPrimalDehaka entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, TEXTURE, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
+	}
 
-    @Override
-    public boolean shouldCombineTextures()
-    {
-        return false;
-    }
+	@Override
+	public boolean shouldCombineTextures() {
+		return false;
+	}
 }

@@ -19,10 +19,9 @@ public class ItemProtossVoidPylonSpawner extends Item {
 		setRegistryName("protoss.spawner.pylon.void");
 		setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 	}
-	
+
 	@Override
-	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY,
-			float hitZ) {
+	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		StructureProtossPylonTemplate PROTOSS_PYLON = new StructureProtossPylonTemplate();
 		PROTOSS_PYLON.generate_r0(1, 2, worldIn, 3, pos, false);
 		worldIn.playSound(pos.getX(), pos.getY(), pos.getZ(), SoundHandler.STRUC_PYLON_BIRTH, null, 0.7F, 1F, false);

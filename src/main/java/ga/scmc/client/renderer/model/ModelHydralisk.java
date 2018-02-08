@@ -766,11 +766,11 @@ public class ModelHydralisk extends Model implements IModelSkull {
 		setRotationAngles(f, f1, f2, f3, f4, f4, entity);
 		chest.render(f5);
 	}
-	
+
 	@Override
-   	public void render(Object obj) {
-       	EntityLivingBase base = (EntityLivingBase) obj;
-	    head.rotateAngleX = headPitch(obj) * 0.017453292F + 7.0F;
+	public void render(Object obj) {
+		EntityLivingBase base = (EntityLivingBase) obj;
+		head.rotateAngleX = headPitch(obj) * 0.017453292F + 7.0F;
 		head.rotateAngleY = headYaw(obj) * 0.017453292F;
 		neck.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.5F) * 0.167F * swingProgressPrev(obj);
 		tail02.rotateAngleY = MathHelper.sin(swingProgress(obj) * 0.5F) * 0.337F * swingProgressPrev(obj);
@@ -788,7 +788,7 @@ public class ModelHydralisk extends Model implements IModelSkull {
 		lMandible1.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.1F) * 0.667F * swingProgressPrev(obj);
 		rMandible1.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.1F) * 0.667F * swingProgressPrev(obj);
 		lowerJaw1.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.01F) * 0.667F * swingProgressPrev(obj) + 0.4F;
-   	}
+	}
 
 	@Override
 	public void renderSkull(float scale) {

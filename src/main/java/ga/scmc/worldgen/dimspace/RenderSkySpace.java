@@ -113,7 +113,7 @@ public class RenderSkySpace extends IRenderHandler {
 			OpenGL.blendFunc(GL11.GL_SRC_ALPHA, 1);
 
 			OpenGL.blendClear();
-//			OpenGL.disable(GL11.GL_BLEND);
+			// OpenGL.disable(GL11.GL_BLEND);
 			OpenGL.enable(GL11.GL_FOG);
 			OpenGL.enable(GL11.GL_ALPHA_TEST);
 			OpenGL.enable(GL11.GL_ALPHA_TEST);

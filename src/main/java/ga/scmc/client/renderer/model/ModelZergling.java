@@ -586,12 +586,12 @@ public class ModelZergling extends Model implements IModelSkull {
 		setRotationAngles(f, f1, f2, f3, f4, f4, entity);
 		chest.render(f5);
 	}
-	
+
 	@Override
 	public void render(Object obj) {
 		EntityLivingBase base = (EntityLivingBase) obj;
 		neck.rotateAngleX = headPitch(obj) * 0.017453292F;
-	    neck.rotateAngleY = headYaw(obj) * 0.017453292F;
+		neck.rotateAngleY = headYaw(obj) * 0.017453292F;
 		lArm1.rotateAngleX = MathHelper.sin(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj);
 		lThigh.rotateAngleX = MathHelper.sin(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj) - 0.5F;
 		rArm1.rotateAngleX = MathHelper.cos(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj);

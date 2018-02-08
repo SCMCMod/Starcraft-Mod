@@ -58,7 +58,8 @@ public class BlockStarcraftSkull extends BlockContainer {
 	}
 
 	/**
-	 * Used to determine ambient occlusion and culling when rebuilding chunks for render
+	 * Used to determine ambient occlusion and culling when rebuilding chunks for
+	 * render
 	 */
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
@@ -93,7 +94,8 @@ public class BlockStarcraftSkull extends BlockContainer {
 	}
 
 	/**
-	 * Called by ItemBlocks just before a block is actually set in the world, to allow for adjustments to the IBlockstate
+	 * Called by ItemBlocks just before a block is actually set in the world, to
+	 * allow for adjustments to the IBlockstate
 	 */
 	@Override
 	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
@@ -101,13 +103,14 @@ public class BlockStarcraftSkull extends BlockContainer {
 	}
 
 	/**
-	 * Returns a new instance of a block's tile entity class. Called on placing the block.
+	 * Returns a new instance of a block's tile entity class. Called on placing the
+	 * block.
 	 */
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
 		return new TileEntityStarcraftSkull();
 	}
-	
+
 	@Override
 	public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
 		int i = 0;
@@ -181,7 +184,8 @@ public class BlockStarcraftSkull extends BlockContainer {
 	}
 
 	/**
-	 * Returns the blockstate with the given rotation from the passed blockstate. If inapplicable, returns the passed blockstate.
+	 * Returns the blockstate with the given rotation from the passed blockstate. If
+	 * inapplicable, returns the passed blockstate.
 	 */
 	@Override
 	public IBlockState withRotation(IBlockState state, Rotation rot) {
@@ -189,7 +193,8 @@ public class BlockStarcraftSkull extends BlockContainer {
 	}
 
 	/**
-	 * Returns the blockstate with the given mirror of the passed blockstate. If inapplicable, returns the passed blockstate.
+	 * Returns the blockstate with the given mirror of the passed blockstate. If
+	 * inapplicable, returns the passed blockstate.
 	 */
 	@Override
 	public IBlockState withMirror(IBlockState state, Mirror mirrorIn) {

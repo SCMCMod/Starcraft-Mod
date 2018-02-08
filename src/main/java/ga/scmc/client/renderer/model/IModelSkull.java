@@ -7,7 +7,8 @@ package ga.scmc.client.renderer.model;
 public interface IModelSkull {
 
 	/**
-	 * This method needs to only contain the head render code so the skull block can render correctly.
+	 * This method needs to only contain the head render code so the skull block can
+	 * render correctly.
 	 */
 	void renderSkull(float scale);
 

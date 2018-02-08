@@ -48,8 +48,7 @@ public class EntityZerglingPrimalDehaka extends EntityZergMob implements IMob, P
 		tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
 		tasks.addTask(4, new EntityAILookIdle(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
-		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0,
-				false, false, this));
+		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, false, false, this));
 	}
 
 	@Override
@@ -79,11 +78,11 @@ public class EntityZerglingPrimalDehaka extends EntityZergMob implements IMob, P
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityPlayer) {
+			} else if (entity instanceof EntityPlayer) {
 				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
-				if(color.getColor() == this.getTeamColor().getId()) {
+				if (color.getColor() == this.getTeamColor().getId()) {
 					return false;
-				}else {
+				} else {
 					return true;
 				}
 			} else {
@@ -108,8 +107,7 @@ public class EntityZerglingPrimalDehaka extends EntityZergMob implements IMob, P
 
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
-		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2),
-				EnumMetaItem.CarapaceType.T1.getID()));
+		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), EnumMetaItem.CarapaceType.T1.getID()));
 		drop.tryDrop(this);
 	}
 

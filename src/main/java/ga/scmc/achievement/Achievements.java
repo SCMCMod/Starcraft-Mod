@@ -14,7 +14,8 @@ import net.minecraftforge.common.AchievementPage;
  * <br>
  * </br>
  * 
- * This class holds all the achievements in the mod, registers them, and then creates a new Achievement page based on the amount of achievements.
+ * This class holds all the achievements in the mod, registers them, and then
+ * creates a new Achievement page based on the amount of achievements.
  * 
  * @author Ocelot5836
  * 
@@ -36,7 +37,7 @@ public class Achievements {
 	public static final String GET_PSI_BLADE_DARK = "getPsiBladeDark";
 	public static final String GET_WARP_BLADE = "getWarpBlade";
 	public static final String GET_MASTER_PSI_BLADE = "getMasterPsiBlade";
-	
+
 	public static final String ENTER_CHAR = "enterChar";
 	public static final String ENTER_SHAKURAS = "enterShakuras";
 	public static final String ENTER_SLAYN = "enterSlayn";
@@ -71,7 +72,8 @@ public class Achievements {
 	 * @param achievement
 	 *            The achievement to get the parent achievement from
 	 * @return The achievement found with that name, which can be null if not found
-	 * @deprecated Do not use this. Use {@link #getRegisteredAchievement(String)} instead.
+	 * @deprecated Do not use this. Use {@link #getRegisteredAchievement(String)}
+	 *             instead.
 	 */
 	@Nullable
 	public static Achievement getRegisteredAchievement(EnumAchievements achievement) {
@@ -79,7 +81,8 @@ public class Achievements {
 	}
 
 	/**
-	 * Initializes the achievements and the achievement page. It adds all the currently created achievements to the page.
+	 * Initializes the achievements and the achievement page. It adds all the
+	 * currently created achievements to the page.
 	 */
 	public static void init() {
 		for (int i = 0; i < EnumAchievements.values().length; i++) {

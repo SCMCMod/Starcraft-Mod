@@ -7,39 +7,33 @@ import hypeirochus.api.client.render.world.IStormProvider;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 
-public class CloudProviderShakuras extends CloudProvider
-{
-    private static final Texture CLOUDS = new Texture(Library.MODID, "textures/world/varda-clouds.png");
+public class CloudProviderShakuras extends CloudProvider {
+	private static final Texture CLOUDS = new Texture(Library.MODID, "textures/world/varda-clouds.png");
 
-    private IStormProvider       stormProvider;
+	private IStormProvider stormProvider;
 
-    @Override
-    public float getMaxCloudSpeedDuringStorm()
-    {
-        return 32;
-    }
+	@Override
+	public float getMaxCloudSpeedDuringStorm() {
+		return 32;
+	}
 
-    @Override
-    public float getMaxNormalCloudSpeed()
-    {
-        return 12;
-    }
+	@Override
+	public float getMaxNormalCloudSpeed() {
+		return 12;
+	}
 
-    @Override
-    public Texture getCloudTexture()
-    {
-        return CLOUDS;
-    }
+	@Override
+	public Texture getCloudTexture() {
+		return CLOUDS;
+	}
 
-    @Override
-    public boolean areCloudsApplicableTo(WorldProvider provider)
-    {
-        return provider instanceof WorldProviderShakuras;
-    }
+	@Override
+	public boolean areCloudsApplicableTo(WorldProvider provider) {
+		return provider instanceof WorldProviderShakuras;
+	}
 
-    @Override
-    public double getCloudMovementX(World world, float cloudTicksPrev, float cloudTicks)
-    {
-        return -super.getCloudMovementX(world, cloudTicksPrev, cloudTicks);
-    }
+	@Override
+	public double getCloudMovementX(World world, float cloudTicksPrev, float cloudTicks) {
+		return -super.getCloudMovementX(world, cloudTicksPrev, cloudTicks);
+	}
 }

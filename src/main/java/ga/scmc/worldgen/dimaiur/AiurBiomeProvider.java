@@ -42,24 +42,25 @@ public class AiurBiomeProvider extends BiomeProvider {
 	public Biome[] getBiomes(Biome[] listToReuse, int x, int z, int width, int length, boolean cacheFlag) {
 		IntCache.resetIntCache();
 
-		if(listToReuse == null || listToReuse.length < width * length) {
+		if (listToReuse == null || listToReuse.length < width * length) {
 			listToReuse = new Biome[width * length];
 		}
 
-		if(cacheFlag && width == 16 && length == 16 && (x & 15) == 0 && (z & 15) == 0) {
+		if (cacheFlag && width == 16 && length == 16 && (x & 15) == 0 && (z & 15) == 0) {
 			Biome[] abiome = biomeCache.getCachedBiomes(x, z);
 			System.arraycopy(abiome, 0, listToReuse, 0, width * length);
 			return listToReuse;
 		} else {
 			int[] aint = biomeIndexLayer.getInts(x, z, width, length);
 
-			for(int i = 0; i < width * length; ++i) {
+			for (int i = 0; i < width * length; ++i) {
 				listToReuse[i] = Biome.getBiome(aint[i], BiomeHandler.biomeAiurPlains);
 			}
 
 			return listToReuse;
 		}
 	}
+
 	/**
 	 * Returns an array of biomes for the location input.
 	 */
@@ -67,21 +68,21 @@ public class AiurBiomeProvider extends BiomeProvider {
 	public Biome[] getBiomesForGeneration(Biome[] biomes, int x, int z, int width, int height) {
 		IntCache.resetIntCache();
 
-		if(biomes == null || biomes.length < width * height) {
+		if (biomes == null || biomes.length < width * height) {
 			biomes = new Biome[width * height];
 		}
 
 		int[] aint = genBiomes.getInts(x, z, width, height);
 
 		try {
-			for(int i = 0; i < width * height; ++i) {
+			for (int i = 0; i < width * height; ++i) {
 				biomes[i] = Biome.getBiome(aint[i], BiomeHandler.biomeKaldirIcePlains);
 			}
 
 			// System.out.println("Biomes enabled are: "+biomes.toString());
 
 			return biomes;
-		} catch(Throwable throwable) {
+		} catch (Throwable throwable) {
 			CrashReport crashreport = CrashReport.makeCrashReport(throwable, "Invalid Biome id");
 			CrashReportCategory crashreportcategory = crashreport.makeCategory("RawBiomeBlock");
 			crashreportcategory.addCrashSection("biomes[] size", Integer.valueOf(biomes.length));

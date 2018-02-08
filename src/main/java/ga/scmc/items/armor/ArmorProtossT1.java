@@ -13,7 +13,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ArmorProtossT1 extends ItemArmor {
 
 	ModelArmorBase armorModel = null;
-	
+
 	public ArmorProtossT1(ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
 		super(materialIn, renderIndexIn, equipmentSlotIn);
 	}

@@ -50,7 +50,7 @@ public class EntityBrutaliskCocoon extends EntityZergPassive {
 	public SoundEvent getAmbientSound() {
 		return SoundHandler.ENTITY_ZERGCOCOON_LIVE1;
 	}
-	
+
 	@Override
 	public SoundEvent getDeathSound() {
 		return SoundHandler.ENTITY_ZERGCOCOON_DEATH;
@@ -70,15 +70,15 @@ public class EntityBrutaliskCocoon extends EntityZergPassive {
 	public boolean isPushedByWater() {
 		return false;
 	}
-	
+
 	@Override
 	public void move(double x, double y, double z) {
-		if(noClip) {
+		if (noClip) {
 			setEntityBoundingBox(getEntityBoundingBox().offset(x, y, z));
 			resetPositionToBB();
 		} else {
 			world.theProfiler.startSection("move");
-			if(isInWeb) {
+			if (isInWeb) {
 				isInWeb = false;
 				x *= 0.25D;
 				y *= 0.05000000074505806D;
@@ -96,7 +96,7 @@ public class EntityBrutaliskCocoon extends EntityZergPassive {
 			AxisAlignedBB axisalignedbb = getEntityBoundingBox();
 			int i = 0;
 
-			for(int j = list1.size(); i < j; ++i) {
+			for (int j = list1.size(); i < j; ++i) {
 				y = list1.get(i).calculateYOffset(getEntityBoundingBox(), y);
 			}
 
@@ -104,20 +104,20 @@ public class EntityBrutaliskCocoon extends EntityZergPassive {
 			boolean i_ = onGround || d4 != y && d4 < 0.0D;
 			int j4 = 0;
 
-			for(int k = list1.size(); j4 < k; ++j4) {
+			for (int k = list1.size(); j4 < k; ++j4) {
 				x = list1.get(j4).calculateXOffset(getEntityBoundingBox(), x);
 			}
 
 			setEntityBoundingBox(getEntityBoundingBox().offset(x, 0.0D, 0.0D));
 			j4 = 0;
 
-			for(int k4 = list1.size(); j4 < k4; ++j4) {
+			for (int k4 = list1.size(); j4 < k4; ++j4) {
 				z = list1.get(j4).calculateZOffset(getEntityBoundingBox(), z);
 			}
 
 			setEntityBoundingBox(getEntityBoundingBox().offset(0.0D, 0.0D, z));
 
-			if(stepHeight > 0.0F && i_ && (d3 != x || d5 != z)) {
+			if (stepHeight > 0.0F && i_ && (d3 != x || d5 != z)) {
 				double d11 = x;
 				double d7 = y;
 				double d8 = z;
@@ -130,7 +130,7 @@ public class EntityBrutaliskCocoon extends EntityZergPassive {
 				double d9 = y;
 				int l = 0;
 
-				for(int i1 = list.size(); l < i1; ++l) {
+				for (int i1 = list.size(); l < i1; ++l) {
 					d9 = list.get(l).calculateYOffset(axisalignedbb3, d9);
 				}
 
@@ -138,7 +138,7 @@ public class EntityBrutaliskCocoon extends EntityZergPassive {
 				double d15 = d3;
 				int j1 = 0;
 
-				for(int k1 = list.size(); j1 < k1; ++j1) {
+				for (int k1 = list.size(); j1 < k1; ++j1) {
 					d15 = list.get(j1).calculateXOffset(axisalignedbb2, d15);
 				}
 
@@ -146,7 +146,7 @@ public class EntityBrutaliskCocoon extends EntityZergPassive {
 				double d16 = d5;
 				int l1 = 0;
 
-				for(int i2 = list.size(); l1 < i2; ++l1) {
+				for (int i2 = list.size(); l1 < i2; ++l1) {
 					d16 = list.get(l1).calculateZOffset(axisalignedbb2, d16);
 				}
 
@@ -155,7 +155,7 @@ public class EntityBrutaliskCocoon extends EntityZergPassive {
 				double d17 = y;
 				int j2 = 0;
 
-				for(int k2 = list.size(); j2 < k2; ++j2) {
+				for (int k2 = list.size(); j2 < k2; ++j2) {
 					d17 = list.get(j2).calculateYOffset(axisalignedbb4, d17);
 				}
 
@@ -163,7 +163,7 @@ public class EntityBrutaliskCocoon extends EntityZergPassive {
 				double d18 = d3;
 				int l2 = 0;
 
-				for(int i3 = list.size(); l2 < i3; ++l2) {
+				for (int i3 = list.size(); l2 < i3; ++l2) {
 					d18 = list.get(l2).calculateXOffset(axisalignedbb4, d18);
 				}
 
@@ -171,7 +171,7 @@ public class EntityBrutaliskCocoon extends EntityZergPassive {
 				double d19 = d5;
 				int j3 = 0;
 
-				for(int k3 = list.size(); j3 < k3; ++j3) {
+				for (int k3 = list.size(); j3 < k3; ++j3) {
 					d19 = list.get(j3).calculateZOffset(axisalignedbb4, d19);
 				}
 
@@ -179,7 +179,7 @@ public class EntityBrutaliskCocoon extends EntityZergPassive {
 				double d20 = d15 * d15 + d16 * d16;
 				double d10 = d18 * d18 + d19 * d19;
 
-				if(d20 > d10) {
+				if (d20 > d10) {
 					x = d15;
 					z = d16;
 					y = -d9;
@@ -193,13 +193,13 @@ public class EntityBrutaliskCocoon extends EntityZergPassive {
 
 				int l3 = 0;
 
-				for(int i4 = list.size(); l3 < i4; ++l3) {
+				for (int i4 = list.size(); l3 < i4; ++l3) {
 					y = list.get(l3).calculateYOffset(getEntityBoundingBox(), y);
 				}
 
 				setEntityBoundingBox(getEntityBoundingBox().offset(0.0D, y, 0.0D));
 
-				if(d11 * d11 + d8 * d8 >= x * x + z * z) {
+				if (d11 * d11 + d8 * d8 >= x * x + z * z) {
 					x = d11;
 					y = d7;
 					z = d8;
@@ -220,12 +220,12 @@ public class EntityBrutaliskCocoon extends EntityZergPassive {
 			BlockPos blockpos = new BlockPos(j4, l4, i5);
 			IBlockState iblockstate = world.getBlockState(blockpos);
 
-			if(iblockstate.getMaterial() == Material.AIR) {
+			if (iblockstate.getMaterial() == Material.AIR) {
 				BlockPos blockpos1 = blockpos.down();
 				IBlockState iblockstate1 = world.getBlockState(blockpos1);
 				Block block1 = iblockstate1.getBlock();
 
-				if(block1 instanceof BlockFence || block1 instanceof BlockWall || block1 instanceof BlockFenceGate) {
+				if (block1 instanceof BlockFence || block1 instanceof BlockWall || block1 instanceof BlockFenceGate) {
 					iblockstate = iblockstate1;
 					blockpos = blockpos1;
 				}
@@ -233,23 +233,23 @@ public class EntityBrutaliskCocoon extends EntityZergPassive {
 
 			updateFallState(y, onGround, iblockstate, blockpos);
 
-			if(d3 != x) {
+			if (d3 != x) {
 				motionX = 0.0D;
 			}
 
-			if(d5 != z) {
+			if (d5 != z) {
 				motionZ = 0.0D;
 			}
 
 			Block block = iblockstate.getBlock();
 
-			if(d4 != y) {
+			if (d4 != y) {
 				block.onLanded(world, this);
 			}
 
 			try {
 				doBlockCollisions();
-			} catch(Throwable throwable) {
+			} catch (Throwable throwable) {
 				CrashReport crashreport = CrashReport.makeCrashReport(throwable, "Checking entity block collision");
 				CrashReportCategory crashreportcategory = crashreport.makeCategory("Entity being checked for collision");
 				addEntityCrashInfo(crashreportcategory);
@@ -262,18 +262,18 @@ public class EntityBrutaliskCocoon extends EntityZergPassive {
 
 	@Override
 	public void onUpdate() {
-		if(!world.isRemote) {
-			if((ticksExisted > 740)) {
+		if (!world.isRemote) {
+			if ((ticksExisted > 740)) {
 				int i;
 				i = rand.nextInt(100);
-				if(i <= 20) {
+				if (i <= 20) {
 					Library.replaceEntity(false, this, new EntityBrutalisk(world));
 				}
 			}
 		}
 		super.onUpdate();
 	}
-	
+
 	@Override
 	protected void setRotation(float par1, float par2) {
 		rotationYaw = 0;

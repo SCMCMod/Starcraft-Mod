@@ -81,7 +81,7 @@ public class ItemRenderSolariteReaper extends ItemRenderer {
 		getModel().render(null, 0, 0, 0, 0, 0, 1);
 		GlStateManager.popMatrix();
 	}
-	
+
 	@Override
 	public void renderFixed(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
 		float scale = .05500059f;
@@ -98,14 +98,15 @@ public class ItemRenderSolariteReaper extends ItemRenderer {
 		getModel().render(null, 0, 0, 0, 0, 0, 1);
 		GlStateManager.popMatrix();
 	}
-	
+
 	@Override
 	public void renderHead(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
-		
+
 	}
 }
 
-// Keep this code here. It's nice for on-the-fly GL fiddling (if you know how to abuse it), and it's how I got my values
+// Keep this code here. It's nice for on-the-fly GL fiddling (if you know how to
+// abuse it), and it's how I got my values
 // if(Keyboard.isKeyDown(Keyboard.KEY_V)) {
 // scale = 1;
 // }

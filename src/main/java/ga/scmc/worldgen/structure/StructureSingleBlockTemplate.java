@@ -36,13 +36,13 @@ public class StructureSingleBlockTemplate extends SCWorldGenerator {
 
 	@Override
 	public boolean generateTileEntity(TileEntity entity, World world, Random rand, BlockPos pos) {
-			if (!LocationIsValidSpawn(world, pos) || !LocationIsValidSpawn(world, pos.add(1, 0, 0)) || !LocationIsValidSpawn(world, pos.add(1, 0, 1)) || !LocationIsValidSpawn(world, pos.add(0, 0, 1))) {
-				return false;
-			}
-			world.setTileEntity(pos.add(0, 1, 0), entity);
-			world.setBlockState(pos.add(0, 1, 0), BlockHandler.FLORA_ZERUS_GLOW_POD.getDefaultState());
-			System.out.println("true");
-			System.out.println(pos);
-			return true;
+		if (!LocationIsValidSpawn(world, pos) || !LocationIsValidSpawn(world, pos.add(1, 0, 0)) || !LocationIsValidSpawn(world, pos.add(1, 0, 1)) || !LocationIsValidSpawn(world, pos.add(0, 0, 1))) {
+			return false;
+		}
+		world.setTileEntity(pos.add(0, 1, 0), entity);
+		world.setBlockState(pos.add(0, 1, 0), BlockHandler.FLORA_ZERUS_GLOW_POD.getDefaultState());
+		System.out.println("true");
+		System.out.println(pos);
+		return true;
 	}
 }

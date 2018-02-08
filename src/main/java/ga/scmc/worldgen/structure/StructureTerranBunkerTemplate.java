@@ -1,4 +1,5 @@
 package ga.scmc.worldgen.structure;
+
 import java.util.Random;
 
 import ga.scmc.handlers.BlockHandler;
@@ -8,17 +9,18 @@ import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
 public class StructureTerranBunkerTemplate extends SCWorldGenerator {
-	
+
 	@Override
 	public boolean generate(World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos pos, boolean flag) {
 		generate_r0(world, pos, flag);
 		return true;
 	}
-	
+
 	public boolean generate_r0(World worldIn, BlockPos bp, boolean flag) {
-		if(flag) {
-			if(!LocationIsValidSpawn(worldIn, bp) || !LocationIsValidSpawn(worldIn, bp.add(17, 0, 0)) || !LocationIsValidSpawn(worldIn, bp.add(17, 0, 15)) || !LocationIsValidSpawn(worldIn, bp.add(0, 0, 15))) {
+		if (flag) {
+			if (!LocationIsValidSpawn(worldIn, bp) || !LocationIsValidSpawn(worldIn, bp.add(17, 0, 0)) || !LocationIsValidSpawn(worldIn, bp.add(17, 0, 15)) || !LocationIsValidSpawn(worldIn, bp.add(0, 0, 15))) {
 				return false;
 			}
 		}
@@ -328,8 +330,9 @@ public class StructureTerranBunkerTemplate extends SCWorldGenerator {
 		generate2(worldIn, bp);
 		return true;
 	}
+
 	public boolean generate2(World worldIn, BlockPos bp) {
-		//Change k, i, or j to offset the structure
+		// Change k, i, or j to offset the structure
 		int k = 0;
 		int i = 0;
 		int j = 0;
@@ -644,9 +647,11 @@ public class StructureTerranBunkerTemplate extends SCWorldGenerator {
 		worldIn.setBlockState(bp.add(i + 17, j + 3, k + 9), MetaBlockHandler.PARISTEEL_METAL.getStateFromMeta(15));
 		return true;
 	}
+
 	protected Block[] GetValidSpawnBlocks() {
 		return new Block[] { Blocks.GRASS, Blocks.STONE, Blocks.DIRT, Blocks.SAND, BlockHandler.CITY_STONE_KORHAL };
 	}
+
 	public boolean LocationIsValidSpawn(World world, BlockPos pos) {
 		Block checkBlock = world.getBlockState(pos).getBlock();
 		Material m = checkBlock.getBlockState().getBaseState().getMaterial();

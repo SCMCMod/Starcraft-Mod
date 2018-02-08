@@ -13,6 +13,7 @@ import net.minecraft.util.ResourceLocation;
 public class RenderMutalisk<T> extends RenderLiving<EntityMutalisk> {
 	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.MUTALISK_BASE);
 	protected ModelMutalisk model;
+
 	public RenderMutalisk(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelMutalisk) mainModel);
@@ -36,6 +37,8 @@ public class RenderMutalisk<T> extends RenderLiving<EntityMutalisk> {
 
 	@Override
 	protected void preRenderCallback(EntityMutalisk entitylivingbaseIn, float partialTickTime) {
-		//GlStateManager.scale(1.0F + (entitylivingbaseIn.getBiomass() / 60), 1.0F + (entitylivingbaseIn.getBiomass() / 60), 1.0F + (entitylivingbaseIn.getBiomass() / 60));
+		// GlStateManager.scale(1.0F + (entitylivingbaseIn.getBiomass() / 60), 1.0F +
+		// (entitylivingbaseIn.getBiomass() / 60), 1.0F +
+		// (entitylivingbaseIn.getBiomass() / 60));
 	}
 }

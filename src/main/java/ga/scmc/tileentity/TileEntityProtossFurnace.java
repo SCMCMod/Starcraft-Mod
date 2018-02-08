@@ -113,7 +113,8 @@ public class TileEntityProtossFurnace extends TileEntitySidedInventory implement
 	}
 
 	/**
-	 * Get the default cook time (typically what you will change in a custom furnace)
+	 * Get the default cook time (typically what you will change in a custom
+	 * furnace)
 	 *
 	 * @param stack
 	 *            The {@link ItemStack} which will be cooked

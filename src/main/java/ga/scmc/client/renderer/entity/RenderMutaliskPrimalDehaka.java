@@ -13,7 +13,7 @@ import net.minecraft.util.ResourceLocation;
 public class RenderMutaliskPrimalDehaka<T> extends RenderLiving<EntityMutaliskPrimalDehaka> {
 	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.MUTALISKPRIMALDEHAKA_BASE);
 	protected ModelMutaliskPrimalDehaka model;
-	
+
 	public RenderMutaliskPrimalDehaka(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelMutaliskPrimalDehaka) mainModel);
@@ -37,6 +37,8 @@ public class RenderMutaliskPrimalDehaka<T> extends RenderLiving<EntityMutaliskPr
 
 	@Override
 	protected void preRenderCallback(EntityMutaliskPrimalDehaka entitylivingbaseIn, float partialTickTime) {
-		//GlStateManager.scale(1.0F + (entitylivingbaseIn.getBiomass() / 60), 1.0F + (entitylivingbaseIn.getBiomass() / 60), 1.0F + (entitylivingbaseIn.getBiomass() / 60));
+		// GlStateManager.scale(1.0F + (entitylivingbaseIn.getBiomass() / 60), 1.0F +
+		// (entitylivingbaseIn.getBiomass() / 60), 1.0F +
+		// (entitylivingbaseIn.getBiomass() / 60));
 	}
 }

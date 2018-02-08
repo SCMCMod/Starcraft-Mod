@@ -19,7 +19,7 @@ public class GenLayerChar extends GenLayer {
 		scars = GenLayerZoom.magnify(1000L, scars, biomeSize - 2);
 		scars = new GenLayerCharScars(1L, scars);
 
-		for(int i = 0; i < biomeSize; i++) {
+		for (int i = 0; i < biomeSize; i++) {
 			biomes = new GenLayerZoom(1000 + i, biomes);
 		}
 

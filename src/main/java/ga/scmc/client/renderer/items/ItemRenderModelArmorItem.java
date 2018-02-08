@@ -89,7 +89,7 @@ public class ItemRenderModelArmorItem extends ItemRenderer {
 	public void renderHead(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
 
 	}
-	
+
 	public void renderArmor(EntityLivingBase entity, TransformType cameraTransformType, float scale) {
 		if (type == HEAD) {
 			TextureUtils.bindTexture(textureLayer1);

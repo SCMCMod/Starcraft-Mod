@@ -56,7 +56,7 @@ public class BlockKaldirBrambles extends BlockContainer implements IShearable {
 	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
 		world.setBlockState(pos.up(), this.getDefaultState().withProperty(PART, Part.TOP));
 	}
-	
+
 	@Override
 	public boolean canPlaceBlockAt(World world, BlockPos pos) {
 		return super.canPlaceBlockAt(world, pos) && world.getBlockState(pos.up()).getBlock().isReplaceable(world, pos.up());
@@ -116,7 +116,8 @@ public class BlockKaldirBrambles extends BlockContainer implements IShearable {
 	}
 
 	public enum Part implements IStringSerializable {
-		BOTTOM, TOP;
+		BOTTOM,
+		TOP;
 
 		@Override
 		public String getName() {

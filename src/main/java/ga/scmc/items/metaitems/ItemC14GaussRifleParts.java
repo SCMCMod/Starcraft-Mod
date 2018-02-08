@@ -25,18 +25,19 @@ public class ItemC14GaussRifleParts extends Item {
 	 */
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> items) {
-		for(int i = 0; i < C14PartType.values().length; i++) {
+		for (int i = 0; i < C14PartType.values().length; i++) {
 			items.add(new ItemStack(item, 1, i));
 		}
 	}
 
 	/**
-	 * Gets the correct unlocalized name using the c14PartTypeType enum (wait, what?)
+	 * Gets the correct unlocalized name using the c14PartTypeType enum (wait,
+	 * what?)
 	 */
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		for(int i = 0; i < C14PartType.values().length; i++) {
-			if(stack.getItemDamage() == i) {
+		for (int i = 0; i < C14PartType.values().length; i++) {
+			if (stack.getItemDamage() == i) {
 				return getUnlocalizedName() + "." + C14PartType.values()[i].getName();
 			} else {
 				continue;

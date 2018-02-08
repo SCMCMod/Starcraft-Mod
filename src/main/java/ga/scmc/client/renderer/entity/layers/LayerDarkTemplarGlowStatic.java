@@ -10,20 +10,20 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class LayerDarkTemplarGlowStatic<T extends EntityDarkTemplar> implements LayerRenderer<T> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.DARKTEMPLAR_GLOW_STATIC);
-    private final RenderDarkTemplar<T> RENDERER;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.DARKTEMPLAR_GLOW_STATIC);
+	private final RenderDarkTemplar<T> RENDERER;
 
-    public LayerDarkTemplarGlowStatic(RenderDarkTemplar<T> darktemplarRendererIn) {
-        RENDERER = darktemplarRendererIn;
-    }
+	public LayerDarkTemplarGlowStatic(RenderDarkTemplar<T> darktemplarRendererIn) {
+		RENDERER = darktemplarRendererIn;
+	}
 
-    @Override
-    public void doRenderLayer(EntityDarkTemplar entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+	@Override
+	public void doRenderLayer(EntityDarkTemplar entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, TEXTURE, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
-    }
+	}
 
-    @Override
-    public boolean shouldCombineTextures() {
-        return false;
-    }
+	@Override
+	public boolean shouldCombineTextures() {
+		return false;
+	}
 }

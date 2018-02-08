@@ -37,12 +37,12 @@ public class PlayerEventHandler {
 			e.player.addStat(Achievements.getRegisteredAchievement(Achievements.ENTER_SHAKURAS), 1);
 			// add sound here
 		}
-		
+
 		if (e.toDim == ConfigurationHandler.INT_DIMENSION_KORHAL) {
 			e.player.addStat(Achievements.getRegisteredAchievement(Achievements.ENTER_KORHAL), 1);
 			// add sound here
 		}
-		
+
 		if (e.toDim == ConfigurationHandler.INT_DIMENSION_KALDIR) {
 			e.player.addStat(Achievements.getRegisteredAchievement(Achievements.ENTER_KALDIR), 1);
 			// add sound here
@@ -52,7 +52,7 @@ public class PlayerEventHandler {
 			e.player.addStat(Achievements.getRegisteredAchievement(Achievements.ENTER_SLAYN), 1);
 			// add sound here
 		}
-		
+
 		if (e.toDim == ConfigurationHandler.INT_DIMENSION_AIUR) {
 			e.player.addStat(Achievements.getRegisteredAchievement(Achievements.ENTER_AIUR), 1);
 			// add sound here

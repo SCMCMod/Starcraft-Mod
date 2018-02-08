@@ -4,7 +4,7 @@ import ga.scmc.handlers.ItemHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
-public class StarcraftCreativeTabZerg extends CreativeTabs{
+public class StarcraftCreativeTabZerg extends CreativeTabs {
 
 	public StarcraftCreativeTabZerg() {
 		super("zerg");

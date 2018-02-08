@@ -16,16 +16,15 @@ import net.minecraft.world.World;
 public class ItemZergHydraliskDenSpawner extends Item {
 
 	Random rand;
-	
+
 	public ItemZergHydraliskDenSpawner() {
 		setUnlocalizedName("zerg.spawner.hydraliskden");
 		setRegistryName("zerg.spawner.hydraliskden");
 		setCreativeTab(StarcraftCreativeTabs.ZERG);
 	}
-	
+
 	@Override
-	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY,
-			float hitZ) {
+	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		StructureZergHydraliskDenTemplate ZERG_HYDRALISKDEN = new StructureZergHydraliskDenTemplate();
 		ZERG_HYDRALISKDEN.generate_r0(worldIn, rand, 0, 0, 0, pos, false);
 		return super.onItemUse(stack, playerIn, worldIn, pos, hand, facing, hitX, hitY, hitZ);

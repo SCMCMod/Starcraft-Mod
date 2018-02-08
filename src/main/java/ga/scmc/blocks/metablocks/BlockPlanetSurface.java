@@ -53,7 +53,7 @@ public class BlockPlanetSurface extends Block implements IMetaBlockName {
 	public MapColor getMapColor(IBlockState state) {
 		return state.getValue(TYPE).getMapColor();
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public int getPackedLightmapCoords(IBlockState state, IBlockAccess source, BlockPos pos) {
@@ -108,7 +108,7 @@ public class BlockPlanetSurface extends Block implements IMetaBlockName {
 	public IBlockState getStateFromMeta(int meta) {
 		return getDefaultState().withProperty(TYPE, PlanetSurfaceType.values()[meta]);
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public BlockRenderLayer getBlockLayer() {
 		return BlockRenderLayer.SOLID;

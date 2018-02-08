@@ -9,24 +9,20 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class LayerMutaliskPrimalGlowStatic<T extends EntityMutaliskPrimal> implements LayerRenderer<T>
-{
-    private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.MUTALISK_GLOW_STATIC);
-    private final RenderMutaliskPrimal<T> RENDERER;
+public class LayerMutaliskPrimalGlowStatic<T extends EntityMutaliskPrimal> implements LayerRenderer<T> {
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.MUTALISK_GLOW_STATIC);
+	private final RenderMutaliskPrimal<T> RENDERER;
 
-    public LayerMutaliskPrimalGlowStatic(RenderMutaliskPrimal<T> zerglingSC2RendererIn)
-    {
-        this.RENDERER = zerglingSC2RendererIn;
-    }
+	public LayerMutaliskPrimalGlowStatic(RenderMutaliskPrimal<T> zerglingSC2RendererIn) {
+		this.RENDERER = zerglingSC2RendererIn;
+	}
 
-    public void doRenderLayer(EntityMutaliskPrimal entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
-    {
-        ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, TEXTURE, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
-    }
+	public void doRenderLayer(EntityMutaliskPrimal entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, TEXTURE, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
+	}
 
-    @Override
-    public boolean shouldCombineTextures()
-    {
-        return false;
-    }
+	@Override
+	public boolean shouldCombineTextures() {
+		return false;
+	}
 }

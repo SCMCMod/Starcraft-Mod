@@ -117,8 +117,7 @@ public abstract class Model extends ModelBase {
 	 *            - The scale this model will render at.
 	 */
 	@Override
-	public void render(Entity entity, float swing, float swingPrev, float idle, float headYaw, float headPitch,
-			float scale) {
+	public void render(Entity entity, float swing, float swingPrev, float idle, float headYaw, float headPitch, float scale) {
 		this.render(entity);
 	}
 
@@ -143,8 +142,7 @@ public abstract class Model extends ModelBase {
 	 *            - The Entity instance being rendered.
 	 */
 	@Override
-	public void setRotationAngles(float swing, float swingPrev, float idle, float headYaw, float headPitch, float scale,
-			Entity entity) {
+	public void setRotationAngles(float swing, float swingPrev, float idle, float headYaw, float headPitch, float scale, Entity entity) {
 		;
 	}
 
@@ -163,8 +161,7 @@ public abstract class Model extends ModelBase {
 	 *            - Render partial ticks
 	 */
 	@Override
-	public void setLivingAnimations(EntityLivingBase entityLiving, float swingProgress, float swingProgressPrev,
-			float renderPartialTicks) {
+	public void setLivingAnimations(EntityLivingBase entityLiving, float swingProgress, float swingProgressPrev, float renderPartialTicks) {
 		;
 	}
 
@@ -262,10 +259,8 @@ public abstract class Model extends ModelBase {
 	 * @return The value of the yaw rotation the head is at.
 	 */
 	public static float getHeadYaw(EntityLivingBase base) {
-		float yawOffset = SCMathHelper.interpolateRotation(base.prevRenderYawOffset, base.renderYawOffset,
-				Access.getPartialTicks());
-		float yawHead = SCMathHelper.interpolateRotation(base.prevRotationYawHead, base.rotationYawHead,
-				Access.getPartialTicks());
+		float yawOffset = SCMathHelper.interpolateRotation(base.prevRenderYawOffset, base.renderYawOffset, Access.getPartialTicks());
+		float yawHead = SCMathHelper.interpolateRotation(base.prevRotationYawHead, base.rotationYawHead, Access.getPartialTicks());
 		return yawHead - yawOffset;
 	}
 

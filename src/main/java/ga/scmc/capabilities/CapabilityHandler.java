@@ -24,7 +24,7 @@ public class CapabilityHandler {
 	public void attachCapability(AttachCapabilitiesEvent.Entity event) {
 		if (!(event.getEntity() instanceof EntityPlayer))
 			return;
-		
+
 		event.addCapability(SHIELD, new ShieldProvider());
 		event.addCapability(COLOR, new ColorProvider());
 	}

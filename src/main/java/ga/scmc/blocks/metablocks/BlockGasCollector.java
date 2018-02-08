@@ -70,7 +70,7 @@ public class BlockGasCollector extends Block implements IMetaBlockName, ITileEnt
 	public MapColor getMapColor(IBlockState state) {
 		return state.getValue(TYPE).getMapColor();
 	}
-	
+
 	@Override
 	public SoundType getSoundType(IBlockState state, World world, BlockPos pos, Entity entity) {
 		if (world.getBlockState(pos) == this.getDefaultState().withProperty(TYPE, GasCollectorType.ZERG)) {

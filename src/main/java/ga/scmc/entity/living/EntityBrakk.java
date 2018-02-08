@@ -49,7 +49,7 @@ public class EntityBrakk extends EntityZergMob implements IMob, Predicate<Entity
 
 	private final BossInfoServer bossInfo = (BossInfoServer) (new BossInfoServer(this.getDisplayName(), BossInfo.Color.BLUE, BossInfo.Overlay.PROGRESS)).setDarkenSky(true);
 	public int tracker = 0;
-	
+
 	public EntityBrakk(World world) {
 		super(world);
 		setSize(3.0F, 3.0F);
@@ -147,7 +147,7 @@ public class EntityBrakk extends EntityZergMob implements IMob, Predicate<Entity
 		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(16.0D);
 		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12.0D);
 	}
-	
+
 	/**
 	 * Drop up to 2 items when killed
 	 * 
@@ -188,40 +188,40 @@ public class EntityBrakk extends EntityZergMob implements IMob, Predicate<Entity
 	public int getTalkInterval() {
 		return 160;
 	}
-	
+
 	@Override
 	public void onDeath(DamageSource cause) {
-		if(world.isRemote) {
+		if (world.isRemote) {
 			PlayerList list = Access.getMinecraft().getIntegratedServer().getPlayerList();
-			for(int i = 0; i < list.getCurrentPlayerCount(); i++) {
+			for (int i = 0; i < list.getCurrentPlayerCount(); i++) {
 				EntityPlayer thePlayer = list.getPlayers().get(i);
 				thePlayer.sendMessage(new TextComponentString("Brakk has been slain!").setStyle(new Style().setColor(TextFormatting.DARK_RED)));
 			}
 		}
 		super.onDeath(cause);
 	}
-	
+
 	@Override
 	public void onLivingUpdate() {
-		if(this.world.isRemote) {
-			if(this.world.getClosestPlayerToEntity(this, 32.0D) != null) {
+		if (this.world.isRemote) {
+			if (this.world.getClosestPlayerToEntity(this, 32.0D) != null) {
 				EntityPlayer player = this.world.getClosestPlayerToEntity(this, 32.0D);
-				if(this.tracker == 0 && this.getHealth() == this.getMaxHealth()) {
+				if (this.tracker == 0 && this.getHealth() == this.getMaxHealth()) {
 					tracker++;
 					String message = "<Brakk> Brakk speaks NOW! You intrude on my territory! I will devour your FLESH!!!";
 					player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.AQUA)));
 				}
-				if(this.tracker == 1 && this.getHealth() <= this.getMaxHealth()*.75) {
+				if (this.tracker == 1 && this.getHealth() <= this.getMaxHealth() * .75) {
 					tracker++;
 					String message = "<Brakk> Your arrogance will kill you! Zerus will consume you!!!";
 					player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.AQUA)));
 				}
-				if(this.tracker == 2 && this.getHealth() <= this.getMaxHealth()*.50) {
+				if (this.tracker == 2 && this.getHealth() <= this.getMaxHealth() * .50) {
 					tracker++;
 					String message = "<Brakk> You think your worthless attacks hurt me?! I am Primal Zerg!";
 					player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.AQUA)));
 				}
-				if(this.tracker == 3 && this.getHealth() <= this.getMaxHealth()*.25) {
+				if (this.tracker == 3 && this.getHealth() <= this.getMaxHealth() * .25) {
 					tracker++;
 					String message = "<Brakk> GRRRRRRRRRRRRAAAAAAAAAAAAAAAAAAH!";
 					player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.AQUA)));

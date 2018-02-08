@@ -35,7 +35,11 @@ public class SteelDust implements IRecipe {
 	}
 
 	/**
-	 * <i>I typically null this method because I've never seen any reason to use it. It's supposed to be used as a "general form" for crafting output. Typically it isn't necessary, and usually I only use IRecipe for complex recipes, so I rarely get to use this regardless. Here I can use it as our output is always "general" in a sense</i><br>
+	 * <i>I typically null this method because I've never seen any reason to use it.
+	 * It's supposed to be used as a "general form" for crafting output. Typically
+	 * it isn't necessary, and usually I only use IRecipe for complex recipes, so I
+	 * rarely get to use this regardless. Here I can use it as our output is always
+	 * "general" in a sense</i><br>
 	 * <br>
 	 * Gives out a single piece of Steel Dust
 	 */
@@ -80,7 +84,8 @@ public class SteelDust implements IRecipe {
 			}
 		}
 
-		grid.clear(); // Makes sure we get rid of the used ingredients... by getting rid of everything then adding back what we want :P
+		grid.clear(); // Makes sure we get rid of the used ingredients... by getting rid of everything
+						// then adding back what we want :P
 		ironDust.stackSize -= 2;
 		carbonDust.stackSize--;
 
@@ -109,13 +114,15 @@ public class SteelDust implements IRecipe {
 				if (currentStack.getItem() instanceof ItemDust) {
 					if (currentStack.getMetadata() == 1) {
 						if (ironDust == null) {
-							ironDust = currentStack; // Only sets the current stack as the Iron Dust if it definitely is Iron Dust AND there's no Iron Dust yet
+							ironDust = currentStack; // Only sets the current stack as the Iron Dust if it definitely is Iron Dust
+														// AND there's no Iron Dust yet
 						} else {
 							return false; // Already an Iron Dust? That means we have too many in the grid
 						}
 					} else if (currentStack.getMetadata() == 2) {
 						if (carbonDust == null) {
-							carbonDust = currentStack; // Only sets the current stack as the Carbon Dust if it definitely is Carbon Dust AND there's no Carbon Dust yet
+							carbonDust = currentStack; // Only sets the current stack as the Carbon Dust if it definitely is Carbon
+														// Dust AND there's no Carbon Dust yet
 						} else {
 							return false; // Already a Carbon Dust? That means we have too many in the grid
 						}

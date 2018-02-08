@@ -22,7 +22,7 @@ public class WavefrontModelHandler {
 	 */
 	public static void preInit() {
 		OBJLoader.INSTANCE.addDomain(Library.MODID);
-        register();
+		register();
 	}
 
 	/**
@@ -37,7 +37,8 @@ public class WavefrontModelHandler {
 	 * Registers a model.
 	 * 
 	 * @param object
-	 *            Accepts an item or a block to register. If the object is not either it simply returns.
+	 *            Accepts an item or a block to register. If the object is not
+	 *            either it simply returns.
 	 */
 	private static void registerModel(Object object) {
 		Item item = null;

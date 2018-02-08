@@ -33,19 +33,19 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class BiomeHandler extends Biome {
 
 	public static Biome biomeCharZergHive;
-	
+
 	public static Biome biomeCharAshPlains;
 	public static Biome biomeCharAshHills;
 	public static Biome biomeCharAshPlateau;
-	
+
 	public static Biome biomeCharScars;
 	public static Biome biomeCharLavaOcean;
 	public static Biome biomeCharLavaDeepOcean;
-	
+
 	public static Biome biomeCharGlassPlains;
 	public static Biome biomeCharGlassHills;
 	public static Biome biomeCharGlassPlateau;
-	
+
 	public static Biome biomeCharHills;
 
 	public static Biome biomeShakurasDesert;
@@ -92,7 +92,6 @@ public class BiomeHandler extends Biome {
 	public static Biome biomeAiurProtossCity;
 
 	public static Biome biomeAiurPlains;
-	
 
 	public static Biome biomeSpace;
 
@@ -100,15 +99,15 @@ public class BiomeHandler extends Biome {
 		registerBiomes();
 		/** Char registration **/
 		GameRegistry.register(biomeCharZergHive);
-		
+
 		GameRegistry.register(biomeCharAshPlains);
 		GameRegistry.register(biomeCharAshHills);
 		GameRegistry.register(biomeCharAshPlateau);
-		
+
 		GameRegistry.register(biomeCharGlassPlains);
 		GameRegistry.register(biomeCharGlassHills);
 		GameRegistry.register(biomeCharGlassPlateau);
-		
+
 		GameRegistry.register(biomeCharScars);
 		GameRegistry.register(biomeCharLavaOcean);
 		GameRegistry.register(biomeCharLavaDeepOcean);
@@ -116,17 +115,17 @@ public class BiomeHandler extends Biome {
 
 		/** Shakuras regristration **/
 		GameRegistry.register(biomeShakurasProtossCity);
-		
+
 		GameRegistry.register(biomeShakurasDesert);
 		GameRegistry.register(biomeShakurasDesertHills);
 		GameRegistry.register(biomeShakurasDesertHillsPlus);
 		GameRegistry.register(biomeShakurasDesertPlateau);
-		
+
 		GameRegistry.register(biomeShakurasHills);
-		
+
 		GameRegistry.register(biomeShakurasOcean);
 		GameRegistry.register(biomeShakurasDeepOcean);
-		
+
 		GameRegistry.register(biomeShakurasMountains);
 		GameRegistry.register(biomeShakurasMountainsPlus);
 
@@ -145,21 +144,20 @@ public class BiomeHandler extends Biome {
 		/** Zerus registration **/
 		GameRegistry.register(biomeZerusMountains);
 		GameRegistry.register(biomeZerusJungle);
-		
+
 		/** Kaldir registration **/
 		GameRegistry.register(biomeKaldirIcePlains);
 		GameRegistry.register(biomeKaldirIceHills);
 		GameRegistry.register(biomeKaldirIcePlateau);
-		
+
 		GameRegistry.register(biomeKaldirSnowPlains);
 		GameRegistry.register(biomeKaldirSnowHills);
 		GameRegistry.register(biomeKaldirSnowPlateau);
-		
+
 		GameRegistry.register(biomeKaldirMountains);
-		
+
 		GameRegistry.register(biomeKaldirProtossCity);
 		GameRegistry.register(biomeKaldirZergHive);
-		
 
 		GameRegistry.register(biomeSpace);
 	}
@@ -168,76 +166,75 @@ public class BiomeHandler extends Biome {
 
 		/** Char biomes **/
 		biomeCharZergHive = new BiomeGenCharZergHive((new Biome.BiomeProperties("Char Zerg Hive")).setBaseHeight(0.0F).setHeightVariation(0.025F).setTemperature(2.0F).setRainfall(0.3F));
-		
+
 		biomeCharAshPlains = new BiomeGenCharAshPlains((new Biome.BiomeProperties("Char Ash Plains")).setBaseHeight(0.0F).setHeightVariation(0.025F).setTemperature(2.0F).setRainfall(0.3F), "char_ash_plains");
 		biomeCharAshHills = new BiomeGenCharAshPlains((new Biome.BiomeProperties("Char Ash Hills")).setBaseHeight(0.25F).setHeightVariation(0.45F).setTemperature(2.0F).setRainfall(0.3F), "char_ash_hills");
 		biomeCharAshPlateau = new BiomeGenCharAshPlains((new Biome.BiomeProperties("Char Ash Plateau")).setBaseHeight(0.75F).setHeightVariation(0.05F).setTemperature(2.0F).setRainfall(0.3F), "char_ash_plateau");
-		
+
 		biomeCharGlassPlains = new BiomeGenCharGlassPlains((new Biome.BiomeProperties("Char Glass Plains")).setBaseHeight(0.0F).setHeightVariation(0.025F).setTemperature(2.0F).setRainfall(0.3F), "char_glass_plains");
 		biomeCharGlassHills = new BiomeGenCharGlassPlains((new Biome.BiomeProperties("Char Glass Hills")).setBaseHeight(0.25F).setHeightVariation(0.045F).setTemperature(2.0F).setRainfall(0.3F), "char_glass_hills");
 		biomeCharGlassPlateau = new BiomeGenCharGlassPlains((new Biome.BiomeProperties("Char Glass Plateau")).setBaseHeight(0.75F).setHeightVariation(0.05F).setTemperature(2.0F).setRainfall(0.3F), "char_glass_plateau");
-		
+
 		biomeCharScars = new BiomeGenCharScar((new Biome.BiomeProperties("Char Scars")).setBaseHeight(-0.5F).setHeightVariation(0.0F).setTemperature(2.0F));
 		biomeCharLavaOcean = new BiomeGenCharLavaOcean((new Biome.BiomeProperties("Char Ocean")).setBaseHeight(-0.5F).setHeightVariation(0.35F).setTemperature(2.0F), "char_ocean");
 		biomeCharLavaDeepOcean = new BiomeGenCharLavaOcean((new Biome.BiomeProperties("Char Deep Ocean")).setBaseHeight(-1.0F).setHeightVariation(0.35F).setTemperature(2.0F), "char_deep_ocean");
-		
+
 		biomeCharHills = new BiomeGenCharHills((new Biome.BiomeProperties("Char Hills")).setBaseHeight(0.25F).setHeightVariation(0.15F).setTemperature(2.0F).setRainfall(0.3F));
 
 		/** Shakuras biomes **/
 		biomeShakurasProtossCity = new BiomeGenShakurasProtossCity((new Biome.BiomeProperties("Shakuras Protoss City")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(0.3F).setRainfall(0.3F));
-		
+
 		biomeShakurasDesert = new BiomeGenShakurasDesert((new Biome.BiomeProperties("Shakuras Desert")).setBaseHeight(0.0F).setHeightVariation(0.025F).setTemperature(0.3F).setRainfall(0.3F), "shakuras_desert");
 		biomeShakurasDesertHills = new BiomeGenShakurasDesert((new Biome.BiomeProperties("Shakuras Desert Hills")).setBaseHeight(0.25F).setHeightVariation(0.25F).setTemperature(0.3F).setRainfall(0.3F), "shakuras_desert_hills");
 		biomeShakurasDesertHillsPlus = new BiomeGenShakurasDesert((new Biome.BiomeProperties("Shakuras Desert Hills+")).setBaseHeight(0.25F).setHeightVariation(0.045F).setTemperature(0.3F).setRainfall(0.3F), "shakuras_desert_hills+");
 		biomeShakurasDesertPlateau = new BiomeGenShakurasDesert((new Biome.BiomeProperties("Shakuras Desert Plateau")).setBaseHeight(0.75F).setHeightVariation(0.05F).setTemperature(0.3F).setRainfall(0.3F), "shakuras_desert_plateau");
-		
+
 		biomeShakurasHills = new BiomeGenShakurasHills((new Biome.BiomeProperties("Shakuras Hills")).setBaseHeight(0.25F).setHeightVariation(0.25F).setTemperature(0.3F).setRainfall(0.3F));
-		
+
 		biomeShakurasOcean = new BiomeGenShakurasOcean((new Biome.BiomeProperties("Shakuras Ocean")).setBaseHeight(-0.5F).setHeightVariation(0.35F).setTemperature(0.3F), "shakuras_ocean");
 		biomeShakurasDeepOcean = new BiomeGenShakurasOcean((new Biome.BiomeProperties("Shakuras Deep Ocean")).setBaseHeight(-1.0F).setHeightVariation(0.35F).setTemperature(0.3F), "shakuras_deep_ocean");
-		
+
 		biomeShakurasMountains = new BiomeGenShakurasMountains((new Biome.BiomeProperties("Shakuras Mountains")).setBaseHeight(0.75F).setHeightVariation(0.35F).setTemperature(0.3F).setRainfall(0.3F), "shakuras_mountains");
 		biomeShakurasMountainsPlus = new BiomeGenShakurasMountains((new Biome.BiomeProperties("Shakuras Mountains+")).setBaseHeight(0.85F).setHeightVariation(0.55F).setTemperature(0.3F).setRainfall(0.3F), "shakuras_mountains+");
-		
+
 		/** Slayn biomes **/
 		biomeSlaynProtossCity = new BiomeGenSlaynProtossCity((new Biome.BiomeProperties("Slayn Protoss City")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(1.0F).setRainfall(0.3F));
-		
+
 		biomeSlaynDesert = new BiomeGenSlaynDesert((new Biome.BiomeProperties("Slayn Desert")).setBaseHeight(0.0F).setHeightVariation(0.025F).setTemperature(0.3F).setRainfall(0.3F), "slayn_desert");
 		biomeSlaynDesertHills = new BiomeGenSlaynDesert((new Biome.BiomeProperties("Slayn Desert Hills")).setBaseHeight(0.25F).setHeightVariation(0.25F).setTemperature(0.3F).setRainfall(0.3F), "slayn_desert_hills");
 		biomeSlaynDesertHillsPlus = new BiomeGenSlaynDesert((new Biome.BiomeProperties("Slayn Desert Hills+")).setBaseHeight(0.25F).setHeightVariation(0.45F).setTemperature(0.3F).setRainfall(0.3F), "slayn_desert_hills+");
 		biomeSlaynDesertPlateau = new BiomeGenSlaynDesert((new Biome.BiomeProperties("Slayn Desert Plateau")).setBaseHeight(0.75F).setHeightVariation(0.05F).setTemperature(0.3F).setRainfall(0.3F), "slayn_desert_plateau");
-		
+
 		biomeSlaynHills = new BiomeGenSlaynHills((new Biome.BiomeProperties("Slayn Hills")).setBaseHeight(0.25F).setHeightVariation(0.25F).setTemperature(0.3F).setRainfall(0.3F));
 		biomeSlaynOcean = new BiomeGenSlaynOcean((new Biome.BiomeProperties("Slayn Deep Ocean")).setBaseHeight(-1.0F).setHeightVariation(0.35F).setTemperature(0.3F));
 		biomeSlaynMountains = new BiomeGenSlaynMountains((new Biome.BiomeProperties("Slayn Mountains")).setBaseHeight(0.75F).setHeightVariation(0.35F).setTemperature(0.3F).setRainfall(0.3F));
-		
+
 		/** Korhal biomes **/
 		biomeKorhalTerranCity = new BiomeGenKorhalCity((new Biome.BiomeProperties("Korhal Terran City")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(1.0F).setRainfall(0.3F));
-		
+
 		biomeKorhalDesert = new BiomeGenKorhalDesert((new Biome.BiomeProperties("Korhal Desert")).setBaseHeight(0.0F).setHeightVariation(0.025F).setTemperature(0.3F).setRainfall(0.3F), "korhal_desert");
 		biomeKorhalDesertHills = new BiomeGenKorhalDesert((new Biome.BiomeProperties("Korhal Desert Hills")).setBaseHeight(0.0F).setHeightVariation(0.25F).setTemperature(0.3F).setRainfall(0.3F), "korhal_desert_hills");
-		
+
 		/** Zerus biomes **/
 		biomeZerusMountains = new BiomeGenZerusMountains((new Biome.BiomeProperties("Zerus Mountains")).setBaseHeight(.75F).setHeightVariation(0.35F).setTemperature(1.0F).setRainfall(0.5F));
 		biomeZerusJungle = new BiomeGenZerusJungle((new Biome.BiomeProperties("Zerus Jungle")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(1.0F).setRainfall(0.5F));
-		
+
 		/** Kaldir biomes **/
 		biomeKaldirIcePlains = new BiomeGenKaldirIcePlains((new Biome.BiomeProperties("Kaldir Ice Plains")).setBaseHeight(0.0F).setHeightVariation(0.025F).setTemperature(0.1F).setRainfall(0.5F), "kaldir_ice_plains");
 		biomeKaldirIceHills = new BiomeGenKaldirIcePlains((new Biome.BiomeProperties("Kaldir Ice Hills")).setBaseHeight(0.25F).setHeightVariation(0.25F).setTemperature(0.1F).setRainfall(0.5F), "kaldir_ice_hills");
 		biomeKaldirIcePlateau = new BiomeGenKaldirIcePlains((new Biome.BiomeProperties("Kaldir Ice Plateau")).setBaseHeight(0.75F).setHeightVariation(0.05F).setTemperature(0.1F).setRainfall(0.5F), "kaldir_ice_plateau");
-		
+
 		biomeKaldirSnowPlains = new BiomeGenKaldirSnowPlains((new Biome.BiomeProperties("Kaldir Snow Plains")).setBaseHeight(0.0F).setHeightVariation(0.025F).setTemperature(0.1F).setRainfall(0.5F), "kaldir_snow_plains");
 		biomeKaldirSnowHills = new BiomeGenKaldirSnowPlains((new Biome.BiomeProperties("Kaldir Snow Hills")).setBaseHeight(0.25F).setHeightVariation(0.25F).setTemperature(0.1F).setRainfall(0.5F), "kaldir_snow_hills");
 		biomeKaldirSnowPlateau = new BiomeGenKaldirSnowPlains((new Biome.BiomeProperties("Kaldir Snow Plateau")).setBaseHeight(0.75F).setHeightVariation(0.05F).setTemperature(0.1F).setRainfall(0.5F), "kaldir_snow_plateau");
-		
+
 		biomeKaldirMountains = new BiomeGenKaldirMountains((new Biome.BiomeProperties("Kaldir Mountains")).setBaseHeight(0.75F).setHeightVariation(0.35F).setTemperature(0.1F).setRainfall(0.5F));
-		
+
 		biomeKaldirProtossCity = new BiomeGenKaldirProtossCity((new Biome.BiomeProperties("Kaldir Protoss City")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(1.0F).setRainfall(0.5F));
 		biomeKaldirZergHive = new BiomeGenKaldirZergHive((new Biome.BiomeProperties("Kaldir Zerg Hive")).setBaseHeight(0.0F).setHeightVariation(0.1F).setTemperature(1.0F).setRainfall(0.5F));
-		
-		
+
 		biomeSpace = new BiomeGenSpace((new Biome.BiomeProperties("Space")).setBaseHeight(0.0F).setHeightVariation(0.0F).setTemperature(-500.0F).setRainfall(0.0F));
-		
+
 		// add or remove spawn biomes here
 
 		BiomeManager.addSpawnBiome(BiomeHandler.biomeCharAshPlains);
@@ -251,17 +248,17 @@ public class BiomeHandler extends Biome {
 
 		BiomeManager.removeSpawnBiome(BiomeHandler.biomeCharZergHive);
 		BiomeManager.removeSpawnBiome(BiomeHandler.biomeKaldirZergHive);
-		
+
 		BiomeManager.removeSpawnBiome(BiomeHandler.biomeShakurasProtossCity);
 		BiomeManager.removeSpawnBiome(BiomeHandler.biomeKaldirProtossCity);
 		BiomeManager.removeSpawnBiome(BiomeHandler.biomeSlaynProtossCity);
 		BiomeManager.removeSpawnBiome(BiomeHandler.biomeAiurProtossCity);
-		
+
 		BiomeManager.removeSpawnBiome(BiomeHandler.biomeShakurasOcean);
 		BiomeManager.removeSpawnBiome(BiomeHandler.biomeShakurasDeepOcean);
 		BiomeManager.removeSpawnBiome(BiomeHandler.biomeCharLavaOcean);
 		BiomeManager.removeSpawnBiome(BiomeHandler.biomeCharLavaDeepOcean);
-		
+
 		BiomeManager.removeSpawnBiome(BiomeHandler.biomeCharGlassPlains);
 		BiomeManager.removeSpawnBiome(BiomeHandler.biomeCharScars);
 

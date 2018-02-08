@@ -48,7 +48,8 @@ public class Utils {
 	public static final FloatBuffer modelview = GLAllocation.createDirectFloatBuffer(16);
 
 	/**
-	 * Makes the variables which will be initialized when there getter method is called
+	 * Makes the variables which will be initialized when there getter method is
+	 * called
 	 */
 	private static Lang lang;
 
@@ -63,7 +64,7 @@ public class Utils {
 		Matrix4f result = Matrix4f.mul(modelViewMatrix, projectionMatrix, null);
 		return result;
 	}
-	
+
 	/**
 	 * Returns the logger. This makes System.out.println look shabby
 	 * 
@@ -238,11 +239,14 @@ public class Utils {
 	}
 
 	/**
-	 * Gets the correct colour from any item stack using the ore dictionary The item must be registered as a dye
+	 * Gets the correct colour from any item stack using the ore dictionary The item
+	 * must be registered as a dye
 	 * 
 	 * @param stack
 	 *            The {@link ItemStack} to test
-	 * @return The {@link EnumDyeColor} of the {@link ItemStack} to test. If the stack is not registered as a dye, the {@link EnumDyeColor#WHITE} will be used
+	 * @return The {@link EnumDyeColor} of the {@link ItemStack} to test. If the
+	 *         stack is not registered as a dye, the {@link EnumDyeColor#WHITE} will
+	 *         be used
 	 */
 	public static EnumDyeColor getColorFromDye(ItemStack stack) {
 		for (int id : OreDictionary.getOreIDs(stack)) {
@@ -289,7 +293,8 @@ public class Utils {
 	 *            The player to search
 	 * @param item
 	 *            The item that has the tag BulletCount
-	 * @return The amount found if the tag was found. If it was not found it returns 0
+	 * @return The amount found if the tag was found. If it was not found it returns
+	 *         0
 	 */
 	public static int getTotalAmmo(EntityPlayer player, Item item) {
 		int totalCount = 0;

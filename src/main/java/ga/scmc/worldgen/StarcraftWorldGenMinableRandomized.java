@@ -44,7 +44,7 @@ public class StarcraftWorldGenMinableRandomized extends WorldGenerator {
 		double d4 = position.getY() + rand.nextInt(3) - 2;
 		double d5 = position.getY() + rand.nextInt(3) - 2;
 
-		for(int i = 0; i < numberOfBlocks; ++i) {
+		for (int i = 0; i < numberOfBlocks; ++i) {
 			float f1 = (float) i / (float) numberOfBlocks;
 			double d6 = d0 + (d1 - d0) * f1;
 			double d7 = d4 + (d5 - d4) * f1;
@@ -59,22 +59,22 @@ public class StarcraftWorldGenMinableRandomized extends WorldGenerator {
 			int j1 = MathHelper.floor(d7 + d11 / 2.0D);
 			int k1 = MathHelper.floor(d8 + d10 / 2.0D);
 
-			for(int l1 = j; l1 <= i1; ++l1) {
+			for (int l1 = j; l1 <= i1; ++l1) {
 				double d12 = (l1 + 0.5D - d6) / (d10 / 2.0D);
 
-				if(d12 * d12 < 1.0D) {
-					for(int i2 = k; i2 <= j1; ++i2) {
+				if (d12 * d12 < 1.0D) {
+					for (int i2 = k; i2 <= j1; ++i2) {
 						double d13 = (i2 + 0.5D - d7) / (d11 / 2.0D);
 
-						if(d12 * d12 + d13 * d13 < 1.0D) {
-							for(int j2 = l; j2 <= k1; ++j2) {
+						if (d12 * d12 + d13 * d13 < 1.0D) {
+							for (int j2 = l; j2 <= k1; ++j2) {
 								double d14 = (j2 + 0.5D - d8) / (d10 / 2.0D);
 
-								if(d12 * d12 + d13 * d13 + d14 * d14 < 1.0D) {
+								if (d12 * d12 + d13 * d13 + d14 * d14 < 1.0D) {
 									BlockPos blockpos = new BlockPos(l1, i2, j2);
 
 									IBlockState state = worldIn.getBlockState(blockpos);
-									if(state.getBlock().isReplaceableOreGen(state, worldIn, blockpos, predicate)) {
+									if (state.getBlock().isReplaceableOreGen(state, worldIn, blockpos, predicate)) {
 										worldIn.setBlockState(blockpos, getRandomizedOreBlocks(asteroidBase, ore, oreWeight), 2);
 									}
 								}
@@ -87,11 +87,11 @@ public class StarcraftWorldGenMinableRandomized extends WorldGenerator {
 
 		return true;
 	}
-	
+
 	public IBlockState getRandomizedOreBlocks(IBlockState state1, IBlockState state2, int oreWeight) {
-		if(oreWeight > rand.nextInt(100)) {
+		if (oreWeight > rand.nextInt(100)) {
 			return state2;
-		}else {
+		} else {
 			return state1;
 		}
 	}

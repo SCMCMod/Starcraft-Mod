@@ -479,11 +479,11 @@ public class ModelKakaru extends Model {
 		GlStateManager.popMatrix();
 		this.chest.render(scale);
 	}
-	
+
 	@Override
-   	public void render(Object obj) {
-       	EntityLivingBase base = (EntityLivingBase) obj;
-       	this.head01.rotateAngleX = headPitch(obj) * 0.017453292F;
+	public void render(Object obj) {
+		EntityLivingBase base = (EntityLivingBase) obj;
+		this.head01.rotateAngleX = headPitch(obj) * 0.017453292F;
 		this.head01.rotateAngleY = headYaw(obj) * 0.017453292F;
 		this.rLeg01.rotateAngleZ = MathHelper.sin(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj);
 		this.rArm01.rotateAngleZ = MathHelper.sin(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj);
@@ -491,5 +491,5 @@ public class ModelKakaru extends Model {
 		this.lArm01.rotateAngleZ = -MathHelper.sin(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj);
 		this.lowerBeak01.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.8F) * 0.0667F + 0.4F;
 		this.tail01.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.5f) * 0.05F;
-   	}
+	}
 }

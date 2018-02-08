@@ -20,39 +20,40 @@ import net.minecraft.world.chunk.IChunkProvider;
 public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 
 	/**
-	 * The instance of this class. Used in WorldGenerationHandler.java to generate ores, structures, and bosses.
+	 * The instance of this class. Used in WorldGenerationHandler.java to generate
+	 * ores, structures, and bosses.
 	 */
 	public static final StarcraftWorldGenerationContainer instance = new StarcraftWorldGenerationContainer();
 	public static boolean generationCompleted = false;
-	
-	
+
 	/**
 	 * The most basic generation checker for structures that spawn in the overworld.
 	 * 
-	 * @param world the world.
+	 * @param world
+	 *            the world.
 	 * @return true or false if the structure can spawn.
 	 */
 	public boolean checkCanGenerateOverworld(World world) {
 		return world.getWorldInfo().isMapFeaturesEnabled() && world.getWorldInfo().getTerrainType() != WorldType.FLAT;
 	}
-	
-	
+
 	/**
 	 * The basic generation checker combined with weight.
 	 * 
-	 * @param weight the chance (out of 100) that the structure has of spawning.
+	 * @param weight
+	 *            the chance (out of 100) that the structure has of spawning.
 	 * @param world
 	 * @return true or false if the structure can spawn.
 	 */
 	public boolean checkCanGenerateWeighted(int weight, World world) {
 		return world.rand.nextInt(100) < weight && world.getWorldInfo().isMapFeaturesEnabled();
 	}
-	
-	
+
 	/**
-	 * A more advanced generation checker. Makes the structure spawn in only the certain biome specified.
+	 * A more advanced generation checker. Makes the structure spawn in only the
+	 * certain biome specified.
 	 * 
-	 * @param weight 
+	 * @param weight
 	 * @param world
 	 * @param biome
 	 * @param chunkX
@@ -62,41 +63,52 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 	public boolean checkCanGenerateWeightedBiomeSpecific(int weight, World world, Biome biome, int chunkX, int chunkZ) {
 		return world.rand.nextInt(100) < weight && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == biome;
 	}
-	
-	
+
 	/**
 	 * Generates structures and ores for the overworld.
 	 * 
-	 * @param random A random object.
-	 * @param chunkX The x position of the current chunk.
-	 * @param chunkZ The z position of the current chunk.
-	 * @param world the world.
-	 * @param chunkGenerator the chunk generator.
-	 * @param chunkProvider the chunk provider.
+	 * @param random
+	 *            A random object.
+	 * @param chunkX
+	 *            The x position of the current chunk.
+	 * @param chunkZ
+	 *            The z position of the current chunk.
+	 * @param world
+	 *            the world.
+	 * @param chunkGenerator
+	 *            the chunk generator.
+	 * @param chunkProvider
+	 *            the chunk provider.
 	 */
 	public void generateOverworld(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 		runOreGenerator(COPPER_GENERIC, world, random, chunkX, chunkZ, 15, 4, 64);
 		runOreGenerator(TITANIUM_GENERIC, world, random, chunkX, chunkZ, 3, 4, 28);
 
 		if (checkCanGenerateOverworld(world)) {
-			
+
 			runTeamColorGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 10, 0, 100, true);
 			runGenericFlagGenerator(TERRAN_BUNKER, world, random, chunkX, chunkZ, 0, 0, 0, 10, 0, 100, true);
 			runGenericFlagGenerator(TERRAN_BARRACKS, world, random, chunkX, chunkZ, 0, 0, 0, 10, 0, 100, true);
 			runGenericFlagGenerator(TERRAN_COMMAND_CENTER, world, random, chunkX, chunkZ, 0, 0, 0, 10, 0, 100, true);
-			
-		}	
+
+		}
 	}
-	
+
 	/**
 	 * Generates structures and ores for Char, the Zerg homeworld.
 	 * 
-	 * @param random A random object.
-	 * @param chunkX The x position of the current chunk.
-	 * @param chunkZ The z position of the current chunk.
-	 * @param world the world.
-	 * @param chunkGenerator the chunk generator.
-	 * @param chunkProvider the chunk provider.
+	 * @param random
+	 *            A random object.
+	 * @param chunkX
+	 *            The x position of the current chunk.
+	 * @param chunkZ
+	 *            The z position of the current chunk.
+	 * @param world
+	 *            the world.
+	 * @param chunkGenerator
+	 *            the chunk generator.
+	 * @param chunkProvider
+	 *            the chunk provider.
 	 */
 	public void generateChar(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 		runOreGenerator(COAL_CHAR, world, random, chunkX, chunkZ, 20, 0, 128);
@@ -115,42 +127,46 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		runOreGenerator(GRAVEL_CHAR, world, random, chunkX, chunkZ, 10, 0, 128);
 		runOreGenerator(MAGMA_CHAR, world, random, chunkX, chunkZ, 25, 0, 128);
 
-		
-		if (checkCanGenerateWeightedBiomeSpecific(50, world, BiomeHandler.biomeCharZergHive, chunkX, chunkZ)) 
+		if (checkCanGenerateWeightedBiomeSpecific(50, world, BiomeHandler.biomeCharZergHive, chunkX, chunkZ))
 			runGenericFlagGenerator(SPAWNING_POOL, world, random, chunkX, chunkZ, 0, 1, 0, 1, 0, 100, true);
-		
-		if (checkCanGenerateWeightedBiomeSpecific(45, world, BiomeHandler.biomeCharZergHive, chunkX, chunkZ)) 
+
+		if (checkCanGenerateWeightedBiomeSpecific(45, world, BiomeHandler.biomeCharZergHive, chunkX, chunkZ))
 			runGenericFlagGenerator(ZERG_SPIRE, world, random, chunkX, chunkZ, 0, 1, 0, 1, 0, 100, true);
-		
-		if (checkCanGenerateWeightedBiomeSpecific(45, world, BiomeHandler.biomeCharZergHive, chunkX, chunkZ)) 
+
+		if (checkCanGenerateWeightedBiomeSpecific(45, world, BiomeHandler.biomeCharZergHive, chunkX, chunkZ))
 			runGenericFlagGenerator(ZERG_HYDRALISK_DEN, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100, true);
-		
-		if (checkCanGenerateWeighted(10, world)) 
+
+		if (checkCanGenerateWeighted(10, world))
 			runTeamColorGenerator(PROTOSS_WARPGATE, 1, 2, world, random, chunkX, chunkZ, 0, -1, 0, 1, 0, 100, true);
-		
-		if (checkCanGenerateWeighted(2, world)) 
+
+		if (checkCanGenerateWeighted(2, world))
 			runDualBlockStateGenerator(GEYSER, BlockHandler.STONE_CHAR.getDefaultState(), BlockHandler.FLUID_VESPENE.getDefaultState(), world, random, chunkX, chunkZ, 0, -32, 0, 1, 60, 80, true);
-		
-		if (checkCanGenerateWeighted(1, world)) 
+
+		if (checkCanGenerateWeighted(1, world))
 			runDualBlockStateGenerator(GEYSER, BlockHandler.STONE_CHAR.getDefaultState(), BlockHandler.FLUID_TERRAZINE.getDefaultState(), world, random, chunkX, chunkZ, 0, -32, 0, 1, 60, 80, true);
-		
-		if (checkCanGenerateWeighted(10, world)) 
+
+		if (checkCanGenerateWeighted(10, world))
 			runMetaGenerator(MINERAL_PATCH, 0, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
-		
-		if (checkCanGenerateWeighted(5, world)) 
+
+		if (checkCanGenerateWeighted(5, world))
 			runMetaGenerator(MINERAL_PATCH, 1, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
 	}
-	
-	
+
 	/**
 	 * Generates structures and ores for Kaldir, the frozen moon.
 	 * 
-	 * @param random A random object.
-	 * @param chunkX The x position of the current chunk.
-	 * @param chunkZ The z position of the current chunk.
-	 * @param world the world.
-	 * @param chunkGenerator the chunk generator.
-	 * @param chunkProvider the chunk provider.
+	 * @param random
+	 *            A random object.
+	 * @param chunkX
+	 *            The x position of the current chunk.
+	 * @param chunkZ
+	 *            The z position of the current chunk.
+	 * @param world
+	 *            the world.
+	 * @param chunkGenerator
+	 *            the chunk generator.
+	 * @param chunkProvider
+	 *            the chunk provider.
 	 */
 	public void generateKaldir(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 		runOreGenerator(COAL_GENERIC, world, random, chunkX, chunkZ, 10, 0, 128);
@@ -197,22 +213,27 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		if (world.rand.nextInt(100) < 10 && world.getWorldInfo().isMapFeaturesEnabled()) {
 			runMetaGenerator(MINERAL_PATCH, 1, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
 		}
-		//TODO: Fix this spawning... somehow - Hypeirochus
+		// TODO: Fix this spawning... somehow - Hypeirochus
 		if (world.rand.nextInt(100) < 100) {
 			runBossGenerator(BOSS_SPAWNER, 50, new EntityNafash(world), TextFormatting.RED, world, random, chunkX, chunkZ, 0, -34, 0, 1, 0, 100, true);
 		}
 	}
-	
-	
+
 	/**
 	 * Generates structures and ores for Shakuras, the twilight planet.
 	 * 
-	 * @param random A random object.
-	 * @param chunkX The x position of the current chunk.
-	 * @param chunkZ The z position of the current chunk.
-	 * @param world the world.
-	 * @param chunkGenerator the chunk generator.
-	 * @param chunkProvider the chunk provider.
+	 * @param random
+	 *            A random object.
+	 * @param chunkX
+	 *            The x position of the current chunk.
+	 * @param chunkZ
+	 *            The z position of the current chunk.
+	 * @param world
+	 *            the world.
+	 * @param chunkGenerator
+	 *            the chunk generator.
+	 * @param chunkProvider
+	 *            the chunk provider.
 	 */
 	public void generateShakuras(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 		runOreGenerator(COAL_SHAKURAS, world, random, chunkX, chunkZ, 20, 0, 128);
@@ -252,17 +273,22 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 			runMetaGenerator(MINERAL_PATCH, 1, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
 		}
 	}
-	
-	
+
 	/**
 	 * Generates structures and ores for Zerus, home to the Primal Zerg.
 	 * 
-	 * @param random A random object.
-	 * @param chunkX The x position of the current chunk.
-	 * @param chunkZ The z position of the current chunk.
-	 * @param world the world.
-	 * @param chunkGenerator the chunk generator.
-	 * @param chunkProvider the chunk provider.
+	 * @param random
+	 *            A random object.
+	 * @param chunkX
+	 *            The x position of the current chunk.
+	 * @param chunkZ
+	 *            The z position of the current chunk.
+	 * @param world
+	 *            the world.
+	 * @param chunkGenerator
+	 *            the chunk generator.
+	 * @param chunkProvider
+	 *            the chunk provider.
 	 */
 	public void generateZerus(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 		runOreGenerator(COAL_ZERUS, world, random, chunkX, chunkZ, 20, 0, 128);
@@ -278,24 +304,29 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		runOreGenerator(URANIUM_ZERUS, world, random, chunkX, chunkZ, 2, 4, 20);
 		runOreGenerator(PHOSPHORUS_ZERUS, world, random, chunkX, chunkZ, 5, 12, 48);
 		runOreGenerator(DIRT_ZERUS, world, random, chunkX, chunkZ, 20, 0, 128);
-		runOreGenerator(GRAVEL_ZERUS, world, random, chunkX, chunkZ, 10, 0, 128);	
-		
+		runOreGenerator(GRAVEL_ZERUS, world, random, chunkX, chunkZ, 10, 0, 128);
+
 		if (world.getWorldInfo().isMapFeaturesEnabled()) {
 			runTeamColorGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 		}
 		this.runTileEntityGenerator(TILEENTITY_SPAWNER, new TileEntityZerusGlowPod(), world, random, chunkX, chunkZ, 5, 65, 70);
 	}
-	
-	
+
 	/**
 	 * Generates structures and ores for the Taldarim homeworld of Slayn.
 	 * 
-	 * @param random A random object.
-	 * @param chunkX The x position of the current chunk.
-	 * @param chunkZ The z position of the current chunk.
-	 * @param world the world.
-	 * @param chunkGenerator the chunk generator.
-	 * @param chunkProvider the chunk provider.
+	 * @param random
+	 *            A random object.
+	 * @param chunkX
+	 *            The x position of the current chunk.
+	 * @param chunkZ
+	 *            The z position of the current chunk.
+	 * @param world
+	 *            the world.
+	 * @param chunkGenerator
+	 *            the chunk generator.
+	 * @param chunkProvider
+	 *            the chunk provider.
 	 */
 	public void generateSlayn(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 		runOreGenerator(COAL_SLAYN, world, random, chunkX, chunkZ, 20, 0, 128);
@@ -312,7 +343,7 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		runOreGenerator(DIRT_SLAYN, world, random, chunkX, chunkZ, 20, 0, 128);
 		runOreGenerator(GRAVEL_SLAYN, world, random, chunkX, chunkZ, 10, 0, 128);
 		runOreGenerator(URANIUM_SLAYN, world, random, chunkX, chunkZ, 2, 4, 20);
-		
+
 		if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeSlaynProtossCity) {
 			runTeamColorGenerator(PROTOSS_WARPGATE, 1, 4, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 		}
@@ -335,17 +366,22 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 			runMetaGenerator(MINERAL_PATCH, 1, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
 		}
 	}
-	
-	
+
 	/**
 	 * Generates structures and ores for the protoss homeworld of Aiur.
 	 * 
-	 * @param random A random object.
-	 * @param chunkX The x position of the current chunk.
-	 * @param chunkZ The z position of the current chunk.
-	 * @param world the world.
-	 * @param chunkGenerator the chunk generator.
-	 * @param chunkProvider the chunk provider.
+	 * @param random
+	 *            A random object.
+	 * @param chunkX
+	 *            The x position of the current chunk.
+	 * @param chunkZ
+	 *            The z position of the current chunk.
+	 * @param world
+	 *            the world.
+	 * @param chunkGenerator
+	 *            the chunk generator.
+	 * @param chunkProvider
+	 *            the chunk provider.
 	 */
 	public void generateAiur(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 		runOreGenerator(COAL_GENERIC, world, random, chunkX, chunkZ, 20, 0, 128);
@@ -362,22 +398,27 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		runOreGenerator(DIRT_GENERIC, world, random, chunkX, chunkZ, 20, 0, 128);
 		runOreGenerator(GRAVEL_GENERIC, world, random, chunkX, chunkZ, 10, 0, 128);
 		runOreGenerator(URANIUM_GENERIC, world, random, chunkX, chunkZ, 2, 4, 20);
-		
+
 		if (world.getWorldInfo().isMapFeaturesEnabled()) {
 			runTeamColorGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 		}
 	}
-	
-	
+
 	/**
 	 * Generates structures and ores for Dominion capital of the Terrans.
 	 * 
-	 * @param random A random object.
-	 * @param chunkX The x position of the current chunk.
-	 * @param chunkZ The z position of the current chunk.
-	 * @param world the world.
-	 * @param chunkGenerator the chunk generator.
-	 * @param chunkProvider the chunk provider.
+	 * @param random
+	 *            A random object.
+	 * @param chunkX
+	 *            The x position of the current chunk.
+	 * @param chunkZ
+	 *            The z position of the current chunk.
+	 * @param world
+	 *            the world.
+	 * @param chunkGenerator
+	 *            the chunk generator.
+	 * @param chunkProvider
+	 *            the chunk provider.
 	 */
 	public void generateKorhal(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 		runOreGenerator(COAL_GENERIC, world, random, chunkX, chunkZ, 20, 0, 128);
@@ -404,7 +445,7 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKorhalTerranCity) {
 			runGenericFlagGenerator(TERRAN_COMMAND_CENTER, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100, true);
 		}
-		if ( world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) != BiomeHandler.biomeKorhalTerranCity) {
+		if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) != BiomeHandler.biomeKorhalTerranCity) {
 			runTeamColorGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100, true);
 		}
 		if (world.rand.nextInt(100) < 4 && world.getWorldInfo().isMapFeaturesEnabled()) {
@@ -420,38 +461,56 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 			runMetaGenerator(MINERAL_PATCH, 1, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
 		}
 	}
-	
+
 	/**
 	 * Generates structures and ores for deep space.
 	 * 
-	 * @param random A random object.
-	 * @param chunkX The x position of the current chunk.
-	 * @param chunkZ The z position of the current chunk.
-	 * @param world the world.
-	 * @param chunkGenerator the chunk generator.
-	 * @param chunkProvider the chunk provider.
+	 * @param random
+	 *            A random object.
+	 * @param chunkX
+	 *            The x position of the current chunk.
+	 * @param chunkZ
+	 *            The z position of the current chunk.
+	 * @param world
+	 *            the world.
+	 * @param chunkGenerator
+	 *            the chunk generator.
+	 * @param chunkProvider
+	 *            the chunk provider.
 	 */
 	public void generateSpace(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 
 		/** Earth **/
-		if(this.generationCompleted == false) {
+		if (this.generationCompleted == false) {
 			this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, 0, 21, 31, MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(0), MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(4), world, random, 0, 0, 0, new BlockPos(0, 128, 0));
 			this.runStarGenerator(STAR_TEMPLATE, 51, 75, MetaBlockHandler.STAR_SURFACE.getStateFromMeta(2), world, random, 0, 0, 0, new BlockPos(200, 128, 0));
 			this.generationCompleted = true;
 		}
-		
-		if(random.nextInt(1500) == 0) 	runRandomStarGenerator(STAR_TEMPLATE, random.nextInt(50) + 25, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 255);
-		
-		if(random.nextInt(700) < 10)	runOreGenerator(COAL_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
-		if(random.nextInt(700) < 7)		runOreGenerator(COPPER_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
-		if(random.nextInt(700) < 1)		runOreGenerator(DIAMOND_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
-		if(random.nextInt(700) < 2)		runOreGenerator(GOLD_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
-		if(random.nextInt(700) < 10)	runOreGenerator(IRON_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
-		if(random.nextInt(700) < 12)	runOreGenerator(MINERAL_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
-		if(random.nextInt(700) < 6)		runOreGenerator(RICHMINERAL_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
-		if(random.nextInt(700) < 3)		runOreGenerator(TITANIUM_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
-		if(random.nextInt(700) < 2)		runOreGenerator(URANIUM_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
-		if(random.nextInt(700) < 20)	runOreGenerator(STONE_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
-		if(random.nextInt(700) < 20)	runOreGenerator(ICE_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+
+		if (random.nextInt(1500) == 0)
+			runRandomStarGenerator(STAR_TEMPLATE, random.nextInt(50) + 25, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 255);
+
+		if (random.nextInt(700) < 10)
+			runOreGenerator(COAL_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		if (random.nextInt(700) < 7)
+			runOreGenerator(COPPER_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		if (random.nextInt(700) < 1)
+			runOreGenerator(DIAMOND_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		if (random.nextInt(700) < 2)
+			runOreGenerator(GOLD_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		if (random.nextInt(700) < 10)
+			runOreGenerator(IRON_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		if (random.nextInt(700) < 12)
+			runOreGenerator(MINERAL_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		if (random.nextInt(700) < 6)
+			runOreGenerator(RICHMINERAL_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		if (random.nextInt(700) < 3)
+			runOreGenerator(TITANIUM_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		if (random.nextInt(700) < 2)
+			runOreGenerator(URANIUM_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		if (random.nextInt(700) < 20)
+			runOreGenerator(STONE_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		if (random.nextInt(700) < 20)
+			runOreGenerator(ICE_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
 	}
 }

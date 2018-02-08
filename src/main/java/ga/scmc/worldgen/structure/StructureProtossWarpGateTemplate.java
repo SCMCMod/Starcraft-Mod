@@ -26,20 +26,20 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 		this.metaDim = rand.nextInt(100);
 		if (world.provider.getDimension() == 0) {
 			dimBlock = BlockHandler.DIM_PORTAL_ZERUS;
-		}  else if (world.provider.getDimension() == 1) {
+		} else if (world.provider.getDimension() == 1) {
 			if (metaDim <= 14) {
 				dimBlock = BlockHandler.DIM_PORTAL_CHAR;
 			} else if (metaDim >= 15 && metaDim <= 29) {
 				dimBlock = BlockHandler.DIM_PORTAL_SHAKURAS;
 			} else if (metaDim >= 30 && metaDim <= 44) {
 				dimBlock = BlockHandler.DIM_PORTAL_KORHAL;
-			} else if(metaDim >= 45 && metaDim <= 59) {
+			} else if (metaDim >= 45 && metaDim <= 59) {
 				dimBlock = BlockHandler.DIM_PORTAL_KALDIR;
-			} else if(metaDim >= 60 && metaDim <= 74) {
+			} else if (metaDim >= 60 && metaDim <= 74) {
 				dimBlock = BlockHandler.DIM_PORTAL_SLAYN;
-			} else if(metaDim >= 75 && metaDim <= 89) {
+			} else if (metaDim >= 75 && metaDim <= 89) {
 				dimBlock = BlockHandler.DIM_PORTAL_AIUR;
-			} else if(metaDim >= 90 && metaDim <= 100) {
+			} else if (metaDim >= 90 && metaDim <= 100) {
 				dimBlock = BlockHandler.DIM_PORTAL_ZERUS;
 			}
 		} else if (world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_CHAR) {
@@ -49,13 +49,13 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 				dimBlock = BlockHandler.DIM_PORTAL_SHAKURAS;
 			} else if (metaDim >= 30 && metaDim <= 44) {
 				dimBlock = BlockHandler.DIM_PORTAL_KORHAL;
-			} else if(metaDim >= 45 && metaDim <= 59) {
+			} else if (metaDim >= 45 && metaDim <= 59) {
 				dimBlock = BlockHandler.DIM_PORTAL_KALDIR;
-			} else if(metaDim >= 60 && metaDim <= 74) {
+			} else if (metaDim >= 60 && metaDim <= 74) {
 				dimBlock = BlockHandler.DIM_PORTAL_SLAYN;
-			} else if(metaDim >= 75 && metaDim <= 89) {
+			} else if (metaDim >= 75 && metaDim <= 89) {
 				dimBlock = BlockHandler.DIM_PORTAL_AIUR;
-			} else if(metaDim >= 90 && metaDim <= 100) {
+			} else if (metaDim >= 90 && metaDim <= 100) {
 				dimBlock = BlockHandler.DIM_PORTAL_ZERUS;
 			}
 		} else if (world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_SHAKURAS) {
@@ -65,13 +65,13 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 				dimBlock = BlockHandler.DIM_PORTAL_OVERWORLD;
 			} else if (metaDim >= 30 && metaDim <= 44) {
 				dimBlock = BlockHandler.DIM_PORTAL_KORHAL;
-			} else if(metaDim >= 45 && metaDim <= 59) {
+			} else if (metaDim >= 45 && metaDim <= 59) {
 				dimBlock = BlockHandler.DIM_PORTAL_KALDIR;
-			} else if(metaDim >= 60 && metaDim <= 74) {
+			} else if (metaDim >= 60 && metaDim <= 74) {
 				dimBlock = BlockHandler.DIM_PORTAL_SLAYN;
-			} else if(metaDim >= 75 && metaDim <= 89) {
+			} else if (metaDim >= 75 && metaDim <= 89) {
 				dimBlock = BlockHandler.DIM_PORTAL_AIUR;
-			} else if(metaDim >= 90 && metaDim <= 100) {
+			} else if (metaDim >= 90 && metaDim <= 100) {
 				dimBlock = BlockHandler.DIM_PORTAL_ZERUS;
 			}
 		} else if (world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_KORHAL) {
@@ -81,13 +81,13 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 				dimBlock = BlockHandler.DIM_PORTAL_SHAKURAS;
 			} else if (metaDim >= 30 && metaDim <= 44) {
 				dimBlock = BlockHandler.DIM_PORTAL_OVERWORLD;
-			} else if(metaDim >= 45 && metaDim <= 59) {
+			} else if (metaDim >= 45 && metaDim <= 59) {
 				dimBlock = BlockHandler.DIM_PORTAL_KALDIR;
-			} else if(metaDim >= 60 && metaDim <= 74) {
+			} else if (metaDim >= 60 && metaDim <= 74) {
 				dimBlock = BlockHandler.DIM_PORTAL_SLAYN;
-			} else if(metaDim >= 75 && metaDim <= 89) {
+			} else if (metaDim >= 75 && metaDim <= 89) {
 				dimBlock = BlockHandler.DIM_PORTAL_AIUR;
-			} else if(metaDim >= 90 && metaDim <= 100) {
+			} else if (metaDim >= 90 && metaDim <= 100) {
 				dimBlock = BlockHandler.DIM_PORTAL_ZERUS;
 			}
 		} else if (world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_KALDIR) {
@@ -97,13 +97,13 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 				dimBlock = BlockHandler.DIM_PORTAL_SHAKURAS;
 			} else if (metaDim >= 30 && metaDim <= 44) {
 				dimBlock = BlockHandler.DIM_PORTAL_KORHAL;
-			} else if(metaDim >= 45 && metaDim <= 59) {
+			} else if (metaDim >= 45 && metaDim <= 59) {
 				dimBlock = BlockHandler.DIM_PORTAL_OVERWORLD;
-			} else if(metaDim >= 60 && metaDim <= 74) {
+			} else if (metaDim >= 60 && metaDim <= 74) {
 				dimBlock = BlockHandler.DIM_PORTAL_SLAYN;
-			} else if(metaDim >= 75 && metaDim <= 89) {
+			} else if (metaDim >= 75 && metaDim <= 89) {
 				dimBlock = BlockHandler.DIM_PORTAL_AIUR;
-			} else if(metaDim >= 90 && metaDim <= 100) {
+			} else if (metaDim >= 90 && metaDim <= 100) {
 				dimBlock = BlockHandler.DIM_PORTAL_ZERUS;
 			}
 		} else if (world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_SLAYN) {
@@ -113,13 +113,13 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 				dimBlock = BlockHandler.DIM_PORTAL_SHAKURAS;
 			} else if (metaDim >= 30 && metaDim <= 44) {
 				dimBlock = BlockHandler.DIM_PORTAL_KORHAL;
-			} else if(metaDim >= 45 && metaDim <= 59) {
+			} else if (metaDim >= 45 && metaDim <= 59) {
 				dimBlock = BlockHandler.DIM_PORTAL_OVERWORLD;
-			} else if(metaDim >= 60 && metaDim <= 74) {
+			} else if (metaDim >= 60 && metaDim <= 74) {
 				dimBlock = BlockHandler.DIM_PORTAL_KALDIR;
-			} else if(metaDim >= 75 && metaDim <= 89) {
+			} else if (metaDim >= 75 && metaDim <= 89) {
 				dimBlock = BlockHandler.DIM_PORTAL_AIUR;
-			} else if(metaDim >= 90 && metaDim <= 100) {
+			} else if (metaDim >= 90 && metaDim <= 100) {
 				dimBlock = BlockHandler.DIM_PORTAL_ZERUS;
 			}
 		} else if (world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_AIUR) {
@@ -129,13 +129,13 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 				dimBlock = BlockHandler.DIM_PORTAL_SHAKURAS;
 			} else if (metaDim >= 30 && metaDim <= 44) {
 				dimBlock = BlockHandler.DIM_PORTAL_KORHAL;
-			} else if(metaDim >= 45 && metaDim <= 59) {
+			} else if (metaDim >= 45 && metaDim <= 59) {
 				dimBlock = BlockHandler.DIM_PORTAL_OVERWORLD;
-			} else if(metaDim >= 60 && metaDim <= 74) {
+			} else if (metaDim >= 60 && metaDim <= 74) {
 				dimBlock = BlockHandler.DIM_PORTAL_SLAYN;
-			} else if(metaDim >= 75 && metaDim <= 89) {
+			} else if (metaDim >= 75 && metaDim <= 89) {
 				dimBlock = BlockHandler.DIM_PORTAL_KALDIR;
-			} else if(metaDim >= 90 && metaDim <= 100) {
+			} else if (metaDim >= 90 && metaDim <= 100) {
 				dimBlock = BlockHandler.DIM_PORTAL_ZERUS;
 			}
 		} else if (world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_ZERUS) {
@@ -145,13 +145,13 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 				dimBlock = BlockHandler.DIM_PORTAL_SHAKURAS;
 			} else if (metaDim >= 30 && metaDim <= 44) {
 				dimBlock = BlockHandler.DIM_PORTAL_KORHAL;
-			} else if(metaDim >= 45 && metaDim <= 59) {
+			} else if (metaDim >= 45 && metaDim <= 59) {
 				dimBlock = BlockHandler.DIM_PORTAL_OVERWORLD;
-			} else if(metaDim >= 60 && metaDim <= 74) {
+			} else if (metaDim >= 60 && metaDim <= 74) {
 				dimBlock = BlockHandler.DIM_PORTAL_SLAYN;
-			} else if(metaDim >= 75 && metaDim <= 89) {
+			} else if (metaDim >= 75 && metaDim <= 89) {
 				dimBlock = BlockHandler.DIM_PORTAL_AIUR;
-			} else if(metaDim >= 90 && metaDim <= 100) {
+			} else if (metaDim >= 90 && metaDim <= 100) {
 				dimBlock = BlockHandler.DIM_PORTAL_KALDIR;
 			}
 		} else {
@@ -942,9 +942,7 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 	}
 
 	protected Block[] getValidSpawnBlocks() {
-		return new Block[] { Blocks.GRASS, Blocks.DIRT, Blocks.STONE, BlockHandler.ASH_CHAR, BlockHandler.STONE_CHAR,
-				MetaBlockHandler.PROTOSS_METAL_T1, BlockHandler.SAND_SHAKURAS, BlockHandler.STONE_SHAKURAS,
-				BlockHandler.DIRT_SHAKURAS, BlockHandler.DIRT_CHAR, Blocks.SAND, Blocks.SNOW_LAYER, Blocks.SNOW };
+		return new Block[] { Blocks.GRASS, Blocks.DIRT, Blocks.STONE, BlockHandler.ASH_CHAR, BlockHandler.STONE_CHAR, MetaBlockHandler.PROTOSS_METAL_T1, BlockHandler.SAND_SHAKURAS, BlockHandler.STONE_SHAKURAS, BlockHandler.DIRT_SHAKURAS, BlockHandler.DIRT_CHAR, Blocks.SAND, Blocks.SNOW_LAYER, Blocks.SNOW };
 	}
 
 	public boolean LocationIsValidSpawn(World world, BlockPos pos) {

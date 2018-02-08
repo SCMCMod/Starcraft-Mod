@@ -79,7 +79,8 @@ public class BlockZergStructureFlesh extends Block implements IMetaBlockName {
 	/*
 	 * will be re-added when we have colored flesh
 	 * 
-	 * @Override public int damageDropped(IBlockState state) { return getMetaFromState(state); }
+	 * @Override public int damageDropped(IBlockState state) { return
+	 * getMetaFromState(state); }
 	 */
 
 	/**

@@ -21,7 +21,7 @@ public class RenderStalker extends RenderLiving<EntityStalker> {
 	public void doRender(EntityStalker entity, double x, double y, double z, float entityYaw, float partialTicks) {
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 
-		if(!renderOutlines) {
+		if (!renderOutlines) {
 			renderLeash(entity, x, y, z, entityYaw, partialTicks);
 		}
 	}

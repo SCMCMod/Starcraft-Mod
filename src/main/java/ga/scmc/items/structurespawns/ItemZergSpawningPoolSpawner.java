@@ -16,16 +16,15 @@ import net.minecraft.world.World;
 public class ItemZergSpawningPoolSpawner extends Item {
 
 	Random rand;
-	
+
 	public ItemZergSpawningPoolSpawner() {
 		setUnlocalizedName("zerg.spawner.spawningpool");
 		setRegistryName("zerg.spawner.spawningpool");
 		setCreativeTab(StarcraftCreativeTabs.ZERG);
 	}
-	
+
 	@Override
-	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY,
-			float hitZ) {
+	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		StructureZergSpawningPoolTemplate ZERG_SPAWNINGPOOL = new StructureZergSpawningPoolTemplate();
 		ZERG_SPAWNINGPOOL.generate_r0(worldIn, rand, 0, 0, 0, pos, false);
 		return super.onItemUse(stack, playerIn, worldIn, pos, hand, facing, hitX, hitY, hitZ);

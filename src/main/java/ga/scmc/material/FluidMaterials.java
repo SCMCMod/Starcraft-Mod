@@ -11,7 +11,8 @@ import net.minecraft.block.state.IBlockState;
  * <br>
  * </br>
  * 
- * NOTE: These do not work as fluids! Do NOT use! If you wish to change the map color, consider using {@link Block#getMapColor(IBlockState)}
+ * NOTE: These do not work as fluids! Do NOT use! If you wish to change the map
+ * color, consider using {@link Block#getMapColor(IBlockState)}
  */
 public class FluidMaterials extends Material {
 

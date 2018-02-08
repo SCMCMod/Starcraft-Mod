@@ -8,12 +8,12 @@ public class EntityProtossMob extends EntityStarcraftMob {
 	public EntityProtossMob(World world) {
 		super(world);
 	}
-	
+
 	@Override
 	public boolean getCanSpawnHere() {
-		if(this.world.getDifficulty() != EnumDifficulty.PEACEFUL) {
+		if (this.world.getDifficulty() != EnumDifficulty.PEACEFUL) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}

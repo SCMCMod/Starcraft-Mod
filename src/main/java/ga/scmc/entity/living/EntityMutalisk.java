@@ -42,16 +42,14 @@ public class EntityMutalisk extends EntityZergFlying implements IMob, IRangedAtt
 		tasks.addTask(2, new EntityAIAttackRanged(this, 1.0D, 40, 20.0F));
 		tasks.addTask(5, new EntityMutalisk.AIRandomFly(this));
 		tasks.addTask(7, new EntityMutalisk.AILookAround(this));
-		targetTasks.addTask(1, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0,
-				true, false, this));
+		targetTasks.addTask(1, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, true, false, this));
 
 	}
 
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float distanceFactor) {
 		EntityMutaliskGlaiveWurm wurm = new EntityMutaliskGlaiveWurm(this.world, this);
-		double d0 = target.posY + (double) target.getEyeHeight() - 1.000000023841858D
-				- target.getDistanceSq(target.getPosition());
+		double d0 = target.posY + (double) target.getEyeHeight() - 1.000000023841858D - target.getDistanceSq(target.getPosition());
 		double d1 = target.posX - this.posX;
 		double d2 = d0 - wurm.posY;
 		double d3 = target.posZ - this.posZ;
@@ -108,8 +106,7 @@ public class EntityMutalisk extends EntityZergFlying implements IMob, IRangedAtt
 
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
-		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2),
-				EnumMetaItem.CarapaceType.T2.getID()));
+		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), EnumMetaItem.CarapaceType.T2.getID()));
 		drop.tryDrop(this);
 	}
 
@@ -177,8 +174,7 @@ public class EntityMutalisk extends EntityZergFlying implements IMob, IRangedAtt
 		 */
 		public void updateTask() {
 			if (this.parentEntity.getAttackTarget() == null) {
-				this.parentEntity.rotationYaw = -((float) MathHelper.atan2(this.parentEntity.motionX,
-						this.parentEntity.motionZ)) * (180F / (float) Math.PI);
+				this.parentEntity.rotationYaw = -((float) MathHelper.atan2(this.parentEntity.motionX, this.parentEntity.motionZ)) * (180F / (float) Math.PI);
 				this.parentEntity.renderYawOffset = this.parentEntity.rotationYaw;
 			} else {
 				EntityLivingBase entitylivingbase = this.parentEntity.getAttackTarget();

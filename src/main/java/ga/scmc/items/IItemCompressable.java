@@ -12,7 +12,8 @@ public interface IItemCompressable {
 	 * 
 	 * @param metadata
 	 *            The metadata of the item
-	 * @return The item stack for the item when compressed eg. "###", "###", "###", '#' stack returned
+	 * @return The item stack for the item when compressed eg. "###", "###", "###",
+	 *         '#' stack returned
 	 */
 	public ItemStack getCompressedForm(int metadata);
 

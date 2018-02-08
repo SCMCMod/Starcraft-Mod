@@ -27,7 +27,8 @@ public class RenderFlamethrowerFlame extends Render<EntityFlamethrowerFlame> {
 	}
 
 	/**
-	 * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
+	 * Returns the location of an entity's texture. Doesn't seem to be called unless
+	 * you call Render.bindEntityTexture.
 	 */
 	@Override
 	protected ResourceLocation getEntityTexture(EntityFlamethrowerFlame entity) {

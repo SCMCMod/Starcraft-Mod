@@ -58,9 +58,10 @@ public class BlockProtossShield extends Block {
 	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
-	
+
 	@Override
-	public void onBlockDestroyedByExplosion(World worldIn, BlockPos pos, Explosion explosionIn) {}
+	public void onBlockDestroyedByExplosion(World worldIn, BlockPos pos, Explosion explosionIn) {
+	}
 
 	/**
 	 * Used to determine ambient occlusion and culling when rebuilding chunks for
@@ -72,30 +73,24 @@ public class BlockProtossShield extends Block {
 
 	@Override
 	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
-		if (entityIn instanceof EntityArrow || entityIn instanceof EntityFireball
-				|| entityIn instanceof EntitySmallFireball || entityIn instanceof EntityLargeFireball
-				|| entityIn instanceof EntitySnowball || entityIn instanceof EntityPotion || entityIn instanceof EntityThrowable) {
-			
+		if (entityIn instanceof EntityArrow || entityIn instanceof EntityFireball || entityIn instanceof EntitySmallFireball || entityIn instanceof EntityLargeFireball || entityIn instanceof EntitySnowball || entityIn instanceof EntityPotion || entityIn instanceof EntityThrowable) {
+
 			entityIn.setDead();
 		}
 		super.onEntityCollidedWithBlock(worldIn, pos, state, entityIn);
 	}
-	
+
 	@Override
-	public Boolean isEntityInsideMaterial(IBlockAccess world, BlockPos blockpos, IBlockState iblockstate, Entity entityIn,
-			double yToTest, Material materialIn, boolean testingHead) {
-		if (entityIn instanceof EntityArrow || entityIn instanceof EntityFireball
-				|| entityIn instanceof EntitySmallFireball || entityIn instanceof EntityLargeFireball
-				|| entityIn instanceof EntitySnowball || entityIn instanceof EntityPotion || entityIn instanceof EntityThrowable) {
-			
+	public Boolean isEntityInsideMaterial(IBlockAccess world, BlockPos blockpos, IBlockState iblockstate, Entity entityIn, double yToTest, Material materialIn, boolean testingHead) {
+		if (entityIn instanceof EntityArrow || entityIn instanceof EntityFireball || entityIn instanceof EntitySmallFireball || entityIn instanceof EntityLargeFireball || entityIn instanceof EntitySnowball || entityIn instanceof EntityPotion || entityIn instanceof EntityThrowable) {
+
 			entityIn.setDead();
 		}
 		return super.isEntityInsideMaterial(world, blockpos, iblockstate, entityIn, yToTest, materialIn, testingHead);
 	}
 
 	@SideOnly(Side.CLIENT)
-	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos,
-			EnumFacing side) {
+	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
 		IBlockState iblockstate = blockAccess.getBlockState(pos.offset(side));
 		Block block = iblockstate.getBlock();
 

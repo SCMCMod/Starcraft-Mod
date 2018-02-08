@@ -114,7 +114,7 @@ public class RenderSkyShakuras extends IRenderHandler {
 
 			GlStateManager.enableTexture2D();
 			OpenGL.blendFunc(GL11.GL_SRC_ALPHA, 1);
-			
+
 			OpenGL.blendClear();
 			GlStateManager.disableBlend();
 			GlStateManager.enableAlpha();

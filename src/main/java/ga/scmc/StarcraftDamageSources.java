@@ -48,7 +48,7 @@ public class StarcraftDamageSources extends DamageSource {
 	public static DamageSource causeHydraliskNeedleDamage(Entity source, @Nullable Entity indirectEntityIn) {
 		return (new EntityDamageSource(hydraNeedle.getDamageType(), source));
 	}
-	
+
 	/**
 	 * Causes Mutalisk glaive wurm damage to an entity.
 	 * 

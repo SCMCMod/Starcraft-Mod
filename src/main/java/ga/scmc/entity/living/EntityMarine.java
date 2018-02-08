@@ -31,6 +31,7 @@ import net.minecraft.world.World;
 
 /**
  * Work in progress
+ * 
  * @author Hypeirochus
  */
 public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
@@ -50,7 +51,7 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, true, false, this));
 	}
-	
+
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
 		ItemDrop drop = new ItemDrop(1, new ItemStack(ItemHandler.C14_GAUSS_RIFLE, 0));
@@ -60,7 +61,7 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 		drop2.tryDrop(this);
 		drop3.tryDrop(this);
 	}
-	
+
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
@@ -97,14 +98,14 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityPlayer) {
+			} else if (entity instanceof EntityPlayer) {
 				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
-				if(color.getColor() == this.getTeamColor().getId()) {
+				if (color.getColor() == this.getTeamColor().getId()) {
 					return false;
-				}else {
+				} else {
 					return true;
 				}
-			}else {
+			} else {
 				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
 					return false;
 				}
@@ -117,7 +118,7 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 		}
 		return false;
 	}
-	
+
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float p_82196_2_) {
 		EntityC14GaussRifleBullet bullet = new EntityC14GaussRifleBullet(this.world, this);
@@ -135,20 +136,20 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 	public int getTalkInterval() {
 		return 160;
 	}
-	
+
 	@Override
 	public SoundEvent getAmbientSound() {
 		return SoundHandler.ENTITY_MARINE_LIVE1;
 	}
-	
+
 	@Override
 	public SoundEvent getDeathSound() {
-		switch(rand.nextInt(1)) {
-			case 0:
-				return SoundHandler.ENTITY_MARINE_HURT;
-			default:
-				return SoundHandler.ENTITY_MARINE_DEATH;
+		switch (rand.nextInt(1)) {
+		case 0:
+			return SoundHandler.ENTITY_MARINE_HURT;
+		default:
+			return SoundHandler.ENTITY_MARINE_DEATH;
 		}
-		
+
 	}
 }

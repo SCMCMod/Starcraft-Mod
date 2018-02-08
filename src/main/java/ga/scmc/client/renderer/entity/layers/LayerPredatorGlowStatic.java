@@ -10,20 +10,20 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class LayerPredatorGlowStatic<T extends EntityPredator> implements LayerRenderer<T> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.PREDATOR_GLOW_STATIC);
-    private final RenderPredator<T> RENDERER;
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.PREDATOR_GLOW_STATIC);
+	private final RenderPredator<T> RENDERER;
 
-    public LayerPredatorGlowStatic(RenderPredator<T> darkprobeRendererIn) {
-        RENDERER = darkprobeRendererIn;
-    }
+	public LayerPredatorGlowStatic(RenderPredator<T> darkprobeRendererIn) {
+		RENDERER = darkprobeRendererIn;
+	}
 
-    @Override
-    public void doRenderLayer(EntityPredator entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+	@Override
+	public void doRenderLayer(EntityPredator entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, TEXTURE, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
-    }
+	}
 
-    @Override
-    public boolean shouldCombineTextures() {
-        return false;
-    }
+	@Override
+	public boolean shouldCombineTextures() {
+		return false;
+	}
 }

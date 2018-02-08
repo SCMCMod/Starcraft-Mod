@@ -21,7 +21,7 @@ public class RenderMarauder extends RenderLiving<EntityMarauder> {
 	public void doRender(EntityMarauder entity, double x, double y, double z, float entityYaw, float partialTicks) {
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 
-		if(!renderOutlines) {
+		if (!renderOutlines) {
 			renderLeash(entity, x, y, z, entityYaw, partialTicks);
 		}
 	}

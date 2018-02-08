@@ -36,20 +36,18 @@ public class LivingEventHandler {
 	@SubscribeEvent
 	public static void onLivingUpdate(LivingUpdateEvent event) {
 		if (event.getEntity() != null) {
-			
+
 			/** Handling Char gravity **/
 			if (event.getEntity().motionY > 0 && event.getEntity().dimension == ConfigurationHandler.INT_DIMENSION_CHAR) {
 				event.getEntity().motionY = event.getEntity().motionY * 1.0375;
-			
+
 			}
-			
+
 			/** TODO: Handling Space gravity **/
-			if(event.getEntity().dimension == ConfigurationHandler.INT_DIMENSION_SPACE) {
-				
-				
-				
-			} 
-			
+			if (event.getEntity().dimension == ConfigurationHandler.INT_DIMENSION_SPACE) {
+
+			}
+
 			else if (event.getEntity() instanceof EntityPlayer) {
 
 				EntityPlayer player = ((EntityPlayer) event.getEntity());
@@ -60,9 +58,19 @@ public class LivingEventHandler {
 				// I believe this is the root of a lot of lag (will try to improve)
 				if (player.getHeldItem(EnumHand.MAIN_HAND) != null) {
 					/*
-					 * if (player.getHeldItem(EnumHand.MAIN_HAND).getItem() == WeaponHandler.MASTER_PSI_BLADE || player.getHeldItem(EnumHand.MAIN_HAND).getItem() == WeaponHandler.PSI_BLADE || player.getHeldItem(EnumHand.MAIN_HAND).getItem() == WeaponHandler.WARP_BLADE || player.getHeldItem(EnumHand.MAIN_HAND).getItem() == WeaponHandler.BANE_BLADE || player.getHeldItem(EnumHand.MAIN_HAND).getItem() == WeaponHandler.DARK_WARP_BLADE) { BlockPos blockpos = new BlockPos(i, j + 1, k);
+					 * if (player.getHeldItem(EnumHand.MAIN_HAND).getItem() ==
+					 * WeaponHandler.MASTER_PSI_BLADE ||
+					 * player.getHeldItem(EnumHand.MAIN_HAND).getItem() == WeaponHandler.PSI_BLADE
+					 * || player.getHeldItem(EnumHand.MAIN_HAND).getItem() ==
+					 * WeaponHandler.WARP_BLADE || player.getHeldItem(EnumHand.MAIN_HAND).getItem()
+					 * == WeaponHandler.BANE_BLADE ||
+					 * player.getHeldItem(EnumHand.MAIN_HAND).getItem() ==
+					 * WeaponHandler.DARK_WARP_BLADE) { BlockPos blockpos = new BlockPos(i, j + 1,
+					 * k);
 					 * 
-					 * if (player.world.getBlockState(blockpos).getMaterial() == Material.AIR) { player.world.setBlockState(blockpos, BlockHandler.LIGHT_SOURCE.getDefaultState()); } }
+					 * if (player.world.getBlockState(blockpos).getMaterial() == Material.AIR) {
+					 * player.world.setBlockState(blockpos,
+					 * BlockHandler.LIGHT_SOURCE.getDefaultState()); } }
 					 */
 				}
 
@@ -76,7 +84,8 @@ public class LivingEventHandler {
 					}
 				}
 			}
-			// else if (event.getEntity() instanceof EntityDarkTemplar && !StarcraftConfig.BOOL_IS_DARK_TEMPLAR_VISIBLE) {
+			// else if (event.getEntity() instanceof EntityDarkTemplar &&
+			// !StarcraftConfig.BOOL_IS_DARK_TEMPLAR_VISIBLE) {
 			// event.getEntity().setInvisible(false);
 			// }
 		}

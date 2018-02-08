@@ -914,11 +914,11 @@ public class ModelUrsadon extends Model {
 		setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
 		this.chest.render(scale);
 	}
-	
+
 	@Override
 	public void render(Object obj) {
-    	EntityLivingBase base = (EntityLivingBase) obj;
-    	head.rotateAngleX = headPitch(obj) * 0.017453292F;
+		EntityLivingBase base = (EntityLivingBase) obj;
+		head.rotateAngleX = headPitch(obj) * 0.017453292F;
 		head.rotateAngleY = headYaw(obj) * 0.017453292F;
 		lForeArm.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.6F) * 0.667F * swingProgressPrev(obj);
 		rForeArm.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.6F) * 0.667F * swingProgressPrev(obj);

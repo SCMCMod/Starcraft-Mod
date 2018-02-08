@@ -10,9 +10,9 @@ public class LogOverride implements IItemPropertyGetter {
 
 	@Override
 	public float apply(ItemStack stack, World world, EntityLivingBase entity) {
-		if(stack.hasTagCompound()) {
+		if (stack.hasTagCompound()) {
 			NBTTagCompound nbt = stack.getTagCompound();
-			if(nbt.hasKey("skin")) {
+			if (nbt.hasKey("skin")) {
 				return nbt.getInteger("skin");
 			}
 		}

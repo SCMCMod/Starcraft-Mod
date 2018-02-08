@@ -21,7 +21,7 @@ import net.minecraft.item.ItemStack;
  * @author Ocelot5836
  */
 public class GasCollectorRecipes {
-	
+
 	private static final GasCollectorRecipes INSTANCE = new GasCollectorRecipes();
 	private final Map<IBlockState, ItemStack> protossList = Maps.<IBlockState, ItemStack>newHashMap();
 	private final Map<IBlockState, ItemStack> terranList = Maps.<IBlockState, ItemStack>newHashMap();
@@ -41,7 +41,7 @@ public class GasCollectorRecipes {
 		this.addProtossRecipe(BlockHandler.GAS_TERRAZINE, new ItemStack(ItemHandler.TERRAZINE, 1, TerrazineType.PROTOSS.getID()));
 		this.addTerranRecipe(BlockHandler.GAS_TERRAZINE, new ItemStack(ItemHandler.TERRAZINE, 1, TerrazineType.TERRAN.getID()));
 		this.addZergRecipe(BlockHandler.GAS_TERRAZINE, new ItemStack(ItemHandler.TERRAZINE, 1, TerrazineType.ZERG.getID()));
-	
+
 	}
 
 	public void addProtossRecipe(Block input, ItemStack stack) {
@@ -55,7 +55,7 @@ public class GasCollectorRecipes {
 		}
 		this.protossList.put(input, stack);
 	}
-	
+
 	public void addTerranRecipe(Block input, ItemStack stack) {
 		addTerranRecipe(input.getDefaultState(), stack);
 	}
@@ -67,7 +67,7 @@ public class GasCollectorRecipes {
 		}
 		this.terranList.put(input, stack);
 	}
-	
+
 	public void addZergRecipe(Block input, ItemStack stack) {
 		addZergRecipe(input.getDefaultState(), stack);
 	}
@@ -109,7 +109,7 @@ public class GasCollectorRecipes {
 		}
 		return null;
 	}
-	
+
 	@Nullable
 	public ItemStack getZergResult(Block block) {
 		return getZergResult(block.getDefaultState());
@@ -124,15 +124,15 @@ public class GasCollectorRecipes {
 		}
 		return null;
 	}
-	
+
 	public Map<IBlockState, ItemStack> getProtossList() {
 		return new HashMap<IBlockState, ItemStack>(this.protossList);
 	}
-	
+
 	public Map<IBlockState, ItemStack> getTerranList() {
 		return new HashMap<IBlockState, ItemStack>(this.terranList);
 	}
-	
+
 	public Map<IBlockState, ItemStack> getZergList() {
 		return new HashMap<IBlockState, ItemStack>(this.zergList);
 	}

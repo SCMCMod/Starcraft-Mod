@@ -28,10 +28,10 @@ public class GuiLists {
 
 	public static final ImmutableList<Product>[] TRADES;
 	public static final ImmutableList<LarvaOption> LARVA_OPTIONS;
-	
+
 	public static final int HIGHLIGHT_COLOR = new Color(246, 255, 0, 60).getRGB();
 	public static final int NO_FUNDS_COLOR = new Color(200, 50, 0, 60).getRGB();
-	
+
 	@Deprecated
 	private static final List<List<String>> LOGS;
 
@@ -151,7 +151,7 @@ public class GuiLists {
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.general.wotanii.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.general.zenn.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.general.zephyrcove.txt")));
-		
+
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.protoss.legacy.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.protoss.alliance.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.protoss.warpgates.txt")));
@@ -206,7 +206,7 @@ public class GuiLists {
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.terran.uednamingcommittee.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.terran.urangolenko.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.terran.wildlifeservices.txt")));
-		
+
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.zerg.overview.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.zerg.eruption.txt")));
 
@@ -305,7 +305,7 @@ public class GuiLists {
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.science.protoss.zealot3.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.science.protoss.zealot4.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.science.protoss.zealot5.txt")));
-		
+
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.science.terran.banshee0.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.science.terran.banshee1.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.science.terran.banshee2.txt")));
@@ -389,7 +389,7 @@ public class GuiLists {
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.science.terran.widowmine2.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.science.terran.widowmine3.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.science.terran.widowmine4.txt")));
-		
+
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.science.zerg.baneling0.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.science.zerg.baneling1.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.science.zerg.baneling2.txt")));

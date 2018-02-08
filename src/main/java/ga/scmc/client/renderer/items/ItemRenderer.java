@@ -102,7 +102,7 @@ public abstract class ItemRenderer implements IPerspectiveAwareModel, IBakedMode
 	public ResourceLocation getResourceLocation() {
 		return resource;
 	}
-	
+
 	protected void bindTexture() {
 		RenderUtil.bindTexture(resource);
 	}

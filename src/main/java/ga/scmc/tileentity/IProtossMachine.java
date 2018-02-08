@@ -1,7 +1,8 @@
 package ga.scmc.tileentity;
 
 /**
- * A very basic interface that adds the pylon requirements, speed bonus, and efficiency bonus to a protoss machine.
+ * A very basic interface that adds the pylon requirements, speed bonus, and
+ * efficiency bonus to a protoss machine.
  * 
  * @author Ocelot5836
  */

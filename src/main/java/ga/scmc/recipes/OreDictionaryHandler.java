@@ -14,7 +14,7 @@ public class OreDictionaryHandler {
 		OreDictionary.registerOre("blockSteel", new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.STEEL.getID()));
 		OreDictionary.registerOre("blockCopper", new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.COPPER.getID()));
 		OreDictionary.registerOre("blockTitanium", new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.TITANIUM.getID()));
-		
+
 		OreDictionary.registerOre("cobblestone", BlockHandler.COBBLESTONE_CHAR);
 		OreDictionary.registerOre("cobblestone", BlockHandler.COBBLESTONE_SHAKURAS);
 		OreDictionary.registerOre("cobblestone", BlockHandler.COBBLESTONE_SLAYN);
@@ -23,7 +23,7 @@ public class OreDictionaryHandler {
 		OreDictionary.registerOre("stone", BlockHandler.STONE_SHAKURAS);
 		OreDictionary.registerOre("stone", BlockHandler.STONE_SLAYN);
 		OreDictionary.registerOre("stone", BlockHandler.STONE_ZERUS);
-		
+
 		OreDictionary.registerOre("oreGold", BlockHandler.ORE_GOLD_CHAR);
 		OreDictionary.registerOre("oreGold", BlockHandler.ORE_GOLD_SHAKURAS);
 		OreDictionary.registerOre("oreGold", BlockHandler.ORE_GOLD_SLAYN);
@@ -72,7 +72,7 @@ public class OreDictionaryHandler {
 		OreDictionary.registerOre("dustSteel", new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.STEEL.getID()));
 		OreDictionary.registerOre("dustIron", new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.IRON.getID()));
 		OreDictionary.registerOre("dustCarbon", new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.CARBON.getID()));
-		
+
 		OreDictionary.registerOre("ingotCopper", new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()));
 		OreDictionary.registerOre("ingotSteel", new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()));
 		OreDictionary.registerOre("ingotTitanium", new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()));

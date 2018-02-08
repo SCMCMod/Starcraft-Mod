@@ -12,7 +12,8 @@ import net.minecraft.entity.player.EntityPlayer;
  * <br>
  * </br>
  * 
- * This class holds some methods that involve our methods of setting and getting our capabilities for the player.
+ * This class holds some methods that involve our methods of setting and getting
+ * our capabilities for the player.
  * 
  * @author Ocelot5836
  */

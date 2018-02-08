@@ -18,10 +18,9 @@ public class ItemTerranCommandCenterSpawner extends Item {
 		setRegistryName("terran.spawner.commandcenter");
 		setCreativeTab(StarcraftCreativeTabs.TERRAN);
 	}
-	
+
 	@Override
-	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY,
-			float hitZ) {
+	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		StructureTerranCommandCenterTemplate TERRAN_CC = new StructureTerranCommandCenterTemplate();
 		TERRAN_CC.generate(worldIn, pos, false);
 		return super.onItemUse(stack, playerIn, worldIn, pos, hand, facing, hitX, hitY, hitZ);

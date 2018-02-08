@@ -686,7 +686,7 @@ public class ModelZerglingSwarmling extends Model {
 		setRotationAngles(f, f1, f2, f3, f4, f4, entity);
 		chest.render(f5);
 	}
-	
+
 	@Override
 	public void render(Object obj) {
 		EntityLivingBase base = (EntityLivingBase) obj;

@@ -42,8 +42,7 @@ import net.minecraft.world.World;
  */
 public class EntityQueen extends EntityZergMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
 
-	private static final DataParameter<Float> ENERGY = EntityDataManager.createKey(EntityQueen.class,
-			DataSerializers.FLOAT);
+	private static final DataParameter<Float> ENERGY = EntityDataManager.createKey(EntityQueen.class, DataSerializers.FLOAT);
 
 	public EntityQueen(World world) {
 		super(world);
@@ -59,50 +58,49 @@ public class EntityQueen extends EntityZergMob implements IMob, IRangedAttackMob
 		tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
 		tasks.addTask(5, new EntityAILookIdle(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
-		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0,
-				false, false, this));
+		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, false, false, this));
 	}
 
 	@Override
 	public boolean apply(EntityLivingBase entity) {
-		if(!entity.isInvisible()) {
-			if(entity instanceof EntityStarcraftMob) {
-				if(entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if(!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.SWARM)) {
-						if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+		if (!entity.isInvisible()) {
+			if (entity instanceof EntityStarcraftMob) {
+				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
+					if (!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.SWARM)) {
+						if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
-						}else {
+						} else {
 							return false;
 						}
-					}else if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+					} else if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityStarcraftPassive) {
-				if(entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if(!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.SWARM)) {
-						if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
+			} else if (entity instanceof EntityStarcraftPassive) {
+				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
+					if (!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.SWARM)) {
+						if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
-						}else {
+						} else {
 							return false;
 						}
-					}else if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
+					} else if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityPlayer) {
+			} else if (entity instanceof EntityPlayer) {
 				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
-				if(color.getColor() == this.getTeamColor().getId()) {
+				if (color.getColor() == this.getTeamColor().getId()) {
 					return false;
-				}else {
+				} else {
 					return true;
 				}
 			} else {
 				return true;
 			}
-		}else if(entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)){
+		} else if (entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 		return false;
@@ -120,8 +118,7 @@ public class EntityQueen extends EntityZergMob implements IMob, IRangedAttackMob
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float p_82196_2_) {
 		EntityHydraliskSpike spike = new EntityHydraliskSpike(this.world, this);
-		double d0 = target.posY + (double) target.getEyeHeight() - 1.800000023841858D
-				- target.getDistanceSq(target.getPosition());
+		double d0 = target.posY + (double) target.getEyeHeight() - 1.800000023841858D - target.getDistanceSq(target.getPosition());
 		double d1 = target.posX - this.posX;
 		double d2 = d0 - spike.posY;
 		double d3 = target.posZ - this.posZ;

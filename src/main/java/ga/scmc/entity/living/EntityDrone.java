@@ -34,14 +34,14 @@ public class EntityDrone extends EntityZergPassive {
 		tasks.addTask(5, new EntityAILookIdle(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
 	}
-	
+
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(27.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.39000000298023224D);
 	}
-	
+
 	@Override
 	public EntityAgeable createChild(EntityAgeable p_90011_1_) {
 		return null;
@@ -51,7 +51,7 @@ public class EntityDrone extends EntityZergPassive {
 	public int getTalkInterval() {
 		return 160;
 	}
-	
+
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
 		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), EnumMetaItem.CarapaceType.T1.getID()));

@@ -47,7 +47,6 @@ public class GasCollectorCategory extends BlankRecipeCategory<GasCollectorRecipe
 		return StarcraftRecipeCategoryUid.GAS_COLLECTOR;
 	}
 
-
 	@Override
 	public void drawExtras(Minecraft minecraft) {
 		cycleId++;

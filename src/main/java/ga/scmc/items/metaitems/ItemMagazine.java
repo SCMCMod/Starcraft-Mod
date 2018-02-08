@@ -67,7 +67,7 @@ public class ItemMagazine extends Item {
 		}
 		return getUnlocalizedName() + "." + BulletMagazineType.C14.getName();
 	}
-	
+
 	@Override
 	public double getDurabilityForDisplay(ItemStack stack) {
 		if (stack.hasTagCompound()) {
@@ -106,7 +106,9 @@ public class ItemMagazine extends Item {
 	}
 
 	/**
-	 * If the specified stack is a bullet magazine, it will return the amount of bullets inside. If the specified stack is not a bullet magazine, it will return 0.
+	 * If the specified stack is a bullet magazine, it will return the amount of
+	 * bullets inside. If the specified stack is not a bullet magazine, it will
+	 * return 0.
 	 * 
 	 * @param stack
 	 *            The stack to get the count from

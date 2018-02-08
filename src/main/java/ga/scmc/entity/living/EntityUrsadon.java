@@ -43,15 +43,15 @@ public class EntityUrsadon extends EntityMob implements IMob, Predicate<EntityLi
 	@Override
 	public boolean apply(EntityLivingBase entity) {
 		if (!entity.isInvisible()) {
-			if(entity instanceof EntityUrsadon || entity instanceof EntityUrsadonMatriarch) {
+			if (entity instanceof EntityUrsadon || entity instanceof EntityUrsadonMatriarch) {
 				return false;
-			}else {
+			} else {
 				return true;
 			}
 		}
 		return false;
 	}
-	
+
 	@Override
 	public SoundEvent getAmbientSound() {
 		Random rand = new Random();
@@ -73,10 +73,10 @@ public class EntityUrsadon extends EntityMob implements IMob, Predicate<EntityLi
 	public SoundEvent getHurtSound() {
 		return SoundHandler.ENTITY_URSADON_HURT;
 	}
-	
+
 	@Override
 	public boolean getCanSpawnHere() {
-		if(this.world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_KALDIR && world.getDifficulty() != EnumDifficulty.PEACEFUL) {
+		if (this.world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_KALDIR && world.getDifficulty() != EnumDifficulty.PEACEFUL) {
 			return true;
 		}
 		return false;

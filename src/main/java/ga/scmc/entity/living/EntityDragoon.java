@@ -28,13 +28,14 @@ import net.minecraft.world.World;
 
 /**
  * Work in progress
+ * 
  * @author Hypeirochus
  */
 public class EntityDragoon extends EntityProtossMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
 
 	public float offsetHealth;
 	public int timeSinceHurt;
-	 
+
 	public EntityDragoon(World world) {
 		super(world);
 		setSize(3.0F, 3.0F);
@@ -78,14 +79,14 @@ public class EntityDragoon extends EntityProtossMob implements IMob, IRangedAtta
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityPlayer) {
+			} else if (entity instanceof EntityPlayer) {
 				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
-				if(color.getColor() == this.getTeamColor().getId()) {
+				if (color.getColor() == this.getTeamColor().getId()) {
 					return false;
-				}else {
+				} else {
 					return true;
 				}
-			}else {
+			} else {
 				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
 					return false;
 				}
@@ -116,7 +117,7 @@ public class EntityDragoon extends EntityProtossMob implements IMob, IRangedAtta
 	public int getTalkInterval() {
 		return 160;
 	}
-	
+
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
@@ -126,23 +127,23 @@ public class EntityDragoon extends EntityProtossMob implements IMob, IRangedAtta
 		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
 		getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(2.0D);
 	}
-	
+
 	@Override
 	protected void damageEntity(DamageSource damageSrc, float damageAmount) {
 		timeSinceHurt = this.ticksExisted;
 		super.damageEntity(damageSrc, damageAmount);
 	}
-	
+
 	@Override
 	public void onLivingUpdate() {
-			if(ticksExisted % 20 == 0 && this.getHealth() < this.getMaxHealth()) {
-				if(this.getHealth() < 66.5 - offsetHealth) {
-					offsetHealth = 66.5F - getHealth();
-				}
-				if(this.getHealth() < this.getMaxHealth() - offsetHealth && ticksExisted - timeSinceHurt > 200) {
-					this.heal(2.0F);
-				}
+		if (ticksExisted % 20 == 0 && this.getHealth() < this.getMaxHealth()) {
+			if (this.getHealth() < 66.5 - offsetHealth) {
+				offsetHealth = 66.5F - getHealth();
 			}
+			if (this.getHealth() < this.getMaxHealth() - offsetHealth && ticksExisted - timeSinceHurt > 200) {
+				this.heal(2.0F);
+			}
+		}
 		super.onLivingUpdate();
 	}
 }

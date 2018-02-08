@@ -13,7 +13,7 @@ import net.minecraft.util.ResourceLocation;
  * @author Ocelot5836
  */
 public class RenderTastelope<T> extends RenderLiving<EntityTastelope> {
-	
+
 	protected ModelLope model;
 
 	public RenderTastelope(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {

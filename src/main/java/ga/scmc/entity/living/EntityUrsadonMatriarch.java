@@ -39,10 +39,10 @@ public class EntityUrsadonMatriarch extends EntityMob implements IMob, Predicate
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, false, true, this));
 	}
-	
+
 	@Override
 	public boolean getCanSpawnHere() {
-		if(this.world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_KALDIR && world.getDifficulty() != EnumDifficulty.PEACEFUL) {
+		if (this.world.provider.getDimension() == ConfigurationHandler.INT_DIMENSION_KALDIR && world.getDifficulty() != EnumDifficulty.PEACEFUL) {
 			return true;
 		}
 		return false;
@@ -51,15 +51,15 @@ public class EntityUrsadonMatriarch extends EntityMob implements IMob, Predicate
 	@Override
 	public boolean apply(EntityLivingBase entity) {
 		if (!entity.isInvisible()) {
-			if(entity instanceof EntityUrsadon) {
+			if (entity instanceof EntityUrsadon) {
 				return false;
-			}else {
+			} else {
 				return true;
 			}
 		}
 		return false;
 	}
-	
+
 	@Override
 	public SoundEvent getAmbientSound() {
 		Random rand = new Random();

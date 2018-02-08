@@ -68,15 +68,15 @@ public class ModelCivilian extends Model {
 		rightleg.render(f5);
 		leftleg.render(f5);
 	}
-	
+
 	@Override
-   	public void render(Object obj) {
-       	EntityLivingBase base = (EntityLivingBase) obj;
-       	head.rotateAngleY = headYaw(obj) / (180F / (float) Math.PI);
+	public void render(Object obj) {
+		EntityLivingBase base = (EntityLivingBase) obj;
+		head.rotateAngleY = headYaw(obj) / (180F / (float) Math.PI);
 		head.rotateAngleX = headPitch(obj) / (180F / (float) Math.PI);
 		rightarm.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.6662F + (float) Math.PI) * 2.0F * swingProgressPrev(obj) * 0.5F;
 		leftarm.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.6662F) * 2.0F * swingProgressPrev(obj) * 0.5F;
 		rightleg.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.6662F) * 1.4F * swingProgressPrev(obj);
 		leftleg.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.6662F + (float) Math.PI) * 1.4F * swingProgressPrev(obj);
-   	}
+	}
 }

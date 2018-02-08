@@ -37,8 +37,7 @@ public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predica
 
 	public float offsetHealth;
 	public int timeSinceHurt;
-	private static final DataParameter<Boolean> SHEATH = EntityDataManager.createKey(EntityZealot.class,
-			DataSerializers.BOOLEAN);
+	private static final DataParameter<Boolean> SHEATH = EntityDataManager.createKey(EntityZealot.class, DataSerializers.BOOLEAN);
 
 	public EntityDarkTemplar(World world) {
 		super(world);
@@ -53,8 +52,7 @@ public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predica
 		tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
 		tasks.addTask(4, new EntityAILookIdle(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
-		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0,
-				false, false, this));
+		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, false, false, this));
 	}
 
 	@Override
@@ -99,14 +97,14 @@ public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predica
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityPlayer) {
+			} else if (entity instanceof EntityPlayer) {
 				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
-				if(color.getColor() == this.getTeamColor().getId()) {
+				if (color.getColor() == this.getTeamColor().getId()) {
 					return false;
-				}else {
+				} else {
 					return true;
 				}
-			}else {
+			} else {
 				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
 					return false;
 				}
@@ -138,8 +136,7 @@ public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predica
 
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
-		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.ENERGY, 1 + this.rand.nextInt(2),
-				EnumMetaItem.EnergyType.CORRUPTED.getID()));
+		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.ENERGY, 1 + this.rand.nextInt(2), EnumMetaItem.EnergyType.CORRUPTED.getID()));
 		ItemDrop drop2 = new ItemDrop(1, new ItemStack(WeaponHandler.DARK_WARP_BLADE));
 		drop.tryDrop(this);
 		drop2.tryDrop(this);
@@ -170,7 +167,7 @@ public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predica
 
 	@Override
 	public void onUpdate() {
-		if(!world.isRemote) {
+		if (!world.isRemote) {
 			if (this.getAttackTarget() != null) {
 				this.setSheathed(true);
 			} else if (this.getAttackTarget() == null) {

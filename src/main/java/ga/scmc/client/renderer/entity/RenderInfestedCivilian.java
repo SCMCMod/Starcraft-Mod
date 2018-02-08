@@ -12,6 +12,7 @@ import net.minecraft.util.ResourceLocation;
 public class RenderInfestedCivilian extends RenderLiving<EntityInfestedCivilian> {
 	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.INFESTED_CIVILIAN);
 	protected ModelInfestedCivilian model;
+
 	public RenderInfestedCivilian(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelInfestedCivilian) mainModel);
@@ -21,7 +22,7 @@ public class RenderInfestedCivilian extends RenderLiving<EntityInfestedCivilian>
 	public void doRender(EntityInfestedCivilian entity, double x, double y, double z, float entityYaw, float partialTicks) {
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 
-		if(!renderOutlines) {
+		if (!renderOutlines) {
 			renderLeash(entity, x, y, z, entityYaw, partialTicks);
 		}
 	}

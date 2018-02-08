@@ -5,6 +5,7 @@ import net.minecraft.world.World;
 
 /**
  * Allows support for basic NBT structures at ease.
+ * 
  * @author Ocelot5836
  */
 public class BasicNBTStructure extends SCWorldGenerator implements INBTStructure {

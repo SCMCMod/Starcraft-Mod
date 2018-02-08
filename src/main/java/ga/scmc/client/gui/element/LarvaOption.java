@@ -155,7 +155,8 @@ public class LarvaOption {
 	}
 
 	/**
-	 * Sets the highlighted tooltip to the specified string with the specified string to add new lines.
+	 * Sets the highlighted tooltip to the specified string with the specified
+	 * string to add new lines.
 	 * 
 	 * @param tooltip
 	 *            The tooltip for the option
@@ -176,7 +177,8 @@ public class LarvaOption {
 	 * 
 	 * @param child
 	 *            The child to add
-	 * @deprecated Use the second constructor instead of this because it works better
+	 * @deprecated Use the second constructor instead of this because it works
+	 *             better
 	 */
 	public LarvaOption addChild(LarvaOption child) {
 		if (!this.isChild) {

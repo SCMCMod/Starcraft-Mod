@@ -85,14 +85,14 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityPlayer) {
+			} else if (entity instanceof EntityPlayer) {
 				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
-				if(color.getColor() == this.getTeamColor().getId()) {
+				if (color.getColor() == this.getTeamColor().getId()) {
 					return false;
-				}else {
+				} else {
 					return true;
 				}
-			}else {
+			} else {
 				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
 					return false;
 				}
@@ -167,22 +167,22 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 		this.spawnElectricArc(entityIn.posX, entityIn.posY, entityIn.posZ);
 		ArrayList<EntityLiving> entityList = (ArrayList<EntityLiving>) world.getEntitiesWithinAABB(EntityLiving.class, this.getEntityBoundingBox().expand(2, 2, 2));
 		for (EntityLiving entity : entityList) {
-			if(entity != this && entity != null && entity != entityIn) {
-				if(entity instanceof EntityStarcraftMob) {
-					if(((EntityStarcraftMob)entity).teamColor == this.teamColor) {
+			if (entity != this && entity != null && entity != entityIn) {
+				if (entity instanceof EntityStarcraftMob) {
+					if (((EntityStarcraftMob) entity).teamColor == this.teamColor) {
 						break;
-					}else {
+					} else {
 						this.spawnElectricArc(entity.posX, entity.posY, entity.posZ);
 						entity.attackEntityFrom(DamageSource.causeIndirectDamage(this, null), 3.5F);
 					}
-				}else if(entity instanceof EntityStarcraftPassive) {
-					if(((EntityStarcraftPassive)entity).teamColor == this.teamColor) {
+				} else if (entity instanceof EntityStarcraftPassive) {
+					if (((EntityStarcraftPassive) entity).teamColor == this.teamColor) {
 						break;
-					}else {
+					} else {
 						this.spawnElectricArc(entity.posX, entity.posY, entity.posZ);
 						entity.attackEntityFrom(DamageSource.causeIndirectDamage(this, null), 3.5F);
 					}
-				}else {
+				} else {
 					this.spawnElectricArc(entity.posX, entity.posY, entity.posZ);
 					entity.attackEntityFrom(DamageSource.causeIndirectDamage(this, null), 3.5F);
 				}

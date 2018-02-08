@@ -19,10 +19,9 @@ public class ItemProtossVoidCyberneticsCoreSpawner extends Item {
 		setRegistryName("protoss.spawner.cyberneticscore.void");
 		setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 	}
-	
+
 	@Override
-	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY,
-			float hitZ) {
+	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		StructureProtossCyberneticsCoreTemplate CYBERNETICS_CORE = new StructureProtossCyberneticsCoreTemplate();
 		CYBERNETICS_CORE.generate_r0(1, 2, worldIn, 0, 0, 0, pos, false);
 		worldIn.playSound(pos.getX(), pos.getY(), pos.getZ(), SoundHandler.STRUC_CYBERNETICSCORE_BIRTH, null, 0.7F, 1F, false);

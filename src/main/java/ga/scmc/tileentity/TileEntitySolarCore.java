@@ -25,11 +25,11 @@ public class TileEntitySolarCore extends TileEntity implements ITickable {
 	@Override
 	public void update() {
 		if (world != null && !world.isRemote) {
-			EntityPlayerMP player = (EntityPlayerMP)world.getClosestPlayer(pos.getX(), pos.getY(), pos.getZ(), range, false);
+			EntityPlayerMP player = (EntityPlayerMP) world.getClosestPlayer(pos.getX(), pos.getY(), pos.getZ(), range, false);
 			if (player != null) {
 				player.setFire(2);
 			}
-			
+
 		}
 	}
 

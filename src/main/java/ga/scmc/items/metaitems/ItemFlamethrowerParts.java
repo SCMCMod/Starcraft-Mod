@@ -25,18 +25,19 @@ public class ItemFlamethrowerParts extends Item {
 	 */
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> items) {
-		for(int i = 0; i < FlamethrowerPartType.values().length; i++) {
+		for (int i = 0; i < FlamethrowerPartType.values().length; i++) {
 			items.add(new ItemStack(item, 1, i));
 		}
 	}
 
 	/**
-	 * Gets the correct unlocalized name using the FlamethrowerPartTypeType enum (wait, what?)
+	 * Gets the correct unlocalized name using the FlamethrowerPartTypeType enum
+	 * (wait, what?)
 	 */
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		for(int i = 0; i < FlamethrowerPartType.values().length; i++) {
-			if(stack.getItemDamage() == i) {
+		for (int i = 0; i < FlamethrowerPartType.values().length; i++) {
+			if (stack.getItemDamage() == i) {
 				return getUnlocalizedName() + "." + FlamethrowerPartType.values()[i].getName();
 			} else {
 				continue;

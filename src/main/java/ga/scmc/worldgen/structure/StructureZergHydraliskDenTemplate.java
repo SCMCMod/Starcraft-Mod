@@ -19,9 +19,8 @@ public class StructureZergHydraliskDenTemplate extends SCWorldGenerator {
 	}
 
 	public boolean generate_r0(World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos pos, boolean flag) {
-		if(flag) {	
-			if(!LocationIsValidSpawn(world, pos) || !LocationIsValidSpawn(world, pos.add(24, 0, 0)) || !LocationIsValidSpawn(world, pos.add(24, 0, 24))
-					|| !LocationIsValidSpawn(world, pos.add(0, 0, 24))) {
+		if (flag) {
+			if (!LocationIsValidSpawn(world, pos) || !LocationIsValidSpawn(world, pos.add(24, 0, 0)) || !LocationIsValidSpawn(world, pos.add(24, 0, 24)) || !LocationIsValidSpawn(world, pos.add(0, 0, 24))) {
 				return false;
 			}
 		}
@@ -1541,13 +1540,13 @@ public class StructureZergHydraliskDenTemplate extends SCWorldGenerator {
 		Block blockAbove = world.getBlockState(pos.up()).getBlock();
 		Block blockBelow = world.getBlockState(pos.down()).getBlock();
 
-		for(Block i : GetValidSpawnBlocks()) {
-			if(blockAbove != Blocks.AIR) {
+		for (Block i : GetValidSpawnBlocks()) {
+			if (blockAbove != Blocks.AIR) {
 				return false;
 			}
-			if(checkBlock == i) {
+			if (checkBlock == i) {
 				return true;
-			} else if(m == Material.PLANTS && blockBelow == i) {
+			} else if (m == Material.PLANTS && blockBelow == i) {
 				return true;
 			}
 		}
@@ -2073,7 +2072,8 @@ public class StructureZergHydraliskDenTemplate extends SCWorldGenerator {
 		world.setBlockState(pos.add(x + 3, y + 3, z + 19), MetaBlockHandler.ZERG_FLESH.getDefaultState(), 2);
 
 		world.setBlockState(pos.add(x + 4, y + 3, z + 19), MetaBlockHandler.ZERG_FLESH.getStateFromMeta(2));
-		//TODO: make this a core block! world.setBlockState(pos.add(x+5, y+3, z+19, Block.getBlockById(152));
+		// TODO: make this a core block! world.setBlockState(pos.add(x+5, y+3, z+19,
+		// Block.getBlockById(152));
 		world.setBlockState(pos.add(x + 16, y + 3, z + 19), MetaBlockHandler.ZERG_FLESH.getStateFromMeta(2));
 		world.setBlockState(pos.add(x + 17, y + 3, z + 19), MetaBlockHandler.ZERG_FLESH.getStateFromMeta(2));
 		world.setBlockState(pos.add(x + 18, y + 3, z + 19), MetaBlockHandler.ZERG_FLESH.getStateFromMeta(2));

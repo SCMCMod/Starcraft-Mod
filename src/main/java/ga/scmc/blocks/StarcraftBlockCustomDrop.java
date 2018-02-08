@@ -13,7 +13,7 @@ import net.minecraft.world.IBlockAccess;
 public class StarcraftBlockCustomDrop extends StarcraftBlock {
 
 	private final ItemStack[] droppedItems;
-	
+
 	public StarcraftBlockCustomDrop(Material material, ItemStack... drops) {
 		super(material);
 		this.droppedItems = drops;
@@ -28,10 +28,10 @@ public class StarcraftBlockCustomDrop extends StarcraftBlock {
 		super(type, material, color);
 		this.droppedItems = drops;
 	}
-	
+
 	@Override
 	public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
-		if(droppedItems != null)
+		if (droppedItems != null)
 			return Arrays.asList(droppedItems);
 		return super.getDrops(world, pos, state, fortune);
 	}

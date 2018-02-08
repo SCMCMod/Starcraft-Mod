@@ -12,7 +12,6 @@ public class ShakurasGenCaves extends MapGenCaves {
 	@Override
 	protected boolean canReplaceBlock(IBlockState p_175793_1_, IBlockState p_175793_2_) {
 		Block test = p_175793_1_.getBlock();
-		return (test == BlockHandler.STONE_SHAKURAS || test == BlockHandler.DIRT_SHAKURAS || test == BlockHandler.SAND_SHAKURAS ? true
-				: (test == Blocks.SAND || test == Blocks.GRAVEL) && p_175793_2_.getMaterial() != Material.LAVA);
+		return (test == BlockHandler.STONE_SHAKURAS || test == BlockHandler.DIRT_SHAKURAS || test == BlockHandler.SAND_SHAKURAS ? true : (test == Blocks.SAND || test == Blocks.GRAVEL) && p_175793_2_.getMaterial() != Material.LAVA);
 	}
 }

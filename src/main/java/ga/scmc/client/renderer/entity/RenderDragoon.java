@@ -21,7 +21,7 @@ public class RenderDragoon extends RenderLiving<EntityDragoon> {
 	public void doRender(EntityDragoon entity, double x, double y, double z, float entityYaw, float partialTicks) {
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 
-		if(!renderOutlines) {
+		if (!renderOutlines) {
 			renderLeash(entity, x, y, z, entityYaw, partialTicks);
 		}
 	}

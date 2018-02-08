@@ -46,44 +46,44 @@ public class EntityInfestedCivilian extends EntityZergMob implements IMob, Predi
 
 	@Override
 	public boolean apply(EntityLivingBase entity) {
-		if(!entity.isInvisible()) {
-			if(entity instanceof EntityStarcraftMob) {
-				if(entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if(!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.SWARM)) {
-						if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+		if (!entity.isInvisible()) {
+			if (entity instanceof EntityStarcraftMob) {
+				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
+					if (!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.SWARM)) {
+						if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
-						}else {
+						} else {
 							return false;
 						}
-					}else if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+					} else if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityStarcraftPassive) {
-				if(entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if(!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.SWARM)) {
-						if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
+			} else if (entity instanceof EntityStarcraftPassive) {
+				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
+					if (!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.SWARM)) {
+						if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
-						}else {
+						} else {
 							return false;
 						}
-					}else if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
+					} else if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityPlayer) {
+			} else if (entity instanceof EntityPlayer) {
 				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
-				if(color.getColor() == this.getTeamColor().getId()) {
+				if (color.getColor() == this.getTeamColor().getId()) {
 					return false;
-				}else {
+				} else {
 					return true;
 				}
 			} else {
 				return true;
 			}
-		}else if(entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)){
+		} else if (entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 		return false;
@@ -104,30 +104,30 @@ public class EntityInfestedCivilian extends EntityZergMob implements IMob, Predi
 		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), EnumMetaItem.CarapaceType.T1.getID()));
 		drop.tryDrop(this);
 	}
-	
+
 	@Override
 	public int getTalkInterval() {
 		return 160;
 	}
-	
+
 	@Override
 	protected SoundEvent getAmbientSound() {
 		return SoundHandler.ENTITY_INFESTEDCIVILIAN_LIVE1;
 	}
-	
+
 	@Override
 	protected SoundEvent getHurtSound() {
 		return SoundHandler.ENTITY_INFESTEDCIVILIAN_HURT;
 	}
-	
+
 	@Override
 	protected SoundEvent getDeathSound() {
 		return SoundHandler.ENTITY_INFESTEDCIVILIAN_DEATH;
 	}
-	
+
 	@Override
 	protected void findBiomass() {
 		;
 	}
-	
+
 }

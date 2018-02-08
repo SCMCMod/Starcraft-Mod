@@ -9,6 +9,7 @@ import net.minecraft.block.material.Material;
 /**
  * Char Cobblestone block.<br>
  * Copyright 2017 the Starcraft Minecraft (SCMC) mod team
+ * 
  * @author Hypeirochus
  */
 public class BlockKorhalCityStone extends Block {

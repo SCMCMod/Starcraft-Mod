@@ -28,54 +28,54 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * @author Ocelot5836
  */
 public class BlockVespeneGas extends BlockGas {
-	
+
 	public BlockVespeneGas() {
 		super(MaterialHandler.VESPENE_GAS);
 		setUnlocalizedName("gas.vespene");
 		setRegistryName("gas.vespene");
 		setCreativeTab(StarcraftCreativeTabs.MISC);
 	}
-	
+
 	@Override
 	public void displayParticles(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
 		double x = (double) pos.getX() + 0.5D;
 		double y = (double) pos.getY() + rand.nextDouble() * 9.0D / 16.0D;
 		double z = (double) pos.getZ() + 0.5D;
-		
+
 		Vector3f color = new Vector3f(0.25f, 1f, 0f);
-		
+
 		worldIn.spawnParticle(EnumParticleTypes.SPELL_MOB, x, y, z, color.x, color.y, color.z, new int[0]);
 	}
-	
+
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	@Override
 	public BlockRenderLayer getBlockLayer() {
 		return BlockRenderLayer.TRANSLUCENT;
 	}
-	
+
 	@Override
 	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
 		entity.attackEntityFrom(StarcraftDamageSources.poison_gas, 1);
 	}
-	
+
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
-		if(heldItem != null) {
-			if(heldItem.getItem() == ItemHandler.GAS_CONTAINER) {
+		if (heldItem != null) {
+			if (heldItem.getItem() == ItemHandler.GAS_CONTAINER) {
 				int meta = heldItem.getMetadata();
-				for(int i = 0; i < EnumMetaItem.ContainerType.values().length; i++) {
-					if(meta == i) {
-						if(!player.isCreative()) {
+				for (int i = 0; i < EnumMetaItem.ContainerType.values().length; i++) {
+					if (meta == i) {
+						if (!player.isCreative()) {
 							world.destroyBlock(pos, false);
 							player.inventory.decrStackSize(player.inventory.getSlotFor(player.getHeldItemMainhand()), 1);
 						}

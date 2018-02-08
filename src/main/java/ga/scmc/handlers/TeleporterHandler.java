@@ -21,18 +21,18 @@ public class TeleporterHandler extends Teleporter {
 		super(world);
 		worldServer = world;
 		BlockPos playerSpawn = new BlockPos(x, 100, z);
-		if(hasNoSurface == false) {
-			while(world.isAirBlock(playerSpawn)) {
+		if (hasNoSurface == false) {
+			while (world.isAirBlock(playerSpawn)) {
 				playerSpawn = playerSpawn.down();
 			}
 		}
 		this.x = x;
-		this.y = playerSpawn.getY()+1;
+		this.y = playerSpawn.getY() + 1;
 		world.setBlockState(playerSpawn, Blocks.OBSIDIAN.getDefaultState());
 		world.setBlockState(playerSpawn.add(-1, 0, 1), Blocks.OBSIDIAN.getDefaultState());
 		world.setBlockState(playerSpawn.add(0, 0, 1), Blocks.OBSIDIAN.getDefaultState());
 		world.setBlockState(playerSpawn.add(1, 0, 1), Blocks.OBSIDIAN.getDefaultState());
-		
+
 		world.setBlockState(playerSpawn.add(-1, 0, -1), Blocks.OBSIDIAN.getDefaultState());
 		world.setBlockState(playerSpawn.add(0, 0, -1), Blocks.OBSIDIAN.getDefaultState());
 		world.setBlockState(playerSpawn.add(1, 0, -1), Blocks.OBSIDIAN.getDefaultState());

@@ -3,7 +3,7 @@ package ocelot.api.utils;
 import java.util.Calendar;
 
 public class TimeUtils {
-	
+
 	/**
 	 * @return If the current time is between the 24 and 26 of christmas
 	 */
@@ -11,7 +11,7 @@ public class TimeUtils {
 		Calendar calendar = Calendar.getInstance();
 		return calendar.get(2) + 1 == 12 && calendar.get(5) >= 24 && calendar.get(5) <= 26;
 	}
-	
+
 	/**
 	 * @return If the current time is October 31
 	 */

@@ -26,7 +26,8 @@ import net.minecraft.item.ItemStack;
  * <br>
  * </br>
  * 
- * This class allows for basic JEI support. It adds all the recipes, catalysts, and recipe click areas for JEI.
+ * This class allows for basic JEI support. It adds all the recipes, catalysts,
+ * and recipe click areas for JEI.
  * 
  * @author Ocelot5836
  * 

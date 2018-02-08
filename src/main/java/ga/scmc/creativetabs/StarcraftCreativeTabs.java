@@ -11,7 +11,7 @@ import net.minecraft.creativetab.CreativeTabs;
  * Holds all the classes creative tabs.
  */
 public class StarcraftCreativeTabs {
-	
+
 	public static final CreativeTabs PROTOSS = new StarcraftCreativeTabProtoss();
 	public static final CreativeTabs TERRAN = new StarcraftCreativeTabTerran();
 	public static final CreativeTabs ZERG = new StarcraftCreativeTabZerg();

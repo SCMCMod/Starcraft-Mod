@@ -26,9 +26,9 @@ public class EntityZergMob extends EntityStarcraftMob {
 
 	@Override
 	public boolean getCanSpawnHere() {
-		if(this.world.getDifficulty() != EnumDifficulty.PEACEFUL) {
+		if (this.world.getDifficulty() != EnumDifficulty.PEACEFUL) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}
@@ -111,7 +111,7 @@ public class EntityZergMob extends EntityStarcraftMob {
 			this.heal(0.27F);
 		}
 	}
-	
+
 	@Override
 	public void onKillEntity(EntityLivingBase entityLivingIn) {
 		int biomassAmount;
@@ -122,13 +122,13 @@ public class EntityZergMob extends EntityStarcraftMob {
 		}
 		if (entityLivingIn instanceof EntityStarcraftMob) {
 			if (((EntityStarcraftMob) entityLivingIn).isType(EnumTypeAttributes.MECHANICAL)) {
-				//do nothing
+				// do nothing
 			} else {
 				entityLivingIn.dropItem(ItemHandler.BIOMASS, biomassAmount);
 			}
 		} else if (entityLivingIn instanceof EntityStarcraftPassive) {
 			if (((EntityStarcraftPassive) entityLivingIn).isType(EnumTypeAttributes.MECHANICAL)) {
-				//do nothing
+				// do nothing
 			} else {
 				entityLivingIn.dropItem(ItemHandler.BIOMASS, biomassAmount);
 			}

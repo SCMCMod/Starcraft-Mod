@@ -10,20 +10,21 @@ import net.minecraftforge.items.SlotItemHandler;
 
 /**
  * A slot which handles the furnace fuel
+ * 
  * @author CJMinecraft
  */
 public class SlotStarcraftFurnaceFuel extends SlotItemHandler {
 
-    public SlotStarcraftFurnaceFuel(IItemHandler inv, int slotIndex, int xPosition, int yPosition) {
-        super(inv, slotIndex, xPosition, yPosition);
-    }
+	public SlotStarcraftFurnaceFuel(IItemHandler inv, int slotIndex, int xPosition, int yPosition) {
+		super(inv, slotIndex, xPosition, yPosition);
+	}
 
-    public boolean isItemValid(@Nullable ItemStack stack) {
-        return TileEntityFurnace.isItemFuel(stack) || SlotFurnaceFuel.isBucket(stack);
-    }
+	public boolean isItemValid(@Nullable ItemStack stack) {
+		return TileEntityFurnace.isItemFuel(stack) || SlotFurnaceFuel.isBucket(stack);
+	}
 
-    public int getItemStackLimit(ItemStack stack) {
-        return SlotFurnaceFuel.isBucket(stack) ? 1 : super.getItemStackLimit(stack);
-    }
+	public int getItemStackLimit(ItemStack stack) {
+		return SlotFurnaceFuel.isBucket(stack) ? 1 : super.getItemStackLimit(stack);
+	}
 
 }

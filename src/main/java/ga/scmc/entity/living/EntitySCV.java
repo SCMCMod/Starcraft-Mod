@@ -41,7 +41,7 @@ public class EntitySCV extends EntityTerranPassive {
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.43000000417232513D);
 	}
-	
+
 	@Override
 	protected boolean canDespawn() {
 		return false;

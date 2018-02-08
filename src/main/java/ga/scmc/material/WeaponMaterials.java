@@ -15,6 +15,5 @@ public class WeaponMaterials {
 	public static final ToolMaterial BALISONG_MATERIAL = EnumHelper.addToolMaterial("BALISONG", 0, 500, 3.0F, 2.0F, 10);
 	public static final ToolMaterial MILITARYKNIFE_MATERIAL = EnumHelper.addToolMaterial("MILITARYKNIFE", 0, 500, 3.0F, 1.0F, 10);
 	public static final ToolMaterial MONOMOLECULARBLADE_MATERIAL = EnumHelper.addToolMaterial("MONOMOLECULARBLADE", 0, 1000, 9.5F, 20.0F, 10);
-	
-	
+
 }

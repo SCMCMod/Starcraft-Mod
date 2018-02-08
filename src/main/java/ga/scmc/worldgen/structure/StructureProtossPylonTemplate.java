@@ -22,8 +22,8 @@ public class StructureProtossPylonTemplate extends SCWorldGenerator {
 	}
 
 	public boolean generate_r0(int metaPrimColor, int metaSecColor, World world, int offsetY, BlockPos pos, boolean flag) {
-		if(flag) {
-			if(!LocationIsValidSpawn(world, pos) || !LocationIsValidSpawn(world, pos.add(7, 0, 0)) || !LocationIsValidSpawn(world, pos.add(7, 0, 8)) || !LocationIsValidSpawn(world, pos.add(0, 0, 8))) {
+		if (flag) {
+			if (!LocationIsValidSpawn(world, pos) || !LocationIsValidSpawn(world, pos.add(7, 0, 0)) || !LocationIsValidSpawn(world, pos.add(7, 0, 8)) || !LocationIsValidSpawn(world, pos.add(0, 0, 8))) {
 				return false;
 			}
 		}
@@ -132,11 +132,11 @@ public class StructureProtossPylonTemplate extends SCWorldGenerator {
 		world.setBlockState(pos.add(4, 9 + offsetY, 5), MetaBlockHandler.PYLON_CRYSTAL.getStateFromMeta(metaSecColor));
 		world.setBlockState(pos.add(3, 10 + offsetY, 4), MetaBlockHandler.PYLON_CRYSTAL.getStateFromMeta(metaSecColor));
 		world.setBlockState(pos.add(4, 10 + offsetY, 4), MetaBlockHandler.PYLON_CRYSTAL.getStateFromMeta(metaSecColor));
-		if(metaSecColor == 0) {
+		if (metaSecColor == 0) {
 			setBlockStateAndUpdate(world, pos.add(4, 6 + offsetY, 4), BlockHandler.CORE_PYLON_KHALAI.getDefaultState(), 2);
-		}else if(metaSecColor == 2) {
+		} else if (metaSecColor == 2) {
 			setBlockStateAndUpdate(world, pos.add(4, 6 + offsetY, 4), BlockHandler.CORE_PYLON_VOID.getDefaultState(), 2);
-		}else if(metaSecColor == 1) {
+		} else if (metaSecColor == 1) {
 			setBlockStateAndUpdate(world, pos.add(4, 6 + offsetY, 4), BlockHandler.CORE_PYLON_DARK.getDefaultState(), 2);
 		}
 		return true;
@@ -144,7 +144,7 @@ public class StructureProtossPylonTemplate extends SCWorldGenerator {
 	}
 
 	protected Block[] GetValidSpawnBlocks() {
-		return new Block[] {Blocks.GRASS, Blocks.STONE, Blocks.DIRT, BlockHandler.SAND_SHAKURAS, BlockHandler.STONE_SHAKURAS, MetaBlockHandler.PROTOSS_METAL_T1};
+		return new Block[] { Blocks.GRASS, Blocks.STONE, Blocks.DIRT, BlockHandler.SAND_SHAKURAS, BlockHandler.STONE_SHAKURAS, MetaBlockHandler.PROTOSS_METAL_T1 };
 	}
 
 	public boolean LocationIsValidSpawn(World world, BlockPos pos) {
@@ -153,19 +153,19 @@ public class StructureProtossPylonTemplate extends SCWorldGenerator {
 		Block blockAbove = world.getBlockState(pos.up()).getBlock();
 		Block blockBelow = world.getBlockState(pos.down()).getBlock();
 
-		for(Block i : GetValidSpawnBlocks()) {
-			if(blockAbove != Blocks.AIR) {
+		for (Block i : GetValidSpawnBlocks()) {
+			if (blockAbove != Blocks.AIR) {
 				return false;
 			}
-			if(block == i) {
+			if (block == i) {
 				return true;
-			} else if(block == Blocks.SNOW_LAYER && blockBelow == i) {
+			} else if (block == Blocks.SNOW_LAYER && blockBelow == i) {
 				return true;
-			} else if(m == Material.PLANTS && blockBelow == i) {
+			} else if (m == Material.PLANTS && blockBelow == i) {
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
 }

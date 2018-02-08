@@ -7,8 +7,8 @@ import net.minecraft.entity.ai.EntityAIBase;
 public class EntityAIScarabExplode extends EntityAIBase {
 
 	/**
-	 * The scarab's attack target. This is used for the changing of the
-	 * creeper's state
+	 * The scarab's attack target. This is used for the changing of the creeper's
+	 * state
 	 */
 	private EntityLivingBase scarabAttackTarget;
 
@@ -51,11 +51,11 @@ public class EntityAIScarabExplode extends EntityAIBase {
 	 */
 	@Override
 	public void updateTask() {
-		if(scarabAttackTarget == null) {
+		if (scarabAttackTarget == null) {
 			swellingScarab.setScarabState(-1);
-		} else if(swellingScarab.getDistanceSqToEntity(scarabAttackTarget) > 49) {
+		} else if (swellingScarab.getDistanceSqToEntity(scarabAttackTarget) > 49) {
 			swellingScarab.setScarabState(-1);
-		} else if(!swellingScarab.getEntitySenses().canSee(scarabAttackTarget)) {
+		} else if (!swellingScarab.getEntitySenses().canSee(scarabAttackTarget)) {
 			swellingScarab.setScarabState(-1);
 		} else {
 			swellingScarab.setScarabState(1);

@@ -158,7 +158,8 @@ public class BlockStarcraftFurnace extends BlockContainer {
 	}
 
 	/**
-	 * Returns a new instance of a block's tile entity class. Called on placing the block.
+	 * Returns a new instance of a block's tile entity class. Called on placing the
+	 * block.
 	 */
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
@@ -166,7 +167,8 @@ public class BlockStarcraftFurnace extends BlockContainer {
 	}
 
 	/**
-	 * Called by ItemBlocks just before a block is actually set in the world, to allow for adjustments to the IBlockstate
+	 * Called by ItemBlocks just before a block is actually set in the world, to
+	 * allow for adjustments to the IBlockstate
 	 */
 	@Override
 	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
@@ -174,7 +176,8 @@ public class BlockStarcraftFurnace extends BlockContainer {
 	}
 
 	/**
-	 * Called by ItemBlocks after a block is set in the world, to allow post-place logic
+	 * Called by ItemBlocks after a block is set in the world, to allow post-place
+	 * logic
 	 */
 	@Override
 	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
@@ -205,7 +208,8 @@ public class BlockStarcraftFurnace extends BlockContainer {
 	}
 
 	/**
-	 * The type of render function called. 3 for standard block models, 2 for TESR's, 1 for liquids, -1 is no render
+	 * The type of render function called. 3 for standard block models, 2 for
+	 * TESR's, 1 for liquids, -1 is no render
 	 */
 	@Override
 	public EnumBlockRenderType getRenderType(IBlockState state) {
@@ -234,7 +238,8 @@ public class BlockStarcraftFurnace extends BlockContainer {
 	}
 
 	/**
-	 * Returns the blockstate with the given rotation from the passed blockstate. If inapplicable, returns the passed blockstate.
+	 * Returns the blockstate with the given rotation from the passed blockstate. If
+	 * inapplicable, returns the passed blockstate.
 	 */
 	@Override
 	public IBlockState withRotation(IBlockState state, Rotation rot) {
@@ -242,7 +247,8 @@ public class BlockStarcraftFurnace extends BlockContainer {
 	}
 
 	/**
-	 * Returns the blockstate with the given mirror of the passed blockstate. If inapplicable, returns the passed blockstate.
+	 * Returns the blockstate with the given mirror of the passed blockstate. If
+	 * inapplicable, returns the passed blockstate.
 	 */
 	@Override
 	public IBlockState withMirror(IBlockState state, Mirror mirrorIn) {

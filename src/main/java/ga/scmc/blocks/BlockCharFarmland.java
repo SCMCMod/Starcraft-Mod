@@ -77,7 +77,10 @@ public class BlockCharFarmland extends BlockFarmland {
 	}
 
 	/**
-	 * Called when a neighboring block was changed and marks that this state should perform any checks during a neighbor change. Cases may include when redstone power is updated, cactus blocks popping off due to a neighboring solid block, etc.
+	 * Called when a neighboring block was changed and marks that this state should
+	 * perform any checks during a neighbor change. Cases may include when redstone
+	 * power is updated, cactus blocks popping off due to a neighboring solid block,
+	 * etc.
 	 */
 	@Override
 	public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn) {

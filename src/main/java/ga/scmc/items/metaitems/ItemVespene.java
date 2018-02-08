@@ -25,7 +25,7 @@ public class ItemVespene extends Item {
 	 */
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> items) {
-		for(int i = 0; i < VespeneType.values().length; i++) {
+		for (int i = 0; i < VespeneType.values().length; i++) {
 			items.add(new ItemStack(item, 1, i));
 		}
 	}
@@ -35,8 +35,8 @@ public class ItemVespene extends Item {
 	 */
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		for(int i = 0; i < VespeneType.values().length; i++) {
-			if(stack.getItemDamage() == i) {
+		for (int i = 0; i < VespeneType.values().length; i++) {
+			if (stack.getItemDamage() == i) {
 				return getUnlocalizedName() + "." + VespeneType.values()[i].getName();
 			} else {
 				continue;

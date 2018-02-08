@@ -12,7 +12,6 @@ public class CharGenCaves extends MapGenCaves {
 	@Override
 	protected boolean canReplaceBlock(IBlockState p_175793_1_, IBlockState p_175793_2_) {
 		Block test = p_175793_1_.getBlock();
-		return (test == BlockHandler.STONE_CHAR || test == BlockHandler.DIRT_CHAR || test == BlockHandler.ASH_CHAR || test == BlockHandler.ZERG_CREEP ? true
-				: (test == Blocks.SAND || test == Blocks.GRAVEL) && p_175793_2_.getMaterial() != Material.LAVA);
+		return (test == BlockHandler.STONE_CHAR || test == BlockHandler.DIRT_CHAR || test == BlockHandler.ASH_CHAR || test == BlockHandler.ZERG_CREEP ? true : (test == Blocks.SAND || test == Blocks.GRAVEL) && p_175793_2_.getMaterial() != Material.LAVA);
 	}
 }

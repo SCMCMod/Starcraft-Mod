@@ -31,12 +31,15 @@ public class Library {
 	public static final String UN_BASE = MODID + "_";
 
 	/**
-	 * Makes a cube out of {@code blockState} anchored at the bottom-middle. NOTE: this ignores the anchor. Also, make sure the side length is an odd natural number, else you'll break something
+	 * Makes a cube out of {@code blockState} anchored at the bottom-middle. NOTE:
+	 * this ignores the anchor. Also, make sure the side length is an odd natural
+	 * number, else you'll break something
 	 * 
 	 * @param world
 	 *            the world
 	 * @param blockState
-	 *            the blockState to make a cube of (use {@link Block#getDefaultState()} if unsure)
+	 *            the blockState to make a cube of (use
+	 *            {@link Block#getDefaultState()} if unsure)
 	 * @param pos
 	 *            the {@link BlockPos} of the anchor
 	 * @param sideLength
@@ -57,7 +60,9 @@ public class Library {
 	}
 
 	/**
-	 * Checks a cubic volume for any instances of {@code blockState}. The anchor is in the absolute center of the cube. Make sure the side length is an odd number, else you'll break something
+	 * Checks a cubic volume for any instances of {@code blockState}. The anchor is
+	 * in the absolute center of the cube. Make sure the side length is an odd
+	 * number, else you'll break something
 	 * 
 	 * @param world
 	 *            the world
@@ -67,7 +72,8 @@ public class Library {
 	 *            the anchor {@link BlockPos}
 	 * @param sideLength
 	 *            the length of the cube's sides
-	 * @return {@link ArrayList} of all the BlockPos instances that contain {@code blockState}
+	 * @return {@link ArrayList} of all the BlockPos instances that contain
+	 *         {@code blockState}
 	 */
 	public static ArrayList<BlockPos> checkCube(World world, IBlockState blockState, BlockPos pos, int sideLength) {
 		ArrayList<BlockPos> posList = new ArrayList<BlockPos>();
@@ -88,14 +94,17 @@ public class Library {
 	}
 
 	/**
-	 * Replaces {@code current} with {@code next} in the same world. Can transfer pitch and yaw rotation angles from {@code current} to {@code next}. If pitch/yaw not transferred, they are both set to {@code 0}
+	 * Replaces {@code current} with {@code next} in the same world. Can transfer
+	 * pitch and yaw rotation angles from {@code current} to {@code next}. If
+	 * pitch/yaw not transferred, they are both set to {@code 0}
 	 * 
 	 * @param current
 	 *            the entity to replace
 	 * @param next
 	 *            the replacement
 	 * @param keepRot
-	 *            whether or not to transfer the pitch and yaw rotation angles of {@code current} to {@code next}
+	 *            whether or not to transfer the pitch and yaw rotation angles of
+	 *            {@code current} to {@code next}
 	 */
 	public static void replaceEntity(boolean keepRot, Entity current, Entity... next) {
 		if (!current.world.isRemote) {
@@ -118,8 +127,13 @@ public class Library {
 	}
 
 	/**
-	 * Replaces {@code current} with {@code next} in the same world. Sets the pitch/yaw of all objects on {@code next} to {@code pitch} and {@code yaw}, respectively.<br>
-	 * This is done by setting {@code current}'s pitch/yaw, then calling {@link #replaceEntity(boolean, Entity, Entity)} with parameters {@code true}, {@code current}, and {@code next} as a means of transferring {@code current}'s new pitch/yaw angles to {@code next}
+	 * Replaces {@code current} with {@code next} in the same world. Sets the
+	 * pitch/yaw of all objects on {@code next} to {@code pitch} and {@code yaw},
+	 * respectively.<br>
+	 * This is done by setting {@code current}'s pitch/yaw, then calling
+	 * {@link #replaceEntity(boolean, Entity, Entity)} with parameters {@code true},
+	 * {@code current}, and {@code next} as a means of transferring
+	 * {@code current}'s new pitch/yaw angles to {@code next}
 	 * 
 	 * @param pitch
 	 *            the pitch to use

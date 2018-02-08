@@ -12,7 +12,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WorldProviderShakuras extends WorldProvider {
-	
+
 	private IRenderHandler skyRenderer;
 	private IRenderHandler cliimateProvider;
 
@@ -43,7 +43,7 @@ public class WorldProviderShakuras extends WorldProvider {
 	public void updateWeather() {
 		super.updateWeather();
 	}
-	
+
 	@Override
 	protected void createBiomeProvider() {
 		biomeProvider = new ShakurasBiomeProvider(world.getWorldInfo());
@@ -55,18 +55,18 @@ public class WorldProviderShakuras extends WorldProvider {
 	}
 
 	/**
-	 * A Message to display to the user when they transfer out of this
-	 * dimension.
+	 * A Message to display to the user when they transfer out of this dimension.
+	 * 
 	 * @return The message to be displayed
 	 */
 	@Override
 	public String getDepartMessage() {
-		
-		//Always true
-		if(this instanceof WorldProviderShakuras) {
+
+		// Always true
+		if (this instanceof WorldProviderShakuras) {
 			return "Leaving Shakuras";
 		}
-		
+
 		return null;
 	}
 
@@ -78,14 +78,16 @@ public class WorldProviderShakuras extends WorldProvider {
 	/**
 	 * Determines the dimension the player will be respawned in, typically this
 	 * brings them back to the overworld.
-	 * @param player The player that is respawning
+	 * 
+	 * @param player
+	 *            The player that is respawning
 	 * @return The dimension to respawn the player in
 	 */
 	@Override
 	public int getRespawnDimension(net.minecraft.entity.player.EntityPlayerMP player) {
 		return ConfigurationHandler.INT_DIMENSION_SHAKURAS;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Vec3d getFogColor(float var1, float var2) {
@@ -115,22 +117,23 @@ public class WorldProviderShakuras extends WorldProvider {
 		brightness = (float) (brightness * (1.0D - this.world.getThunderStrength(angle) * 5.0F / 16.0D));
 		return brightness * 0.45F;
 	}
-	
+
 	/**
 	 * A message to display to the user when they transfer to this dimension.
+	 * 
 	 * @return The message to be displayed
 	 */
 	@Override
 	public String getWelcomeMessage() {
-		if(this instanceof WorldProviderShakuras) {
+		if (this instanceof WorldProviderShakuras) {
 			return "Entering Shakuras";
 		}
-		
+
 		return null;
 	}
-	
+
 	@Override
 	public boolean isDaytime() {
-        return false;
-    }
+		return false;
+	}
 }

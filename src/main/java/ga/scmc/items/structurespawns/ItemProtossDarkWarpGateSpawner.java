@@ -21,10 +21,9 @@ public class ItemProtossDarkWarpGateSpawner extends Item {
 		setRegistryName("protoss.spawner.warpgate.dark");
 		setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 	}
-	
+
 	@Override
-	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY,
-			float hitZ) {
+	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		StructureProtossWarpGateTemplate PROTOSS_WARPGATE = new StructureProtossWarpGateTemplate();
 		Random rand = new Random();
 		PROTOSS_WARPGATE.generate(1, 4, worldIn, rand, 0, 0, 0, pos, false);

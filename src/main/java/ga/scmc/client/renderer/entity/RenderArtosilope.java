@@ -13,7 +13,7 @@ import net.minecraft.util.ResourceLocation;
  * @author Ocelot5836
  */
 public class RenderArtosilope<T> extends RenderLiving<EntityArtosilope> {
-	
+
 	protected ModelLope model;
 
 	public RenderArtosilope(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {

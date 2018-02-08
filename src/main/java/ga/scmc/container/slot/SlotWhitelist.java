@@ -38,7 +38,8 @@ public class SlotWhitelist extends SlotItemHandler {
 	}
 
 	/**
-	 * Check if the stack is a valid item for this slot. Always true beside for the armor slots.
+	 * Check if the stack is a valid item for this slot. Always true beside for the
+	 * armor slots.
 	 */
 	public boolean isItemValid(@Nullable ItemStack stack) {
 		for (int i = 0; i < items.length; i++) {
@@ -50,7 +51,8 @@ public class SlotWhitelist extends SlotItemHandler {
 	}
 
 	/**
-	 * Decrease the size of the stack in slot (first int arg) by the amount of the second int arg. Returns the new stack.
+	 * Decrease the size of the stack in slot (first int arg) by the amount of the
+	 * second int arg. Returns the new stack.
 	 */
 	public ItemStack decrStackSize(int amount) {
 		if (this.getHasStack()) {
@@ -66,7 +68,9 @@ public class SlotWhitelist extends SlotItemHandler {
 	}
 
 	/**
-	 * the itemStack passed in is the output - ie, iron ingots, and pickaxes, not ore and wood. Typically increases an internal count then calls onCrafting(item).
+	 * the itemStack passed in is the output - ie, iron ingots, and pickaxes, not
+	 * ore and wood. Typically increases an internal count then calls
+	 * onCrafting(item).
 	 */
 	protected void onCrafting(ItemStack stack, int amount) {
 		this.removeCount += amount;
@@ -74,7 +78,8 @@ public class SlotWhitelist extends SlotItemHandler {
 	}
 
 	/**
-	 * the itemStack passed in is the output - ie, iron ingots, and pickaxes, not ore and wood.
+	 * the itemStack passed in is the output - ie, iron ingots, and pickaxes, not
+	 * ore and wood.
 	 */
 	protected void onCrafting(ItemStack stack) {
 		stack.onCrafting(this.player.world, this.player, this.removeCount);

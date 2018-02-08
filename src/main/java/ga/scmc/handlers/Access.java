@@ -7,26 +7,28 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
- * A utility class for handling all things to do with the game (which normally we don't have access to)
+ * A utility class for handling all things to do with the game (which normally
+ * we don't have access to)
+ * 
  * @author CJMinecraft
  */
 public class Access {
 
-    public static Minecraft getMinecraft() {
-        return Minecraft.getMinecraft();
-    }
+	public static Minecraft getMinecraft() {
+		return Minecraft.getMinecraft();
+	}
 
 	@SideOnly(Side.CLIENT)
-    public static FontRenderer getFontRenderer() {
-        return getMinecraft().fontRendererObj;
-    }
-	
-    public static float getPartialTicks() {
-        return Minecraft.theMinecraft.getRenderPartialTicks();
-    }
+	public static FontRenderer getFontRenderer() {
+		return getMinecraft().fontRendererObj;
+	}
 
-    public static boolean isDevEnvironment() {
-        return (boolean) Launch.blackboard.get("fml.deobfuscatedEnvironment");
-    }
+	public static float getPartialTicks() {
+		return Minecraft.theMinecraft.getRenderPartialTicks();
+	}
+
+	public static boolean isDevEnvironment() {
+		return (boolean) Launch.blackboard.get("fml.deobfuscatedEnvironment");
+	}
 
 }

@@ -42,7 +42,8 @@ public class SmeltingRecipes {
 		// Char Stone
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.COBBLESTONE_CHAR), new ItemStack(BlockHandler.STONE_CHAR, 1, 0), 0);
 
-		// These are all of the various smelting recipes for the various ores. Self explanatory
+		// These are all of the various smelting recipes for the various ores. Self
+		// explanatory
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_TITANIUM_OW), new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.TITANIUM.getID()), 0.8F);
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_COPPER_OW), new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.COPPER.getID()), 0.5F);
 		GameRegistry.addSmelting(new ItemStack(BlockHandler.ORE_PHOSPHORUS_OW), new ItemStack(ItemHandler.PHOSPHORUS), 0.25F);

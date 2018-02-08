@@ -38,11 +38,11 @@ public class BiomeGenSlaynProtossCity extends BiomeHandler {
 		for (int yLoc = 255; yLoc >= 0; --yLoc) {
 			if (yLoc <= rand.nextInt(5)) {
 				chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, BEDROCK);
-			}else if(yLoc == seaLevel) {
+			} else if (yLoc == seaLevel) {
 				chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, MetaBlockHandler.PROTOSS_METAL_T1.getStateFromMeta(1));
-			}else if(yLoc > seaLevel) {
+			} else if (yLoc > seaLevel) {
 				chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, AIR);
-			}else {
+			} else {
 				chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, STONE);
 			}
 		}

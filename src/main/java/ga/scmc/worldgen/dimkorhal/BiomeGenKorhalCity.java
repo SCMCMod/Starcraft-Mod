@@ -38,11 +38,11 @@ public class BiomeGenKorhalCity extends BiomeHandler {
 		for (int yLoc = 255; yLoc >= 0; --yLoc) {
 			if (yLoc <= rand.nextInt(5)) {
 				chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, BEDROCK);
-			}else if(yLoc == seaLevel) {
+			} else if (yLoc == seaLevel) {
 				chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, BlockHandler.CITY_STONE_KORHAL.getDefaultState());
-			}else if(yLoc > seaLevel) {
+			} else if (yLoc > seaLevel) {
 				chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, AIR);
-			}else {
+			} else {
 				chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, STONE);
 			}
 		}

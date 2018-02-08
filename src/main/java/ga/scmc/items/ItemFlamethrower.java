@@ -28,7 +28,7 @@ public class ItemFlamethrower extends Item {
 		setRegistryName("flamethrower");
 		setMaxStackSize(1);
 	}
-	
+
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(ItemStack itemstack, World world, EntityPlayer player, EnumHand hand) {
 		if (this.hasAmmo(world, player)) {

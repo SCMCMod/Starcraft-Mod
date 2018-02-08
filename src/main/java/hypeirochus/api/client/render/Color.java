@@ -40,8 +40,7 @@ public class Color {
 	}
 
 	public int toHexadecimal() {
-		org.lwjgl.util.Color color = new org.lwjgl.util.Color(toIntRange(a), toIntRange(r), toIntRange(g),
-				toIntRange(b));
+		org.lwjgl.util.Color color = new org.lwjgl.util.Color(toIntRange(a), toIntRange(r), toIntRange(g), toIntRange(b));
 		ByteBuffer dest = ByteBuffer.allocate(4);
 
 		color.writeRGBA(dest);

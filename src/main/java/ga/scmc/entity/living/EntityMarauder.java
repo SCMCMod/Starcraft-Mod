@@ -26,6 +26,7 @@ import net.minecraft.world.World;
 
 /**
  * Work in progress
+ * 
  * @author Hypeirochus
  */
 public class EntityMarauder extends EntityTerranMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
@@ -74,14 +75,14 @@ public class EntityMarauder extends EntityTerranMob implements IMob, IRangedAtta
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityPlayer) {
+			} else if (entity instanceof EntityPlayer) {
 				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
-				if(color.getColor() == this.getTeamColor().getId()) {
+				if (color.getColor() == this.getTeamColor().getId()) {
 					return false;
-				}else {
+				} else {
 					return true;
 				}
-			}else {
+			} else {
 				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
 					return false;
 				}

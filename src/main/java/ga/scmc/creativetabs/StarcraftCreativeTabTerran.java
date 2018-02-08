@@ -4,7 +4,7 @@ import ga.scmc.handlers.ItemHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
-public class StarcraftCreativeTabTerran extends CreativeTabs{
+public class StarcraftCreativeTabTerran extends CreativeTabs {
 
 	public StarcraftCreativeTabTerran() {
 		super("terran");

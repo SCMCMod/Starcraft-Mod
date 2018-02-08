@@ -16,8 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class BlockOverworldOre extends StarcraftBlock
-{
+public class BlockOverworldOre extends StarcraftBlock {
 	public BlockOverworldOre(String name, RegistryType type, Material material, MapColor color, int level) {
 		super(name, type, material, color);
 		setHardness(3.0F);
@@ -74,14 +73,16 @@ public class BlockOverworldOre extends StarcraftBlock
 			int i = 0;
 			if (this == BlockHandler.ORE_RICHMINERAL_OW || this == BlockHandler.ORE_MINERAL_OW) {
 				i = MathHelper.getInt(rand, 0, 2);
-			} 
+			}
 			return i;
 		}
 		return 0;
 	}
-	
+
 	/**
-	 * Gets the metadata of the item this Block can drop. This method is called when the block gets destroyed. It returns the metadata of the dropped item based on the old metadata of the block.
+	 * Gets the metadata of the item this Block can drop. This method is called when
+	 * the block gets destroyed. It returns the metadata of the dropped item based
+	 * on the old metadata of the block.
 	 */
 	public int damageDropped(IBlockState state) {
 		return this == BlockHandler.ORE_RICHMINERAL_OW ? 1 : 0;

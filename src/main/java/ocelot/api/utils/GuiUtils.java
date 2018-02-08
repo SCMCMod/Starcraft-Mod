@@ -83,7 +83,8 @@ public class GuiUtils {
 	 * @param height
 	 *            The height of the window
 	 * @param zLevel
-	 *            <em> MAKE SURE NOT TO EDIT THIS VALUE UNLESS YOU KNOW WHAT YOU ARE DOING!!</em>
+	 *            <em> MAKE SURE NOT TO EDIT THIS VALUE UNLESS YOU KNOW WHAT YOU ARE
+	 *            DOING!!</em>
 	 */
 	@SideOnly(Side.CLIENT)
 	public static void drawCustomSizeGui(int x, int y, int width, int height, GuiType type) {
@@ -107,7 +108,8 @@ public class GuiUtils {
 	}
 
 	/**
-	 * Draws a default minecraft slot at the specified position with the specified size.
+	 * Draws a default minecraft slot at the specified position with the specified
+	 * size.
 	 * 
 	 * @param x
 	 *            The x position
@@ -194,15 +196,18 @@ public class GuiUtils {
 	}
 
 	/**
-	 * A static reference to {@link #drawTexturedModalRect(float, float, int, int, int, int)}.
+	 * A static reference to
+	 * {@link #drawTexturedModalRect(float, float, int, int, int, int)}.
 	 * 
 	 * <br>
 	 * </br>
 	 * 
-	 * <em> Draws a textured rectangle using the texture currently bound to the TextureManager </em>
+	 * <em> Draws a textured rectangle using the texture currently bound to the
+	 * TextureManager </em>
 	 * 
 	 * @param zLevel
-	 *            <em> MAKE SURE NOT TO EDIT THIS VALUE UNLESS YOU KNOW WHAT YOU ARE DOING!!</em>
+	 *            <em> MAKE SURE NOT TO EDIT THIS VALUE UNLESS YOU KNOW WHAT YOU ARE
+	 *            DOING!!</em>
 	 */
 	@SideOnly(Side.CLIENT)
 	private static void drawStaticTextureModelRect(float x, float y, int minU, int minV, int maxU, int maxV) {

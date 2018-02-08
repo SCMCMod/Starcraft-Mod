@@ -1,7 +1,5 @@
 package ga.scmc.handlers;
 
-
-
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.items.weapons.WeaponLightBase;
 import ga.scmc.items.weapons.WeaponMasterPsiBlade;
@@ -28,8 +26,6 @@ public class WeaponHandler {
 	public static Item STEEL_SWORD;
 	public static Item TITANIUM_SWORD;
 	public static Item WARP_BLADE;
-
-	
 
 	public static void init() {
 		PSI_BLADE = new WeaponPsiBlade(WeaponMaterials.PSIBLADE_MATERIAL).setUnlocalizedName("protoss.blade.psi.aiur").setRegistryName("protoss.blade.psi.aiur").setCreativeTab(StarcraftCreativeTabs.PROTOSS);

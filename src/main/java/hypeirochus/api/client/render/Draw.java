@@ -175,14 +175,10 @@ public class Draw {
 		OpenGL.disableTexture2d();
 		OpenGL.shadeSmooth();
 		startQuadsColored();
-		vertex(w, y, zLevel).color((color1 >> 16 & 255) / 255.0F, (color1 >> 8 & 255) / 255.0F, (color1 & 255) / 255.0F,
-				(color1 >> 24 & 255) / 255.0F).endVertex();
-		vertex(x, y, zLevel).color((color1 >> 16 & 255) / 255.0F, (color1 >> 8 & 255) / 255.0F, (color1 & 255) / 255.0F,
-				(color1 >> 24 & 255) / 255.0F).endVertex();
-		vertex(x, h, zLevel).color((color2 >> 16 & 255) / 255.0F, (color2 >> 8 & 255) / 255.0F, (color2 & 255) / 255.0F,
-				(color2 >> 24 & 255) / 255.0F).endVertex();
-		vertex(w, h, zLevel).color((color2 >> 16 & 255) / 255.0F, (color2 >> 8 & 255) / 255.0F, (color2 & 255) / 255.0F,
-				(color2 >> 24 & 255) / 255.0F).endVertex();
+		vertex(w, y, zLevel).color((color1 >> 16 & 255) / 255.0F, (color1 >> 8 & 255) / 255.0F, (color1 & 255) / 255.0F, (color1 >> 24 & 255) / 255.0F).endVertex();
+		vertex(x, y, zLevel).color((color1 >> 16 & 255) / 255.0F, (color1 >> 8 & 255) / 255.0F, (color1 & 255) / 255.0F, (color1 >> 24 & 255) / 255.0F).endVertex();
+		vertex(x, h, zLevel).color((color2 >> 16 & 255) / 255.0F, (color2 >> 8 & 255) / 255.0F, (color2 & 255) / 255.0F, (color2 >> 24 & 255) / 255.0F).endVertex();
+		vertex(w, h, zLevel).color((color2 >> 16 & 255) / 255.0F, (color2 >> 8 & 255) / 255.0F, (color2 & 255) / 255.0F, (color2 >> 24 & 255) / 255.0F).endVertex();
 		tessellate();
 		OpenGL.shadeFlat();
 		OpenGL.enableTexture2d();
@@ -404,8 +400,7 @@ public class Draw {
 	 *            - Set to true to draw a shadow beneath the rendered string.
 	 */
 	public static void drawStringAlignCenter(String text, int x, int y, int w, int h, int color, boolean shadow) {
-		drawString(text, x + (w - Draw.getStringRenderWidth(I18n.translateToLocal(text))) / 2, y + (h - 8) / 2, color,
-				shadow);
+		drawString(text, x + (w - Draw.getStringRenderWidth(I18n.translateToLocal(text))) / 2, y + (h - 8) / 2, color, shadow);
 	}
 
 	/**
@@ -572,19 +567,14 @@ public class Draw {
 	 *            - Set to false for a solid style progress bar. Set to true for a
 	 *            box-style progress bar.
 	 */
-	public static void drawProgressBar(String label, int maxProgress, int curProgress, int posX, int posY, int barWidth,
-			int barHeight, int stringPosY, int color, boolean barStyle) {
+	public static void drawProgressBar(String label, int maxProgress, int curProgress, int posX, int posY, int barWidth, int barHeight, int stringPosY, int color, boolean barStyle) {
 		OpenGL.pushMatrix();
 		{
 			Gui.drawRect(posX + 0, posY + 0, posX + barWidth, posY + 5 + barHeight, 0x77000000);
 
 			if (!barStyle && curProgress > maxProgress / barWidth) {
-				Gui.drawRect(posX + 1, posY + 1,
-						posX + ((((curProgress * maxProgress) / maxProgress) * barWidth) / maxProgress) - 1,
-						posY + 4 + barHeight, color);
-				Gui.drawRect(posX + 1, posY + 2 + (barHeight / 2),
-						posX + ((((curProgress * maxProgress) / maxProgress) * barWidth) / maxProgress) - 1,
-						posY + 4 + barHeight, 0x55000000);
+				Gui.drawRect(posX + 1, posY + 1, posX + ((((curProgress * maxProgress) / maxProgress) * barWidth) / maxProgress) - 1, posY + 4 + barHeight, color);
+				Gui.drawRect(posX + 1, posY + 2 + (barHeight / 2), posX + ((((curProgress * maxProgress) / maxProgress) * barWidth) / maxProgress) - 1, posY + 4 + barHeight, 0x55000000);
 			} else if (curProgress > maxProgress / barWidth) {
 				int spaceBetweenBars = 1;
 				int amountOfBars = 70;
@@ -593,18 +583,12 @@ public class Draw {
 				for (int x = 1; x <= amountOfBars - ((curProgress * amountOfBars) / maxProgress); x++) {
 					int barStartX = (posX + widthOfBar) * (x) - widthOfBar;
 
-					Gui.drawRect(barStartX + spaceBetweenBars * x, posY + 1,
-							barStartX + widthOfBar + spaceBetweenBars * x, posY + 4 + barHeight, color);
-					Gui.drawRect(barStartX + spaceBetweenBars * x, posY + 2 + (barHeight / 2),
-							barStartX + widthOfBar + spaceBetweenBars * x, posY + 4 + barHeight, 0x55000000);
+					Gui.drawRect(barStartX + spaceBetweenBars * x, posY + 1, barStartX + widthOfBar + spaceBetweenBars * x, posY + 4 + barHeight, color);
+					Gui.drawRect(barStartX + spaceBetweenBars * x, posY + 2 + (barHeight / 2), barStartX + widthOfBar + spaceBetweenBars * x, posY + 4 + barHeight, 0x55000000);
 				}
 			}
 
-			Access.getFontRenderer()
-					.drawStringWithShadow(label,
-							posX + (barWidth / 2) - Access.getFontRenderer().getStringWidth(label)
-									+ (Access.getFontRenderer().getStringWidth(label) / 2),
-							(posY - 1) + stringPosY, 0xFFFFFFFF);
+			Access.getFontRenderer().drawStringWithShadow(label, posX + (barWidth / 2) - Access.getFontRenderer().getStringWidth(label) + (Access.getFontRenderer().getStringWidth(label) / 2), (posY - 1) + stringPosY, 0xFFFFFFFF);
 		}
 		OpenGL.popMatrix();
 	}
@@ -628,8 +612,7 @@ public class Draw {
 	 * @param borderColor
 	 *            - Color of the border of this rectangle
 	 */
-	public static void drawCenteredRectWithOutline(int x, int y, int w, int h, int borderWidth, int fillColor,
-			int borderColor) {
+	public static void drawCenteredRectWithOutline(int x, int y, int w, int h, int borderWidth, int fillColor, int borderColor) {
 		drawRect(x - w / 2 + borderWidth, y - h / 2, w, h, fillColor);
 		drawRect(x - w / 2 + borderWidth, y - h / 2, w, borderWidth, borderColor);
 		drawRect(x - w / 2, y + h / 2, w, borderWidth, borderColor);
@@ -656,8 +639,7 @@ public class Draw {
 	 * @param borderColor
 	 *            - Color of the border of this rectangle
 	 */
-	public static void drawRectWithOutline(int x, int y, int w, int h, int borderWidth, int fillColor,
-			int borderColor) {
+	public static void drawRectWithOutline(int x, int y, int w, int h, int borderWidth, int fillColor, int borderColor) {
 		int x1 = x;
 		int y1 = y;
 		int x2 = x + w;
@@ -734,8 +716,7 @@ public class Draw {
 		OpenGL.color(r, g, b, a);
 		OpenGL.disableAlphaTest();
 		Draw.bindTexture(resource);
-		drawQuad(0, 0, Screen.scaledDisplayResolution().getScaledWidth(),
-				Screen.scaledDisplayResolution().getScaledHeight());
+		drawQuad(0, 0, Screen.scaledDisplayResolution().getScaledWidth(), Screen.scaledDisplayResolution().getScaledHeight());
 		OpenGL.depthMask(true);
 		OpenGL.enableDepthTest();
 		OpenGL.enableAlphaTest();
@@ -807,8 +788,7 @@ public class Draw {
 	 * @param posZ
 	 *            - z coordinate to draw this model at.
 	 */
-	public static void drawModel(Entity entity, ModelBase model, ResourceLocation resource, double posX, double posY,
-			double posZ) {
+	public static void drawModel(Entity entity, ModelBase model, ResourceLocation resource, double posX, double posY, double posZ) {
 		OpenGL.disableCullFace();
 		Draw.bindTexture(resource);
 		OpenGL.translate(posX, posY, posZ);
@@ -864,7 +844,7 @@ public class Draw {
 	 *            - The Entity instance that is being rendered.
 	 */
 	public static void drawEntity(int x, int y, int scale, float yaw, float pitch, Entity entity) {
-		if(!Access.getMinecraft().world.isRemote) {
+		if (!Access.getMinecraft().world.isRemote) {
 			GlStateManager.enableColorMaterial();
 			OpenGL.pushMatrix();
 			{
@@ -946,8 +926,7 @@ public class Draw {
 	 * @param a
 	 *            - Alpha value (Transparency)
 	 */
-	public static void drawResource(ResourceLocation resource, int posX, int posY, int width, int height, float r,
-			float g, float b, float a) {
+	public static void drawResource(ResourceLocation resource, int posX, int posY, int width, int height, float r, float g, float b, float a) {
 		Draw.drawResource(resource, posX, posY, width, height, r, g, b, a, 1.0f, 1.0f);
 	}
 
@@ -978,8 +957,7 @@ public class Draw {
 	 * @param v
 	 *            - y coordinate of the texture offset
 	 */
-	public static void drawResource(ResourceLocation resource, int posX, int posY, int width, int height, float r,
-			float g, float b, float a, float u, float v) {
+	public static void drawResource(ResourceLocation resource, int posX, int posY, int width, int height, float r, float g, float b, float a, float u, float v) {
 		OpenGL.disableLighting();
 		OpenGL.disableFog();
 		Draw.bindTexture(resource);
@@ -1029,8 +1007,7 @@ public class Draw {
 	 * @param a
 	 *            - Alpha value (Transparency)
 	 */
-	public static void drawResourceCentered(ResourceLocation resource, int posX, int posY, int width, int height,
-			float r, float g, float b, float a) {
+	public static void drawResourceCentered(ResourceLocation resource, int posX, int posY, int width, int height, float r, float g, float b, float a) {
 		Draw.drawResourceCentered(resource, posX, posY, width, height, r, g, b, a, 1.0f, 1.0f);
 	}
 
@@ -1061,8 +1038,7 @@ public class Draw {
 	 * @param v
 	 *            - y coordinate of the texture offset
 	 */
-	public static void drawResourceCentered(ResourceLocation resource, int posX, int posY, int width, int height,
-			float r, float g, float b, float a, float u, float v) {
+	public static void drawResourceCentered(ResourceLocation resource, int posX, int posY, int width, int height, float r, float g, float b, float a, float u, float v) {
 		OpenGL.disableLighting();
 		OpenGL.disableFog();
 		Draw.bindTexture(resource);
@@ -1115,10 +1091,8 @@ public class Draw {
 		GlStateManager.scale(16.0F, 16.0F, 16.0F);
 
 		IBakedModel ibakedmodel = Access.getMinecraft().getRenderItem().getItemModelMesher().getItemModel(stack);
-		ibakedmodel = ibakedmodel.getOverrides().handleItemState(ibakedmodel, stack, Access.getMinecraft().world,
-				Access.getMinecraft().player);
-		ibakedmodel = net.minecraftforge.client.ForgeHooksClient.handleCameraTransforms(ibakedmodel,
-				ItemCameraTransforms.TransformType.GUI, false);
+		ibakedmodel = ibakedmodel.getOverrides().handleItemState(ibakedmodel, stack, Access.getMinecraft().world, Access.getMinecraft().player);
+		ibakedmodel = net.minecraftforge.client.ForgeHooksClient.handleCameraTransforms(ibakedmodel, ItemCameraTransforms.TransformType.GUI, false);
 
 		Access.getMinecraft().getRenderItem().renderItem(stack, ibakedmodel);
 		GlStateManager.disableAlpha();
@@ -1152,8 +1126,7 @@ public class Draw {
 	 */
 	public static void drawItem(ItemStack stack, int x, int y, int width, int height) {
 		IBakedModel ibakedmodel = Access.getMinecraft().getRenderItem().getItemModelMesher().getItemModel(stack);
-		ibakedmodel = ibakedmodel.getOverrides().handleItemState(ibakedmodel, stack, Access.getMinecraft().world,
-				Access.getMinecraft().player);
+		ibakedmodel = ibakedmodel.getOverrides().handleItemState(ibakedmodel, stack, Access.getMinecraft().world, Access.getMinecraft().player);
 
 		GlStateManager.pushMatrix();
 		GlStateManager.enableRescaleNormal();
@@ -1170,7 +1143,7 @@ public class Draw {
 		GlStateManager.disableLighting();
 		GlStateManager.popMatrix();
 	}
-	
+
 	/**
 	 * Binds a texture to OpenGL using Minecraft's render engine.
 	 * 
@@ -1201,8 +1174,7 @@ public class Draw {
 		if (sprite != null) {
 			Minecraft mc = Access.getMinecraft();
 			ResourceLocation r = new ResourceLocation(sprite.getIconName());
-			return new ResourceLocation(r.getResourceDomain(), String.format("%s/%s%s",
-					new Object[] { mc.getTextureMapBlocks().getBasePath(), r.getResourcePath(), ".png" }));
+			return new ResourceLocation(r.getResourceDomain(), String.format("%s/%s%s", new Object[] { mc.getTextureMapBlocks().getBasePath(), r.getResourcePath(), ".png" }));
 		}
 
 		return getMissingTexture();
@@ -1211,8 +1183,7 @@ public class Draw {
 	public static ResourceLocation getResourceLocationPartialPath(TextureAtlasSprite sprite) {
 		if (sprite != null) {
 			ResourceLocation r = new ResourceLocation(sprite.getIconName());
-			return new ResourceLocation(r.getResourceDomain(),
-					String.format("%s", new Object[] { r.getResourcePath() }));
+			return new ResourceLocation(r.getResourceDomain(), String.format("%s", new Object[] { r.getResourcePath() }));
 		}
 
 		return getMissingTexture();

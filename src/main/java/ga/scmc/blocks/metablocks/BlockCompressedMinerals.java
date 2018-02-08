@@ -74,7 +74,7 @@ public class BlockCompressedMinerals extends BlockGlass implements IMetaBlockNam
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, new IProperty[] { TYPE });
 	}
-	
+
 	/**
 	 * Makes sure the block drops the correct version of itself
 	 */
@@ -146,7 +146,8 @@ public class BlockCompressedMinerals extends BlockGlass implements IMetaBlockNam
 	}
 
 	/**
-	 * Used to determine ambient occlusion and culling when rebuilding chunks for render
+	 * Used to determine ambient occlusion and culling when rebuilding chunks for
+	 * render
 	 */
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;

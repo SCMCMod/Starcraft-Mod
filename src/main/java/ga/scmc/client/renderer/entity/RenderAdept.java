@@ -22,7 +22,7 @@ public class RenderAdept extends RenderLiving<EntityAdept> {
 	public void doRender(EntityAdept entity, double x, double y, double z, float entityYaw, float partialTicks) {
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 
-		if(!renderOutlines) {
+		if (!renderOutlines) {
 			renderLeash(entity, x, y, z, entityYaw, partialTicks);
 		}
 	}
@@ -31,7 +31,7 @@ public class RenderAdept extends RenderLiving<EntityAdept> {
 	protected ResourceLocation getEntityTexture(EntityAdept entity) {
 		return TEXTURE;
 	}
-	
+
 	@Override
 	protected void preRenderCallback(EntityAdept entitylivingbaseIn, float partialTickTime) {
 		GlStateManager.scale(0.75F, 0.75F, 0.75F);

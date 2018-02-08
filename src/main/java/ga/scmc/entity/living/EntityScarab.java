@@ -32,7 +32,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class EntityScarab extends EntityProtossMob implements IMob, Predicate<EntityLivingBase>{
+public class EntityScarab extends EntityProtossMob implements IMob, Predicate<EntityLivingBase> {
 
 	private static final DataParameter<Boolean> IGNITED = EntityDataManager.<Boolean>createKey(EntityCreeper.class, DataSerializers.BOOLEAN);
 	private static final DataParameter<Boolean> POWERED = EntityDataManager.<Boolean>createKey(EntityCreeper.class, DataSerializers.BOOLEAN);
@@ -47,8 +47,7 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 	private int lastActiveTime;
 
 	/**
-	 * The amount of time since the scarab was close enough to the player to
-	 * ignite
+	 * The amount of time since the scarab was close enough to the player to ignite
 	 */
 	private int timeSinceIgnited;
 
@@ -64,7 +63,7 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, false, false, this));
 	}
-	
+
 	@Override
 	public boolean apply(EntityLivingBase entity) {
 		if (!entity.isInvisible()) {
@@ -92,14 +91,14 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityPlayer) {
+			} else if (entity instanceof EntityPlayer) {
 				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
-				if(color.getColor() == this.getTeamColor().getId()) {
+				if (color.getColor() == this.getTeamColor().getId()) {
 					return false;
-				}else {
+				} else {
 					return true;
 				}
-			}else {
+			} else {
 				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
 					return false;
 				}
@@ -112,7 +111,7 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 		}
 		return false;
 	}
-	
+
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
@@ -145,7 +144,7 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 	 * radius.
 	 */
 	private void explode() {
-		if(!world.isRemote) {
+		if (!world.isRemote) {
 			boolean flag = world.getGameRules().getBoolean("mobGriefing");
 			float f = getPowered() ? 2 : 1;
 			dead = true;
@@ -159,7 +158,7 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 		super.fall(distance, damageMultiplier);
 		timeSinceIgnited = (int) (timeSinceIgnited + distance * 1.5F);
 
-		if(timeSinceIgnited > fuseTime - 5) {
+		if (timeSinceIgnited > fuseTime - 5) {
 			timeSinceIgnited = fuseTime - 5;
 		}
 	}
@@ -186,8 +185,8 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 	}
 
 	/**
-	 * Params: (Float)Render tick. Returns the intensity of the scarab's flash
-	 * when it is ignited.
+	 * Params: (Float)Render tick. Returns the intensity of the scarab's flash when
+	 * it is ignited.
 	 */
 	@SideOnly(Side.CLIENT)
 	public float getscarabFlashIntensity(float par1) {
@@ -208,38 +207,38 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 	public void ignite() {
 		dataManager.set(IGNITED, Boolean.valueOf(true));
 	}
-	
+
 	/**
 	 * Called to update the entity's position/logic.
 	 */
 	@Override
 	public void onUpdate() {
-		if(isEntityAlive()) {
+		if (isEntityAlive()) {
 			lastActiveTime = timeSinceIgnited;
 
-			if(hasIgnited()) {
+			if (hasIgnited()) {
 				setScarabState(1);
 			}
 
 			int i = getScarabState();
 
-			if(i > 0 && timeSinceIgnited == 0) {
+			if (i > 0 && timeSinceIgnited == 0) {
 				playSound(SoundEvents.ENTITY_CREEPER_PRIMED, 1, 0.5F);
 			}
 
 			timeSinceIgnited += i;
 
-			if(timeSinceIgnited < 0) {
+			if (timeSinceIgnited < 0) {
 				timeSinceIgnited = 0;
 			}
 
-			if(timeSinceIgnited >= fuseTime) {
+			if (timeSinceIgnited >= fuseTime) {
 				timeSinceIgnited = fuseTime;
 				explode();
 			}
 		}
 
-		if(ticksExisted > 500) {
+		if (ticksExisted > 500) {
 			explode();
 		}
 
@@ -254,15 +253,15 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 		super.readEntityFromNBT(compound);
 		dataManager.set(POWERED, Boolean.valueOf(compound.getBoolean("powered")));
 
-		if(compound.hasKey("Fuse", 99)) {
+		if (compound.hasKey("Fuse", 99)) {
 			fuseTime = compound.getShort("Fuse");
 		}
 
-		if(compound.hasKey("ExplosionRadius", 99)) {
+		if (compound.hasKey("ExplosionRadius", 99)) {
 			explosionRadius = compound.getByte("ExplosionRadius");
 		}
 
-		if(compound.getBoolean("ignited")) {
+		if (compound.getBoolean("ignited")) {
 			ignite();
 		}
 	}
@@ -281,7 +280,7 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 	public void writeEntityToNBT(NBTTagCompound compound) {
 		super.writeEntityToNBT(compound);
 
-		if(dataManager.get(POWERED).booleanValue()) {
+		if (dataManager.get(POWERED).booleanValue()) {
 			compound.setBoolean("powered", true);
 		}
 

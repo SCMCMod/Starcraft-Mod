@@ -41,7 +41,7 @@ public class GuiStarcraftFurnace extends GuiContainer {
 	 * The holder of the sync timer (we sync every 10 ticks)
 	 */
 	private int sync;
-	
+
 	private EntityPlayer player;
 
 	/**

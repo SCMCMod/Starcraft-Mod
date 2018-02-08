@@ -19,7 +19,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 /**
- * This class is the base class for any type of dim portal. It only handles the basics so the only thing you need to handle is the actual portal mechanics.
+ * This class is the base class for any type of dim portal. It only handles the
+ * basics so the only thing you need to handle is the actual portal mechanics.
  * 
  * @author Ocelot5836
  */
@@ -73,7 +74,7 @@ public class BlockDimPortal extends StarcraftBlock {
 	@Override
 	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
 		boolean hasNoSurface = false;
-		if(dim == 9) {
+		if (dim == 9) {
 			hasNoSurface = true;
 		}
 		if (!entity.isRiding() && !entity.isBeingRidden() && !world.isRemote) {

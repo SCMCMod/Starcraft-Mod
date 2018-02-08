@@ -94,7 +94,7 @@ public class SoundHandler {
 	public static SoundEvent ENTITY_KAKARU_LIVE2;
 	public static SoundEvent ENTITY_KAKARU_HURT;
 	public static SoundEvent ENTITY_KAKARU_DEATH;
-	
+
 	public static SoundEvent ENTITY_URSADON_LIVE1;
 	public static SoundEvent ENTITY_URSADON_LIVE2;
 	public static SoundEvent ENTITY_URSADON_HURT;
@@ -104,13 +104,13 @@ public class SoundHandler {
 	public static SoundEvent ENTITY_QUEEN_LIVE2;
 	public static SoundEvent ENTITY_QUEEN_HURT;
 	public static SoundEvent ENTITY_QUEEN_DEATH;
-	
+
 	public static SoundEvent ENTITY_MUTALISK_LIVE1;
 	public static SoundEvent ENTITY_MUTALISK_LIVE2;
 	public static SoundEvent ENTITY_MUTALISK_HURT;
 	public static SoundEvent ENTITY_MUTALISK_DEATH;
 	public static SoundEvent FX_MUTALISK_FIRE;
-	
+
 	public static SoundEvent ENTITY_MARINE_LIVE1;
 	public static SoundEvent ENTITY_MARINE_HURT;
 	public static SoundEvent ENTITY_MARINE_DEATH;
@@ -240,7 +240,7 @@ public class SoundHandler {
 		ENTITY_QUEEN_LIVE2 = registerSound("mob.queen.live2");
 		ENTITY_QUEEN_HURT = registerSound("mob.queen.hurt");
 		ENTITY_QUEEN_DEATH = registerSound("mob.queen.death");
-		
+
 		ENTITY_MUTALISK_LIVE1 = registerSound("mob.mutalisk.live1");
 		ENTITY_MUTALISK_LIVE2 = registerSound("mob.mutalisk.live2");
 		ENTITY_MUTALISK_HURT = registerSound("mob.mutalisk.hurt");

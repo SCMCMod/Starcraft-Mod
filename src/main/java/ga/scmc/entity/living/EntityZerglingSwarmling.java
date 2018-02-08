@@ -32,7 +32,7 @@ import net.minecraft.world.World;
 /**
  * @author Hypeirochus
  */
-public class EntityZerglingSwarmling extends EntityZergMob implements IMob, Predicate<EntityLivingBase>{
+public class EntityZerglingSwarmling extends EntityZergMob implements IMob, Predicate<EntityLivingBase> {
 
 	public EntityZerglingSwarmling(World world) {
 		super(world);
@@ -53,44 +53,44 @@ public class EntityZerglingSwarmling extends EntityZergMob implements IMob, Pred
 
 	@Override
 	public boolean apply(EntityLivingBase entity) {
-		if(!entity.isInvisible()) {
-			if(entity instanceof EntityStarcraftMob) {
-				if(entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if(!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.SWARM)) {
-						if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+		if (!entity.isInvisible()) {
+			if (entity instanceof EntityStarcraftMob) {
+				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
+					if (!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.SWARM)) {
+						if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
-						}else {
+						} else {
 							return false;
 						}
-					}else if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+					} else if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityStarcraftPassive) {
-				if(entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if(!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.SWARM)) {
-						if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
+			} else if (entity instanceof EntityStarcraftPassive) {
+				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
+					if (!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.SWARM)) {
+						if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
-						}else {
+						} else {
 							return false;
 						}
-					}else if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
+					} else if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityPlayer) {
+			} else if (entity instanceof EntityPlayer) {
 				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
-				if(color.getColor() == this.getTeamColor().getId()) {
+				if (color.getColor() == this.getTeamColor().getId()) {
 					return false;
-				}else {
+				} else {
 					return true;
 				}
 			} else {
 				return true;
 			}
-		}else if(entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)){
+		} else if (entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 		return false;
@@ -104,7 +104,7 @@ public class EntityZerglingSwarmling extends EntityZergMob implements IMob, Pred
 		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(16.0D);
 		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
 	}
-	
+
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
 		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), EnumMetaItem.CarapaceType.T1.getID()));
@@ -115,15 +115,15 @@ public class EntityZerglingSwarmling extends EntityZergMob implements IMob, Pred
 	public SoundEvent getAmbientSound() {
 		Random rand = new Random();
 
-		switch(rand.nextInt(3)) {
-			case 0:
-				return SoundHandler.ENTITY_ZERGLING_LIVE1;
-			case 1:
-				return SoundHandler.ENTITY_ZERGLING_LIVE2;
-			case 2:
-				return SoundHandler.ENTITY_ZERGLING_LIVE3;
-			default:
-				return SoundHandler.ENTITY_ZERGLING_LIVE4;
+		switch (rand.nextInt(3)) {
+		case 0:
+			return SoundHandler.ENTITY_ZERGLING_LIVE1;
+		case 1:
+			return SoundHandler.ENTITY_ZERGLING_LIVE2;
+		case 2:
+			return SoundHandler.ENTITY_ZERGLING_LIVE3;
+		default:
+			return SoundHandler.ENTITY_ZERGLING_LIVE4;
 		}
 	}
 
@@ -136,7 +136,7 @@ public class EntityZerglingSwarmling extends EntityZergMob implements IMob, Pred
 	public SoundEvent getHurtSound() {
 		return SoundHandler.ENTITY_ZERGLING_HURT;
 	}
-	
+
 	@Override
 	public int getTalkInterval() {
 		return 160;

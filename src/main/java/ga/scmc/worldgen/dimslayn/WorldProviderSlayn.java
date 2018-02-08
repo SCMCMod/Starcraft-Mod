@@ -15,68 +15,63 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WorldProviderSlayn extends WorldProvider implements IClimateProvider {
-	
+
 	private StormProviderSlayn storm = new StormProviderSlayn();
-    private CloudProviderSlayn clouds = new CloudProviderSlayn();
+	private CloudProviderSlayn clouds = new CloudProviderSlayn();
 	private IRenderHandler skyRenderer;
-    private IRenderHandler climateProvider;
+	private IRenderHandler climateProvider;
 
-    @SideOnly(Side.CLIENT)
-    @Override
-    public IRenderHandler getWeatherRenderer()
-    {
-        return null;
-    }
+	@SideOnly(Side.CLIENT)
+	@Override
+	public IRenderHandler getWeatherRenderer() {
+		return null;
+	}
 
-    @SideOnly(Side.CLIENT)
-    @Override
-    public IRenderHandler getCloudRenderer()
-    {
-        return climateProvider == null ? climateProvider = new CloudProviderSlayn() : climateProvider;
-    }
+	@SideOnly(Side.CLIENT)
+	@Override
+	public IRenderHandler getCloudRenderer() {
+		return climateProvider == null ? climateProvider = new CloudProviderSlayn() : climateProvider;
+	}
 
-    @SideOnly(Side.CLIENT)
-    @Override
-    public IRenderHandler getSkyRenderer()
-    {
-        return skyRenderer == null ? skyRenderer = new RenderSkySlayn() : skyRenderer;
-    }
+	@SideOnly(Side.CLIENT)
+	@Override
+	public IRenderHandler getSkyRenderer() {
+		return skyRenderer == null ? skyRenderer = new RenderSkySlayn() : skyRenderer;
+	}
 
-    @Override
-    public void onWorldUpdateEntities()
-    {
-        super.onWorldUpdateEntities();
-    }
+	@Override
+	public void onWorldUpdateEntities() {
+		super.onWorldUpdateEntities();
+	}
 
-    @Override
-    public void updateWeather()
-    {
-        super.updateWeather();
-    }
-    
-    @Override
+	@Override
+	public void updateWeather() {
+		super.updateWeather();
+	}
+
+	@Override
 	protected void createBiomeProvider() {
 		biomeProvider = new SlaynBiomeProvider(world.getWorldInfo());
 	}
 
-    @Override
+	@Override
 	public IChunkGenerator createChunkGenerator() {
 		return new ChunkProviderSlayn(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
 	}
 
 	/**
-	 * A Message to display to the user when they transfer out of this
-	 * dimension.
+	 * A Message to display to the user when they transfer out of this dimension.
+	 * 
 	 * @return The message to be displayed
 	 */
 	@Override
 	public String getDepartMessage() {
-		
-		//Always true
-		if(this instanceof WorldProviderSlayn) {
+
+		// Always true
+		if (this instanceof WorldProviderSlayn) {
 			return "Leaving Slayn";
 		}
-		
+
 		return null;
 	}
 
@@ -88,14 +83,16 @@ public class WorldProviderSlayn extends WorldProvider implements IClimateProvide
 	/**
 	 * Determines the dimension the player will be respawned in, typically this
 	 * brings them back to the overworld.
-	 * @param player The player that is respawning
+	 * 
+	 * @param player
+	 *            The player that is respawning
 	 * @return The dimension to respawn the player in
 	 */
 	@Override
 	public int getRespawnDimension(net.minecraft.entity.player.EntityPlayerMP player) {
 		return ConfigurationHandler.INT_DIMENSION_SLAYN;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Vec3d getFogColor(float var1, float var2) {
@@ -125,19 +122,20 @@ public class WorldProviderSlayn extends WorldProvider implements IClimateProvide
 		brightness = (float) (brightness * (1.0D - this.world.getThunderStrength(angle) * 5.0F / 16.0D));
 		return brightness * 0.45F;
 	}
-	
+
 	/**
 	 * A message to display to the user when they transfer to this dimension.
+	 * 
 	 * @return The message to be displayed
 	 */
 	@Override
 	public String getWelcomeMessage() {
-		
-		//Always true
-		if(this instanceof WorldProviderSlayn) {
+
+		// Always true
+		if (this instanceof WorldProviderSlayn) {
 			return "Entering Slayn";
 		}
-		
+
 		return null;
 	}
 

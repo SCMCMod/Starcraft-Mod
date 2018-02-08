@@ -19,9 +19,8 @@ public class StructureZergSpireTemplate extends SCWorldGenerator {
 	}
 
 	public boolean generate_r0(World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos pos, boolean flag) {
-		if(flag) {
-			if(!LocationIsValidSpawn(world, pos) || !LocationIsValidSpawn(world, pos.add(23, 0, 0)) || !LocationIsValidSpawn(world, pos.add(23, 0, 25))
-					|| !LocationIsValidSpawn(world, pos.add(0, 0, 25)) || !LocationIsValidSpawn(world, pos.add(11, 0, 12))) {
+		if (flag) {
+			if (!LocationIsValidSpawn(world, pos) || !LocationIsValidSpawn(world, pos.add(23, 0, 0)) || !LocationIsValidSpawn(world, pos.add(23, 0, 25)) || !LocationIsValidSpawn(world, pos.add(0, 0, 25)) || !LocationIsValidSpawn(world, pos.add(11, 0, 12))) {
 				return false;
 			}
 		}
@@ -3775,13 +3774,13 @@ public class StructureZergSpireTemplate extends SCWorldGenerator {
 		Block blockAbove = world.getBlockState(pos.up()).getBlock();
 		Block blockBelow = world.getBlockState(pos.down()).getBlock();
 
-		for(Block i : GetValidSpawnBlocks()) {
-			if(blockAbove != Blocks.AIR) {
+		for (Block i : GetValidSpawnBlocks()) {
+			if (blockAbove != Blocks.AIR) {
 				return false;
 			}
-			if(checkBlock == i) {
+			if (checkBlock == i) {
 				return true;
-			} else if(m == Material.PLANTS && blockBelow == i) {
+			} else if (m == Material.PLANTS && blockBelow == i) {
 				world.getBlockState(pos).getMaterial();
 				return true;
 			}

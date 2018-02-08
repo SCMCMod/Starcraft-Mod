@@ -140,7 +140,9 @@ public class GuiPlayerMessage extends GuiBase {
 	}
 
 	public enum EnumPlayerMessageType {
-		TEST("This is a testing message", "I hate you", "U smell like fritos"), TEST1("This is yet another testing message", "Why do you do this to me?", "Go away", "this sux"), CONFIRMATION("How much do you like this mod?", "A lot!", "ehh I've seen better", "this mod is not too great", "this mod is a piece of shit");
+		TEST("This is a testing message", "I hate you", "U smell like fritos"),
+		TEST1("This is yet another testing message", "Why do you do this to me?", "Go away", "this sux"),
+		CONFIRMATION("How much do you like this mod?", "A lot!", "ehh I've seen better", "this mod is not too great", "this mod is a piece of shit");
 
 		private String text;
 		private String[] options;

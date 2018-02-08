@@ -17,7 +17,7 @@ public class LayerLarvaCocoonColor<T extends EntityLarvaCocoon> implements Layer
 
 	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.LARVA_COCOON_OVERLAY);
 	private final RenderLarvaCocoon<T> RENDERER;
-	
+
 	public LayerLarvaCocoonColor(RenderLarvaCocoon<T> rendererIn) {
 		this.RENDERER = rendererIn;
 	}

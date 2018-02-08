@@ -14,12 +14,11 @@ public class KeybindingHandler {
 
 	public static KeyBinding toggleMarineVisor;
 
-	
 	public static void preInit() {
 		MinecraftForge.EVENT_BUS.register(new KeyEventHandler());
 
 		toggleMarineVisor = new KeyBinding("key.terran.marinevisor.toggle", Keyboard.KEY_V, STARCRAFT_CATEGORY);
-		
+
 		ClientRegistry.registerKeyBinding(toggleMarineVisor);
 	}
 }

@@ -7,7 +7,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.Capability.IStorage;
 
-
 public class ShieldStorage implements IStorage<IShield>
 
 {

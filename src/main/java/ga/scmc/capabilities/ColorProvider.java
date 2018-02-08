@@ -6,7 +6,6 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityInject;
 import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 
-
 public class ColorProvider implements ICapabilitySerializable<NBTBase>
 
 {

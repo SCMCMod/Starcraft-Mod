@@ -37,7 +37,8 @@ public class ShapelessRecipes {
 		GameRegistry.addShapelessRecipe(new ItemStack(BlockHandler.ORE_IRON_SHAKURAS), new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.IRON.getID()), new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.IRON.getID()), new ItemStack(BlockHandler.STONE_SHAKURAS));
 		GameRegistry.addShapelessRecipe(new ItemStack(BlockHandler.ORE_IRON_CHAR), new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.IRON.getID()), new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.IRON.getID()), new ItemStack(BlockHandler.STONE_CHAR));
 
-		// Carbon Grain x9 from Coal (not Charcoal as Coal is natural, and iirc has more carbon)
+		// Carbon Grain x9 from Coal (not Charcoal as Coal is natural, and iirc has more
+		// carbon)
 		GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.DUST, 9, EnumMetaItem.DustType.CARBON.getID()), Items.COAL);
 
 		// Gunpowder from Carbon and Phosphorus
@@ -67,9 +68,18 @@ public class ShapelessRecipes {
 		// Corrupted Energy, made from combining Pure Energy and Void Energy
 		GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.CORRUPTED.getID()), new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.PURE.getID()), new ItemStack(ItemHandler.ENERGY, 1, EnumMetaItem.EnergyType.VOID.getID()));
 
-		// GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.ENERGY, 9, EnumMetaItem.EnergyType.PURE.getID()), new ItemStack(BlockHandler.ENERGY_BLOCK, 1, EnumMetaItem.EnergyType.PURE.getID()));
-		// GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.ENERGY, 9, EnumMetaItem.EnergyType.CORRUPTED.getID()), new ItemStack(BlockHandler.ENERGY_BLOCK, 1, EnumMetaItem.EnergyType.CORRUPTED.getID()));
-		// GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.ENERGY, 9, EnumMetaItem.EnergyType.VOID.getID()), new ItemStack(BlockHandler.ENERGY_BLOCK, 1, EnumMetaItem.EnergyType.VOID.getID()));
+		// GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.ENERGY, 9,
+		// EnumMetaItem.EnergyType.PURE.getID()), new
+		// ItemStack(BlockHandler.ENERGY_BLOCK, 1,
+		// EnumMetaItem.EnergyType.PURE.getID()));
+		// GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.ENERGY, 9,
+		// EnumMetaItem.EnergyType.CORRUPTED.getID()), new
+		// ItemStack(BlockHandler.ENERGY_BLOCK, 1,
+		// EnumMetaItem.EnergyType.CORRUPTED.getID()));
+		// GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.ENERGY, 9,
+		// EnumMetaItem.EnergyType.VOID.getID()), new
+		// ItemStack(BlockHandler.ENERGY_BLOCK, 1,
+		// EnumMetaItem.EnergyType.VOID.getID()));
 
 		for (int i = 0; i < EnergyType.values().length; i++) {
 			GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.ENERGY, 9, EnumMetaItem.EnergyType.values()[i].getID()), new ItemStack(MetaBlockHandler.ENERGY, 1, i));

@@ -14,8 +14,7 @@ public class WorldGenKaldirBrambles extends WorldGenerator {
 			int k = position.getY() + rand.nextInt(4) - rand.nextInt(4);
 			int l = position.getZ() + rand.nextInt(8) - rand.nextInt(8);
 
-			if (worldIn.isAirBlock(new BlockPos(j, k, l))
-					&& BlockHandler.FLORA_KALDIR_BRAMBLES.canPlaceBlockAt(worldIn, new BlockPos(j, k, l))) {
+			if (worldIn.isAirBlock(new BlockPos(j, k, l)) && BlockHandler.FLORA_KALDIR_BRAMBLES.canPlaceBlockAt(worldIn, new BlockPos(j, k, l))) {
 				worldIn.setBlockState(new BlockPos(j, k, l), BlockHandler.FLORA_KALDIR_BRAMBLES.getDefaultState(), 2);
 			}
 		}

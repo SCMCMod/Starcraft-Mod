@@ -46,7 +46,7 @@ public class EntityZerglingRaptor extends EntityZergMob implements IMob, Predica
 		this.setFactions(EnumFactionTypes.SWARM);
 		this.setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
 		tasks.addTask(0, new EntityAISwimming(this));
-        tasks.addTask(1, new EntityAIRaptorLeapAtTarget(this, 0.6F));
+		tasks.addTask(1, new EntityAIRaptorLeapAtTarget(this, 0.6F));
 		tasks.addTask(2, new EntityAIAttackMelee(this, 1.0D, false));
 		tasks.addTask(3, new EntityAIMoveTowardsRestriction(this, 1.0D));
 		tasks.addTask(4, new EntityAIWander(this, 1.0D));
@@ -55,52 +55,52 @@ public class EntityZerglingRaptor extends EntityZergMob implements IMob, Predica
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, false, false, this));
 	}
-	
+
 	@Override
 	public int getMaxFallHeight() {
 		return 6;
 	}
-	
+
 	@Override
 	public boolean apply(EntityLivingBase entity) {
-		if(!entity.isInvisible()) {
-			if(entity instanceof EntityStarcraftMob) {
-				if(entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if(!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.SWARM)) {
-						if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+		if (!entity.isInvisible()) {
+			if (entity instanceof EntityStarcraftMob) {
+				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
+					if (!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.SWARM)) {
+						if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
-						}else {
+						} else {
 							return false;
 						}
-					}else if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+					} else if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityStarcraftPassive) {
-				if(entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if(!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.SWARM)) {
-						if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
+			} else if (entity instanceof EntityStarcraftPassive) {
+				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
+					if (!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.SWARM)) {
+						if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
-						}else {
+						} else {
 							return false;
 						}
-					}else if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
+					} else if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityPlayer) {
+			} else if (entity instanceof EntityPlayer) {
 				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
-				if(color.getColor() == this.getTeamColor().getId()) {
+				if (color.getColor() == this.getTeamColor().getId()) {
 					return false;
-				}else {
+				} else {
 					return true;
 				}
 			} else {
 				return true;
 			}
-		}else if(entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)){
+		} else if (entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 		return false;
@@ -114,7 +114,7 @@ public class EntityZerglingRaptor extends EntityZergMob implements IMob, Predica
 		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(16.0D);
 		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
 	}
-	
+
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
 		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), EnumMetaItem.CarapaceType.T1.getID()));
@@ -125,15 +125,15 @@ public class EntityZerglingRaptor extends EntityZergMob implements IMob, Predica
 	public SoundEvent getAmbientSound() {
 		Random rand = new Random();
 
-		switch(rand.nextInt(3)) {
-			case 0:
-				return SoundHandler.ENTITY_ZERGLING_LIVE1;
-			case 1:
-				return SoundHandler.ENTITY_ZERGLING_LIVE2;
-			case 2:
-				return SoundHandler.ENTITY_ZERGLING_LIVE3;
-			default:
-				return SoundHandler.ENTITY_ZERGLING_LIVE4;
+		switch (rand.nextInt(3)) {
+		case 0:
+			return SoundHandler.ENTITY_ZERGLING_LIVE1;
+		case 1:
+			return SoundHandler.ENTITY_ZERGLING_LIVE2;
+		case 2:
+			return SoundHandler.ENTITY_ZERGLING_LIVE3;
+		default:
+			return SoundHandler.ENTITY_ZERGLING_LIVE4;
 		}
 	}
 

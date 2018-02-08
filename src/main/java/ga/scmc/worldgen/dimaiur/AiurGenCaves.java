@@ -11,7 +11,6 @@ public class AiurGenCaves extends MapGenCaves {
 	@Override
 	protected boolean canReplaceBlock(IBlockState p_175793_1_, IBlockState p_175793_2_) {
 		Block test = p_175793_1_.getBlock();
-		return (test == Blocks.STONE || test == Blocks.GRASS ? true
-				: (test == Blocks.SAND || test == Blocks.GRAVEL) && p_175793_2_.getMaterial() != Material.LAVA);
+		return (test == Blocks.STONE || test == Blocks.GRASS ? true : (test == Blocks.SAND || test == Blocks.GRAVEL) && p_175793_2_.getMaterial() != Material.LAVA);
 	}
 }

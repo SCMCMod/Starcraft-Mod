@@ -607,11 +607,11 @@ public class ModelLarva extends Model {
 		setRotationAngles(f, f1, f2, f3, f4, f4, entity);
 		segment1.render(f5);
 	}
-	
+
 	@Override
-   	public void render(Object obj) {
-       	EntityLivingBase base = (EntityLivingBase) obj;
-       	head.rotateAngleX = headPitch(obj) * 0.017453292F;
+	public void render(Object obj) {
+		EntityLivingBase base = (EntityLivingBase) obj;
+		head.rotateAngleX = headPitch(obj) * 0.017453292F;
 		head.rotateAngleY = headYaw(obj) * 0.017453292F;
 		lSpike0a.rotateAngleY = MathHelper.sin(swingProgress(obj) * 1.1F) * 1 * swingProgressPrev(obj);
 		lSpike1a.rotateAngleY = MathHelper.sin(swingProgress(obj) * 1.2F) * 1 * swingProgressPrev(obj);
@@ -625,5 +625,5 @@ public class ModelLarva extends Model {
 		rSpike4a.rotateAngleY = MathHelper.cos(swingProgress(obj) * 1.1F) * 1 * swingProgressPrev(obj);
 		lMandible.rotateAngleY = (MathHelper.sin(swingProgress(obj) * 0.5F) / 4.1F) * 2.0F * swingProgressPrev(obj);
 		rMandible.rotateAngleY = (MathHelper.sin(swingProgress(obj) * -0.5F) / 4.1F) * 2.0F * swingProgressPrev(obj);
-   	}
+	}
 }

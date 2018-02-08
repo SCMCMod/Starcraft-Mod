@@ -96,7 +96,8 @@ public class ItemBlockStarcraftSkull extends ItemBlock {
 	}
 
 	/**
-	 * returns a list of items with the same ID, but different meta (eg: dye returns 16 items)
+	 * returns a list of items with the same ID, but different meta (eg: dye returns
+	 * 16 items)
 	 */
 	@SideOnly(Side.CLIENT)
 	public void getSubItems(Item itemIn, CreativeTabs tab, List<ItemStack> subItems) {
@@ -106,7 +107,8 @@ public class ItemBlockStarcraftSkull extends ItemBlock {
 	}
 
 	/**
-	 * Returns the unlocalized name of this item. This version accepts an ItemStack so different stacks can have different names based on their damage or NBT.
+	 * Returns the unlocalized name of this item. This version accepts an ItemStack
+	 * so different stacks can have different names based on their damage or NBT.
 	 */
 	public String getUnlocalizedName(ItemStack stack) {
 		int i = stack.getMetadata();

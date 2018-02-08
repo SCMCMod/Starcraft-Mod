@@ -13,7 +13,7 @@ public class EntityTerranPassive extends EntityStarcraftPassive {
 	public EntityAgeable createChild(EntityAgeable p_90011_1_) {
 		return null;
 	}
-	
+
 	@Override
 	public boolean getCanSpawnHere() {
 		return true;

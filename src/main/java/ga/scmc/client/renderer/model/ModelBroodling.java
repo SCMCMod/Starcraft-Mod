@@ -520,11 +520,11 @@ public class ModelBroodling extends Model {
 		lArm1.rotateAngleX = MathHelper.sin(par1 * 1F) * 1 * par2 - 0.5F;
 		rArm1.rotateAngleX = MathHelper.cos(par1 * 1F) * 1 * par2 - 0.5F;
 	}
-	
+
 	@Override
-   	public void render(Object obj) {
-       	EntityLivingBase base = (EntityLivingBase) obj;
-       	lArm1.rotateAngleX = MathHelper.sin(swingProgress(obj) * 1F) * 1 * swingProgressPrev(obj) - 0.5F;
+	public void render(Object obj) {
+		EntityLivingBase base = (EntityLivingBase) obj;
+		lArm1.rotateAngleX = MathHelper.sin(swingProgress(obj) * 1F) * 1 * swingProgressPrev(obj) - 0.5F;
 		rArm1.rotateAngleX = MathHelper.cos(swingProgress(obj) * 1F) * 1 * swingProgressPrev(obj) - 0.5F;
-   	}
+	}
 }

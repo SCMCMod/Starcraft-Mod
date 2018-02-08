@@ -29,7 +29,7 @@ public class EntityVoidProbe extends EntityProtossPassive {
 
 	public float offsetHealth;
 	public int timeSinceHurt;
-	
+
 	public EntityVoidProbe(World world) {
 		super(world);
 		setSize(1.0F, 1.5F);
@@ -44,14 +44,14 @@ public class EntityVoidProbe extends EntityProtossPassive {
 		tasks.addTask(5, new EntityAILookIdle(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
 	}
-	
+
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(27.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.39000000298023224D);
 	}
-	
+
 	@Override
 	public EntityAgeable createChild(EntityAgeable p_90011_1_) {
 		return null;
@@ -76,43 +76,43 @@ public class EntityVoidProbe extends EntityProtossPassive {
 	public int getTalkInterval() {
 		return 160;
 	}
-	
+
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
 		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.PROTOSS_INGOT, 1 + this.rand.nextInt(2), EnumMetaItem.ProtossIngotType.DARK.getID()));
 		drop.tryDrop(this);
 	}
-	
+
 	@Override
 	public void onDeath(DamageSource cause) {
 		this.spawnElectricArc(this.posX + this.rand.nextDouble(), this.posY + this.rand.nextDouble(), this.posZ + this.rand.nextDouble());
 		this.world.createExplosion(this, this.posX, this.posY + 0.35, this.posZ, 1.2F, false);
 		super.onDeath(cause);
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	private void spawnElectricArc(double posX, double posY, double posZ) {
 		for (int x = 0; x < 5; x++) {
 			Access.getMinecraft().effectRenderer.addEffect(new EntityFXElectricArc(this.world, this.posX, this.posY, this.posZ, posX + this.rand.nextInt(2), posY, posZ + this.rand.nextInt(2), 10, 2.5F, 0.5F, 0.05F, 0xFF00FF00));
 		}
 	}
-	
+
 	@Override
 	protected void damageEntity(DamageSource damageSrc, float damageAmount) {
 		timeSinceHurt = this.ticksExisted;
 		super.damageEntity(damageSrc, damageAmount);
 	}
-	
+
 	@Override
 	public void onLivingUpdate() {
-			if(ticksExisted % 20 == 0 && this.getHealth() < this.getMaxHealth()) {
-				if(this.getHealth() < 13.5 - offsetHealth) {
-					offsetHealth = 13.5F - getHealth();
-				}
-				if(this.getHealth() < this.getMaxHealth() - offsetHealth && ticksExisted - timeSinceHurt > 200) {
-					this.heal(2.0F);
-				}
+		if (ticksExisted % 20 == 0 && this.getHealth() < this.getMaxHealth()) {
+			if (this.getHealth() < 13.5 - offsetHealth) {
+				offsetHealth = 13.5F - getHealth();
 			}
+			if (this.getHealth() < this.getMaxHealth() - offsetHealth && ticksExisted - timeSinceHurt > 200) {
+				this.heal(2.0F);
+			}
+		}
 		super.onLivingUpdate();
 	}
 }

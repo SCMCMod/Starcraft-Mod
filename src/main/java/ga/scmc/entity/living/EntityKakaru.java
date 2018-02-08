@@ -89,8 +89,7 @@ public class EntityKakaru extends EntityCritterFlying {
 		 */
 		public void updateTask() {
 			if (this.parentEntity.getAttackTarget() == null) {
-				this.parentEntity.rotationYaw = -((float) MathHelper.atan2(this.parentEntity.motionX,
-						this.parentEntity.motionZ)) * (180F / (float) Math.PI);
+				this.parentEntity.rotationYaw = -((float) MathHelper.atan2(this.parentEntity.motionX, this.parentEntity.motionZ)) * (180F / (float) Math.PI);
 				this.parentEntity.renderYawOffset = this.parentEntity.rotationYaw;
 			} else {
 				EntityLivingBase entitylivingbase = this.parentEntity.getAttackTarget();

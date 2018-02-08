@@ -23,7 +23,9 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
 public abstract class SCWorldGenerator {
 
 	/**
-	 * Sets wither or not the generator should notify blocks of blocks it changes. When the world is first generated, this is false, when saplings grow, this is true.
+	 * Sets wither or not the generator should notify blocks of blocks it changes.
+	 * When the world is first generated, this is false, when saplings grow, this is
+	 * true.
 	 */
 	private final boolean doBlockNotify;
 
@@ -34,11 +36,11 @@ public abstract class SCWorldGenerator {
 	public SCWorldGenerator(boolean notify) {
 		doBlockNotify = notify;
 	}
-	
+
 	public boolean generateTileEntity(TileEntity entity, World worldIn, Random rand, BlockPos position) {
 		return true;
 	}
-	
+
 	public boolean generateSingleBlock(IBlockState state, World worldIn, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos position) {
 		return true;
 	}
@@ -66,11 +68,11 @@ public abstract class SCWorldGenerator {
 	public boolean generate(int Meta, World worldIn, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos position) {
 		return true;
 	}
-	
+
 	public boolean generatePlanet(int dim, int planetSize, int range, IBlockState surface, World worldIn, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos position) {
 		return true;
 	}
-	
+
 	public boolean generateMultisurfacePlanet(int dim, int planetSize, int range, IBlockState surface1, IBlockState surface2, World worldIn, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos position) {
 		return true;
 	}
@@ -78,7 +80,7 @@ public abstract class SCWorldGenerator {
 	public boolean generateStar(int planetSize, int range, IBlockState surface, World worldIn, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos position) {
 		return true;
 	}
-	
+
 	public boolean generateRandomStar(int planetSize, World worldIn, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos position) {
 		return true;
 	}

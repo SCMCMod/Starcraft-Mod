@@ -18,7 +18,7 @@ public class EntityTastelope extends EntityCritterPassive {
 		tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 8));
 		tasks.addTask(5, new EntityAILookIdle(this));
 	}
-	
+
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();

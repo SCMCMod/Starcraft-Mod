@@ -27,7 +27,7 @@ public class ItemEventHandler {
 			e.player.addStat(Achievements.getRegisteredAchievement(Achievements.GET_FLAMETHROWER), 1);
 			// add sound here
 		}
-		
+
 		if (e.crafting.isItemEqual((new ItemStack(ItemHandler.PSI_BLADE_FOCUSER_UNCHARGED, 1, 1)))) {
 			e.player.addStat(Achievements.getRegisteredAchievement(Achievements.GET_PSI_BLADE_FOCUSER_DARK), 1);
 			// add sound here

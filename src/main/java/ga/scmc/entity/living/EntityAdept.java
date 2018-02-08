@@ -28,13 +28,14 @@ import net.minecraft.world.World;
 
 /**
  * Work in progress
+ * 
  * @author Hypeirochus
  */
 public class EntityAdept extends EntityProtossMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
 
 	public float offsetHealth;
 	public int timeSinceHurt;
-	 
+
 	public EntityAdept(World world) {
 		super(world);
 		setSize(3.0F, 3.0F);
@@ -53,47 +54,47 @@ public class EntityAdept extends EntityProtossMob implements IMob, IRangedAttack
 
 	@Override
 	public boolean apply(EntityLivingBase entity) {
-		if(!entity.isInvisible()) {
-			if(entity instanceof EntityStarcraftMob) {
-				if(entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if(!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.DAELAAM)) {
-						if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+		if (!entity.isInvisible()) {
+			if (entity instanceof EntityStarcraftMob) {
+				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
+					if (!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.DAELAAM)) {
+						if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
-						}else {
+						} else {
 							return false;
 						}
-					}else if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+					} else if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityStarcraftPassive) {
-				if(entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if(!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.DAELAAM)) {
-						if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
+			} else if (entity instanceof EntityStarcraftPassive) {
+				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
+					if (!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.DAELAAM)) {
+						if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
-						}else {
+						} else {
 							return false;
 						}
-					}else if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
+					} else if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityPlayer) {
+			} else if (entity instanceof EntityPlayer) {
 				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
-				if(color.getColor() == this.getTeamColor().getId()) {
+				if (color.getColor() == this.getTeamColor().getId()) {
 					return false;
-				}else {
+				} else {
 					return true;
 				}
-			}else {
+			} else {
 				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
 					return false;
 				}
 				return true;
 			}
-		}else if(entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)){
+		} else if (entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 		return false;
@@ -126,23 +127,23 @@ public class EntityAdept extends EntityProtossMob implements IMob, IRangedAttack
 	public int getTalkInterval() {
 		return 160;
 	}
-	
+
 	@Override
 	protected void damageEntity(DamageSource damageSrc, float damageAmount) {
 		timeSinceHurt = this.ticksExisted;
 		super.damageEntity(damageSrc, damageAmount);
 	}
-	
+
 	@Override
 	public void onLivingUpdate() {
-			if(ticksExisted % 20 == 0 && this.getHealth() < this.getMaxHealth()) {
-				if(this.getHealth() < 47.5 - offsetHealth) {
-					offsetHealth = 47.5F - getHealth();
-				}
-				if(this.getHealth() < this.getMaxHealth() - offsetHealth && ticksExisted - timeSinceHurt > 200) {
-					this.heal(2.0F);
-				}
+		if (ticksExisted % 20 == 0 && this.getHealth() < this.getMaxHealth()) {
+			if (this.getHealth() < 47.5 - offsetHealth) {
+				offsetHealth = 47.5F - getHealth();
 			}
+			if (this.getHealth() < this.getMaxHealth() - offsetHealth && ticksExisted - timeSinceHurt > 200) {
+				this.heal(2.0F);
+			}
+		}
 		super.onLivingUpdate();
 	}
 }

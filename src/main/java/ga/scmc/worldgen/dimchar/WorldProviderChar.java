@@ -113,8 +113,7 @@ public class WorldProviderChar extends WorldProvider implements IClimateProvider
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Vec3d getFogColor(float var1, float var2) {
-		return new Vec3d(0.9D - this.getWorldTime() / 18000D,
-				MathHelper.clamp(1D - this.getWorldTime() / 18000D, 0.0D, 0.055D), 0.0D);
+		return new Vec3d(0.9D - this.getWorldTime() / 18000D, MathHelper.clamp(1D - this.getWorldTime() / 18000D, 0.0D, 0.055D), 0.0D);
 	}
 
 	@Override
@@ -135,7 +134,7 @@ public class WorldProviderChar extends WorldProvider implements IClimateProvider
 		brightness = (float) (brightness * (1.0D - this.world.getThunderStrength(angle) * 5.0F / 16.0D));
 		return brightness * 0.45F;
 	}
-	
+
 	@Override
 	public Vec3d getCloudColor(float partialTicks) {
 		return vec;

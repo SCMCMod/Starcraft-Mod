@@ -14,68 +14,63 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WorldProviderKaldir extends WorldProvider implements IClimateProvider {
-	
+
 	private StormProviderKaldir storm = new StormProviderKaldir();
-    private CloudProviderKaldir clouds = new CloudProviderKaldir();
+	private CloudProviderKaldir clouds = new CloudProviderKaldir();
 	private IRenderHandler skyRenderer;
-    private IRenderHandler climateProvider;
+	private IRenderHandler climateProvider;
 
-    @SideOnly(Side.CLIENT)
-    @Override
-    public IRenderHandler getWeatherRenderer()
-    {
-        return null;
-    }
+	@SideOnly(Side.CLIENT)
+	@Override
+	public IRenderHandler getWeatherRenderer() {
+		return null;
+	}
 
-    @SideOnly(Side.CLIENT)
-    @Override
-    public IRenderHandler getCloudRenderer()
-    {
-        return climateProvider == null ? climateProvider = new CloudProviderKaldir() : climateProvider;
-    }
+	@SideOnly(Side.CLIENT)
+	@Override
+	public IRenderHandler getCloudRenderer() {
+		return climateProvider == null ? climateProvider = new CloudProviderKaldir() : climateProvider;
+	}
 
-    @SideOnly(Side.CLIENT)
-    @Override
-    public IRenderHandler getSkyRenderer()
-    {
-        return skyRenderer == null ? skyRenderer = new RenderSkyKaldir() : skyRenderer;
-    }
+	@SideOnly(Side.CLIENT)
+	@Override
+	public IRenderHandler getSkyRenderer() {
+		return skyRenderer == null ? skyRenderer = new RenderSkyKaldir() : skyRenderer;
+	}
 
-    @Override
-    public void onWorldUpdateEntities()
-    {
-        super.onWorldUpdateEntities();
-    }
+	@Override
+	public void onWorldUpdateEntities() {
+		super.onWorldUpdateEntities();
+	}
 
-    @Override
-    public void updateWeather()
-    {
-        super.updateWeather();
-    }
-    
-    @Override
+	@Override
+	public void updateWeather() {
+		super.updateWeather();
+	}
+
+	@Override
 	protected void createBiomeProvider() {
 		biomeProvider = new KaldirBiomeProvider(world.getWorldInfo());
 	}
 
-    @Override
+	@Override
 	public IChunkGenerator createChunkGenerator() {
 		return new ChunkProviderKaldir(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
 	}
 
 	/**
-	 * A Message to display to the user when they transfer out of this
-	 * dimension.
+	 * A Message to display to the user when they transfer out of this dimension.
+	 * 
 	 * @return The message to be displayed
 	 */
 	@Override
 	public String getDepartMessage() {
-		
-		//Always true
-		if(this instanceof WorldProviderKaldir) {
+
+		// Always true
+		if (this instanceof WorldProviderKaldir) {
 			return "Leaving Kaldir";
 		}
-		
+
 		return null;
 	}
 
@@ -98,26 +93,29 @@ public class WorldProviderKaldir extends WorldProvider implements IClimateProvid
 	/**
 	 * Determines the dimension the player will be respawned in, typically this
 	 * brings them back to the overworld.
-	 * @param player The player that is respawning
+	 * 
+	 * @param player
+	 *            The player that is respawning
 	 * @return The dimension to respawn the player in
 	 */
 	@Override
 	public int getRespawnDimension(net.minecraft.entity.player.EntityPlayerMP player) {
 		return ConfigurationHandler.INT_DIMENSION_KALDIR;
 	}
-	
+
 	/**
 	 * A message to display to the user when they transfer to this dimension.
+	 * 
 	 * @return The message to be displayed
 	 */
 	@Override
 	public String getWelcomeMessage() {
-		
-		//Always true
-		if(this instanceof WorldProviderKaldir) {
+
+		// Always true
+		if (this instanceof WorldProviderKaldir) {
 			return "Entering Kaldir";
 		}
-		
+
 		return null;
 	}
 

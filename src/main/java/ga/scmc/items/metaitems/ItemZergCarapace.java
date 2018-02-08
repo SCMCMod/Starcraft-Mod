@@ -25,7 +25,7 @@ public class ItemZergCarapace extends Item {
 	 */
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> items) {
-		for(int i = 0; i < CarapaceType.values().length; i++) {
+		for (int i = 0; i < CarapaceType.values().length; i++) {
 			items.add(new ItemStack(item, 1, i));
 		}
 	}
@@ -35,8 +35,8 @@ public class ItemZergCarapace extends Item {
 	 */
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		for(int i = 0; i < CarapaceType.values().length; i++) {
-			if(stack.getItemDamage() == i) {
+		for (int i = 0; i < CarapaceType.values().length; i++) {
+			if (stack.getItemDamage() == i) {
 				return getUnlocalizedName() + "." + CarapaceType.values()[i].getName();
 			} else {
 				continue;

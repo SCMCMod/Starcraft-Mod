@@ -66,8 +66,8 @@ public class BlockTerrazineGas extends BlockGas {
 
 	@Override
 	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
-		if(entity instanceof EntityPlayer) {
-			EntityPlayer player = (EntityPlayer)entity;
+		if (entity instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) entity;
 			player.addPotionEffect(new PotionEffect(Potion.getPotionById(1), 750));
 			player.addPotionEffect(new PotionEffect(Potion.getPotionById(5), 750));
 			player.addPotionEffect(new PotionEffect(Potion.getPotionById(9), 750));

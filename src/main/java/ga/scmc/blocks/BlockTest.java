@@ -13,7 +13,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 /**
- * This class is a simple block used for GUI and basic block testing. DO NOT DELETE THIS PLZ
+ * This class is a simple block used for GUI and basic block testing. DO NOT
+ * DELETE THIS PLZ
  * 
  * @since 5.1
  * @author Ocelot5836

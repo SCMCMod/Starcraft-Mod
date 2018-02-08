@@ -10,7 +10,8 @@ import net.minecraft.item.ItemStack;
  * <br>
  * </br>
  * 
- * Creates an ItemBlock for the blocks that have meta data. Must be specified by the block in registry.
+ * Creates an ItemBlock for the blocks that have meta data. Must be specified by
+ * the block in registry.
  * 
  * @see ItemBlock
  *

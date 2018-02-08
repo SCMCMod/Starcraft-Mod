@@ -78,7 +78,7 @@ public class EntityCivilian extends EntityTerranPassive {
 	public EntityPlayer getCustomer() {
 		return customer;
 	}
-	
+
 	public void setCustomer(EntityPlayer customer) {
 		this.customer = customer;
 	}

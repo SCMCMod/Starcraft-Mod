@@ -40,13 +40,13 @@ public class EntityMutaliskPrimalDehaka extends EntityZergFlying implements IMob
 		this.setFactions(EnumFactionTypes.PRIMALPACKDEHAKA);
 		this.setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.AIR);
 		moveHelper = new EntityMutaliskPrimalDehaka.MutaliskMoveHelper(this);
-        tasks.addTask(2, new EntityAIAttackRanged(this, 1.0D, 40, 20.0F));
+		tasks.addTask(2, new EntityAIAttackRanged(this, 1.0D, 40, 20.0F));
 		tasks.addTask(5, new EntityMutaliskPrimalDehaka.AIRandomFly(this));
 		tasks.addTask(7, new EntityMutaliskPrimalDehaka.AILookAround(this));
 		targetTasks.addTask(1, new EntityAIFindEntityNearestPlayer(this));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, true, false, this));
 	}
-	
+
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float distanceFactor) {
 		EntityMutaliskGlaiveWurm wurm = new EntityMutaliskGlaiveWurm(this.world, this);
@@ -62,49 +62,49 @@ public class EntityMutaliskPrimalDehaka extends EntityZergFlying implements IMob
 
 	@Override
 	public boolean apply(EntityLivingBase entity) {
-		if(!entity.isInvisible()) {
-			if(entity instanceof EntityStarcraftMob) {
-				if(entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if(!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.PRIMALPACKDEHAKA)) {
-						if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+		if (!entity.isInvisible()) {
+			if (entity instanceof EntityStarcraftMob) {
+				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
+					if (!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.PRIMALPACKDEHAKA)) {
+						if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
-						}else {
+						} else {
 							return false;
 						}
-					}else if(((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+					} else if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityStarcraftPassive) {
-				if(entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if(!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.PRIMALPACKDEHAKA)) {
-						if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
+			} else if (entity instanceof EntityStarcraftPassive) {
+				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
+					if (!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.PRIMALPACKDEHAKA)) {
+						if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 							return true;
-						}else {
+						} else {
 							return false;
 						}
-					}else if(((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
+					} else if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityPlayer) {
+			} else if (entity instanceof EntityPlayer) {
 				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
-				if(color.getColor() == this.getTeamColor().getId()) {
+				if (color.getColor() == this.getTeamColor().getId()) {
 					return false;
-				}else {
+				} else {
 					return true;
 				}
 			} else {
 				return true;
 			}
-		}else if(entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)){
+		} else if (entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 		return false;
 	}
-	
+
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
 		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), EnumMetaItem.CarapaceType.T2.getID()));
@@ -175,8 +175,7 @@ public class EntityMutaliskPrimalDehaka extends EntityZergFlying implements IMob
 		 */
 		public void updateTask() {
 			if (this.parentEntity.getAttackTarget() == null) {
-				this.parentEntity.rotationYaw = -((float) MathHelper.atan2(this.parentEntity.motionX,
-						this.parentEntity.motionZ)) * (180F / (float) Math.PI);
+				this.parentEntity.rotationYaw = -((float) MathHelper.atan2(this.parentEntity.motionX, this.parentEntity.motionZ)) * (180F / (float) Math.PI);
 				this.parentEntity.renderYawOffset = this.parentEntity.rotationYaw;
 			} else {
 				EntityLivingBase entitylivingbase = this.parentEntity.getAttackTarget();

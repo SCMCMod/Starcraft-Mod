@@ -9,6 +9,7 @@ import net.minecraft.block.material.Material;
 /**
  * Keratin Chunk block.<br>
  * Copyright 2017 the Starcraft Minecraft mod team
+ * 
  * @author Hypeirochus
  */
 public class BlockZergKeratin extends Block {

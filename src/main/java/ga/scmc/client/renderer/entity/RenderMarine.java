@@ -13,7 +13,7 @@ import net.minecraft.util.ResourceLocation;
  * @author Ocelot5836
  */
 public class RenderMarine extends RenderLiving<EntityMarine> {
-	
+
 	protected ModelMarine model;
 
 	public RenderMarine(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {

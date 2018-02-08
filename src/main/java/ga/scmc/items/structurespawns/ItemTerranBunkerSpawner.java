@@ -18,10 +18,9 @@ public class ItemTerranBunkerSpawner extends Item {
 		setRegistryName("terran.spawner.bunker");
 		setCreativeTab(StarcraftCreativeTabs.TERRAN);
 	}
-	
+
 	@Override
-	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY,
-			float hitZ) {
+	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		StructureTerranBunkerTemplate TERRAN_BUNKER = new StructureTerranBunkerTemplate();
 		TERRAN_BUNKER.generate_r0(worldIn, pos, false);
 		return super.onItemUse(stack, playerIn, worldIn, pos, hand, facing, hitX, hitY, hitZ);

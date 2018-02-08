@@ -30,8 +30,7 @@ public class Screen {
 	 * @return Returns an instance of the compatibility version of ScaledResolution.
 	 */
 	public static ScaledResolution scaledDisplayResolution() {
-		return new ScaledResolution(Access.getMinecraft(), Access.getMinecraft().displayWidth,
-				Access.getMinecraft().displayHeight);
+		return new ScaledResolution(Access.getMinecraft(), Access.getMinecraft().displayWidth, Access.getMinecraft().displayHeight);
 	}
 
 	/**
@@ -60,8 +59,7 @@ public class Screen {
 	public static Point getMouseLocation() {
 		ScaledResolution size = scaledDisplayResolution();
 		Dimension res = displayResolution();
-		return new Point(Mouse.getX() * size.getScaledWidth() / res.width,
-				size.getScaledHeight() - Mouse.getY() * size.getScaledHeight() / res.height - 1);
+		return new Point(Mouse.getX() * size.getScaledWidth() / res.width, size.getScaledHeight() - Mouse.getY() * size.getScaledHeight() / res.height - 1);
 	}
 
 	/**
@@ -86,8 +84,7 @@ public class Screen {
 			file.mkdirs();
 		}
 
-		if (Access.getMinecraft().ingameGUI != null && Keyboard.isKeyDown(Keyboard.KEY_F3)
-				&& Keyboard.isKeyDown(Keyboard.KEY_U)) {
+		if (Access.getMinecraft().ingameGUI != null && Keyboard.isKeyDown(Keyboard.KEY_F3) && Keyboard.isKeyDown(Keyboard.KEY_U)) {
 			try {
 				OpenGL.readBuffer(GL11.GL_FRONT);
 				int bpp = 4;

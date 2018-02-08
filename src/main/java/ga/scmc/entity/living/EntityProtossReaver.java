@@ -37,7 +37,7 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 	public float offsetHealth;
 	public int timeSinceHurt;
 	public int ammo = 4;
-	
+
 	public EntityProtossReaver(World world) {
 		super(world);
 		setSize(5.0F, 5.0F);
@@ -82,14 +82,14 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityPlayer) {
+			} else if (entity instanceof EntityPlayer) {
 				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
-				if(color.getColor() == this.getTeamColor().getId()) {
+				if (color.getColor() == this.getTeamColor().getId()) {
 					return false;
-				}else {
+				} else {
 					return true;
 				}
-			}else {
+			} else {
 				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
 					return false;
 				}
@@ -102,13 +102,13 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 		}
 		return false;
 	}
-	
+
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
 		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.PROTOSS_INGOT, 1 + this.rand.nextInt(2), EnumMetaItem.ProtossIngotType.KHALAI.getID()));
 		drop.tryDrop(this);
 	}
-	
+
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
@@ -121,12 +121,12 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase entity, float distance) {
-		if(!world.isRemote && this.ammo > 1) {
+		if (!world.isRemote && this.ammo > 1) {
 			EntityScarab scarab = new EntityScarab(world, this.getTeamColor(), EnumFactionTypes.DAELAAM);
 			scarab.setLocationAndAngles(posX, posY, posZ, 0, 0);
 			world.spawnEntity(scarab);
 			ammo--;
-		}else {
+		} else {
 			System.out.println("NO AMMO!");
 		}
 	}
@@ -140,19 +140,19 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 	public SoundEvent getAmbientSound() {
 		Random rand = new Random();
 
-		switch(rand.nextInt(4)) {
-			case 0:
-				return SoundHandler.ENTITY_PREAVER_LIVE1;
-			case 1:
-				return SoundHandler.ENTITY_PREAVER_LIVE2;
-			case 2:
-				return SoundHandler.ENTITY_PREAVER_LIVE3;
-			case 3:
-				return SoundHandler.ENTITY_PREAVER_LIVE4;
-			default:
-				return SoundHandler.ENTITY_PREAVER_LIVE5;
-				}
-			
+		switch (rand.nextInt(4)) {
+		case 0:
+			return SoundHandler.ENTITY_PREAVER_LIVE1;
+		case 1:
+			return SoundHandler.ENTITY_PREAVER_LIVE2;
+		case 2:
+			return SoundHandler.ENTITY_PREAVER_LIVE3;
+		case 3:
+			return SoundHandler.ENTITY_PREAVER_LIVE4;
+		default:
+			return SoundHandler.ENTITY_PREAVER_LIVE5;
+		}
+
 	}
 
 	@Override
@@ -164,33 +164,33 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 	public SoundEvent getHurtSound() {
 		return SoundHandler.ENTITY_PREAVER_HURT;
 	}
-	
+
 	@Override
 	public int getTalkInterval() {
 		return 160;
 	}
-	
+
 	@Override
 	protected void damageEntity(DamageSource damageSrc, float damageAmount) {
 		timeSinceHurt = this.ticksExisted;
 		super.damageEntity(damageSrc, damageAmount);
 	}
-	
+
 	@Override
 	public void onLivingUpdate() {
-			if(ticksExisted % 20 == 0 && this.getHealth() < this.getMaxHealth()) {
-				if(this.getHealth() < 143.0 - offsetHealth) {
-					offsetHealth = 143.0F - getHealth();
-				}
-				if(this.getHealth() < this.getMaxHealth() - offsetHealth && ticksExisted - timeSinceHurt > 200) {
-					this.heal(2.0F);
-				}
-			}else if(ticksExisted % 160 == 0 || ticksExisted % 160  == 1) {
-				if(ammo < 4) {
-					ammo++;
-					System.out.println("regenerating ammo!");
-				}
+		if (ticksExisted % 20 == 0 && this.getHealth() < this.getMaxHealth()) {
+			if (this.getHealth() < 143.0 - offsetHealth) {
+				offsetHealth = 143.0F - getHealth();
 			}
+			if (this.getHealth() < this.getMaxHealth() - offsetHealth && ticksExisted - timeSinceHurt > 200) {
+				this.heal(2.0F);
+			}
+		} else if (ticksExisted % 160 == 0 || ticksExisted % 160 == 1) {
+			if (ammo < 4) {
+				ammo++;
+				System.out.println("regenerating ammo!");
+			}
+		}
 		super.onLivingUpdate();
 	}
 }

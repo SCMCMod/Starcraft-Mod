@@ -841,12 +841,12 @@ public class ModelBrutalisk extends Model implements IModelSkull {
 		setRotationAngles(f, f1, f2, f3, f4, f4, entity);
 		body1.render(f5);
 	}
-	
+
 	@Override
-   	public void render(Object obj) {
-       	EntityLivingBase base = (EntityLivingBase) obj;
-       	head.rotateAngleX = headPitch(obj) * 0.017453292F + 0.4F;
-	    head.rotateAngleY = headYaw(obj) * 0.0017453292F;
+	public void render(Object obj) {
+		EntityLivingBase base = (EntityLivingBase) obj;
+		head.rotateAngleX = headPitch(obj) * 0.017453292F + 0.4F;
+		head.rotateAngleY = headYaw(obj) * 0.0017453292F;
 		this.lShoulder.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.5F) * 0.667F * swingProgressPrev(obj);
 		this.rShoulder.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.5F) * 0.667F * swingProgressPrev(obj);
 		this.tail1.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.7F) * 0.667F * swingProgressPrev(obj) + 0.5F;
@@ -867,7 +867,7 @@ public class ModelBrutalisk extends Model implements IModelSkull {
 		this.rcLeg1.rotateAngleX = (MathHelper.sin(swingProgress(obj) * 0.5F) / 4.1F) * 2.0F * swingProgressPrev(obj);
 		this.rcLeg1.rotateAngleY = (MathHelper.sin(swingProgress(obj) * 0.5F) / 4.1F) * 2.0F * swingProgressPrev(obj);
 		this.jawLower.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.01F) * 0.667F * swingProgressPrev(obj) + 0.30F;
-   	}
+	}
 
 	@Override
 	public void renderSkull(float scale) {

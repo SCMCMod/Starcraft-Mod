@@ -21,7 +21,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
- * Magma block. Makes lava source when broken or when lava is found near it on a random tick<br>
+ * Magma block. Makes lava source when broken or when lava is found near it on a
+ * random tick<br>
  * Copyright 2016 the Starcraft Minecraft (SCMC) mod team
  * 
  * @author wundrweapon

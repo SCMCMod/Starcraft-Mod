@@ -49,7 +49,7 @@ public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<E
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, false, false, this));
 	}
-	
+
 	@Override
 	public void addTrackingPlayer(EntityPlayerMP player) {
 		super.addTrackingPlayer(player);
@@ -75,7 +75,7 @@ public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<E
 	protected void updateAITasks() {
 		this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
 	}
-	
+
 	@Override
 	public boolean apply(EntityLivingBase entity) {
 		if (!entity.isInvisible()) {
@@ -103,14 +103,14 @@ public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<E
 						return true;
 					}
 				}
-			}else if(entity instanceof EntityPlayer) {
+			} else if (entity instanceof EntityPlayer) {
 				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
-				if(color.getColor() == this.getTeamColor().getId()) {
+				if (color.getColor() == this.getTeamColor().getId()) {
 					return false;
-				}else {
+				} else {
 					return true;
 				}
-			}else {
+			} else {
 				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
 					return false;
 				}
@@ -123,12 +123,12 @@ public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<E
 		}
 		return false;
 	}
-	
+
 	@Override
 	protected boolean canDespawn() {
 		return false;
 	}
-	
+
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
@@ -142,10 +142,11 @@ public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<E
 
 	/**
 	 * Drop 0-2 items on death
-	 * @param recentPlayerDmg {@code true} if a player recently dealt damage to
-	 * this entity
-	 * @param lootingLvl level of Looting enchant used to deliver killing blow
-	 * of entity
+	 * 
+	 * @param recentPlayerDmg
+	 *            {@code true} if a player recently dealt damage to this entity
+	 * @param lootingLvl
+	 *            level of Looting enchant used to deliver killing blow of entity
 	 */
 	@Override
 	protected void dropFewItems(boolean recentPlayerDmg, int lootingLvl) {
@@ -155,7 +156,7 @@ public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<E
 
 	@Override
 	public SoundEvent getAmbientSound() {
-		if(rand.nextInt(1) == 0)
+		if (rand.nextInt(1) == 0)
 			return SoundHandler.ENTITY_DARKTEMPLAR_LIVE1;
 
 		return SoundHandler.ENTITY_DARKTEMPLAR_LIVE2;

@@ -10,7 +10,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  */
 @SideOnly(Side.CLIENT)
 public class RendererProtossWormhole extends TileEntitySpecialRenderer<TileEntityProtossWormhole> {
-	
+
 	@Override
 	public void renderTileEntityAt(TileEntityProtossWormhole te, double x, double y, double z, float partialTicks, int destroyStage) {
 	}

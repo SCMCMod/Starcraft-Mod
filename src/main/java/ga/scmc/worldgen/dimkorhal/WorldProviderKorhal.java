@@ -19,18 +19,18 @@ public class WorldProviderKorhal extends WorldProvider {
 	}
 
 	/**
-	 * A Message to display to the user when they transfer out of this
-	 * dimension.
+	 * A Message to display to the user when they transfer out of this dimension.
+	 * 
 	 * @return The message to be displayed
 	 */
 	@Override
 	public String getDepartMessage() {
-		
-		//Always true
-		if(this instanceof WorldProviderKorhal) {
+
+		// Always true
+		if (this instanceof WorldProviderKorhal) {
 			return "Leaving Korhal";
 		}
-		
+
 		return null;
 	}
 
@@ -42,26 +42,29 @@ public class WorldProviderKorhal extends WorldProvider {
 	/**
 	 * Determines the dimension the player will be respawned in, typically this
 	 * brings them back to the overworld.
-	 * @param player The player that is respawning
+	 * 
+	 * @param player
+	 *            The player that is respawning
 	 * @return The dimension to respawn the player in
 	 */
 	@Override
 	public int getRespawnDimension(net.minecraft.entity.player.EntityPlayerMP player) {
 		return ConfigurationHandler.INT_DIMENSION_KORHAL;
 	}
-	
+
 	/**
 	 * A message to display to the user when they transfer to this dimension.
+	 * 
 	 * @return The message to be displayed
 	 */
 	@Override
 	public String getWelcomeMessage() {
-		
-		//Always true
-		if(this instanceof WorldProviderKorhal) {
+
+		// Always true
+		if (this instanceof WorldProviderKorhal) {
 			return "Entering Korhal";
 		}
-		
+
 		return null;
 	}
 }

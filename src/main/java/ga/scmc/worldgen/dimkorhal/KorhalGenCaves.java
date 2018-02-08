@@ -12,7 +12,6 @@ public class KorhalGenCaves extends MapGenCaves {
 	@Override
 	protected boolean canReplaceBlock(IBlockState p_175793_1_, IBlockState p_175793_2_) {
 		Block test = p_175793_1_.getBlock();
-		return (test == Blocks.SAND || test == Blocks.RED_SANDSTONE || test == Blocks.STONE || test == BlockHandler.ZERG_CREEP ? true
-				: (test == Blocks.SAND || test == Blocks.GRAVEL) && p_175793_2_.getMaterial() != Material.LAVA);
+		return (test == Blocks.SAND || test == Blocks.RED_SANDSTONE || test == Blocks.STONE || test == BlockHandler.ZERG_CREEP ? true : (test == Blocks.SAND || test == Blocks.GRAVEL) && p_175793_2_.getMaterial() != Material.LAVA);
 	}
 }

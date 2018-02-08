@@ -8,12 +8,12 @@ public class EntityTerranMob extends EntityStarcraftMob {
 	public EntityTerranMob(World world) {
 		super(world);
 	}
-	
+
 	@Override
 	public boolean getCanSpawnHere() {
-		if(this.world.getDifficulty() != EnumDifficulty.PEACEFUL) {
+		if (this.world.getDifficulty() != EnumDifficulty.PEACEFUL) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}

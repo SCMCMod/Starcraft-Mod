@@ -19,7 +19,7 @@ public class LogRegistry {
 	public LogRegistry() {
 		logs = new HashMap<Integer, Log>();
 	}
-	
+
 	public void init() {
 		this.registerLogs();
 	}
@@ -58,7 +58,7 @@ public class LogRegistry {
 		register(new Log(id++, "log.general.wotanii"));
 		register(new Log(id++, "log.general.zenn"));
 		register(new Log(id++, "log.general.zephyrcove"));
-		
+
 		register(new Log(id++, "log.protoss.legacy"));
 		register(new Log(id++, "log.protoss.alliance"));
 		register(new Log(id++, "log.protoss.warpgates"));
@@ -112,7 +112,7 @@ public class LogRegistry {
 		register(new Log(id++, "log.terran.uednamingcommittee"));
 		register(new Log(id++, "log.terran.urangolenko"));
 		register(new Log(id++, "log.terran.wildlifeservices"));
-		
+
 		register(new Log(id++, "log.zerg.overview"));
 		register(new Log(id++, "log.zerg.eruption"));
 
@@ -211,7 +211,7 @@ public class LogRegistry {
 		register(new Log(id++, "log.science.protoss.zealot3"));
 		register(new Log(id++, "log.science.protoss.zealot4"));
 		register(new Log(id++, "log.science.protoss.zealot5"));
-		
+
 		register(new Log(id++, "log.science.terran.banshee0"));
 		register(new Log(id++, "log.science.terran.banshee1"));
 		register(new Log(id++, "log.science.terran.banshee2"));
@@ -295,7 +295,7 @@ public class LogRegistry {
 		register(new Log(id++, "log.science.terran.widowmine2"));
 		register(new Log(id++, "log.science.terran.widowmine3"));
 		register(new Log(id++, "log.science.terran.widowmine4"));
-		
+
 		register(new Log(id++, "log.science.zerg.baneling0"));
 		register(new Log(id++, "log.science.zerg.baneling1"));
 		register(new Log(id++, "log.science.zerg.baneling2"));

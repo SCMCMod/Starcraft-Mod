@@ -16,7 +16,6 @@ import ocelot.api.utils.GuiUtils;
 
 public class ItemCarbotifier extends Item {
 
-	
 	// Evrey 09cccfe400064879b3a99e2209dfab6e
 	// Ocelot 86dc8a9f238e450280211d488095fd8a
 	// Hype dc544f46721645cfa7b0aa65fec17f38
@@ -71,9 +70,9 @@ public class ItemCarbotifier extends Item {
 				return true;
 			}
 		}
-		
-		if(player.getGameProfile().getId().toString() == "86dc8a9f238e450280211d488095fd8a") {
-			
+
+		if (player.getGameProfile().getId().toString() == "86dc8a9f238e450280211d488095fd8a") {
+
 		}
 
 		return false;

@@ -23,7 +23,10 @@ public class ItemDrop {
 	 * increases chance an item will drop.
 	 */
 	public static enum DropType {
-		RATE_PERDROP_MULTIPLE(0), RATE_PERDROP_SINGLE(1), RATE_PERSTACK_MULTIPLE(2), RATE_PERSTACK_SINGLE(3);
+		RATE_PERDROP_MULTIPLE(0),
+		RATE_PERDROP_SINGLE(1),
+		RATE_PERSTACK_MULTIPLE(2),
+		RATE_PERSTACK_SINGLE(3);
 
 		private int id;
 

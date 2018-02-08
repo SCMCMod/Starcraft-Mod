@@ -18,10 +18,9 @@ public class ItemTerranBarracksSpawner extends Item {
 		setRegistryName("terran.spawner.barracks");
 		setCreativeTab(StarcraftCreativeTabs.TERRAN);
 	}
-	
+
 	@Override
-	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY,
-			float hitZ) {
+	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		StructureTerranBarracksTemplate TERRAN_BARRACKS = new StructureTerranBarracksTemplate();
 		TERRAN_BARRACKS.generate(worldIn, pos, false);
 		return super.onItemUse(stack, playerIn, worldIn, pos, hand, facing, hitX, hitY, hitZ);

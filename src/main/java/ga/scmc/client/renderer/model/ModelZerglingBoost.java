@@ -650,12 +650,12 @@ public class ModelZerglingBoost extends Model {
 		lWingCarapace1.render(f5);
 		GlStateManager.popMatrix();
 	}
-	
+
 	@Override
 	public void render(Object obj) {
 		EntityLivingBase base = (EntityLivingBase) obj;
 		neck.rotateAngleX = headPitch(obj) * 0.017453292F;
-	    neck.rotateAngleY = headYaw(obj) * 0.017453292F;
+		neck.rotateAngleY = headYaw(obj) * 0.017453292F;
 		lArm1.rotateAngleX = MathHelper.sin(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj);
 		lThigh.rotateAngleX = MathHelper.sin(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj) - 0.5F;
 		rArm1.rotateAngleX = MathHelper.cos(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj);

@@ -15,7 +15,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
- * Allows for gas blocks to extend a class that will handle all the default behaviors
+ * Allows for gas blocks to extend a class that will handle all the default
+ * behaviors
  * 
  * @author Ocelot5836
  */

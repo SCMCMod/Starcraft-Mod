@@ -25,8 +25,7 @@ import net.minecraft.world.World;
 
 public abstract class EntityStarcraftMob extends EntityMob implements IEntityTeamColorable<EntityStarcraftMob> {
 
-	private static final DataParameter<Integer> COLOR = EntityDataManager.createKey(EntityStarcraftMob.class,
-			DataSerializers.VARINT);
+	private static final DataParameter<Integer> COLOR = EntityDataManager.createKey(EntityStarcraftMob.class, DataSerializers.VARINT);
 
 	List<EnumTypeAttributes> types = new ArrayList<EnumTypeAttributes>(15);
 	List<EnumFactionTypes> factions = new ArrayList<EnumFactionTypes>(15);
@@ -36,12 +35,12 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	public EntityStarcraftMob(World world) {
 		super(world);
 	}
-	
+
 	@Override
 	public boolean getCanSpawnHere() {
-		if(this.world.getDifficulty() != EnumDifficulty.PEACEFUL) {
+		if (this.world.getDifficulty() != EnumDifficulty.PEACEFUL) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}
@@ -153,19 +152,19 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 			} else {
 				super.setAttackTarget(entitylivingbaseIn);
 			}
-		}else if(entitylivingbaseIn instanceof EntityStarcraftMob) {
-			if(((EntityStarcraftMob)entitylivingbaseIn).getTeamColor() == this.getTeamColor()) {
+		} else if (entitylivingbaseIn instanceof EntityStarcraftMob) {
+			if (((EntityStarcraftMob) entitylivingbaseIn).getTeamColor() == this.getTeamColor()) {
 				this.setAttackTarget(null);
 			} else {
 				super.setAttackTarget(entitylivingbaseIn);
 			}
-		}else if(entitylivingbaseIn instanceof EntityStarcraftPassive) {
-			if(((EntityStarcraftPassive)entitylivingbaseIn).getTeamColor() == this.getTeamColor()) {
+		} else if (entitylivingbaseIn instanceof EntityStarcraftPassive) {
+			if (((EntityStarcraftPassive) entitylivingbaseIn).getTeamColor() == this.getTeamColor()) {
 				this.setAttackTarget(null);
 			} else {
 				super.setAttackTarget(entitylivingbaseIn);
 			}
-		}else {
+		} else {
 			super.setAttackTarget(entitylivingbaseIn);
 		}
 	}
