@@ -2,17 +2,37 @@ package ga.scmc.worldgen.dimzerus;
 
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.DimensionHandler;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.chunk.IChunkGenerator;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WorldProviderZerus extends WorldProvider {
     
+	public Vec3d vec = new Vec3d(1.0D, 1.0D, 0.87D);
+	
     @Override
 	protected void createBiomeProvider() {
 		biomeProvider = new ZerusBiomeProvider(world.getWorldInfo());
 	}
+    
+    @Override
+    public double getVoidFogYFactor() {
+    	return 1.0D;
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public boolean doesXZShowFog(int par1, int par2) {
+    	return true;
+    }
 
+    @Override
+    public Vec3d getFogColor(float p_76562_1_, float p_76562_2_) {
+    	return vec;
+    }
+    
 	@Override
 	public IChunkGenerator createChunkGenerator() {
 		return new ChunkProviderZerus(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
