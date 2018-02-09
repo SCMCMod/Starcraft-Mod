@@ -21,6 +21,7 @@ import ga.scmc.worldgen.structure.StructureTerranCommandCenterTemplate;
 import ga.scmc.worldgen.structure.StructureZergHydraliskDenTemplate;
 import ga.scmc.worldgen.structure.StructureZergSpawningPoolTemplate;
 import ga.scmc.worldgen.structure.StructureZergSpireTemplate;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
@@ -252,14 +253,14 @@ public class StarcraftGenerator {
 		}
 	}
 
-	protected static void runTileEntityGenerator(SCWorldGenerator generator, TileEntity entity, World world, Random rand, int chunk_X, int chunk_Z, int chancesToSpawn, int minHeight, int maxHeight) {
+	protected static void runTileEntityGenerator(SCWorldGenerator generator, TileEntity entity, Block block, World world, Random rand, int chunk_X, int chunk_Z, int chancesToSpawn, int minHeight, int maxHeight) {
 
 		checkHeight(minHeight, maxHeight);
 
 		int heightDiff = maxHeight - minHeight + 1;
 
 		for (int i = 0; i < chancesToSpawn; i++) {
-			generator.generateTileEntity(entity, world, rand, new BlockPos(chunk_X * 16 + rand.nextInt(16), minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + rand.nextInt(16)));
+			generator.generateTileEntity(entity, block, world, rand, new BlockPos(chunk_X * 16 + rand.nextInt(16), minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + rand.nextInt(16)));
 		}
 	}
 }

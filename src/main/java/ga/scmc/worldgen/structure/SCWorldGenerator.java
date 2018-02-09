@@ -37,7 +37,7 @@ public abstract class SCWorldGenerator {
 		doBlockNotify = notify;
 	}
 
-	public boolean generateTileEntity(TileEntity entity, World worldIn, Random rand, BlockPos position) {
+	public boolean generateTileEntity(TileEntity entity, Block block, World worldIn, Random rand, BlockPos position) {
 		return true;
 	}
 
