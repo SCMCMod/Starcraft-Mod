@@ -8,6 +8,8 @@ import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.MetaBlockHandler;
 import ga.scmc.handlers.StarcraftGenerator;
+import ga.scmc.tileentity.TileEntityEntitySpawner;
+import ga.scmc.tileentity.TileEntityKaldirBrambles;
 import ga.scmc.tileentity.TileEntityZerusGlowPod;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -214,10 +216,12 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		if (world.rand.nextInt(100) < 10 && world.getWorldInfo().isMapFeaturesEnabled()) {
 			runMetaGenerator(MINERAL_PATCH, 1, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
 		}
-		// TODO: Fix this spawning... somehow - Hypeirochus
-		if (world.rand.nextInt(100) < 100) {
-			runBossGenerator(BOSS_SPAWNER, 50, new EntityNafash(world), TextFormatting.RED, world, random, chunkX, chunkZ, 0, -34, 0, 1, 0, 100, true);
+		
+		if(world.rand.nextInt(10000) == 0) {
+			this.runTileEntityGenerator(TILEENTITY_SPAWNER, new TileEntityEntitySpawner(30, new EntityNafash(world), TextFormatting.RED), BlockHandler.ENTITY_SPAWNER, world, random, chunkX, chunkZ, 1, 65, 70);
 		}
+			
+		this.runTileEntityGenerator(TILEENTITY_SPAWNER, new TileEntityKaldirBrambles(), BlockHandler.FLORA_KALDIR_BRAMBLES, world, random, chunkX, chunkZ, 10, 65, 70);
 	}
 
 	/**
@@ -310,7 +314,7 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		if (world.getWorldInfo().isMapFeaturesEnabled()) {
 			runTeamColorGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 		}
-		this.runTileEntityGenerator(TILEENTITY_SPAWNER, new TileEntityZerusGlowPod(), world, random, chunkX, chunkZ, 5, 65, 70);
+		this.runTileEntityGenerator(TILEENTITY_SPAWNER, new TileEntityZerusGlowPod(), BlockHandler.FLORA_ZERUS_GLOW_POD, world, random, chunkX, chunkZ, 5, 65, 70);
 	}
 
 	/**
