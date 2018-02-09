@@ -11,6 +11,7 @@ import ga.scmc.handlers.StarcraftGenerator;
 import ga.scmc.tileentity.TileEntityEntitySpawner;
 import ga.scmc.tileentity.TileEntityKaldirBrambles;
 import ga.scmc.tileentity.TileEntityZerusGlowPod;
+import ga.scmc.tileentity.TileEntityZerusLightcap;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
@@ -315,6 +316,7 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 			runTeamColorGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 		}
 		this.runTileEntityGenerator(TILEENTITY_SPAWNER, new TileEntityZerusGlowPod(), BlockHandler.FLORA_ZERUS_GLOW_POD, world, random, chunkX, chunkZ, 5, 65, 70);
+		this.runTileEntityGenerator(TILEENTITY_SPAWNER, new TileEntityZerusLightcap(), BlockHandler.FLORA_ZERUS_LIGHTCAP, world, random, chunkX, chunkZ, 5, 65, 70);
 	}
 
 	/**
