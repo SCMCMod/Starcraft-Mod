@@ -2,7 +2,6 @@ package ga.scmc.events;
 
 import java.awt.Color;
 
-import ga.scmc.api.CapabilityUtils;
 import ga.scmc.api.Utils;
 import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.ItemHandler;
@@ -74,28 +73,30 @@ public class GuiRenderEventHandler extends Gui {
 				}
 			}
 
-			if (mc.playerController.shouldDrawHUD() && isWearingFullProtossArmor(player)) {
-				GlStateManager.color(1, 1, 1, 1);
-				TextureUtils.bindTexture("textures/gui/icons.png");
-				ScaledResolution resolution = new ScaledResolution(mc);
-				float x = resolution.getScaledWidth() / 2 - 91;
-				float y = resolution.getScaledHeight() - 39;
-				double shieldLevel = CapabilityUtils.getShield(player);
-
-				for (int i = 0; i < maxShieldLevel; i++) {
-					if (i < shieldLevel) {
-						if (shieldLevel - (int) shieldLevel >= 0.5 && shieldLevel != 0 && i == (int) shieldLevel) {
-							drawTexturedModalRect(x + i * 8, y, 9, 0, 9, 9);
-						} else {
-							if (i < (int) shieldLevel) {
-								drawTexturedModalRect(x + i * 8, y, 0, 0, 9, 9);
-							}
-						}
-					}
-				}
-
-				TextureUtils.bindTexture(Gui.ICONS);
-			}
+//			 if (mc.playerController.shouldDrawHUD() && isWearingFullProtossArmor(player)) {
+//			 GlStateManager.color(1, 1, 1, 1);
+//			 TextureUtils.bindTexture("textures/gui/icons.png");
+//			 ScaledResolution resolution = new ScaledResolution(mc);
+//			 float x = resolution.getScaledWidth() / 2 - 91;
+//			 float y = resolution.getScaledHeight() - 39;
+//			 double shieldLevel = CapabilityUtils.getShield(player);
+//			
+//			 for (int i = 0; i < maxShieldLevel; i++) {
+//			 if (i < shieldLevel) {
+//			 if (shieldLevel - (int) shieldLevel >= 0.5 && shieldLevel != 0 && i == (int) shieldLevel) {
+//			 drawTexturedModalRect(x + i * 8, y, 9, 0, 9, 9);
+//			 } else {
+//			 if (i < (int) shieldLevel) {
+//			 drawTexturedModalRect(x + i * 8, y, 0, 0, 9, 9);
+//			 }
+//			 }
+//			 } else {
+//			 break;
+//			 }
+//			 }
+//			
+//			 TextureUtils.bindTexture(Gui.ICONS);
+//			 }
 		}
 	}
 
