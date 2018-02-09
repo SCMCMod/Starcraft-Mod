@@ -1,5 +1,9 @@
 package ga.scmc.handlers;
 
+import ga.scmc.worldgen.dimaiur.BiomeGenAiurJungle;
+import ga.scmc.worldgen.dimaiur.BiomeGenAiurMountains;
+import ga.scmc.worldgen.dimaiur.BiomeGenAiurPlains;
+import ga.scmc.worldgen.dimaiur.BiomeGenAiurProtossCity;
 import ga.scmc.worldgen.dimchar.BiomeGenCharAshPlains;
 import ga.scmc.worldgen.dimchar.BiomeGenCharGlassPlains;
 import ga.scmc.worldgen.dimchar.BiomeGenCharHills;
@@ -235,6 +239,12 @@ public class BiomeHandler extends Biome {
 
 		biomeSpace = new BiomeGenSpace((new Biome.BiomeProperties("Space")).setBaseHeight(0.0F).setHeightVariation(0.0F).setTemperature(-500.0F).setRainfall(0.0F));
 
+		/** Aiur biomes **/
+		biomeAiurMountains = new BiomeGenAiurMountains((new Biome.BiomeProperties("Aiur Mountains")).setBaseHeight(0.75F).setHeightVariation(0.35F).setTemperature(0.1F).setRainfall(0.5F));
+		biomeAiurJungle = new BiomeGenAiurJungle((new Biome.BiomeProperties("Aiur Jungle")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(1.0F).setRainfall(0.5F));
+		biomeAiurPlains = new BiomeGenAiurPlains((new Biome.BiomeProperties("Aiur Plains")).setBaseHeight(0.0F).setHeightVariation(0.025F).setTemperature(0.1F).setRainfall(0.5F));
+		biomeAiurProtossCity = new BiomeGenAiurProtossCity((new Biome.BiomeProperties("Aiur Protoss City")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(1.0F).setRainfall(0.5F));
+		
 		// add or remove spawn biomes here
 
 		BiomeManager.addSpawnBiome(BiomeHandler.biomeCharAshPlains);
