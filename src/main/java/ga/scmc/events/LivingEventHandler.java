@@ -7,7 +7,9 @@ import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
+import ga.scmc.handlers.TeleporterHandler;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
@@ -45,13 +47,16 @@ public class LivingEventHandler {
 
 			/** TODO: Handling Space gravity **/
 			if (event.getEntity().dimension == ConfigurationHandler.INT_DIMENSION_SPACE) {
-
+				
 			}
 
-			else if (event.getEntity() instanceof EntityPlayer) {
+			else if (event.getEntity() instanceof EntityPlayerMP) {
 
-				EntityPlayer player = ((EntityPlayer) event.getEntity());
-
+				EntityPlayerMP player = ((EntityPlayerMP) event.getEntity());
+				if (player.dimension != ConfigurationHandler.INT_DIMENSION_SPACE && player.posY > 255) {
+					player.getServer().getPlayerList().transferPlayerToDimension(player, ConfigurationHandler.INT_DIMENSION_SPACE, new TeleporterHandler(player.world.provider.getDimension(), player.mcServer.worldServerForDimension(ConfigurationHandler.INT_DIMENSION_SPACE), player.posX, player.posY, player.posZ, true));
+				}
+				
 				int i = MathHelper.floor(player.posX);
 				int j = MathHelper.floor(player.posY);
 				int k = MathHelper.floor(player.posZ);

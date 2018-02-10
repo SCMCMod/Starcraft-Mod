@@ -17,29 +17,54 @@ public class TeleporterHandler extends Teleporter {
 	private double				y;
 	private double				z;
 
-	public TeleporterHandler(WorldServer world, double x, double y, double z, boolean hasNoSurface) {
+	public TeleporterHandler(int lastDim, WorldServer world, double x, double y, double z, boolean hasNoSurface) {
 		super(world);
 		worldServer = world;
-		BlockPos playerSpawn = new BlockPos(x, 100, z);
-		if (hasNoSurface == false) {
-			while (world.isAirBlock(playerSpawn)) {
-				playerSpawn = playerSpawn.down();
+		if(world.provider.getDimension() != ConfigurationHandler.INT_DIMENSION_SPACE) {
+			BlockPos playerSpawn = new BlockPos(x, 100, z);
+			if (hasNoSurface == false) {
+				while (world.isAirBlock(playerSpawn)) {
+					playerSpawn = playerSpawn.down();
+				}
+			}
+			this.x = x;
+			this.y = playerSpawn.getY() + 1;
+			world.setBlockState(playerSpawn, Blocks.OBSIDIAN.getDefaultState());
+			world.setBlockState(playerSpawn.add(-1, 0, 1), Blocks.OBSIDIAN.getDefaultState());
+			world.setBlockState(playerSpawn.add(0, 0, 1), Blocks.OBSIDIAN.getDefaultState());
+			world.setBlockState(playerSpawn.add(1, 0, 1), Blocks.OBSIDIAN.getDefaultState());
+
+			world.setBlockState(playerSpawn.add(-1, 0, -1), Blocks.OBSIDIAN.getDefaultState());
+			world.setBlockState(playerSpawn.add(0, 0, -1), Blocks.OBSIDIAN.getDefaultState());
+			world.setBlockState(playerSpawn.add(1, 0, -1), Blocks.OBSIDIAN.getDefaultState());
+
+			world.setBlockState(playerSpawn.add(1, 0, 0), Blocks.OBSIDIAN.getDefaultState());
+			world.setBlockState(playerSpawn.add(-1, 0, 0), Blocks.OBSIDIAN.getDefaultState());
+			this.z = z;
+		}else {
+			if(lastDim == 0) {
+				this.x = 0;
+				this.y = 180;
+				this.z = 0;
+				/*
+				world.setBlockState(playerSpawn.add(0, -3, 0), Blocks.OBSIDIAN.getDefaultState());
+				world.setBlockState(playerSpawn.add(-1, -3, 1), Blocks.OBSIDIAN.getDefaultState());
+				world.setBlockState(playerSpawn.add(0, -3, 1), Blocks.OBSIDIAN.getDefaultState());
+				world.setBlockState(playerSpawn.add(1, -3, 1), Blocks.OBSIDIAN.getDefaultState());
+
+				world.setBlockState(playerSpawn.add(-1, -3, -1), Blocks.OBSIDIAN.getDefaultState());
+				world.setBlockState(playerSpawn.add(0, -3, -1), Blocks.OBSIDIAN.getDefaultState());
+				world.setBlockState(playerSpawn.add(1, -3, -1), Blocks.OBSIDIAN.getDefaultState());
+
+				world.setBlockState(playerSpawn.add(1, -3, 0), Blocks.OBSIDIAN.getDefaultState());
+				world.setBlockState(playerSpawn.add(-1, -3, 0), Blocks.OBSIDIAN.getDefaultState());
+				*/
+			}else if(lastDim == ConfigurationHandler.INT_DIMENSION_CHAR) {
+				this.x = 6437;
+				this.y = 180;
+				this.z = 6028;
 			}
 		}
-		this.x = x;
-		this.y = playerSpawn.getY() + 1;
-		world.setBlockState(playerSpawn, Blocks.OBSIDIAN.getDefaultState());
-		world.setBlockState(playerSpawn.add(-1, 0, 1), Blocks.OBSIDIAN.getDefaultState());
-		world.setBlockState(playerSpawn.add(0, 0, 1), Blocks.OBSIDIAN.getDefaultState());
-		world.setBlockState(playerSpawn.add(1, 0, 1), Blocks.OBSIDIAN.getDefaultState());
-
-		world.setBlockState(playerSpawn.add(-1, 0, -1), Blocks.OBSIDIAN.getDefaultState());
-		world.setBlockState(playerSpawn.add(0, 0, -1), Blocks.OBSIDIAN.getDefaultState());
-		world.setBlockState(playerSpawn.add(1, 0, -1), Blocks.OBSIDIAN.getDefaultState());
-
-		world.setBlockState(playerSpawn.add(1, 0, 0), Blocks.OBSIDIAN.getDefaultState());
-		world.setBlockState(playerSpawn.add(-1, 0, 0), Blocks.OBSIDIAN.getDefaultState());
-		this.z = z;
 	}
 
 	@Override

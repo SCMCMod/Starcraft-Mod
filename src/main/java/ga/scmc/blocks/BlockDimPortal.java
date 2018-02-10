@@ -82,7 +82,7 @@ public class BlockDimPortal extends StarcraftBlock {
 				if (entity instanceof EntityPlayer) {
 					EntityPlayerMP player = (EntityPlayerMP) entity;
 					if (player.dimension != dim) {
-						player.getServer().getPlayerList().transferPlayerToDimension(player, dim, new TeleporterHandler(player.mcServer.worldServerForDimension(dim), player.posX, player.posY, player.posZ, hasNoSurface));
+						player.getServer().getPlayerList().transferPlayerToDimension(player, dim, new TeleporterHandler(player.getServerWorld().provider.getDimension(), player.mcServer.worldServerForDimension(dim), player.posX, player.posY, player.posZ, hasNoSurface));
 					}
 				}
 			} catch (Exception e) {

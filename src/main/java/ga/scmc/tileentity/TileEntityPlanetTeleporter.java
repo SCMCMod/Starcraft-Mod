@@ -30,7 +30,7 @@ public class TileEntityPlanetTeleporter extends TileEntity implements ITickable 
 		if (world != null && !world.isRemote) {
 			EntityPlayerMP player = (EntityPlayerMP) world.getClosestPlayer(pos.getX(), pos.getY(), pos.getZ(), range, false);
 			if (player != null) {
-				player.getServer().getPlayerList().transferPlayerToDimension(player, dim, new TeleporterHandler(player.mcServer.worldServerForDimension(dim), player.posX, player.posY, player.posZ, false));
+				player.getServer().getPlayerList().transferPlayerToDimension(player, dim, new TeleporterHandler(player.world.provider.getDimension(), player.mcServer.worldServerForDimension(dim), player.posX, player.posY, player.posZ, false));
 			}
 		}
 	}
