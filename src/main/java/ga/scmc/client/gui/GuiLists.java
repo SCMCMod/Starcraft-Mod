@@ -48,6 +48,7 @@ public class GuiLists {
 		tab0.add(new Product(new ItemStack(ItemHandler.INGOT, 1, 0), 1, 0));
 		tab0.add(new Product(new ItemStack(ItemHandler.INGOT, 1, 1), 2, 0));
 		tab0.add(new Product(new ItemStack(ItemHandler.INGOT, 1, 2), 3, 1));
+		tab0.add(new Product(new ItemStack(ItemHandler.INGOT, 1, 3), 5, 3));
 		tab0.add(new Product(new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.CARBON.getID()), 1, 0));
 		tab0.add(new Product(new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.IRON.getID()), 2, 0));
 		tab0.add(new Product(new ItemStack(ItemHandler.DUST, 1, EnumMetaItem.DustType.STEEL.getID()), 2, 1));
