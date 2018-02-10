@@ -1,26 +1,29 @@
 package ga.scmc.client.renderer.entity;
 
 import ga.scmc.client.renderer.Resources;
-import ga.scmc.client.renderer.entity.layers.LayerBrakkColor;
-import ga.scmc.client.renderer.entity.layers.LayerBrakkGlowDynamic;
+import ga.scmc.client.renderer.entity.layers.ColoredLayerRender;
 import ga.scmc.client.renderer.model.ModelBrakk;
 import ga.scmc.entity.living.EntityBrakk;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderBrakk<T> extends RenderLiving<EntityBrakk> {
+public class RenderBrakk extends RenderLiving<EntityBrakk> implements LayerRenderer<EntityBrakk> {
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.BRAKK_BASE);
-	protected ModelBrakk model;
+	private static final ResourceLocation	BASE		= new ResourceLocation(Resources.BRAKK_BASE);
+	private static final ResourceLocation	OVERLAY		= new ResourceLocation(Resources.BRAKK_OVERLAY);
+	private static final ResourceLocation	DYNAMICGLOW	= new ResourceLocation(Resources.BRAKK_GLOW_DYNAMIC);
+	private final RenderBrakk				RENDERER;
+	protected ModelBrakk					model;
 
 	public RenderBrakk(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelBrakk) mainModel);
-		addLayer(new LayerBrakkColor(this));
-		addLayer(new LayerBrakkGlowDynamic(this));
+		this.RENDERER = this;
+		this.addLayer(this);
 	}
 
 	@Override
@@ -30,12 +33,23 @@ public class RenderBrakk<T> extends RenderLiving<EntityBrakk> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityBrakk entity) {
-		return TEXTURE;
+		return BASE;
 	}
 
 	@Override
 	protected void preRenderCallback(EntityBrakk entitylivingbaseIn, float partialTickTime) {
 		GlStateManager.scale(5.5F + (entitylivingbaseIn.getBiomass() / 60), 5.5F + (entitylivingbaseIn.getBiomass() / 60), 5.5F + (entitylivingbaseIn.getBiomass() / 60));
 		super.preRenderCallback(entitylivingbaseIn, partialTickTime);
+	}
+
+	@Override
+	public void doRenderLayer(EntityBrakk entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		ColoredLayerRender.renderDynamicGlow(this.RENDERER, entitylivingbaseIn, DYNAMICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
+	}
+
+	@Override
+	public boolean shouldCombineTextures() {
+		return true;
 	}
 }

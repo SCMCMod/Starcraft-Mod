@@ -1,25 +1,28 @@
 package ga.scmc.client.renderer.entity;
 
 import ga.scmc.client.renderer.Resources;
-import ga.scmc.client.renderer.entity.layers.LayerDarkTemplarColor;
-import ga.scmc.client.renderer.entity.layers.LayerDarkTemplarGlowStatic;
+import ga.scmc.client.renderer.entity.layers.ColoredLayerRender;
 import ga.scmc.client.renderer.model.ModelDarkTemplar;
 import ga.scmc.entity.living.EntityDarkTemplar;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderDarkTemplar<T> extends RenderLiving<EntityDarkTemplar> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.DARKTEMPLAR_BASE);
-	protected ModelDarkTemplar model;
+public class RenderDarkTemplar extends RenderLiving<EntityDarkTemplar> implements LayerRenderer<EntityDarkTemplar> {
+	private static final ResourceLocation	BASE		= new ResourceLocation(Resources.DARKTEMPLAR_BASE);
+	private static final ResourceLocation	OVERLAY		= new ResourceLocation(Resources.DARKTEMPLAR_OVERLAY);
+	private static final ResourceLocation	STATICGLOW	= new ResourceLocation(Resources.DARKTEMPLAR_GLOW_STATIC);
+	private final RenderDarkTemplar			RENDERER;
+	protected ModelDarkTemplar				model;
 
 	public RenderDarkTemplar(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelDarkTemplar) mainModel);
-		addLayer(new LayerDarkTemplarColor(this));
-		addLayer(new LayerDarkTemplarGlowStatic(this));
+		this.RENDERER = this;
+		this.addLayer(this);
 	}
 
 	@Override
@@ -33,11 +36,22 @@ public class RenderDarkTemplar<T> extends RenderLiving<EntityDarkTemplar> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityDarkTemplar entity) {
-		return TEXTURE;
+		return BASE;
 	}
 
 	@Override
 	protected void preRenderCallback(EntityDarkTemplar entitylivingbaseIn, float partialTickTime) {
 		GlStateManager.scale(0.65F, 0.65F, 0.65F);
+	}
+
+	@Override
+	public void doRenderLayer(EntityDarkTemplar entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
+	}
+
+	@Override
+	public boolean shouldCombineTextures() {
+		return true;
 	}
 }

@@ -11,9 +11,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class LayerHydraliskPrimalGlowStatic<T extends EntityHydraliskPrimal> implements LayerRenderer<T> {
 	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.HYDRALISK_GLOW_STATIC);
-	private final RenderHydraliskPrimal<T> RENDERER;
+	private final RenderHydraliskPrimal RENDERER;
 
-	public LayerHydraliskPrimalGlowStatic(RenderHydraliskPrimal<T> hydraliskRendererIn) {
+	public LayerHydraliskPrimalGlowStatic(RenderHydraliskPrimal hydraliskRendererIn) {
 		RENDERER = hydraliskRendererIn;
 	}
 

@@ -1,25 +1,29 @@
 package ga.scmc.client.renderer.entity;
 
 import ga.scmc.client.renderer.Resources;
-import ga.scmc.client.renderer.entity.layers.LayerZerglingPrimal1Color;
-import ga.scmc.client.renderer.entity.layers.LayerZerglingPrimal1GlowDynamic;
+import ga.scmc.client.renderer.entity.layers.ColoredLayerRender;
 import ga.scmc.client.renderer.model.ModelZerglingPrimal1;
 import ga.scmc.entity.living.EntityZerglingPrimal1;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderZerglingPrimal1<T> extends RenderLiving<EntityZerglingPrimal1> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.ZERGLINGPRIMAL1_BASE);
-	protected ModelZerglingPrimal1 model;
+public class RenderZerglingPrimal1 extends RenderLiving<EntityZerglingPrimal1> implements LayerRenderer<EntityZerglingPrimal1> {
+
+	private static final ResourceLocation	BASE		= new ResourceLocation(Resources.ZERGLINGPRIMAL1_BASE);
+	private static final ResourceLocation	OVERLAY		= new ResourceLocation(Resources.ZERGLINGPRIMAL1_OVERLAY);
+	private static final ResourceLocation	DYNAMICGLOW	= new ResourceLocation(Resources.ZERGLINGPRIMAL_GLOW_DYNAMIC);
+	private final RenderZerglingPrimal1		RENDERER;
+	protected ModelZerglingPrimal1			model;
 
 	public RenderZerglingPrimal1(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelZerglingPrimal1) mainModel);
-		addLayer(new LayerZerglingPrimal1Color(this));
-		addLayer(new LayerZerglingPrimal1GlowDynamic(this));
+		this.RENDERER = this;
+		this.addLayer(this);
 	}
 
 	@Override
@@ -33,11 +37,22 @@ public class RenderZerglingPrimal1<T> extends RenderLiving<EntityZerglingPrimal1
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityZerglingPrimal1 entity) {
-		return TEXTURE;
+		return BASE;
 	}
 
 	@Override
 	protected void preRenderCallback(EntityZerglingPrimal1 entitylivingbaseIn, float partialTickTime) {
 		GlStateManager.scale(.95F + (entitylivingbaseIn.getBiomass() / 60), .95F + (entitylivingbaseIn.getBiomass() / 60), .95F + (entitylivingbaseIn.getBiomass() / 60));
+	}
+
+	@Override
+	public void doRenderLayer(EntityZerglingPrimal1 entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		ColoredLayerRender.renderDynamicGlow(this.RENDERER, entitylivingbaseIn, DYNAMICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
+	}
+
+	@Override
+	public boolean shouldCombineTextures() {
+		return true;
 	}
 }

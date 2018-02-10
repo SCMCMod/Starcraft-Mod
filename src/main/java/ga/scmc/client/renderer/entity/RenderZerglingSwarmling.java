@@ -1,25 +1,29 @@
 package ga.scmc.client.renderer.entity;
 
 import ga.scmc.client.renderer.Resources;
-import ga.scmc.client.renderer.entity.layers.LayerZerglingSwarmlingColor;
-import ga.scmc.client.renderer.entity.layers.LayerZerglingSwarmlingGlowStatic;
+import ga.scmc.client.renderer.entity.layers.ColoredLayerRender;
 import ga.scmc.client.renderer.model.ModelZerglingSwarmling;
 import ga.scmc.entity.living.EntityZerglingSwarmling;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderZerglingSwarmling<T> extends RenderLiving<EntityZerglingSwarmling> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.ZERGLINGSWARMLING_BASE);
-	protected ModelZerglingSwarmling model;
+public class RenderZerglingSwarmling extends RenderLiving<EntityZerglingSwarmling> implements LayerRenderer<EntityZerglingSwarmling> {
+
+	private static final ResourceLocation	BASE		= new ResourceLocation(Resources.ZERGLINGSWARMLING_BASE);
+	private static final ResourceLocation	OVERLAY		= new ResourceLocation(Resources.ZERGLING_OVERLAY);
+	private static final ResourceLocation	STATICGLOW	= new ResourceLocation(Resources.ZERGLINGSWARMLING_GLOW_STATIC);
+	private final RenderZerglingSwarmling	RENDERER;
+	protected ModelZerglingSwarmling		model;
 
 	public RenderZerglingSwarmling(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelZerglingSwarmling) mainModel);
-		addLayer(new LayerZerglingSwarmlingColor(this));
-		addLayer(new LayerZerglingSwarmlingGlowStatic(this));
+		this.RENDERER = this;
+		this.addLayer(this);
 	}
 
 	@Override
@@ -33,11 +37,22 @@ public class RenderZerglingSwarmling<T> extends RenderLiving<EntityZerglingSwarm
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityZerglingSwarmling entity) {
-		return TEXTURE;
+		return BASE;
 	}
 
 	@Override
 	protected void preRenderCallback(EntityZerglingSwarmling entitylivingbaseIn, float partialTickTime) {
 		GlStateManager.scale(1.25F + (entitylivingbaseIn.getBiomass() / 60), 1.25F + (entitylivingbaseIn.getBiomass() / 60), 1.25F + (entitylivingbaseIn.getBiomass() / 60));
+	}
+
+	@Override
+	public void doRenderLayer(EntityZerglingSwarmling entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
+	}
+
+	@Override
+	public boolean shouldCombineTextures() {
+		return true;
 	}
 }

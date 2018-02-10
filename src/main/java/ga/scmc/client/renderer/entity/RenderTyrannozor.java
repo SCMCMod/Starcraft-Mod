@@ -1,26 +1,29 @@
 package ga.scmc.client.renderer.entity;
 
 import ga.scmc.client.renderer.Resources;
-import ga.scmc.client.renderer.entity.layers.LayerTyrannozorColor;
-import ga.scmc.client.renderer.entity.layers.LayerTyrannozorGlowDynamic;
+import ga.scmc.client.renderer.entity.layers.ColoredLayerRender;
 import ga.scmc.client.renderer.model.ModelTyrannozor;
 import ga.scmc.entity.living.EntityTyrannozor;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderTyrannozor<T> extends RenderLiving<EntityTyrannozor> {
+public class RenderTyrannozor extends RenderLiving<EntityTyrannozor> implements LayerRenderer<EntityTyrannozor> {
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.TYRANNOZOR_BASE);
-	protected ModelTyrannozor model;
+	private static final ResourceLocation	BASE		= new ResourceLocation(Resources.TYRANNOZOR_BASE);
+	private static final ResourceLocation	OVERLAY		= new ResourceLocation(Resources.TYRANNOZOR_OVERLAY);
+	private static final ResourceLocation	DYNAMICGLOW	= new ResourceLocation(Resources.TYRANNOZOR_GLOW_DYNAMIC);
+	private final RenderTyrannozor			RENDERER;
+	protected ModelTyrannozor				model;
 
 	public RenderTyrannozor(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelTyrannozor) mainModel);
-		addLayer(new LayerTyrannozorColor(this));
-		addLayer(new LayerTyrannozorGlowDynamic(this));
+		this.RENDERER = this;
+		this.addLayer(this);
 	}
 
 	@Override
@@ -30,12 +33,23 @@ public class RenderTyrannozor<T> extends RenderLiving<EntityTyrannozor> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityTyrannozor entity) {
-		return TEXTURE;
+		return BASE;
 	}
 
 	@Override
 	protected void preRenderCallback(EntityTyrannozor entitylivingbaseIn, float partialTickTime) {
 		GlStateManager.scale(4.0F + (entitylivingbaseIn.getBiomass() / 60), 4.0F + (entitylivingbaseIn.getBiomass() / 60), 4.0F + (entitylivingbaseIn.getBiomass() / 60));
 		super.preRenderCallback(entitylivingbaseIn, partialTickTime);
+	}
+
+	@Override
+	public void doRenderLayer(EntityTyrannozor entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		ColoredLayerRender.renderDynamicGlow(this.RENDERER, entitylivingbaseIn, DYNAMICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
+	}
+
+	@Override
+	public boolean shouldCombineTextures() {
+		return true;
 	}
 }
