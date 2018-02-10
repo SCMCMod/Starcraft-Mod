@@ -1,6 +1,7 @@
 package ga.scmc.blocks.metablocks;
 
 import java.util.List;
+import java.util.Random;
 
 import ga.scmc.blocks.itemblocks.IMetaBlockName;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
@@ -52,6 +53,11 @@ public class BlockProtossMetalT2 extends Block implements IMetaBlockName {
 	@Override
 	public MapColor getMapColor(IBlockState state) {
 		return state.getValue(TYPE).getMapColor();
+	}
+	
+	@Override
+	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+		return null;
 	}
 
 	/**
