@@ -8,6 +8,7 @@ import ga.scmc.worldgen.structure.BossSpawner;
 import ga.scmc.worldgen.structure.SCWorldGenerator;
 import ga.scmc.worldgen.structure.StructureGeyserTemplate;
 import ga.scmc.worldgen.structure.StructureMineralPatchTemplate;
+import ga.scmc.worldgen.structure.StructureMoonTemplate;
 import ga.scmc.worldgen.structure.StructureMultisurfacePlanetTemplate;
 import ga.scmc.worldgen.structure.StructurePlanetTemplate;
 import ga.scmc.worldgen.structure.StructureProtossCyberneticsCoreTemplate;
@@ -141,6 +142,7 @@ public class StarcraftGenerator {
 	protected SCWorldGenerator				MINERAL_PATCH					= new StructureMineralPatchTemplate();
 
 	protected SCWorldGenerator				MULTISURFACE_PLANET_TEMPLATE	= new StructureMultisurfacePlanetTemplate();
+	protected SCWorldGenerator				MOON_TEMPLATE					= new StructureMoonTemplate();
 	protected SCWorldGenerator				PLANET_TEMPLATE					= new StructurePlanetTemplate();
 	protected SCWorldGenerator				STAR_TEMPLATE					= new StructureStarTemplate();
 
@@ -215,6 +217,10 @@ public class StarcraftGenerator {
 
 	protected static void runMultisurfacePlanetGenerator(SCWorldGenerator generator, int id, int planetSize, int range, IBlockState block1, IBlockState block2, World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos pos) {
 		generator.generateMultisurfacePlanet(id, planetSize, range, block1, block2, world, rand, offsetX, offsetY, offsetZ, pos);
+	}
+	
+	protected static void runMoonGenerator(SCWorldGenerator generator, int planetSize, IBlockState block1, IBlockState block2, World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos pos) {
+		generator.generateMoon(planetSize, block1, block2, world, rand, offsetX, offsetY, offsetZ, pos);
 	}
 
 	protected static void runStarGenerator(SCWorldGenerator generator, int starSize, int range, IBlockState block, World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos pos) {

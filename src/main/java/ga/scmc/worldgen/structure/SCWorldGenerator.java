@@ -76,6 +76,10 @@ public abstract class SCWorldGenerator {
 	public boolean generateMultisurfacePlanet(int dim, int planetSize, int range, IBlockState surface1, IBlockState surface2, World worldIn, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos position) {
 		return true;
 	}
+	
+	public boolean generateMoon(int planetSize, IBlockState surface1, IBlockState surface2, World worldIn, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos position) {
+		return true;
+	}
 
 	public boolean generateStar(int planetSize, int range, IBlockState surface, World worldIn, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos position) {
 		return true;

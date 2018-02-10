@@ -3,6 +3,7 @@ package ga.scmc.entity.living;
 import java.util.ArrayList;
 
 import ga.scmc.enums.EnumTypeAttributes;
+import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.ItemHandler;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -28,7 +29,7 @@ public class EntityZergMob extends EntityStarcraftMob {
 	public boolean getCanSpawnHere() {
 		if (this.world.getDifficulty() != EnumDifficulty.PEACEFUL) {
 			return true;
-		} else {
+		}else {
 			return false;
 		}
 	}
