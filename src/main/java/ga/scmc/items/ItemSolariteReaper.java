@@ -1,13 +1,15 @@
 package ga.scmc.items;
 
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
+import ga.scmc.handlers.WeaponHandler;
+import ga.scmc.material.WeaponMaterials;
 import net.minecraft.item.ItemSword;
 
 public class ItemSolariteReaper extends ItemSword {
 
 	public ItemSolariteReaper() {
-		super(ToolMaterial.DIAMOND);
-		setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		super(WeaponMaterials.PSIBLADE_MATERIAL);
+		setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 		setFull3D();
 		setUnlocalizedName("solariteReaper");
 		setRegistryName("solariteReaper");
