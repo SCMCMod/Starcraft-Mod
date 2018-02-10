@@ -489,7 +489,7 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 	 */
 	public void generateSpace(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 
-		if (this.generationCompleted == false) {
+		if (true) {
 			/** Earth **/
 			this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, 0, 21, 31, MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(0), MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(4), world, random, 0, 0, 0, new BlockPos(0, 128, 0));
 			/** Earth's moon **/
@@ -498,18 +498,18 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 			this.runStarGenerator(STAR_TEMPLATE, 51, 75, MetaBlockHandler.STAR_SURFACE.getStateFromMeta(2), world, random, 0, 0, 0, new BlockPos(200, 128, 0));
 
 			/** Char **/
-			this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, ConfigurationHandler.INT_DIMENSION_CHAR, 21, 31, MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(14), MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(8), world, random, 0, 0, 0, new BlockPos(6437, 128, 6028));
+			this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, ConfigurationHandler.INT_DIMENSION_CHAR, 21, 31, MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(14), MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(8), world, random, 0, 0, 0, new BlockPos(-1515, 128, 17776));
 			/** Char's moons **/
-			this.runMoonGenerator(MOON_TEMPLATE, 7, MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(11), MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(8), world, random, 0, 0, 0, new BlockPos(6400, 128, 6028));
-			this.runMoonGenerator(MOON_TEMPLATE, 5, MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(11), MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(8), world, random, 0, 0, 0, new BlockPos(6477, 148, 6056));
+			this.runMoonGenerator(MOON_TEMPLATE, 7, MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(11), MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(8), world, random, 0, 0, 0, new BlockPos(-1452, 128, 17776));
+			this.runMoonGenerator(MOON_TEMPLATE, 5, MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(11), MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(8), world, random, 0, 0, 0, new BlockPos(-1555, 148, 17804));
 			/** Char's stars **/
-			this.runStarGenerator(STAR_TEMPLATE, 71, 101, MetaBlockHandler.STAR_SURFACE.getStateFromMeta(5), world, random, 0, 0, 0, new BlockPos(6637, 128, 6000));
-			this.runStarGenerator(STAR_TEMPLATE, 21, 47, MetaBlockHandler.STAR_SURFACE.getStateFromMeta(2), world, random, 0, 0, 0, new BlockPos(6473, 128, 6100));
+			this.runStarGenerator(STAR_TEMPLATE, 71, 101, MetaBlockHandler.STAR_SURFACE.getStateFromMeta(5), world, random, 0, 0, 0, new BlockPos(-1315, 128, 17748));
+			this.runStarGenerator(STAR_TEMPLATE, 21, 47, MetaBlockHandler.STAR_SURFACE.getStateFromMeta(2), world, random, 0, 0, 0, new BlockPos(-1609, 128, 17748));
 
 			this.generationCompleted = true;
 		}
 
-		if (((chunkX < 387 || chunkX > 417) && (chunkZ > 391 || chunkZ < 361)) || ((chunkX < -15 || chunkX > 15) && (chunkZ > 15 || chunkZ < -15))) {
+		if (((chunkX < -80 || chunkX > -110) && (chunkZ > 1096 || chunkZ < 1126)) || ((chunkX < -15 || chunkX > 15) && (chunkZ > 15 || chunkZ < -15))) {
 			
 			if(random.nextInt(750) == 0)
 				runRandomStarGenerator(STAR_TEMPLATE, random.nextInt(50) + 25, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 255);

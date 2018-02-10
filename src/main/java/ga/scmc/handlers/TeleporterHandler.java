@@ -60,9 +60,9 @@ public class TeleporterHandler extends Teleporter {
 				world.setBlockState(playerSpawn.add(-1, -3, 0), Blocks.OBSIDIAN.getDefaultState());
 				*/
 			}else if(lastDim == ConfigurationHandler.INT_DIMENSION_CHAR) {
-				this.x = 6437;
+				this.x = -1515;
 				this.y = 180;
-				this.z = 6028;
+				this.z = 17776;
 			}
 		}
 	}
