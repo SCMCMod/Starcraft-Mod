@@ -2,8 +2,6 @@ package ga.scmc.worldgen.structure;
 
 import java.util.Random;
 
-import ga.scmc.handlers.BlockHandler;
-import ga.scmc.tileentity.TileEntityPlanetTeleporter;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
