@@ -21,37 +21,35 @@ import ocelot.api.utils.TimeUtils;
  */
 public class ItemShopTab extends GuiScreen {
 
-	private static final Minecraft	MC		= Minecraft.getMinecraft();
-	private ResourceLocation		texture;
+	private static final Minecraft MC = Minecraft.getMinecraft();
+	private ResourceLocation texture;
 
-	private ImmutableList<Product>	items;
-	private ItemStack				icon;
-	private String					name;
-	private int						id;
-	private int						x;
-	private int						y;
-	private int						width;
-	private int						height;
-	private boolean					selected;
+	private ImmutableList<Product> items;
+	private ItemStack icon;
+	private String name;
+	private int x;
+	private int y;
+	private int width;
+	private int height;
+	private boolean selected;
 
-	private int						xOffset	= 14;
+	private int xOffset = 14;
 
-	public ItemShopTab(ItemStack icon, String name, int id, int x, int y, ImmutableList<Product> items) {
-		this(icon, name, id, x, y, 32, 28, TimeUtils.isChristmas() ? new ResourceLocation(Library.RL_BASE + "textures/gui/itemShop/item_shop_christmas.png") : new ResourceLocation(Library.RL_BASE + "textures/gui/itemShop/item_shop.png"), items);
+	public ItemShopTab(ItemStack icon, String name, int x, int y, ImmutableList<Product> items) {
+		this(icon, name, x, y, 32, 28, TimeUtils.isChristmas() ? new ResourceLocation(Library.RL_BASE + "textures/gui/itemShop/item_shop_christmas.png") : new ResourceLocation(Library.RL_BASE + "textures/gui/itemShop/item_shop.png"), items);
 	}
 
-	public ItemShopTab(ItemStack icon, String name, int id, int x, int y, ResourceLocation texture, ImmutableList<Product> items) {
-		this(icon, name, id, x, y, 32, 28, texture, items);
+	public ItemShopTab(ItemStack icon, String name, int x, int y, ResourceLocation texture, ImmutableList<Product> items) {
+		this(icon, name, x, y, 32, 28, texture, items);
 	}
 
-	public ItemShopTab(ItemStack icon, String name, int id, int x, int y, int width, int height, ImmutableList<Product> items) {
-		this(icon, name, id, x, y, width, height, TimeUtils.isChristmas() ? new ResourceLocation(Library.RL_BASE + "textures/gui/itemShop/item_shop_christmas.png") : new ResourceLocation(Library.RL_BASE + "textures/gui/itemShop/item_shop.png"), items);
+	public ItemShopTab(ItemStack icon, String name, int x, int y, int width, int height, ImmutableList<Product> items) {
+		this(icon, name, x, y, width, height, TimeUtils.isChristmas() ? new ResourceLocation(Library.RL_BASE + "textures/gui/itemShop/item_shop_christmas.png") : new ResourceLocation(Library.RL_BASE + "textures/gui/itemShop/item_shop.png"), items);
 	}
 
-	public ItemShopTab(ItemStack icon, String name, int id, int x, int y, int width, int height, ResourceLocation texture, ImmutableList<Product> items) {
+	public ItemShopTab(ItemStack icon, String name, int x, int y, int width, int height, ResourceLocation texture, ImmutableList<Product> items) {
 		this.icon = icon;
 		this.name = name;
-		this.id = id;
 		this.x = x;
 		this.y = y;
 		this.width = width;

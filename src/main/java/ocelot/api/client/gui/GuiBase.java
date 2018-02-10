@@ -13,13 +13,13 @@ import ocelot.api.client.gui.component.Component;
 
 public abstract class GuiBase extends GuiScreen {
 
-	private List<Component>	components	= new ArrayList<Component>();
+	private List<Component> components = new ArrayList<Component>();
 
-	protected int			xSize, ySize;
-	protected int			guiLeft, guiTop;
-	protected boolean		renderDefaultBackground;
+	protected int xSize, ySize;
+	protected int guiLeft, guiTop;
+	protected boolean renderDefaultBackground;
 
-	private Component		selectedComonent;
+	private Component selectedComonent;
 
 	public GuiBase(int xSize, int ySize) {
 		this(xSize, ySize, true);

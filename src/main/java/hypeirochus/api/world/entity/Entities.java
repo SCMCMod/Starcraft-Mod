@@ -570,7 +570,6 @@ public class Entities {
 	 *            - String name of the entity class of which will be constructed.
 	 * @return Entity instance constructed using this method.
 	 */
-	@SuppressWarnings("unchecked")
 	public static Entity constructEntityViaClasspath(World world, String name) {
 		try {
 			return constructEntity(world, (Class<? extends Entity>) Class.forName(name));

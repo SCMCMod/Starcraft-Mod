@@ -29,7 +29,7 @@ public class EntityCivilian extends EntityTerranPassive {
 
 	public EntityCivilian(World world) {
 		super(world);
-		setSize(1.0F, 2.0F);
+		setSize(0.6F, 1.8F);
 		this.setTeamColor(EnumTeamColors.BLUE);
 		this.setFactions(EnumFactionTypes.RAIDERS);
 		setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
@@ -54,6 +54,7 @@ public class EntityCivilian extends EntityTerranPassive {
 	public boolean processInteract(EntityPlayer player, EnumHand hand, ItemStack stack) {
 		boolean flag = stack != null && stack.getItem() == Items.SPAWN_EGG;
 
+		setSize(0.6F, 1.8F);
 		if (!flag && this.isEntityAlive() && !this.isChild() && !player.isSneaking()) {
 			if (this.world.isRemote) {
 				player.openGui(Starcraft.instance, GuiHandler.SHOP_ID, world, (int) player.posX, (int) player.posY, (int) player.posZ);
