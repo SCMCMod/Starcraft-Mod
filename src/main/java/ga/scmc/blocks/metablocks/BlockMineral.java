@@ -30,7 +30,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 /**
  * This block has three variants. Refer to {@link CompressedMineralType}
  */
-public class BlockCompressedMinerals extends BlockGlass implements IMetaBlockName {
+public class BlockMineral extends BlockGlass implements IMetaBlockName {
 
 	/** The type property */
 	public static final PropertyEnum<CompressedMineralType> TYPE = PropertyEnum.create("type", CompressedMineralType.class);
@@ -43,7 +43,7 @@ public class BlockCompressedMinerals extends BlockGlass implements IMetaBlockNam
 	 * @param registryName
 	 *            The block's registry name - defaultly the unlocalized name
 	 */
-	public BlockCompressedMinerals() {
+	public BlockMineral() {
 		super(Material.ROCK, false);
 		setSoundType(SoundType.STONE);
 		setUnlocalizedName("mineral.compressed");

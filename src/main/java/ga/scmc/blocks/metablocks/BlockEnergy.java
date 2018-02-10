@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import ga.scmc.blocks.itemblocks.IMetaBlockName;
-import ga.scmc.blocks.metablocks.BlockCompressedMinerals.CompressedMineralType;
+import ga.scmc.blocks.metablocks.BlockMineral.CompressedMineralType;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.enums.EnumMetaItem.EnergyType;
 import ga.scmc.handlers.ItemHandler;

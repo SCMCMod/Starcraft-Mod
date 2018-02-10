@@ -5,6 +5,7 @@ import java.util.List;
 import ga.scmc.blocks.itemblocks.IMetaBlockName;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -21,14 +22,12 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 /**
- * This block has three variants. Refer to {@link ZergStructureCarapaceType}
+ * This block has sixteen variants. Refer to {@link NeosteelMetalType}
  */
-public class BlockZergStructureCarapace extends Block implements IMetaBlockName {
+public class BlockNeosteel extends Block implements IMetaBlockName {
 
-	/**
-	 * The type property
-	 */
-	public static final PropertyEnum<ZergStructureCarapaceType> TYPE = PropertyEnum.create("type", ZergStructureCarapaceType.class);
+	/** The type property */
+	public static final PropertyEnum<NeosteelMetalType> TYPE = PropertyEnum.create("type", NeosteelMetalType.class);
 
 	/**
 	 * Default constructor
@@ -38,14 +37,15 @@ public class BlockZergStructureCarapace extends Block implements IMetaBlockName 
 	 * @param registryName
 	 *            The block's registry name - defaultly the unlocalized name
 	 */
-	public BlockZergStructureCarapace() {
-		super(Material.ROCK);
-		setUnlocalizedName("zerg.carapace");
-		setRegistryName("zerg.carapace");
-		setHardness(15.0F);
-		setResistance(15.0F);
-		setDefaultState(blockState.getBaseState().withProperty(TYPE, ZergStructureCarapaceType.T1)); // Default state
-		setCreativeTab(StarcraftCreativeTabs.ZERG);
+	public BlockNeosteel() {
+		super(Material.IRON);
+		setSoundType(SoundType.METAL);
+		setUnlocalizedName("terran.neosteel");
+		setRegistryName("terran.neosteel");
+		setHardness(10.0F);
+		setResistance(10.0F);
+		setDefaultState(blockState.getBaseState().withProperty(TYPE, NeosteelMetalType.BASE));
+		setCreativeTab(StarcraftCreativeTabs.TERRAN);
 	}
 
 	@Override
@@ -74,7 +74,7 @@ public class BlockZergStructureCarapace extends Block implements IMetaBlockName 
 	 */
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		ZergStructureCarapaceType type = state.getValue(TYPE);
+		NeosteelMetalType type = state.getValue(TYPE);
 		return type.getID();
 	}
 
@@ -91,7 +91,7 @@ public class BlockZergStructureCarapace extends Block implements IMetaBlockName 
 	 */
 	@Override
 	public String getSpecialName(ItemStack stack) {
-		return ZergStructureCarapaceType.values()[stack.getItemDamage()].getName();
+		return NeosteelMetalType.values()[stack.getItemDamage()].getName();
 	}
 
 	/**
@@ -99,7 +99,7 @@ public class BlockZergStructureCarapace extends Block implements IMetaBlockName 
 	 */
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		return getDefaultState().withProperty(TYPE, ZergStructureCarapaceType.values()[meta]);
+		return getDefaultState().withProperty(TYPE, NeosteelMetalType.values()[meta]);
 	}
 
 	/**
@@ -107,21 +107,20 @@ public class BlockZergStructureCarapace extends Block implements IMetaBlockName 
 	 */
 	@Override
 	public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list) {
-		for (int i = 0; i < ZergStructureCarapaceType.values().length; i++) {
+		for (int i = 0; i < NeosteelMetalType.values().length; i++) {
 			list.add(new ItemStack(itemIn, 1, i));
 		}
 	}
 
-	public static enum ZergStructureCarapaceType implements IStringSerializable {
-		T1("1", 0, MapColor.BROWN),
-		T2("2", 1, MapColor.BROWN),
-		T3("3", 2, MapColor.BROWN);
+	public static enum NeosteelMetalType implements IStringSerializable {
+		BASE("base", 0, MapColor.IRON),
+		FRAME("frame", 1, MapColor.IRON);
 
 		private int			ID;
 		private String		name;
 		private MapColor	color;
 
-		private ZergStructureCarapaceType(String name, int ID, MapColor color) {
+		private NeosteelMetalType(String name, int ID, MapColor color) {
 			this.ID = ID;
 			this.name = name;
 			this.color = color;

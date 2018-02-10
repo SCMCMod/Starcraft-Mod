@@ -5,7 +5,6 @@ import java.util.List;
 import ga.scmc.blocks.itemblocks.IMetaBlockName;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -22,12 +21,14 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 /**
- * This block has sixteen variants. Refer to {@link ParisteelMetalType}
+ * This block has three variants. Refer to {@link ZergStructureCarapaceType}
  */
-public class BlockParisteelMetal extends Block implements IMetaBlockName {
+public class BlockZergCarapace extends Block implements IMetaBlockName {
 
-	/** The type property */
-	public static final PropertyEnum<ParisteelMetalType> TYPE = PropertyEnum.create("type", ParisteelMetalType.class);
+	/**
+	 * The type property
+	 */
+	public static final PropertyEnum<ZergStructureCarapaceType> TYPE = PropertyEnum.create("type", ZergStructureCarapaceType.class);
 
 	/**
 	 * Default constructor
@@ -37,15 +38,14 @@ public class BlockParisteelMetal extends Block implements IMetaBlockName {
 	 * @param registryName
 	 *            The block's registry name - defaultly the unlocalized name
 	 */
-	public BlockParisteelMetal() {
-		super(Material.IRON);
-		setSoundType(SoundType.METAL);
-		setUnlocalizedName("terran.paristeel");
-		setRegistryName("terran.paristeel");
-		setHardness(10.0F);
-		setResistance(10.0F);
-		setDefaultState(blockState.getBaseState().withProperty(TYPE, ParisteelMetalType.WHITE));
-		setCreativeTab(StarcraftCreativeTabs.TERRAN);
+	public BlockZergCarapace() {
+		super(Material.ROCK);
+		setUnlocalizedName("zerg.carapace");
+		setRegistryName("zerg.carapace");
+		setHardness(15.0F);
+		setResistance(15.0F);
+		setDefaultState(blockState.getBaseState().withProperty(TYPE, ZergStructureCarapaceType.T1)); // Default state
+		setCreativeTab(StarcraftCreativeTabs.ZERG);
 	}
 
 	@Override
@@ -74,7 +74,7 @@ public class BlockParisteelMetal extends Block implements IMetaBlockName {
 	 */
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		ParisteelMetalType type = state.getValue(TYPE);
+		ZergStructureCarapaceType type = state.getValue(TYPE);
 		return type.getID();
 	}
 
@@ -91,7 +91,7 @@ public class BlockParisteelMetal extends Block implements IMetaBlockName {
 	 */
 	@Override
 	public String getSpecialName(ItemStack stack) {
-		return ParisteelMetalType.values()[stack.getItemDamage()].getName();
+		return ZergStructureCarapaceType.values()[stack.getItemDamage()].getName();
 	}
 
 	/**
@@ -99,7 +99,7 @@ public class BlockParisteelMetal extends Block implements IMetaBlockName {
 	 */
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		return getDefaultState().withProperty(TYPE, ParisteelMetalType.values()[meta]);
+		return getDefaultState().withProperty(TYPE, ZergStructureCarapaceType.values()[meta]);
 	}
 
 	/**
@@ -107,34 +107,21 @@ public class BlockParisteelMetal extends Block implements IMetaBlockName {
 	 */
 	@Override
 	public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list) {
-		for (int i = 0; i < ParisteelMetalType.values().length; i++) {
+		for (int i = 0; i < ZergStructureCarapaceType.values().length; i++) {
 			list.add(new ItemStack(itemIn, 1, i));
 		}
 	}
 
-	public static enum ParisteelMetalType implements IStringSerializable {
-		PURPLE("purple", 0, MapColor.PURPLE),
-		BROWN("brown", 1, MapColor.BROWN),
-		PINK("pink", 2, MapColor.PINK),
-		BLUE("blue", 3, MapColor.BLUE),
-		CYAN("cyan", 4, MapColor.CYAN),
-		GRAY("gray", 5, MapColor.GRAY),
-		GREEN("green", 6, MapColor.GREEN),
-		LIGHT_BLUE("lightblue", 7, MapColor.LIGHT_BLUE),
-		LIME("lime", 8, MapColor.LIME),
-		MAGENTA("magenta", 9, MapColor.MAGENTA),
-		ORANGE("orange", 10, MapColor.ADOBE),
-		RED("red", 11, MapColor.RED),
-		SILVER("silver", 12, MapColor.SILVER),
-		WHITE("white", 13, MapColor.SNOW),
-		YELLOW("yellow", 14, MapColor.YELLOW),
-		BLACK("black", 15, MapColor.BLACK);
+	public static enum ZergStructureCarapaceType implements IStringSerializable {
+		T1("1", 0, MapColor.BROWN),
+		T2("2", 1, MapColor.BROWN),
+		T3("3", 2, MapColor.BROWN);
 
 		private int			ID;
 		private String		name;
 		private MapColor	color;
 
-		private ParisteelMetalType(String name, int ID, MapColor color) {
+		private ZergStructureCarapaceType(String name, int ID, MapColor color) {
 			this.ID = ID;
 			this.name = name;
 			this.color = color;
