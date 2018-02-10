@@ -1,7 +1,7 @@
 package ga.scmc.client.renderer.entity;
 
+import ga.scmc.client.renderer.ColoredLayerRender;
 import ga.scmc.client.renderer.Resources;
-import ga.scmc.client.renderer.entity.layers.ColoredLayerRender;
 import ga.scmc.client.renderer.model.ModelZerglingPrimal3;
 import ga.scmc.entity.living.EntityZerglingPrimal3;
 import net.minecraft.client.model.ModelBase;

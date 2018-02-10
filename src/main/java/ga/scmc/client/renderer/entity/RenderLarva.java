@@ -1,26 +1,27 @@
 package ga.scmc.client.renderer.entity;
 
+import ga.scmc.client.renderer.ColoredLayerRender;
 import ga.scmc.client.renderer.Resources;
-import ga.scmc.client.renderer.entity.layers.LayerLarvaColor;
-import ga.scmc.client.renderer.entity.layers.LayerLarvaGlowStatic;
 import ga.scmc.client.renderer.model.ModelLarva;
 import ga.scmc.entity.living.EntityLarva;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 
-//And again
-public class RenderLarva<T> extends RenderLiving<EntityLarva> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.LARVA_BASE);
-	protected ModelLarva model;
+public class RenderLarva extends RenderLiving<EntityLarva> implements LayerRenderer<EntityLarva> {
+	private static final ResourceLocation	BASE		= new ResourceLocation(Resources.LARVA_BASE);
+	private static final ResourceLocation	OVERLAY		= new ResourceLocation(Resources.LARVA_OVERLAY);
+	private static final ResourceLocation	STATICGLOW	= new ResourceLocation(Resources.LARVA_GLOW_STATIC);
+	private final RenderLarva				RENDERER;
+	protected ModelLarva					model;
 
 	public RenderLarva(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		GlStateManager.disableBlend();
-		addLayer(new LayerLarvaColor(this));
-		addLayer(new LayerLarvaGlowStatic(this));
+		model = ((ModelLarva) mainModel);
+		this.RENDERER = this;
+		this.addLayer(this);
 	}
 
 	@Override
@@ -34,6 +35,17 @@ public class RenderLarva<T> extends RenderLiving<EntityLarva> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityLarva entity) {
-		return TEXTURE;
+		return BASE;
+	}
+
+	@Override
+	public void doRenderLayer(EntityLarva entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
+	}
+
+	@Override
+	public boolean shouldCombineTextures() {
+		return true;
 	}
 }

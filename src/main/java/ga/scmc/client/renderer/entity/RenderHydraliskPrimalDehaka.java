@@ -1,26 +1,30 @@
 package ga.scmc.client.renderer.entity;
 
+import ga.scmc.client.renderer.ColoredLayerRender;
 import ga.scmc.client.renderer.Resources;
-import ga.scmc.client.renderer.entity.layers.LayerHydraliskPrimalDehakaColor;
-import ga.scmc.client.renderer.entity.layers.LayerHydraliskPrimalDehakaGlowStatic;
 import ga.scmc.client.renderer.model.ModelHydraliskPrimalDehaka;
 import ga.scmc.entity.living.EntityHydraliskPrimalDehaka;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 
-//Same reason for special case
-public class RenderHydraliskPrimalDehaka<T> extends RenderLiving<EntityHydraliskPrimalDehaka> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.HYDRALISKPRIMALDEHAKA_BASE);
-	protected ModelHydraliskPrimalDehaka model;
+public class RenderHydraliskPrimalDehaka extends RenderLiving<EntityHydraliskPrimalDehaka> implements LayerRenderer<EntityHydraliskPrimalDehaka> {
+
+	private static final ResourceLocation		BASE		= new ResourceLocation(Resources.HYDRALISKPRIMALDEHAKA_BASE);
+	private static final ResourceLocation		OVERLAY		= new ResourceLocation(Resources.HYDRALISK_OVERLAY);
+	private static final ResourceLocation		STATICGLOW	= new ResourceLocation(Resources.HYDRALISKPRIMALDEHAKA_GLOW_STATIC);
+	private final RenderHydraliskPrimalDehaka	RENDERER;
+
+	protected ModelHydraliskPrimalDehaka		model;
 
 	public RenderHydraliskPrimalDehaka(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelHydraliskPrimalDehaka) mainModel);
-		addLayer(new LayerHydraliskPrimalDehakaColor(this));
-		addLayer(new LayerHydraliskPrimalDehakaGlowStatic(this));
+		this.RENDERER = this;
+		this.addLayer(this);
 	}
 
 	@Override
@@ -34,11 +38,22 @@ public class RenderHydraliskPrimalDehaka<T> extends RenderLiving<EntityHydralisk
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityHydraliskPrimalDehaka entity) {
-		return TEXTURE;
+		return BASE;
 	}
 
 	@Override
 	protected void preRenderCallback(EntityHydraliskPrimalDehaka entitylivingbaseIn, float partialTickTime) {
-		GlStateManager.scale(1.3F + (entitylivingbaseIn.getBiomass() / 60), 1.3F + (entitylivingbaseIn.getBiomass() / 60), 1.3F + (entitylivingbaseIn.getBiomass() / 60));
+		GlStateManager.scale(1.5F + (entitylivingbaseIn.getBiomass() / 60), 1.5F + (entitylivingbaseIn.getBiomass() / 60), 1.5F + (entitylivingbaseIn.getBiomass() / 60));
+	}
+
+	@Override
+	public void doRenderLayer(EntityHydraliskPrimalDehaka entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
+	}
+
+	@Override
+	public boolean shouldCombineTextures() {
+		return true;
 	}
 }

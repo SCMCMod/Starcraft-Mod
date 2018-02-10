@@ -1,7 +1,7 @@
 package ga.scmc.client.renderer.entity;
 
+import ga.scmc.client.renderer.ColoredLayerRender;
 import ga.scmc.client.renderer.Resources;
-import ga.scmc.client.renderer.entity.layers.ColoredLayerRender;
 import ga.scmc.client.renderer.model.ModelBroodmother;
 import ga.scmc.entity.living.EntityNafash;
 import net.minecraft.client.model.ModelBase;

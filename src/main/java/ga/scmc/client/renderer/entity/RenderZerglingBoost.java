@@ -1,26 +1,29 @@
 package ga.scmc.client.renderer.entity;
 
+import ga.scmc.client.renderer.ColoredLayerRender;
 import ga.scmc.client.renderer.Resources;
-import ga.scmc.client.renderer.entity.layers.LayerZerglingBoostColor;
-import ga.scmc.client.renderer.entity.layers.LayerZerglingBoostGlowStatic;
 import ga.scmc.client.renderer.model.ModelZerglingBoost;
 import ga.scmc.entity.living.EntityZerglingBoost;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 
-//You know the drill; no more of these comments
-public class RenderZerglingBoost<T> extends RenderLiving<EntityZerglingBoost> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.ZERGLINGBOOST_BASE);
-	protected ModelZerglingBoost model;
+public class RenderZerglingBoost extends RenderLiving<EntityZerglingBoost> implements LayerRenderer<EntityZerglingBoost> {
+
+	private static final ResourceLocation	BASE		= new ResourceLocation(Resources.ZERGLINGBOOST_BASE);
+	private static final ResourceLocation	OVERLAY		= new ResourceLocation(Resources.ZERGLING_OVERLAY);
+	private static final ResourceLocation	STATICGLOW	= new ResourceLocation(Resources.ZERGLING_GLOW_STATIC);
+	private final RenderZerglingBoost		RENDERER;
+	protected ModelZerglingBoost			model;
 
 	public RenderZerglingBoost(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelZerglingBoost) mainModel);
-		addLayer(new LayerZerglingBoostColor(this));
-		addLayer(new LayerZerglingBoostGlowStatic(this));
+		this.RENDERER = this;
+		this.addLayer(this);
 	}
 
 	@Override
@@ -34,11 +37,22 @@ public class RenderZerglingBoost<T> extends RenderLiving<EntityZerglingBoost> {
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityZerglingBoost entity) {
-		return TEXTURE;
+		return BASE;
 	}
 
 	@Override
 	protected void preRenderCallback(EntityZerglingBoost entitylivingbaseIn, float partialTickTime) {
 		GlStateManager.scale(1.25F + (entitylivingbaseIn.getBiomass() / 60), 1.25F + (entitylivingbaseIn.getBiomass() / 60), 1.25F + (entitylivingbaseIn.getBiomass() / 60));
+	}
+
+	@Override
+	public void doRenderLayer(EntityZerglingBoost entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
+	}
+
+	@Override
+	public boolean shouldCombineTextures() {
+		return true;
 	}
 }

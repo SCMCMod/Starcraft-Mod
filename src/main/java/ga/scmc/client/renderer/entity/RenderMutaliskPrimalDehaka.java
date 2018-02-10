@@ -1,24 +1,27 @@
 package ga.scmc.client.renderer.entity;
 
+import ga.scmc.client.renderer.ColoredLayerRender;
 import ga.scmc.client.renderer.Resources;
-import ga.scmc.client.renderer.entity.layers.LayerMutaliskPrimalDehakaColor;
-import ga.scmc.client.renderer.entity.layers.LayerMutaliskPrimalDehakaGlowStatic;
 import ga.scmc.client.renderer.model.ModelMutaliskPrimalDehaka;
 import ga.scmc.entity.living.EntityMutaliskPrimalDehaka;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderMutaliskPrimalDehaka<T> extends RenderLiving<EntityMutaliskPrimalDehaka> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.MUTALISKPRIMALDEHAKA_BASE);
-	protected ModelMutaliskPrimalDehaka model;
+public class RenderMutaliskPrimalDehaka extends RenderLiving<EntityMutaliskPrimalDehaka> implements LayerRenderer<EntityMutaliskPrimalDehaka> {
+	private static final ResourceLocation		BASE		= new ResourceLocation(Resources.MUTALISKPRIMALDEHAKA_BASE);
+	private static final ResourceLocation		OVERLAY		= new ResourceLocation(Resources.MUTALISKPRIMALDEHAKA_OVERLAY);
+	private static final ResourceLocation		STATICGLOW	= new ResourceLocation(Resources.MUTALISKPRIMALDEHAKA_GLOW_STATIC);
+	private final RenderMutaliskPrimalDehaka	RENDERER;
+	protected ModelMutaliskPrimalDehaka			model;
 
 	public RenderMutaliskPrimalDehaka(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelMutaliskPrimalDehaka) mainModel);
-		addLayer(new LayerMutaliskPrimalDehakaColor(this));
-		addLayer(new LayerMutaliskPrimalDehakaGlowStatic(this));
+		this.RENDERER = this;
+		this.addLayer(this);
 	}
 
 	@Override
@@ -32,13 +35,21 @@ public class RenderMutaliskPrimalDehaka<T> extends RenderLiving<EntityMutaliskPr
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityMutaliskPrimalDehaka entity) {
-		return TEXTURE;
+		return BASE;
 	}
 
 	@Override
 	protected void preRenderCallback(EntityMutaliskPrimalDehaka entitylivingbaseIn, float partialTickTime) {
-		// GlStateManager.scale(1.0F + (entitylivingbaseIn.getBiomass() / 60), 1.0F +
-		// (entitylivingbaseIn.getBiomass() / 60), 1.0F +
-		// (entitylivingbaseIn.getBiomass() / 60));
+	}
+
+	@Override
+	public void doRenderLayer(EntityMutaliskPrimalDehaka entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
+	}
+
+	@Override
+	public boolean shouldCombineTextures() {
+		return true;
 	}
 }

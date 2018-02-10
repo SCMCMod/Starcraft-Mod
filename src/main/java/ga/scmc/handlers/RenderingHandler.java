@@ -189,15 +189,15 @@ import static ga.scmc.handlers.WeaponHandler.STEEL_SWORD;
 import static ga.scmc.handlers.WeaponHandler.TITANIUM_SWORD;
 import static ga.scmc.handlers.WeaponHandler.WARP_BLADE;
 
-import ga.scmc.blocks.metablocks.BlockMineral;
 import ga.scmc.blocks.metablocks.BlockGasCollector;
+import ga.scmc.blocks.metablocks.BlockKhaydarinCrystal;
+import ga.scmc.blocks.metablocks.BlockMineral;
 import ga.scmc.blocks.metablocks.BlockNeosteel;
 import ga.scmc.blocks.metablocks.BlockParisteel;
 import ga.scmc.blocks.metablocks.BlockPlanetSurface;
 import ga.scmc.blocks.metablocks.BlockProtossMetalT1;
 import ga.scmc.blocks.metablocks.BlockProtossMetalT2;
 import ga.scmc.blocks.metablocks.BlockProtossMetalT3;
-import ga.scmc.blocks.metablocks.BlockKhaydarinCrystal;
 import ga.scmc.blocks.metablocks.BlockStarSurface;
 import ga.scmc.blocks.metablocks.BlockTerranMetal;
 import ga.scmc.blocks.metablocks.BlockZergCarapace;

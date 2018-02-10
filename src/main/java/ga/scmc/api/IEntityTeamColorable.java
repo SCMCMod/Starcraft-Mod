@@ -5,7 +5,7 @@ import net.minecraft.entity.EntityLiving;
 
 /**
  * An interface used by the
- * {@link ga.scmc.client.renderer.entity.layers.ColoredLayerRender}
+ * {@link ga.scmc.client.renderer.ColoredLayerRender}
  * 
  * @author CJMinecraft
  * @param <T>

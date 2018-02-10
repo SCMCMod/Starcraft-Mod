@@ -1,4 +1,4 @@
-package ga.scmc.client.renderer.entity.layers;
+package ga.scmc.client.renderer;
 
 import org.lwjgl.opengl.GL11;
 

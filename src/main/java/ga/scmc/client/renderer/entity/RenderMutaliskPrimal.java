@@ -1,24 +1,27 @@
 package ga.scmc.client.renderer.entity;
 
+import ga.scmc.client.renderer.ColoredLayerRender;
 import ga.scmc.client.renderer.Resources;
-import ga.scmc.client.renderer.entity.layers.LayerMutaliskPrimalColor;
-import ga.scmc.client.renderer.entity.layers.LayerMutaliskPrimalGlowStatic;
 import ga.scmc.client.renderer.model.ModelMutaliskPrimal;
 import ga.scmc.entity.living.EntityMutaliskPrimal;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderMutaliskPrimal<T> extends RenderLiving<EntityMutaliskPrimal> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.MUTALISKPRIMAL_BASE);
-	protected ModelMutaliskPrimal model;
+public class RenderMutaliskPrimal extends RenderLiving<EntityMutaliskPrimal> implements LayerRenderer<EntityMutaliskPrimal> {
+	private static final ResourceLocation	BASE		= new ResourceLocation(Resources.MUTALISKPRIMAL_BASE);
+	private static final ResourceLocation	OVERLAY		= new ResourceLocation(Resources.MUTALISKPRIMAL_OVERLAY);
+	private static final ResourceLocation	STATICGLOW	= new ResourceLocation(Resources.MUTALISK_GLOW_STATIC);
+	private final RenderMutaliskPrimal		RENDERER;
+	protected ModelMutaliskPrimal			model;
 
 	public RenderMutaliskPrimal(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelMutaliskPrimal) mainModel);
-		addLayer(new LayerMutaliskPrimalColor(this));
-		addLayer(new LayerMutaliskPrimalGlowStatic(this));
+		this.RENDERER = this;
+		this.addLayer(this);
 	}
 
 	@Override
@@ -32,13 +35,21 @@ public class RenderMutaliskPrimal<T> extends RenderLiving<EntityMutaliskPrimal> 
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityMutaliskPrimal entity) {
-		return TEXTURE;
+		return BASE;
 	}
 
 	@Override
 	protected void preRenderCallback(EntityMutaliskPrimal entitylivingbaseIn, float partialTickTime) {
-		// GlStateManager.scale(1.0F + (entitylivingbaseIn.getBiomass() / 60), 1.0F +
-		// (entitylivingbaseIn.getBiomass() / 60), 1.0F +
-		// (entitylivingbaseIn.getBiomass() / 60));
+	}
+
+	@Override
+	public void doRenderLayer(EntityMutaliskPrimal entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
+	}
+
+	@Override
+	public boolean shouldCombineTextures() {
+		return true;
 	}
 }
