@@ -46,23 +46,26 @@ public class TeleporterHandler extends Teleporter {
 				this.x = 0;
 				this.y = 180;
 				this.z = 0;
-				/*
-				world.setBlockState(playerSpawn.add(0, -3, 0), Blocks.OBSIDIAN.getDefaultState());
-				world.setBlockState(playerSpawn.add(-1, -3, 1), Blocks.OBSIDIAN.getDefaultState());
-				world.setBlockState(playerSpawn.add(0, -3, 1), Blocks.OBSIDIAN.getDefaultState());
-				world.setBlockState(playerSpawn.add(1, -3, 1), Blocks.OBSIDIAN.getDefaultState());
-
-				world.setBlockState(playerSpawn.add(-1, -3, -1), Blocks.OBSIDIAN.getDefaultState());
-				world.setBlockState(playerSpawn.add(0, -3, -1), Blocks.OBSIDIAN.getDefaultState());
-				world.setBlockState(playerSpawn.add(1, -3, -1), Blocks.OBSIDIAN.getDefaultState());
-
-				world.setBlockState(playerSpawn.add(1, -3, 0), Blocks.OBSIDIAN.getDefaultState());
-				world.setBlockState(playerSpawn.add(-1, -3, 0), Blocks.OBSIDIAN.getDefaultState());
-				*/
 			}else if(lastDim == ConfigurationHandler.INT_DIMENSION_CHAR) {
 				this.x = -1515;
 				this.y = 180;
 				this.z = 17776;
+			}else if(lastDim == ConfigurationHandler.INT_DIMENSION_AIUR) {
+				this.x = 4444;
+				this.y = 180;
+				this.z = 17365;
+			}else if(lastDim == ConfigurationHandler.INT_DIMENSION_SHAKURAS) {
+				this.x = 6666;
+				this.y = 180;
+				this.z = 18180;
+			}else if(lastDim == ConfigurationHandler.INT_DIMENSION_KORHAL) {
+				this.x = 3290;
+				this.y = 180;
+				this.z = 11000;
+			}else if(lastDim == ConfigurationHandler.INT_DIMENSION_SLAYN) {
+				this.x = 7000;
+				this.y = 180;
+				this.z = 16666;
 			}
 		}
 	}
