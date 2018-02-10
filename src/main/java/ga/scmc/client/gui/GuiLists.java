@@ -155,7 +155,6 @@ public class GuiLists {
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.general.chausara.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.general.driftingplatforms.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.general.heimdalliv.txt")));
-		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.general.helioc3.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.general.polarisprime.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.general.scantid.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.general.shakurasterrain.txt")));
@@ -173,7 +172,7 @@ public class GuiLists {
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.protoss.overview.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.protoss.rassidan.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.protoss.tenarsis.txt")));
-		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.protoss.eldritchsprings.txt")));
+		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.protoss.eldritchspring.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.protoss.protossproverb.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.protoss.gardenofaiur.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.protoss.provinggrounds.txt")));
@@ -195,7 +194,6 @@ public class GuiLists {
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.terran.frontier.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.terran.gemini.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.terran.gpssurveyreport.txt")));
-		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.terran.koprulumining.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.terran.korhalscorching.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.terran.marine219xms87632.txt")));
 		LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Library.RL_BASE + "texts/logs/log.terran.matthewmurdoch.txt")));
