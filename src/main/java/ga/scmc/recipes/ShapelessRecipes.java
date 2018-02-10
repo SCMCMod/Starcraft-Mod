@@ -1,6 +1,6 @@
 package ga.scmc.recipes;
 
-import ga.scmc.enums.EnumMetaBlock.PylonCrystalType;
+import ga.scmc.blocks.metablocks.BlockPylonCrystal;
 import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumMetaItem.EnergyType;
 import ga.scmc.handlers.BlockHandler;
@@ -25,7 +25,7 @@ public class ShapelessRecipes {
 
 	public static void init() {
 		// Khaydarin x9 crystal from khaydarin block
-		for (int i = 0; i < PylonCrystalType.values().length; i++) {
+		for (int i = 0; i < BlockPylonCrystal.PylonCrystalType.values().length; i++) {
 			GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.KHAYDARIN_CRYSTAL, 9, i), new ItemStack(MetaBlockHandler.PYLON_CRYSTAL, 1, i));
 		}
 

@@ -25,6 +25,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -204,5 +205,34 @@ public class BlockStarcraftSkull extends BlockContainer {
 	@Override
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, new IProperty[] { FACING, NODROP });
+	}
+
+	public static enum EnumSkullType implements IStringSerializable {
+		CIVILIAN("civilian", 0),
+		ZERGLING_SC2("zergling_sc2", 1),
+		HYDRALISK("hydralisk", 2),
+		BRUTALISK("brutalisk", 3);
+
+		private int ID;
+		private String name;
+
+		private EnumSkullType(String name, int ID) {
+			this.ID = ID;
+			this.name = name;
+		}
+
+		public int getID() {
+			return ID;
+		}
+
+		@Override
+		public String getName() {
+			return name;
+		}
+
+		@Override
+		public String toString() {
+			return getName();
+		}
 	}
 }

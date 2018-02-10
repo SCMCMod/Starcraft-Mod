@@ -2,7 +2,7 @@ package ga.scmc.worldgen.structure;
 
 import java.util.Random;
 
-import ga.scmc.enums.EnumMetaBlock;
+import ga.scmc.blocks.metablocks.BlockStarSurface;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.MetaBlockHandler;
 import ga.scmc.tileentity.TileEntitySolarCore;
@@ -53,6 +53,6 @@ public class StructureStarTemplate extends SCWorldGenerator {
 	}
 
 	public void preselectStarColor(Random rand) {
-		this.metaStarColor = rand.nextInt(EnumMetaBlock.StarSurfaceType.values().length);
+		this.metaStarColor = rand.nextInt(BlockStarSurface.StarSurfaceType.values().length);
 	}
 }

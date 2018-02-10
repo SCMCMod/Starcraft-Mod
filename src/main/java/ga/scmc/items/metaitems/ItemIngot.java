@@ -2,8 +2,8 @@ package ga.scmc.items.metaitems;
 
 import java.util.List;
 
+import ga.scmc.blocks.metablocks.BlockTerranMetal;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
-import ga.scmc.enums.EnumMetaBlock.CompressedMetalType;
 import ga.scmc.enums.EnumMetaItem.IngotType;
 import ga.scmc.handlers.MetaBlockHandler;
 import ga.scmc.items.IItemCompressable;
@@ -50,7 +50,7 @@ public class ItemIngot extends Item implements IItemCompressable {
 
 	@Override
 	public ItemStack getCompressedForm(int metadata) {
-		if (metadata < CompressedMetalType.values().length) {
+		if (metadata < BlockTerranMetal.CompressedMetalType.values().length) {
 			return new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, metadata == 0 ? 0 : metadata == 1 ? 2 : 1);
 		}
 		return null;

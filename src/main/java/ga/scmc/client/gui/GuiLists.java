@@ -7,9 +7,9 @@ import java.util.List;
 import com.google.common.collect.ImmutableList;
 
 import ga.scmc.api.Utils;
+import ga.scmc.blocks.metablocks.BlockNeosteelMetal.NeosteelMetalType;
+import ga.scmc.blocks.metablocks.BlockParisteelMetal.ParisteelMetalType;
 import ga.scmc.client.gui.element.LarvaOption;
-import ga.scmc.enums.EnumMetaBlock.NeosteelMetalType;
-import ga.scmc.enums.EnumMetaBlock.ParisteelMetalType;
 import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.BlockHandler;

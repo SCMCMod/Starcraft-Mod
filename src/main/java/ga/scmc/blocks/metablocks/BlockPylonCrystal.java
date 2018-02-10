@@ -5,7 +5,6 @@ import java.util.Random;
 
 import ga.scmc.blocks.itemblocks.IMetaBlockName;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
-import ga.scmc.enums.EnumMetaBlock.PylonCrystalType;
 import ga.scmc.handlers.ItemHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -19,6 +18,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
@@ -119,6 +119,40 @@ public class BlockPylonCrystal extends Block implements IMetaBlockName {
 	public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list) {
 		for (int i = 0; i < PylonCrystalType.values().length; i++) {
 			list.add(new ItemStack(itemIn, 1, i));
+		}
+	}
+
+	public static enum PylonCrystalType implements IStringSerializable {
+		PURE("pure", 0, MapColor.LIGHT_BLUE),
+		DARK("dark", 1, MapColor.BLACK),
+		VOID("void", 2, MapColor.LIME);
+
+		private int			ID;
+		private String		name;
+		private MapColor	color;
+
+		private PylonCrystalType(String name, int ID, MapColor color) {
+			this.ID = ID;
+			this.name = name;
+			this.color = color;
+		}
+
+		public int getID() {
+			return ID;
+		}
+
+		@Override
+		public String getName() {
+			return name;
+		}
+
+		public MapColor getMapColor() {
+			return color;
+		}
+
+		@Override
+		public String toString() {
+			return getName();
 		}
 	}
 }

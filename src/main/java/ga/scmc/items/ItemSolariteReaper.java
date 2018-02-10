@@ -1,7 +1,6 @@
 package ga.scmc.items;
 
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
-import ga.scmc.handlers.WeaponHandler;
 import ga.scmc.material.WeaponMaterials;
 import net.minecraft.item.ItemSword;
 

@@ -4,7 +4,6 @@ import java.util.List;
 
 import ga.scmc.blocks.itemblocks.IMetaBlockName;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
-import ga.scmc.enums.EnumMetaBlock.ProtossMetalType;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -17,6 +16,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
@@ -110,6 +110,42 @@ public class BlockProtossMetalT1 extends Block implements IMetaBlockName {
 	public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list) {
 		for (int i = 0; i < ProtossMetalType.values().length; i++) {
 			list.add(new ItemStack(itemIn, 1, i));
+		}
+	}
+	
+	public static enum ProtossMetalType implements IStringSerializable {
+		AIUR("aiur", 0, MapColor.GOLD),
+		DARK("dark", 1, MapColor.BLACK),
+		GREEN("green", 2, MapColor.GREEN),
+		BLUE("blue", 3, MapColor.BLUE),
+		RED("red", 4, MapColor.RED);
+
+		private int ID;
+		private String name;
+		private MapColor color;
+
+		private ProtossMetalType(String name, int ID, MapColor color) {
+			this.ID = ID;
+			this.name = name;
+			this.color = color;
+		}
+
+		public int getID() {
+			return ID;
+		}
+
+		@Override
+		public String getName() {
+			return name;
+		}
+
+		public MapColor getMapColor() {
+			return color;
+		}
+
+		@Override
+		public String toString() {
+			return getName();
 		}
 	}
 }

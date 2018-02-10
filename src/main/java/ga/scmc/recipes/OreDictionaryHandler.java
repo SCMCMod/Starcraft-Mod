@@ -1,6 +1,6 @@
 package ga.scmc.recipes;
 
-import ga.scmc.enums.EnumMetaBlock;
+import ga.scmc.blocks.metablocks.BlockTerranMetal;
 import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ItemHandler;
@@ -11,9 +11,9 @@ import net.minecraftforge.oredict.OreDictionary;
 public class OreDictionaryHandler {
 
 	public static void preInit() {
-		OreDictionary.registerOre("blockSteel", new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.STEEL.getID()));
-		OreDictionary.registerOre("blockCopper", new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.COPPER.getID()));
-		OreDictionary.registerOre("blockTitanium", new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.TITANIUM.getID()));
+		OreDictionary.registerOre("blockSteel", new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, BlockTerranMetal.CompressedMetalType.STEEL.getID()));
+		OreDictionary.registerOre("blockCopper", new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, BlockTerranMetal.CompressedMetalType.COPPER.getID()));
+		OreDictionary.registerOre("blockTitanium", new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, BlockTerranMetal.CompressedMetalType.TITANIUM.getID()));
 
 		OreDictionary.registerOre("cobblestone", BlockHandler.COBBLESTONE_CHAR);
 		OreDictionary.registerOre("cobblestone", BlockHandler.COBBLESTONE_SHAKURAS);

@@ -189,6 +189,20 @@ import static ga.scmc.handlers.WeaponHandler.STEEL_SWORD;
 import static ga.scmc.handlers.WeaponHandler.TITANIUM_SWORD;
 import static ga.scmc.handlers.WeaponHandler.WARP_BLADE;
 
+import ga.scmc.blocks.metablocks.BlockCompressedMinerals;
+import ga.scmc.blocks.metablocks.BlockGasCollector;
+import ga.scmc.blocks.metablocks.BlockNeosteelMetal;
+import ga.scmc.blocks.metablocks.BlockParisteelMetal;
+import ga.scmc.blocks.metablocks.BlockPlanetSurface;
+import ga.scmc.blocks.metablocks.BlockProtossMetalT1;
+import ga.scmc.blocks.metablocks.BlockProtossMetalT2;
+import ga.scmc.blocks.metablocks.BlockProtossMetalT3;
+import ga.scmc.blocks.metablocks.BlockPylonCrystal;
+import ga.scmc.blocks.metablocks.BlockStarSurface;
+import ga.scmc.blocks.metablocks.BlockTerranMetal;
+import ga.scmc.blocks.metablocks.BlockZergStructureCarapace;
+import ga.scmc.blocks.metablocks.BlockZergStructureFlesh;
+import ga.scmc.blocks.skulls.BlockStarcraftSkull;
 import ga.scmc.client.renderer.entity.RenderAdept;
 import ga.scmc.client.renderer.entity.RenderArtosilope;
 import ga.scmc.client.renderer.entity.RenderBrakk;
@@ -352,7 +366,6 @@ import ga.scmc.entity.living.EntityZerglingPrimal3;
 import ga.scmc.entity.living.EntityZerglingPrimalDehaka;
 import ga.scmc.entity.living.EntityZerglingRaptor;
 import ga.scmc.entity.living.EntityZerglingSwarmling;
-import ga.scmc.enums.EnumMetaBlock;
 import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumMetaItem.EnergyType;
 import ga.scmc.enums.EnumMetaItem.ProtossUpgradeType;
@@ -598,8 +611,8 @@ public class RenderingHandler {
 		for (int i = 0; i < EnumMetaItem.ProtossUpgradeType.values().length; i++) {
 			registerItemRender(PROTOSS_UPGRADE, i, "protoss.upgrade." + ProtossUpgradeType.values()[i].getName());
 		}
-		for (int i = 0; i < EnumMetaBlock.PylonCrystalType.values().length; i++) {
-			registerItemRender(KHAYDARIN_CRYSTAL, i, "protoss.khaydarincrystal." + EnumMetaBlock.PylonCrystalType.values()[i].getName());
+		for (int i = 0; i < BlockPylonCrystal.PylonCrystalType.values().length; i++) {
+			registerItemRender(KHAYDARIN_CRYSTAL, i, "protoss.khaydarincrystal." + BlockPylonCrystal.PylonCrystalType.values()[i].getName());
 		}
 	}
 
@@ -790,46 +803,46 @@ public class RenderingHandler {
 	 * Register the renders for the meta blocks.
 	 */
 	public static void registerBlockMetaRenders() {
-		for (int i = 0; i < EnumMetaBlock.ProtossMetalType.values().length; i++) {
-			registerBlockModel(PROTOSS_METAL_T1, i, "protoss.metal.1." + EnumMetaBlock.ProtossMetalType.values()[i].getName());
-			registerBlockModel(PROTOSS_METAL_T2, i, "protoss.metal.2." + EnumMetaBlock.ProtossMetalType.values()[i].getName());
-			registerBlockModel(PROTOSS_METAL_T3, i, "protoss.metal.3." + EnumMetaBlock.ProtossMetalType.values()[i].getName());
+		for (int i = 0; i < BlockProtossMetalT1.ProtossMetalType.values().length; i++) {
+			registerBlockModel(PROTOSS_METAL_T1, i, "protoss.metal.1." + BlockProtossMetalT1.ProtossMetalType.values()[i].getName());
+			registerBlockModel(PROTOSS_METAL_T2, i, "protoss.metal.2." + BlockProtossMetalT2.ProtossMetalType.values()[i].getName());
+			registerBlockModel(PROTOSS_METAL_T3, i, "protoss.metal.3." + BlockProtossMetalT3.ProtossMetalType.values()[i].getName());
 		}
-		for (int i = 0; i < EnumMetaBlock.ZergFleshType.values().length; i++) {
-			registerBlockModel(ZERG_FLESH, i, "zerg.flesh." + EnumMetaBlock.ZergFleshType.values()[i].getName());
+		for (int i = 0; i < BlockZergStructureFlesh.ZergFleshType.values().length; i++) {
+			registerBlockModel(ZERG_FLESH, i, "zerg.flesh." + BlockZergStructureFlesh.ZergFleshType.values()[i].getName());
 		}
-		for (int i = 0; i < EnumMetaBlock.ParisteelMetalType.values().length; i++) {
-			registerBlockModel(PARISTEEL_METAL, i, "terran.paristeel." + EnumMetaBlock.ParisteelMetalType.values()[i].getName());
+		for (int i = 0; i < BlockParisteelMetal.ParisteelMetalType.values().length; i++) {
+			registerBlockModel(PARISTEEL_METAL, i, "terran.paristeel." + BlockParisteelMetal.ParisteelMetalType.values()[i].getName());
 		}
-		for (int i = 0; i < EnumMetaBlock.PylonCrystalType.values().length; i++) {
-			registerBlockModel(PYLON_CRYSTAL, i, "protoss.pyloncrystal." + EnumMetaBlock.PylonCrystalType.values()[i].getName());
+		for (int i = 0; i < BlockPylonCrystal.PylonCrystalType.values().length; i++) {
+			registerBlockModel(PYLON_CRYSTAL, i, "protoss.pyloncrystal." + BlockPylonCrystal.PylonCrystalType.values()[i].getName());
 		}
-		for (int i = 0; i < EnumMetaBlock.ZergStructureCarapaceType.values().length; i++) {
-			registerBlockModel(ZERG_CARAPACE_BLOCK, i, "zerg.carapace." + EnumMetaBlock.ZergStructureCarapaceType.values()[i].getName());
+		for (int i = 0; i < BlockZergStructureCarapace.ZergStructureCarapaceType.values().length; i++) {
+			registerBlockModel(ZERG_CARAPACE_BLOCK, i, "zerg.carapace." + BlockZergStructureCarapace.ZergStructureCarapaceType.values()[i].getName());
 		}
-		for (int i = 0; i < EnumMetaBlock.CompressedMetalType.values().length; i++) {
-			registerBlockModel(COMP_METAL_T1, i, "terran.metal." + EnumMetaBlock.CompressedMetalType.values()[i].getName());
+		for (int i = 0; i < BlockTerranMetal.CompressedMetalType.values().length; i++) {
+			registerBlockModel(COMP_METAL_T1, i, "terran.metal." + BlockTerranMetal.CompressedMetalType.values()[i].getName());
 		}
-		for (int i = 0; i < EnumMetaBlock.NeosteelMetalType.values().length; i++) {
-			registerBlockModel(NEOSTEEL_METAL, i, "terran.neosteel." + EnumMetaBlock.NeosteelMetalType.values()[i].getName());
+		for (int i = 0; i < BlockNeosteelMetal.NeosteelMetalType.values().length; i++) {
+			registerBlockModel(NEOSTEEL_METAL, i, "terran.neosteel." + BlockNeosteelMetal.NeosteelMetalType.values()[i].getName());
 		}
-		for (int i = 0; i < EnumMetaBlock.CompressedMineralType.values().length; i++) {
-			registerBlockModel(COMP_MINERAL, i, "mineral.compressed." + EnumMetaBlock.CompressedMineralType.values()[i].getName());
+		for (int i = 0; i < BlockCompressedMinerals.CompressedMineralType.values().length; i++) {
+			registerBlockModel(COMP_MINERAL, i, "mineral.compressed." + BlockCompressedMinerals.CompressedMineralType.values()[i].getName());
 		}
 		for (int i = 0; i < EnergyType.values().length; i++) {
 			registerBlockModel(MetaBlockHandler.ENERGY, i, "block.energy." + EnergyType.values()[i].getName());
 		}
-		for (int i = 0; i < EnumMetaBlock.GasCollectorType.values().length; i++) {
-			registerBlockModel(GAS_COLLECTOR, i, "gas.collector." + EnumMetaBlock.GasCollectorType.values()[i].getName());
+		for (int i = 0; i < BlockGasCollector.GasCollectorType.values().length; i++) {
+			registerBlockModel(GAS_COLLECTOR, i, "gas.collector." + BlockGasCollector.GasCollectorType.values()[i].getName());
 		}
-		for (int i = 0; i < EnumMetaBlock.EnumSkullType.values().length; i++) {
+		for (int i = 0; i < BlockStarcraftSkull.EnumSkullType.values().length; i++) {
 			registerBlockModel(STARCRAFT_SKULL, i, "skull");
 		}
-		for (int i = 0; i < EnumMetaBlock.StarSurfaceType.values().length; i++) {
-			registerBlockModel(STAR_SURFACE, i, "block.star." + EnumMetaBlock.StarSurfaceType.values()[i].getName());
+		for (int i = 0; i < BlockStarSurface.StarSurfaceType.values().length; i++) {
+			registerBlockModel(STAR_SURFACE, i, "block.star." + BlockStarSurface.StarSurfaceType.values()[i].getName());
 		}
-		for (int i = 0; i < EnumMetaBlock.PlanetSurfaceType.values().length; i++) {
-			registerBlockModel(PLANET_SURFACE, i, "block.planet." + EnumMetaBlock.PlanetSurfaceType.values()[i].getName());
+		for (int i = 0; i < BlockPlanetSurface.PlanetSurfaceType.values().length; i++) {
+			registerBlockModel(PLANET_SURFACE, i, "block.planet." + BlockPlanetSurface.PlanetSurfaceType.values()[i].getName());
 		}
 	}
 

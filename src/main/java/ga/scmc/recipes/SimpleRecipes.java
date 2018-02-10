@@ -1,7 +1,13 @@
 package ga.scmc.recipes;
 
-import ga.scmc.enums.EnumMetaBlock;
-import ga.scmc.enums.EnumMetaBlock.PylonCrystalType;
+import ga.scmc.blocks.metablocks.BlockCompressedMinerals;
+import ga.scmc.blocks.metablocks.BlockGasCollector;
+import ga.scmc.blocks.metablocks.BlockProtossMetalT1;
+import ga.scmc.blocks.metablocks.BlockProtossMetalT2;
+import ga.scmc.blocks.metablocks.BlockProtossMetalT3;
+import ga.scmc.blocks.metablocks.BlockPylonCrystal.PylonCrystalType;
+import ga.scmc.blocks.metablocks.BlockTerranMetal;
+import ga.scmc.blocks.metablocks.BlockZergStructureCarapace;
 import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.handlers.ArmorHandler;
 import ga.scmc.handlers.BlockHandler;
@@ -44,29 +50,29 @@ public class SimpleRecipes {
 		}
 
 		// Protoss Metal
-		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.PROTOSS_METAL_T1, 1, EnumMetaBlock.ProtossMetalType.AIUR.getID()), "AAA", "AAA", "AAA", 'A', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.KHALAI.getID()));
-		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.PROTOSS_METAL_T2, 1, EnumMetaBlock.ProtossMetalType.AIUR.getID()), "AAA", "AZA", "AAA", 'A', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.KHALAI.getID()), 'Z', new ItemStack(MetaBlockHandler.PROTOSS_METAL_T1, 1, EnumMetaBlock.ProtossMetalType.AIUR.getID()));
-		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.PROTOSS_METAL_T3, 1, EnumMetaBlock.ProtossMetalType.AIUR.getID()), "AAA", "AZA", "AAA", 'A', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.KHALAI.getID()), 'Z', new ItemStack(MetaBlockHandler.PROTOSS_METAL_T2, 1, EnumMetaBlock.ProtossMetalType.AIUR.getID()));
+		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.PROTOSS_METAL_T1, 1, BlockProtossMetalT1.ProtossMetalType.AIUR.getID()), "AAA", "AAA", "AAA", 'A', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.KHALAI.getID()));
+		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.PROTOSS_METAL_T2, 1, BlockProtossMetalT2.ProtossMetalType.AIUR.getID()), "AAA", "AZA", "AAA", 'A', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.KHALAI.getID()), 'Z', new ItemStack(MetaBlockHandler.PROTOSS_METAL_T1, 1, BlockProtossMetalT2.ProtossMetalType.AIUR.getID()));
+		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.PROTOSS_METAL_T3, 1, BlockProtossMetalT3.ProtossMetalType.AIUR.getID()), "AAA", "AZA", "AAA", 'A', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.KHALAI.getID()), 'Z', new ItemStack(MetaBlockHandler.PROTOSS_METAL_T2, 1, BlockProtossMetalT3.ProtossMetalType.AIUR.getID()));
 
 		// Dark Protoss Metal
-		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.PROTOSS_METAL_T1, 1, EnumMetaBlock.ProtossMetalType.DARK.getID()), "DDD", "DDD", "DDD", 'D', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()));
-		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.PROTOSS_METAL_T2, 1, EnumMetaBlock.ProtossMetalType.DARK.getID()), "DDD", "DZD", "DDD", 'D', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()), 'Z', new ItemStack(MetaBlockHandler.PROTOSS_METAL_T1, 1, EnumMetaBlock.ProtossMetalType.DARK.getID()));
-		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.PROTOSS_METAL_T3, 1, EnumMetaBlock.ProtossMetalType.DARK.getID()), "DDD", "DZD", "DDD", 'D', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()), 'Z', new ItemStack(MetaBlockHandler.PROTOSS_METAL_T2, 1, EnumMetaBlock.ProtossMetalType.DARK.getID()));
+		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.PROTOSS_METAL_T1, 1, BlockProtossMetalT1.ProtossMetalType.DARK.getID()), "DDD", "DDD", "DDD", 'D', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()));
+		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.PROTOSS_METAL_T2, 1, BlockProtossMetalT2.ProtossMetalType.DARK.getID()), "DDD", "DZD", "DDD", 'D', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()), 'Z', new ItemStack(MetaBlockHandler.PROTOSS_METAL_T1, 1, BlockProtossMetalT2.ProtossMetalType.DARK.getID()));
+		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.PROTOSS_METAL_T3, 1, BlockProtossMetalT3.ProtossMetalType.DARK.getID()), "DDD", "DZD", "DDD", 'D', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()), 'Z', new ItemStack(MetaBlockHandler.PROTOSS_METAL_T2, 1, BlockProtossMetalT3.ProtossMetalType.DARK.getID()));
 
 		// Zerg Carapace T1
-		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.ZERG_CARAPACE_BLOCK, 1, EnumMetaBlock.ZergStructureCarapaceType.T1.getID()), "CCC", "CCC", "CCC", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T1.getID()));
+		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.ZERG_CARAPACE_BLOCK, 1, BlockZergStructureCarapace.ZergStructureCarapaceType.T1.getID()), "CCC", "CCC", "CCC", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T1.getID()));
 
 		// Zerg Carapace T2
-		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.ZERG_CARAPACE_BLOCK, 1, EnumMetaBlock.ZergStructureCarapaceType.T2.getID()), "CCC", "CCC", "CCC", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T2.getID()));
+		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.ZERG_CARAPACE_BLOCK, 1, BlockZergStructureCarapace.ZergStructureCarapaceType.T2.getID()), "CCC", "CCC", "CCC", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T2.getID()));
 
 		// Zerg Carapace T3
-		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.ZERG_CARAPACE_BLOCK, 1, EnumMetaBlock.ZergStructureCarapaceType.T3.getID()), "CCC", "CCC", "CCC", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T3.getID()));
+		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.ZERG_CARAPACE_BLOCK, 1, BlockZergStructureCarapace.ZergStructureCarapaceType.T3.getID()), "CCC", "CCC", "CCC", 'C', new ItemStack(ItemHandler.ZERG_CARAPACE, 1, EnumMetaItem.CarapaceType.T3.getID()));
 
 		// 9 Mineral Shards
-		GameRegistry.addRecipe(new ItemStack(ItemHandler.MINERAL_SHARD, 9, EnumMetaItem.MineralType.BLUE.getID()), "M", 'M', new ItemStack(MetaBlockHandler.COMP_MINERAL, 1, EnumMetaBlock.CompressedMineralType.BLUE.getID()));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.MINERAL_SHARD, 9, EnumMetaItem.MineralType.BLUE.getID()), "M", 'M', new ItemStack(MetaBlockHandler.COMP_MINERAL, 1, BlockCompressedMinerals.CompressedMineralType.BLUE.getID()));
 
 		// 9 Rich Mineral Shards
-		GameRegistry.addRecipe(new ItemStack(ItemHandler.MINERAL_SHARD, 9, EnumMetaItem.MineralType.RICH.getID()), "M", 'M', new ItemStack(MetaBlockHandler.COMP_MINERAL, 1, EnumMetaBlock.CompressedMineralType.RICH.getID()));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.MINERAL_SHARD, 9, EnumMetaItem.MineralType.RICH.getID()), "M", 'M', new ItemStack(MetaBlockHandler.COMP_MINERAL, 1, BlockCompressedMinerals.CompressedMineralType.RICH.getID()));
 
 		// 9 Dark Protoss Ingots
 		GameRegistry.addRecipe(new ItemStack(ItemHandler.PROTOSS_INGOT, 9, EnumMetaItem.ProtossIngotType.DARK.getID()), "D", 'D', new ItemStack(MetaBlockHandler.PROTOSS_METAL_T1, 1, 1));
@@ -75,13 +81,13 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(ItemHandler.PROTOSS_INGOT, 9, EnumMetaItem.ProtossIngotType.KHALAI.getID()), "A", 'A', new ItemStack(MetaBlockHandler.PROTOSS_METAL_T1, 1, 0));
 
 		// 9 Zerg Carapace T1
-		GameRegistry.addRecipe(new ItemStack(ItemHandler.ZERG_CARAPACE, 9, EnumMetaItem.CarapaceType.T1.getID()), "C", 'C', new ItemStack(MetaBlockHandler.ZERG_CARAPACE_BLOCK, 1, EnumMetaBlock.ZergStructureCarapaceType.T1.getID()));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.ZERG_CARAPACE, 9, EnumMetaItem.CarapaceType.T1.getID()), "C", 'C', new ItemStack(MetaBlockHandler.ZERG_CARAPACE_BLOCK, 1, BlockZergStructureCarapace.ZergStructureCarapaceType.T1.getID()));
 
 		// 9 Zerg Carapace T2
-		GameRegistry.addRecipe(new ItemStack(ItemHandler.ZERG_CARAPACE, 9, EnumMetaItem.CarapaceType.T2.getID()), "C", 'C', new ItemStack(MetaBlockHandler.ZERG_CARAPACE_BLOCK, 1, EnumMetaBlock.ZergStructureCarapaceType.T2.getID()));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.ZERG_CARAPACE, 9, EnumMetaItem.CarapaceType.T2.getID()), "C", 'C', new ItemStack(MetaBlockHandler.ZERG_CARAPACE_BLOCK, 1, BlockZergStructureCarapace.ZergStructureCarapaceType.T2.getID()));
 
 		// 9 Zerg Carapace T3
-		GameRegistry.addRecipe(new ItemStack(ItemHandler.ZERG_CARAPACE, 9, EnumMetaItem.CarapaceType.T3.getID()), "C", 'C', new ItemStack(MetaBlockHandler.ZERG_CARAPACE_BLOCK, 1, EnumMetaBlock.ZergStructureCarapaceType.T3.getID()));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.ZERG_CARAPACE, 9, EnumMetaItem.CarapaceType.T3.getID()), "C", 'C', new ItemStack(MetaBlockHandler.ZERG_CARAPACE_BLOCK, 1, BlockZergStructureCarapace.ZergStructureCarapaceType.T3.getID()));
 
 		// Psi Blade Focuser Uncharged
 		GameRegistry.addRecipe(new ItemStack(ItemHandler.PSI_BLADE_FOCUSER_UNCHARGED, 1, EnumMetaItem.FocuserType.AIUR.getID()), " A ", "A A", " AA", 'A', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.KHALAI.getID()));
@@ -90,13 +96,13 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(ItemHandler.PSI_BLADE_FOCUSER_UNCHARGED, 1, EnumMetaItem.FocuserType.DARK.getID()), " D ", "D D", " DD", 'D', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, EnumMetaItem.ProtossIngotType.DARK.getID()));
 
 		// 9 Copper Ingots
-		GameRegistry.addRecipe(new ItemStack(ItemHandler.INGOT, 9, 0), "C", 'C', new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.COPPER.getID()));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.INGOT, 9, 0), "C", 'C', new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, BlockTerranMetal.CompressedMetalType.COPPER.getID()));
 
 		// 9 Titanium Ingots
-		GameRegistry.addRecipe(new ItemStack(ItemHandler.INGOT, 9, 1), "T", 'T', new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.TITANIUM.getID()));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.INGOT, 9, 1), "T", 'T', new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, BlockTerranMetal.CompressedMetalType.TITANIUM.getID()));
 
 		// 9 Steel Ingots
-		GameRegistry.addRecipe(new ItemStack(ItemHandler.INGOT, 9, 2), "S", 'S', new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, EnumMetaBlock.CompressedMetalType.STEEL.getID()));
+		GameRegistry.addRecipe(new ItemStack(ItemHandler.INGOT, 9, 2), "S", 'S', new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, BlockTerranMetal.CompressedMetalType.STEEL.getID()));
 
 		// Zerg Creep
 		GameRegistry.addRecipe(new ItemStack(BlockHandler.ZERG_CREEP), "CC", "CC", 'C', ItemHandler.CREEP_RESIN);
@@ -262,13 +268,13 @@ public class SimpleRecipes {
 		GameRegistry.addRecipe(new ItemStack(ItemHandler.TERRAZINE, 1, EnumMetaItem.TerrazineType.ZERG.getID()), " F ", "FVF", " F ", 'F', ItemHandler.ORGANIC_TISSUE, 'V', new ItemStack(ItemHandler.TERRAZINE, 1, EnumMetaItem.TerrazineType.RAW.getID()));
 
 		// Protoss Gas Collector
-		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.GAS_COLLECTOR, 1, EnumMetaBlock.GasCollectorType.PROTOSS.getID()), "PPP", "PMP", "P P", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, OreDictionary.WILDCARD_VALUE), 'M', new ItemStack(ItemHandler.GAS_CONTAINER, 1, EnumMetaItem.ContainerType.PROTOSS.getID()));
+		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.GAS_COLLECTOR, 1, BlockGasCollector.GasCollectorType.PROTOSS.getID()), "PPP", "PMP", "P P", 'P', new ItemStack(ItemHandler.PROTOSS_INGOT, 1, OreDictionary.WILDCARD_VALUE), 'M', new ItemStack(ItemHandler.GAS_CONTAINER, 1, EnumMetaItem.ContainerType.PROTOSS.getID()));
 
 		// Terran Gas Collector
-		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.GAS_COLLECTOR, 1, EnumMetaBlock.GasCollectorType.TERRAN.getID()), "III", "IMI", "I I", 'I', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'M', new ItemStack(ItemHandler.GAS_CONTAINER, 1, EnumMetaItem.ContainerType.TERRAN.getID()));
+		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.GAS_COLLECTOR, 1, BlockGasCollector.GasCollectorType.TERRAN.getID()), "III", "IMI", "I I", 'I', new ItemStack(ItemHandler.INGOT, 1, EnumMetaItem.IngotType.STEEL.getID()), 'M', new ItemStack(ItemHandler.GAS_CONTAINER, 1, EnumMetaItem.ContainerType.TERRAN.getID()));
 
 		// Zerg Gas Collector
-		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.GAS_COLLECTOR, 1, EnumMetaBlock.GasCollectorType.ZERG.getID()), "FFF", "FMF", "F F", 'F', new ItemStack(MetaBlockHandler.ZERG_FLESH, 1, OreDictionary.WILDCARD_VALUE), 'M', new ItemStack(ItemHandler.GAS_CONTAINER, 1, EnumMetaItem.ContainerType.ZERG.getID()));
+		GameRegistry.addRecipe(new ItemStack(MetaBlockHandler.GAS_COLLECTOR, 1, BlockGasCollector.GasCollectorType.ZERG.getID()), "FFF", "FMF", "F F", 'F', new ItemStack(MetaBlockHandler.ZERG_FLESH, 1, OreDictionary.WILDCARD_VALUE), 'M', new ItemStack(ItemHandler.GAS_CONTAINER, 1, EnumMetaItem.ContainerType.ZERG.getID()));
 
 		// Balisong
 		GameRegistry.addRecipe(new ItemStack(WeaponHandler.BALISONG, 1), " I ", " I ", " L ", 'I', new ItemStack(Items.IRON_INGOT, 1), 'L', new ItemStack(Items.LEATHER, 1));

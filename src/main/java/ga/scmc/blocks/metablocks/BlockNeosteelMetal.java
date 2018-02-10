@@ -4,7 +4,6 @@ import java.util.List;
 
 import ga.scmc.blocks.itemblocks.IMetaBlockName;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
-import ga.scmc.enums.EnumMetaBlock.NeosteelMetalType;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -17,6 +16,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
@@ -109,6 +109,39 @@ public class BlockNeosteelMetal extends Block implements IMetaBlockName {
 	public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list) {
 		for (int i = 0; i < NeosteelMetalType.values().length; i++) {
 			list.add(new ItemStack(itemIn, 1, i));
+		}
+	}
+
+	public static enum NeosteelMetalType implements IStringSerializable {
+		BASE("base", 0, MapColor.IRON),
+		FRAME("frame", 1, MapColor.IRON);
+
+		private int			ID;
+		private String		name;
+		private MapColor	color;
+
+		private NeosteelMetalType(String name, int ID, MapColor color) {
+			this.ID = ID;
+			this.name = name;
+			this.color = color;
+		}
+
+		public int getID() {
+			return ID;
+		}
+
+		@Override
+		public String getName() {
+			return name;
+		}
+
+		public MapColor getMapColor() {
+			return color;
+		}
+
+		@Override
+		public String toString() {
+			return getName();
 		}
 	}
 }

@@ -6,7 +6,6 @@ import ga.scmc.Starcraft;
 import ga.scmc.api.Utils;
 import ga.scmc.blocks.itemblocks.IMetaBlockName;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
-import ga.scmc.enums.EnumMetaBlock.GasCollectorType;
 import ga.scmc.handlers.GuiHandler;
 import ga.scmc.handlers.SoundHandler.SoundTypes;
 import ga.scmc.tileentity.TileEntityGasCollector;
@@ -28,6 +27,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
@@ -173,5 +173,39 @@ public class BlockGasCollector extends Block implements IMetaBlockName, ITileEnt
 		TileEntityGasCollector te = (TileEntityGasCollector) world.getTileEntity(pos);
 		ItemStackHandler handler = (ItemStackHandler) te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
 		return Utils.calculateRedstone(handler);
+	}
+
+	public static enum GasCollectorType implements IStringSerializable {
+		PROTOSS("protoss", 0, MapColor.YELLOW),
+		TERRAN("terran", 1, MapColor.IRON),
+		ZERG("zerg", 2, MapColor.BROWN);
+
+		private int			ID;
+		private String		name;
+		private MapColor	color;
+
+		private GasCollectorType(String name, int ID, MapColor color) {
+			this.ID = ID;
+			this.name = name;
+			this.color = color;
+		}
+
+		public int getID() {
+			return ID;
+		}
+
+		@Override
+		public String getName() {
+			return name;
+		}
+
+		public MapColor getMapColor() {
+			return color;
+		}
+
+		@Override
+		public String toString() {
+			return getName();
+		}
 	}
 }

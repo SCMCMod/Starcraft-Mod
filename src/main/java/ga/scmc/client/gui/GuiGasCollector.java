@@ -3,8 +3,8 @@ package ga.scmc.client.gui;
 import java.util.ArrayList;
 import java.util.List;
 
+import ga.scmc.blocks.metablocks.BlockGasCollector.GasCollectorType;
 import ga.scmc.container.ContainerGasCollector;
-import ga.scmc.enums.EnumMetaBlock.GasCollectorType;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.MetaBlockHandler;
 import ga.scmc.tileentity.TileEntityGasCollector;

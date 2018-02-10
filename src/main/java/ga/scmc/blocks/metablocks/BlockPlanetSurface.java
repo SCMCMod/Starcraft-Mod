@@ -4,7 +4,6 @@ import java.util.List;
 
 import ga.scmc.blocks.itemblocks.IMetaBlockName;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
-import ga.scmc.enums.EnumMetaBlock.PlanetSurfaceType;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -18,6 +17,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
@@ -121,6 +121,53 @@ public class BlockPlanetSurface extends Block implements IMetaBlockName {
 	public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list) {
 		for (int i = 0; i < PlanetSurfaceType.values().length; i++) {
 			list.add(new ItemStack(itemIn, 1, i));
+		}
+	}
+
+	public static enum PlanetSurfaceType implements IStringSerializable {
+		BLUE("blue", 0, MapColor.BLUE),
+		BROWN("brown", 1, MapColor.BROWN),
+		CYAN("cyan", 2, MapColor.CYAN),
+		GRAY("gray", 3, MapColor.GRAY),
+		GREEN("green", 4, MapColor.GREEN),
+		LIGHTBLUE("lightblue", 5, MapColor.LIGHT_BLUE),
+		LIME("lime", 6, MapColor.LIME),
+		MAGENTA("magenta", 7, MapColor.MAGENTA),
+		ORANGE("orange", 8, MapColor.ADOBE),
+		PINK("pink", 9, MapColor.PINK),
+		PURPLE("purple", 10, MapColor.PURPLE),
+		RED("red", 11, MapColor.RED),
+		WHITE("white", 12, MapColor.SNOW),
+		SILVER("silver", 13, MapColor.SILVER),
+		BLACK("black", 14, MapColor.BLUE),
+		YELLOW("yellow", 15, MapColor.YELLOW);
+
+		private int			ID;
+		private String		name;
+		private MapColor	color;
+
+		private PlanetSurfaceType(String name, int ID, MapColor color) {
+			this.ID = ID;
+			this.name = name;
+			this.color = color;
+		}
+
+		public int getID() {
+			return ID;
+		}
+
+		@Override
+		public String getName() {
+			return name;
+		}
+
+		public MapColor getMapColor() {
+			return color;
+		}
+
+		@Override
+		public String toString() {
+			return getName();
 		}
 	}
 }

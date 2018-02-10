@@ -4,7 +4,6 @@ import java.util.List;
 
 import ga.scmc.blocks.itemblocks.IMetaBlockName;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
-import ga.scmc.enums.EnumMetaBlock.ZergStructureCarapaceType;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -16,6 +15,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
@@ -109,6 +109,40 @@ public class BlockZergStructureCarapace extends Block implements IMetaBlockName 
 	public void getSubBlocks(Item itemIn, CreativeTabs tab, List<ItemStack> list) {
 		for (int i = 0; i < ZergStructureCarapaceType.values().length; i++) {
 			list.add(new ItemStack(itemIn, 1, i));
+		}
+	}
+
+	public static enum ZergStructureCarapaceType implements IStringSerializable {
+		T1("1", 0, MapColor.BROWN),
+		T2("2", 1, MapColor.BROWN),
+		T3("3", 2, MapColor.BROWN);
+
+		private int			ID;
+		private String		name;
+		private MapColor	color;
+
+		private ZergStructureCarapaceType(String name, int ID, MapColor color) {
+			this.ID = ID;
+			this.name = name;
+			this.color = color;
+		}
+
+		public int getID() {
+			return ID;
+		}
+
+		@Override
+		public String getName() {
+			return name;
+		}
+
+		public MapColor getMapColor() {
+			return color;
+		}
+
+		@Override
+		public String toString() {
+			return getName();
 		}
 	}
 }

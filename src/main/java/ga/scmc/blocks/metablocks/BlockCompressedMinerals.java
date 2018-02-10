@@ -5,7 +5,6 @@ import java.util.Random;
 
 import ga.scmc.blocks.itemblocks.IMetaBlockName;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
-import ga.scmc.enums.EnumMetaBlock.CompressedMineralType;
 import ga.scmc.handlers.ItemHandler;
 import net.minecraft.block.BlockGlass;
 import net.minecraft.block.SoundType;
@@ -20,6 +19,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
@@ -151,5 +151,38 @@ public class BlockCompressedMinerals extends BlockGlass implements IMetaBlockNam
 	 */
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
+	}
+	
+	public static enum CompressedMineralType implements IStringSerializable {
+		BLUE("blue", 0, MapColor.BLUE),
+		RICH("rich", 1, MapColor.ADOBE);
+
+		private int ID;
+		private String name;
+		private MapColor color;
+
+		private CompressedMineralType(String name, int ID, MapColor color) {
+			this.ID = ID;
+			this.name = name;
+			this.color = color;
+		}
+
+		public int getID() {
+			return ID;
+		}
+
+		@Override
+		public String getName() {
+			return name;
+		}
+
+		public MapColor getMapColor() {
+			return color;
+		}
+
+		@Override
+		public String toString() {
+			return getName();
+		}
 	}
 }

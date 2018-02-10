@@ -6,7 +6,6 @@ import java.util.Random;
 import ga.scmc.blocks.itemblocks.IMetaBlockName;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.entity.living.EntityBroodling;
-import ga.scmc.enums.EnumMetaBlock.ZergFleshType;
 import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ItemHandler;
@@ -22,6 +21,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
@@ -32,8 +32,8 @@ import net.minecraft.world.World;
 public class BlockZergStructureFlesh extends Block implements IMetaBlockName {
 
 	/** The type property */
-	public static final PropertyEnum<ZergFleshType> TYPE = PropertyEnum.create("type", ZergFleshType.class);
-	Random rand;
+	public static final PropertyEnum<ZergFleshType>	TYPE	= PropertyEnum.create("type", ZergFleshType.class);
+	Random											rand;
 
 	/**
 	 * Default constructor
@@ -137,5 +137,51 @@ public class BlockZergStructureFlesh extends Block implements IMetaBlockName {
 			worldIn.setBlockState(pos2, BlockHandler.FLUID_BLOOD.getDefaultState());
 		}
 		super.breakBlock(worldIn, pos, state);
+	}
+
+	public static enum ZergFleshType implements IStringSerializable {
+		PURPLE("purple", 0, MapColor.PURPLE),
+		BROWN("brown", 1, MapColor.BROWN),
+		PINK("pink", 2, MapColor.PINK),
+		BLUE("blue", 3, MapColor.BLUE),
+		CYAN("cyan", 4, MapColor.CYAN),
+		GRAY("gray", 5, MapColor.GRAY),
+		GREEN("green", 6, MapColor.GREEN),
+		LIGHT_BLUE("lightblue", 7, MapColor.LIGHT_BLUE),
+		LIME("lime", 8, MapColor.LIME),
+		MAGENTA("magenta", 9, MapColor.MAGENTA),
+		ORANGE("orange", 10, MapColor.ADOBE),
+		RED("red", 11, MapColor.RED),
+		SILVER("silver", 12, MapColor.SILVER),
+		WHITE("white", 13, MapColor.SNOW),
+		YELLOW("yellow", 14, MapColor.YELLOW);
+
+		private int			ID;
+		private String		name;
+		private MapColor	color;
+
+		private ZergFleshType(String name, int ID, MapColor color) {
+			this.ID = ID;
+			this.name = name;
+			this.color = color;
+		}
+
+		public int getID() {
+			return ID;
+		}
+
+		@Override
+		public String getName() {
+			return name;
+		}
+
+		public MapColor getMapColor() {
+			return color;
+		}
+
+		@Override
+		public String toString() {
+			return getName();
+		}
 	}
 }

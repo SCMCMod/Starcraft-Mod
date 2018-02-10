@@ -3,7 +3,6 @@ package ga.scmc.blocks.itemblocks;
 import java.util.List;
 
 import ga.scmc.blocks.skulls.BlockStarcraftSkull;
-import ga.scmc.enums.EnumMetaBlock;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
 import net.minecraft.block.Block;
@@ -101,7 +100,7 @@ public class ItemBlockStarcraftSkull extends ItemBlock {
 	 */
 	@SideOnly(Side.CLIENT)
 	public void getSubItems(Item itemIn, CreativeTabs tab, List<ItemStack> subItems) {
-		for (int i = 0; i < EnumMetaBlock.EnumSkullType.values().length; ++i) {
+		for (int i = 0; i < BlockStarcraftSkull.EnumSkullType.values().length; ++i) {
 			subItems.add(new ItemStack(itemIn, 1, i));
 		}
 	}
@@ -113,10 +112,10 @@ public class ItemBlockStarcraftSkull extends ItemBlock {
 	public String getUnlocalizedName(ItemStack stack) {
 		int i = stack.getMetadata();
 
-		if (i < 0 || i >= EnumMetaBlock.EnumSkullType.values().length) {
+		if (i < 0 || i >= BlockStarcraftSkull.EnumSkullType.values().length) {
 			i = 0;
 		}
 
-		return super.getUnlocalizedName() + "." + EnumMetaBlock.EnumSkullType.values()[i];
+		return super.getUnlocalizedName() + "." + BlockStarcraftSkull.EnumSkullType.values()[i];
 	}
 }
