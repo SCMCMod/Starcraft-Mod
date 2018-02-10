@@ -55,7 +55,7 @@ public class ArmorHandler {
 	public static final ArmorMaterial	TERRAN_MARINE_ARMOR_MATERIAL_T2		= EnumHelper.addArmorMaterial("terranArmorMaterialT2", Library.RL_BASE + "terran_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 	public static final ArmorMaterial	TERRAN_MARINE_ARMOR_MATERIAL_T3		= EnumHelper.addArmorMaterial("terranArmorMaterialT3", Library.RL_BASE + "terran_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 
-	public static final ArmorMaterial	TERRAN_RAYNOR_ARMOR_MATERIAL		= EnumHelper.addArmorMaterial("terranRaynorMaterialT1", Library.RL_BASE + "terran_raynor_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial	TERRAN_RAYNOR_ARMOR_MATERIAL		= EnumHelper.addArmorMaterial("terranRaynorMaterialT1", Library.RL_BASE + "terran_raynor_t1", 33, new int[] { 7, 12, 10, 7 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 
 	public static Item					COPPER_BOOTS;
 	public static Item					COPPER_CHESTPLATE;

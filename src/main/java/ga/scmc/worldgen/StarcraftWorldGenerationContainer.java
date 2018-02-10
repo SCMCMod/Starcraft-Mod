@@ -504,30 +504,32 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 			this.generationCompleted = true;
 		}
 
-		if (random.nextInt(1000) == 0 && (chunkX < 10 || chunkX > 40) && (chunkZ > 20 || chunkZ < -16))
-			runRandomStarGenerator(STAR_TEMPLATE, random.nextInt(50) + 25, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 255);
-
-		if (random.nextInt(700) < 10)
-			runOreGenerator(COAL_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
-		if (random.nextInt(700) < 7)
-			runOreGenerator(COPPER_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
-		if (random.nextInt(700) < 1)
-			runOreGenerator(DIAMOND_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
-		if (random.nextInt(700) < 2)
-			runOreGenerator(GOLD_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
-		if (random.nextInt(700) < 10)
-			runOreGenerator(IRON_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
-		if (random.nextInt(700) < 12)
-			runOreGenerator(MINERAL_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
-		if (random.nextInt(700) < 6)
-			runOreGenerator(RICHMINERAL_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
-		if (random.nextInt(700) < 3)
-			runOreGenerator(TITANIUM_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
-		if (random.nextInt(700) < 2)
-			runOreGenerator(URANIUM_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
-		if (random.nextInt(700) < 20)
-			runOreGenerator(STONE_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
-		if (random.nextInt(700) < 20)
-			runOreGenerator(ICE_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		if ((chunkX < 10 || chunkX > 40) && (chunkZ > 17 || chunkZ < -13) && (chunkX < -15 || chunkX > 15) && (chunkZ > 15 || chunkZ < -15)) {
+			
+			if(random.nextInt(750) == 0)
+				runRandomStarGenerator(STAR_TEMPLATE, random.nextInt(50) + 25, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 255);
+			if (random.nextInt(700) < 10)
+				runOreGenerator(COAL_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+			if (random.nextInt(700) < 7)
+				runOreGenerator(COPPER_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+			if (random.nextInt(700) < 1)
+				runOreGenerator(DIAMOND_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+			if (random.nextInt(700) < 2)
+				runOreGenerator(GOLD_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+			if (random.nextInt(700) < 10)
+				runOreGenerator(IRON_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+			if (random.nextInt(700) < 12)
+				runOreGenerator(MINERAL_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+			if (random.nextInt(700) < 6)
+				runOreGenerator(RICHMINERAL_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+			if (random.nextInt(700) < 3)
+				runOreGenerator(TITANIUM_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+			if (random.nextInt(700) < 2)
+				runOreGenerator(URANIUM_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+			if (random.nextInt(700) < 20)
+				runOreGenerator(STONE_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+			if (random.nextInt(700) < 20)
+				runOreGenerator(ICE_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+		}
 	}
 }
