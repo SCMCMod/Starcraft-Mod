@@ -90,6 +90,19 @@ public class GuiLists {
 		tab4.add(new Product(new ItemStack(ArmorHandler.STEEL_CHESTPLATE, 1, 0), 8, 0));
 		tab4.add(new Product(new ItemStack(ArmorHandler.STEEL_LEGGINGS, 1, 0), 7, 0));
 		tab4.add(new Product(new ItemStack(ArmorHandler.STEEL_BOOTS, 1, 0), 5, 0));
+
+		tab4.add(new Product(new ItemStack(ArmorHandler.TERRAN_MARINE_T1_HELMET, 1, 0), 8, 4));
+		tab4.add(new Product(new ItemStack(ArmorHandler.TERRAN_MARINE_T1_CHESTPLATE, 1, 0), 16, 8));
+		tab4.add(new Product(new ItemStack(ArmorHandler.TERRAN_MARINE_T1_LEGGINGS, 1, 0), 12, 6));
+		tab4.add(new Product(new ItemStack(ArmorHandler.TERRAN_MARINE_T1_BOOTS, 1, 0), 8, 4));
+		tab4.add(new Product(new ItemStack(ArmorHandler.TERRAN_MARINE_T2_HELMET, 1, 0), 12, 8));
+		tab4.add(new Product(new ItemStack(ArmorHandler.TERRAN_MARINE_T2_CHESTPLATE, 1, 0), 20, 12));
+		tab4.add(new Product(new ItemStack(ArmorHandler.TERRAN_MARINE_T2_LEGGINGS, 1, 0), 16, 10));
+		tab4.add(new Product(new ItemStack(ArmorHandler.TERRAN_MARINE_T2_BOOTS, 1, 0), 12, 8));
+		tab4.add(new Product(new ItemStack(ArmorHandler.TERRAN_MARINE_T2_HELMET, 1, 0), 16, 12));
+		tab4.add(new Product(new ItemStack(ArmorHandler.TERRAN_MARINE_T2_CHESTPLATE, 1, 0), 24, 16));
+		tab4.add(new Product(new ItemStack(ArmorHandler.TERRAN_MARINE_T2_LEGGINGS, 1, 0), 20, 14));
+		tab4.add(new Product(new ItemStack(ArmorHandler.TERRAN_MARINE_T2_BOOTS, 1, 0), 16, 12));
 		TRADES[4] = tab4.build();
 
 		ImmutableList.Builder<Product> tab5 = ImmutableList.builder();
