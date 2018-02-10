@@ -14,13 +14,13 @@ import net.minecraft.block.material.Material;
  */
 public class MaterialHandler {
 
-	public static Material ACID;
-	public static Material BLOOD;
-	public static Material VESPENE;
-	public static Material TERRAZINE;
+	public static Material	ACID;
+	public static Material	BLOOD;
+	public static Material	VESPENE;
+	public static Material	TERRAZINE;
 
-	public static Material VESPENE_GAS;
-	public static Material TERRAZINE_GAS;
+	public static Material	VESPENE_GAS;
+	public static Material	TERRAZINE_GAS;
 
 	public static void preInit() {
 		ACID = new FluidMaterials(MapColor.GREEN);

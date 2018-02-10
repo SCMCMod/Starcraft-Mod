@@ -17,10 +17,10 @@ public enum EnumLarvaGuiEntities {
 	ULTRALISK(12, 200, 200),
 	VIPER(13, 100, 200);
 
-	private short id;
-	private int mineralCost;
-	private int vespeneCost;
-	private int numSpawned;
+	private short	id;
+	private int		mineralCost;
+	private int		vespeneCost;
+	private int		numSpawned;
 
 	EnumLarvaGuiEntities(int id, int mineralCost) {
 		this(id, mineralCost, 0, 1);

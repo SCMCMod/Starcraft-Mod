@@ -13,10 +13,10 @@ import net.minecraft.world.World;
 
 public class StarcraftProtossCoreBlock extends StarcraftBlock {
 
-	public int startPos;
-	public int domeHeight;
-	public int domeTopLength;
-	public int slope;
+	public int	startPos;
+	public int	domeHeight;
+	public int	domeTopLength;
+	public int	slope;
 
 	public StarcraftProtossCoreBlock(String name, RegistryType type, Material material, MapColor color) {
 		super(name, type, material, color);

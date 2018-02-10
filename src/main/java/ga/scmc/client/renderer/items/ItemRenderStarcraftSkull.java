@@ -17,14 +17,14 @@ import net.minecraft.util.ResourceLocation;
 
 public class ItemRenderStarcraftSkull extends ItemRenderer {
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.MODID, "textures/models/block/table.png");
-	public static final ResourceLocation ZERGLING_BASE = new ResourceLocation(Library.MODID, "textures/entity/zergling_base.png");
-	public static final ResourceLocation ZERGLING_OVERLAY = new ResourceLocation(Library.MODID, "textures/entity/zergling_overlay.png");
-	public static final ResourceLocation HYDRALISK_BASE = new ResourceLocation(Library.MODID, "textures/entity/hydralisk_base.png");
-	public static final ResourceLocation BRUTALISK_BASE = new ResourceLocation(Library.MODID, "textures/entity/brutalisk_base.png");
-	public static final ResourceLocation SKELETON = new ResourceLocation("textures/entity/skeleton/skeleton.png");
-	public static final ResourceLocation CIVILIAN = new ResourceLocation(Library.MODID, "textures/entity/civilian.png");
-	private int type;
+	private static final ResourceLocation	TEXTURE				= new ResourceLocation(Library.MODID, "textures/models/block/table.png");
+	public static final ResourceLocation	ZERGLING_BASE		= new ResourceLocation(Library.MODID, "textures/entity/zergling_base.png");
+	public static final ResourceLocation	ZERGLING_OVERLAY	= new ResourceLocation(Library.MODID, "textures/entity/zergling_overlay.png");
+	public static final ResourceLocation	HYDRALISK_BASE		= new ResourceLocation(Library.MODID, "textures/entity/hydralisk_base.png");
+	public static final ResourceLocation	BRUTALISK_BASE		= new ResourceLocation(Library.MODID, "textures/entity/brutalisk_base.png");
+	public static final ResourceLocation	SKELETON			= new ResourceLocation("textures/entity/skeleton/skeleton.png");
+	public static final ResourceLocation	CIVILIAN			= new ResourceLocation(Library.MODID, "textures/entity/civilian.png");
+	private int								type;
 
 	public ItemRenderStarcraftSkull() {
 		super(null, TEXTURE);

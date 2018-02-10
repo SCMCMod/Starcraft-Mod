@@ -15,8 +15,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RendererZerusGlowPod extends TileEntitySpecialRenderer<TileEntityZerusGlowPod> {
 
-	private static final ModelZerusGlowPod MODEL = new ModelZerusGlowPod();
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.MODID, "textures/models/block/zerus_glow_pod.png");
+	private static final ModelZerusGlowPod	MODEL	= new ModelZerusGlowPod();
+	private static final ResourceLocation	TEXTURE	= new ResourceLocation(Library.MODID, "textures/models/block/zerus_glow_pod.png");
 
 	@Override
 	public void renderTileEntityAt(TileEntityZerusGlowPod te, double x, double y, double z, float partialTicks, int destroyStage) {

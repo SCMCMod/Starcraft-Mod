@@ -15,11 +15,11 @@ import net.minecraftforge.fml.relauncher.Side;
 
 public class MessageGetFurnaceData implements IMessage {
 
-	private boolean messageValid;
+	private boolean		messageValid;
 
-	private String className, burnTimeFieldName, cookTimeFieldName;
+	private String		className, burnTimeFieldName, cookTimeFieldName;
 
-	private BlockPos pos;
+	private BlockPos	pos;
 
 	public MessageGetFurnaceData() {
 		this.messageValid = false;

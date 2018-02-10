@@ -5,9 +5,9 @@ import com.google.gson.annotations.SerializedName;
 public class ColoredText {
 
 	@SerializedName("text")
-	private String text;
+	private String	text;
 	@SerializedName("color")
-	private int color;
+	private int		color;
 
 	public ColoredText(String text, int color) {
 		this.text = text;

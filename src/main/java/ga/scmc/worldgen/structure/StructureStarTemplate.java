@@ -12,8 +12,8 @@ import net.minecraft.world.World;
 
 public class StructureStarTemplate extends SCWorldGenerator {
 
-	public int checkCounter;
-	public int metaStarColor = 0;
+	public int	checkCounter;
+	public int	metaStarColor	= 0;
 
 	@Override
 	public boolean generateStar(int starSize, int range, IBlockState block, World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos pos) {

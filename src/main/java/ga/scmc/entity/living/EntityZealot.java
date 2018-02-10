@@ -37,9 +37,9 @@ import net.minecraft.world.World;
 
 public class EntityZealot extends EntityProtossMob implements IMob, Predicate<EntityLivingBase> {
 
-	public float offsetHealth;
-	public int timeSinceHurt;
-	private static final DataParameter<Boolean> SHEATH = EntityDataManager.createKey(EntityZealot.class, DataSerializers.BOOLEAN);
+	public float								offsetHealth;
+	public int									timeSinceHurt;
+	private static final DataParameter<Boolean>	SHEATH	= EntityDataManager.createKey(EntityZealot.class, DataSerializers.BOOLEAN);
 
 	public EntityZealot(World world) {
 		super(world);

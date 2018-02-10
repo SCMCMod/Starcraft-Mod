@@ -18,9 +18,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class RenderSkyShakuras extends IRenderHandler {
-	private Color skyColor = new Color(0.0F, 0.0F, 0.0F, 1F);
-	protected Color cloudColor = new Color(0.075F, 0.1F, 0.15F, 0.75F);
-	public int starGLCallList = GLAllocation.generateDisplayLists(3);
+	private Color	skyColor		= new Color(0.0F, 0.0F, 0.0F, 1F);
+	protected Color	cloudColor		= new Color(0.075F, 0.1F, 0.15F, 0.75F);
+	public int		starGLCallList	= GLAllocation.generateDisplayLists(3);
 
 	public RenderSkyShakuras() {
 		this.generateStars();

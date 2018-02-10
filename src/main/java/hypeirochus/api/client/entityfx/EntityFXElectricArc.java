@@ -19,19 +19,19 @@ import net.minecraft.world.World;
 
 @GLDependent
 public class EntityFXElectricArc extends Particle {
-	private static final ResourceLocation PARTICLES = new ResourceLocation("textures/particle/particles.png");
+	private static final ResourceLocation	PARTICLES	= new ResourceLocation("textures/particle/particles.png");
 
-	private Random rand;
-	private int color;
-	private int tessellation;
-	private float rotYaw;
-	private float rotPitch;
-	private float density;
-	private double targetX;
-	private double targetY;
-	private double targetZ;
-	private double displacement;
-	private double complexity;
+	private Random							rand;
+	private int								color;
+	private int								tessellation;
+	private float							rotYaw;
+	private float							rotPitch;
+	private float							density;
+	private double							targetX;
+	private double							targetY;
+	private double							targetZ;
+	private double							displacement;
+	private double							complexity;
 
 	public EntityFXElectricArc(World world, double x, double y, double z, double targetX, double targetY, double targetZ, int age) {
 		this(world, x, y, z, targetX, targetY, targetZ, age, 1.6D, 0.1D, 0.1F, 0xFFAA99FF);

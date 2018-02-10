@@ -8,9 +8,9 @@ import ocelot.api.client.gui.book.GuiBookBase;
 
 public class ComponentBookPage extends Component {
 
-	public ComponentText title;
-	public ComponentTextArea body;
-	public List<Component> components;
+	public ComponentText		title;
+	public ComponentTextArea	body;
+	public List<Component>		components;
 
 	public ComponentBookPage(GuiBookBase book) {
 		super(book.getX(), book.getY(), book.getWidth(), book.getHeight());

@@ -32,12 +32,12 @@ public enum EnumAchievements {
 	ENTER_ZERUS(Achievements.ENTER_ZERUS, -2, 5, new ItemStack(BlockHandler.STONE_ZERUS)),
 	ENTER_AIUR(Achievements.ENTER_AIUR, -2, 6, new ItemStack(Blocks.STONE));
 
-	private String unlocalizedName;
-	private float x;
-	private float y;
-	private ItemStack icon;
-	private String parentUnlocalizedName;
-	private boolean special;
+	private String		unlocalizedName;
+	private float		x;
+	private float		y;
+	private ItemStack	icon;
+	private String		parentUnlocalizedName;
+	private boolean		special;
 
 	private EnumAchievements(String unlocalizedName, int x, int y, ItemStack icon) {
 		this(unlocalizedName, x, y, icon, "");

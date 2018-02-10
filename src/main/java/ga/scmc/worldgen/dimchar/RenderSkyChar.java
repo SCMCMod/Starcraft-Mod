@@ -21,8 +21,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import ocelot.api.utils.TextureUtils;
 
 public class RenderSkyChar extends IRenderHandler {
-	private Color skyColor = new Color(0.5F, 0.225F, 0.265F, 1F);
-	public int glCallListStars = GLAllocation.generateDisplayLists(3);
+	private Color	skyColor		= new Color(0.5F, 0.225F, 0.265F, 1F);
+	public int		glCallListStars	= GLAllocation.generateDisplayLists(3);
 
 	public RenderSkyChar() {
 		this.generateStars();

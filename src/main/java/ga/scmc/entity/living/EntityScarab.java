@@ -34,22 +34,22 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityScarab extends EntityProtossMob implements IMob, Predicate<EntityLivingBase> {
 
-	private static final DataParameter<Boolean> IGNITED = EntityDataManager.<Boolean>createKey(EntityCreeper.class, DataSerializers.BOOLEAN);
-	private static final DataParameter<Boolean> POWERED = EntityDataManager.<Boolean>createKey(EntityCreeper.class, DataSerializers.BOOLEAN);
-	private static final DataParameter<Integer> STATE = EntityDataManager.<Integer>createKey(EntityCreeper.class, DataSerializers.VARINT);
-	private byte explosionRadius = 6;
-	private short fuseTime = 10;
+	private static final DataParameter<Boolean>	IGNITED			= EntityDataManager.<Boolean>createKey(EntityCreeper.class, DataSerializers.BOOLEAN);
+	private static final DataParameter<Boolean>	POWERED			= EntityDataManager.<Boolean>createKey(EntityCreeper.class, DataSerializers.BOOLEAN);
+	private static final DataParameter<Integer>	STATE			= EntityDataManager.<Integer>createKey(EntityCreeper.class, DataSerializers.VARINT);
+	private byte								explosionRadius	= 6;
+	private short								fuseTime		= 10;
 	// TODO: Cleanup this code in 1.6
 	/**
 	 * Time when this scarab was last in an active state (Messed up code here,
 	 * probably causes scarab animation to go weird)
 	 */
-	private int lastActiveTime;
+	private int									lastActiveTime;
 
 	/**
 	 * The amount of time since the scarab was close enough to the player to ignite
 	 */
-	private int timeSinceIgnited;
+	private int									timeSinceIgnited;
 
 	public EntityScarab(World worldIn, EnumTeamColors color, EnumFactionTypes faction) {
 		super(worldIn);

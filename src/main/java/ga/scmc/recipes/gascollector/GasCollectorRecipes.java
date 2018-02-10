@@ -22,10 +22,10 @@ import net.minecraft.item.ItemStack;
  */
 public class GasCollectorRecipes {
 
-	private static final GasCollectorRecipes INSTANCE = new GasCollectorRecipes();
-	private final Map<IBlockState, ItemStack> protossList = Maps.<IBlockState, ItemStack>newHashMap();
-	private final Map<IBlockState, ItemStack> terranList = Maps.<IBlockState, ItemStack>newHashMap();
-	private final Map<IBlockState, ItemStack> zergList = Maps.<IBlockState, ItemStack>newHashMap();
+	private static final GasCollectorRecipes	INSTANCE	= new GasCollectorRecipes();
+	private final Map<IBlockState, ItemStack>	protossList	= Maps.<IBlockState, ItemStack>newHashMap();
+	private final Map<IBlockState, ItemStack>	terranList	= Maps.<IBlockState, ItemStack>newHashMap();
+	private final Map<IBlockState, ItemStack>	zergList	= Maps.<IBlockState, ItemStack>newHashMap();
 
 	/**
 	 * Returns an instance of FurnaceRecipes.

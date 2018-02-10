@@ -4,10 +4,10 @@ import net.minecraft.client.Minecraft;
 
 public class ComponentText extends Component {
 
-	private String text;
-	private int color;
-	private boolean dropShadow;
-	private boolean centered;
+	private String	text;
+	private int		color;
+	private boolean	dropShadow;
+	private boolean	centered;
 
 	public ComponentText(int x, int y, String text, int color) {
 		this(x, y, text, color, false);

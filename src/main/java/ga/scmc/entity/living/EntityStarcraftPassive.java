@@ -21,12 +21,12 @@ import net.minecraft.world.World;
 
 public abstract class EntityStarcraftPassive extends EntityTameable implements IEntityTeamColorable<EntityStarcraftPassive> {
 
-	private static final DataParameter<Integer> COLOR = EntityDataManager.createKey(EntityStarcraftPassive.class, DataSerializers.VARINT);
+	private static final DataParameter<Integer>	COLOR		= EntityDataManager.createKey(EntityStarcraftPassive.class, DataSerializers.VARINT);
 
-	List<EnumTypeAttributes> types = new ArrayList<EnumTypeAttributes>(15);
-	List<EnumFactionTypes> factions = new ArrayList<EnumFactionTypes>(15);
-	EnumTeamColors teamColor;
-	HashMap<EnumTypeAttributes, Double> bonusDamage = new HashMap<EnumTypeAttributes, Double>();
+	List<EnumTypeAttributes>					types		= new ArrayList<EnumTypeAttributes>(15);
+	List<EnumFactionTypes>						factions	= new ArrayList<EnumFactionTypes>(15);
+	EnumTeamColors								teamColor;
+	HashMap<EnumTypeAttributes, Double>			bonusDamage	= new HashMap<EnumTypeAttributes, Double>();
 
 	public EntityStarcraftPassive(World world) {
 		super(world);

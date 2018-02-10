@@ -4,8 +4,8 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.Vec3d;
 
 public class UV {
-	public float u;
-	public float v;
+	public float	u;
+	public float	v;
 
 	public UV(float u, float v) {
 		this.u = u;

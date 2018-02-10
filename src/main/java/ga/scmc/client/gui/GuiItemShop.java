@@ -34,19 +34,19 @@ import ocelot.api.utils.TimeUtils;
 public class GuiItemShop extends BasicGui {
 
 	/** The player being traded with. */
-	private EntityPlayer customer;
-	private String displayName;
+	private EntityPlayer			customer;
+	private String					displayName;
 
-	private static final ItemStack MINERAL = new ItemStack(ItemHandler.MINERAL_SHARD);
-	private static final ItemStack VESPENE = new ItemStack(ItemHandler.VESPENE, 1, 2);
+	private static final ItemStack	MINERAL			= new ItemStack(ItemHandler.MINERAL_SHARD);
+	private static final ItemStack	VESPENE			= new ItemStack(ItemHandler.VESPENE, 1, 2);
 
-	public List<ItemShopTab> tabs = new ArrayList<ItemShopTab>();
-	private int tab;
+	public List<ItemShopTab>		tabs			= new ArrayList<ItemShopTab>();
+	private int						tab;
 
-	private GuiButton buttonBuy;
-	private static final int BUTTON_BUY = 0;
+	private GuiButton				buttonBuy;
+	private static final int		BUTTON_BUY		= 0;
 
-	private int selectedIndex = -1;
+	private int						selectedIndex	= -1;
 
 	public GuiItemShop(EntityPlayer player) {
 		this(player, I18n.format("gui.item_shop"));

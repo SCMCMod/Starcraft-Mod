@@ -3,18 +3,18 @@ package hypeirochus.api.client.render;
 import net.minecraft.client.renderer.Tessellator;
 
 public class Vertex {
-	public static Vertex unitX = new Vertex(1, 0, 0);
-	public static Vertex unitY = new Vertex(0, 1, 0);
-	public static Vertex unitZ = new Vertex(0, 0, 1);
-	public static Vertex unitNX = new Vertex(-1, 0, 0);
-	public static Vertex unitNY = new Vertex(0, -1, 0);
-	public static Vertex unitNZ = new Vertex(0, 0, -1);
-	public static Vertex unitPYNZ = new Vertex(0, 0.707, -0.707);
-	public static Vertex unitPXPY = new Vertex(0.707, 0.707, 0);
-	public static Vertex unitPYPZ = new Vertex(0, 0.707, 0.707);
-	public static Vertex unitNXPY = new Vertex(-0.707, 0.707, 0);
+	public static Vertex	unitX		= new Vertex(1, 0, 0);
+	public static Vertex	unitY		= new Vertex(0, 1, 0);
+	public static Vertex	unitZ		= new Vertex(0, 0, 1);
+	public static Vertex	unitNX		= new Vertex(-1, 0, 0);
+	public static Vertex	unitNY		= new Vertex(0, -1, 0);
+	public static Vertex	unitNZ		= new Vertex(0, 0, -1);
+	public static Vertex	unitPYNZ	= new Vertex(0, 0.707, -0.707);
+	public static Vertex	unitPXPY	= new Vertex(0.707, 0.707, 0);
+	public static Vertex	unitPYPZ	= new Vertex(0, 0.707, 0.707);
+	public static Vertex	unitNXPY	= new Vertex(-0.707, 0.707, 0);
 
-	public float x, y, z;
+	public float			x, y, z;
 
 	public Vertex(float x, float y, float z) {
 		this.x = x;

@@ -21,9 +21,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 //@EventBusSubscriber
 public abstract class CloudProvider extends IRenderHandler implements ICloudProvider {
-	protected float cloudSpeed = getMaxNormalCloudSpeed();
-	protected long cloudTicks;
-	protected long cloudTicksPrev;
+	protected float	cloudSpeed	= getMaxNormalCloudSpeed();
+	protected long	cloudTicks;
+	protected long	cloudTicksPrev;
 
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent

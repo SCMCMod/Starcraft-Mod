@@ -15,10 +15,10 @@ import net.minecraft.world.storage.WorldInfo;
 public class ShakurasBiomeProvider extends BiomeProvider {
 
 	/** The biome list. */
-	private final BiomeCache biomeCache;
+	private final BiomeCache	biomeCache;
 	/** A GenLayer containing the indices into BiomeGenBase.biomeList[] */
-	private GenLayer biomeIndexLayer;
-	private GenLayer genBiomes;
+	private GenLayer			biomeIndexLayer;
+	private GenLayer			genBiomes;
 
 	protected ShakurasBiomeProvider() {
 		super();

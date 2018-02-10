@@ -9,8 +9,8 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderCivilian extends RenderLiving<EntityCivilian> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.CIVILIAN);
-	protected ModelCivilian model;
+	private static final ResourceLocation	TEXTURE	= new ResourceLocation(Resources.CIVILIAN);
+	protected ModelCivilian					model;
 
 	public RenderCivilian(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);

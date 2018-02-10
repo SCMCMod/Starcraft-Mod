@@ -12,9 +12,9 @@ import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.MapGenBase;
 
 public class CharGenRavine extends MapGenBase {
-	protected static final IBlockState FLOWING_LAVA = Blocks.FLOWING_LAVA.getDefaultState();
-	protected static final IBlockState AIR = Blocks.AIR.getDefaultState();
-	private final float[] rs = new float[1024];
+	protected static final IBlockState	FLOWING_LAVA	= Blocks.FLOWING_LAVA.getDefaultState();
+	protected static final IBlockState	AIR				= Blocks.AIR.getDefaultState();
+	private final float[]				rs				= new float[1024];
 
 	protected void addTunnel(long p_180707_1_, int p_180707_3_, int p_180707_4_, ChunkPrimer p_180707_5_, double p_180707_6_, double p_180707_8_, double p_180707_10_, float p_180707_12_, float p_180707_13_, float p_180707_14_, int p_180707_15_, int p_180707_16_, double p_180707_17_) {
 		Random random = new Random(p_180707_1_);

@@ -12,8 +12,8 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 public class MessageMorphLarva implements IMessage, IMessageHandler<MessageMorphLarva, IMessage> {
 
-	private int id;
-	private byte replaceId;
+	private int		id;
+	private byte	replaceId;
 
 	public MessageMorphLarva() {
 	}

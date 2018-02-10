@@ -46,9 +46,9 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class EntityLarva extends EntityZergPassive {
-	private int fire;
-	private int nextStepDistance;
-	private Random random = new Random();
+	private int		fire;
+	private int		nextStepDistance;
+	private Random	random	= new Random();
 
 	// Redo entity movement
 	public EntityLarva(World world) {

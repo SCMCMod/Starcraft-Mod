@@ -13,12 +13,12 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderTyrannozorDehaka extends RenderLiving<EntityTyrannozorDehaka> implements LayerRenderer<EntityTyrannozorDehaka> {
 
-	private static final ResourceLocation BASE = new ResourceLocation(Resources.TYRANNOZORDEHAKA_BASE);
-	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.TYRANNOZORDEHAKA_OVERLAY);
-	private static final ResourceLocation DYNAMICGLOW = new ResourceLocation(Resources.TYRANNOZORDEHAKA_GLOW_DYNAMIC);
-	private static final ResourceLocation STATICGLOW = new ResourceLocation(Resources.TYRANNOZORDEHAKA_GLOW_STATIC);
-	private final RenderTyrannozorDehaka RENDERER;
-	protected ModelTyrannozorDehaka model;
+	private static final ResourceLocation	BASE		= new ResourceLocation(Resources.TYRANNOZORDEHAKA_BASE);
+	private static final ResourceLocation	OVERLAY		= new ResourceLocation(Resources.TYRANNOZORDEHAKA_OVERLAY);
+	private static final ResourceLocation	DYNAMICGLOW	= new ResourceLocation(Resources.TYRANNOZORDEHAKA_GLOW_DYNAMIC);
+	private static final ResourceLocation	STATICGLOW	= new ResourceLocation(Resources.TYRANNOZORDEHAKA_GLOW_STATIC);
+	private final RenderTyrannozorDehaka	RENDERER;
+	protected ModelTyrannozorDehaka			model;
 
 	public RenderTyrannozorDehaka(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);

@@ -20,9 +20,9 @@ import net.minecraftforge.fml.relauncher.Side;
 
 public class NetworkHandler {
 
-	public static final SimpleNetworkWrapper INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel(Library.MODID);
+	public static final SimpleNetworkWrapper	INSTANCE	= NetworkRegistry.INSTANCE.newSimpleChannel(Library.MODID);
 
-	private static int nextId = 0;
+	private static int							nextId		= 0;
 
 	public static void preInit() {
 		registerServer();

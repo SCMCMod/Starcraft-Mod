@@ -16,9 +16,9 @@ public class EnumMetaItem {
 		C14("c14", 0, 32),
 		FLAMETHROWER("flamethrower", 1, 100);
 
-		private int bulletCount;
-		private int ID;
-		private String name;
+		private int		bulletCount;
+		private int		ID;
+		private String	name;
 
 		BulletMagazineType(String name, int ID, int bulletCount) {
 			this.bulletCount = bulletCount;
@@ -50,8 +50,8 @@ public class EnumMetaItem {
 		BODY("body", 1),
 		GRIP("grip", 2);
 
-		private int ID;
-		private String name;
+		private int		ID;
+		private String	name;
 
 		private C14PartType(String name, int ID) {
 			this.ID = ID;
@@ -79,8 +79,8 @@ public class EnumMetaItem {
 		HANDLE("handle", 2),
 		CHAMBERS("chambers", 3);
 
-		private int ID;
-		private String name;
+		private int		ID;
+		private String	name;
 
 		private FlamethrowerPartType(String name, int ID) {
 			this.ID = ID;
@@ -107,8 +107,8 @@ public class EnumMetaItem {
 		T2("2", 1),
 		T3("3", 2);
 
-		private int ID;
-		private String name;
+		private int		ID;
+		private String	name;
 
 		private CarapaceType(String name, int ID) {
 			this.ID = ID;
@@ -135,8 +135,8 @@ public class EnumMetaItem {
 		BLOODSHARD("bloodshard", 1),
 		URAJ("uraj", 2);
 
-		private int ID;
-		private String name;
+		private int		ID;
+		private String	name;
 
 		private CrystalType(String name, int ID) {
 			this.ID = ID;
@@ -163,8 +163,8 @@ public class EnumMetaItem {
 		IRON("iron", 1),
 		CARBON("carbon", 2);
 
-		private int ID;
-		private String name;
+		private int		ID;
+		private String	name;
 
 		private DustType(String name, int ID) {
 			this.ID = ID;
@@ -204,8 +204,8 @@ public class EnumMetaItem {
 		RED("red", 14),
 		BLACK("black", 15);
 
-		private int ID;
-		private String name;
+		private int		ID;
+		private String	name;
 
 		private PledgeType(String name, int ID) {
 			this.ID = ID;
@@ -232,8 +232,8 @@ public class EnumMetaItem {
 		CORRUPTED("corrupted", 1),
 		VOID("void", 2);
 
-		private int ID;
-		private String name;
+		private int		ID;
+		private String	name;
 
 		private EnergyType(String name, int ID) {
 			this.ID = ID;
@@ -260,8 +260,8 @@ public class EnumMetaItem {
 		TERRAN("terran", 1),
 		ZERG("zerg", 2);
 
-		private int ID;
-		private String name;
+		private int		ID;
+		private String	name;
 
 		private EssenceType(String name, int ID) {
 			this.ID = ID;
@@ -287,8 +287,8 @@ public class EnumMetaItem {
 		AIUR("aiur", 0),
 		DARK("dark", 1);
 
-		private int ID;
-		private String name;
+		private int		ID;
+		private String	name;
 
 		private FocuserType(String name, int ID) {
 			this.ID = ID;
@@ -316,8 +316,8 @@ public class EnumMetaItem {
 		STEEL("steel", 2),
 		NEOSTEEL("neosteel", 3);
 
-		private int ID;
-		private String name;
+		private int		ID;
+		private String	name;
 
 		private IngotType(String name, int ID) {
 			this.ID = ID;
@@ -343,8 +343,8 @@ public class EnumMetaItem {
 		BLUE("blue", 0),
 		RICH("rich", 1);
 
-		private int ID;
-		private String name;
+		private int		ID;
+		private String	name;
 
 		private MineralType(String name, int ID) {
 			this.ID = ID;
@@ -383,8 +383,8 @@ public class EnumMetaItem {
 		WHITE("white", 13),
 		YELLOW("yellow", 14);
 
-		private int ID;
-		private String name;
+		private int		ID;
+		private String	name;
 
 		private MutaliskWingType(String name, int ID) {
 			this.ID = ID;
@@ -416,8 +416,8 @@ public class EnumMetaItem {
 		DARK_ARCH("dark_arch", 6),
 		DARK_GUARD("dark_guard", 7);
 
-		private int ID;
-		private String name;
+		private int		ID;
+		private String	name;
 
 		private ProtossArmorPiecesType(String name, int ID) {
 			this.ID = ID;
@@ -443,8 +443,8 @@ public class EnumMetaItem {
 		KHALAI("khalai", 0),
 		DARK("dark", 1);
 
-		private int ID;
-		private String name;
+		private int		ID;
+		private String	name;
 
 		private ProtossIngotType(String name, int ID) {
 			this.ID = ID;
@@ -472,8 +472,8 @@ public class EnumMetaItem {
 		TERRAN("terran", 2),
 		ZERG("zerg", 3);
 
-		private int ID;
-		private String name;
+		private int		ID;
+		private String	name;
 
 		private VespeneType(String name, int ID) {
 			this.ID = ID;
@@ -501,8 +501,8 @@ public class EnumMetaItem {
 		TERRAN("terran", 2),
 		ZERG("zerg", 3);
 
-		private int ID;
-		private String name;
+		private int		ID;
+		private String	name;
 
 		private TerrazineType(String name, int ID) {
 			this.ID = ID;
@@ -529,8 +529,8 @@ public class EnumMetaItem {
 		TERRAN("terran", 1),
 		ZERG("zerg", 2);
 
-		private int ID;
-		private String name;
+		private int		ID;
+		private String	name;
 
 		private ContainerType(String name, int ID) {
 			this.ID = ID;
@@ -556,8 +556,8 @@ public class EnumMetaItem {
 		SPEED("speed", 0),
 		EFFICIENCY("efficiency", 1);
 
-		private int ID;
-		private String name;
+		private int		ID;
+		private String	name;
 
 		private ProtossUpgradeType(String name, int ID) {
 			this.ID = ID;

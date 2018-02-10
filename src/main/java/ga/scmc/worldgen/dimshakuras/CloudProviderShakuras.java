@@ -8,9 +8,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 
 public class CloudProviderShakuras extends CloudProvider {
-	private static final Texture CLOUDS = new Texture(Library.MODID, "textures/world/varda-clouds.png");
+	private static final Texture	CLOUDS	= new Texture(Library.MODID, "textures/world/varda-clouds.png");
 
-	private IStormProvider stormProvider;
+	private IStormProvider			stormProvider;
 
 	@Override
 	public float getMaxCloudSpeedDuringStorm() {

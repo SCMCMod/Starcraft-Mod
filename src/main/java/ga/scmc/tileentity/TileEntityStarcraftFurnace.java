@@ -26,19 +26,19 @@ public class TileEntityStarcraftFurnace extends TileEntitySidedInventory impleme
 	/**
 	 * The amount of ticks the furnace should be burning for
 	 */
-	private int furnaceBurnTime;
+	private int	furnaceBurnTime;
 	/**
 	 * The current amount of time taken to cook the current item
 	 */
-	private int cookTime;
+	private int	cookTime;
 	/**
 	 * The amount of time it takes to cook the current item
 	 */
-	private int totalCookTime;
+	private int	totalCookTime;
 	/**
 	 * The burn time of the current item
 	 */
-	private int currentItemBurnTime;
+	private int	currentItemBurnTime;
 
 	/**
 	 * Create a new custom furnace

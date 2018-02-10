@@ -58,15 +58,15 @@ public abstract class ItemRenderer implements IPerspectiveAwareModel, IBakedMode
 		}
 	}
 
-	protected static final Minecraft mc = Minecraft.getMinecraft();
-	private static List<BakedQuad> quads = Collections.emptyList();
-	protected EntityLivingBase entity;
-	protected ModelBase model;
-	private ItemRenderList overrides;
-	protected ResourceLocation resource;
-	private final Pair<? extends IBakedModel, Matrix4f> selfPair;
+	protected static final Minecraft					mc		= Minecraft.getMinecraft();
+	private static List<BakedQuad>						quads	= Collections.emptyList();
+	protected EntityLivingBase							entity;
+	protected ModelBase									model;
+	private ItemRenderList								overrides;
+	protected ResourceLocation							resource;
+	private final Pair<? extends IBakedModel, Matrix4f>	selfPair;
 
-	protected ItemStack stack;
+	protected ItemStack									stack;
 
 	public ItemRenderer(ModelBase model, ResourceLocation resource) {
 		this.overrides = new ItemRenderList();

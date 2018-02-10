@@ -33,8 +33,8 @@ import net.minecraft.world.World;
  */
 public class EntityStalker extends EntityProtossMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
 
-	public float offsetHealth;
-	public int timeSinceHurt;
+	public float	offsetHealth;
+	public int		timeSinceHurt;
 
 	public EntityStalker(World world) {
 		super(world);

@@ -38,14 +38,14 @@ import net.minecraft.world.World;
  */
 public class BlockStarcraftSkull extends BlockContainer {
 
-	public static final PropertyDirection FACING = BlockDirectional.FACING;
-	public static final PropertyBool NODROP = PropertyBool.create("nodrop");
+	public static final PropertyDirection	FACING			= BlockDirectional.FACING;
+	public static final PropertyBool		NODROP			= PropertyBool.create("nodrop");
 
-	protected static final AxisAlignedBB DEFAULT_AABB = new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 0.5D, 0.75D);
-	protected static final AxisAlignedBB NORTH_AABB = new AxisAlignedBB(0.25D, 0.25D, 0.5D, 0.75D, 0.75D, 1.0D);
-	protected static final AxisAlignedBB SOUTH_AABB = new AxisAlignedBB(0.25D, 0.25D, 0.0D, 0.75D, 0.75D, 0.5D);
-	protected static final AxisAlignedBB WEST_AABB = new AxisAlignedBB(0.5D, 0.25D, 0.25D, 1.0D, 0.75D, 0.75D);
-	protected static final AxisAlignedBB EAST_AABB = new AxisAlignedBB(0.0D, 0.25D, 0.25D, 0.5D, 0.75D, 0.75D);
+	protected static final AxisAlignedBB	DEFAULT_AABB	= new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 0.5D, 0.75D);
+	protected static final AxisAlignedBB	NORTH_AABB		= new AxisAlignedBB(0.25D, 0.25D, 0.5D, 0.75D, 0.75D, 1.0D);
+	protected static final AxisAlignedBB	SOUTH_AABB		= new AxisAlignedBB(0.25D, 0.25D, 0.0D, 0.75D, 0.75D, 0.5D);
+	protected static final AxisAlignedBB	WEST_AABB		= new AxisAlignedBB(0.5D, 0.25D, 0.25D, 1.0D, 0.75D, 0.75D);
+	protected static final AxisAlignedBB	EAST_AABB		= new AxisAlignedBB(0.0D, 0.25D, 0.25D, 0.5D, 0.75D, 0.75D);
 
 	public BlockStarcraftSkull() {
 		super(Material.CIRCUITS, MapColor.SNOW);
@@ -213,8 +213,8 @@ public class BlockStarcraftSkull extends BlockContainer {
 		HYDRALISK("hydralisk", 2),
 		BRUTALISK("brutalisk", 3);
 
-		private int ID;
-		private String name;
+		private int		ID;
+		private String	name;
 
 		private EnumSkullType(String name, int ID) {
 			this.ID = ID;

@@ -25,24 +25,24 @@ public class GuiStarcraftFurnace extends GuiContainer {
 	/**
 	 * The texture path for the background
 	 */
-	private ResourceLocation texturePath;
+	private ResourceLocation	texturePath;
 
 	/**
 	 * Used for synchronisation with the server
 	 */
-	public static float burnTime, cookTime;
+	public static float			burnTime, cookTime;
 
 	/**
 	 * The position of the furnace tile entity
 	 */
-	private BlockPos pos;
+	private BlockPos			pos;
 
 	/**
 	 * The holder of the sync timer (we sync every 10 ticks)
 	 */
-	private int sync;
+	private int					sync;
 
-	private EntityPlayer player;
+	private EntityPlayer		player;
 
 	/**
 	 * Create a new gui for a starcraft furnace

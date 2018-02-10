@@ -11,13 +11,13 @@ import ocelot.api.client.gui.component.listener.MouseListener;
 
 public abstract class GuiBookBase extends GuiBase {
 
-	protected List<ComponentBookPage> pages;
+	protected List<ComponentBookPage>	pages;
 
-	protected ComponentButton buttonNext;
-	protected ComponentButton buttonLast;
+	protected ComponentButton			buttonNext;
+	protected ComponentButton			buttonLast;
 
-	private int maxPages;
-	private int page;
+	private int							maxPages;
+	private int							page;
 
 	public GuiBookBase(int xSize, int ySize) {
 		super(xSize, ySize);
@@ -96,8 +96,8 @@ public abstract class GuiBookBase extends GuiBase {
 		this.addLine(text, 0);
 	}
 
-	int pageCounter = 0;
-	String carriedOver = "";
+	int		pageCounter	= 0;
+	String	carriedOver	= "";
 
 	protected void addLine(String text, int color) {
 		if (this.pages.get(pageCounter).body.isTextRoom()) {

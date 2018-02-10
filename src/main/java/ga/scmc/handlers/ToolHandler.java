@@ -19,20 +19,20 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  */
 public class ToolHandler {
 
-	public static Item COPPER_AXE;
-	public static Item COPPER_HOE;
-	public static Item COPPER_PICKAXE;
-	public static Item COPPER_SHOVEL;
+	public static Item	COPPER_AXE;
+	public static Item	COPPER_HOE;
+	public static Item	COPPER_PICKAXE;
+	public static Item	COPPER_SHOVEL;
 
-	public static Item STEEL_AXE;
-	public static Item STEEL_HOE;
-	public static Item STEEL_PICKAXE;
-	public static Item STEEL_SHOVEL;
+	public static Item	STEEL_AXE;
+	public static Item	STEEL_HOE;
+	public static Item	STEEL_PICKAXE;
+	public static Item	STEEL_SHOVEL;
 
-	public static Item TITANIUM_AXE;
-	public static Item TITANIUM_HOE;
-	public static Item TITANIUM_PICKAXE;
-	public static Item TITANIUM_SHOVEL;
+	public static Item	TITANIUM_AXE;
+	public static Item	TITANIUM_HOE;
+	public static Item	TITANIUM_PICKAXE;
+	public static Item	TITANIUM_SHOVEL;
 
 	public static void init() {
 		COPPER_PICKAXE = new ToolPickaxe(ToolMaterials.COPPER).setUnlocalizedName("copper.pickaxe").setRegistryName("copper.pickaxe").setCreativeTab(StarcraftCreativeTabs.TERRAN);

@@ -33,12 +33,12 @@ import ocelot.api.utils.TextureUtils;
  */
 public class GuiLarvaMorph extends BasicGui {
 
-	public static final GuiLarvaMorph INSTANCE = new GuiLarvaMorph();
+	public static final GuiLarvaMorph	INSTANCE	= new GuiLarvaMorph();
 
-	public final ResourceLocation LARVA_GUI = new ResourceLocation(Library.RL_BASE + "textures/gui/larva.png");
-	private EntityLarva larva;
-	private List<LarvaOption> subOptions = new ArrayList<LarvaOption>();
-	private int subOptionsX, subOptionsY;
+	public final ResourceLocation		LARVA_GUI	= new ResourceLocation(Library.RL_BASE + "textures/gui/larva.png");
+	private EntityLarva					larva;
+	private List<LarvaOption>			subOptions	= new ArrayList<LarvaOption>();
+	private int							subOptionsX, subOptionsY;
 
 	public GuiLarvaMorph() {
 		xSize = 155;

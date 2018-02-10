@@ -16,17 +16,17 @@ import net.minecraft.util.math.MathHelper;
 public abstract class ModelArmorBase extends ModelBiped {
 
 	/** The right arm of the biped. */
-	public final ModelRenderer rArm;
+	public final ModelRenderer	rArm;
 	/** The right leg of the biped. */
-	public final ModelRenderer rLeg;
+	public final ModelRenderer	rLeg;
 	/** The head of the biped. */
-	public final ModelRenderer head;
+	public final ModelRenderer	head;
 	/** The body of the biped. */
-	public final ModelRenderer body;
+	public final ModelRenderer	body;
 	/** The left arm of the biped. */
-	public final ModelRenderer lArm;
+	public final ModelRenderer	lArm;
 	/** The left leg of the biped. */
-	public final ModelRenderer lLeg;
+	public final ModelRenderer	lLeg;
 
 	/**
 	 * This sets the model scale and texture dimensions.

@@ -13,8 +13,8 @@ import net.minecraft.util.ITickable;
  */
 public class TileEntityZerusGlowPod extends TileEntity implements ITickable {
 
-	private float pulsingProgress;
-	private float pulsingSpeed;
+	private float	pulsingProgress;
+	private float	pulsingSpeed;
 
 	public TileEntityZerusGlowPod() {
 		pulsingProgress = 1;

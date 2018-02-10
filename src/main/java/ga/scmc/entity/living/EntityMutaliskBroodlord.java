@@ -236,8 +236,8 @@ public class EntityMutaliskBroodlord extends EntityZergFlying implements IMob, I
 	}
 
 	static class MutaliskMoveHelper extends EntityMoveHelper {
-		private final EntityMutaliskBroodlord parentEntity;
-		private int courseChangeCooldown;
+		private final EntityMutaliskBroodlord	parentEntity;
+		private int								courseChangeCooldown;
 
 		public MutaliskMoveHelper(EntityMutaliskBroodlord kakaru) {
 			super(kakaru);

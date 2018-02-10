@@ -11,8 +11,8 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderUrsadon<T> extends RenderLiving<EntityUrsadon> {
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.URSADON_BASE);
-	protected ModelUrsadon model;
+	private static final ResourceLocation	TEXTURE	= new ResourceLocation(Resources.URSADON_BASE);
+	protected ModelUrsadon					model;
 
 	public RenderUrsadon(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);

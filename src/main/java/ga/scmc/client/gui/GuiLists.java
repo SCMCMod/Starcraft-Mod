@@ -26,14 +26,14 @@ import net.minecraft.util.ResourceLocation;
 
 public class GuiLists {
 
-	public static final ImmutableList<Product>[] TRADES;
-	public static final ImmutableList<LarvaOption> LARVA_OPTIONS;
+	public static final ImmutableList<Product>[]	TRADES;
+	public static final ImmutableList<LarvaOption>	LARVA_OPTIONS;
 
-	public static final int HIGHLIGHT_COLOR = new Color(246, 255, 0, 60).getRGB();
-	public static final int NO_FUNDS_COLOR = new Color(200, 50, 0, 60).getRGB();
+	public static final int							HIGHLIGHT_COLOR	= new Color(246, 255, 0, 60).getRGB();
+	public static final int							NO_FUNDS_COLOR	= new Color(200, 50, 0, 60).getRGB();
 
 	@Deprecated
-	private static final List<List<String>> LOGS;
+	private static final List<List<String>>			LOGS;
 
 	static {
 		TRADES = new ImmutableList[6];
@@ -491,9 +491,9 @@ public class GuiLists {
 
 	public static class Product {
 
-		private ItemStack stack;
-		private int mineralCost;
-		private int vespeneCost;
+		private ItemStack	stack;
+		private int			mineralCost;
+		private int			vespeneCost;
 
 		public Product(ItemStack stack, int mineralCost, int vespeneCost) {
 			this.stack = stack;

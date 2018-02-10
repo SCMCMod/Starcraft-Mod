@@ -9,18 +9,18 @@ import net.minecraft.client.renderer.GlStateManager;
  */
 public class ModelZerusLightcapVariant extends ModelBase {
 
-	public ModelRenderer stem01a;
-	public ModelRenderer stem02a;
-	public ModelRenderer stem03a;
-	public ModelRenderer stem01b;
-	public ModelRenderer cap01a;
-	public ModelRenderer cap01b;
-	public ModelRenderer stem01b_1;
-	public ModelRenderer cap01a_1;
-	public ModelRenderer cap01b_1;
-	public ModelRenderer stem03b;
-	public ModelRenderer cap03a;
-	public ModelRenderer cap03b;
+	public ModelRenderer	stem01a;
+	public ModelRenderer	stem02a;
+	public ModelRenderer	stem03a;
+	public ModelRenderer	stem01b;
+	public ModelRenderer	cap01a;
+	public ModelRenderer	cap01b;
+	public ModelRenderer	stem01b_1;
+	public ModelRenderer	cap01a_1;
+	public ModelRenderer	cap01b_1;
+	public ModelRenderer	stem03b;
+	public ModelRenderer	cap03a;
+	public ModelRenderer	cap03b;
 
 	public ModelZerusLightcapVariant() {
 		this.textureWidth = 64;

@@ -39,13 +39,13 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  **/
 @EventBusSubscriber
 public abstract class StormProvider implements Predicate<Entity>, IStormProvider {
-	protected Random random = new Random();
+	protected Random	random			= new Random();
 
-	protected float[] stormX = null;
-	protected float[] stormZ = null;
-	protected float stormDensity = 0.0F;
-	protected int rainSoundCounter;
-	protected boolean renderStorm;
+	protected float[]	stormX			= null;
+	protected float[]	stormZ			= null;
+	protected float		stormDensity	= 0.0F;
+	protected int		rainSoundCounter;
+	protected boolean	renderStorm;
 
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent

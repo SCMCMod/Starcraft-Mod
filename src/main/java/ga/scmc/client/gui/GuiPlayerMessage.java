@@ -16,13 +16,13 @@ import ocelot.api.utils.GuiUtils.GuiType;
 
 public class GuiPlayerMessage extends GuiBase {
 
-	private EnumPlayerMessageType message;
+	private EnumPlayerMessageType	message;
 
-	private List<String> currentText = new ArrayList<String>();
-	private List<String> textLines;
-	private StringBuilder builder = new StringBuilder();
-	private int nextLine;
-	private int updateCount;
+	private List<String>			currentText	= new ArrayList<String>();
+	private List<String>			textLines;
+	private StringBuilder			builder		= new StringBuilder();
+	private int						nextLine;
+	private int						updateCount;
 
 	public GuiPlayerMessage(EnumPlayerMessageType message) {
 		super(300, 100, false);
@@ -144,8 +144,8 @@ public class GuiPlayerMessage extends GuiBase {
 		TEST1("This is yet another testing message", "Why do you do this to me?", "Go away", "this sux"),
 		CONFIRMATION("How much do you like this mod?", "A lot!", "ehh I've seen better", "this mod is not too great", "this mod is a piece of shit");
 
-		private String text;
-		private String[] options;
+		private String		text;
+		private String[]	options;
 
 		private EnumPlayerMessageType(String text, String... options) {
 			this.text = text;

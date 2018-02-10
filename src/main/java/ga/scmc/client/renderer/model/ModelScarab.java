@@ -8,14 +8,14 @@ import net.minecraft.entity.Entity;
  * reaverScarab2 - Cybercat5555 Created using Tabula 5.1.0
  */
 public class ModelScarab extends Model {
-	public ModelRenderer part01;
-	public ModelRenderer part02;
-	public ModelRenderer part03;
-	public ModelRenderer part04;
-	public ModelRenderer node01;
-	public ModelRenderer node02;
-	public ModelRenderer node03;
-	public ModelRenderer node03_1;
+	public ModelRenderer	part01;
+	public ModelRenderer	part02;
+	public ModelRenderer	part03;
+	public ModelRenderer	part04;
+	public ModelRenderer	node01;
+	public ModelRenderer	node02;
+	public ModelRenderer	node03;
+	public ModelRenderer	node03_1;
 
 	public ModelScarab() {
 		this.textureWidth = 128;

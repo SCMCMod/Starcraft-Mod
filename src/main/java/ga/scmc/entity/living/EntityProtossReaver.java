@@ -34,9 +34,9 @@ import net.minecraft.world.World;
 
 public class EntityProtossReaver extends EntityProtossMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
 
-	public float offsetHealth;
-	public int timeSinceHurt;
-	public int ammo = 4;
+	public float	offsetHealth;
+	public int		timeSinceHurt;
+	public int		ammo	= 4;
 
 	public EntityProtossReaver(World world) {
 		super(world);

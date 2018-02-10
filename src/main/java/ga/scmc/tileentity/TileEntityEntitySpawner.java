@@ -15,9 +15,9 @@ import net.minecraft.util.text.TextFormatting;
  */
 public class TileEntityEntitySpawner extends TileEntity implements ITickable {
 
-	private int range;
-	private Entity entityToSpawn;
-	private TextFormatting textColor;
+	private int				range;
+	private Entity			entityToSpawn;
+	private TextFormatting	textColor;
 
 	public TileEntityEntitySpawner() {
 		this(0, null, TextFormatting.WHITE);

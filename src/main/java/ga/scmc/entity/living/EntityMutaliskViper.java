@@ -236,8 +236,8 @@ public class EntityMutaliskViper extends EntityZergFlying implements IMob, IRang
 	}
 
 	static class MutaliskMoveHelper extends EntityMoveHelper {
-		private final EntityMutaliskViper parentEntity;
-		private int courseChangeCooldown;
+		private final EntityMutaliskViper	parentEntity;
+		private int							courseChangeCooldown;
 
 		public MutaliskMoveHelper(EntityMutaliskViper kakaru) {
 			super(kakaru);

@@ -10,8 +10,8 @@ import net.minecraft.util.ResourceLocation;
 
 public class ItemRenderTable extends ItemRenderer {
 
-	private static final ModelTable MODEL = new ModelTable();
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.MODID, "textures/models/block/table.png");
+	private static final ModelTable			MODEL	= new ModelTable();
+	private static final ResourceLocation	TEXTURE	= new ResourceLocation(Library.MODID, "textures/models/block/table.png");
 
 	public ItemRenderTable() {
 		super(null, TEXTURE);

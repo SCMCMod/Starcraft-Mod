@@ -1,16 +1,16 @@
 package ga.scmc.handlers;
 
 import ga.scmc.blocks.itemblocks.ItemBlockMeta;
-import ga.scmc.blocks.metablocks.BlockMineral;
 import ga.scmc.blocks.metablocks.BlockEnergy;
 import ga.scmc.blocks.metablocks.BlockGasCollector;
+import ga.scmc.blocks.metablocks.BlockKhaydarinCrystal;
+import ga.scmc.blocks.metablocks.BlockMineral;
 import ga.scmc.blocks.metablocks.BlockNeosteel;
 import ga.scmc.blocks.metablocks.BlockParisteel;
 import ga.scmc.blocks.metablocks.BlockPlanetSurface;
 import ga.scmc.blocks.metablocks.BlockProtossMetalT1;
 import ga.scmc.blocks.metablocks.BlockProtossMetalT2;
 import ga.scmc.blocks.metablocks.BlockProtossMetalT3;
-import ga.scmc.blocks.metablocks.BlockKhaydarinCrystal;
 import ga.scmc.blocks.metablocks.BlockStarSurface;
 import ga.scmc.blocks.metablocks.BlockTerranMetal;
 import ga.scmc.blocks.metablocks.BlockZergCarapace;
@@ -29,20 +29,20 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
  */
 public class MetaBlockHandler {
 
-	public static Block COMP_METAL_T1;
-	public static Block COMP_MINERAL;
-	public static Block NEOSTEEL_METAL;
-	public static Block PARISTEEL_METAL;
-	public static Block PROTOSS_METAL_T1;
-	public static Block PROTOSS_METAL_T2;
-	public static Block PROTOSS_METAL_T3;
-	public static Block ENERGY;
-	public static Block PYLON_CRYSTAL;
-	public static Block ZERG_CARAPACE_BLOCK;
-	public static Block ZERG_FLESH;
-	public static Block GAS_COLLECTOR;
-	public static Block STAR_SURFACE;
-	public static Block PLANET_SURFACE;
+	public static Block	COMP_METAL_T1;
+	public static Block	COMP_MINERAL;
+	public static Block	NEOSTEEL_METAL;
+	public static Block	PARISTEEL_METAL;
+	public static Block	PROTOSS_METAL_T1;
+	public static Block	PROTOSS_METAL_T2;
+	public static Block	PROTOSS_METAL_T3;
+	public static Block	ENERGY;
+	public static Block	PYLON_CRYSTAL;
+	public static Block	ZERG_CARAPACE_BLOCK;
+	public static Block	ZERG_FLESH;
+	public static Block	GAS_COLLECTOR;
+	public static Block	STAR_SURFACE;
+	public static Block	PLANET_SURFACE;
 
 	/**
 	 * Instantiates and registers the blocks and items.

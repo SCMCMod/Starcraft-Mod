@@ -15,9 +15,9 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 public class StarcraftWorldGenMinable extends WorldGenerator {
 
 	/** The number of blocks to generate. */
-	private final int numberOfBlocks;
-	private final IBlockState oreBlock;
-	private final Predicate<IBlockState> predicate;
+	private final int						numberOfBlocks;
+	private final IBlockState				oreBlock;
+	private final Predicate<IBlockState>	predicate;
 
 	public StarcraftWorldGenMinable(Block fillerBlock, IBlockState state, int blockCount) {
 		this(state, blockCount, BlockMatcher.forBlock(fillerBlock));

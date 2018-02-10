@@ -37,7 +37,7 @@ public class RenderLarvaCocoon extends RenderLiving<EntityLarvaCocoon> implement
 	protected ResourceLocation getEntityTexture(EntityLarvaCocoon entity) {
 		return BASE;
 	}
-	
+
 	@Override
 	protected void preRenderCallback(EntityLarvaCocoon entitylivingbaseIn, float partialTickTime) {
 		GlStateManager.scale(1.7F, 1.7F, 1.7F);

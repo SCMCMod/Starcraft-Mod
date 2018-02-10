@@ -17,11 +17,11 @@ import ocelot.api.utils.TextureUtils;
 
 public class ItemRenderModelArmorItem extends ItemRenderer {
 
-	private IArmorItem model;
-	private EntityEquipmentSlot type;
+	private IArmorItem			model;
+	private EntityEquipmentSlot	type;
 
-	private ResourceLocation textureLayer1;
-	private ResourceLocation textureLayer2;
+	private ResourceLocation	textureLayer1;
+	private ResourceLocation	textureLayer2;
 
 	public ItemRenderModelArmorItem(EntityEquipmentSlot type, IArmorItem model, ArmorMaterial material) {
 		super(null, null);

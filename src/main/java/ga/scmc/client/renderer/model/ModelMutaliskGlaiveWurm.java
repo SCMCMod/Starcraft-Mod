@@ -8,23 +8,23 @@ import net.minecraft.entity.Entity;
  * mutalisk_glaiveworm - cybercat5555 Created using Tabula 6.0.0
  */
 public class ModelMutaliskGlaiveWurm extends Model {
-	public ModelRenderer base01;
-	public ModelRenderer base02;
-	public ModelRenderer spike01a;
-	public ModelRenderer spike02a;
-	public ModelRenderer spike03a;
-	public ModelRenderer spike04;
-	public ModelRenderer spike05;
-	public ModelRenderer spike06;
-	public ModelRenderer spike01b;
-	public ModelRenderer spike01c;
-	public ModelRenderer spike01d;
-	public ModelRenderer spike02b;
-	public ModelRenderer spike02c;
-	public ModelRenderer spike02d;
-	public ModelRenderer spike03b;
-	public ModelRenderer spike03c;
-	public ModelRenderer spike03d;
+	public ModelRenderer	base01;
+	public ModelRenderer	base02;
+	public ModelRenderer	spike01a;
+	public ModelRenderer	spike02a;
+	public ModelRenderer	spike03a;
+	public ModelRenderer	spike04;
+	public ModelRenderer	spike05;
+	public ModelRenderer	spike06;
+	public ModelRenderer	spike01b;
+	public ModelRenderer	spike01c;
+	public ModelRenderer	spike01d;
+	public ModelRenderer	spike02b;
+	public ModelRenderer	spike02c;
+	public ModelRenderer	spike02d;
+	public ModelRenderer	spike03b;
+	public ModelRenderer	spike03c;
+	public ModelRenderer	spike03d;
 
 	public ModelMutaliskGlaiveWurm() {
 		this.textureWidth = 64;

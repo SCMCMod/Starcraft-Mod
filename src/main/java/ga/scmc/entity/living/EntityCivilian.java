@@ -24,8 +24,8 @@ import net.minecraft.world.World;
 
 public class EntityCivilian extends EntityTerranPassive {
 
-	private Random random = new Random();
-	private EntityPlayer customer;
+	private Random			random	= new Random();
+	private EntityPlayer	customer;
 
 	public EntityCivilian(World world) {
 		super(world);

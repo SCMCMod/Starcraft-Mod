@@ -8,9 +8,9 @@ import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 
 public class ShieldProvider implements ICapabilitySerializable<NBTBase> {
 	@CapabilityInject(IShield.class)
-	public static final Capability<IShield> SHIELD = null;
+	public static final Capability<IShield>	SHIELD		= null;
 
-	private IShield instance = SHIELD.getDefaultInstance();
+	private IShield							instance	= SHIELD.getDefaultInstance();
 
 	@Override
 	public boolean hasCapability(Capability<?> capability, EnumFacing facing) {

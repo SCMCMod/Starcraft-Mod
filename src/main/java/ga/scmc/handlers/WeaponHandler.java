@@ -15,17 +15,17 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  */
 public class WeaponHandler {
 
-	public static Item BALISONG;
-	public static Item COPPER_SWORD;
-	public static Item BANE_BLADE;
-	public static Item MASTER_PSI_BLADE;
-	public static Item DARK_WARP_BLADE;
-	public static Item MILITARY_KNIFE;
-	public static Item MONOMOLECULAR_BLADE;
-	public static Item PSI_BLADE;
-	public static Item STEEL_SWORD;
-	public static Item TITANIUM_SWORD;
-	public static Item WARP_BLADE;
+	public static Item	BALISONG;
+	public static Item	COPPER_SWORD;
+	public static Item	BANE_BLADE;
+	public static Item	MASTER_PSI_BLADE;
+	public static Item	DARK_WARP_BLADE;
+	public static Item	MILITARY_KNIFE;
+	public static Item	MONOMOLECULAR_BLADE;
+	public static Item	PSI_BLADE;
+	public static Item	STEEL_SWORD;
+	public static Item	TITANIUM_SWORD;
+	public static Item	WARP_BLADE;
 
 	public static void init() {
 		PSI_BLADE = new WeaponPsiBlade(WeaponMaterials.PSIBLADE_MATERIAL).setUnlocalizedName("protoss.blade.psi.aiur").setRegistryName("protoss.blade.psi.aiur").setCreativeTab(StarcraftCreativeTabs.PROTOSS);

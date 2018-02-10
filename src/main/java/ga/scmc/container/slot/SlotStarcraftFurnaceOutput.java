@@ -20,8 +20,8 @@ import net.minecraftforge.items.SlotItemHandler;
  */
 public class SlotStarcraftFurnaceOutput extends SlotItemHandler {
 
-	private final EntityPlayer player;
-	private int removeCount;
+	private final EntityPlayer	player;
+	private int					removeCount;
 
 	public SlotStarcraftFurnaceOutput(EntityPlayer player, IItemHandler inv, int slotIndex, int xPosition, int yPosition) {
 		super(inv, slotIndex, xPosition, yPosition);

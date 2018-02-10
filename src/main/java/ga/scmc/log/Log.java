@@ -24,15 +24,15 @@ import net.minecraft.util.ResourceLocation;
 public class Log implements IResourceManagerReloadListener {
 
 	/** The containing folder of the logs */
-	public static final ResourceLocation DEFAULT_LOCATION = new ResourceLocation(Library.RL_BASE + "texts/logs/");
+	public static final ResourceLocation	DEFAULT_LOCATION	= new ResourceLocation(Library.RL_BASE + "texts/logs/");
 
-	private int id;
-	private String fileName;
-	private String propertiesFileName;
+	private int								id;
+	private String							fileName;
+	private String							propertiesFileName;
 
-	private String name;
-	private int skinId;
-	private List<String> text;
+	private String							name;
+	private int								skinId;
+	private List<String>					text;
 
 	public Log(int id, String fileName) {
 		this.id = id;

@@ -13,9 +13,9 @@ import net.minecraft.util.ResourceLocation;
  */
 public class ItemRenderZerusLightcap extends ItemRenderer {
 
-	public static final ModelZerusLightcap MODEL = new ModelZerusLightcap();
+	public static final ModelZerusLightcap	MODEL	= new ModelZerusLightcap();
 
-	public static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/models/block/zerus_lightcap.png");
+	public static final ResourceLocation	TEXTURE	= new ResourceLocation(Library.RL_BASE + "textures/models/block/zerus_lightcap.png");
 
 	public ItemRenderZerusLightcap() {
 		super(null, TEXTURE);

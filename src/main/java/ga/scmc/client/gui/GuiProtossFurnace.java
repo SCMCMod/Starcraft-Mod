@@ -22,17 +22,17 @@ import ocelot.api.utils.TextureUtils;
  */
 public class GuiProtossFurnace extends GuiContainer {
 
-	public static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/gui/container/protoss_furnace.png");
-	private BlockPos pos;
-	private EntityPlayer player;
+	public static final ResourceLocation	TEXTURE	= new ResourceLocation(Library.RL_BASE + "textures/gui/container/protoss_furnace.png");
+	private BlockPos						pos;
+	private EntityPlayer					player;
 
 	/**
 	 * Used for synchronisation with the server
 	 * 
 	 * @author CJMinecraft
 	 */
-	public static float burnTime, cookTime;
-	private int sync;
+	public static float						burnTime, cookTime;
+	private int								sync;
 
 	/**
 	 * Create a new gui for a starcraft furnace

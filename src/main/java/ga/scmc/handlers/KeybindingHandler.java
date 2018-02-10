@@ -10,9 +10,9 @@ import net.minecraftforge.fml.client.registry.ClientRegistry;
 
 public class KeybindingHandler {
 
-	public static final String STARCRAFT_CATEGORY = "key.categories." + Library.MODID;
+	public static final String	STARCRAFT_CATEGORY	= "key.categories." + Library.MODID;
 
-	public static KeyBinding toggleMarineVisor;
+	public static KeyBinding	toggleMarineVisor;
 
 	public static void preInit() {
 		MinecraftForge.EVENT_BUS.register(new KeyEventHandler());

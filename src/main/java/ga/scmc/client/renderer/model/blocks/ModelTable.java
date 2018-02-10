@@ -10,11 +10,11 @@ import net.minecraft.client.model.ModelRenderer;
  */
 public class ModelTable extends ModelBase {
 
-	public ModelRenderer top;
-	public ModelRenderer leg1;
-	public ModelRenderer leg2;
-	public ModelRenderer leg3;
-	public ModelRenderer leg4;
+	public ModelRenderer	top;
+	public ModelRenderer	leg1;
+	public ModelRenderer	leg2;
+	public ModelRenderer	leg3;
+	public ModelRenderer	leg4;
 
 	public ModelTable() {
 		this.textureWidth = 82;

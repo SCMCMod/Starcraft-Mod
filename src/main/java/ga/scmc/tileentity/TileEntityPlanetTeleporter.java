@@ -13,8 +13,8 @@ import net.minecraft.util.ITickable;
  */
 public class TileEntityPlanetTeleporter extends TileEntity implements ITickable {
 
-	private int range = 50;
-	private int dim = 0;
+	private int	range	= 50;
+	private int	dim		= 0;
 
 	public TileEntityPlanetTeleporter(int dim, int range) {
 		this.range = range;

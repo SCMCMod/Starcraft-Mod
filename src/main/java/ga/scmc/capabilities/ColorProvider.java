@@ -11,9 +11,9 @@ public class ColorProvider implements ICapabilitySerializable<NBTBase>
 {
 
 	@CapabilityInject(IColor.class)
-	public static final Capability<IColor> COLOR = null;
+	public static final Capability<IColor>	COLOR		= null;
 
-	private IColor instance = COLOR.getDefaultInstance();
+	private IColor							instance	= COLOR.getDefaultInstance();
 
 	@Override
 	public boolean hasCapability(Capability<?> capability, EnumFacing facing) {

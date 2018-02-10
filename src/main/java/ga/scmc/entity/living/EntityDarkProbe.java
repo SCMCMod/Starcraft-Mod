@@ -27,8 +27,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityDarkProbe extends EntityProtossPassive {
 
-	public float offsetHealth;
-	public int timeSinceHurt;
+	public float	offsetHealth;
+	public int		timeSinceHurt;
 
 	public EntityDarkProbe(World world) {
 		super(world);

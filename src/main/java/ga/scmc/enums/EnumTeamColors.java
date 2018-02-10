@@ -27,10 +27,10 @@ public enum EnumTeamColors {
 	RED(14, 168, 21, 24),
 	BLACK(15, 25, 25, 25);
 
-	private int ID;
-	private float r;
-	private float g;
-	private float b;
+	private int		ID;
+	private float	r;
+	private float	g;
+	private float	b;
 
 	EnumTeamColors(int ID, float r, float g, float b) {
 		this.ID = ID;

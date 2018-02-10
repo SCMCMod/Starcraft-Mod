@@ -7,8 +7,8 @@ import net.minecraft.world.gen.layer.IntCache;
 
 public class GenLayerCharMix extends GenLayer {
 
-	private final GenLayer biomePatternGeneratorChain;
-	private final GenLayer riverPatternGeneratorChain;
+	private final GenLayer	biomePatternGeneratorChain;
+	private final GenLayer	riverPatternGeneratorChain;
 
 	public GenLayerCharMix(long p_i2129_1_, GenLayer p_i2129_3_, GenLayer p_i2129_4_) {
 		super(p_i2129_1_);

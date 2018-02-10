@@ -22,9 +22,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import ocelot.api.utils.TextureUtils;
 
 public class RenderSkyKaldir extends IRenderHandler {
-	private Color skyColor = new Color(0.11F, 0.225F, 0.265F, 1F);
-	protected Color cloudColor = new Color(0.075F, 0.1F, 0.15F, 0.75F);
-	public int starGLCallList = GLAllocation.generateDisplayLists(3);
+	private Color	skyColor		= new Color(0.11F, 0.225F, 0.265F, 1F);
+	protected Color	cloudColor		= new Color(0.075F, 0.1F, 0.15F, 0.75F);
+	public int		starGLCallList	= GLAllocation.generateDisplayLists(3);
 
 	public RenderSkyKaldir() {
 		this.generateStars();

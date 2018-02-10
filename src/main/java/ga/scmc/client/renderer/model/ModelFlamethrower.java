@@ -10,36 +10,36 @@ import net.minecraft.util.ResourceLocation;
  * Flame Thrower - SCMCDevTeam Created using Tabula 5.1.0
  */
 public class ModelFlamethrower extends Model {
-	public static final ResourceLocation TEXTURE = new ResourceLocation(Library.MODID, "textures/models/flamethrower.png");
+	public static final ResourceLocation	TEXTURE	= new ResourceLocation(Library.MODID, "textures/models/flamethrower.png");
 
-	public ModelRenderer main1;
-	public ModelRenderer main2;
-	public ModelRenderer main3;
-	public ModelRenderer main4;
-	public ModelRenderer main5;
-	public ModelRenderer main6;
-	public ModelRenderer main7;
-	public ModelRenderer main8;
-	public ModelRenderer main9;
-	public ModelRenderer main12;
-	public ModelRenderer main14;
-	public ModelRenderer main15;
-	public ModelRenderer main16;
-	public ModelRenderer main17;
-	public ModelRenderer main18;
-	public ModelRenderer main19;
-	public ModelRenderer main20;
-	public ModelRenderer main21;
-	public ModelRenderer main22;
-	public ModelRenderer main23;
-	public ModelRenderer main24;
-	public ModelRenderer main25;
-	public ModelRenderer main26;
-	public ModelRenderer main27;
-	public ModelRenderer main28;
-	public ModelRenderer main29;
-	public ModelRenderer main30;
-	public ModelRenderer main31;
+	public ModelRenderer					main1;
+	public ModelRenderer					main2;
+	public ModelRenderer					main3;
+	public ModelRenderer					main4;
+	public ModelRenderer					main5;
+	public ModelRenderer					main6;
+	public ModelRenderer					main7;
+	public ModelRenderer					main8;
+	public ModelRenderer					main9;
+	public ModelRenderer					main12;
+	public ModelRenderer					main14;
+	public ModelRenderer					main15;
+	public ModelRenderer					main16;
+	public ModelRenderer					main17;
+	public ModelRenderer					main18;
+	public ModelRenderer					main19;
+	public ModelRenderer					main20;
+	public ModelRenderer					main21;
+	public ModelRenderer					main22;
+	public ModelRenderer					main23;
+	public ModelRenderer					main24;
+	public ModelRenderer					main25;
+	public ModelRenderer					main26;
+	public ModelRenderer					main27;
+	public ModelRenderer					main28;
+	public ModelRenderer					main29;
+	public ModelRenderer					main30;
+	public ModelRenderer					main31;
 
 	public ModelFlamethrower() {
 		this.textureWidth = 200;

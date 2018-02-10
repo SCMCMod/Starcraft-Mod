@@ -18,8 +18,8 @@ import ocelot.api.utils.GuiUtils.GuiType;
  */
 public class GuiTest extends GuiBase {
 
-	private Component item;
-	private Component button;
+	private Component	item;
+	private Component	button;
 
 	public GuiTest() {
 		super(150, 150);

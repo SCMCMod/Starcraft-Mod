@@ -24,11 +24,11 @@ import net.minecraft.world.World;
  */
 public class Library {
 
-	public static final String CLIENT_SIDE_PROXY = "ga.scmc.proxy.ClientProxy";
-	public static final String SERVER_SIDE_PROXY = "ga.scmc.proxy.ServerProxy";
-	public static final String MODID = "starcraft";
-	public static final String RL_BASE = MODID + ":";
-	public static final String UN_BASE = MODID + "_";
+	public static final String	CLIENT_SIDE_PROXY	= "ga.scmc.proxy.ClientProxy";
+	public static final String	SERVER_SIDE_PROXY	= "ga.scmc.proxy.ServerProxy";
+	public static final String	MODID				= "starcraft";
+	public static final String	RL_BASE				= MODID + ":";
+	public static final String	UN_BASE				= MODID + "_";
 
 	/**
 	 * Makes a cube out of {@code blockState} anchored at the bottom-middle. NOTE:

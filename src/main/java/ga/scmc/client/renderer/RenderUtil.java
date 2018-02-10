@@ -10,8 +10,8 @@ import net.minecraft.util.ResourceLocation;
  */
 public class RenderUtil {
 
-	public static final float DEFAULT_BOX_TRANSLATION = 0.625F;
-	private static final Minecraft MC = Minecraft.getMinecraft();
+	public static final float		DEFAULT_BOX_TRANSLATION	= 0.625F;
+	private static final Minecraft	MC						= Minecraft.getMinecraft();
 
 	/**
 	 * Binds the texture to the resourceLocation.

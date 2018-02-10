@@ -328,7 +328,7 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 		default:
 			return new EntityOcelot(world);
 		case 0:
-			return new EntityDrone(world);
+			return new EntityOcelot(world);
 		case 2:
 			return new EntityZergling(world);
 		case 3:

@@ -13,8 +13,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WorldProviderShakuras extends WorldProvider {
 
-	private IRenderHandler skyRenderer;
-	private IRenderHandler cliimateProvider;
+	private IRenderHandler	skyRenderer;
+	private IRenderHandler	cliimateProvider;
 
 	@SideOnly(Side.CLIENT)
 	@Override

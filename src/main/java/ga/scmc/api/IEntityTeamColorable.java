@@ -4,8 +4,7 @@ import ga.scmc.enums.EnumTeamColors;
 import net.minecraft.entity.EntityLiving;
 
 /**
- * An interface used by the
- * {@link ga.scmc.client.renderer.ColoredLayerRender}
+ * An interface used by the {@link ga.scmc.client.renderer.ColoredLayerRender}
  * 
  * @author CJMinecraft
  * @param <T>

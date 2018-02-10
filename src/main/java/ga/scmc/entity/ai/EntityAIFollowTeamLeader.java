@@ -7,8 +7,8 @@ import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class EntityAIFollowTeamLeader extends EntityAIBase {
-	private final EntityLiving entity;
-	private EntityPlayer player;
+	private final EntityLiving	entity;
+	private EntityPlayer		player;
 
 	public EntityAIFollowTeamLeader(EntityLiving entityIn) {
 		this.entity = entityIn;

@@ -32,11 +32,11 @@ import ocelot.api.utils.TextureUtils;
  */
 public class GuiGasCollector extends GuiContainer {
 
-	private TileEntityGasCollector te;
-	private IInventory playerInv;
-	private IItemHandler itemHandler;
+	private TileEntityGasCollector	te;
+	private IInventory				playerInv;
+	private IItemHandler			itemHandler;
 
-	private String[] names;
+	private String[]				names;
 
 	public GuiGasCollector(EntityPlayer player, TileEntityGasCollector te) {
 		super(new ContainerGasCollector(player, te));

@@ -12,12 +12,12 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
-	private Block chanBlock;
-	private Block dimBlock;
-	private int metaDim;
-	private int metaPrimColor;
-	private int metaSecColor;
-	private Block stabBlock;
+	private Block	chanBlock;
+	private Block	dimBlock;
+	private int		metaDim;
+	private int		metaPrimColor;
+	private int		metaSecColor;
+	private Block	stabBlock;
 
 	@Override
 	public boolean generate(int metaPrimColor, int metaSecColor, World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos pos, boolean flag) {

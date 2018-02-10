@@ -10,8 +10,8 @@ import net.minecraft.item.ItemStack;
 
 public class GasCollectorRecipe extends BlankRecipeWrapper {
 
-	private final ItemStack input;
-	private final ItemStack output;
+	private final ItemStack	input;
+	private final ItemStack	output;
 
 	public GasCollectorRecipe(IBlockState input, ItemStack output) {
 		this.input = new ItemStack(input.getBlock(), 1, input.getBlock().getMetaFromState(input));

@@ -52,9 +52,9 @@ import net.minecraft.world.World;
  */
 public class EntityNafash extends EntityZergMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
 
-	private static final DataParameter<Float> ENERGY = EntityDataManager.createKey(EntityNafash.class, DataSerializers.FLOAT);
-	private final BossInfoServer bossInfo = (BossInfoServer) (new BossInfoServer(this.getDisplayName(), BossInfo.Color.PURPLE, BossInfo.Overlay.PROGRESS)).setDarkenSky(true);
-	public int tracker = 0;
+	private static final DataParameter<Float>	ENERGY		= EntityDataManager.createKey(EntityNafash.class, DataSerializers.FLOAT);
+	private final BossInfoServer				bossInfo	= (BossInfoServer) (new BossInfoServer(this.getDisplayName(), BossInfo.Color.PURPLE, BossInfo.Overlay.PROGRESS)).setDarkenSky(true);
+	public int									tracker		= 0;
 
 	public EntityNafash(World world) {
 		super(world);

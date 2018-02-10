@@ -23,19 +23,19 @@ public class TileEntitySidedInventory extends TileEntity {
 	/**
 	 * The holder of all the item stacks
 	 */
-	protected ItemStackHandler handler;
+	protected ItemStackHandler		handler;
 	/**
 	 * All of the handlers for each side
 	 */
-	private SidedItemStackHandler northHandler, southHandler, eastHandler, westHandler, upHandler, downHandler;
+	private SidedItemStackHandler	northHandler, southHandler, eastHandler, westHandler, upHandler, downHandler;
 	/**
 	 * The slots each side will represent
 	 */
-	private int[][] slotsForFace;
+	private int[][]					slotsForFace;
 	/**
 	 * States whether we are currently transferring stacks
 	 */
-	private boolean transferringStacks;
+	private boolean					transferringStacks;
 
 	/**
 	 * Create a sided {@link TileEntity}, like the

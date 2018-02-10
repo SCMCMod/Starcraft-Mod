@@ -4,10 +4,10 @@ import net.minecraft.client.Minecraft;
 
 public class ComponentTextButton extends Component {
 
-	private String text;
-	private String highlightText;
-	private int color;
-	private int highlightColor;
+	private String	text;
+	private String	highlightText;
+	private int		color;
+	private int		highlightColor;
 
 	public ComponentTextButton(int x, int y, String text, int color, int highlightColor) {
 		this(x, y, text, text, color, highlightColor);

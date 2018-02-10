@@ -26,30 +26,30 @@ import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 
 public class ChunkProviderChar implements IChunkGenerator {
-	protected static final IBlockState STONE = BlockHandler.STONE_CHAR.getDefaultState();
-	private final Random rand;
-	private NoiseGeneratorOctaves minLimitPerlinNoise;
-	private NoiseGeneratorOctaves maxLimitPerlinNoise;
-	private NoiseGeneratorOctaves mainPerlinNoise;
-	private NoiseGeneratorPerlin surfaceNoise;
-	public NoiseGeneratorOctaves scaleNoise;
-	public NoiseGeneratorOctaves depthNoise;
-	public NoiseGeneratorOctaves forestNoise;
-	private final World world;
-	private final boolean mapFeaturesEnabled;
-	private final WorldType terrainType;
-	private final double[] heightMap;
-	private final float[] biomeWeights;
-	private ChunkProviderSettings settings;
-	private IBlockState oceanBlock = Blocks.LAVA.getDefaultState();
-	private double[] depthBuffer = new double[256];
-	private MapGenBase caveGenerator = new CharGenCaves();
-	private MapGenBase ravineGenerator = new CharGenRavine();
-	private Biome[] biomesForGeneration;
-	double[] mainNoiseRegion;
-	double[] minLimitRegion;
-	double[] maxLimitRegion;
-	double[] depthRegion;
+	protected static final IBlockState	STONE			= BlockHandler.STONE_CHAR.getDefaultState();
+	private final Random				rand;
+	private NoiseGeneratorOctaves		minLimitPerlinNoise;
+	private NoiseGeneratorOctaves		maxLimitPerlinNoise;
+	private NoiseGeneratorOctaves		mainPerlinNoise;
+	private NoiseGeneratorPerlin		surfaceNoise;
+	public NoiseGeneratorOctaves		scaleNoise;
+	public NoiseGeneratorOctaves		depthNoise;
+	public NoiseGeneratorOctaves		forestNoise;
+	private final World					world;
+	private final boolean				mapFeaturesEnabled;
+	private final WorldType				terrainType;
+	private final double[]				heightMap;
+	private final float[]				biomeWeights;
+	private ChunkProviderSettings		settings;
+	private IBlockState					oceanBlock		= Blocks.LAVA.getDefaultState();
+	private double[]					depthBuffer		= new double[256];
+	private MapGenBase					caveGenerator	= new CharGenCaves();
+	private MapGenBase					ravineGenerator	= new CharGenRavine();
+	private Biome[]						biomesForGeneration;
+	double[]							mainNoiseRegion;
+	double[]							minLimitRegion;
+	double[]							maxLimitRegion;
+	double[]							depthRegion;
 
 	public ChunkProviderChar(World worldIn, long seed, boolean mapFeaturesEnabledIn, String p_i46668_5_) {
 		{

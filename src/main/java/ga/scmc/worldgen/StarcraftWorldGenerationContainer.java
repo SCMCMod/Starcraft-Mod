@@ -27,8 +27,8 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 	 * The instance of this class. Used in WorldGenerationHandler.java to generate
 	 * ores, structures, and bosses.
 	 */
-	public static final StarcraftWorldGenerationContainer instance = new StarcraftWorldGenerationContainer();
-	public static boolean generationCompleted = false;
+	public static final StarcraftWorldGenerationContainer	instance			= new StarcraftWorldGenerationContainer();
+	public static boolean									generationCompleted	= false;
 
 	/**
 	 * The most basic generation checker for structures that spawn in the overworld.
@@ -217,11 +217,11 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		if (world.rand.nextInt(100) < 10 && world.getWorldInfo().isMapFeaturesEnabled()) {
 			runMetaGenerator(MINERAL_PATCH, 1, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
 		}
-		
-		if(world.rand.nextInt(10000) == 0) {
+
+		if (world.rand.nextInt(10000) == 0) {
 			this.runTileEntityGenerator(TILEENTITY_SPAWNER, new TileEntityEntitySpawner(30, new EntityNafash(world), TextFormatting.RED), BlockHandler.ENTITY_SPAWNER, world, random, chunkX, chunkZ, 1, 65, 70);
 		}
-			
+
 		this.runTileEntityGenerator(TILEENTITY_SPAWNER, new TileEntityKaldirBrambles(), BlockHandler.FLORA_KALDIR_BRAMBLES, world, random, chunkX, chunkZ, 10, 65, 70);
 	}
 
@@ -499,7 +499,6 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 			this.runStarGenerator(STAR_TEMPLATE, 71, 101, MetaBlockHandler.STAR_SURFACE.getStateFromMeta(5), world, random, 0, 0, 0, new BlockPos(637, 128, 0));
 			this.runStarGenerator(STAR_TEMPLATE, 21, 47, MetaBlockHandler.STAR_SURFACE.getStateFromMeta(2), world, random, 0, 0, 0, new BlockPos(473, 128, -100));
 
-			
 			this.generationCompleted = true;
 		}
 

@@ -13,30 +13,30 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  */
 public class ModelKaldirBrambles extends ModelBase {
 
-	public ModelRenderer branch01;
-	public ModelRenderer branch02;
-	public ModelRenderer branch03;
-	public ModelRenderer branch04;
-	public ModelRenderer branch05;
-	public ModelRenderer branch06;
-	public ModelRenderer branch07;
-	public ModelRenderer branch08;
-	public ModelRenderer branch09;
-	public ModelRenderer branch10;
-	public ModelRenderer branch11;
-	public ModelRenderer branch12;
-	public ModelRenderer branch01b;
-	public ModelRenderer branch02b;
-	public ModelRenderer branch03b;
-	public ModelRenderer branch04b;
-	public ModelRenderer branch05b;
-	public ModelRenderer branch06b;
-	public ModelRenderer branch07b;
-	public ModelRenderer branch08b;
-	public ModelRenderer branch09b;
-	public ModelRenderer branch10b;
-	public ModelRenderer branch11b;
-	public ModelRenderer branch12b;
+	public ModelRenderer	branch01;
+	public ModelRenderer	branch02;
+	public ModelRenderer	branch03;
+	public ModelRenderer	branch04;
+	public ModelRenderer	branch05;
+	public ModelRenderer	branch06;
+	public ModelRenderer	branch07;
+	public ModelRenderer	branch08;
+	public ModelRenderer	branch09;
+	public ModelRenderer	branch10;
+	public ModelRenderer	branch11;
+	public ModelRenderer	branch12;
+	public ModelRenderer	branch01b;
+	public ModelRenderer	branch02b;
+	public ModelRenderer	branch03b;
+	public ModelRenderer	branch04b;
+	public ModelRenderer	branch05b;
+	public ModelRenderer	branch06b;
+	public ModelRenderer	branch07b;
+	public ModelRenderer	branch08b;
+	public ModelRenderer	branch09b;
+	public ModelRenderer	branch10b;
+	public ModelRenderer	branch11b;
+	public ModelRenderer	branch12b;
 
 	public ModelKaldirBrambles() {
 		this.textureWidth = 64;

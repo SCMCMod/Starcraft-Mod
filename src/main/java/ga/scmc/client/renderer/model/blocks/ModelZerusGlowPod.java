@@ -9,29 +9,29 @@ import net.minecraft.client.renderer.GlStateManager;
  */
 public class ModelZerusGlowPod extends ModelBase {
 
-	public ModelRenderer roots01;
-	public ModelRenderer podBase01;
-	public ModelRenderer roots02;
-	public ModelRenderer roots03;
-	public ModelRenderer roots04;
-	public ModelRenderer tendril01;
-	public ModelRenderer tendril05;
-	public ModelRenderer tendril03;
-	public ModelRenderer tendril07;
-	public ModelRenderer tendril02;
-	public ModelRenderer tendril06;
-	public ModelRenderer tendril04;
-	public ModelRenderer tendril08;
-	public ModelRenderer podBase02;
-	public ModelRenderer podBase04;
-	public ModelRenderer petal01;
-	public ModelRenderer petal02;
-	public ModelRenderer petal03;
-	public ModelRenderer petal04;
-	public ModelRenderer petal05;
-	public ModelRenderer petal06;
-	public ModelRenderer petal07;
-	public ModelRenderer petal08;
+	public ModelRenderer	roots01;
+	public ModelRenderer	podBase01;
+	public ModelRenderer	roots02;
+	public ModelRenderer	roots03;
+	public ModelRenderer	roots04;
+	public ModelRenderer	tendril01;
+	public ModelRenderer	tendril05;
+	public ModelRenderer	tendril03;
+	public ModelRenderer	tendril07;
+	public ModelRenderer	tendril02;
+	public ModelRenderer	tendril06;
+	public ModelRenderer	tendril04;
+	public ModelRenderer	tendril08;
+	public ModelRenderer	podBase02;
+	public ModelRenderer	podBase04;
+	public ModelRenderer	petal01;
+	public ModelRenderer	petal02;
+	public ModelRenderer	petal03;
+	public ModelRenderer	petal04;
+	public ModelRenderer	petal05;
+	public ModelRenderer	petal06;
+	public ModelRenderer	petal07;
+	public ModelRenderer	petal08;
 
 	public ModelZerusGlowPod() {
 		this.textureWidth = 64;

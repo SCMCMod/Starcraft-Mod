@@ -12,8 +12,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class LayerScarab<T extends EntityScarab> implements LayerRenderer<T> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.SCARAB);
-	private final RenderScarab RENDERER;
+	private static final ResourceLocation	TEXTURE	= new ResourceLocation(Resources.SCARAB);
+	private final RenderScarab				RENDERER;
 
 	public LayerScarab(RenderScarab scarabRenderer) {
 		this.RENDERER = scarabRenderer;

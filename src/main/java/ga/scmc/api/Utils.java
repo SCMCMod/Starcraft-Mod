@@ -44,14 +44,14 @@ import net.minecraftforge.oredict.OreDictionary;
  */
 public class Utils {
 
-	public static final FloatBuffer projection = GLAllocation.createDirectFloatBuffer(16);
-	public static final FloatBuffer modelview = GLAllocation.createDirectFloatBuffer(16);
+	public static final FloatBuffer	projection	= GLAllocation.createDirectFloatBuffer(16);
+	public static final FloatBuffer	modelview	= GLAllocation.createDirectFloatBuffer(16);
 
 	/**
 	 * Makes the variables which will be initialized when there getter method is
 	 * called
 	 */
-	private static Lang lang;
+	private static Lang				lang;
 
 	/**
 	 * @return The player's projection matrix

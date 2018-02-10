@@ -19,12 +19,12 @@ import net.minecraft.util.ResourceLocation;
 
 public class GasCollectorCategory extends BlankRecipeCategory<GasCollectorRecipe> {
 
-	public static final int inputSlot = 0;
-	public static final int outputSlot = 1;
+	public static final int	inputSlot	= 0;
+	public static final int	outputSlot	= 1;
 
-	private final IDrawable background;
-	private final String localizedName;
-	private int cycleId = 0;
+	private final IDrawable	background;
+	private final String	localizedName;
+	private int				cycleId		= 0;
 
 	public GasCollectorCategory(IGuiHelper guiHelper) {
 		ResourceLocation location = new ResourceLocation(Library.RL_BASE + "textures/gui/container/gas_collector_base.png");

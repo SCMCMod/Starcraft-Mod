@@ -47,7 +47,7 @@ public class RenderBrutalisk extends RenderLiving<EntityBrutalisk> implements La
 	public boolean shouldCombineTextures() {
 		return true;
 	}
-	
+
 	@Override
 	protected void preRenderCallback(EntityBrutalisk entitylivingbaseIn, float partialTickTime) {
 		GlStateManager.scale(3.0F + (entitylivingbaseIn.getBiomass() / 60), 3.0F + (entitylivingbaseIn.getBiomass() / 60), 3.0F + (entitylivingbaseIn.getBiomass() / 60));

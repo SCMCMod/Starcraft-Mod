@@ -18,11 +18,11 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WorldProviderChar extends WorldProvider implements IClimateProvider {
-	private StormProviderChar storm = new StormProviderChar();
-	private CloudProviderChar clouds = new CloudProviderChar();
-	private IRenderHandler skyRenderer;
-	private IRenderHandler cliimateProvider;
-	private Vec3d vec = new Vec3d(0.0D, 0.0D, 0.0D);
+	private StormProviderChar	storm	= new StormProviderChar();
+	private CloudProviderChar	clouds	= new CloudProviderChar();
+	private IRenderHandler		skyRenderer;
+	private IRenderHandler		cliimateProvider;
+	private Vec3d				vec		= new Vec3d(0.0D, 0.0D, 0.0D);
 
 	@SideOnly(Side.CLIENT)
 	@Override

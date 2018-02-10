@@ -12,10 +12,10 @@ import net.minecraft.world.WorldServer;
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
  */
 public class TeleporterHandler extends Teleporter {
-	private final WorldServer worldServer;
-	private double x;
-	private double y;
-	private double z;
+	private final WorldServer	worldServer;
+	private double				x;
+	private double				y;
+	private double				z;
 
 	public TeleporterHandler(WorldServer world, double x, double y, double z, boolean hasNoSurface) {
 		super(world);

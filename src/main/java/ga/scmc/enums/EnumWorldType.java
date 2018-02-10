@@ -9,9 +9,9 @@ public enum EnumWorldType implements IStringSerializable {
 	SLAYN(2, "slayn", GuiHandler.SLAYN_FURNACE),
 	ZERUS(3, "zerus", GuiHandler.SLAYN_FURNACE);
 
-	private int id;
-	private String name;
-	private int guiId;
+	private int		id;
+	private String	name;
+	private int		guiId;
 
 	EnumWorldType(int id, String name, int guiId) {
 		this.id = id;

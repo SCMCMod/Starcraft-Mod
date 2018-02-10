@@ -20,10 +20,10 @@ import net.minecraftforge.items.SlotItemHandler;
  */
 public class SlotWhitelist extends SlotItemHandler {
 	/** The player that is using the GUI where this slot resides. */
-	private final EntityPlayer player;
+	private final EntityPlayer	player;
 	/** The item to be able to be placed in the slot */
-	private Item[] items;
-	private int removeCount;
+	private Item[]				items;
+	private int					removeCount;
 
 	public SlotWhitelist(EntityPlayer player, IItemHandler handler, Item item, int slotIndex, int xPosition, int yPosition) {
 		super(handler, slotIndex, xPosition, yPosition);

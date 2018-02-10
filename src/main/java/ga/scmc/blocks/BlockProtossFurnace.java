@@ -35,8 +35,8 @@ import net.minecraftforge.items.IItemHandler;
 
 public class BlockProtossFurnace extends BlockContainer {
 
-	public static final PropertyDirection FACING = BlockHorizontal.FACING;
-	public static final PropertyBool BURNING = PropertyBool.create("burning");
+	public static final PropertyDirection	FACING	= BlockHorizontal.FACING;
+	public static final PropertyBool		BURNING	= PropertyBool.create("burning");
 
 	public BlockProtossFurnace() {
 		super(Material.IRON, MapColor.GOLD);

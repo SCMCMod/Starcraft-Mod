@@ -1,11 +1,11 @@
 package ga.scmc.recipes;
 
-import ga.scmc.blocks.metablocks.BlockMineral;
 import ga.scmc.blocks.metablocks.BlockGasCollector;
+import ga.scmc.blocks.metablocks.BlockKhaydarinCrystal.PylonCrystalType;
+import ga.scmc.blocks.metablocks.BlockMineral;
 import ga.scmc.blocks.metablocks.BlockProtossMetalT1;
 import ga.scmc.blocks.metablocks.BlockProtossMetalT2;
 import ga.scmc.blocks.metablocks.BlockProtossMetalT3;
-import ga.scmc.blocks.metablocks.BlockKhaydarinCrystal.PylonCrystalType;
 import ga.scmc.blocks.metablocks.BlockTerranMetal;
 import ga.scmc.blocks.metablocks.BlockZergCarapace;
 import ga.scmc.enums.EnumMetaItem;

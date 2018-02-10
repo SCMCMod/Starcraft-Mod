@@ -16,10 +16,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RendererZerusLightcap extends TileEntitySpecialRenderer<TileEntityZerusLightcap> {
 
-	public static final ModelZerusLightcap MODEL = new ModelZerusLightcap();
-	public static final ModelZerusLightcapVariant MODEL_VARIANT = new ModelZerusLightcapVariant();
+	public static final ModelZerusLightcap			MODEL			= new ModelZerusLightcap();
+	public static final ModelZerusLightcapVariant	MODEL_VARIANT	= new ModelZerusLightcapVariant();
 
-	public static final ResourceLocation TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/models/block/zerus_lightcap.png");
+	public static final ResourceLocation			TEXTURE			= new ResourceLocation(Library.RL_BASE + "textures/models/block/zerus_lightcap.png");
 
 	@Override
 	public void renderTileEntityAt(TileEntityZerusLightcap te, double x, double y, double z, float partialTicks, int destroyStage) {

@@ -16,119 +16,119 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  */
 public class SoundHandler {
 
-	public static SoundEvent ENTITY_BROODLING_DEATH;
-	public static SoundEvent ENTITY_BROODLING_HURT;
-	public static SoundEvent ENTITY_BROODLING_LIVE1;
+	public static SoundEvent	ENTITY_BROODLING_DEATH;
+	public static SoundEvent	ENTITY_BROODLING_HURT;
+	public static SoundEvent	ENTITY_BROODLING_LIVE1;
 
-	public static SoundEvent ENTITY_BRUTALISK_DEATH;
-	public static SoundEvent ENTITY_BRUTALISK_HURT;
-	public static SoundEvent ENTITY_BRUTALISK_LIVE1;
-	public static SoundEvent ENTITY_BRUTALISK_STEP;
+	public static SoundEvent	ENTITY_BRUTALISK_DEATH;
+	public static SoundEvent	ENTITY_BRUTALISK_HURT;
+	public static SoundEvent	ENTITY_BRUTALISK_LIVE1;
+	public static SoundEvent	ENTITY_BRUTALISK_STEP;
 
-	public static SoundEvent ENTITY_DARKTEMPLAR_DEATH;
-	public static SoundEvent ENTITY_DARKTEMPLAR_HURT;
-	public static SoundEvent ENTITY_DARKTEMPLAR_LIVE1;
-	public static SoundEvent ENTITY_DARKTEMPLAR_LIVE2;
+	public static SoundEvent	ENTITY_DARKTEMPLAR_DEATH;
+	public static SoundEvent	ENTITY_DARKTEMPLAR_HURT;
+	public static SoundEvent	ENTITY_DARKTEMPLAR_LIVE1;
+	public static SoundEvent	ENTITY_DARKTEMPLAR_LIVE2;
 
-	public static SoundEvent ENTITY_HYDRALISK_DEATH;
-	public static SoundEvent ENTITY_HYDRALISK_HURT;
-	public static SoundEvent ENTITY_HYDRALISK_LIVE1;
-	public static SoundEvent ENTITY_HYDRALISK_LIVE2;
-	public static SoundEvent ENTITY_HYDRALISK_LIVE3;
-	public static SoundEvent ENTITY_HYDRALISK_LIVE4;
-	public static SoundEvent FX_HYDRALISK_FIRE;
+	public static SoundEvent	ENTITY_HYDRALISK_DEATH;
+	public static SoundEvent	ENTITY_HYDRALISK_HURT;
+	public static SoundEvent	ENTITY_HYDRALISK_LIVE1;
+	public static SoundEvent	ENTITY_HYDRALISK_LIVE2;
+	public static SoundEvent	ENTITY_HYDRALISK_LIVE3;
+	public static SoundEvent	ENTITY_HYDRALISK_LIVE4;
+	public static SoundEvent	FX_HYDRALISK_FIRE;
 
-	public static SoundEvent ENTITY_LARVA_DEATH;
-	public static SoundEvent ENTITY_LARVA_HURT;
-	public static SoundEvent ENTITY_LARVA_LIVE1;
+	public static SoundEvent	ENTITY_LARVA_DEATH;
+	public static SoundEvent	ENTITY_LARVA_HURT;
+	public static SoundEvent	ENTITY_LARVA_LIVE1;
 
-	public static SoundEvent ENTITY_PREAVER_DEATH;
-	public static SoundEvent ENTITY_PREAVER_HURT;
-	public static SoundEvent ENTITY_PREAVER_LIVE1;
-	public static SoundEvent ENTITY_PREAVER_LIVE2;
-	public static SoundEvent ENTITY_PREAVER_LIVE3;
-	public static SoundEvent ENTITY_PREAVER_LIVE4;
-	public static SoundEvent ENTITY_PREAVER_LIVE5;
+	public static SoundEvent	ENTITY_PREAVER_DEATH;
+	public static SoundEvent	ENTITY_PREAVER_HURT;
+	public static SoundEvent	ENTITY_PREAVER_LIVE1;
+	public static SoundEvent	ENTITY_PREAVER_LIVE2;
+	public static SoundEvent	ENTITY_PREAVER_LIVE3;
+	public static SoundEvent	ENTITY_PREAVER_LIVE4;
+	public static SoundEvent	ENTITY_PREAVER_LIVE5;
 
-	public static SoundEvent ENTITY_PREDATOR_DEATH;
-	public static SoundEvent ENTITY_PREDATOR_HURT;
-	public static SoundEvent ENTITY_PREDATOR_LIVE1;
-	public static SoundEvent ENTITY_PREDATOR_LIVE2;
+	public static SoundEvent	ENTITY_PREDATOR_DEATH;
+	public static SoundEvent	ENTITY_PREDATOR_HURT;
+	public static SoundEvent	ENTITY_PREDATOR_LIVE1;
+	public static SoundEvent	ENTITY_PREDATOR_LIVE2;
 
-	public static SoundEvent ENTITY_PROBE_DEATH;
-	public static SoundEvent ENTITY_PROBE_HURT;
-	public static SoundEvent ENTITY_PROBE_LIVE1;
+	public static SoundEvent	ENTITY_PROBE_DEATH;
+	public static SoundEvent	ENTITY_PROBE_HURT;
+	public static SoundEvent	ENTITY_PROBE_LIVE1;
 
-	public static SoundEvent ENTITY_ZEALOT_DEATH;
-	public static SoundEvent ENTITY_ZEALOT_HURT;
-	public static SoundEvent ENTITY_ZEALOT_LIVE1;
-	public static SoundEvent ENTITY_ZEALOT_LIVE2;
-	public static SoundEvent ENTITY_ZEALOT_LIVE3;
-	public static SoundEvent ENTITY_ZEALOT_LIVE4;
+	public static SoundEvent	ENTITY_ZEALOT_DEATH;
+	public static SoundEvent	ENTITY_ZEALOT_HURT;
+	public static SoundEvent	ENTITY_ZEALOT_LIVE1;
+	public static SoundEvent	ENTITY_ZEALOT_LIVE2;
+	public static SoundEvent	ENTITY_ZEALOT_LIVE3;
+	public static SoundEvent	ENTITY_ZEALOT_LIVE4;
 
-	public static SoundEvent ENTITY_ZERGCOCOON_DEATH;
-	public static SoundEvent ENTITY_ZERGCOCOON_HURT;
-	public static SoundEvent ENTITY_ZERGCOCOON_LIVE1;
+	public static SoundEvent	ENTITY_ZERGCOCOON_DEATH;
+	public static SoundEvent	ENTITY_ZERGCOCOON_HURT;
+	public static SoundEvent	ENTITY_ZERGCOCOON_LIVE1;
 
-	public static SoundEvent ENTITY_ZERGLING_DEATH;
-	public static SoundEvent ENTITY_ZERGLING_HURT;
-	public static SoundEvent ENTITY_ZERGLING_LIVE1;
-	public static SoundEvent ENTITY_ZERGLING_LIVE2;
-	public static SoundEvent ENTITY_ZERGLING_LIVE3;
-	public static SoundEvent ENTITY_ZERGLING_LIVE4;
+	public static SoundEvent	ENTITY_ZERGLING_DEATH;
+	public static SoundEvent	ENTITY_ZERGLING_HURT;
+	public static SoundEvent	ENTITY_ZERGLING_LIVE1;
+	public static SoundEvent	ENTITY_ZERGLING_LIVE2;
+	public static SoundEvent	ENTITY_ZERGLING_LIVE3;
+	public static SoundEvent	ENTITY_ZERGLING_LIVE4;
 
-	public static SoundEvent ENTITY_INFESTEDCIVILIAN_DEATH;
-	public static SoundEvent ENTITY_INFESTEDCIVILIAN_HURT;
-	public static SoundEvent ENTITY_INFESTEDCIVILIAN_LIVE1;
+	public static SoundEvent	ENTITY_INFESTEDCIVILIAN_DEATH;
+	public static SoundEvent	ENTITY_INFESTEDCIVILIAN_HURT;
+	public static SoundEvent	ENTITY_INFESTEDCIVILIAN_LIVE1;
 
-	public static SoundEvent STRUC_CYBERNETICSCORE_BIRTH;
-	public static SoundEvent STRUC_GATEWAY_BIRTH;
-	public static SoundEvent STRUC_PYLON_BIRTH;
+	public static SoundEvent	STRUC_CYBERNETICSCORE_BIRTH;
+	public static SoundEvent	STRUC_GATEWAY_BIRTH;
+	public static SoundEvent	STRUC_PYLON_BIRTH;
 
-	public static SoundEvent FX_PSIBLADE_ATTACK;
-	public static SoundEvent FX_WARPBLADE_ATTACK;
-	public static SoundEvent FX_C14GAUSSRIFLE_FIRING;
-	public static SoundEvent FX_C14GAUSSRIFLE_OUT;
+	public static SoundEvent	FX_PSIBLADE_ATTACK;
+	public static SoundEvent	FX_WARPBLADE_ATTACK;
+	public static SoundEvent	FX_C14GAUSSRIFLE_FIRING;
+	public static SoundEvent	FX_C14GAUSSRIFLE_OUT;
 
-	public static SoundEvent ENTITY_KAKARU_LIVE1;
-	public static SoundEvent ENTITY_KAKARU_LIVE2;
-	public static SoundEvent ENTITY_KAKARU_HURT;
-	public static SoundEvent ENTITY_KAKARU_DEATH;
+	public static SoundEvent	ENTITY_KAKARU_LIVE1;
+	public static SoundEvent	ENTITY_KAKARU_LIVE2;
+	public static SoundEvent	ENTITY_KAKARU_HURT;
+	public static SoundEvent	ENTITY_KAKARU_DEATH;
 
-	public static SoundEvent ENTITY_URSADON_LIVE1;
-	public static SoundEvent ENTITY_URSADON_LIVE2;
-	public static SoundEvent ENTITY_URSADON_HURT;
-	public static SoundEvent ENTITY_URSADON_DEATH;
+	public static SoundEvent	ENTITY_URSADON_LIVE1;
+	public static SoundEvent	ENTITY_URSADON_LIVE2;
+	public static SoundEvent	ENTITY_URSADON_HURT;
+	public static SoundEvent	ENTITY_URSADON_DEATH;
 
-	public static SoundEvent ENTITY_QUEEN_LIVE1;
-	public static SoundEvent ENTITY_QUEEN_LIVE2;
-	public static SoundEvent ENTITY_QUEEN_HURT;
-	public static SoundEvent ENTITY_QUEEN_DEATH;
+	public static SoundEvent	ENTITY_QUEEN_LIVE1;
+	public static SoundEvent	ENTITY_QUEEN_LIVE2;
+	public static SoundEvent	ENTITY_QUEEN_HURT;
+	public static SoundEvent	ENTITY_QUEEN_DEATH;
 
-	public static SoundEvent ENTITY_MUTALISK_LIVE1;
-	public static SoundEvent ENTITY_MUTALISK_LIVE2;
-	public static SoundEvent ENTITY_MUTALISK_HURT;
-	public static SoundEvent ENTITY_MUTALISK_DEATH;
-	public static SoundEvent FX_MUTALISK_FIRE;
+	public static SoundEvent	ENTITY_MUTALISK_LIVE1;
+	public static SoundEvent	ENTITY_MUTALISK_LIVE2;
+	public static SoundEvent	ENTITY_MUTALISK_HURT;
+	public static SoundEvent	ENTITY_MUTALISK_DEATH;
+	public static SoundEvent	FX_MUTALISK_FIRE;
 
-	public static SoundEvent ENTITY_MARINE_LIVE1;
-	public static SoundEvent ENTITY_MARINE_HURT;
-	public static SoundEvent ENTITY_MARINE_DEATH;
+	public static SoundEvent	ENTITY_MARINE_LIVE1;
+	public static SoundEvent	ENTITY_MARINE_HURT;
+	public static SoundEvent	ENTITY_MARINE_DEATH;
 
 	/** @author Ocelot5836 */
-	public static SoundEvent BLOCK_FLESH_BREAK;
+	public static SoundEvent	BLOCK_FLESH_BREAK;
 	/** @author Ocelot5836 */
-	public static SoundEvent BLOCK_FLESH_STEP;
+	public static SoundEvent	BLOCK_FLESH_STEP;
 	/** @author Ocelot5836 */
-	public static SoundEvent BLOCK_FLESH_PLACE;
+	public static SoundEvent	BLOCK_FLESH_PLACE;
 	/** @author Ocelot5836 */
-	public static SoundEvent BLOCK_FLESH_HIT;
+	public static SoundEvent	BLOCK_FLESH_HIT;
 	/** @author Ocelot5836 */
-	public static SoundEvent BLOCK_FLESH_FALL;
+	public static SoundEvent	BLOCK_FLESH_FALL;
 
-	public static SoundEvent BLOCK_GAS_COLLECTOR_PROTOSS;
-	public static SoundEvent BLOCK_GAS_COLLECTOR_TERRAN;
-	public static SoundEvent BLOCK_GAS_COLLECTOR_ZERG;
+	public static SoundEvent	BLOCK_GAS_COLLECTOR_PROTOSS;
+	public static SoundEvent	BLOCK_GAS_COLLECTOR_TERRAN;
+	public static SoundEvent	BLOCK_GAS_COLLECTOR_ZERG;
 
 	public static void preInit() {
 		registerSounds();

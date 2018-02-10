@@ -27,130 +27,130 @@ public class ArmorHandler {
 	 * DIAMOND(33, new int[]{3, 8, 6, 3}, 10);
 	 */
 
-	public static final ArmorMaterial COPPER_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("copperArmorMaterial", Library.RL_BASE + "copper", 11, new int[] { 2, 5, 4, 1 }, 12, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0f);
+	public static final ArmorMaterial	COPPER_ARMOR_MATERIAL				= EnumHelper.addArmorMaterial("copperArmorMaterial", Library.RL_BASE + "copper", 11, new int[] { 2, 5, 4, 1 }, 12, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0f);
 
-	public static final ArmorMaterial STEEL_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("steelArmorMaterial", Library.RL_BASE + "steel", 29, new int[] { 3, 6, 7, 3 }, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);
+	public static final ArmorMaterial	STEEL_ARMOR_MATERIAL				= EnumHelper.addArmorMaterial("steelArmorMaterial", Library.RL_BASE + "steel", 29, new int[] { 3, 6, 7, 3 }, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);
 
-	public static final ArmorMaterial TITANIUM_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("titaniumArmorMaterial", Library.RL_BASE + "titanium", 21, new int[] { 4, 5, 6, 4 }, 30, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 3.0F);
+	public static final ArmorMaterial	TITANIUM_ARMOR_MATERIAL				= EnumHelper.addArmorMaterial("titaniumArmorMaterial", Library.RL_BASE + "titanium", 21, new int[] { 4, 5, 6, 4 }, 30, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 3.0F);
 
-	public static final ArmorMaterial MARINE_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("marineArmorMaterial", Library.RL_BASE + "marine", 21, new int[] { 3, 6, 5, 2 }, 30, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0f);
+	public static final ArmorMaterial	MARINE_ARMOR_MATERIAL				= EnumHelper.addArmorMaterial("marineArmorMaterial", Library.RL_BASE + "marine", 21, new int[] { 3, 6, 5, 2 }, 30, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0f);
 
-	public static final ArmorMaterial ZERG_ARMOR_MATERIAL_T1 = EnumHelper.addArmorMaterial("zergArmorMaterialT1", Library.RL_BASE + "zerg_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
-	public static final ArmorMaterial ZERG_ARMOR_MATERIAL_T2 = EnumHelper.addArmorMaterial("zergArmorMaterialT2", Library.RL_BASE + "zerg_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
-	public static final ArmorMaterial ZERG_ARMOR_MATERIAL_T3 = EnumHelper.addArmorMaterial("zergArmorMaterialT3", Library.RL_BASE + "zerg_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial	ZERG_ARMOR_MATERIAL_T1				= EnumHelper.addArmorMaterial("zergArmorMaterialT1", Library.RL_BASE + "zerg_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial	ZERG_ARMOR_MATERIAL_T2				= EnumHelper.addArmorMaterial("zergArmorMaterialT2", Library.RL_BASE + "zerg_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial	ZERG_ARMOR_MATERIAL_T3				= EnumHelper.addArmorMaterial("zergArmorMaterialT3", Library.RL_BASE + "zerg_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 
-	public static final ArmorMaterial PROTOSS_ARMOR_MATERIAL_T1 = EnumHelper.addArmorMaterial("protossArmorMaterialT1", Library.RL_BASE + "protoss_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
-	public static final ArmorMaterial PROTOSS_ARMOR_MATERIAL_T2 = EnumHelper.addArmorMaterial("protossArmorMaterialT2", Library.RL_BASE + "protoss_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
-	public static final ArmorMaterial PROTOSS_ARMOR_MATERIAL_T3 = EnumHelper.addArmorMaterial("protossArmorMaterialT3", Library.RL_BASE + "protoss_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial	PROTOSS_ARMOR_MATERIAL_T1			= EnumHelper.addArmorMaterial("protossArmorMaterialT1", Library.RL_BASE + "protoss_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial	PROTOSS_ARMOR_MATERIAL_T2			= EnumHelper.addArmorMaterial("protossArmorMaterialT2", Library.RL_BASE + "protoss_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial	PROTOSS_ARMOR_MATERIAL_T3			= EnumHelper.addArmorMaterial("protossArmorMaterialT3", Library.RL_BASE + "protoss_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 
-	public static final ArmorMaterial PROTOSS_NERAZIM_ARMOR_MATERIAL_T1 = EnumHelper.addArmorMaterial("protossNerazimArmorMaterialT1", Library.RL_BASE + "protoss_nerazim_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
-	public static final ArmorMaterial PROTOSS_NERAZIM_ARMOR_MATERIAL_T2 = EnumHelper.addArmorMaterial("protossNerazimArmorMaterialT2", Library.RL_BASE + "protoss_nerazim_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
-	public static final ArmorMaterial PROTOSS_NERAZIM_ARMOR_MATERIAL_T3 = EnumHelper.addArmorMaterial("protossNerazimArmorMaterialT3", Library.RL_BASE + "protoss_nerazim_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial	PROTOSS_NERAZIM_ARMOR_MATERIAL_T1	= EnumHelper.addArmorMaterial("protossNerazimArmorMaterialT1", Library.RL_BASE + "protoss_nerazim_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial	PROTOSS_NERAZIM_ARMOR_MATERIAL_T2	= EnumHelper.addArmorMaterial("protossNerazimArmorMaterialT2", Library.RL_BASE + "protoss_nerazim_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial	PROTOSS_NERAZIM_ARMOR_MATERIAL_T3	= EnumHelper.addArmorMaterial("protossNerazimArmorMaterialT3", Library.RL_BASE + "protoss_nerazim_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 
-	public static final ArmorMaterial PROTOSS_TALDARIM_ARMOR_MATERIAL_T1 = EnumHelper.addArmorMaterial("protossTaldarimArmorMaterialT1", Library.RL_BASE + "protoss_taldarim_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
-	public static final ArmorMaterial PROTOSS_TALDARIM_ARMOR_MATERIAL_T2 = EnumHelper.addArmorMaterial("protossTaldarimArmorMaterialT2", Library.RL_BASE + "protoss_taldarim_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
-	public static final ArmorMaterial PROTOSS_TALDARIM_ARMOR_MATERIAL_T3 = EnumHelper.addArmorMaterial("protossTaldarimArmorMaterialT3", Library.RL_BASE + "protoss_taldarim_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial	PROTOSS_TALDARIM_ARMOR_MATERIAL_T1	= EnumHelper.addArmorMaterial("protossTaldarimArmorMaterialT1", Library.RL_BASE + "protoss_taldarim_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial	PROTOSS_TALDARIM_ARMOR_MATERIAL_T2	= EnumHelper.addArmorMaterial("protossTaldarimArmorMaterialT2", Library.RL_BASE + "protoss_taldarim_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial	PROTOSS_TALDARIM_ARMOR_MATERIAL_T3	= EnumHelper.addArmorMaterial("protossTaldarimArmorMaterialT3", Library.RL_BASE + "protoss_taldarim_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 
-	public static final ArmorMaterial TERRAN_MARINE_ARMOR_MATERIAL_T1 = EnumHelper.addArmorMaterial("terranArmorMaterialT1", Library.RL_BASE + "terran_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
-	public static final ArmorMaterial TERRAN_MARINE_ARMOR_MATERIAL_T2 = EnumHelper.addArmorMaterial("terranArmorMaterialT2", Library.RL_BASE + "terran_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
-	public static final ArmorMaterial TERRAN_MARINE_ARMOR_MATERIAL_T3 = EnumHelper.addArmorMaterial("terranArmorMaterialT3", Library.RL_BASE + "terran_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial	TERRAN_MARINE_ARMOR_MATERIAL_T1		= EnumHelper.addArmorMaterial("terranArmorMaterialT1", Library.RL_BASE + "terran_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial	TERRAN_MARINE_ARMOR_MATERIAL_T2		= EnumHelper.addArmorMaterial("terranArmorMaterialT2", Library.RL_BASE + "terran_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial	TERRAN_MARINE_ARMOR_MATERIAL_T3		= EnumHelper.addArmorMaterial("terranArmorMaterialT3", Library.RL_BASE + "terran_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 
-	public static final ArmorMaterial TERRAN_RAYNOR_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("terranRaynorMaterialT1", Library.RL_BASE + "terran_raynor_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial	TERRAN_RAYNOR_ARMOR_MATERIAL		= EnumHelper.addArmorMaterial("terranRaynorMaterialT1", Library.RL_BASE + "terran_raynor_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 
-	public static Item COPPER_BOOTS;
-	public static Item COPPER_CHESTPLATE;
-	public static Item COPPER_HELMET;
-	public static Item COPPER_LEGGINGS;
+	public static Item					COPPER_BOOTS;
+	public static Item					COPPER_CHESTPLATE;
+	public static Item					COPPER_HELMET;
+	public static Item					COPPER_LEGGINGS;
 
-	public static Item STEEL_BOOTS;
-	public static Item STEEL_CHESTPLATE;
-	public static Item STEEL_HELMET;
-	public static Item STEEL_LEGGINGS;
+	public static Item					STEEL_BOOTS;
+	public static Item					STEEL_CHESTPLATE;
+	public static Item					STEEL_HELMET;
+	public static Item					STEEL_LEGGINGS;
 
-	public static Item TITANIUM_BOOTS;
-	public static Item TITANIUM_CHESTPLATE;
-	public static Item TITANIUM_HELMET;
-	public static Item TITANIUM_LEGGINGS;
+	public static Item					TITANIUM_BOOTS;
+	public static Item					TITANIUM_CHESTPLATE;
+	public static Item					TITANIUM_HELMET;
+	public static Item					TITANIUM_LEGGINGS;
 
-	public static Item ZERG_T1_BOOTS;
-	public static Item ZERG_T1_CHESTPLATE;
-	public static Item ZERG_T1_HELMET;
-	public static Item ZERG_T1_LEGGINGS;
+	public static Item					ZERG_T1_BOOTS;
+	public static Item					ZERG_T1_CHESTPLATE;
+	public static Item					ZERG_T1_HELMET;
+	public static Item					ZERG_T1_LEGGINGS;
 
-	public static Item ZERG_T2_BOOTS;
-	public static Item ZERG_T2_CHESTPLATE;
-	public static Item ZERG_T2_HELMET;
-	public static Item ZERG_T2_LEGGINGS;
+	public static Item					ZERG_T2_BOOTS;
+	public static Item					ZERG_T2_CHESTPLATE;
+	public static Item					ZERG_T2_HELMET;
+	public static Item					ZERG_T2_LEGGINGS;
 
-	public static Item ZERG_T3_BOOTS;
-	public static Item ZERG_T3_CHESTPLATE;
-	public static Item ZERG_T3_HELMET;
-	public static Item ZERG_T3_LEGGINGS;
+	public static Item					ZERG_T3_BOOTS;
+	public static Item					ZERG_T3_CHESTPLATE;
+	public static Item					ZERG_T3_HELMET;
+	public static Item					ZERG_T3_LEGGINGS;
 
-	public static Item PROTOSS_T1_BOOTS;
-	public static Item PROTOSS_T1_CHESTPLATE;
-	public static Item PROTOSS_T1_HELMET;
-	public static Item PROTOSS_T1_LEGGINGS;
+	public static Item					PROTOSS_T1_BOOTS;
+	public static Item					PROTOSS_T1_CHESTPLATE;
+	public static Item					PROTOSS_T1_HELMET;
+	public static Item					PROTOSS_T1_LEGGINGS;
 
-	public static Item PROTOSS_T2_BOOTS;
-	public static Item PROTOSS_T2_CHESTPLATE;
-	public static Item PROTOSS_T2_HELMET;
-	public static Item PROTOSS_T2_LEGGINGS;
+	public static Item					PROTOSS_T2_BOOTS;
+	public static Item					PROTOSS_T2_CHESTPLATE;
+	public static Item					PROTOSS_T2_HELMET;
+	public static Item					PROTOSS_T2_LEGGINGS;
 
-	public static Item PROTOSS_T3_BOOTS;
-	public static Item PROTOSS_T3_CHESTPLATE;
-	public static Item PROTOSS_T3_HELMET;
-	public static Item PROTOSS_T3_LEGGINGS;
+	public static Item					PROTOSS_T3_BOOTS;
+	public static Item					PROTOSS_T3_CHESTPLATE;
+	public static Item					PROTOSS_T3_HELMET;
+	public static Item					PROTOSS_T3_LEGGINGS;
 
-	public static Item PROTOSS_NERAZIM_T1_BOOTS;
-	public static Item PROTOSS_NERAZIM_T1_CHESTPLATE;
-	public static Item PROTOSS_NERAZIM_T1_HELMET;
-	public static Item PROTOSS_NERAZIM_T1_LEGGINGS;
+	public static Item					PROTOSS_NERAZIM_T1_BOOTS;
+	public static Item					PROTOSS_NERAZIM_T1_CHESTPLATE;
+	public static Item					PROTOSS_NERAZIM_T1_HELMET;
+	public static Item					PROTOSS_NERAZIM_T1_LEGGINGS;
 
-	public static Item PROTOSS_NERAZIM_T2_BOOTS;
-	public static Item PROTOSS_NERAZIM_T2_CHESTPLATE;
-	public static Item PROTOSS_NERAZIM_T2_HELMET;
-	public static Item PROTOSS_NERAZIM_T2_LEGGINGS;
+	public static Item					PROTOSS_NERAZIM_T2_BOOTS;
+	public static Item					PROTOSS_NERAZIM_T2_CHESTPLATE;
+	public static Item					PROTOSS_NERAZIM_T2_HELMET;
+	public static Item					PROTOSS_NERAZIM_T2_LEGGINGS;
 
-	public static Item PROTOSS_NERAZIM_T3_BOOTS;
-	public static Item PROTOSS_NERAZIM_T3_CHESTPLATE;
-	public static Item PROTOSS_NERAZIM_T3_HELMET;
-	public static Item PROTOSS_NERAZIM_T3_LEGGINGS;
+	public static Item					PROTOSS_NERAZIM_T3_BOOTS;
+	public static Item					PROTOSS_NERAZIM_T3_CHESTPLATE;
+	public static Item					PROTOSS_NERAZIM_T3_HELMET;
+	public static Item					PROTOSS_NERAZIM_T3_LEGGINGS;
 
-	public static Item PROTOSS_TALDARIM_T1_BOOTS;
-	public static Item PROTOSS_TALDARIM_T1_CHESTPLATE;
-	public static Item PROTOSS_TALDARIM_T1_HELMET;
-	public static Item PROTOSS_TALDARIM_T1_LEGGINGS;
+	public static Item					PROTOSS_TALDARIM_T1_BOOTS;
+	public static Item					PROTOSS_TALDARIM_T1_CHESTPLATE;
+	public static Item					PROTOSS_TALDARIM_T1_HELMET;
+	public static Item					PROTOSS_TALDARIM_T1_LEGGINGS;
 
-	public static Item PROTOSS_TALDARIM_T2_BOOTS;
-	public static Item PROTOSS_TALDARIM_T2_CHESTPLATE;
-	public static Item PROTOSS_TALDARIM_T2_HELMET;
-	public static Item PROTOSS_TALDARIM_T2_LEGGINGS;
+	public static Item					PROTOSS_TALDARIM_T2_BOOTS;
+	public static Item					PROTOSS_TALDARIM_T2_CHESTPLATE;
+	public static Item					PROTOSS_TALDARIM_T2_HELMET;
+	public static Item					PROTOSS_TALDARIM_T2_LEGGINGS;
 
-	public static Item PROTOSS_TALDARIM_T3_BOOTS;
-	public static Item PROTOSS_TALDARIM_T3_CHESTPLATE;
-	public static Item PROTOSS_TALDARIM_T3_HELMET;
-	public static Item PROTOSS_TALDARIM_T3_LEGGINGS;
+	public static Item					PROTOSS_TALDARIM_T3_BOOTS;
+	public static Item					PROTOSS_TALDARIM_T3_CHESTPLATE;
+	public static Item					PROTOSS_TALDARIM_T3_HELMET;
+	public static Item					PROTOSS_TALDARIM_T3_LEGGINGS;
 
-	public static Item TERRAN_MARINE_T1_BOOTS;
-	public static Item TERRAN_MARINE_T1_CHESTPLATE;
-	public static Item TERRAN_MARINE_T1_HELMET;
-	public static Item TERRAN_MARINE_T1_LEGGINGS;
+	public static Item					TERRAN_MARINE_T1_BOOTS;
+	public static Item					TERRAN_MARINE_T1_CHESTPLATE;
+	public static Item					TERRAN_MARINE_T1_HELMET;
+	public static Item					TERRAN_MARINE_T1_LEGGINGS;
 
-	public static Item TERRAN_MARINE_T2_BOOTS;
-	public static Item TERRAN_MARINE_T2_CHESTPLATE;
-	public static Item TERRAN_MARINE_T2_HELMET;
-	public static Item TERRAN_MARINE_T2_LEGGINGS;
+	public static Item					TERRAN_MARINE_T2_BOOTS;
+	public static Item					TERRAN_MARINE_T2_CHESTPLATE;
+	public static Item					TERRAN_MARINE_T2_HELMET;
+	public static Item					TERRAN_MARINE_T2_LEGGINGS;
 
-	public static Item TERRAN_MARINE_T3_BOOTS;
-	public static Item TERRAN_MARINE_T3_CHESTPLATE;
-	public static Item TERRAN_MARINE_T3_HELMET;
-	public static Item TERRAN_MARINE_T3_LEGGINGS;
+	public static Item					TERRAN_MARINE_T3_BOOTS;
+	public static Item					TERRAN_MARINE_T3_CHESTPLATE;
+	public static Item					TERRAN_MARINE_T3_HELMET;
+	public static Item					TERRAN_MARINE_T3_LEGGINGS;
 
-	public static Item TERRAN_RAYNOR_BOOTS;
-	public static Item TERRAN_RAYNOR_CHESTPLATE;
-	public static Item TERRAN_RAYNOR_HELMET;
-	public static Item TERRAN_RAYNOR_LEGGINGS;
+	public static Item					TERRAN_RAYNOR_BOOTS;
+	public static Item					TERRAN_RAYNOR_CHESTPLATE;
+	public static Item					TERRAN_RAYNOR_HELMET;
+	public static Item					TERRAN_RAYNOR_LEGGINGS;
 
 	public static void init() {
 		TITANIUM_HELMET = new ItemArmor(TITANIUM_ARMOR_MATERIAL, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("titanium.helmet").setRegistryName("titanium.helmet").setCreativeTab(StarcraftCreativeTabs.TERRAN);

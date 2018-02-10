@@ -18,8 +18,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class StarcraftBlockFalling extends BlockFalling {
 
-	MapColor color;
-	int dustcolor;
+	MapColor	color;
+	int			dustcolor;
 
 	public StarcraftBlockFalling(Material materialIn) {
 		super(materialIn);

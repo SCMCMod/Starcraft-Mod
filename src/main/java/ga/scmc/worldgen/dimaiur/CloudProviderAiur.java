@@ -10,9 +10,9 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
 @EventBusSubscriber
 public class CloudProviderAiur extends CloudProvider {
-	private static final Texture CLOUDS = new Texture(Library.MODID, "textures/world/varda-clouds.png");
+	private static final Texture	CLOUDS	= new Texture(Library.MODID, "textures/world/varda-clouds.png");
 
-	private IStormProvider stormProvider;
+	private IStormProvider			stormProvider;
 
 	@Override
 	public float getMaxCloudSpeedDuringStorm() {

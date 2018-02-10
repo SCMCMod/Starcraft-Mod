@@ -11,15 +11,15 @@ import net.minecraft.util.EntityDamageSource;
  */
 public class StarcraftDamageSources extends DamageSource {
 
-	public static DamageSource bullet = (new DamageSource("bullet")).setProjectile();
-	public static DamageSource hydraNeedle = (new DamageSource("hydraneedle")).setProjectile();
-	public static DamageSource mutaGlaive = (new DamageSource("mutaglaive")).setProjectile();
+	public static DamageSource	bullet		= (new DamageSource("bullet")).setProjectile();
+	public static DamageSource	hydraNeedle	= (new DamageSource("hydraneedle")).setProjectile();
+	public static DamageSource	mutaGlaive	= (new DamageSource("mutaglaive")).setProjectile();
 	/** @author Ocelot5836 */
-	public static DamageSource acid = (new DamageSource("acid")).setDamageBypassesArmor().setFireDamage();
+	public static DamageSource	acid		= (new DamageSource("acid")).setDamageBypassesArmor().setFireDamage();
 	/** @author Ocelot5836 */
-	public static DamageSource poisonFluid = (new DamageSource("fluid")).setMagicDamage();
+	public static DamageSource	poisonFluid	= (new DamageSource("fluid")).setMagicDamage();
 	/** @author Ocelot5836 */
-	public static DamageSource poison_gas = (new DamageSource("gas")).setMagicDamage();
+	public static DamageSource	poison_gas	= (new DamageSource("gas")).setMagicDamage();
 
 	public StarcraftDamageSources(String damageTypeIn) {
 		super(damageTypeIn);

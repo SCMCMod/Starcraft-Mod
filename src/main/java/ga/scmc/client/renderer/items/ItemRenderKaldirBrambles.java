@@ -13,8 +13,8 @@ import net.minecraft.util.ResourceLocation;
  */
 public class ItemRenderKaldirBrambles extends ItemRenderer {
 
-	private static final ModelKaldirBrambles MODEL = new ModelKaldirBrambles();
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.MODID, "textures/models/block/kaldir_brambles.png");
+	private static final ModelKaldirBrambles	MODEL	= new ModelKaldirBrambles();
+	private static final ResourceLocation		TEXTURE	= new ResourceLocation(Library.MODID, "textures/models/block/kaldir_brambles.png");
 
 	public ItemRenderKaldirBrambles() {
 		super(null, TEXTURE);

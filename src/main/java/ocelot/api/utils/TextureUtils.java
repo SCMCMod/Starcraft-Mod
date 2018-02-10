@@ -22,9 +22,9 @@ import net.minecraft.util.ResourceLocation;
  */
 public class TextureUtils {
 
-	private static Minecraft mc = Minecraft.getMinecraft();
+	private static Minecraft						mc			= Minecraft.getMinecraft();
 
-	private static Map<String, ResourceLocation> textures = new HashMap<String, ResourceLocation>();
+	private static Map<String, ResourceLocation>	textures	= new HashMap<String, ResourceLocation>();
 
 	/**
 	 * Creates a texture from a buffered image.

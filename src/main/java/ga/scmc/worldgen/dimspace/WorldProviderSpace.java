@@ -15,10 +15,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WorldProviderSpace extends WorldProvider implements IClimateProvider {
 
-	private CloudProviderSpace clouds = new CloudProviderSpace();
-	private StormProviderSpace storms = new StormProviderSpace();
-	private IRenderHandler skyRenderer;
-	private IRenderHandler climateProvider;
+	private CloudProviderSpace	clouds	= new CloudProviderSpace();
+	private StormProviderSpace	storms	= new StormProviderSpace();
+	private IRenderHandler		skyRenderer;
+	private IRenderHandler		climateProvider;
 
 	@SideOnly(Side.CLIENT)
 	@Override

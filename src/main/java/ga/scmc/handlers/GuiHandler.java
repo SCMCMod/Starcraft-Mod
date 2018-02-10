@@ -38,21 +38,21 @@ import ocelot.api.client.gui.GuiTest;
 public class GuiHandler implements IGuiHandler {
 
 	/** The instance of Starcraft's GUI handler class */
-	public static final GuiHandler INSTANCE = new GuiHandler();
+	public static final GuiHandler	INSTANCE			= new GuiHandler();
 
-	public static final int TEST_ID = -1;
-	public static final int GAS_COLLECTOR_ID = 0;
-	public static final int SHOP_ID = 1;
-	public static final int LARVA_MORPH_ID = 2;
-	public static final int LARVA_PROGRESS_ID = 3;
-	public static final int LOG = 4;
-	public static final int PLAYER_MESSAGE = 5;
+	public static final int			TEST_ID				= -1;
+	public static final int			GAS_COLLECTOR_ID	= 0;
+	public static final int			SHOP_ID				= 1;
+	public static final int			LARVA_MORPH_ID		= 2;
+	public static final int			LARVA_PROGRESS_ID	= 3;
+	public static final int			LOG					= 4;
+	public static final int			PLAYER_MESSAGE		= 5;
 
-	public static final int CHAR_FURNACE = 6;
-	public static final int SHAKURAS_FURNACE = 7;
-	public static final int SLAYN_FURNACE = 8;
-	public static final int ZERUS_FURNACE = 9;
-	public static final int PROTOSS_FURNACE = 10;
+	public static final int			CHAR_FURNACE		= 6;
+	public static final int			SHAKURAS_FURNACE	= 7;
+	public static final int			SLAYN_FURNACE		= 8;
+	public static final int			ZERUS_FURNACE		= 9;
+	public static final int			PROTOSS_FURNACE		= 10;
 
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {

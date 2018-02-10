@@ -36,68 +36,68 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class BiomeHandler extends Biome {
 
-	public static Biome biomeCharZergHive;
+	public static Biome	biomeCharZergHive;
 
-	public static Biome biomeCharAshPlains;
-	public static Biome biomeCharAshHills;
-	public static Biome biomeCharAshPlateau;
+	public static Biome	biomeCharAshPlains;
+	public static Biome	biomeCharAshHills;
+	public static Biome	biomeCharAshPlateau;
 
-	public static Biome biomeCharScars;
-	public static Biome biomeCharLavaOcean;
-	public static Biome biomeCharLavaDeepOcean;
+	public static Biome	biomeCharScars;
+	public static Biome	biomeCharLavaOcean;
+	public static Biome	biomeCharLavaDeepOcean;
 
-	public static Biome biomeCharGlassPlains;
-	public static Biome biomeCharGlassHills;
-	public static Biome biomeCharGlassPlateau;
+	public static Biome	biomeCharGlassPlains;
+	public static Biome	biomeCharGlassHills;
+	public static Biome	biomeCharGlassPlateau;
 
-	public static Biome biomeCharHills;
+	public static Biome	biomeCharHills;
 
-	public static Biome biomeShakurasDesert;
-	public static Biome biomeShakurasDesertHills;
-	public static Biome biomeShakurasDesertHillsPlus;
-	public static Biome biomeShakurasDesertPlateau;
-	public static Biome biomeShakurasHills;
-	public static Biome biomeShakurasOcean;
-	public static Biome biomeShakurasDeepOcean;
-	public static Biome biomeShakurasMountains;
-	public static Biome biomeShakurasMountainsPlus;
-	public static Biome biomeShakurasProtossCity;
+	public static Biome	biomeShakurasDesert;
+	public static Biome	biomeShakurasDesertHills;
+	public static Biome	biomeShakurasDesertHillsPlus;
+	public static Biome	biomeShakurasDesertPlateau;
+	public static Biome	biomeShakurasHills;
+	public static Biome	biomeShakurasOcean;
+	public static Biome	biomeShakurasDeepOcean;
+	public static Biome	biomeShakurasMountains;
+	public static Biome	biomeShakurasMountainsPlus;
+	public static Biome	biomeShakurasProtossCity;
 
-	public static Biome biomeSlaynDesert;
-	public static Biome biomeSlaynDesertHills;
-	public static Biome biomeSlaynDesertHillsPlus;
-	public static Biome biomeSlaynDesertPlateau;
-	public static Biome biomeSlaynHills;
-	public static Biome biomeSlaynOcean;
-	public static Biome biomeSlaynMountains;
-	public static Biome biomeSlaynProtossCity;
+	public static Biome	biomeSlaynDesert;
+	public static Biome	biomeSlaynDesertHills;
+	public static Biome	biomeSlaynDesertHillsPlus;
+	public static Biome	biomeSlaynDesertPlateau;
+	public static Biome	biomeSlaynHills;
+	public static Biome	biomeSlaynOcean;
+	public static Biome	biomeSlaynMountains;
+	public static Biome	biomeSlaynProtossCity;
 
-	public static Biome biomeKorhalDesert;
-	public static Biome biomeKorhalDesertHills;
-	public static Biome biomeKorhalTerranCity;
+	public static Biome	biomeKorhalDesert;
+	public static Biome	biomeKorhalDesertHills;
+	public static Biome	biomeKorhalTerranCity;
 
-	public static Biome biomeKaldirIcePlains;
-	public static Biome biomeKaldirIceHills;
-	public static Biome biomeKaldirIcePlateau;
-	public static Biome biomeKaldirSnowPlains;
-	public static Biome biomeKaldirSnowHills;
-	public static Biome biomeKaldirSnowPlateau;
-	public static Biome biomeKaldirMountains;
-	public static Biome biomeKaldirProtossCity;
-	public static Biome biomeKaldirZergHive;
+	public static Biome	biomeKaldirIcePlains;
+	public static Biome	biomeKaldirIceHills;
+	public static Biome	biomeKaldirIcePlateau;
+	public static Biome	biomeKaldirSnowPlains;
+	public static Biome	biomeKaldirSnowHills;
+	public static Biome	biomeKaldirSnowPlateau;
+	public static Biome	biomeKaldirMountains;
+	public static Biome	biomeKaldirProtossCity;
+	public static Biome	biomeKaldirZergHive;
 
-	public static Biome biomeZerusJungle;
-	public static Biome biomeZerusMountains;
-	public static Biome biomeZerusOcean;
+	public static Biome	biomeZerusJungle;
+	public static Biome	biomeZerusMountains;
+	public static Biome	biomeZerusOcean;
 
-	public static Biome biomeAiurJungle;
-	public static Biome biomeAiurMountains;
-	public static Biome biomeAiurOcean;
-	public static Biome biomeAiurProtossCity;
+	public static Biome	biomeAiurJungle;
+	public static Biome	biomeAiurMountains;
+	public static Biome	biomeAiurOcean;
+	public static Biome	biomeAiurProtossCity;
 
-	public static Biome biomeAiurPlains;
+	public static Biome	biomeAiurPlains;
 
-	public static Biome biomeSpace;
+	public static Biome	biomeSpace;
 
 	public static void preInit() {
 		registerBiomes();
@@ -244,7 +244,7 @@ public class BiomeHandler extends Biome {
 		biomeAiurJungle = new BiomeGenAiurJungle((new Biome.BiomeProperties("Aiur Jungle")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(1.0F).setRainfall(0.5F));
 		biomeAiurPlains = new BiomeGenAiurPlains((new Biome.BiomeProperties("Aiur Plains")).setBaseHeight(0.0F).setHeightVariation(0.025F).setTemperature(0.1F).setRainfall(0.5F));
 		biomeAiurProtossCity = new BiomeGenAiurProtossCity((new Biome.BiomeProperties("Aiur Protoss City")).setBaseHeight(0.0F).setHeightVariation(0).setTemperature(1.0F).setRainfall(0.5F));
-		
+
 		// add or remove spawn biomes here
 
 		BiomeManager.addSpawnBiome(BiomeHandler.biomeCharAshPlains);

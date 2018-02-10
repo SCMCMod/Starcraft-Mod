@@ -16,8 +16,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class TileEntityStarcraftSkull extends TileEntity {
 
-	private int skullType;
-	private int skullRotation;
+	private int	skullType;
+	private int	skullRotation;
 
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		writeUpdateTag(nbt);

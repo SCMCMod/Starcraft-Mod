@@ -19,9 +19,9 @@ import ocelot.api.utils.TextureUtils;
 
 public class GuiLarvaProgress extends BasicGui {
 
-	public static final GuiLarvaProgress INSTANCE = new GuiLarvaProgress();
+	public static final GuiLarvaProgress	INSTANCE	= new GuiLarvaProgress();
 
-	private EntityLarvaCocoon cocoon;
+	private EntityLarvaCocoon				cocoon;
 
 	@Override
 	public void initGui() {

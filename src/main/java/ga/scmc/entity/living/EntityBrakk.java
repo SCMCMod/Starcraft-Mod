@@ -47,8 +47,8 @@ import net.minecraft.world.World;
  */
 public class EntityBrakk extends EntityZergMob implements IMob, Predicate<EntityLivingBase> {
 
-	private final BossInfoServer bossInfo = (BossInfoServer) (new BossInfoServer(this.getDisplayName(), BossInfo.Color.BLUE, BossInfo.Overlay.PROGRESS)).setDarkenSky(true);
-	public int tracker = 0;
+	private final BossInfoServer	bossInfo	= (BossInfoServer) (new BossInfoServer(this.getDisplayName(), BossInfo.Color.BLUE, BossInfo.Overlay.PROGRESS)).setDarkenSky(true);
+	public int						tracker		= 0;
 
 	public EntityBrakk(World world) {
 		super(world);

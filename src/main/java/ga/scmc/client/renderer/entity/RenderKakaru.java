@@ -9,8 +9,8 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderKakaru<T> extends RenderLiving<EntityKakaru> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.KAKARU);
-	protected ModelKakaru model;
+	private static final ResourceLocation	TEXTURE	= new ResourceLocation(Resources.KAKARU);
+	protected ModelKakaru					model;
 
 	public RenderKakaru(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);

@@ -26,12 +26,12 @@ import net.minecraft.world.World;
 
 public abstract class EntityStarcraftMob extends EntityMob implements IEntityTeamColorable<EntityStarcraftMob> {
 
-	private static final DataParameter<Integer> COLOR = EntityDataManager.createKey(EntityStarcraftMob.class, DataSerializers.VARINT);
+	private static final DataParameter<Integer>	COLOR		= EntityDataManager.createKey(EntityStarcraftMob.class, DataSerializers.VARINT);
 
-	List<EnumTypeAttributes> types = new ArrayList<EnumTypeAttributes>(15);
-	List<EnumFactionTypes> factions = new ArrayList<EnumFactionTypes>(15);
-	EnumTeamColors teamColor;
-	HashMap<EnumTypeAttributes, Double> bonusDamage = new HashMap<EnumTypeAttributes, Double>();
+	List<EnumTypeAttributes>					types		= new ArrayList<EnumTypeAttributes>(15);
+	List<EnumFactionTypes>						factions	= new ArrayList<EnumFactionTypes>(15);
+	EnumTeamColors								teamColor;
+	HashMap<EnumTypeAttributes, Double>			bonusDamage	= new HashMap<EnumTypeAttributes, Double>();
 
 	public EntityStarcraftMob(World world) {
 		super(world);

@@ -7,11 +7,11 @@ import net.minecraft.util.math.MathHelper;
 
 public class EntityAIRaptorLeapAtTarget extends EntityAIBase {
 	/** The entity that is leaping. */
-	EntityLiving leaper;
+	EntityLiving		leaper;
 	/** The entity that the leaper is leaping towards. */
-	EntityLivingBase leapTarget;
+	EntityLivingBase	leapTarget;
 	/** The entity's motionY after leaping. */
-	float leapMotionY;
+	float				leapMotionY;
 
 	public EntityAIRaptorLeapAtTarget(EntityLiving leapingEntity, float leapMotionYIn) {
 		this.leaper = leapingEntity;

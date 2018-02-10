@@ -150,8 +150,8 @@ public class EntityKakaru extends EntityCritterFlying {
 	}
 
 	static class KakaruMoveHelper extends EntityMoveHelper {
-		private final EntityKakaru parentEntity;
-		private int courseChangeCooldown;
+		private final EntityKakaru	parentEntity;
+		private int					courseChangeCooldown;
 
 		public KakaruMoveHelper(EntityKakaru kakaru) {
 			super(kakaru);

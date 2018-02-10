@@ -21,20 +21,20 @@ import ocelot.api.utils.TimeUtils;
  */
 public class ItemShopTab extends GuiScreen {
 
-	private static final Minecraft MC = Minecraft.getMinecraft();
-	private ResourceLocation texture;
+	private static final Minecraft	MC		= Minecraft.getMinecraft();
+	private ResourceLocation		texture;
 
-	private ImmutableList<Product> items;
-	private ItemStack icon;
-	private String name;
-	private int id;
-	private int x;
-	private int y;
-	private int width;
-	private int height;
-	private boolean selected;
+	private ImmutableList<Product>	items;
+	private ItemStack				icon;
+	private String					name;
+	private int						id;
+	private int						x;
+	private int						y;
+	private int						width;
+	private int						height;
+	private boolean					selected;
 
-	private int xOffset = 14;
+	private int						xOffset	= 14;
 
 	public ItemShopTab(ItemStack icon, String name, int id, int x, int y, ImmutableList<Product> items) {
 		this(icon, name, id, x, y, 32, 28, TimeUtils.isChristmas() ? new ResourceLocation(Library.RL_BASE + "textures/gui/itemShop/item_shop_christmas.png") : new ResourceLocation(Library.RL_BASE + "textures/gui/itemShop/item_shop.png"), items);

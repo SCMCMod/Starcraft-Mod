@@ -15,8 +15,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RendererKaldirBrambles extends TileEntitySpecialRenderer<TileEntityKaldirBrambles> {
 
-	private static final ModelKaldirBrambles MODEL = new ModelKaldirBrambles();
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Library.MODID, "textures/models/block/kaldir_brambles.png");
+	private static final ModelKaldirBrambles	MODEL	= new ModelKaldirBrambles();
+	private static final ResourceLocation		TEXTURE	= new ResourceLocation(Library.MODID, "textures/models/block/kaldir_brambles.png");
 
 	@Override
 	public void renderTileEntityAt(TileEntityKaldirBrambles te, double x, double y, double z, float partialTicks, int destroyStage) {

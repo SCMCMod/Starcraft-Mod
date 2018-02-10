@@ -25,28 +25,28 @@ import net.minecraftforge.common.AchievementPage;
  */
 public class Achievements {
 
-	public static final String PAGE_UNLOCALIZED_NAME = "pageStarcraft";
-	public static final String MINED_MINERALS = "mineMinerals";
-	public static final String MINED_RICH_MINERALS = "mineRichMinerals";
-	public static final String MINED_VESPENE = "mineVespene";
-	public static final String GET_C14_GAUSS_RIFLE = "getC14GaussRifle";
-	public static final String GET_FLAMETHROWER = "getFlamethrower";
-	public static final String GET_PSI_BLADE_FOCUSER = "getPsiBladeFocuser";
-	public static final String GET_PSI_BLADE = "getPsiBlade";
-	public static final String GET_PSI_BLADE_FOCUSER_DARK = "getPsiBladeFocuserDark";
-	public static final String GET_PSI_BLADE_DARK = "getPsiBladeDark";
-	public static final String GET_WARP_BLADE = "getWarpBlade";
-	public static final String GET_MASTER_PSI_BLADE = "getMasterPsiBlade";
+	public static final String			PAGE_UNLOCALIZED_NAME		= "pageStarcraft";
+	public static final String			MINED_MINERALS				= "mineMinerals";
+	public static final String			MINED_RICH_MINERALS			= "mineRichMinerals";
+	public static final String			MINED_VESPENE				= "mineVespene";
+	public static final String			GET_C14_GAUSS_RIFLE			= "getC14GaussRifle";
+	public static final String			GET_FLAMETHROWER			= "getFlamethrower";
+	public static final String			GET_PSI_BLADE_FOCUSER		= "getPsiBladeFocuser";
+	public static final String			GET_PSI_BLADE				= "getPsiBlade";
+	public static final String			GET_PSI_BLADE_FOCUSER_DARK	= "getPsiBladeFocuserDark";
+	public static final String			GET_PSI_BLADE_DARK			= "getPsiBladeDark";
+	public static final String			GET_WARP_BLADE				= "getWarpBlade";
+	public static final String			GET_MASTER_PSI_BLADE		= "getMasterPsiBlade";
 
-	public static final String ENTER_CHAR = "enterChar";
-	public static final String ENTER_SHAKURAS = "enterShakuras";
-	public static final String ENTER_SLAYN = "enterSlayn";
-	public static final String ENTER_AIUR = "enterAiur";
-	public static final String ENTER_ZERUS = "enterZerus";
-	public static final String ENTER_KORHAL = "enterKorhal";
-	public static final String ENTER_KALDIR = "enterKaldir";
+	public static final String			ENTER_CHAR					= "enterChar";
+	public static final String			ENTER_SHAKURAS				= "enterShakuras";
+	public static final String			ENTER_SLAYN					= "enterSlayn";
+	public static final String			ENTER_AIUR					= "enterAiur";
+	public static final String			ENTER_ZERUS					= "enterZerus";
+	public static final String			ENTER_KORHAL				= "enterKorhal";
+	public static final String			ENTER_KALDIR				= "enterKaldir";
 
-	private static List<Achievement> achievements = new ArrayList<Achievement>();
+	private static List<Achievement>	achievements				= new ArrayList<Achievement>();
 
 	/**
 	 * Returns a registered achievement from the achievements array.

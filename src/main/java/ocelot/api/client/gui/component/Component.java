@@ -8,17 +8,17 @@ import ocelot.api.client.gui.component.listener.MouseListener;
 
 public abstract class Component extends Gui {
 
-	protected static Minecraft mc = Minecraft.getMinecraft();
-	protected static FontRenderer fontRenderer = mc.fontRendererObj;
+	protected static Minecraft		mc				= Minecraft.getMinecraft();
+	protected static FontRenderer	fontRenderer	= mc.fontRendererObj;
 
-	protected GuiBase parent;
-	protected int x;
-	protected int y;
-	protected int width;
-	protected int height;
-	protected boolean visible;
+	protected GuiBase				parent;
+	protected int					x;
+	protected int					y;
+	protected int					width;
+	protected int					height;
+	protected boolean				visible;
 
-	protected MouseListener mouseListener;
+	protected MouseListener			mouseListener;
 
 	public Component(int x, int y, int width, int height) {
 		this.x = x;

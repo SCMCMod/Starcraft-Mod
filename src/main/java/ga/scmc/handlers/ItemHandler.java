@@ -50,69 +50,69 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
  */
 public class ItemHandler {
 
-	public static Item BULLET_MAGAZINE;
-	public static ItemC14GaussRifle C14_GAUSS_RIFLE;
-	public static ItemFlamethrower FLAMETHROWER;
-	public static ItemSolariteReaper SOLARITE_REAPER;
-	public static Item C14_PARTS;
-	public static Item FLAMETHROWER_PARTS;
-	public static Item CREEP_RESIN;
-	public static Item PROTOSS_INGOT;
-	public static Item DUST;
-	public static Item PLEDGE;
-	public static Item ENERGY;
-	public static Item INGOT;
-	public static Item MINERAL_SHARD;
-	public static Item PHOSPHORUS;
-	public static Item ORGANIC_TISSUE;
-	public static Item PSI_BLADE_FOCUSER_UNCHARGED;
-	public static Item ZERG_CARAPACE;
-	public static Item BIOMASS;
+	public static Item					BULLET_MAGAZINE;
+	public static ItemC14GaussRifle		C14_GAUSS_RIFLE;
+	public static ItemFlamethrower		FLAMETHROWER;
+	public static ItemSolariteReaper	SOLARITE_REAPER;
+	public static Item					C14_PARTS;
+	public static Item					FLAMETHROWER_PARTS;
+	public static Item					CREEP_RESIN;
+	public static Item					PROTOSS_INGOT;
+	public static Item					DUST;
+	public static Item					PLEDGE;
+	public static Item					ENERGY;
+	public static Item					INGOT;
+	public static Item					MINERAL_SHARD;
+	public static Item					PHOSPHORUS;
+	public static Item					ORGANIC_TISSUE;
+	public static Item					PSI_BLADE_FOCUSER_UNCHARGED;
+	public static Item					ZERG_CARAPACE;
+	public static Item					BIOMASS;
 
-	public static Item NUCLEAR_MISSILE;
-	public static Item STIMPACK;
-	public static Item CARBOTIFIER;
-	public static Item LOG;
+	public static Item					NUCLEAR_MISSILE;
+	public static Item					STIMPACK;
+	public static Item					CARBOTIFIER;
+	public static Item					LOG;
 
-	public static Item GAS_CONTAINER;
-	public static Item VESPENE;
-	public static Item TERRAZINE;
+	public static Item					GAS_CONTAINER;
+	public static Item					VESPENE;
+	public static Item					TERRAZINE;
 
-	public static Item PROTOSS_UPGRADE;
+	public static Item					PROTOSS_UPGRADE;
 
-	public static Item MARINE_ARMOR_FRAME;
-	public static Item MARINE_HELMET_VISOR;
-	public static Item WIRE;
-	public static Item MARINE_ARMOR_PLATING;
-	public static Item AIR_CONDITIONER;
-	public static Item MARINE_ARMOR_BATTERY;
-	public static Item MARINE_ARMOR_COOLING_SYSTEM;
+	public static Item					MARINE_ARMOR_FRAME;
+	public static Item					MARINE_HELMET_VISOR;
+	public static Item					WIRE;
+	public static Item					MARINE_ARMOR_PLATING;
+	public static Item					AIR_CONDITIONER;
+	public static Item					MARINE_ARMOR_BATTERY;
+	public static Item					MARINE_ARMOR_COOLING_SYSTEM;
 
-	public static Item KHAYDARIN_CRYSTAL;
+	public static Item					KHAYDARIN_CRYSTAL;
 
-	public static Item SPAWNER_PROTOSS_DARK_CYBERNETICSCORE;
-	public static Item SPAWNER_PROTOSS_VOID_CYBERNETICSCORE;
-	public static Item SPAWNER_PROTOSS_CYBERNETICSCORE;
-	public static Item SPAWNER_PROTOSS_DARK_PYLON;
-	public static Item SPAWNER_PROTOSS_VOID_PYLON;
-	public static Item SPAWNER_PROTOSS_PYLON;
-	public static Item SPAWNER_PROTOSS_DARK_WARPGATE;
-	public static Item SPAWNER_PROTOSS_VOID_WARPGATE;
-	public static Item SPAWNER_PROTOSS_WARPGATE;
+	public static Item					SPAWNER_PROTOSS_DARK_CYBERNETICSCORE;
+	public static Item					SPAWNER_PROTOSS_VOID_CYBERNETICSCORE;
+	public static Item					SPAWNER_PROTOSS_CYBERNETICSCORE;
+	public static Item					SPAWNER_PROTOSS_DARK_PYLON;
+	public static Item					SPAWNER_PROTOSS_VOID_PYLON;
+	public static Item					SPAWNER_PROTOSS_PYLON;
+	public static Item					SPAWNER_PROTOSS_DARK_WARPGATE;
+	public static Item					SPAWNER_PROTOSS_VOID_WARPGATE;
+	public static Item					SPAWNER_PROTOSS_WARPGATE;
 
-	public static Item SPAWNER_TERRAN_BUNKER;
-	public static Item SPAWNER_TERRAN_BARRACKS;
-	public static Item SPAWNER_TERRAN_COMMAND_CENTER;
+	public static Item					SPAWNER_TERRAN_BUNKER;
+	public static Item					SPAWNER_TERRAN_BARRACKS;
+	public static Item					SPAWNER_TERRAN_COMMAND_CENTER;
 
-	public static Item SPAWNER_ZERG_SPAWNINGPOOL;
-	public static Item SPAWNER_ZERG_SPIRE;
-	public static Item SPAWNER_ZERG_HYDRALISKDEN;
+	public static Item					SPAWNER_ZERG_SPAWNINGPOOL;
+	public static Item					SPAWNER_ZERG_SPIRE;
+	public static Item					SPAWNER_ZERG_HYDRALISKDEN;
 
-	public static Item ICON_PROTOSS;
-	public static Item ICON_TERRAN;
-	public static Item ICON_ZERG;
+	public static Item					ICON_PROTOSS;
+	public static Item					ICON_TERRAN;
+	public static Item					ICON_ZERG;
 
-	public static Item TEST;
+	public static Item					TEST;
 
 	static {
 		MINERAL_SHARD = new ItemMineralShard();

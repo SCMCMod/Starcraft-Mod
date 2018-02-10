@@ -15,10 +15,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WorldProviderKaldir extends WorldProvider implements IClimateProvider {
 
-	private StormProviderKaldir storm = new StormProviderKaldir();
-	private CloudProviderKaldir clouds = new CloudProviderKaldir();
-	private IRenderHandler skyRenderer;
-	private IRenderHandler climateProvider;
+	private StormProviderKaldir	storm	= new StormProviderKaldir();
+	private CloudProviderKaldir	clouds	= new CloudProviderKaldir();
+	private IRenderHandler		skyRenderer;
+	private IRenderHandler		climateProvider;
 
 	@SideOnly(Side.CLIENT)
 	@Override

@@ -49,10 +49,10 @@ import net.minecraftforge.items.IItemHandler;
  */
 public class BlockStarcraftFurnace extends BlockContainer {
 
-	public static final PropertyDirection FACING = BlockHorizontal.FACING;
-	public static final PropertyBool BURNING = PropertyBool.create("burning");
+	public static final PropertyDirection	FACING	= BlockHorizontal.FACING;
+	public static final PropertyBool		BURNING	= PropertyBool.create("burning");
 
-	private EnumWorldType type;
+	private EnumWorldType					type;
 
 	public BlockStarcraftFurnace(MapColor mapColor, EnumWorldType type) {
 		super(Material.ROCK, mapColor);

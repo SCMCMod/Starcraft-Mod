@@ -9,21 +9,21 @@ import net.minecraft.entity.Entity;
  * hydraliskSpike - cybercat5555 Created using Tabula 5.1.0
  */
 public class ModelHydraliskSpike extends Model {
-	public ModelRenderer spike01;
-	public ModelRenderer spike02;
-	public ModelRenderer flange01;
-	public ModelRenderer spike03;
-	public ModelRenderer flange02;
-	public ModelRenderer flange09;
-	public ModelRenderer flange03;
-	public ModelRenderer flange05;
-	public ModelRenderer flange06;
-	public ModelRenderer flange07;
-	public ModelRenderer flange08;
-	public ModelRenderer flange04;
-	public ModelRenderer flange10;
-	public ModelRenderer flange11;
-	public ModelRenderer flange12;
+	public ModelRenderer	spike01;
+	public ModelRenderer	spike02;
+	public ModelRenderer	flange01;
+	public ModelRenderer	spike03;
+	public ModelRenderer	flange02;
+	public ModelRenderer	flange09;
+	public ModelRenderer	flange03;
+	public ModelRenderer	flange05;
+	public ModelRenderer	flange06;
+	public ModelRenderer	flange07;
+	public ModelRenderer	flange08;
+	public ModelRenderer	flange04;
+	public ModelRenderer	flange10;
+	public ModelRenderer	flange11;
+	public ModelRenderer	flange12;
 
 	public ModelHydraliskSpike() {
 		this.textureWidth = 64;

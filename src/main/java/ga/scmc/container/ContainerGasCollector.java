@@ -19,8 +19,8 @@ import net.minecraftforge.items.IItemHandler;
  */
 public class ContainerGasCollector extends Container {
 
-	private TileEntityGasCollector te;
-	private IItemHandler handler;
+	private TileEntityGasCollector	te;
+	private IItemHandler			handler;
 
 	public ContainerGasCollector(EntityPlayer player, TileEntityGasCollector te) {
 		IInventory playerInv = player.inventory;

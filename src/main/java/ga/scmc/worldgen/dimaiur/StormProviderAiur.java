@@ -17,8 +17,8 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
 @EventBusSubscriber
 public class StormProviderAiur extends StormProvider {
-	public static final Texture STORM_TEXTURE = new Texture(Library.MODID, "textures/world/blizzard.png");
-	public static final PotionEffect POTION_EFFECT = new PotionEffect(MobEffects.SLOWNESS);
+	public static final Texture			STORM_TEXTURE	= new Texture(Library.MODID, "textures/world/blizzard.png");
+	public static final PotionEffect	POTION_EFFECT	= new PotionEffect(MobEffects.SLOWNESS);
 
 	@Override
 	public void updateStorm(World world) {

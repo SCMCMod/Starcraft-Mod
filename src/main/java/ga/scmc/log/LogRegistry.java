@@ -13,8 +13,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  */
 public class LogRegistry {
 
-	short id = 0;
-	private Map<Integer, Log> logs;
+	short						id	= 0;
+	private Map<Integer, Log>	logs;
 
 	public LogRegistry() {
 		logs = new HashMap<Integer, Log>();

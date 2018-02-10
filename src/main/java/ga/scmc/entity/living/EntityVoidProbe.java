@@ -27,8 +27,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityVoidProbe extends EntityProtossPassive {
 
-	public float offsetHealth;
-	public int timeSinceHurt;
+	public float	offsetHealth;
+	public int		timeSinceHurt;
 
 	public EntityVoidProbe(World world) {
 		super(world);

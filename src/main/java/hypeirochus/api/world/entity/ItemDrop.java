@@ -10,9 +10,9 @@ import net.minecraft.item.ItemStack;
  * managed in a single location versus per entity.
  **/
 public class ItemDrop {
-	private ItemStack[] itemstacks;
-	private int rate;
-	private DropType dropType;
+	private ItemStack[]	itemstacks;
+	private int			rate;
+	private DropType	dropType;
 
 	/**
 	 * RATE_PERDROP_MULTIPLE - Drop rate applies to all items. Will drop all stacks.

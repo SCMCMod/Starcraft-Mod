@@ -31,9 +31,9 @@ import ocelot.api.utils.TextureUtils;
 public class GuiRenderEventHandler extends Gui {
 
 	/** The determines whether or not the helmet overlay should be rendered. */
-	public static boolean renderHelmetOverlay = true;
+	public static boolean	renderHelmetOverlay	= true;
 
-	private static int maxShieldLevel = 10;
+	private static int		maxShieldLevel		= 10;
 
 	@SubscribeEvent
 	@SideOnly(Side.CLIENT)
@@ -73,30 +73,32 @@ public class GuiRenderEventHandler extends Gui {
 				}
 			}
 
-//			 if (mc.playerController.shouldDrawHUD() && isWearingFullProtossArmor(player)) {
-//			 GlStateManager.color(1, 1, 1, 1);
-//			 TextureUtils.bindTexture("textures/gui/icons.png");
-//			 ScaledResolution resolution = new ScaledResolution(mc);
-//			 float x = resolution.getScaledWidth() / 2 - 91;
-//			 float y = resolution.getScaledHeight() - 39;
-//			 double shieldLevel = CapabilityUtils.getShield(player);
-//			
-//			 for (int i = 0; i < maxShieldLevel; i++) {
-//			 if (i < shieldLevel) {
-//			 if (shieldLevel - (int) shieldLevel >= 0.5 && shieldLevel != 0 && i == (int) shieldLevel) {
-//			 drawTexturedModalRect(x + i * 8, y, 9, 0, 9, 9);
-//			 } else {
-//			 if (i < (int) shieldLevel) {
-//			 drawTexturedModalRect(x + i * 8, y, 0, 0, 9, 9);
-//			 }
-//			 }
-//			 } else {
-//			 break;
-//			 }
-//			 }
-//			
-//			 TextureUtils.bindTexture(Gui.ICONS);
-//			 }
+			// if (mc.playerController.shouldDrawHUD() && isWearingFullProtossArmor(player))
+			// {
+			// GlStateManager.color(1, 1, 1, 1);
+			// TextureUtils.bindTexture("textures/gui/icons.png");
+			// ScaledResolution resolution = new ScaledResolution(mc);
+			// float x = resolution.getScaledWidth() / 2 - 91;
+			// float y = resolution.getScaledHeight() - 39;
+			// double shieldLevel = CapabilityUtils.getShield(player);
+			//
+			// for (int i = 0; i < maxShieldLevel; i++) {
+			// if (i < shieldLevel) {
+			// if (shieldLevel - (int) shieldLevel >= 0.5 && shieldLevel != 0 && i == (int)
+			// shieldLevel) {
+			// drawTexturedModalRect(x + i * 8, y, 9, 0, 9, 9);
+			// } else {
+			// if (i < (int) shieldLevel) {
+			// drawTexturedModalRect(x + i * 8, y, 0, 0, 9, 9);
+			// }
+			// }
+			// } else {
+			// break;
+			// }
+			// }
+			//
+			// TextureUtils.bindTexture(Gui.ICONS);
+			// }
 		}
 	}
 

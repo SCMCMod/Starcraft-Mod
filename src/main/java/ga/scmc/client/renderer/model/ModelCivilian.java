@@ -8,12 +8,12 @@ import net.minecraft.util.math.MathHelper;
 
 public class ModelCivilian extends Model {
 
-	ModelRenderer body;
-	ModelRenderer head;
-	ModelRenderer leftarm;
-	ModelRenderer leftleg;
-	ModelRenderer rightarm;
-	ModelRenderer rightleg;
+	ModelRenderer	body;
+	ModelRenderer	head;
+	ModelRenderer	leftarm;
+	ModelRenderer	leftleg;
+	ModelRenderer	rightarm;
+	ModelRenderer	rightleg;
 
 	public ModelCivilian() {
 		textureWidth = 64;

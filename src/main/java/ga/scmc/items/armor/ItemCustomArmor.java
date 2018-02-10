@@ -12,9 +12,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemCustomArmor extends ItemArmor {
 
-	protected ModelArmorBase armorModel = null;
-	protected int layer1;
-	protected int layer2;
+	protected ModelArmorBase	armorModel	= null;
+	protected int				layer1;
+	protected int				layer2;
 
 	public ItemCustomArmor(ArmorMaterial material, int renderIndex, EntityEquipmentSlot equipmentSlot, int layer1, int layer2) {
 		super(material, renderIndex, equipmentSlot);

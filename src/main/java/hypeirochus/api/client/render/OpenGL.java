@@ -38,10 +38,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 //DO NOT WRAP GL11, Instead wrap GlStateManager
 public class OpenGL {
-	public static ArrayList<Framebuffer> frameBuffers = new ArrayList<Framebuffer>();
-	public static boolean lightmapTexUnitTextureEnable;
-	public static int lightmapTexUnit = OpenGlHelper.lightmapTexUnit;
-	public static int defaultTexUnit = OpenGlHelper.defaultTexUnit;
+	public static ArrayList<Framebuffer>	frameBuffers	= new ArrayList<Framebuffer>();
+	public static boolean					lightmapTexUnitTextureEnable;
+	public static int						lightmapTexUnit	= OpenGlHelper.lightmapTexUnit;
+	public static int						defaultTexUnit	= OpenGlHelper.defaultTexUnit;
 
 	public static void pushMatrix() {
 		GL11.glPushMatrix();

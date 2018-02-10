@@ -120,9 +120,9 @@ public class BlockProtossMetalT3 extends Block implements IMetaBlockName {
 		BLUE("blue", 3, MapColor.BLUE),
 		RED("red", 4, MapColor.RED);
 
-		private int ID;
-		private String name;
-		private MapColor color;
+		private int			ID;
+		private String		name;
+		private MapColor	color;
 
 		private ProtossMetalType(String name, int ID, MapColor color) {
 			this.ID = ID;
@@ -148,5 +148,5 @@ public class BlockProtossMetalT3 extends Block implements IMetaBlockName {
 			return getName();
 		}
 	}
-	
+
 }

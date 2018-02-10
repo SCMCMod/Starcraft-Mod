@@ -7,11 +7,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class ScaledResolution {
-	private int scaledWidth;
-	private int scaledHeight;
-	private double scaledWidthD;
-	private double scaledHeightD;
-	private int scaleFactor;
+	private int		scaledWidth;
+	private int		scaledHeight;
+	private double	scaledWidthD;
+	private double	scaledHeightD;
+	private int		scaleFactor;
 
 	public ScaledResolution(Minecraft mc, int width, int height) {
 		this.scaledWidth = width;

@@ -12,10 +12,10 @@ import net.minecraft.creativetab.CreativeTabs;
  */
 public class StarcraftCreativeTabs {
 
-	public static final CreativeTabs PROTOSS = new StarcraftCreativeTabProtoss();
-	public static final CreativeTabs TERRAN = new StarcraftCreativeTabTerran();
-	public static final CreativeTabs ZERG = new StarcraftCreativeTabZerg();
-	public static final CreativeTabs MISC = new StarcraftCreativeTabMisc();
-	public static final CreativeTabs FLORA = new StarcraftCreativeTabFlora();
-	public static final CreativeTabs BOOKS = new StarcraftCreativeTabBooks();
+	public static final CreativeTabs	PROTOSS	= new StarcraftCreativeTabProtoss();
+	public static final CreativeTabs	TERRAN	= new StarcraftCreativeTabTerran();
+	public static final CreativeTabs	ZERG	= new StarcraftCreativeTabZerg();
+	public static final CreativeTabs	MISC	= new StarcraftCreativeTabMisc();
+	public static final CreativeTabs	FLORA	= new StarcraftCreativeTabFlora();
+	public static final CreativeTabs	BOOKS	= new StarcraftCreativeTabBooks();
 }

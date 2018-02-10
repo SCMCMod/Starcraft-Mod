@@ -11,10 +11,10 @@ import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderMutaliskViper extends RenderLiving<EntityMutaliskViper> implements LayerRenderer<EntityMutaliskViper> {
-	private static final ResourceLocation		BASE		= new ResourceLocation(Resources.MUTALISKVIPER_BASE);
-	private static final ResourceLocation		OVERLAY		= new ResourceLocation(Resources.MUTALISKVIPER_OVERLAY);
-	private static final ResourceLocation		STATICGLOW	= new ResourceLocation(Resources.MUTALISK_GLOW_STATIC);
-	private final RenderMutaliskViper	RENDERER;
+	private static final ResourceLocation	BASE		= new ResourceLocation(Resources.MUTALISKVIPER_BASE);
+	private static final ResourceLocation	OVERLAY		= new ResourceLocation(Resources.MUTALISKVIPER_OVERLAY);
+	private static final ResourceLocation	STATICGLOW	= new ResourceLocation(Resources.MUTALISK_GLOW_STATIC);
+	private final RenderMutaliskViper		RENDERER;
 	protected ModelMutaliskViper			model;
 
 	public RenderMutaliskViper(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {

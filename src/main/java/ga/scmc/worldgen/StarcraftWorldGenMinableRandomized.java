@@ -15,12 +15,12 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 public class StarcraftWorldGenMinableRandomized extends WorldGenerator {
 
 	/** The number of blocks to generate. */
-	private final int numberOfBlocks;
-	private final Predicate<IBlockState> predicate;
-	private final Random rand = new Random();
-	private final IBlockState asteroidBase;
-	private final IBlockState ore;
-	private final int oreWeight;
+	private final int						numberOfBlocks;
+	private final Predicate<IBlockState>	predicate;
+	private final Random					rand	= new Random();
+	private final IBlockState				asteroidBase;
+	private final IBlockState				ore;
+	private final int						oreWeight;
 
 	public StarcraftWorldGenMinableRandomized(Block fillerBlock, IBlockState asteroidBase, IBlockState ore, int blockCount, int oreWeight) {
 		this(asteroidBase, ore, blockCount, oreWeight, BlockMatcher.forBlock(fillerBlock));

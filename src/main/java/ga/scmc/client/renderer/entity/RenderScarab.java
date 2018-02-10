@@ -11,8 +11,8 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderScarab<T> extends RenderLiving<EntityScarab> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.SCARAB);
-	protected ModelScarab model;
+	private static final ResourceLocation	TEXTURE	= new ResourceLocation(Resources.SCARAB);
+	protected ModelScarab					model;
 
 	public RenderScarab(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);

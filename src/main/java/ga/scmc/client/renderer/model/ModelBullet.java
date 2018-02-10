@@ -9,13 +9,13 @@ import net.minecraft.entity.Entity;
  * bullet - cybercat5555 Created using Tabula 5.1.0
  */
 public class ModelBullet extends Model {
-	public ModelRenderer body;
-	public ModelRenderer point01;
-	public ModelRenderer point02;
-	public ModelRenderer point03;
-	public ModelRenderer point04;
-	public ModelRenderer back01;
-	public ModelRenderer back02;
+	public ModelRenderer	body;
+	public ModelRenderer	point01;
+	public ModelRenderer	point02;
+	public ModelRenderer	point03;
+	public ModelRenderer	point04;
+	public ModelRenderer	back01;
+	public ModelRenderer	back02;
 
 	public ModelBullet() {
 		this.textureWidth = 64;

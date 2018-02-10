@@ -152,14 +152,14 @@ public class BlockMineral extends BlockGlass implements IMetaBlockName {
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
-	
+
 	public static enum CompressedMineralType implements IStringSerializable {
 		BLUE("blue", 0, MapColor.BLUE),
 		RICH("rich", 1, MapColor.ADOBE);
 
-		private int ID;
-		private String name;
-		private MapColor color;
+		private int			ID;
+		private String		name;
+		private MapColor	color;
 
 		private CompressedMineralType(String name, int ID, MapColor color) {
 			this.ID = ID;

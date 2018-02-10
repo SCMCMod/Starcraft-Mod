@@ -10,10 +10,10 @@ public class EntityAIScarabExplode extends EntityAIBase {
 	 * The scarab's attack target. This is used for the changing of the creeper's
 	 * state
 	 */
-	private EntityLivingBase scarabAttackTarget;
+	private EntityLivingBase	scarabAttackTarget;
 
 	/** The scarab that is swelling */
-	private EntityScarab swellingScarab;
+	private EntityScarab		swellingScarab;
 
 	public EntityAIScarabExplode(EntityScarab entityScarab) {
 		swellingScarab = entityScarab;

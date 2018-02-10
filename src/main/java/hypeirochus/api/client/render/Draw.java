@@ -501,9 +501,9 @@ public class Draw {
 		return Access.getFontRenderer().getStringWidth(TextFormatting.getTextWithoutFormattingCodes(s));
 	}
 
-	public static final String TOOLTIP_LINESPACE = "\u00A7h";
-	public static final String TOOLTIP_HANDLER = "\u00A7x";
-	public static List<Draw.ITooltipLineHandler> tipLineHandlers = new ArrayList<Draw.ITooltipLineHandler>();
+	public static final String						TOOLTIP_LINESPACE	= "\u00A7h";
+	public static final String						TOOLTIP_HANDLER		= "\u00A7x";
+	public static List<Draw.ITooltipLineHandler>	tipLineHandlers		= new ArrayList<Draw.ITooltipLineHandler>();
 
 	public static int getTipLineId(ITooltipLineHandler handler) {
 		tipLineHandlers.add(handler);

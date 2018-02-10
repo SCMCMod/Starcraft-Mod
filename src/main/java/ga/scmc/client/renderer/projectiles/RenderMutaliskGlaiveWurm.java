@@ -11,8 +11,8 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderMutaliskGlaiveWurm extends Render<EntityMutaliskGlaiveWurm> {
 
-	private ModelBase model = new ModelMutaliskGlaiveWurm();
-	int x = 0;
+	private ModelBase	model	= new ModelMutaliskGlaiveWurm();
+	int					x		= 0;
 
 	public RenderMutaliskGlaiveWurm(RenderManager renderManager) {
 		super(renderManager);

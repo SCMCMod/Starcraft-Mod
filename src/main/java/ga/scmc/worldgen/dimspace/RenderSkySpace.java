@@ -113,7 +113,7 @@ public class RenderSkySpace extends IRenderHandler {
 
 			OpenGL.enable(GL11.GL_TEXTURE_2D);
 			OpenGL.blendFunc(GL11.GL_SRC_ALPHA, 1);
-			
+
 			OpenGL.pushMatrix();
 			{
 				float scale = 15.0F;
@@ -129,7 +129,7 @@ public class RenderSkySpace extends IRenderHandler {
 				Draw.tessellate();
 			}
 			OpenGL.popMatrix();
-			
+
 			OpenGL.pushMatrix();
 			{
 				float scale = 50.0F;
@@ -161,7 +161,7 @@ public class RenderSkySpace extends IRenderHandler {
 				Draw.tessellate();
 			}
 			OpenGL.popMatrix();
-			
+
 			OpenGL.blendClear();
 			// OpenGL.disable(GL11.GL_BLEND);
 			OpenGL.enable(GL11.GL_FOG);

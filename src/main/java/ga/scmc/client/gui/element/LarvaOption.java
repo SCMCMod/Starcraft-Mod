@@ -20,15 +20,15 @@ import ocelot.api.utils.GuiUtils;
  */
 public class LarvaOption {
 
-	private static int nextIconId;
+	private static int			nextIconId;
 
-	private int id;
-	private List<String> tooltip;
-	private List<LarvaOption> children;
-	private boolean isChild;
+	private int					id;
+	private List<String>		tooltip;
+	private List<LarvaOption>	children;
+	private boolean				isChild;
 
-	private int mineralCost;
-	private int vespeneCost;
+	private int					mineralCost;
+	private int					vespeneCost;
 
 	/**
 	 * Creates a new larva option with the specified prices.

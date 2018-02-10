@@ -17,8 +17,8 @@ import net.minecraft.world.World;
 
 public class EntityZergMob extends EntityStarcraftMob {
 
-	private static final DataParameter<Integer> BIOMASS = EntityDataManager.createKey(EntityZergling.class, DataSerializers.VARINT);
-	public int baseHealth;
+	private static final DataParameter<Integer>	BIOMASS	= EntityDataManager.createKey(EntityZergling.class, DataSerializers.VARINT);
+	public int									baseHealth;
 
 	public EntityZergMob(World world) {
 		super(world);
