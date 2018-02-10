@@ -87,6 +87,7 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 	public void generateOverworld(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 		runOreGenerator(COPPER_GENERIC, world, random, chunkX, chunkZ, 15, 4, 64);
 		runOreGenerator(TITANIUM_GENERIC, world, random, chunkX, chunkZ, 3, 4, 28);
+		runOreGenerator(PHOSPHORUS_GENERIC, world, random, chunkX, chunkZ, 12, 0, 128);
 
 		if (checkCanGenerateOverworld(world)) {
 
@@ -126,7 +127,7 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		runOreGenerator(RICHMINERAL_CHAR, world, random, chunkX, chunkZ, 6, 4, 28);
 		runOreGenerator(TITANIUM_CHAR, world, random, chunkX, chunkZ, 3, 4, 28);
 		runOreGenerator(URANIUM_CHAR, world, random, chunkX, chunkZ, 2, 4, 20);
-		runOreGenerator(PHOSPHORUS_CHAR, world, random, chunkX, chunkZ, 10, 0, 128);
+		runOreGenerator(PHOSPHORUS_CHAR, world, random, chunkX, chunkZ, 12, 0, 128);
 		runOreGenerator(DIRT_CHAR, world, random, chunkX, chunkZ, 20, 0, 128);
 		runOreGenerator(GRAVEL_CHAR, world, random, chunkX, chunkZ, 10, 0, 128);
 		runOreGenerator(MAGMA_CHAR, world, random, chunkX, chunkZ, 25, 0, 128);
@@ -186,6 +187,7 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		runOreGenerator(TITANIUM_GENERIC, world, random, chunkX, chunkZ, 2, 4, 28);
 		runOreGenerator(DIRT_GENERIC, world, random, chunkX, chunkZ, 20, 0, 128);
 		runOreGenerator(GRAVEL_GENERIC, world, random, chunkX, chunkZ, 10, 0, 128);
+		runOreGenerator(PHOSPHORUS_GENERIC, world, random, chunkX, chunkZ, 6, 0, 128);
 
 		if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKaldirProtossCity) {
 			runTeamColorGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
@@ -253,7 +255,7 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		runOreGenerator(RICHMINERAL_SHAKURAS, world, random, chunkX, chunkZ, 6, 4, 28);
 		runOreGenerator(TITANIUM_SHAKURAS, world, random, chunkX, chunkZ, 3, 4, 28);
 		runOreGenerator(URANIUM_SHAKURAS, world, random, chunkX, chunkZ, 2, 4, 20);
-		runOreGenerator(PHOSPHORUS_SHAKURAS, world, random, chunkX, chunkZ, 10, 0, 128);
+		runOreGenerator(PHOSPHORUS_SHAKURAS, world, random, chunkX, chunkZ, 12, 0, 128);
 		runOreGenerator(DIRT_SHAKURAS, world, random, chunkX, chunkZ, 20, 0, 128);
 		runOreGenerator(GRAVEL_SHAKURAS, world, random, chunkX, chunkZ, 10, 0, 128);
 
@@ -308,7 +310,7 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		runOreGenerator(RICHMINERAL_ZERUS, world, random, chunkX, chunkZ, 6, 4, 28);
 		runOreGenerator(TITANIUM_ZERUS, world, random, chunkX, chunkZ, 3, 4, 28);
 		runOreGenerator(URANIUM_ZERUS, world, random, chunkX, chunkZ, 2, 4, 20);
-		runOreGenerator(PHOSPHORUS_ZERUS, world, random, chunkX, chunkZ, 5, 12, 48);
+		runOreGenerator(PHOSPHORUS_ZERUS, world, random, chunkX, chunkZ, 12, 0, 128);
 		runOreGenerator(DIRT_ZERUS, world, random, chunkX, chunkZ, 20, 0, 128);
 		runOreGenerator(GRAVEL_ZERUS, world, random, chunkX, chunkZ, 10, 0, 128);
 
@@ -346,7 +348,7 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		runOreGenerator(REDSTONE_SLAYN, world, random, chunkX, chunkZ, 8, 0, 16);
 		runOreGenerator(RICHMINERAL_SLAYN, world, random, chunkX, chunkZ, 6, 4, 28);
 		runOreGenerator(TITANIUM_SLAYN, world, random, chunkX, chunkZ, 3, 4, 28);
-		runOreGenerator(PHOSPHORUS_SLAYN, world, random, chunkX, chunkZ, 10, 0, 128);
+		runOreGenerator(PHOSPHORUS_SLAYN, world, random, chunkX, chunkZ, 12, 0, 128);
 		runOreGenerator(DIRT_SLAYN, world, random, chunkX, chunkZ, 20, 0, 128);
 		runOreGenerator(GRAVEL_SLAYN, world, random, chunkX, chunkZ, 10, 0, 128);
 		runOreGenerator(URANIUM_SLAYN, world, random, chunkX, chunkZ, 2, 4, 20);
@@ -401,7 +403,7 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		runOreGenerator(REDSTONE_GENERIC, world, random, chunkX, chunkZ, 8, 0, 16);
 		runOreGenerator(RICHMINERAL_GENERIC, world, random, chunkX, chunkZ, 6, 4, 28);
 		runOreGenerator(TITANIUM_GENERIC, world, random, chunkX, chunkZ, 3, 4, 28);
-		runOreGenerator(PHOSPHORUS_GENERIC, world, random, chunkX, chunkZ, 5, 12, 48);
+		runOreGenerator(PHOSPHORUS_GENERIC, world, random, chunkX, chunkZ, 12, 0, 128);
 		runOreGenerator(DIRT_GENERIC, world, random, chunkX, chunkZ, 20, 0, 128);
 		runOreGenerator(GRAVEL_GENERIC, world, random, chunkX, chunkZ, 10, 0, 128);
 		runOreGenerator(URANIUM_GENERIC, world, random, chunkX, chunkZ, 2, 4, 20);
@@ -438,7 +440,7 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		runOreGenerator(REDSTONE_GENERIC, world, random, chunkX, chunkZ, 8, 0, 16);
 		runOreGenerator(RICHMINERAL_GENERIC, world, random, chunkX, chunkZ, 6, 4, 28);
 		runOreGenerator(TITANIUM_GENERIC, world, random, chunkX, chunkZ, 3, 4, 28);
-		runOreGenerator(PHOSPHORUS_GENERIC, world, random, chunkX, chunkZ, 10, 0, 128);
+		runOreGenerator(PHOSPHORUS_GENERIC, world, random, chunkX, chunkZ, 12, 0, 128);
 		runOreGenerator(DIRT_GENERIC, world, random, chunkX, chunkZ, 20, 0, 128);
 		runOreGenerator(GRAVEL_GENERIC, world, random, chunkX, chunkZ, 10, 0, 128);
 		runOreGenerator(URANIUM_GENERIC, world, random, chunkX, chunkZ, 2, 4, 20);
