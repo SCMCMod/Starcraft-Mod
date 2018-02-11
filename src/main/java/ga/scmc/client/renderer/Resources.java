@@ -34,6 +34,7 @@ public class Resources {
 	public static final String	HYDRALISKPRIMALDEHAKA_BASE			= Library.RL_BASE + "textures/entity/hydraliskprimaldehaka_base.png";
 	public static final String	HYDRALISKPRIMALDEHAKA_GLOW_STATIC	= Library.RL_BASE + "textures/entity/hydraliskprimaldehaka_glow_static.png";
 	public static final String	INFESTED_CIVILIAN					= Library.RL_BASE + "textures/entity/infestedcivilian.png";
+	public static final String	JIMRAYNOR_BASE						= Library.RL_BASE + "textures/entity/jimraynor_base.png";
 	public static final String	KAKARU								= Library.RL_BASE + "textures/entity/kakaru.png";
 	public static final String	LARVA_BASE							= Library.RL_BASE + "textures/entity/larva_base.png";
 	public static final String	LARVA_GLOW_STATIC					= Library.RL_BASE + "textures/entity/larva_glow_static.png";
