@@ -489,7 +489,7 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 	 */
 	public void generateSpace(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 
-		if (true) {
+		if (this.generationCompleted == false) {
 			/** Earth **/
 			this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, 0, 21, 31, MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(0), MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(4), world, random, 0, 0, 0, new BlockPos(0, 128, 0));
 			/** Earth's moon **/
@@ -506,6 +506,19 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 			this.runStarGenerator(STAR_TEMPLATE, 71, 101, MetaBlockHandler.STAR_SURFACE.getStateFromMeta(5), world, random, 0, 0, 0, new BlockPos(-1315, 128, 17748));
 			this.runStarGenerator(STAR_TEMPLATE, 21, 47, MetaBlockHandler.STAR_SURFACE.getStateFromMeta(2), world, random, 0, 0, 0, new BlockPos(-1609, 128, 17748));
 
+			/** Shakuras **/
+			this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, ConfigurationHandler.INT_DIMENSION_SHAKURAS, 21, 31, MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(0), MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(5), world, random, 0, 0, 0, new BlockPos(6666, 128, 18180));
+			
+			/** Aiur **/
+			this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, ConfigurationHandler.INT_DIMENSION_AIUR, 41, 51, MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(0), MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(4), world, random, 0, 0, 0, new BlockPos(4444, 128, 17365));
+			
+			/** Slayn **/
+			this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, ConfigurationHandler.INT_DIMENSION_SLAYN, 31, 41, MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(14), MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(10), world, random, 0, 0, 0, new BlockPos(7000, 128, 16666));
+			
+			/** Korhal **/
+			this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, ConfigurationHandler.INT_DIMENSION_SHAKURAS, 35, 45, MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(14), MetaBlockHandler.PLANET_SURFACE.getStateFromMeta(5), world, random, 0, 0, 0, new BlockPos(3290, 128, 11000));
+			
+			
 			this.generationCompleted = true;
 		}
 
