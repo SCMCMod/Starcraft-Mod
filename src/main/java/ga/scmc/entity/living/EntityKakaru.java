@@ -2,13 +2,24 @@ package ga.scmc.entity.living;
 
 import java.util.Random;
 
+import javax.annotation.Nullable;
+
 import ga.scmc.handlers.SoundHandler;
+import net.minecraft.block.Block;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAIFindEntityNearestPlayer;
 import net.minecraft.entity.ai.EntityMoveHelper;
+import net.minecraft.entity.passive.HorseArmorType;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
@@ -47,6 +58,14 @@ public class EntityKakaru extends EntityCritterFlying {
 		default:
 			return SoundHandler.ENTITY_KAKARU_LIVE2;
 		}
+	}
+
+	public boolean processInteract(EntityPlayer player, EnumHand hand, @Nullable ItemStack stack) {
+		if (!this.world.isRemote && !player.isSneaking()) {
+			player.startRiding(this);
+		}
+
+		return true;
 	}
 
 	@Override
