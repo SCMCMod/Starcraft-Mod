@@ -30,18 +30,11 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
  */
 public abstract class StructureSpawner extends Item {
 
-	protected String name;
-
-	public StructureSpawner(String name) {
-		this.name = name;
+	public StructureSpawner() {
 	}
 
 	@Override
 	public abstract ActionResult<ItemStack> onItemRightClick(ItemStack itemStack, World world, EntityPlayer player, EnumHand hand);
-
-	protected void generateStructure(World world, EntityPlayer player) {
-		loadStructure(player.getPosition(), world, name);
-	}
 
 	protected void loadStructure(BlockPos pos, World world, String name) {
 		if (!world.isRemote) {

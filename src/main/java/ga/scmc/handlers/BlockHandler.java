@@ -49,6 +49,7 @@ import ga.scmc.blocks.StarcraftBlock;
 import ga.scmc.blocks.StarcraftBlockCustomDrop;
 import ga.scmc.blocks.StarcraftBlockFalling;
 import ga.scmc.blocks.StarcraftProtossCoreBlock;
+import ga.scmc.blocks.StarcraftStairs;
 import ga.scmc.blocks.StarcraftTerranCoreBlock;
 import ga.scmc.blocks.flora.BlockBrambles;
 import ga.scmc.blocks.flora.BlockZerusGlowPod;
@@ -56,6 +57,12 @@ import ga.scmc.blocks.flora.BlockZerusLightcap;
 import ga.scmc.blocks.itemblocks.ItemBlockAsh;
 import ga.scmc.blocks.itemblocks.ItemBlockBrambles;
 import ga.scmc.blocks.itemblocks.ItemBlockStarcraftSkull;
+import ga.scmc.blocks.metablocks.BlockNeosteel;
+import ga.scmc.blocks.metablocks.BlockParisteel;
+import ga.scmc.blocks.metablocks.BlockProtossMetalT1;
+import ga.scmc.blocks.metablocks.BlockProtossMetalT2;
+import ga.scmc.blocks.metablocks.BlockProtossMetalT3;
+import ga.scmc.blocks.metablocks.BlockTerranMetal;
 import ga.scmc.blocks.skulls.BlockStarcraftSkull;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.enums.EnumWorldType;
@@ -236,6 +243,45 @@ public class BlockHandler {
 
 	public static Block CITY_STONE_KORHAL;
 
+	public static Block STAIRS_PROTOSS_METAL_AIUR_T1;
+	public static Block STAIRS_PROTOSS_METAL_DARK_T1;
+	public static Block STAIRS_PROTOSS_METAL_GREEN_T1;
+	public static Block STAIRS_PROTOSS_METAL_BLUE_T1;
+	public static Block STAIRS_PROTOSS_METAL_RED_T1;
+	public static Block STAIRS_PROTOSS_METAL_AIUR_T2;
+	public static Block STAIRS_PROTOSS_METAL_DARK_T2;
+	public static Block STAIRS_PROTOSS_METAL_GREEN_T2;
+	public static Block STAIRS_PROTOSS_METAL_BLUE_T2;
+	public static Block STAIRS_PROTOSS_METAL_RED_T2;
+	public static Block STAIRS_PROTOSS_METAL_AIUR_T3;
+	public static Block STAIRS_PROTOSS_METAL_DARK_T3;
+	public static Block STAIRS_PROTOSS_METAL_GREEN_T3;
+	public static Block STAIRS_PROTOSS_METAL_BLUE_T3;
+	public static Block STAIRS_PROTOSS_METAL_RED_T3;
+
+	public static Block STAIRS_TERRAN_WARNING_TAPE;
+	public static Block STAIRS_TERRAN_METAL_COPPER;
+	public static Block STAIRS_TERRAN_METAL_STEEL;
+	public static Block STAIRS_TERRAN_METAL_TITANIUM;
+	public static Block STAIRS_TERRAN_NEOSTEEL_BASE;
+	public static Block STAIRS_TERRAN_NEOSTEEL_FRAME;
+	public static Block STAIRS_TERRAN_PARISTEEL_PURPLE;
+	public static Block STAIRS_TERRAN_PARISTEEL_BROWN;
+	public static Block STAIRS_TERRAN_PARISTEEL_PINK;
+	public static Block STAIRS_TERRAN_PARISTEEL_BLUE;
+	public static Block STAIRS_TERRAN_PARISTEEL_CYAN;
+	public static Block STAIRS_TERRAN_PARISTEEL_GRAY;
+	public static Block STAIRS_TERRAN_PARISTEEL_GREEN;
+	public static Block STAIRS_TERRAN_PARISTEEL_LIGHT_BLUE;
+	public static Block STAIRS_TERRAN_PARISTEEL_LIME;
+	public static Block STAIRS_TERRAN_PARISTEEL_MAGENTA;
+	public static Block STAIRS_TERRAN_PARISTEEL_ORANGE;
+	public static Block STAIRS_TERRAN_PARISTEEL_RED;
+	public static Block STAIRS_TERRAN_PARISTEEL_SILVER;
+	public static Block STAIRS_TERRAN_PARISTEEL_WHITE;
+	public static Block STAIRS_TERRAN_PARISTEEL_YELLOW;
+	public static Block STAIRS_TERRAN_PARISTEEL_BLACK;
+
 	/**
 	 * Instantiates, registers, and initializes the MetaBlocks.
 	 */
@@ -244,6 +290,8 @@ public class BlockHandler {
 		instantiate();
 		register();
 		MetaBlockHandler.init();
+		instantiateStairs();
+		instantiateSlabs();
 	}
 
 	public static void instantiateFluids() {
@@ -413,6 +461,50 @@ public class BlockHandler {
 		TEST = new BlockTest();
 		LIGHT_SOURCE = new BlockMovingLightSource();
 		PROTOSS_WORMHOLE = new BlockProtossWormhole();
+	}
+
+	public static void instantiateStairs() {
+		STAIRS_PROTOSS_METAL_AIUR_T1 = new StarcraftStairs("stair.protoss.metal.1.aiur", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T1.getDefaultState().withProperty(BlockProtossMetalT1.TYPE, BlockProtossMetalT1.ProtossMetalType.AIUR)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_DARK_T1 = new StarcraftStairs("stair.protoss.metal.1.dark", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T1.getDefaultState().withProperty(BlockProtossMetalT1.TYPE, BlockProtossMetalT1.ProtossMetalType.DARK)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_GREEN_T1 = new StarcraftStairs("stair.protoss.metal.1.green", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T1.getDefaultState().withProperty(BlockProtossMetalT1.TYPE, BlockProtossMetalT1.ProtossMetalType.GREEN)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_BLUE_T1 = new StarcraftStairs("stair.protoss.metal.1.blue", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T1.getDefaultState().withProperty(BlockProtossMetalT1.TYPE, BlockProtossMetalT1.ProtossMetalType.BLUE)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_RED_T1 = new StarcraftStairs("stair.protoss.metal.1.red", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T1.getDefaultState().withProperty(BlockProtossMetalT1.TYPE, BlockProtossMetalT1.ProtossMetalType.RED)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_AIUR_T2 = new StarcraftStairs("stair.protoss.metal.2.aiur", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T2.getDefaultState().withProperty(BlockProtossMetalT2.TYPE, BlockProtossMetalT2.ProtossMetalType.AIUR)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_DARK_T2 = new StarcraftStairs("stair.protoss.metal.2.dark", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T2.getDefaultState().withProperty(BlockProtossMetalT2.TYPE, BlockProtossMetalT2.ProtossMetalType.DARK)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_GREEN_T2 = new StarcraftStairs("stair.protoss.metal.2.green", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T2.getDefaultState().withProperty(BlockProtossMetalT2.TYPE, BlockProtossMetalT2.ProtossMetalType.GREEN)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_BLUE_T2 = new StarcraftStairs("stair.protoss.metal.2.blue", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T2.getDefaultState().withProperty(BlockProtossMetalT2.TYPE, BlockProtossMetalT2.ProtossMetalType.BLUE)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_RED_T2 = new StarcraftStairs("stair.protoss.metal.2.red", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T2.getDefaultState().withProperty(BlockProtossMetalT2.TYPE, BlockProtossMetalT2.ProtossMetalType.RED)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_AIUR_T3 = new StarcraftStairs("stair.protoss.metal.3.aiur", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T3.getDefaultState().withProperty(BlockProtossMetalT3.TYPE, BlockProtossMetalT3.ProtossMetalType.AIUR)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_DARK_T3 = new StarcraftStairs("stair.protoss.metal.3.dark", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T3.getDefaultState().withProperty(BlockProtossMetalT3.TYPE, BlockProtossMetalT3.ProtossMetalType.DARK)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_GREEN_T3 = new StarcraftStairs("stair.protoss.metal.3.green", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T3.getDefaultState().withProperty(BlockProtossMetalT3.TYPE, BlockProtossMetalT3.ProtossMetalType.GREEN)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_BLUE_T3 = new StarcraftStairs("stair.protoss.metal.3.blue", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T3.getDefaultState().withProperty(BlockProtossMetalT3.TYPE, BlockProtossMetalT3.ProtossMetalType.BLUE)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_RED_T3 = new StarcraftStairs("stair.protoss.metal.3.red", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T3.getDefaultState().withProperty(BlockProtossMetalT3.TYPE, BlockProtossMetalT3.ProtossMetalType.RED)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+
+		STAIRS_TERRAN_WARNING_TAPE = new StarcraftStairs("stair.terran.warningtape", RegistryType.FULL, TERRAN_WARNING_TAPE.getDefaultState()).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_METAL_COPPER = new StarcraftStairs("stair.terran.metal.copper", RegistryType.FULL, MetaBlockHandler.COMP_METAL_T1.getDefaultState().withProperty(BlockTerranMetal.TYPE, BlockTerranMetal.CompressedMetalType.COPPER)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_METAL_STEEL = new StarcraftStairs("stair.terran.metal.steel", RegistryType.FULL, MetaBlockHandler.COMP_METAL_T1.getDefaultState().withProperty(BlockTerranMetal.TYPE, BlockTerranMetal.CompressedMetalType.STEEL)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_METAL_TITANIUM = new StarcraftStairs("stair.terran.metal.titanium", RegistryType.FULL, MetaBlockHandler.COMP_METAL_T1.getDefaultState().withProperty(BlockTerranMetal.TYPE, BlockTerranMetal.CompressedMetalType.TITANIUM)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_NEOSTEEL_BASE = new StarcraftStairs("stair.terran.neosteel.base", RegistryType.FULL, MetaBlockHandler.NEOSTEEL_METAL.getDefaultState().withProperty(BlockNeosteel.TYPE, BlockNeosteel.NeosteelMetalType.BASE)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_NEOSTEEL_FRAME = new StarcraftStairs("stair.terran.neosteel.frame", RegistryType.FULL, MetaBlockHandler.NEOSTEEL_METAL.getDefaultState().withProperty(BlockNeosteel.TYPE, BlockNeosteel.NeosteelMetalType.FRAME)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_PURPLE = new StarcraftStairs("stair.terran.paristeel.purple", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.PURPLE)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_BROWN = new StarcraftStairs("stair.terran.paristeel.brown", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.BROWN)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_PINK = new StarcraftStairs("stair.terran.paristeel.pink", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.PINK)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_BLUE = new StarcraftStairs("stair.terran.paristeel.blue", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.BLUE)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_CYAN = new StarcraftStairs("stair.terran.paristeel.cyan", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.CYAN)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_GRAY = new StarcraftStairs("stair.terran.paristeel.gray", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.GRAY)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_GREEN = new StarcraftStairs("stair.terran.paristeel.green", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.GREEN)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_LIGHT_BLUE = new StarcraftStairs("stair.terran.paristeel.lightblue", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.LIGHT_BLUE)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_LIME = new StarcraftStairs("stair.terran.paristeel.lime", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.LIME)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_MAGENTA = new StarcraftStairs("stair.terran.paristeel.magenta", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.MAGENTA)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_ORANGE = new StarcraftStairs("stair.terran.paristeel.orange", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.ORANGE)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_RED = new StarcraftStairs("stair.terran.paristeel.red", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.RED)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_SILVER = new StarcraftStairs("stair.terran.paristeel.silver", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.SILVER)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_WHITE = new StarcraftStairs("stair.terran.paristeel.white", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.WHITE)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_YELLOW = new StarcraftStairs("stair.terran.paristeel.yellow", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.YELLOW)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_BLACK = new StarcraftStairs("stair.terran.paristeel.black", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.BLACK)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+	}
+
+	public static void instantiateSlabs() {
 	}
 
 	public static void register() {

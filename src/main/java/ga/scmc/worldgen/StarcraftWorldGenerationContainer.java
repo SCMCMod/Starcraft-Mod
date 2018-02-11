@@ -520,15 +520,8 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 			this.generationCompleted = true;
 		}
 
-<<<<<<< HEAD
-		if (((chunkX < 387 || chunkX > 417) && (chunkZ > 391 || chunkZ < 361)) || ((chunkX < -15 || chunkX > 15) && (chunkZ > 15 || chunkZ < -15))) {
-
-			if (random.nextInt(750) == 0)
-=======
 		if (((chunkX < -80 || chunkX > -110) && (chunkZ > 1096 || chunkZ < 1126)) || ((chunkX < -15 || chunkX > 15) && (chunkZ > 15 || chunkZ < -15))) {
-			
 			if(random.nextInt(750) == 0)
->>>>>>> 38c90c06503a8ae9acf83456ce79659855e6ea00
 				runRandomStarGenerator(STAR_TEMPLATE, random.nextInt(50) + 25, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 255);
 			if (random.nextInt(700) < 10)
 				runOreGenerator(COAL_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);

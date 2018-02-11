@@ -33,40 +33,43 @@ public class TeleporterHandler extends Teleporter {
 			}
 			this.x = x;
 			this.y = playerSpawn.getY() + 1;
-			world.setBlockState(playerSpawn, Blocks.OBSIDIAN.getDefaultState());
-			world.setBlockState(playerSpawn.add(-1, 0, 1), Blocks.OBSIDIAN.getDefaultState());
-			world.setBlockState(playerSpawn.add(0, 0, 1), Blocks.OBSIDIAN.getDefaultState());
-			world.setBlockState(playerSpawn.add(1, 0, 1), Blocks.OBSIDIAN.getDefaultState());
-
-			world.setBlockState(playerSpawn.add(-1, 0, -1), Blocks.OBSIDIAN.getDefaultState());
-			world.setBlockState(playerSpawn.add(0, 0, -1), Blocks.OBSIDIAN.getDefaultState());
-			world.setBlockState(playerSpawn.add(1, 0, -1), Blocks.OBSIDIAN.getDefaultState());
-
-			world.setBlockState(playerSpawn.add(1, 0, 0), Blocks.OBSIDIAN.getDefaultState());
-			world.setBlockState(playerSpawn.add(-1, 0, 0), Blocks.OBSIDIAN.getDefaultState());
 			this.z = z;
+
+			if (addObsidian) {
+				world.setBlockState(playerSpawn, Blocks.OBSIDIAN.getDefaultState());
+				world.setBlockState(playerSpawn.add(-1, 0, 1), Blocks.OBSIDIAN.getDefaultState());
+				world.setBlockState(playerSpawn.add(0, 0, 1), Blocks.OBSIDIAN.getDefaultState());
+				world.setBlockState(playerSpawn.add(1, 0, 1), Blocks.OBSIDIAN.getDefaultState());
+
+				world.setBlockState(playerSpawn.add(-1, 0, -1), Blocks.OBSIDIAN.getDefaultState());
+				world.setBlockState(playerSpawn.add(0, 0, -1), Blocks.OBSIDIAN.getDefaultState());
+				world.setBlockState(playerSpawn.add(1, 0, -1), Blocks.OBSIDIAN.getDefaultState());
+
+				world.setBlockState(playerSpawn.add(1, 0, 0), Blocks.OBSIDIAN.getDefaultState());
+				world.setBlockState(playerSpawn.add(-1, 0, 0), Blocks.OBSIDIAN.getDefaultState());
+			}
 		} else {
 			if (lastDim == 0) {
 				this.x = 0;
 				this.y = 180;
 				this.z = 0;
-			}else if(lastDim == ConfigurationHandler.INT_DIMENSION_CHAR) {
+			} else if (lastDim == ConfigurationHandler.INT_DIMENSION_CHAR) {
 				this.x = -1515;
 				this.y = 180;
 				this.z = 17776;
-			}else if(lastDim == ConfigurationHandler.INT_DIMENSION_AIUR) {
+			} else if (lastDim == ConfigurationHandler.INT_DIMENSION_AIUR) {
 				this.x = 4444;
 				this.y = 180;
 				this.z = 17365;
-			}else if(lastDim == ConfigurationHandler.INT_DIMENSION_SHAKURAS) {
+			} else if (lastDim == ConfigurationHandler.INT_DIMENSION_SHAKURAS) {
 				this.x = 6666;
 				this.y = 180;
 				this.z = 18180;
-			}else if(lastDim == ConfigurationHandler.INT_DIMENSION_KORHAL) {
+			} else if (lastDim == ConfigurationHandler.INT_DIMENSION_KORHAL) {
 				this.x = 3290;
 				this.y = 180;
 				this.z = 11000;
-			}else if(lastDim == ConfigurationHandler.INT_DIMENSION_SLAYN) {
+			} else if (lastDim == ConfigurationHandler.INT_DIMENSION_SLAYN) {
 				this.x = 7000;
 				this.y = 180;
 				this.z = 16666;

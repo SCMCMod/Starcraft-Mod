@@ -86,6 +86,12 @@ tile.protoss.khaydarincrystal.block.normal.name=Khaydarin Crystal Block
 
 tile.gas.collector.protoss.name=Assimilator
 tile.protoss.furnace.name=Protoss Furnace
+
+tile.stair.protoss.metal.1.aiur.name=Khalai T1 Protoss Metal Stairs
+tile.stair.protoss.metal.1.dark.name=Dark T1 Protoss Metal Stairs
+tile.stair.protoss.metal.1.green.name=Green T1 Protoss Metal Stairs
+tile.stair.protoss.metal.1.blue.name=Blue T1 Protoss Metal Stairs
+tile.stair.protoss.metal.1.red.name=Red T1 Protoss Metal Stairs
 #############################################################################################
 
 
