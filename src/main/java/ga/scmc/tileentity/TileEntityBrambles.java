@@ -11,12 +11,18 @@ import net.minecraft.util.ITickable;
 /**
  * @author Ocelot5836
  */
-public class TileEntityKaldirBrambles extends TileEntity implements ITickable {
+public class TileEntityBrambles extends TileEntity implements ITickable {
 
 	private int age;
+	private int variant;
 
-	public TileEntityKaldirBrambles() {
-		age = 0;
+	public TileEntityBrambles() {
+		this(0);
+	}
+
+	public TileEntityBrambles(int variant) {
+		this.age = 0;
+		this.variant = variant;
 	}
 
 	@Override
@@ -28,6 +34,7 @@ public class TileEntityKaldirBrambles extends TileEntity implements ITickable {
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		nbt.setInteger("age", this.age);
+		nbt.setInteger("variant", this.variant);
 		return nbt;
 	}
 
@@ -35,6 +42,7 @@ public class TileEntityKaldirBrambles extends TileEntity implements ITickable {
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
 		this.age = nbt.getInteger("age");
+		this.variant = nbt.getInteger("variant");
 	}
 
 	@Override
@@ -58,5 +66,9 @@ public class TileEntityKaldirBrambles extends TileEntity implements ITickable {
 
 	public int getAge() {
 		return age;
+	}
+	
+	public int getVariant() {
+		return variant;
 	}
 }

@@ -15,10 +15,22 @@ itemGroup.terran.armors=Armors
 itemGroup.terran.tools=Tools
 #############################################################################################
 
+
+
 ### Key Bindings ###
 #############################################################################################
 key.categories.starcraft=Starcraft
 key.terran.marinevisor.toggle=Toggle Marine Armor Visor
+#############################################################################################
+
+
+
+### Commands ###
+#############################################################################################
+commands.dimension.usage=/dimension <dimension> [player]
+commands.dimension.out_of_range=Id %s is out of the dimension range
+commands.dimension.same_dim=%s is already in dimension %s!
+commands.dimension.success=Sent %s to dimension %s
 #############################################################################################
 
 
@@ -74,6 +86,12 @@ tile.protoss.khaydarincrystal.block.normal.name=Khaydarin Crystal Block
 
 tile.gas.collector.protoss.name=Assimilator
 tile.protoss.furnace.name=Protoss Furnace
+
+tile.stair.protoss.metal.1.aiur.name=Khalai T1 Protoss Metal Stairs
+tile.stair.protoss.metal.1.dark.name=Dark T1 Protoss Metal Stairs
+tile.stair.protoss.metal.1.green.name=Green T1 Protoss Metal Stairs
+tile.stair.protoss.metal.1.blue.name=Blue T1 Protoss Metal Stairs
+tile.stair.protoss.metal.1.red.name=Red T1 Protoss Metal Stairs
 #############################################################################################
 
 
@@ -146,7 +164,9 @@ tile.gas.collector.zerg.name=Extractor
 ### Flora ###
 #############################################################################################
 tile.flora.zerus.glowpod.name=Zerus Glow Pod
-tile.flora.kaldir.brambles.name=Kaldir Brambles
+tile.flora.brambles.kaldir.name=Kaldir Brambles
+tile.flora.brambles.shakuras.name=Shakuras Palm
+tile.flora.brambles.zerus.name=Zerus Palm
 tile.flora.zerus.lightcap.name=Zerus Lightcap
 #############################################################################################
 

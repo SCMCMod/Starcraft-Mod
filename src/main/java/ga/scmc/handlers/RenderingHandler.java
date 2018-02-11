@@ -82,7 +82,7 @@ import static ga.scmc.handlers.BlockHandler.FARMLAND_CHAR;
 import static ga.scmc.handlers.BlockHandler.FARMLAND_SHAKURAS;
 import static ga.scmc.handlers.BlockHandler.FARMLAND_SLAYN;
 import static ga.scmc.handlers.BlockHandler.FARMLAND_ZERUS;
-import static ga.scmc.handlers.BlockHandler.FLORA_KALDIR_BRAMBLES;
+import static ga.scmc.handlers.BlockHandler.FLORA_BRAMBLES;
 import static ga.scmc.handlers.BlockHandler.FLORA_ZERUS_GLOW_POD;
 import static ga.scmc.handlers.BlockHandler.FLORA_ZERUS_LIGHTCAP;
 import static ga.scmc.handlers.BlockHandler.FLUID_ACID;
@@ -293,7 +293,7 @@ import ga.scmc.client.renderer.projectiles.RenderC14GaussRifleBullet;
 import ga.scmc.client.renderer.projectiles.RenderFlamethrowerFlame;
 import ga.scmc.client.renderer.projectiles.RenderHydraliskSpike;
 import ga.scmc.client.renderer.projectiles.RenderMutaliskGlaiveWurm;
-import ga.scmc.client.renderer.tileentity.RendererKaldirBrambles;
+import ga.scmc.client.renderer.tileentity.RendererBrambles;
 import ga.scmc.client.renderer.tileentity.RendererProtossWormhole;
 import ga.scmc.client.renderer.tileentity.RendererStarcraftSkull;
 import ga.scmc.client.renderer.tileentity.RendererZerusGlowPod;
@@ -349,7 +349,7 @@ import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumMetaItem.EnergyType;
 import ga.scmc.enums.EnumMetaItem.ProtossUpgradeType;
 import ga.scmc.lib.Library;
-import ga.scmc.tileentity.TileEntityKaldirBrambles;
+import ga.scmc.tileentity.TileEntityBrambles;
 import ga.scmc.tileentity.TileEntityProtossWormhole;
 import ga.scmc.tileentity.TileEntityStarcraftSkull;
 import ga.scmc.tileentity.TileEntityZerusGlowPod;
@@ -395,8 +395,7 @@ public class RenderingHandler {
 		ModelBakery.registerItemVariants(ItemHandler.TERRAZINE, new ResourceLocation(Library.MODID, "terrazine.raw"), new ResourceLocation(Library.MODID, "protoss.terrazine"), new ResourceLocation(Library.MODID, "terran.terrazine"), new ResourceLocation(Library.MODID, "zerg.terrazine"));
 		ModelBakery.registerItemVariants(ItemHandler.ENERGY, new ResourceLocation(Library.MODID, "energy.pure"), new ResourceLocation(Library.MODID, "energy.corrupted"), new ResourceLocation(Library.MODID, "energy.void"));
 		ModelBakery.registerItemVariants(ItemHandler.DUST, new ResourceLocation(Library.MODID, "dust.iron"), new ResourceLocation(Library.MODID, "dust.steel"), new ResourceLocation(Library.MODID, "dust.carbon"));
-		ModelBakery.registerItemVariants(ItemHandler.PLEDGE, new ResourceLocation(Library.MODID, "pledge.white"), new ResourceLocation(Library.MODID, "pledge.orange"), new ResourceLocation(Library.MODID, "pledge.magenta"), new ResourceLocation(Library.MODID, "pledge.lightblue"), new ResourceLocation(Library.MODID, "pledge.yellow"), new ResourceLocation(Library.MODID, "pledge.lime"), new ResourceLocation(Library.MODID, "pledge.pink"), new ResourceLocation(Library.MODID, "pledge.gray"),
-				new ResourceLocation(Library.MODID, "pledge.silver"), new ResourceLocation(Library.MODID, "pledge.cyan"), new ResourceLocation(Library.MODID, "pledge.purple"), new ResourceLocation(Library.MODID, "pledge.blue"), new ResourceLocation(Library.MODID, "pledge.brown"), new ResourceLocation(Library.MODID, "pledge.green"), new ResourceLocation(Library.MODID, "pledge.red"), new ResourceLocation(Library.MODID, "pledge.black"));
+		ModelBakery.registerItemVariants(ItemHandler.PLEDGE, new ResourceLocation(Library.MODID, "pledge.white"), new ResourceLocation(Library.MODID, "pledge.orange"), new ResourceLocation(Library.MODID, "pledge.magenta"), new ResourceLocation(Library.MODID, "pledge.lightblue"), new ResourceLocation(Library.MODID, "pledge.yellow"), new ResourceLocation(Library.MODID, "pledge.lime"), new ResourceLocation(Library.MODID, "pledge.pink"), new ResourceLocation(Library.MODID, "pledge.gray"), new ResourceLocation(Library.MODID, "pledge.silver"), new ResourceLocation(Library.MODID, "pledge.cyan"), new ResourceLocation(Library.MODID, "pledge.purple"), new ResourceLocation(Library.MODID, "pledge.blue"), new ResourceLocation(Library.MODID, "pledge.brown"), new ResourceLocation(Library.MODID, "pledge.green"), new ResourceLocation(Library.MODID, "pledge.red"), new ResourceLocation(Library.MODID, "pledge.black"));
 		ModelBakery.registerItemVariants(ItemHandler.INGOT, new ResourceLocation(Library.MODID, "ingot.copper"), new ResourceLocation(Library.MODID, "ingot.titanium"), new ResourceLocation(Library.MODID, "ingot.steel"), new ResourceLocation(Library.MODID, "ingot.neosteel"));
 		ModelBakery.registerItemVariants(ItemHandler.PROTOSS_INGOT, new ResourceLocation(Library.MODID, "protoss.ingot.khalai"), new ResourceLocation(Library.MODID, "protoss.ingot.dark"));
 		ModelBakery.registerItemVariants(ItemHandler.PSI_BLADE_FOCUSER_UNCHARGED, new ResourceLocation(Library.MODID, "protoss_psiblade_focuser_uncharged_aiur"), new ResourceLocation(Library.MODID, "protoss_psiblade_focuser_uncharged_dark"));
@@ -409,11 +408,8 @@ public class RenderingHandler {
 		ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.PROTOSS_METAL_T3), new ResourceLocation(Library.MODID, "protoss.metal.3.aiur"), new ResourceLocation(Library.MODID, "protoss.metal.3.dark"), new ResourceLocation(Library.MODID, "protoss.metal.3.green"), new ResourceLocation(Library.MODID, "protoss.metal.3.blue"), new ResourceLocation(Library.MODID, "protoss.metal.3.red"));
 		ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.PYLON_CRYSTAL), new ResourceLocation(Library.MODID, "protoss.pyloncrystal.pure"), new ResourceLocation(Library.MODID, "protoss.pyloncrystal.dark"), new ResourceLocation(Library.MODID, "protoss.pyloncrystal.void"));
 		ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.ZERG_CARAPACE_BLOCK), new ResourceLocation(Library.MODID, "zerg.carapace.1"), new ResourceLocation(Library.MODID, "zerg.carapace.2"), new ResourceLocation(Library.MODID, "zerg.carapace.3"));
-		ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.ZERG_FLESH), new ResourceLocation(Library.MODID, "zerg.flesh.purple"), new ResourceLocation(Library.MODID, "zerg.flesh.brown"), new ResourceLocation(Library.MODID, "zerg.flesh.pink"), new ResourceLocation(Library.MODID, "zerg.flesh.blue"), new ResourceLocation(Library.MODID, "zerg.flesh.cyan"), new ResourceLocation(Library.MODID, "zerg.flesh.gray"), new ResourceLocation(Library.MODID, "zerg.flesh.green"),
-				new ResourceLocation(Library.MODID, "zerg.flesh.lightblue"), new ResourceLocation(Library.MODID, "zerg.flesh.lime"), new ResourceLocation(Library.MODID, "zerg.flesh.magenta"), new ResourceLocation(Library.MODID, "zerg.flesh.orange"), new ResourceLocation(Library.MODID, "zerg.flesh.red"), new ResourceLocation(Library.MODID, "zerg.flesh.silver"), new ResourceLocation(Library.MODID, "zerg.flesh.white"), new ResourceLocation(Library.MODID, "zerg.flesh.yellow"));
-		ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.PARISTEEL_METAL), new ResourceLocation(Library.MODID, "terran.paristeel.purple"), new ResourceLocation(Library.MODID, "terran.paristeel.brown"), new ResourceLocation(Library.MODID, "terran.paristeel.pink"), new ResourceLocation(Library.MODID, "terran.paristeel.blue"), new ResourceLocation(Library.MODID, "terran.paristeel.cyan"), new ResourceLocation(Library.MODID, "terran.paristeel.gray"),
-				new ResourceLocation(Library.MODID, "terran.paristeel.green"), new ResourceLocation(Library.MODID, "terran.paristeel.lightblue"), new ResourceLocation(Library.MODID, "terran.paristeel.lime"), new ResourceLocation(Library.MODID, "terran.paristeel.magenta"), new ResourceLocation(Library.MODID, "terran.paristeel.orange"), new ResourceLocation(Library.MODID, "terran.paristeel.red"), new ResourceLocation(Library.MODID, "terran.paristeel.silver"),
-				new ResourceLocation(Library.MODID, "terran.paristeel.white"), new ResourceLocation(Library.MODID, "terran.paristeel.yellow"), new ResourceLocation(Library.MODID, "terran.paristeel.black"));
+		ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.ZERG_FLESH), new ResourceLocation(Library.MODID, "zerg.flesh.purple"), new ResourceLocation(Library.MODID, "zerg.flesh.brown"), new ResourceLocation(Library.MODID, "zerg.flesh.pink"), new ResourceLocation(Library.MODID, "zerg.flesh.blue"), new ResourceLocation(Library.MODID, "zerg.flesh.cyan"), new ResourceLocation(Library.MODID, "zerg.flesh.gray"), new ResourceLocation(Library.MODID, "zerg.flesh.green"), new ResourceLocation(Library.MODID, "zerg.flesh.lightblue"), new ResourceLocation(Library.MODID, "zerg.flesh.lime"), new ResourceLocation(Library.MODID, "zerg.flesh.magenta"), new ResourceLocation(Library.MODID, "zerg.flesh.orange"), new ResourceLocation(Library.MODID, "zerg.flesh.red"), new ResourceLocation(Library.MODID, "zerg.flesh.silver"), new ResourceLocation(Library.MODID, "zerg.flesh.white"), new ResourceLocation(Library.MODID, "zerg.flesh.yellow"));
+		ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.PARISTEEL_METAL), new ResourceLocation(Library.MODID, "terran.paristeel.purple"), new ResourceLocation(Library.MODID, "terran.paristeel.brown"), new ResourceLocation(Library.MODID, "terran.paristeel.pink"), new ResourceLocation(Library.MODID, "terran.paristeel.blue"), new ResourceLocation(Library.MODID, "terran.paristeel.cyan"), new ResourceLocation(Library.MODID, "terran.paristeel.gray"), new ResourceLocation(Library.MODID, "terran.paristeel.green"), new ResourceLocation(Library.MODID, "terran.paristeel.lightblue"), new ResourceLocation(Library.MODID, "terran.paristeel.lime"), new ResourceLocation(Library.MODID, "terran.paristeel.magenta"), new ResourceLocation(Library.MODID, "terran.paristeel.orange"), new ResourceLocation(Library.MODID, "terran.paristeel.red"), new ResourceLocation(Library.MODID, "terran.paristeel.silver"), new ResourceLocation(Library.MODID, "terran.paristeel.white"), new ResourceLocation(Library.MODID, "terran.paristeel.yellow"), new ResourceLocation(Library.MODID, "terran.paristeel.black"));
 		ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.COMP_METAL_T1), new ResourceLocation(Library.MODID, "terran.metal.copper"), new ResourceLocation(Library.MODID, "terran.metal.steel"), new ResourceLocation(Library.MODID, "terran.metal.titanium"));
 		ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.NEOSTEEL_METAL), new ResourceLocation(Library.MODID, "terran.neosteel.base"), new ResourceLocation(Library.MODID, "terran.neosteel.frame"));
 		ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.COMP_MINERAL), new ResourceLocation(Library.MODID, "mineral.compressed.blue"), new ResourceLocation(Library.MODID, "mineral.compressed.rich"));
@@ -428,7 +424,7 @@ public class RenderingHandler {
 		RenderingRegistry.registerEntityRenderingHandler(EntityVoidProbe.class, new RenderVoidProbe(Minecraft.getMinecraft().getRenderManager(), new ModelVoidProbe(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityScarab.class, new RenderScarab(Minecraft.getMinecraft().getRenderManager(), new ModelScarab(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityDarkProbe.class, new RenderDarkProbe(Minecraft.getMinecraft().getRenderManager(), new ModelDarkProbe(), 0.4f));
-		
+
 		RenderingRegistry.registerEntityRenderingHandler(EntityZeratul.class, new RenderZeratul(Minecraft.getMinecraft().getRenderManager(), new ModelZeratul(), 0.4f));
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityBrutalisk.class, new RenderBrutalisk(Minecraft.getMinecraft().getRenderManager(), new ModelBrutalisk(), 3.0f));
@@ -462,7 +458,7 @@ public class RenderingHandler {
 		RenderingRegistry.registerEntityRenderingHandler(EntityCivilian.class, new RenderCivilian(Minecraft.getMinecraft().getRenderManager(), new ModelCivilian(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityPredator.class, new RenderPredator(Minecraft.getMinecraft().getRenderManager(), new ModelPredator(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityMarine.class, new RenderMarine(Minecraft.getMinecraft().getRenderManager(), new ModelMarine(), 0.4f));
-	
+
 		RenderingRegistry.registerEntityRenderingHandler(EntityKakaru.class, new RenderKakaru(Minecraft.getMinecraft().getRenderManager(), new ModelKakaru(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityTastelope.class, new RenderTastelope(Minecraft.getMinecraft().getRenderManager(), new ModelLope(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityArtosilope.class, new RenderArtosilope(Minecraft.getMinecraft().getRenderManager(), new ModelLope(), 0.4f));
@@ -478,7 +474,7 @@ public class RenderingHandler {
 	private static void registerTileEntityRenders() {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStarcraftSkull.class, new RendererStarcraftSkull());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityZerusGlowPod.class, new RendererZerusGlowPod());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityKaldirBrambles.class, new RendererKaldirBrambles());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBrambles.class, new RendererBrambles());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityZerusLightcap.class, new RendererZerusLightcap());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityProtossWormhole.class, new RendererProtossWormhole());
 	}
@@ -733,7 +729,7 @@ public class RenderingHandler {
 
 		// Flora
 		registerBlockModel(FLORA_ZERUS_GLOW_POD);
-		registerBlockModel(FLORA_KALDIR_BRAMBLES);
+		registerBlockModel(FLORA_BRAMBLES);
 		registerBlockModel(FLORA_ZERUS_LIGHTCAP);
 
 		// Protoss Blocks
@@ -819,8 +815,7 @@ public class RenderingHandler {
 	}
 
 	/**
-	 * Registers the item render MUST BE CALLED IN THE PRE INIT METHOD IN YOUR MAIN
-	 * CLASS
+	 * Registers the item render MUST BE CALLED IN THE PRE INIT METHOD IN YOUR MAIN CLASS
 	 */
 	@SideOnly(Side.CLIENT)
 	public static void registerItemRender(Item item) {

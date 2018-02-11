@@ -10,6 +10,7 @@ import ga.scmc.capabilities.IColor;
 import ga.scmc.capabilities.IShield;
 import ga.scmc.capabilities.Shield;
 import ga.scmc.capabilities.ShieldStorage;
+import ga.scmc.command.CommandDimension;
 import ga.scmc.events.GuiRenderEventHandler;
 import ga.scmc.events.OnPlayerLoggedInEvent;
 import ga.scmc.handlers.BiomeHandler;
@@ -45,6 +46,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.relauncher.Side;
 
 /**
@@ -59,14 +61,14 @@ public class Starcraft {
 
 	/** The mod's instance. Used for GUI stuff. */
 	@Instance(Library.MODID)
-	public static Starcraft		instance;
+	public static Starcraft instance;
 
 	/** The common proxy instance */
 	@SidedProxy(clientSide = Library.CLIENT_SIDE_PROXY, serverSide = Library.SERVER_SIDE_PROXY)
-	public static CommonProxy	proxy;
+	public static CommonProxy proxy;
 
-	private static Logger		logger;
-	private static LogRegistry	logRegistry	= new LogRegistry();
+	private static Logger logger;
+	private static LogRegistry logRegistry = new LogRegistry();
 
 	static {
 		FluidRegistry.enableUniversalBucket();
@@ -124,6 +126,11 @@ public class Starcraft {
 	public void postInit(FMLPostInitializationEvent event) {
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 		}
+	}
+
+	@EventHandler
+	public static void onServerStartingEvent(FMLServerStartingEvent event) {
+		event.registerServerCommand(new CommandDimension());
 	}
 
 	public static Logger getLogger() {

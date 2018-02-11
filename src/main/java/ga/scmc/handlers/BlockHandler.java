@@ -49,12 +49,20 @@ import ga.scmc.blocks.StarcraftBlock;
 import ga.scmc.blocks.StarcraftBlockCustomDrop;
 import ga.scmc.blocks.StarcraftBlockFalling;
 import ga.scmc.blocks.StarcraftProtossCoreBlock;
+import ga.scmc.blocks.StarcraftStairs;
 import ga.scmc.blocks.StarcraftTerranCoreBlock;
-import ga.scmc.blocks.flora.BlockKaldirBrambles;
+import ga.scmc.blocks.flora.BlockBrambles;
 import ga.scmc.blocks.flora.BlockZerusGlowPod;
 import ga.scmc.blocks.flora.BlockZerusLightcap;
 import ga.scmc.blocks.itemblocks.ItemBlockAsh;
+import ga.scmc.blocks.itemblocks.ItemBlockBrambles;
 import ga.scmc.blocks.itemblocks.ItemBlockStarcraftSkull;
+import ga.scmc.blocks.metablocks.BlockNeosteel;
+import ga.scmc.blocks.metablocks.BlockParisteel;
+import ga.scmc.blocks.metablocks.BlockProtossMetalT1;
+import ga.scmc.blocks.metablocks.BlockProtossMetalT2;
+import ga.scmc.blocks.metablocks.BlockProtossMetalT3;
+import ga.scmc.blocks.metablocks.BlockTerranMetal;
 import ga.scmc.blocks.skulls.BlockStarcraftSkull;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.enums.EnumWorldType;
@@ -81,159 +89,198 @@ import net.minecraftforge.fml.relauncher.Side;
  */
 public class BlockHandler {
 
-	public static Block					LIGHT_SOURCE;
-	public static Block					TEST;
+	public static Block LIGHT_SOURCE;
+	public static Block TEST;
 
-	public static Block					ASH_CHAR;
+	public static Block ASH_CHAR;
 
-	public static Block					COBBLESTONE_CHAR;
-	public static Block					COBBLESTONE_SHAKURAS;
-	public static Block					COBBLESTONE_ZERUS;
-	public static Block					CORE_CYBERNETICSCORE_DARK;
-	public static Block					CORE_CYBERNETICSCORE_KHALAI;
-	public static Block					CORE_CYBERNETICSCORE_VOID;
-	public static Block					CORE_PYLON_DARK;
-	public static Block					CORE_PYLON_KHALAI;
-	public static Block					CORE_PYLON_VOID;
-	public static Block					CORE_WARPGATE_DARK;
-	public static Block					CORE_WARPGATE_KHALAI;
-	public static Block					CORE_WARPGATE_VOID;
-	public static Block					CORE_BARRACKS;
-	public static Block					CORE_COMMANDCENTER;
-	public static Block					DIM_PORTAL_CHAR;
-	public static Block					DIM_PORTAL_OVERWORLD;
-	public static Block					DIM_PORTAL_SPACE;
-	public static Block					DIM_PORTAL_SHAKURAS;
-	public static Block					DIM_PORTAL_KALDIR;
-	public static Block					DIM_PORTAL_KORHAL;
-	public static Block					DIM_PORTAL_SLAYN;
-	public static Block					DIM_PORTAL_AIUR;
-	public static Block					DIM_PORTAL_ZERUS;
-	public static Block					FARMLAND_CHAR;
-	public static Block					FARMLAND_ZERUS;
-	public static Block					DIRT_CHAR;
-	public static Block					DIRT_ZERUS;
-	public static Block					FARMLAND_SHAKURAS;
-	public static Block					DIRT_SHAKURAS;
-	public static Block					PROTOSS_WORMHOLE;
+	public static Block COBBLESTONE_CHAR;
+	public static Block COBBLESTONE_SHAKURAS;
+	public static Block COBBLESTONE_ZERUS;
+	public static Block CORE_CYBERNETICSCORE_DARK;
+	public static Block CORE_CYBERNETICSCORE_KHALAI;
+	public static Block CORE_CYBERNETICSCORE_VOID;
+	public static Block CORE_PYLON_DARK;
+	public static Block CORE_PYLON_KHALAI;
+	public static Block CORE_PYLON_VOID;
+	public static Block CORE_WARPGATE_DARK;
+	public static Block CORE_WARPGATE_KHALAI;
+	public static Block CORE_WARPGATE_VOID;
+	public static Block CORE_BARRACKS;
+	public static Block CORE_COMMANDCENTER;
+	public static Block DIM_PORTAL_CHAR;
+	public static Block DIM_PORTAL_OVERWORLD;
+	public static Block DIM_PORTAL_SPACE;
+	public static Block DIM_PORTAL_SHAKURAS;
+	public static Block DIM_PORTAL_KALDIR;
+	public static Block DIM_PORTAL_KORHAL;
+	public static Block DIM_PORTAL_SLAYN;
+	public static Block DIM_PORTAL_AIUR;
+	public static Block DIM_PORTAL_ZERUS;
+	public static Block FARMLAND_CHAR;
+	public static Block FARMLAND_ZERUS;
+	public static Block DIRT_CHAR;
+	public static Block DIRT_ZERUS;
+	public static Block FARMLAND_SHAKURAS;
+	public static Block DIRT_SHAKURAS;
+	public static Block PROTOSS_WORMHOLE;
 
-	public static Block					FLUID_ACID;
-	public static Block					FLUID_BLOOD;
-	public static Block					FLUID_VESPENE;
-	public static Block					FLUID_TERRAZINE;
-	public static Block					FLUID_TAR;
+	public static Block FLUID_ACID;
+	public static Block FLUID_BLOOD;
+	public static Block FLUID_VESPENE;
+	public static Block FLUID_TERRAZINE;
+	public static Block FLUID_TAR;
 
-	public static Block					GAS_VESPENE;
-	public static Block					GAS_TERRAZINE;
+	public static Block GAS_VESPENE;
+	public static Block GAS_TERRAZINE;
 
-	public static Block					FLORA_ZERUS_GLOW_POD;
-	public static Block					FLORA_KALDIR_BRAMBLES;
-	public static Block					FLORA_ZERUS_LIGHTCAP;
+	public static Block FLORA_ZERUS_GLOW_POD;
+	public static Block FLORA_BRAMBLES;
+	public static Block FLORA_ZERUS_LIGHTCAP;
 
-	public static Block					TERRAN_WARNING_TAPE;
+	public static Block TERRAN_WARNING_TAPE;
 
-	public static Block					ORE_COPPER_OW;
-	public static Block					ORE_TITANIUM_OW;
-	public static Block					ORE_URANIUM_OW;
-	public static Block					ORE_MINERAL_OW;
-	public static Block					ORE_RICHMINERAL_OW;
-	public static Block					ORE_PHOSPHORUS_OW;
+	public static Block ORE_COPPER_OW;
+	public static Block ORE_TITANIUM_OW;
+	public static Block ORE_URANIUM_OW;
+	public static Block ORE_MINERAL_OW;
+	public static Block ORE_RICHMINERAL_OW;
+	public static Block ORE_PHOSPHORUS_OW;
 
-	public static Block					STONE_CHAR;
-	public static Block					MAGMA_CHAR;
-	public static Block					GRAVEL_CHAR;
-	public static Block					ORE_COAL_CHAR;
-	public static Block					ORE_IRON_CHAR;
-	public static Block					ORE_GOLD_CHAR;
-	public static Block					ORE_DIAMOND_CHAR;
-	public static Block					ORE_LAPIS_CHAR;
-	public static Block					ORE_REDSTONE_CHAR;
-	public static Block					ORE_REDSTONE_LIT_CHAR;
-	public static Block					ORE_COPPER_CHAR;
-	public static Block					ORE_TITANIUM_CHAR;
-	public static Block					ORE_PHOSPHORUS_CHAR;
-	public static Block					ORE_URANIUM_CHAR;
-	public static Block					ORE_MINERAL_CHAR;
-	public static Block					ORE_RICHMINERAL_CHAR;
+	public static Block STONE_CHAR;
+	public static Block MAGMA_CHAR;
+	public static Block GRAVEL_CHAR;
+	public static Block ORE_COAL_CHAR;
+	public static Block ORE_IRON_CHAR;
+	public static Block ORE_GOLD_CHAR;
+	public static Block ORE_DIAMOND_CHAR;
+	public static Block ORE_LAPIS_CHAR;
+	public static Block ORE_REDSTONE_CHAR;
+	public static Block ORE_REDSTONE_LIT_CHAR;
+	public static Block ORE_COPPER_CHAR;
+	public static Block ORE_TITANIUM_CHAR;
+	public static Block ORE_PHOSPHORUS_CHAR;
+	public static Block ORE_URANIUM_CHAR;
+	public static Block ORE_MINERAL_CHAR;
+	public static Block ORE_RICHMINERAL_CHAR;
 
-	public static Block					ORE_COAL_SHAKURAS;
-	public static Block					ORE_COPPER_SHAKURAS;
-	public static Block					ORE_DIAMOND_SHAKURAS;
-	public static Block					ORE_GOLD_SHAKURAS;
-	public static Block					ORE_IRON_SHAKURAS;
-	public static Block					ORE_LAPIS_SHAKURAS;
-	public static Block					ORE_MINERAL_SHAKURAS;
-	public static Block					ORE_PHOSPHORUS_SHAKURAS;
-	public static Block					ORE_REDSTONE_SHAKURAS;
-	public static Block					ORE_REDSTONE_LIT_SHAKURAS;
-	public static Block					ORE_RICHMINERAL_SHAKURAS;
-	public static Block					ORE_URANIUM_SHAKURAS;
-	public static Block					ORE_TITANIUM_SHAKURAS;
-	public static Block					SAND_SHAKURAS;
-	public static Block					GRAVEL_SHAKURAS;
-	public static Block					STONE_SHAKURAS;
+	public static Block ORE_COAL_SHAKURAS;
+	public static Block ORE_COPPER_SHAKURAS;
+	public static Block ORE_DIAMOND_SHAKURAS;
+	public static Block ORE_GOLD_SHAKURAS;
+	public static Block ORE_IRON_SHAKURAS;
+	public static Block ORE_LAPIS_SHAKURAS;
+	public static Block ORE_MINERAL_SHAKURAS;
+	public static Block ORE_PHOSPHORUS_SHAKURAS;
+	public static Block ORE_REDSTONE_SHAKURAS;
+	public static Block ORE_REDSTONE_LIT_SHAKURAS;
+	public static Block ORE_RICHMINERAL_SHAKURAS;
+	public static Block ORE_URANIUM_SHAKURAS;
+	public static Block ORE_TITANIUM_SHAKURAS;
+	public static Block SAND_SHAKURAS;
+	public static Block GRAVEL_SHAKURAS;
+	public static Block STONE_SHAKURAS;
 
-	public static Block					SAND_SLAYN;
-	public static Block					DIRT_SLAYN;
-	public static Block					COBBLESTONE_SLAYN;
-	public static Block					FARMLAND_SLAYN;
-	public static Block					STONE_SLAYN;
-	public static Block					MAGMA_SLAYN;
-	public static Block					GRAVEL_SLAYN;
-	public static Block					ORE_COAL_SLAYN;
-	public static Block					ORE_IRON_SLAYN;
-	public static Block					ORE_GOLD_SLAYN;
-	public static Block					ORE_DIAMOND_SLAYN;
-	public static Block					ORE_LAPIS_SLAYN;
-	public static Block					ORE_REDSTONE_SLAYN;
-	public static Block					ORE_REDSTONE_LIT_SLAYN;
-	public static Block					ORE_COPPER_SLAYN;
-	public static Block					ORE_TITANIUM_SLAYN;
-	public static Block					ORE_PHOSPHORUS_SLAYN;
-	public static Block					ORE_URANIUM_SLAYN;
-	public static Block					ORE_MINERAL_SLAYN;
-	public static Block					ORE_RICHMINERAL_SLAYN;
+	public static Block SAND_SLAYN;
+	public static Block DIRT_SLAYN;
+	public static Block COBBLESTONE_SLAYN;
+	public static Block FARMLAND_SLAYN;
+	public static Block STONE_SLAYN;
+	public static Block MAGMA_SLAYN;
+	public static Block GRAVEL_SLAYN;
+	public static Block ORE_COAL_SLAYN;
+	public static Block ORE_IRON_SLAYN;
+	public static Block ORE_GOLD_SLAYN;
+	public static Block ORE_DIAMOND_SLAYN;
+	public static Block ORE_LAPIS_SLAYN;
+	public static Block ORE_REDSTONE_SLAYN;
+	public static Block ORE_REDSTONE_LIT_SLAYN;
+	public static Block ORE_COPPER_SLAYN;
+	public static Block ORE_TITANIUM_SLAYN;
+	public static Block ORE_PHOSPHORUS_SLAYN;
+	public static Block ORE_URANIUM_SLAYN;
+	public static Block ORE_MINERAL_SLAYN;
+	public static Block ORE_RICHMINERAL_SLAYN;
 
-	public static Block					ORE_COAL_ZERUS;
-	public static Block					ORE_COPPER_ZERUS;
-	public static Block					ORE_DIAMOND_ZERUS;
-	public static Block					ORE_GOLD_ZERUS;
-	public static Block					ORE_IRON_ZERUS;
-	public static Block					ORE_LAPIS_ZERUS;
-	public static Block					ORE_MINERAL_ZERUS;
-	public static Block					ORE_PHOSPHORUS_ZERUS;
-	public static Block					ORE_REDSTONE_ZERUS;
-	public static Block					ORE_REDSTONE_LIT_ZERUS;
-	public static Block					ORE_RICHMINERAL_ZERUS;
-	public static Block					ORE_URANIUM_ZERUS;
-	public static Block					ORE_TITANIUM_ZERUS;
-	public static Block					SAND_ZERUS;
-	public static Block					GRAVEL_ZERUS;
-	public static Block					STONE_ZERUS;
+	public static Block ORE_COAL_ZERUS;
+	public static Block ORE_COPPER_ZERUS;
+	public static Block ORE_DIAMOND_ZERUS;
+	public static Block ORE_GOLD_ZERUS;
+	public static Block ORE_IRON_ZERUS;
+	public static Block ORE_LAPIS_ZERUS;
+	public static Block ORE_MINERAL_ZERUS;
+	public static Block ORE_PHOSPHORUS_ZERUS;
+	public static Block ORE_REDSTONE_ZERUS;
+	public static Block ORE_REDSTONE_LIT_ZERUS;
+	public static Block ORE_RICHMINERAL_ZERUS;
+	public static Block ORE_URANIUM_ZERUS;
+	public static Block ORE_TITANIUM_ZERUS;
+	public static Block SAND_ZERUS;
+	public static Block GRAVEL_ZERUS;
+	public static Block STONE_ZERUS;
 
-	public static BlockStarcraftFurnace	FURNACE_SHAKURAS;
-	public static BlockStarcraftFurnace	FURNACE_CHAR;
-	public static BlockStarcraftFurnace	FURNACE_SLAYN;
-	public static BlockStarcraftFurnace	FURNACE_ZERUS;
+	public static BlockStarcraftFurnace FURNACE_SHAKURAS;
+	public static BlockStarcraftFurnace FURNACE_CHAR;
+	public static BlockStarcraftFurnace FURNACE_SLAYN;
+	public static BlockStarcraftFurnace FURNACE_ZERUS;
 
-	public static Block					FURNACE_PROTOSS;
-	public static Block					PROTOSS_SHIELD;
-	public static Block					PROTOSS_ENERGY_CHANNEL;
-	public static Block					PROTOSS_ENERGY_STABILIZER;
-	public static Block					PROTOSS_VOID_ENERGY_CHANNEL;
-	public static Block					PROTOSS_VOID_ENERGY_STABILIZER;
-	public static Block					PROTOSS_DARK_ENERGY_CHANNEL;
-	public static Block					PROTOSS_DARK_ENERGY_STABILIZER;
+	public static Block FURNACE_PROTOSS;
+	public static Block PROTOSS_SHIELD;
+	public static Block PROTOSS_ENERGY_CHANNEL;
+	public static Block PROTOSS_ENERGY_STABILIZER;
+	public static Block PROTOSS_VOID_ENERGY_CHANNEL;
+	public static Block PROTOSS_VOID_ENERGY_STABILIZER;
+	public static Block PROTOSS_DARK_ENERGY_CHANNEL;
+	public static Block PROTOSS_DARK_ENERGY_STABILIZER;
 
-	public static Block					ZERG_CREEP;
-	public static Block					KERATIN_CHUNK;
-	public static Block					STARCRAFT_SKULL;
+	public static Block ZERG_CREEP;
+	public static Block KERATIN_CHUNK;
+	public static Block STARCRAFT_SKULL;
 
-	public static Block					ENTITY_SPAWNER;
-	public static Block					PLANET_TELEPORTER;
-	public static Block					SOLAR_CORE;
+	public static Block ENTITY_SPAWNER;
+	public static Block PLANET_TELEPORTER;
+	public static Block SOLAR_CORE;
 
-	public static Block					CITY_STONE_KORHAL;
+	public static Block CITY_STONE_KORHAL;
+
+	public static Block STAIRS_PROTOSS_METAL_AIUR_T1;
+	public static Block STAIRS_PROTOSS_METAL_DARK_T1;
+	public static Block STAIRS_PROTOSS_METAL_GREEN_T1;
+	public static Block STAIRS_PROTOSS_METAL_BLUE_T1;
+	public static Block STAIRS_PROTOSS_METAL_RED_T1;
+	public static Block STAIRS_PROTOSS_METAL_AIUR_T2;
+	public static Block STAIRS_PROTOSS_METAL_DARK_T2;
+	public static Block STAIRS_PROTOSS_METAL_GREEN_T2;
+	public static Block STAIRS_PROTOSS_METAL_BLUE_T2;
+	public static Block STAIRS_PROTOSS_METAL_RED_T2;
+	public static Block STAIRS_PROTOSS_METAL_AIUR_T3;
+	public static Block STAIRS_PROTOSS_METAL_DARK_T3;
+	public static Block STAIRS_PROTOSS_METAL_GREEN_T3;
+	public static Block STAIRS_PROTOSS_METAL_BLUE_T3;
+	public static Block STAIRS_PROTOSS_METAL_RED_T3;
+
+	public static Block STAIRS_TERRAN_WARNING_TAPE;
+	public static Block STAIRS_TERRAN_METAL_COPPER;
+	public static Block STAIRS_TERRAN_METAL_STEEL;
+	public static Block STAIRS_TERRAN_METAL_TITANIUM;
+	public static Block STAIRS_TERRAN_NEOSTEEL_BASE;
+	public static Block STAIRS_TERRAN_NEOSTEEL_FRAME;
+	public static Block STAIRS_TERRAN_PARISTEEL_PURPLE;
+	public static Block STAIRS_TERRAN_PARISTEEL_BROWN;
+	public static Block STAIRS_TERRAN_PARISTEEL_PINK;
+	public static Block STAIRS_TERRAN_PARISTEEL_BLUE;
+	public static Block STAIRS_TERRAN_PARISTEEL_CYAN;
+	public static Block STAIRS_TERRAN_PARISTEEL_GRAY;
+	public static Block STAIRS_TERRAN_PARISTEEL_GREEN;
+	public static Block STAIRS_TERRAN_PARISTEEL_LIGHT_BLUE;
+	public static Block STAIRS_TERRAN_PARISTEEL_LIME;
+	public static Block STAIRS_TERRAN_PARISTEEL_MAGENTA;
+	public static Block STAIRS_TERRAN_PARISTEEL_ORANGE;
+	public static Block STAIRS_TERRAN_PARISTEEL_RED;
+	public static Block STAIRS_TERRAN_PARISTEEL_SILVER;
+	public static Block STAIRS_TERRAN_PARISTEEL_WHITE;
+	public static Block STAIRS_TERRAN_PARISTEEL_YELLOW;
+	public static Block STAIRS_TERRAN_PARISTEEL_BLACK;
 
 	/**
 	 * Instantiates, registers, and initializes the MetaBlocks.
@@ -243,6 +290,8 @@ public class BlockHandler {
 		instantiate();
 		register();
 		MetaBlockHandler.init();
+		instantiateStairs();
+		instantiateSlabs();
 	}
 
 	public static void instantiateFluids() {
@@ -402,7 +451,7 @@ public class BlockHandler {
 
 		/** flora **/
 		FLORA_ZERUS_GLOW_POD = new BlockZerusGlowPod();
-		FLORA_KALDIR_BRAMBLES = new BlockKaldirBrambles();
+		FLORA_BRAMBLES = new BlockBrambles();
 		FLORA_ZERUS_LIGHTCAP = new BlockZerusLightcap();
 
 		/** miscellaneous blocks **/
@@ -412,6 +461,50 @@ public class BlockHandler {
 		TEST = new BlockTest();
 		LIGHT_SOURCE = new BlockMovingLightSource();
 		PROTOSS_WORMHOLE = new BlockProtossWormhole();
+	}
+
+	public static void instantiateStairs() {
+		STAIRS_PROTOSS_METAL_AIUR_T1 = new StarcraftStairs("stair.protoss.metal.1.aiur", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T1.getDefaultState().withProperty(BlockProtossMetalT1.TYPE, BlockProtossMetalT1.ProtossMetalType.AIUR)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_DARK_T1 = new StarcraftStairs("stair.protoss.metal.1.dark", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T1.getDefaultState().withProperty(BlockProtossMetalT1.TYPE, BlockProtossMetalT1.ProtossMetalType.DARK)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_GREEN_T1 = new StarcraftStairs("stair.protoss.metal.1.green", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T1.getDefaultState().withProperty(BlockProtossMetalT1.TYPE, BlockProtossMetalT1.ProtossMetalType.GREEN)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_BLUE_T1 = new StarcraftStairs("stair.protoss.metal.1.blue", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T1.getDefaultState().withProperty(BlockProtossMetalT1.TYPE, BlockProtossMetalT1.ProtossMetalType.BLUE)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_RED_T1 = new StarcraftStairs("stair.protoss.metal.1.red", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T1.getDefaultState().withProperty(BlockProtossMetalT1.TYPE, BlockProtossMetalT1.ProtossMetalType.RED)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_AIUR_T2 = new StarcraftStairs("stair.protoss.metal.2.aiur", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T2.getDefaultState().withProperty(BlockProtossMetalT2.TYPE, BlockProtossMetalT2.ProtossMetalType.AIUR)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_DARK_T2 = new StarcraftStairs("stair.protoss.metal.2.dark", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T2.getDefaultState().withProperty(BlockProtossMetalT2.TYPE, BlockProtossMetalT2.ProtossMetalType.DARK)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_GREEN_T2 = new StarcraftStairs("stair.protoss.metal.2.green", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T2.getDefaultState().withProperty(BlockProtossMetalT2.TYPE, BlockProtossMetalT2.ProtossMetalType.GREEN)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_BLUE_T2 = new StarcraftStairs("stair.protoss.metal.2.blue", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T2.getDefaultState().withProperty(BlockProtossMetalT2.TYPE, BlockProtossMetalT2.ProtossMetalType.BLUE)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_RED_T2 = new StarcraftStairs("stair.protoss.metal.2.red", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T2.getDefaultState().withProperty(BlockProtossMetalT2.TYPE, BlockProtossMetalT2.ProtossMetalType.RED)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_AIUR_T3 = new StarcraftStairs("stair.protoss.metal.3.aiur", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T3.getDefaultState().withProperty(BlockProtossMetalT3.TYPE, BlockProtossMetalT3.ProtossMetalType.AIUR)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_DARK_T3 = new StarcraftStairs("stair.protoss.metal.3.dark", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T3.getDefaultState().withProperty(BlockProtossMetalT3.TYPE, BlockProtossMetalT3.ProtossMetalType.DARK)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_GREEN_T3 = new StarcraftStairs("stair.protoss.metal.3.green", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T3.getDefaultState().withProperty(BlockProtossMetalT3.TYPE, BlockProtossMetalT3.ProtossMetalType.GREEN)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_BLUE_T3 = new StarcraftStairs("stair.protoss.metal.3.blue", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T3.getDefaultState().withProperty(BlockProtossMetalT3.TYPE, BlockProtossMetalT3.ProtossMetalType.BLUE)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		STAIRS_PROTOSS_METAL_RED_T3 = new StarcraftStairs("stair.protoss.metal.3.red", RegistryType.FULL, MetaBlockHandler.PROTOSS_METAL_T3.getDefaultState().withProperty(BlockProtossMetalT3.TYPE, BlockProtossMetalT3.ProtossMetalType.RED)).setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+
+		STAIRS_TERRAN_WARNING_TAPE = new StarcraftStairs("stair.terran.warningtape", RegistryType.FULL, TERRAN_WARNING_TAPE.getDefaultState()).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_METAL_COPPER = new StarcraftStairs("stair.terran.metal.copper", RegistryType.FULL, MetaBlockHandler.COMP_METAL_T1.getDefaultState().withProperty(BlockTerranMetal.TYPE, BlockTerranMetal.CompressedMetalType.COPPER)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_METAL_STEEL = new StarcraftStairs("stair.terran.metal.steel", RegistryType.FULL, MetaBlockHandler.COMP_METAL_T1.getDefaultState().withProperty(BlockTerranMetal.TYPE, BlockTerranMetal.CompressedMetalType.STEEL)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_METAL_TITANIUM = new StarcraftStairs("stair.terran.metal.titanium", RegistryType.FULL, MetaBlockHandler.COMP_METAL_T1.getDefaultState().withProperty(BlockTerranMetal.TYPE, BlockTerranMetal.CompressedMetalType.TITANIUM)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_NEOSTEEL_BASE = new StarcraftStairs("stair.terran.neosteel.base", RegistryType.FULL, MetaBlockHandler.NEOSTEEL_METAL.getDefaultState().withProperty(BlockNeosteel.TYPE, BlockNeosteel.NeosteelMetalType.BASE)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_NEOSTEEL_FRAME = new StarcraftStairs("stair.terran.neosteel.frame", RegistryType.FULL, MetaBlockHandler.NEOSTEEL_METAL.getDefaultState().withProperty(BlockNeosteel.TYPE, BlockNeosteel.NeosteelMetalType.FRAME)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_PURPLE = new StarcraftStairs("stair.terran.paristeel.purple", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.PURPLE)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_BROWN = new StarcraftStairs("stair.terran.paristeel.brown", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.BROWN)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_PINK = new StarcraftStairs("stair.terran.paristeel.pink", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.PINK)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_BLUE = new StarcraftStairs("stair.terran.paristeel.blue", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.BLUE)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_CYAN = new StarcraftStairs("stair.terran.paristeel.cyan", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.CYAN)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_GRAY = new StarcraftStairs("stair.terran.paristeel.gray", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.GRAY)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_GREEN = new StarcraftStairs("stair.terran.paristeel.green", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.GREEN)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_LIGHT_BLUE = new StarcraftStairs("stair.terran.paristeel.lightblue", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.LIGHT_BLUE)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_LIME = new StarcraftStairs("stair.terran.paristeel.lime", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.LIME)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_MAGENTA = new StarcraftStairs("stair.terran.paristeel.magenta", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.MAGENTA)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_ORANGE = new StarcraftStairs("stair.terran.paristeel.orange", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.ORANGE)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_RED = new StarcraftStairs("stair.terran.paristeel.red", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.RED)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_SILVER = new StarcraftStairs("stair.terran.paristeel.silver", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.SILVER)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_WHITE = new StarcraftStairs("stair.terran.paristeel.white", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.WHITE)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_YELLOW = new StarcraftStairs("stair.terran.paristeel.yellow", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.YELLOW)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STAIRS_TERRAN_PARISTEEL_BLACK = new StarcraftStairs("stair.terran.paristeel.black", RegistryType.FULL, MetaBlockHandler.PARISTEEL_METAL.getDefaultState().withProperty(BlockParisteel.TYPE, BlockParisteel.ParisteelMetalType.BLACK)).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+	}
+
+	public static void instantiateSlabs() {
 	}
 
 	public static void register() {
@@ -469,7 +562,7 @@ public class BlockHandler {
 		registerCompleteBlock(GAS_TERRAZINE);
 
 		registerCompleteBlock(FLORA_ZERUS_GLOW_POD);
-		registerCompleteBlock(FLORA_KALDIR_BRAMBLES);
+		registerCompleteBlock(FLORA_BRAMBLES, new ItemBlockBrambles());
 		registerCompleteBlock(FLORA_ZERUS_LIGHTCAP);
 
 		registerBlock(STARCRAFT_SKULL, new ItemBlockStarcraftSkull());

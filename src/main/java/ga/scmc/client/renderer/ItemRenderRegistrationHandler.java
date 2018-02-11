@@ -4,7 +4,7 @@ import ga.scmc.Starcraft;
 import ga.scmc.api.Utils;
 import ga.scmc.client.renderer.items.ItemRenderC14GaussRifle;
 import ga.scmc.client.renderer.items.ItemRenderFlamethrower;
-import ga.scmc.client.renderer.items.ItemRenderKaldirBrambles;
+import ga.scmc.client.renderer.items.ItemRenderBrambles;
 import ga.scmc.client.renderer.items.ItemRenderModelArmorItem;
 import ga.scmc.client.renderer.items.ItemRenderSolariteReaper;
 import ga.scmc.client.renderer.items.ItemRenderStarcraftSkull;
@@ -42,7 +42,7 @@ public class ItemRenderRegistrationHandler {
 		register(ItemHandler.SOLARITE_REAPER, new ItemRenderSolariteReaper());
 		register(BlockHandler.STARCRAFT_SKULL, new ItemRenderStarcraftSkull());
 		register(BlockHandler.FLORA_ZERUS_GLOW_POD, new ItemRenderZerusGlowPod());
-		register(BlockHandler.FLORA_KALDIR_BRAMBLES, new ItemRenderKaldirBrambles());
+		register(BlockHandler.FLORA_BRAMBLES, new ItemRenderBrambles());
 		register(BlockHandler.FLORA_ZERUS_LIGHTCAP, new ItemRenderZerusLightcap());
 
 		register(ArmorHandler.TERRAN_MARINE_T1_HELMET, new ItemRenderModelArmorItem(EntityEquipmentSlot.HEAD, (IArmorItem) Starcraft.proxy.getArmorModel(6), ArmorHandler.TERRAN_MARINE_ARMOR_MATERIAL_T1));

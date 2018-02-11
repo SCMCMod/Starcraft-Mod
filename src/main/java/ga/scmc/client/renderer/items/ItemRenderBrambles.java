@@ -1,23 +1,23 @@
 package ga.scmc.client.renderer.items;
 
-import ga.scmc.client.renderer.model.blocks.ModelKaldirBrambles;
-import ga.scmc.lib.Library;
+import ga.scmc.client.renderer.Resources;
+import ga.scmc.client.renderer.model.blocks.ModelBrambles;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.nbt.NBTTagCompound;
+import ocelot.api.utils.TextureUtils;
 
 /**
  * @author Ocelot5836
  */
-public class ItemRenderKaldirBrambles extends ItemRenderer {
+public class ItemRenderBrambles extends ItemRenderer {
 
-	private static final ModelKaldirBrambles	MODEL	= new ModelKaldirBrambles();
-	private static final ResourceLocation		TEXTURE	= new ResourceLocation(Library.MODID, "textures/models/block/kaldir_brambles.png");
+	private static final ModelBrambles MODEL = new ModelBrambles();
 
-	public ItemRenderKaldirBrambles() {
-		super(null, TEXTURE);
+	public ItemRenderBrambles() {
+		super(MODEL, null);
 	}
 
 	@Override
@@ -90,10 +90,29 @@ public class ItemRenderKaldirBrambles extends ItemRenderer {
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0.5, 1.5, 0.5);
 		GlStateManager.rotate(180, 0, 0, 1);
-		bindTexture();
 		int ticksAlive = 0;
 		if (entity != null)
 			ticksAlive = entity.ticksExisted;
+		if (stack.hasTagCompound()) {
+			NBTTagCompound nbt = (NBTTagCompound) stack.getTagCompound().getTag("BlockEntityTag");
+			if (nbt.hasKey("variant")) {
+				switch (nbt.getInteger("variant")) {
+				case 0:
+					TextureUtils.bindTexture(Resources.KALDIR_BRAMBLES_TEXTURE);
+					break;
+				case 1:
+					TextureUtils.bindTexture(Resources.SHAKURAS_BRAMBLES_TEXTURE);
+					break;
+				case 2:
+					TextureUtils.bindTexture(Resources.ZERUS_BRAMBLES_TEXTURE);
+					break;
+				}
+			} else {
+				TextureUtils.bindTexture(Resources.KALDIR_BRAMBLES_TEXTURE);
+			}
+		} else {
+			TextureUtils.bindTexture(Resources.KALDIR_BRAMBLES_TEXTURE);
+		}
 		MODEL.render((float) scale, ticksAlive);
 		GlStateManager.popMatrix();
 	}
