@@ -104,6 +104,21 @@ import static ga.scmc.handlers.BlockHandler.PROTOSS_ENERGY_CHANNEL;
 import static ga.scmc.handlers.BlockHandler.PROTOSS_ENERGY_STABILIZER;
 import static ga.scmc.handlers.BlockHandler.PROTOSS_VOID_ENERGY_CHANNEL;
 import static ga.scmc.handlers.BlockHandler.PROTOSS_VOID_ENERGY_STABILIZER;
+import static ga.scmc.handlers.BlockHandler.SLAB_PROTOSS_METAL_AIUR_T1;
+import static ga.scmc.handlers.BlockHandler.SLAB_PROTOSS_METAL_AIUR_T2;
+import static ga.scmc.handlers.BlockHandler.SLAB_PROTOSS_METAL_AIUR_T3;
+import static ga.scmc.handlers.BlockHandler.SLAB_PROTOSS_METAL_BLUE_T1;
+import static ga.scmc.handlers.BlockHandler.SLAB_PROTOSS_METAL_BLUE_T2;
+import static ga.scmc.handlers.BlockHandler.SLAB_PROTOSS_METAL_BLUE_T3;
+import static ga.scmc.handlers.BlockHandler.SLAB_PROTOSS_METAL_DARK_T1;
+import static ga.scmc.handlers.BlockHandler.SLAB_PROTOSS_METAL_DARK_T2;
+import static ga.scmc.handlers.BlockHandler.SLAB_PROTOSS_METAL_DARK_T3;
+import static ga.scmc.handlers.BlockHandler.SLAB_PROTOSS_METAL_GREEN_T1;
+import static ga.scmc.handlers.BlockHandler.SLAB_PROTOSS_METAL_GREEN_T2;
+import static ga.scmc.handlers.BlockHandler.SLAB_PROTOSS_METAL_GREEN_T3;
+import static ga.scmc.handlers.BlockHandler.SLAB_PROTOSS_METAL_RED_T1;
+import static ga.scmc.handlers.BlockHandler.SLAB_PROTOSS_METAL_RED_T2;
+import static ga.scmc.handlers.BlockHandler.SLAB_PROTOSS_METAL_RED_T3;
 import static ga.scmc.handlers.BlockHandler.STARCRAFT_SKULL;
 import static ga.scmc.handlers.BlockHandler.TERRAN_WARNING_TAPE;
 import static ga.scmc.handlers.BlockHandler.TEST;
@@ -768,6 +783,22 @@ public class RenderingHandler {
 		registerBlockModelNoMeta(FARMLAND_CHAR);
 		registerBlockModelNoMeta(FARMLAND_ZERUS);
 		registerBlockModelNoMeta(FARMLAND_SLAYN);
+
+		registerBlockModelNoMeta(SLAB_PROTOSS_METAL_AIUR_T1);
+		registerBlockModelNoMeta(SLAB_PROTOSS_METAL_DARK_T1);
+		registerBlockModelNoMeta(SLAB_PROTOSS_METAL_GREEN_T1);
+		registerBlockModelNoMeta(SLAB_PROTOSS_METAL_BLUE_T1);
+		registerBlockModelNoMeta(SLAB_PROTOSS_METAL_RED_T1);
+		registerBlockModelNoMeta(SLAB_PROTOSS_METAL_AIUR_T2);
+		registerBlockModelNoMeta(SLAB_PROTOSS_METAL_DARK_T2);
+		registerBlockModelNoMeta(SLAB_PROTOSS_METAL_GREEN_T2);
+		registerBlockModelNoMeta(SLAB_PROTOSS_METAL_BLUE_T2);
+		registerBlockModelNoMeta(SLAB_PROTOSS_METAL_RED_T2);
+		registerBlockModelNoMeta(SLAB_PROTOSS_METAL_AIUR_T3);
+		registerBlockModelNoMeta(SLAB_PROTOSS_METAL_DARK_T3);
+		registerBlockModelNoMeta(SLAB_PROTOSS_METAL_GREEN_T3);
+		registerBlockModelNoMeta(SLAB_PROTOSS_METAL_BLUE_T3);
+		registerBlockModelNoMeta(SLAB_PROTOSS_METAL_RED_T3);
 	}
 
 	/**
@@ -845,7 +876,9 @@ public class RenderingHandler {
 
 	@SideOnly(Side.CLIENT)
 	private static void registerBlockModel(Block block) {
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(block.getRegistryName(), "inventory"));
+		if (Item.getItemFromBlock(block) != null) {
+			ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(block.getRegistryName(), "inventory"));
+		}
 	}
 
 	/**

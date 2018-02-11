@@ -21,7 +21,11 @@ public class StarcraftBlock extends Block {
 	private ItemBlock item;
 
 	public StarcraftBlock(Material material) {
-		super(material);
+		super(material, material.getMaterialMapColor());
+	}
+	
+	public StarcraftBlock(Material material, MapColor color) {
+		super(material, color);
 	}
 
 	public StarcraftBlock(String name, RegistryType type, Material material, MapColor color) {
