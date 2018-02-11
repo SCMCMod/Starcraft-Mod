@@ -8,8 +8,8 @@ import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ConfigurationHandler;
 import ga.scmc.handlers.MetaBlockHandler;
 import ga.scmc.handlers.StarcraftGenerator;
+import ga.scmc.tileentity.TileEntityBrambles;
 import ga.scmc.tileentity.TileEntityEntitySpawner;
-import ga.scmc.tileentity.TileEntityKaldirBrambles;
 import ga.scmc.tileentity.TileEntityZerusGlowPod;
 import ga.scmc.tileentity.TileEntityZerusLightcap;
 import net.minecraft.init.Blocks;
@@ -24,11 +24,10 @@ import net.minecraft.world.chunk.IChunkProvider;
 public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 
 	/**
-	 * The instance of this class. Used in WorldGenerationHandler.java to generate
-	 * ores, structures, and bosses.
+	 * The instance of this class. Used in WorldGenerationHandler.java to generate ores, structures, and bosses.
 	 */
-	public static final StarcraftWorldGenerationContainer	instance			= new StarcraftWorldGenerationContainer();
-	public static boolean									generationCompleted	= false;
+	public static final StarcraftWorldGenerationContainer instance = new StarcraftWorldGenerationContainer();
+	public static boolean generationCompleted = false;
 
 	/**
 	 * The most basic generation checker for structures that spawn in the overworld.
@@ -54,8 +53,7 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 	}
 
 	/**
-	 * A more advanced generation checker. Makes the structure spawn in only the
-	 * certain biome specified.
+	 * A more advanced generation checker. Makes the structure spawn in only the certain biome specified.
 	 * 
 	 * @param weight
 	 * @param world
@@ -224,7 +222,7 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 			this.runTileEntityGenerator(TILEENTITY_SPAWNER, new TileEntityEntitySpawner(30, new EntityNafash(world), TextFormatting.RED), BlockHandler.ENTITY_SPAWNER, world, random, chunkX, chunkZ, 1, 65, 70);
 		}
 
-		this.runTileEntityGenerator(TILEENTITY_SPAWNER, new TileEntityKaldirBrambles(), BlockHandler.FLORA_KALDIR_BRAMBLES, world, random, chunkX, chunkZ, 10, 65, 70);
+		this.runTileEntityGenerator(TILEENTITY_SPAWNER, new TileEntityBrambles(0), BlockHandler.FLORA_BRAMBLES, world, random, chunkX, chunkZ, 10, 65, 70);
 	}
 
 	/**
@@ -510,8 +508,8 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		}
 
 		if (((chunkX < 387 || chunkX > 417) && (chunkZ > 391 || chunkZ < 361)) || ((chunkX < -15 || chunkX > 15) && (chunkZ > 15 || chunkZ < -15))) {
-			
-			if(random.nextInt(750) == 0)
+
+			if (random.nextInt(750) == 0)
 				runRandomStarGenerator(STAR_TEMPLATE, random.nextInt(50) + 25, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 255);
 			if (random.nextInt(700) < 10)
 				runOreGenerator(COAL_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);

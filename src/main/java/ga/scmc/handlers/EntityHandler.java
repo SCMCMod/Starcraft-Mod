@@ -48,9 +48,9 @@ import ga.scmc.entity.living.EntityZerglingPrimalDehaka;
 import ga.scmc.entity.living.EntityZerglingRaptor;
 import ga.scmc.entity.living.EntityZerglingSwarmling;
 import ga.scmc.lib.Library;
+import ga.scmc.tileentity.TileEntityBrambles;
 import ga.scmc.tileentity.TileEntityEntitySpawner;
 import ga.scmc.tileentity.TileEntityGasCollector;
-import ga.scmc.tileentity.TileEntityKaldirBrambles;
 import ga.scmc.tileentity.TileEntityPlanetTeleporter;
 import ga.scmc.tileentity.TileEntityProtossFurnace;
 import ga.scmc.tileentity.TileEntityProtossPowerCore;
@@ -146,7 +146,7 @@ public class EntityHandler {
 		registerTileEntity(TileEntityPlanetTeleporter.class);
 		registerTileEntity(TileEntitySolarCore.class);
 		registerTileEntity(TileEntityZerusGlowPod.class);
-		registerTileEntity(TileEntityKaldirBrambles.class);
+		registerTileEntity(TileEntityBrambles.class);
 		registerTileEntity(TileEntityZerusLightcap.class);
 	}
 
@@ -213,10 +213,10 @@ public class EntityHandler {
 		EntityRegistry.addSpawn(EntityZealot.class, 25, 1, 2, EnumCreatureType.MONSTER, BiomeHandler.biomeShakurasProtossCity, BiomeHandler.biomeKaldirProtossCity);
 		EntityRegistry.addSpawn(EntityProbe.class, 7, 1, 3, EnumCreatureType.CREATURE, BiomeHandler.biomeShakurasProtossCity, BiomeHandler.biomeKaldirProtossCity);
 		EntityRegistry.addSpawn(EntityProtossReaver.class, 1, 1, 1, EnumCreatureType.MONSTER, BiomeHandler.biomeShakurasProtossCity, BiomeHandler.biomeKaldirProtossCity);
-		
+
 		EntityRegistry.addSpawn(EntityDarkTemplar.class, 15, 1, 1, EnumCreatureType.MONSTER, BiomeHandler.biomeShakurasProtossCity);
 		EntityRegistry.addSpawn(EntityVoidProbe.class, 7, 1, 3, EnumCreatureType.CREATURE, BiomeHandler.biomeShakurasProtossCity);
-		
+
 		EntityRegistry.addSpawn(EntityDarkProbe.class, 7, 1, 3, EnumCreatureType.CREATURE, BiomeHandler.biomeSlaynProtossCity);
 
 		EntityRegistry.addSpawn(EntityBrutalisk.class, 1, 1, 1, EnumCreatureType.MONSTER, BiomeHandler.biomeCharZergHive, BiomeHandler.biomeKaldirZergHive);

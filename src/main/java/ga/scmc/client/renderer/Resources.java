@@ -1,6 +1,7 @@
 package ga.scmc.client.renderer;
 
 import ga.scmc.lib.Library;
+import net.minecraft.util.ResourceLocation;
 
 public class Resources {
 
@@ -106,4 +107,9 @@ public class Resources {
 	public static final String	ZERGLINGRAPTOR_BASE					= Library.RL_BASE + "textures/entity/zerglingraptor_base.png";
 	public static final String	ZERGLINGSWARMLING_BASE				= Library.RL_BASE + "textures/entity/zerglingswarmling_base.png";
 	public static final String	ZERGLINGSWARMLING_GLOW_STATIC		= Library.RL_BASE + "textures/entity/zerglingswarmling_glow_static.png";
+	
+	public static final ResourceLocation KALDIR_BRAMBLES_TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/models/block/kaldir_brambles.png");
+	public static final ResourceLocation SHAKURAS_BRAMBLES_TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/models/block/shakuras_brambles.png");
+	public static final ResourceLocation ZERUS_BRAMBLES_TEXTURE = new ResourceLocation(Library.RL_BASE + "textures/models/block/zerus_brambles.png");
+
 }

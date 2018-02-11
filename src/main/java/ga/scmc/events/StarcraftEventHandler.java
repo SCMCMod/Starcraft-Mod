@@ -1,5 +1,6 @@
 package ga.scmc.events;
 
+import ga.scmc.command.CommandDimension;
 import ga.scmc.handlers.ConfigurationHandler;
 import net.minecraft.entity.monster.EntityCaveSpider;
 import net.minecraft.entity.monster.EntityCreeper;
@@ -12,11 +13,11 @@ import net.minecraft.entity.monster.EntityWitch;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 /**
- * This class handles events that are generic and do not fit into any other
- * classes.
+ * This class handles events that are generic and do not fit into any other classes.
  * 
  * @author Ocelot5836
  */

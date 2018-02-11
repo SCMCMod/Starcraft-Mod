@@ -12,15 +12,19 @@ import net.minecraft.world.WorldServer;
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
  */
 public class TeleporterHandler extends Teleporter {
-	private final WorldServer	worldServer;
-	private double				x;
-	private double				y;
-	private double				z;
+	private final WorldServer worldServer;
+	private double x;
+	private double y;
+	private double z;
 
 	public TeleporterHandler(int lastDim, WorldServer world, double x, double y, double z, boolean hasNoSurface) {
+		this(lastDim, world, x, y, z, hasNoSurface, true);
+	}
+
+	public TeleporterHandler(int lastDim, WorldServer world, double x, double y, double z, boolean hasNoSurface, boolean addObsidian) {
 		super(world);
 		worldServer = world;
-		if(world.provider.getDimension() != ConfigurationHandler.INT_DIMENSION_SPACE) {
+		if (world.provider.getDimension() != ConfigurationHandler.INT_DIMENSION_SPACE) {
 			BlockPos playerSpawn = new BlockPos(x, 100, z);
 			if (hasNoSurface == false) {
 				while (world.isAirBlock(playerSpawn)) {
@@ -41,25 +45,19 @@ public class TeleporterHandler extends Teleporter {
 			world.setBlockState(playerSpawn.add(1, 0, 0), Blocks.OBSIDIAN.getDefaultState());
 			world.setBlockState(playerSpawn.add(-1, 0, 0), Blocks.OBSIDIAN.getDefaultState());
 			this.z = z;
-		}else {
-			if(lastDim == 0) {
+		} else {
+			if (lastDim == 0) {
 				this.x = 0;
 				this.y = 180;
 				this.z = 0;
 				/*
-				world.setBlockState(playerSpawn.add(0, -3, 0), Blocks.OBSIDIAN.getDefaultState());
-				world.setBlockState(playerSpawn.add(-1, -3, 1), Blocks.OBSIDIAN.getDefaultState());
-				world.setBlockState(playerSpawn.add(0, -3, 1), Blocks.OBSIDIAN.getDefaultState());
-				world.setBlockState(playerSpawn.add(1, -3, 1), Blocks.OBSIDIAN.getDefaultState());
-
-				world.setBlockState(playerSpawn.add(-1, -3, -1), Blocks.OBSIDIAN.getDefaultState());
-				world.setBlockState(playerSpawn.add(0, -3, -1), Blocks.OBSIDIAN.getDefaultState());
-				world.setBlockState(playerSpawn.add(1, -3, -1), Blocks.OBSIDIAN.getDefaultState());
-
-				world.setBlockState(playerSpawn.add(1, -3, 0), Blocks.OBSIDIAN.getDefaultState());
-				world.setBlockState(playerSpawn.add(-1, -3, 0), Blocks.OBSIDIAN.getDefaultState());
-				*/
-			}else if(lastDim == ConfigurationHandler.INT_DIMENSION_CHAR) {
+				 * world.setBlockState(playerSpawn.add(0, -3, 0), Blocks.OBSIDIAN.getDefaultState()); world.setBlockState(playerSpawn.add(-1, -3, 1), Blocks.OBSIDIAN.getDefaultState()); world.setBlockState(playerSpawn.add(0, -3, 1), Blocks.OBSIDIAN.getDefaultState()); world.setBlockState(playerSpawn.add(1, -3, 1), Blocks.OBSIDIAN.getDefaultState());
+				 * 
+				 * world.setBlockState(playerSpawn.add(-1, -3, -1), Blocks.OBSIDIAN.getDefaultState()); world.setBlockState(playerSpawn.add(0, -3, -1), Blocks.OBSIDIAN.getDefaultState()); world.setBlockState(playerSpawn.add(1, -3, -1), Blocks.OBSIDIAN.getDefaultState());
+				 * 
+				 * world.setBlockState(playerSpawn.add(1, -3, 0), Blocks.OBSIDIAN.getDefaultState()); world.setBlockState(playerSpawn.add(-1, -3, 0), Blocks.OBSIDIAN.getDefaultState());
+				 */
+			} else if (lastDim == ConfigurationHandler.INT_DIMENSION_CHAR) {
 				this.x = 6437;
 				this.y = 180;
 				this.z = 6028;
