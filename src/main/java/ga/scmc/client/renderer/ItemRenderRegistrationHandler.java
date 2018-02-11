@@ -2,9 +2,9 @@ package ga.scmc.client.renderer;
 
 import ga.scmc.Starcraft;
 import ga.scmc.api.Utils;
+import ga.scmc.client.renderer.items.ItemRenderBrambles;
 import ga.scmc.client.renderer.items.ItemRenderC14GaussRifle;
 import ga.scmc.client.renderer.items.ItemRenderFlamethrower;
-import ga.scmc.client.renderer.items.ItemRenderBrambles;
 import ga.scmc.client.renderer.items.ItemRenderModelArmorItem;
 import ga.scmc.client.renderer.items.ItemRenderSolariteReaper;
 import ga.scmc.client.renderer.items.ItemRenderStarcraftSkull;

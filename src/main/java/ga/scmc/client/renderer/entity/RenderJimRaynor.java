@@ -1,13 +1,11 @@
 package ga.scmc.client.renderer.entity;
 
-import ga.scmc.client.renderer.ColoredLayerRender;
 import ga.scmc.client.renderer.Resources;
 import ga.scmc.client.renderer.model.ModelMarine;
 import ga.scmc.entity.living.EntityJimRaynor;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 
 /**

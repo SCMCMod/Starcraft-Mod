@@ -2,7 +2,6 @@ package ga.scmc.worldgen;
 
 import java.util.Random;
 
-import ga.scmc.blocks.itemblocks.ItemBlockBrambles;
 import ga.scmc.handlers.BlockHandler;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
