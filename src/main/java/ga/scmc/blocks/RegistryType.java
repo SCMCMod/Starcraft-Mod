@@ -4,5 +4,6 @@ public enum RegistryType {
 	NORMAL,
 	BLOCK,
 	FULL,
-	LAYERED
+	LAYERED,
+	NO_META
 }

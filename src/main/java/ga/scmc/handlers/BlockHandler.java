@@ -49,6 +49,7 @@ import ga.scmc.blocks.StarcraftBlock;
 import ga.scmc.blocks.StarcraftBlockCustomDrop;
 import ga.scmc.blocks.StarcraftBlockFalling;
 import ga.scmc.blocks.StarcraftProtossCoreBlock;
+import ga.scmc.blocks.StarcraftSlab;
 import ga.scmc.blocks.StarcraftStairs;
 import ga.scmc.blocks.StarcraftTerranCoreBlock;
 import ga.scmc.blocks.flora.BlockBrambles;
@@ -56,6 +57,7 @@ import ga.scmc.blocks.flora.BlockZerusGlowPod;
 import ga.scmc.blocks.flora.BlockZerusLightcap;
 import ga.scmc.blocks.itemblocks.ItemBlockAsh;
 import ga.scmc.blocks.itemblocks.ItemBlockBrambles;
+import ga.scmc.blocks.itemblocks.ItemBlockSlab;
 import ga.scmc.blocks.itemblocks.ItemBlockStarcraftSkull;
 import ga.scmc.blocks.metablocks.BlockNeosteel;
 import ga.scmc.blocks.metablocks.BlockParisteel;
@@ -282,6 +284,22 @@ public class BlockHandler {
 	public static Block STAIRS_TERRAN_PARISTEEL_YELLOW;
 	public static Block STAIRS_TERRAN_PARISTEEL_BLACK;
 
+	public static StarcraftSlab SLAB_PROTOSS_METAL_AIUR_T1;
+	public static StarcraftSlab SLAB_PROTOSS_METAL_DARK_T1;
+	public static StarcraftSlab SLAB_PROTOSS_METAL_GREEN_T1;
+	public static StarcraftSlab SLAB_PROTOSS_METAL_BLUE_T1;
+	public static StarcraftSlab SLAB_PROTOSS_METAL_RED_T1;
+	public static StarcraftSlab SLAB_PROTOSS_METAL_AIUR_T2;
+	public static StarcraftSlab SLAB_PROTOSS_METAL_DARK_T2;
+	public static StarcraftSlab SLAB_PROTOSS_METAL_GREEN_T2;
+	public static StarcraftSlab SLAB_PROTOSS_METAL_BLUE_T2;
+	public static StarcraftSlab SLAB_PROTOSS_METAL_RED_T2;
+	public static StarcraftSlab SLAB_PROTOSS_METAL_AIUR_T3;
+	public static StarcraftSlab SLAB_PROTOSS_METAL_DARK_T3;
+	public static StarcraftSlab SLAB_PROTOSS_METAL_GREEN_T3;
+	public static StarcraftSlab SLAB_PROTOSS_METAL_BLUE_T3;
+	public static StarcraftSlab SLAB_PROTOSS_METAL_RED_T3;
+	
 	/**
 	 * Instantiates, registers, and initializes the MetaBlocks.
 	 */
@@ -505,6 +523,37 @@ public class BlockHandler {
 	}
 
 	public static void instantiateSlabs() {
+		SLAB_PROTOSS_METAL_AIUR_T1 = new StarcraftSlab("slab.protoss.metal.1.aiur", MetaBlockHandler.PROTOSS_METAL_T1.getDefaultState().withProperty(BlockProtossMetalT1.TYPE, BlockProtossMetalT1.ProtossMetalType.AIUR)).setBlockTab(StarcraftCreativeTabs.PROTOSS);
+		SLAB_PROTOSS_METAL_DARK_T1 = new StarcraftSlab("slab.protoss.metal.1.dark", MetaBlockHandler.PROTOSS_METAL_T1.getDefaultState().withProperty(BlockProtossMetalT1.TYPE, BlockProtossMetalT1.ProtossMetalType.DARK)).setBlockTab(StarcraftCreativeTabs.PROTOSS);
+		SLAB_PROTOSS_METAL_GREEN_T1 = new StarcraftSlab("slab.protoss.metal.1.green", MetaBlockHandler.PROTOSS_METAL_T1.getDefaultState().withProperty(BlockProtossMetalT1.TYPE, BlockProtossMetalT1.ProtossMetalType.GREEN)).setBlockTab(StarcraftCreativeTabs.PROTOSS);
+		SLAB_PROTOSS_METAL_BLUE_T1 = new StarcraftSlab("slab.protoss.metal.1.blue", MetaBlockHandler.PROTOSS_METAL_T1.getDefaultState().withProperty(BlockProtossMetalT1.TYPE, BlockProtossMetalT1.ProtossMetalType.BLUE)).setBlockTab(StarcraftCreativeTabs.PROTOSS);
+		SLAB_PROTOSS_METAL_RED_T1 = new StarcraftSlab("slab.protoss.metal.1.red", MetaBlockHandler.PROTOSS_METAL_T1.getDefaultState().withProperty(BlockProtossMetalT1.TYPE, BlockProtossMetalT1.ProtossMetalType.RED)).setBlockTab(StarcraftCreativeTabs.PROTOSS);
+		SLAB_PROTOSS_METAL_AIUR_T2 = new StarcraftSlab("slab.protoss.metal.2.aiur", MetaBlockHandler.PROTOSS_METAL_T2.getDefaultState().withProperty(BlockProtossMetalT2.TYPE, BlockProtossMetalT2.ProtossMetalType.AIUR)).setBlockTab(StarcraftCreativeTabs.PROTOSS);
+		SLAB_PROTOSS_METAL_DARK_T2 = new StarcraftSlab("slab.protoss.metal.2.dark", MetaBlockHandler.PROTOSS_METAL_T2.getDefaultState().withProperty(BlockProtossMetalT2.TYPE, BlockProtossMetalT2.ProtossMetalType.DARK)).setBlockTab(StarcraftCreativeTabs.PROTOSS);
+		SLAB_PROTOSS_METAL_GREEN_T2 = new StarcraftSlab("slab.protoss.metal.2.green", MetaBlockHandler.PROTOSS_METAL_T2.getDefaultState().withProperty(BlockProtossMetalT2.TYPE, BlockProtossMetalT2.ProtossMetalType.GREEN)).setBlockTab(StarcraftCreativeTabs.PROTOSS);
+		SLAB_PROTOSS_METAL_BLUE_T2 = new StarcraftSlab("slab.protoss.metal.2.blue", MetaBlockHandler.PROTOSS_METAL_T2.getDefaultState().withProperty(BlockProtossMetalT2.TYPE, BlockProtossMetalT2.ProtossMetalType.BLUE)).setBlockTab(StarcraftCreativeTabs.PROTOSS);
+		SLAB_PROTOSS_METAL_RED_T2 = new StarcraftSlab("slab.protoss.metal.2.red", MetaBlockHandler.PROTOSS_METAL_T2.getDefaultState().withProperty(BlockProtossMetalT2.TYPE, BlockProtossMetalT2.ProtossMetalType.RED)).setBlockTab(StarcraftCreativeTabs.PROTOSS);
+		SLAB_PROTOSS_METAL_AIUR_T3 = new StarcraftSlab("slab.protoss.metal.3.aiur", MetaBlockHandler.PROTOSS_METAL_T3.getDefaultState().withProperty(BlockProtossMetalT3.TYPE, BlockProtossMetalT3.ProtossMetalType.AIUR)).setBlockTab(StarcraftCreativeTabs.PROTOSS);
+		SLAB_PROTOSS_METAL_DARK_T3 = new StarcraftSlab("slab.protoss.metal.3.dark", MetaBlockHandler.PROTOSS_METAL_T3.getDefaultState().withProperty(BlockProtossMetalT3.TYPE, BlockProtossMetalT3.ProtossMetalType.DARK)).setBlockTab(StarcraftCreativeTabs.PROTOSS);
+		SLAB_PROTOSS_METAL_GREEN_T3 = new StarcraftSlab("slab.protoss.metal.3.green", MetaBlockHandler.PROTOSS_METAL_T3.getDefaultState().withProperty(BlockProtossMetalT3.TYPE, BlockProtossMetalT3.ProtossMetalType.GREEN)).setBlockTab(StarcraftCreativeTabs.PROTOSS);
+		SLAB_PROTOSS_METAL_BLUE_T3 = new StarcraftSlab("slab.protoss.metal.3.blue", MetaBlockHandler.PROTOSS_METAL_T3.getDefaultState().withProperty(BlockProtossMetalT3.TYPE, BlockProtossMetalT3.ProtossMetalType.BLUE)).setBlockTab(StarcraftCreativeTabs.PROTOSS);
+		SLAB_PROTOSS_METAL_RED_T3 = new StarcraftSlab("slab.protoss.metal.3.red", MetaBlockHandler.PROTOSS_METAL_T3.getDefaultState().withProperty(BlockProtossMetalT3.TYPE, BlockProtossMetalT3.ProtossMetalType.RED)).setBlockTab(StarcraftCreativeTabs.PROTOSS);
+
+		registerCompleteBlock(SLAB_PROTOSS_METAL_AIUR_T1, new ItemBlockSlab(SLAB_PROTOSS_METAL_AIUR_T1));
+		registerCompleteBlock(SLAB_PROTOSS_METAL_DARK_T1, new ItemBlockSlab(SLAB_PROTOSS_METAL_DARK_T1));
+		registerCompleteBlock(SLAB_PROTOSS_METAL_GREEN_T1, new ItemBlockSlab(SLAB_PROTOSS_METAL_GREEN_T1));
+		registerCompleteBlock(SLAB_PROTOSS_METAL_BLUE_T1, new ItemBlockSlab(SLAB_PROTOSS_METAL_BLUE_T1));
+		registerCompleteBlock(SLAB_PROTOSS_METAL_RED_T1, new ItemBlockSlab(SLAB_PROTOSS_METAL_RED_T1));
+		registerCompleteBlock(SLAB_PROTOSS_METAL_AIUR_T2, new ItemBlockSlab(SLAB_PROTOSS_METAL_AIUR_T2));
+		registerCompleteBlock(SLAB_PROTOSS_METAL_DARK_T2, new ItemBlockSlab(SLAB_PROTOSS_METAL_DARK_T2));
+		registerCompleteBlock(SLAB_PROTOSS_METAL_GREEN_T2, new ItemBlockSlab(SLAB_PROTOSS_METAL_GREEN_T2));
+		registerCompleteBlock(SLAB_PROTOSS_METAL_BLUE_T2, new ItemBlockSlab(SLAB_PROTOSS_METAL_BLUE_T2));
+		registerCompleteBlock(SLAB_PROTOSS_METAL_RED_T2, new ItemBlockSlab(SLAB_PROTOSS_METAL_RED_T2));
+		registerCompleteBlock(SLAB_PROTOSS_METAL_AIUR_T3, new ItemBlockSlab(SLAB_PROTOSS_METAL_AIUR_T3));
+		registerCompleteBlock(SLAB_PROTOSS_METAL_DARK_T3, new ItemBlockSlab(SLAB_PROTOSS_METAL_DARK_T3));
+		registerCompleteBlock(SLAB_PROTOSS_METAL_GREEN_T3, new ItemBlockSlab(SLAB_PROTOSS_METAL_GREEN_T3));
+		registerCompleteBlock(SLAB_PROTOSS_METAL_BLUE_T3, new ItemBlockSlab(SLAB_PROTOSS_METAL_BLUE_T3));
+		registerCompleteBlock(SLAB_PROTOSS_METAL_RED_T3, new ItemBlockSlab(SLAB_PROTOSS_METAL_RED_T3));
 	}
 
 	public static void register() {

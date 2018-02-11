@@ -92,6 +92,21 @@ tile.stair.protoss.metal.1.dark.name=Dark T1 Protoss Metal Stairs
 tile.stair.protoss.metal.1.green.name=Green T1 Protoss Metal Stairs
 tile.stair.protoss.metal.1.blue.name=Blue T1 Protoss Metal Stairs
 tile.stair.protoss.metal.1.red.name=Red T1 Protoss Metal Stairs
+
+tile.stair.protoss.metal.2.aiur.name=Khalai T2 Protoss Metal Stairs
+tile.stair.protoss.metal.2.dark.name=Dark T2 Protoss Metal Stairs
+tile.stair.protoss.metal.2.green.name=Green T2 Protoss Metal Stairs
+tile.stair.protoss.metal.2.blue.name=Blue T2 Protoss Metal Stairs
+tile.stair.protoss.metal.2.red.name=Red T2 Protoss Metal Stairs
+
+tile.stair.protoss.metal.3.aiur.name=Khalai T3 Protoss Metal Stairs
+tile.stair.protoss.metal.3.dark.name=Dark T3 Protoss Metal Stairs
+tile.stair.protoss.metal.3.green.name=Green T3 Protoss Metal Stairs
+tile.stair.protoss.metal.3.blue.name=Blue T3 Protoss Metal Stairs
+tile.stair.protoss.metal.3.red.name=Red T3 Protoss Metal Stairs
+
+tile.slab.protoss.metal.1.aiur.name=Khalai T1 Protoss Metal Slab
+
 #############################################################################################
 
 
@@ -105,6 +120,14 @@ tile.terran.warningtape.name=Warning Tape
 
 tile.terran.neosteel.base.name=Neosteel Base
 tile.terran.neosteel.frame.name=Neosteel Frame
+
+tile.stair.terran.metal.copper.name=Block of Copper Stairs
+tile.stair.terran.metal.steel.name=Block of Steel Stairs
+tile.stair.terran.metal.titanium.name=Block of Titanium Stairs
+tile.stair.terran.warningtape.name=Warning Tape Stairs
+
+tile.stair.terran.neosteel.base.name=Neosteel Base Stairs
+tile.stair.terran.neosteel.frame.name=Neosteel Frame Stairs
 
 tile.terran.paristeel.purple.name=Purple Paristeel
 tile.terran.paristeel.brown.name=Brown Paristeel
@@ -122,6 +145,23 @@ tile.terran.paristeel.silver.name=Silver Paristeel
 tile.terran.paristeel.white.name=White Paristeel
 tile.terran.paristeel.yellow.name=Yellow Paristeel
 tile.terran.paristeel.black.name=Black Paristeel
+
+tile.stair.terran.paristeel.purple.name=Purple Paristeel Stairs
+tile.stair.terran.paristeel.brown.name=Brown Paristeel Stairs
+tile.stair.terran.paristeel.pink.name=Pink Paristeel Stairs
+tile.stair.terran.paristeel.blue.name=Blue Paristeel Stairs
+tile.stair.terran.paristeel.cyan.name=Cyan Paristeel Stairs
+tile.stair.terran.paristeel.gray.name=Gray Paristeel Stairs
+tile.stair.terran.paristeel.green.name=Green Paristeel Stairs
+tile.stair.terran.paristeel.lightblue.name=Light Blue Paristeel Stairs
+tile.stair.terran.paristeel.lime.name=Lime Paristeel Stairs
+tile.stair.terran.paristeel.magenta.name=Magenta Paristeel Stairs
+tile.stair.terran.paristeel.orange.name=Orange Paristeel Stairs
+tile.stair.terran.paristeel.red.name=Red Paristeel Stairs
+tile.stair.terran.paristeel.silver.name=Silver Paristeel Stairs
+tile.stair.terran.paristeel.white.name=White Paristeel Stairs
+tile.stair.terran.paristeel.yellow.name=Yellow Paristeel Stairs
+tile.stair.terran.paristeel.black.name=Black Paristeel Stairs
 
 tile.gas.collector.terran.name=Refinery
 
@@ -678,6 +718,7 @@ entity.starcraft.zeratul.name=Zeratul
 entity.starcraft.civilian.name=Civilian
 entity.starcraft.predator.name=Predator
 entity.starcraft.marine.name=Marine
+entity.starcraft.jimRaynor.name=Jim Raynor
 
 entity.starcraft.kakaru.name=Kakaru
 entity.starcraft.tastelope.name=Tastelope
