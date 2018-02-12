@@ -57,27 +57,6 @@ public class LivingEventHandler {
 					player.getServer().getPlayerList().transferPlayerToDimension(player, ConfigurationHandler.INT_DIMENSION_SPACE, new TeleporterHandler(player.world.provider.getDimension(), player.mcServer.worldServerForDimension(ConfigurationHandler.INT_DIMENSION_SPACE), player.posX, player.posY, player.posZ, true));
 				}
 				
-				int i = MathHelper.floor(player.posX);
-				int j = MathHelper.floor(player.posY);
-				int k = MathHelper.floor(player.posZ);
-				// I believe this is the root of a lot of lag (will try to improve)
-				if (player.getHeldItem(EnumHand.MAIN_HAND) != null) {
-					/*
-					 * if (player.getHeldItem(EnumHand.MAIN_HAND).getItem() ==
-					 * WeaponHandler.MASTER_PSI_BLADE ||
-					 * player.getHeldItem(EnumHand.MAIN_HAND).getItem() == WeaponHandler.PSI_BLADE
-					 * || player.getHeldItem(EnumHand.MAIN_HAND).getItem() ==
-					 * WeaponHandler.WARP_BLADE || player.getHeldItem(EnumHand.MAIN_HAND).getItem()
-					 * == WeaponHandler.BANE_BLADE ||
-					 * player.getHeldItem(EnumHand.MAIN_HAND).getItem() ==
-					 * WeaponHandler.DARK_WARP_BLADE) { BlockPos blockpos = new BlockPos(i, j + 1,
-					 * k);
-					 * 
-					 * if (player.world.getBlockState(blockpos).getMaterial() == Material.AIR) {
-					 * player.world.setBlockState(blockpos,
-					 * BlockHandler.LIGHT_SOURCE.getDefaultState()); } }
-					 */
-				}
 
 				if (!player.world.isRemote) {
 					if (CapabilityUtils.getShield(player) < 10 && isWearingFullProtossArmor(player)) {
@@ -89,10 +68,6 @@ public class LivingEventHandler {
 					}
 				}
 			}
-			// else if (event.getEntity() instanceof EntityDarkTemplar &&
-			// !StarcraftConfig.BOOL_IS_DARK_TEMPLAR_VISIBLE) {
-			// event.getEntity().setInvisible(false);
-			// }
 		}
 	}
 
