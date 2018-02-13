@@ -29,49 +29,28 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
  */
 public class MetaBlockHandler {
 
-	public static Block	COMP_METAL_T1;
-	public static Block	COMP_MINERAL;
-	public static Block	NEOSTEEL_METAL;
-	public static Block	PARISTEEL_METAL;
-	public static Block	PROTOSS_METAL_T1;
-	public static Block	PROTOSS_METAL_T2;
-	public static Block	PROTOSS_METAL_T3;
-	public static Block	ENERGY;
-	public static Block	PYLON_CRYSTAL;
-	public static Block	ZERG_CARAPACE_BLOCK;
-	public static Block	ZERG_FLESH;
-	public static Block	GAS_COLLECTOR;
-	public static Block	STAR_SURFACE;
-	public static Block	PLANET_SURFACE;
+	public static Block PROTOSS_METAL_T1 = new BlockProtossMetalT1();
+	public static Block PROTOSS_METAL_T2 = new BlockProtossMetalT2();
+	public static Block PROTOSS_METAL_T3 = new BlockProtossMetalT3();
+	public static Block ENERGY = new BlockEnergy();
+	public static Block PYLON_CRYSTAL = new BlockKhaydarinCrystal();
+	public static Block ZERG_CARAPACE_BLOCK = new BlockZergCarapace();
+	public static Block ZERG_FLESH = new BlockZergFlesh();
+	public static Block COMP_METAL_T1 = new BlockTerranMetal();
+	public static Block NEOSTEEL_METAL = new BlockNeosteel();
+	public static Block PARISTEEL_METAL = new BlockParisteel();
+	public static Block COMP_MINERAL = new BlockMineral();
+	public static Block GAS_COLLECTOR = new BlockGasCollector();
+	public static Block STAR_SURFACE = new BlockStarSurface();
+	public static Block PLANET_SURFACE = new BlockPlanetSurface();
 
 	/**
-	 * Instantiates and registers the blocks and items.
+	 * Registers the blocks and items.
 	 */
 	public static void init() {
-		instantiate();
 		register();
 	}
-
-	/**
-	 * Sets all the ItemBlocks to their respective classes.
-	 */
-	public static void instantiate() {
-		PROTOSS_METAL_T1 = new BlockProtossMetalT1();
-		PROTOSS_METAL_T2 = new BlockProtossMetalT2();
-		PROTOSS_METAL_T3 = new BlockProtossMetalT3();
-		ENERGY = new BlockEnergy();
-		PYLON_CRYSTAL = new BlockKhaydarinCrystal();
-		ZERG_CARAPACE_BLOCK = new BlockZergCarapace();
-		ZERG_FLESH = new BlockZergFlesh();
-		COMP_METAL_T1 = new BlockTerranMetal();
-		NEOSTEEL_METAL = new BlockNeosteel();
-		PARISTEEL_METAL = new BlockParisteel();
-		COMP_MINERAL = new BlockMineral();
-		GAS_COLLECTOR = new BlockGasCollector();
-		STAR_SURFACE = new BlockStarSurface();
-		PLANET_SURFACE = new BlockPlanetSurface();
-	}
-
+	
 	/**
 	 * Register the blocks.
 	 */

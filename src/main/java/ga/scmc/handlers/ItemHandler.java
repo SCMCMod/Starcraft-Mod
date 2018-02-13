@@ -50,129 +50,65 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
  */
 public class ItemHandler {
 
-	public static Item					BULLET_MAGAZINE;
-	public static ItemC14GaussRifle		C14_GAUSS_RIFLE;
-	public static ItemFlamethrower		FLAMETHROWER;
-	public static ItemSolariteReaper	SOLARITE_REAPER;
-	public static Item					C14_PARTS;
-	public static Item					FLAMETHROWER_PARTS;
-	public static Item					CREEP_RESIN;
-	public static Item					PROTOSS_INGOT;
-	public static Item					DUST;
-	public static Item					PLEDGE;
-	public static Item					ENERGY;
-	public static Item					INGOT;
-	public static Item					MINERAL_SHARD;
-	public static Item					PHOSPHORUS;
-	public static Item					ORGANIC_TISSUE;
-	public static Item					PSI_BLADE_FOCUSER_UNCHARGED;
-	public static Item					ZERG_CARAPACE;
-	public static Item					BIOMASS;
+	public static Item					MINERAL_SHARD							= new ItemMineralShard();
+	public static Item					PHOSPHORUS								= new ItemPhosphorus();
 
-	public static Item					NUCLEAR_MISSILE;
-	public static Item					STIMPACK;
-	public static Item					CARBOTIFIER;
-	public static Item					LOG;
+	public static Item					GAS_CONTAINER							= new ItemGasContainer();
+	public static Item					VESPENE									= new ItemVespene();
+	public static Item					TERRAZINE								= new ItemTerrazine();
 
-	public static Item					GAS_CONTAINER;
-	public static Item					VESPENE;
-	public static Item					TERRAZINE;
+	public static Item					ENERGY									= new ItemEnergy();
+	public static Item					DUST									= new ItemDust();
+	public static Item					PLEDGE									= new ItemPledge();
+	public static Item					INGOT									= new ItemIngot();
+	public static Item					PROTOSS_INGOT							= new ItemProtossIngot();
+	public static ItemC14GaussRifle		C14_GAUSS_RIFLE							= new ItemC14GaussRifle();
+	public static ItemSolariteReaper	SOLARITE_REAPER							= new ItemSolariteReaper();
+	public static Item					C14_PARTS								= new ItemC14GaussRifleParts();
+	public static Item					FLAMETHROWER_PARTS						= new ItemFlamethrowerParts();
+	public static ItemFlamethrower		FLAMETHROWER							= new ItemFlamethrower();
+	public static Item					BULLET_MAGAZINE							= new ItemMagazine();
+	public static Item					PSI_BLADE_FOCUSER_UNCHARGED				= new ItemPsiBladeFocuserUncharged();
+	public static Item					ZERG_CARAPACE							= new ItemZergCarapace();
+	public static Item					CREEP_RESIN								= new Item().setUnlocalizedName("zerg.creepresin").setRegistryName("zerg.creepresin").setCreativeTab(StarcraftCreativeTabs.ZERG);
+	public static Item					ORGANIC_TISSUE							= new Item().setUnlocalizedName("zerg.tissue").setRegistryName("zerg.tissue").setCreativeTab(StarcraftCreativeTabs.ZERG);
+	public static Item					BIOMASS									= new Item().setUnlocalizedName("biomass").setRegistryName("biomass").setCreativeTab(StarcraftCreativeTabs.ZERG);
 
-	public static Item					PROTOSS_UPGRADE;
+	public static Item					NUCLEAR_MISSILE							= new Item().setUnlocalizedName("terran.nuclearmisile").setRegistryName("terran.nuclearmisile").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+	public static Item					STIMPACK								= new ItemStimpack();
+	public static Item					CARBOTIFIER								= new ItemCarbotifier();
+	public static Item					LOG										= new ItemLog();
 
-	public static Item					MARINE_ARMOR_FRAME;
-	public static Item					MARINE_HELMET_VISOR;
-	public static Item					WIRE;
-	public static Item					MARINE_ARMOR_PLATING;
-	public static Item					AIR_CONDITIONER;
-	public static Item					MARINE_ARMOR_BATTERY;
-	public static Item					MARINE_ARMOR_COOLING_SYSTEM;
+	public static Item					PROTOSS_UPGRADE							= new ItemProtossUpgrade();
+	public static Item					MARINE_HELMET_VISOR						= new ItemMarineHelmetVisor();
 
-	public static Item					KHAYDARIN_CRYSTAL;
+	public static Item					KHAYDARIN_CRYSTAL						= new ItemKhaydarinCrystal();
 
-	public static Item					SPAWNER_PROTOSS_DARK_CYBERNETICSCORE;
-	public static Item					SPAWNER_PROTOSS_VOID_CYBERNETICSCORE;
-	public static Item					SPAWNER_PROTOSS_CYBERNETICSCORE;
-	public static Item					SPAWNER_PROTOSS_DARK_PYLON;
-	public static Item					SPAWNER_PROTOSS_VOID_PYLON;
-	public static Item					SPAWNER_PROTOSS_PYLON;
-	public static Item					SPAWNER_PROTOSS_DARK_WARPGATE;
-	public static Item					SPAWNER_PROTOSS_VOID_WARPGATE;
-	public static Item					SPAWNER_PROTOSS_WARPGATE;
+	public static Item					SPAWNER_PROTOSS_DARK_CYBERNETICSCORE	= new ItemProtossDarkCyberneticsCoreSpawner();
+	public static Item					SPAWNER_PROTOSS_VOID_CYBERNETICSCORE	= new ItemProtossVoidCyberneticsCoreSpawner();
+	public static Item					SPAWNER_PROTOSS_CYBERNETICSCORE			= new ItemProtossCyberneticsCoreSpawner();
+	public static Item					SPAWNER_PROTOSS_DARK_PYLON				= new ItemProtossDarkPylonSpawner();
+	public static Item					SPAWNER_PROTOSS_VOID_PYLON				= new ItemProtossVoidPylonSpawner();
+	public static Item					SPAWNER_PROTOSS_PYLON					= new ItemProtossPylonSpawner();
+	public static Item					SPAWNER_PROTOSS_DARK_WARPGATE			= new ItemProtossDarkWarpGateSpawner();
+	public static Item					SPAWNER_PROTOSS_VOID_WARPGATE			= new ItemProtossVoidWarpGateSpawner();
+	public static Item					SPAWNER_PROTOSS_WARPGATE				= new ItemProtossWarpGateSpawner();
 
-	public static Item					SPAWNER_TERRAN_BUNKER;
-	public static Item					SPAWNER_TERRAN_BARRACKS;
-	public static Item					SPAWNER_TERRAN_COMMAND_CENTER;
+	public static Item					SPAWNER_TERRAN_BUNKER					= new ItemTerranBunkerSpawner();
+	public static Item					SPAWNER_TERRAN_BARRACKS					= new ItemTerranBarracksSpawner();
+	public static Item					SPAWNER_TERRAN_COMMAND_CENTER			= new ItemTerranCommandCenterSpawner();
 
-	public static Item					SPAWNER_ZERG_SPAWNINGPOOL;
-	public static Item					SPAWNER_ZERG_SPIRE;
-	public static Item					SPAWNER_ZERG_HYDRALISKDEN;
+	public static Item					SPAWNER_ZERG_SPAWNINGPOOL				= new ItemZergSpawningPoolSpawner();
+	public static Item					SPAWNER_ZERG_SPIRE						= new ItemZergSpireSpawner();
+	public static Item					SPAWNER_ZERG_HYDRALISKDEN				= new ItemZergHydraliskDenSpawner();
 
-	public static Item					ICON_PROTOSS;
-	public static Item					ICON_TERRAN;
-	public static Item					ICON_ZERG;
+	public static Item					ICON_PROTOSS							= new Item().setUnlocalizedName("icon.protoss").setRegistryName("icon.protoss").setCreativeTab(null);
+	public static Item					ICON_TERRAN								= new Item().setUnlocalizedName("icon.terran").setRegistryName("icon.terran").setCreativeTab(null);
+	public static Item					ICON_ZERG								= new Item().setUnlocalizedName("icon.zerg").setRegistryName("icon.zerg").setCreativeTab(null);
 
-	public static Item					TEST;
+	public static Item					TEST									= new ItemTest();
 
 	static {
-		MINERAL_SHARD = new ItemMineralShard();
-		PHOSPHORUS = new ItemPhosphorus();
-
-		GAS_CONTAINER = new ItemGasContainer();
-		VESPENE = new ItemVespene();
-		TERRAZINE = new ItemTerrazine();
-
-		ENERGY = new ItemEnergy();
-		DUST = new ItemDust();
-		PLEDGE = new ItemPledge();
-		INGOT = new ItemIngot();
-		PROTOSS_INGOT = new ItemProtossIngot();
-		C14_GAUSS_RIFLE = new ItemC14GaussRifle();
-		SOLARITE_REAPER = new ItemSolariteReaper();
-		C14_PARTS = new ItemC14GaussRifleParts();
-		FLAMETHROWER_PARTS = new ItemFlamethrowerParts();
-		FLAMETHROWER = new ItemFlamethrower();
-		BULLET_MAGAZINE = new ItemMagazine();
-		PSI_BLADE_FOCUSER_UNCHARGED = new ItemPsiBladeFocuserUncharged();
-		ZERG_CARAPACE = new ItemZergCarapace();
-		CREEP_RESIN = new Item().setUnlocalizedName("zerg.creepresin").setRegistryName("zerg.creepresin").setCreativeTab(StarcraftCreativeTabs.ZERG);
-		ORGANIC_TISSUE = new Item().setUnlocalizedName("zerg.tissue").setRegistryName("zerg.tissue").setCreativeTab(StarcraftCreativeTabs.ZERG);
-		BIOMASS = new Item().setUnlocalizedName("biomass").setRegistryName("biomass").setCreativeTab(StarcraftCreativeTabs.ZERG);
-
-		NUCLEAR_MISSILE = new Item().setUnlocalizedName("terran.nuclearmisile").setRegistryName("terran.nuclearmisile").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		STIMPACK = new ItemStimpack();
-		CARBOTIFIER = new ItemCarbotifier();
-		LOG = new ItemLog();
-
-		PROTOSS_UPGRADE = new ItemProtossUpgrade();
-		MARINE_HELMET_VISOR = new ItemMarineHelmetVisor();
-
-		KHAYDARIN_CRYSTAL = new ItemKhaydarinCrystal();
-
-		SPAWNER_PROTOSS_DARK_CYBERNETICSCORE = new ItemProtossDarkCyberneticsCoreSpawner();
-		SPAWNER_PROTOSS_VOID_CYBERNETICSCORE = new ItemProtossVoidCyberneticsCoreSpawner();
-		SPAWNER_PROTOSS_CYBERNETICSCORE = new ItemProtossCyberneticsCoreSpawner();
-		SPAWNER_PROTOSS_DARK_PYLON = new ItemProtossDarkPylonSpawner();
-		SPAWNER_PROTOSS_VOID_PYLON = new ItemProtossVoidPylonSpawner();
-		SPAWNER_PROTOSS_PYLON = new ItemProtossPylonSpawner();
-		SPAWNER_PROTOSS_DARK_WARPGATE = new ItemProtossDarkWarpGateSpawner();
-		SPAWNER_PROTOSS_VOID_WARPGATE = new ItemProtossVoidWarpGateSpawner();
-		SPAWNER_PROTOSS_WARPGATE = new ItemProtossWarpGateSpawner();
-
-		SPAWNER_TERRAN_BUNKER = new ItemTerranBunkerSpawner();
-		SPAWNER_TERRAN_BARRACKS = new ItemTerranBarracksSpawner();
-		SPAWNER_TERRAN_COMMAND_CENTER = new ItemTerranCommandCenterSpawner();
-
-		SPAWNER_ZERG_SPAWNINGPOOL = new ItemZergSpawningPoolSpawner();
-		SPAWNER_ZERG_SPIRE = new ItemZergSpireSpawner();
-		SPAWNER_ZERG_HYDRALISKDEN = new ItemZergHydraliskDenSpawner();
-
-		ICON_PROTOSS = new Item().setUnlocalizedName("icon.protoss").setRegistryName("icon.protoss").setCreativeTab(null);
-		ICON_TERRAN = new Item().setUnlocalizedName("icon.terran").setRegistryName("icon.terran").setCreativeTab(null);
-		ICON_ZERG = new Item().setUnlocalizedName("icon.zerg").setRegistryName("icon.zerg").setCreativeTab(null);
-
-		TEST = new ItemTest();
-
 		ArmorHandler.init();
 		WeaponHandler.init();
 		ToolHandler.init();
@@ -184,7 +120,6 @@ public class ItemHandler {
 	 */
 	public static void register() {
 
-		// Register fluids and add them to the universal bucket
 		FluidRegistry.addBucketForFluid(FluidHandler.ACID);
 		FluidRegistry.addBucketForFluid(FluidHandler.BLOOD);
 		FluidRegistry.addBucketForFluid(FluidHandler.VESPENE);
