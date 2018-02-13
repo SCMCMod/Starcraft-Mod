@@ -7,6 +7,7 @@ import ga.scmc.entity.living.EntityMarine;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.entity.layers.LayerHeldItem;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 
@@ -25,8 +26,9 @@ public class RenderMarine extends RenderLiving<EntityMarine> implements LayerRen
 		model = ((ModelMarine) mainModel);
 		this.RENDERER = this;
 		this.addLayer(this);
+        this.addLayer(new LayerHeldItem(this));
 	}
-
+	
 	@Override
 	protected ResourceLocation getEntityTexture(EntityMarine entity) {
 		return BASE;

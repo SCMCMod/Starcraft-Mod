@@ -25,6 +25,9 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -36,6 +39,8 @@ import net.minecraft.world.World;
  */
 public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
 
+	private static final DataParameter<Boolean>	AIM	= EntityDataManager.createKey(EntityMarine.class, DataSerializers.BOOLEAN);
+	
 	public EntityMarine(World world) {
 		super(world);
 		setSize(0.8F, 2.2F);
@@ -51,6 +56,22 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, true, false, this));
 	}
+	
+	@Override
+	protected void entityInit() {
+		super.entityInit();
+
+		this.getDataManager().register(AIM, false);
+	}
+
+	public boolean canAim() {
+		return this.getDataManager().get(AIM);
+	}
+
+	protected void setAiming(boolean bool) {
+		this.getDataManager().set(AIM, bool);
+	}
+
 
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
@@ -60,6 +81,11 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 		drop.tryDrop(this);
 		drop2.tryDrop(this);
 		drop3.tryDrop(this);
+	}
+	
+	@Override
+	public ItemStack getHeldItemMainhand() {
+		return new ItemStack(ItemHandler.C14_GAUSS_RIFLE);
 	}
 
 	@Override
@@ -136,6 +162,18 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 	public int getTalkInterval() {
 		return 160;
 	}
+	
+	@Override
+	public void onUpdate() {
+		if (!world.isRemote) {
+			if (this.getAttackTarget() != null) {
+				this.setAiming(true);
+			} else if (this.getAttackTarget() == null) {
+				this.setAiming(false);
+			}
+		}
+		super.onUpdate();
+	}
 
 	@Override
 	public SoundEvent getAmbientSound() {
@@ -150,6 +188,5 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 		default:
 			return SoundHandler.ENTITY_MARINE_DEATH;
 		}
-
 	}
 }

@@ -1,5 +1,6 @@
 package ga.scmc.client.renderer.model;
 
+import ga.scmc.entity.living.EntityMarine;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
@@ -426,6 +427,13 @@ public class ModelMarine extends ModelBiped {
 		this.lInsignia.render(scale);
 		GlStateManager.popMatrix();
 		this.bipedHead.render(scale);
+		if (entity instanceof EntityMarine) {
+			if (((EntityMarine) entity).canAim()) {
+				this.rightArmPose = ArmPose.BOW_AND_ARROW;
+			} else {
+				this.rightArmPose = ArmPose.ITEM;
+			}
+		}
 	}
 
 	/**
