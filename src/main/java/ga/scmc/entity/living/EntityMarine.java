@@ -166,7 +166,7 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 	@Override
 	public void onUpdate() {
 		if (!world.isRemote) {
-			if (this.getAttackTarget() != null) {
+			if (this.getAttackTarget() != null && this.getDistanceSqToEntity(this.getAttackTarget()) < 80.0D) {
 				this.setAiming(true);
 			} else if (this.getAttackTarget() == null) {
 				this.setAiming(false);
