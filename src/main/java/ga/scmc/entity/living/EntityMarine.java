@@ -75,7 +75,7 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
-		ItemDrop drop = new ItemDrop(1, new ItemStack(ItemHandler.C14_GAUSS_RIFLE, 0));
+		ItemDrop drop = new ItemDrop(1, new ItemStack(this.getHeldItemMainhand().getItem(), 0));
 		ItemDrop drop2 = new ItemDrop(10, new ItemStack(ItemHandler.STIMPACK, 0));
 		ItemDrop drop3 = new ItemDrop(30, new ItemStack(ItemHandler.BULLET_MAGAZINE, 1 + this.rand.nextInt(1), 0));
 		drop.tryDrop(this);
