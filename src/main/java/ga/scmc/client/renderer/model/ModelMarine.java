@@ -388,7 +388,13 @@ public class ModelMarine extends ModelBiped {
 
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
+		if (((EntityMarine) entity).canAim()) {
+			this.rightArmPose = ArmPose.BOW_AND_ARROW;
+		} else {
+			this.rightArmPose = ArmPose.ITEM;
+		}
 		this.bipedBody.render(scale);
 		this.bipedLeftArm.render(scale);
 		GlStateManager.pushMatrix();
@@ -427,13 +433,6 @@ public class ModelMarine extends ModelBiped {
 		this.lInsignia.render(scale);
 		GlStateManager.popMatrix();
 		this.bipedHead.render(scale);
-		if (entity instanceof EntityMarine) {
-			if (((EntityMarine) entity).canAim()) {
-				this.rightArmPose = ArmPose.BOW_AND_ARROW;
-			} else {
-				this.rightArmPose = ArmPose.ITEM;
-			}
-		}
 	}
 
 	/**

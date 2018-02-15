@@ -48,7 +48,7 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 		this.setTeamColor(EnumTeamColors.BLUE);
 		this.setFactions(EnumFactionTypes.RAIDERS);
 		setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
-		tasks.addTask(1, new EntityAIAttackRanged(this, 0.75D, 17, 16.0F));
+		tasks.addTask(1, new EntityAIAttackRanged(this, 1.0D, 17, 16.0F));
 		tasks.addTask(2, new EntityAISwimming(this));
 		tasks.addTask(3, new EntityAIWander(this, 1.0D));
 		tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
@@ -147,15 +147,19 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float p_82196_2_) {
-		EntityC14GaussRifleBullet bullet = new EntityC14GaussRifleBullet(this.world, this);
-		double d0 = target.posY + (double) target.getEyeHeight() - 1.800000023841858D - target.getDistanceSq(target.getPosition());
-		double d1 = target.posX - this.posX;
-		double d2 = d0 - bullet.posY;
-		double d3 = target.posZ - this.posZ;
-		float f = MathHelper.sqrt(d1 * d1 + d3 * d3) * 0.2F;
-		bullet.setThrowableHeading(d1, d2 + (double) f, d3, 1.6F, .0F);
-		this.playSound(SoundHandler.FX_C14GAUSSRIFLE_FIRING, 0.5F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
-		this.world.spawnEntity(bullet);
+		if(this.getHeldItemMainhand().getItem() == ItemHandler.C14_GAUSS_RIFLE) {
+			EntityC14GaussRifleBullet bullet = new EntityC14GaussRifleBullet(this.world, this);
+			double d0 = target.posY + (double) target.getEyeHeight() - 1.800000023841858D - target.getDistanceSq(target.getPosition());
+			double d1 = target.posX - this.posX;
+			double d2 = d0 - bullet.posY;
+			double d3 = target.posZ - this.posZ;
+			float f = MathHelper.sqrt(d1 * d1 + d3 * d3) * 0.2F;
+			bullet.setThrowableHeading(d1, d2 + (double) f, d3, 1.6F, .0F);
+			this.playSound(SoundHandler.FX_C14GAUSSRIFLE_FIRING, 0.5F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+			this.world.spawnEntity(bullet);
+		}else {
+			
+		}
 	}
 
 	@Override
@@ -166,7 +170,7 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 	@Override
 	public void onUpdate() {
 		if (!world.isRemote) {
-			if (this.getAttackTarget() != null && this.getDistanceSqToEntity(this.getAttackTarget()) < 80.0D) {
+			if (this.getAttackTarget() != null && this.getDistanceSqToEntity(this.getAttackTarget()) < 64.0D) {
 				this.setAiming(true);
 			} else if (this.getAttackTarget() == null) {
 				this.setAiming(false);
