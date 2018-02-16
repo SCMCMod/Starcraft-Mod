@@ -40,6 +40,10 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	public String getOwnerFromFaction(EnumFactionTypes faction) {
 		return faction.toString();
 	}
+	
+	public String getFactionAsString() {
+		return this.faction.toString();
+	}
 
 	/**
 	 * Makes starcraft mobs spawn anywhere, as long as the difficulty is not
