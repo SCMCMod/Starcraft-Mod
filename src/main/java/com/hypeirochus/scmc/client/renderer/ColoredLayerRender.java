@@ -37,7 +37,8 @@ public class ColoredLayerRender {
 		if (entity instanceof IEntityTeamColorable) {
 			IEntityTeamColorable<T> entityTeam = (IEntityTeamColorable<T>) entity;
 			renderer.bindTexture(overlayTexture);
-			GlStateManager.enableAlpha();
+	        GlStateManager.enableBlend();
+	        GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
 
 			if (entity.isInvisible()) {
 				GlStateManager.depthMask(false);
@@ -57,8 +58,8 @@ public class ColoredLayerRender {
 			k = i / 65536;
 			OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float) j, (float) k);
 			renderer.setLightmap(entity, partialTicks);
-			GlStateManager.enableAlpha();
-			GlStateManager.resetColor();
+	        GlStateManager.disableBlend();
+			GlStateManager.color(1, 1, 1, 1);
 		}
 	}
 
@@ -66,7 +67,8 @@ public class ColoredLayerRender {
 		if (entity instanceof IEntityTeamColorable) {
 			if (!entity.isInvisible()) {
 				renderer.bindTexture(overlayTexture);
-				GlStateManager.enableAlpha();
+		        GlStateManager.enableBlend();
+		        GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
 
 				int i = 61680;
 				int j = i % 65536;
@@ -79,7 +81,7 @@ public class ColoredLayerRender {
 				k = i / 65536;
 				OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float) j, (float) k);
 				renderer.setLightmap(entity, partialTicks);
-				GlStateManager.enableAlpha();
+		        GlStateManager.disableBlend();
 				GlStateManager.color(1, 1, 1, 1);
 			}
 		}
