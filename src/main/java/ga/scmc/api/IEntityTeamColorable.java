@@ -1,6 +1,6 @@
 package ga.scmc.api;
 
-import ga.scmc.enums.EnumTeamColors;
+import ga.scmc.enums.EnumColors;
 import net.minecraft.entity.EntityLiving;
 
 /**
@@ -12,8 +12,8 @@ import net.minecraft.entity.EntityLiving;
  */
 public interface IEntityTeamColorable<T extends EntityLiving> {
 
-	EnumTeamColors getTeamColor();
+	EnumColors getColor();
 
-	T setTeamColor(EnumTeamColors team);
+	T setColor(EnumColors team);
 
 }

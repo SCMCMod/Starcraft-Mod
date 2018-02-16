@@ -2,17 +2,14 @@ package ga.scmc.entity.living;
 
 import com.google.common.base.Predicate;
 
-import ga.scmc.capabilities.ColorProvider;
-import ga.scmc.capabilities.IColor;
+import ga.scmc.enums.EnumColors;
 import ga.scmc.enums.EnumFactionTypes;
-import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
 import ga.scmc.handlers.WeaponHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
@@ -38,9 +35,9 @@ public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<E
 		super(world);
 		setSize(1.5F, 2.5F);
 		experienceValue = 300;
-		this.setTeamColor(EnumTeamColors.LIGHT_BLUE);
+		this.setColor(EnumColors.LIGHT_BLUE);
 		this.setFactions(EnumFactionTypes.DAELAAM);
-		setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND, EnumTypeAttributes.PSIONIC, EnumTypeAttributes.HEROIC);
+		setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND, EnumTypeAttributes.PSIONIC, EnumTypeAttributes.HEROIC);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
 		tasks.addTask(2, new EntityAIWander(this, 1.0D));
@@ -76,52 +73,12 @@ public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<E
 		this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
 	}
 
+	/**
+	 * The method where this entity handles checks to make sure it can attack the target.
+	 */
 	@Override
 	public boolean apply(EntityLivingBase entity) {
-		if (!entity.isInvisible()) {
-			if (entity instanceof EntityStarcraftMob) {
-				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if (!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.DAELAAM)) {
-						if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
-							return true;
-						} else {
-							return false;
-						}
-					} else if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
-						return true;
-					}
-				}
-			} else if (entity instanceof EntityStarcraftPassive) {
-				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if (!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.DAELAAM)) {
-						if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor() && !((EntityStarcraftPassive) entity).isType(EnumTypeAttributes.CRITTER)) {
-							return true;
-						} else {
-							return false;
-						}
-					} else if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
-						return true;
-					}
-				}
-			} else if (entity instanceof EntityPlayer) {
-				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
-				if (color.getColor() == this.getTeamColor().getId()) {
-					return false;
-				} else {
-					return true;
-				}
-			} else {
-				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					return false;
-				}
-				return true;
-			}
-		} else if (entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)) {
-			return true;
-		} else {
-			return false;
-		}
-		return false;
+		return checkTarget(entity, EnumFactionTypes.DAELAAM);
 	}
 
 	@Override

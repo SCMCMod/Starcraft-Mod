@@ -4,18 +4,15 @@ import java.util.Random;
 
 import com.google.common.base.Predicate;
 
-import ga.scmc.capabilities.ColorProvider;
-import ga.scmc.capabilities.IColor;
 import ga.scmc.entity.EntityMutaliskGlaiveWurm;
+import ga.scmc.enums.EnumColors;
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumMetaItem;
-import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
 import hypeirochus.api.world.entity.ItemDrop;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackRanged;
@@ -24,7 +21,6 @@ import net.minecraft.entity.ai.EntityAIFindEntityNearestPlayer;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityMoveHelper;
 import net.minecraft.entity.monster.IMob;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -36,9 +32,9 @@ public class EntityMutaliskPrimalDehaka extends EntityZergFlying implements IMob
 	public EntityMutaliskPrimalDehaka(World world) {
 		super(world);
 		setSize(4.0F, 1.5F);
-		this.setTeamColor(EnumTeamColors.YELLOW);
+		this.setColor(EnumColors.YELLOW);
 		this.setFactions(EnumFactionTypes.PRIMALPACKDEHAKA);
-		this.setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.AIR);
+		this.setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.AIR);
 		moveHelper = new EntityMutaliskPrimalDehaka.MutaliskMoveHelper(this);
 		tasks.addTask(2, new EntityAIAttackRanged(this, 1.0D, 40, 20.0F));
 		tasks.addTask(5, new EntityMutaliskPrimalDehaka.AIRandomFly(this));
@@ -60,49 +56,12 @@ public class EntityMutaliskPrimalDehaka extends EntityZergFlying implements IMob
 		this.world.spawnEntity(wurm);
 	}
 
+	/**
+	 * The method where this entity handles checks to make sure it can attack the target.
+	 */
 	@Override
 	public boolean apply(EntityLivingBase entity) {
-		if (!entity.isInvisible()) {
-			if (entity instanceof EntityStarcraftMob) {
-				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if (!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.PRIMALPACKDEHAKA)) {
-						if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
-							return true;
-						} else {
-							return false;
-						}
-					} else if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
-						return true;
-					}
-				}
-			} else if (entity instanceof EntityStarcraftPassive) {
-				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if (!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.PRIMALPACKDEHAKA)) {
-						if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
-							return true;
-						} else {
-							return false;
-						}
-					} else if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
-						return true;
-					}
-				}
-			} else if (entity instanceof EntityPlayer) {
-				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
-				if (color.getColor() == this.getTeamColor().getId()) {
-					return false;
-				} else {
-					return true;
-				}
-			} else {
-				return true;
-			}
-		} else if (entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)) {
-			return true;
-		} else {
-			return false;
-		}
-		return false;
+		return checkTarget(entity, EnumFactionTypes.PRIMALPACKDEHAKA);
 	}
 
 	@Override

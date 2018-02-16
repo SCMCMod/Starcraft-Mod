@@ -2,7 +2,7 @@ package ga.scmc.lib;
 
 import java.util.Random;
 
-import ga.scmc.enums.EnumTeamColors;
+import ga.scmc.enums.EnumColors;
 import net.minecraft.world.World;
 
 /**
@@ -28,35 +28,35 @@ public class StarcraftUtils {
 	 */
 	public static int minecraftColorToStarcraftColor(int id) {
 		if (id == 0)
-			return EnumTeamColors.PURPLE.getId();
+			return EnumColors.PURPLE.getId();
 		if (id == 1)
-			return EnumTeamColors.BROWN.getId();
+			return EnumColors.BROWN.getId();
 		if (id == 2)
-			return EnumTeamColors.PINK.getId();
+			return EnumColors.PINK.getId();
 		if (id == 3)
-			return EnumTeamColors.BLUE.getId();
+			return EnumColors.BLUE.getId();
 		if (id == 4)
-			return EnumTeamColors.CYAN.getId();
+			return EnumColors.CYAN.getId();
 		if (id == 5)
-			return EnumTeamColors.GRAY.getId();
+			return EnumColors.GRAY.getId();
 		if (id == 6)
-			return EnumTeamColors.GREEN.getId();
+			return EnumColors.GREEN.getId();
 		if (id == 7)
-			return EnumTeamColors.LIGHT_BLUE.getId();
+			return EnumColors.LIGHT_BLUE.getId();
 		if (id == 8)
-			return EnumTeamColors.LIME.getId();
+			return EnumColors.LIME.getId();
 		if (id == 9)
-			return EnumTeamColors.MAGENTA.getId();
+			return EnumColors.MAGENTA.getId();
 		if (id == 10)
-			return EnumTeamColors.ORANGE.getId();
+			return EnumColors.ORANGE.getId();
 		if (id == 11)
-			return EnumTeamColors.RED.getId();
+			return EnumColors.RED.getId();
 		if (id == 12)
-			return EnumTeamColors.SILVER.getId();
+			return EnumColors.SILVER.getId();
 		if (id == 14)
-			return EnumTeamColors.YELLOW.getId();
+			return EnumColors.YELLOW.getId();
 
-		return EnumTeamColors.WHITE.getId();
+		return EnumColors.WHITE.getId();
 	}
 
 	public static boolean shouldGasDissipate(World world, int maxHeight, int currentHeight) {

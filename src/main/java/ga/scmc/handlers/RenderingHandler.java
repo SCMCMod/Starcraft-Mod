@@ -412,7 +412,6 @@ public class RenderingHandler {
 		ModelBakery.registerItemVariants(ItemHandler.TERRAZINE, new ResourceLocation(Library.MODID, "terrazine.raw"), new ResourceLocation(Library.MODID, "protoss.terrazine"), new ResourceLocation(Library.MODID, "terran.terrazine"), new ResourceLocation(Library.MODID, "zerg.terrazine"));
 		ModelBakery.registerItemVariants(ItemHandler.ENERGY, new ResourceLocation(Library.MODID, "energy.pure"), new ResourceLocation(Library.MODID, "energy.corrupted"), new ResourceLocation(Library.MODID, "energy.void"));
 		ModelBakery.registerItemVariants(ItemHandler.DUST, new ResourceLocation(Library.MODID, "dust.iron"), new ResourceLocation(Library.MODID, "dust.steel"), new ResourceLocation(Library.MODID, "dust.carbon"));
-		ModelBakery.registerItemVariants(ItemHandler.PLEDGE, new ResourceLocation(Library.MODID, "pledge.white"), new ResourceLocation(Library.MODID, "pledge.orange"), new ResourceLocation(Library.MODID, "pledge.magenta"), new ResourceLocation(Library.MODID, "pledge.lightblue"), new ResourceLocation(Library.MODID, "pledge.yellow"), new ResourceLocation(Library.MODID, "pledge.lime"), new ResourceLocation(Library.MODID, "pledge.pink"), new ResourceLocation(Library.MODID, "pledge.gray"), new ResourceLocation(Library.MODID, "pledge.silver"), new ResourceLocation(Library.MODID, "pledge.cyan"), new ResourceLocation(Library.MODID, "pledge.purple"), new ResourceLocation(Library.MODID, "pledge.blue"), new ResourceLocation(Library.MODID, "pledge.brown"), new ResourceLocation(Library.MODID, "pledge.green"), new ResourceLocation(Library.MODID, "pledge.red"), new ResourceLocation(Library.MODID, "pledge.black"));
 		ModelBakery.registerItemVariants(ItemHandler.INGOT, new ResourceLocation(Library.MODID, "ingot.copper"), new ResourceLocation(Library.MODID, "ingot.titanium"), new ResourceLocation(Library.MODID, "ingot.steel"), new ResourceLocation(Library.MODID, "ingot.neosteel"));
 		ModelBakery.registerItemVariants(ItemHandler.PROTOSS_INGOT, new ResourceLocation(Library.MODID, "protoss.ingot.khalai"), new ResourceLocation(Library.MODID, "protoss.ingot.dark"));
 		ModelBakery.registerItemVariants(ItemHandler.PSI_BLADE_FOCUSER_UNCHARGED, new ResourceLocation(Library.MODID, "protoss_psiblade_focuser_uncharged_aiur"), new ResourceLocation(Library.MODID, "protoss_psiblade_focuser_uncharged_dark"));
@@ -519,8 +518,8 @@ public class RenderingHandler {
 		registerItemRender(CREEP_RESIN);
 		registerItemRender(ORGANIC_TISSUE);
 		registerItemRender(BIOMASS);
+		registerItemRender(PLEDGE);
 
-		// registerItemRender(NUCLEAR_MISSILE);
 		registerItemRender(STIMPACK);
 		registerItemRender(CARBOTIFIER);
 		registerItemRender(LOG);
@@ -554,9 +553,6 @@ public class RenderingHandler {
 
 		for (int i = 0; i < EnumMetaItem.MineralType.values().length; i++) {
 			registerItemRender(MINERAL_SHARD, i, "mineral." + EnumMetaItem.MineralType.values()[i].getName());
-		}
-		for (int i = 0; i < EnumMetaItem.PledgeType.values().length; i++) {
-			registerItemRender(PLEDGE, i, "pledge." + EnumMetaItem.PledgeType.values()[i].getName());
 		}
 		for (int i = 0; i < EnumMetaItem.VespeneType.values().length; i++) {
 			registerItemRender(VESPENE, i, "vespene." + EnumMetaItem.VespeneType.values()[i].getName());

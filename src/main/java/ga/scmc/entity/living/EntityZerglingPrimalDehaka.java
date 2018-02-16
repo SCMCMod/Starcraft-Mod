@@ -4,17 +4,14 @@ import java.util.Random;
 
 import com.google.common.base.Predicate;
 
-import ga.scmc.capabilities.ColorProvider;
-import ga.scmc.capabilities.IColor;
+import ga.scmc.enums.EnumColors;
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumMetaItem;
-import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
 import hypeirochus.api.world.entity.ItemDrop;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
@@ -37,9 +34,9 @@ public class EntityZerglingPrimalDehaka extends EntityZergMob implements IMob, P
 	public EntityZerglingPrimalDehaka(World world) {
 		super(world);
 		setSize(1.0F, 1.0F);
-		this.setTeamColor(EnumTeamColors.YELLOW);
+		this.setColor(EnumColors.YELLOW);
 		this.setFactions(EnumFactionTypes.PRIMALZERG);
-		this.setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
+		this.setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
 		experienceValue = 23;
 		this.baseHealth = 25;
 		tasks.addTask(0, new EntityAISwimming(this));
@@ -51,49 +48,12 @@ public class EntityZerglingPrimalDehaka extends EntityZergMob implements IMob, P
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, false, false, this));
 	}
 
+	/**
+	 * The method where this entity handles checks to make sure it can attack the target.
+	 */
 	@Override
 	public boolean apply(EntityLivingBase entity) {
-		if (!entity.isInvisible()) {
-			if (entity instanceof EntityStarcraftMob) {
-				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if (!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.PRIMALPACKDEHAKA)) {
-						if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
-							return true;
-						} else {
-							return false;
-						}
-					} else if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
-						return true;
-					}
-				}
-			} else if (entity instanceof EntityStarcraftPassive) {
-				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if (!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.PRIMALPACKDEHAKA)) {
-						if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
-							return true;
-						} else {
-							return false;
-						}
-					} else if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
-						return true;
-					}
-				}
-			} else if (entity instanceof EntityPlayer) {
-				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
-				if (color.getColor() == this.getTeamColor().getId()) {
-					return false;
-				} else {
-					return true;
-				}
-			} else {
-				return true;
-			}
-		} else if (entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)) {
-			return true;
-		} else {
-			return false;
-		}
-		return false;
+		return checkTarget(entity, EnumFactionTypes.PRIMALPACKDEHAKA);
 	}
 
 	@Override

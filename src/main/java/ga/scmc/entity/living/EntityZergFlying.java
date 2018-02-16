@@ -6,10 +6,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityZergFlying extends EntityStarcraftMob {
+public class EntityZergFlying extends EntityZergMob {
 	public EntityZergFlying(World worldIn) {
 		super(worldIn);
-		setTypes(EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.AIR);
+		setAttributes(EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.AIR);
 	}
 
 	public void fall(float distance, float damageMultiplier) {

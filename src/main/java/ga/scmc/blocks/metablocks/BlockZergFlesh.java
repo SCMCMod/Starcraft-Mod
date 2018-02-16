@@ -6,7 +6,7 @@ import java.util.Random;
 import ga.scmc.blocks.itemblocks.IMetaBlockName;
 import ga.scmc.creativetabs.StarcraftCreativeTabs;
 import ga.scmc.entity.living.EntityBroodling;
-import ga.scmc.enums.EnumTeamColors;
+import ga.scmc.enums.EnumColors;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler.SoundTypes;
@@ -129,7 +129,7 @@ public class BlockZergFlesh extends Block implements IMetaBlockName {
 	@Override
 	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
 		if (!worldIn.isRemote && this.RANDOM.nextInt(100) < 10) {
-			EntityBroodling broodling = new EntityBroodling(worldIn, EnumTeamColors.getColorStarcraft(this.getMetaFromState(state)));
+			EntityBroodling broodling = new EntityBroodling(worldIn, EnumColors.getColorStarcraft(this.getMetaFromState(state)));
 			broodling.setPositionAndRotation(pos.getX(), pos.getY(), pos.getZ(), 0, 0);
 			worldIn.spawnEntity(broodling);
 		} else if (this.RANDOM.nextInt(100) > 99) {

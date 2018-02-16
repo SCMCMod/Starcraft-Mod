@@ -26,7 +26,7 @@ public class ColoredLayerRender {
 			else
 				GlStateManager.depthMask(true);
 
-			GlStateManager.color(entityTeam.getTeamColor().getR() / 255.0F, entityTeam.getTeamColor().getG() / 255.0F, entityTeam.getTeamColor().getB() / 255.0F);
+			GlStateManager.color(entityTeam.getColor().getR() / 255.0F, entityTeam.getColor().getG() / 255.0F, entityTeam.getColor().getB() / 255.0F);
 			renderer.getMainModel().render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 			GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 		}
@@ -49,7 +49,7 @@ public class ColoredLayerRender {
 			int k = i / 65536;
 			OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float) j, (float) k);
 			GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-			GL11.glColor3f(entityTeam.getTeamColor().getR() / 255, entityTeam.getTeamColor().getG() / 255, entityTeam.getTeamColor().getB() / 255);
+			GL11.glColor3f(entityTeam.getColor().getR() / 255, entityTeam.getColor().getG() / 255, entityTeam.getColor().getB() / 255);
 			renderer.getMainModel().render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 			i = entity.getBrightnessForRender(partialTicks);
 			j = i % 65536;

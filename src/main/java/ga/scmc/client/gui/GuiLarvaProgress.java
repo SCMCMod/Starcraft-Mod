@@ -5,7 +5,7 @@ import java.io.IOException;
 import ga.scmc.Starcraft;
 import ga.scmc.capabilities.ColorProvider;
 import ga.scmc.entity.living.EntityLarvaCocoon;
-import ga.scmc.enums.EnumTeamColors;
+import ga.scmc.enums.EnumColors;
 import ga.scmc.network.NetworkHandler;
 import ga.scmc.network.message.MessageKillEntity;
 import ga.scmc.network.message.MessageSyncLarvaCocoonGui;
@@ -33,7 +33,7 @@ public class GuiLarvaProgress extends BasicGui {
 	}
 
 	public void openGUI(EntityPlayer player, Object mod, int guiID, World world, int x, int y, int z, EntityLarvaCocoon cocoon) {
-		if (cocoon.getTeamColor() == EnumTeamColors.getColorById(player.getCapability(ColorProvider.COLOR, null).getColor())) {
+		if (cocoon.getColor() == EnumColors.getColorById(player.getCapability(ColorProvider.COLOR, null).getColor())) {
 			player.openGui(Starcraft.instance, guiID, world, x, y, z);
 			setCocoon(cocoon);
 			NetworkHandler.sendToAllClients(new MessageSyncLarvaCocoonGui(cocoon));

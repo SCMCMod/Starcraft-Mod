@@ -5,9 +5,9 @@ import java.util.Random;
 
 import ga.scmc.Starcraft;
 import ga.scmc.client.gui.GuiLarvaMorph;
+import ga.scmc.enums.EnumColors;
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumMetaItem;
-import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.BlockHandler;
 import ga.scmc.handlers.GuiHandler;
@@ -54,7 +54,7 @@ public class EntityLarva extends EntityZergPassive {
 	public EntityLarva(World world) {
 		super(world);
 		setSize(1.0F, .5F);
-		this.setTeamColor(EnumTeamColors.PURPLE);
+		this.setColor(EnumColors.PURPLE);
 		this.setFactions(EnumFactionTypes.SWARM);
 		setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
 	}

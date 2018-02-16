@@ -8,7 +8,7 @@ import ga.scmc.Starcraft;
 import ga.scmc.capabilities.ColorProvider;
 import ga.scmc.client.gui.element.LarvaOption;
 import ga.scmc.entity.living.EntityLarva;
-import ga.scmc.enums.EnumTeamColors;
+import ga.scmc.enums.EnumColors;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.lib.Library;
 import ga.scmc.network.NetworkHandler;
@@ -46,7 +46,7 @@ public class GuiLarvaMorph extends BasicGui {
 	}
 
 	public void openGUI(EntityPlayer player, Object mod, int guiID, World world, int x, int y, int z, EntityLarva larva) {
-		if (larva.getTeamColor() == EnumTeamColors.getColorById(player.getCapability(ColorProvider.COLOR, null).getColor())) {
+		if (larva.getColor() == EnumColors.getColorById(player.getCapability(ColorProvider.COLOR, null).getColor())) {
 			player.openGui(Starcraft.instance, guiID, world, x, y, z);
 			setLarva(larva);
 			NetworkHandler.sendToAllClients(new MessageSyncLarvaGui(larva));

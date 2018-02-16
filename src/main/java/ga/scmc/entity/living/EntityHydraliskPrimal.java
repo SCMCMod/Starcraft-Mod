@@ -2,18 +2,15 @@ package ga.scmc.entity.living;
 
 import com.google.common.base.Predicate;
 
-import ga.scmc.capabilities.ColorProvider;
-import ga.scmc.capabilities.IColor;
 import ga.scmc.entity.EntityHydraliskSpike;
+import ga.scmc.enums.EnumColors;
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumMetaItem;
-import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
 import hypeirochus.api.world.entity.ItemDrop;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackRanged;
@@ -40,9 +37,9 @@ public class EntityHydraliskPrimal extends EntityZergMob implements IMob, IRange
 		setSize(3.0F, 3.0F);
 		experienceValue = 60;
 		this.baseHealth = 60;
-		this.setTeamColor(EnumTeamColors.CYAN);
+		this.setColor(EnumColors.CYAN);
 		this.setFactions(EnumFactionTypes.PRIMALZERG);
-		setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
+		setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
 		tasks.addTask(1, new EntityAIAttackRanged(this, 0.75D, 17, 16.0F));
 		tasks.addTask(2, new EntityAISwimming(this));
 		tasks.addTask(3, new EntityAIWander(this, 1.0D));
@@ -52,49 +49,12 @@ public class EntityHydraliskPrimal extends EntityZergMob implements IMob, IRange
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, true, false, this));
 	}
 
+	/**
+	 * The method where this entity handles checks to make sure it can attack the target.
+	 */
 	@Override
 	public boolean apply(EntityLivingBase entity) {
-		if (!entity.isInvisible()) {
-			if (entity instanceof EntityStarcraftMob) {
-				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if (!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.PRIMALZERG)) {
-						if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
-							return true;
-						} else {
-							return false;
-						}
-					} else if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
-						return true;
-					}
-				}
-			} else if (entity instanceof EntityStarcraftPassive) {
-				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if (!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.PRIMALZERG)) {
-						if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
-							return true;
-						} else {
-							return false;
-						}
-					} else if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
-						return true;
-					}
-				}
-			} else if (entity instanceof EntityPlayer) {
-				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
-				if (color.getColor() == this.getTeamColor().getId()) {
-					return false;
-				} else {
-					return true;
-				}
-			} else {
-				return true;
-			}
-		} else if (entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)) {
-			return true;
-		} else {
-			return false;
-		}
-		return false;
+		return checkTarget(entity, EnumFactionTypes.PRIMALZERG);
 	}
 
 	@Override

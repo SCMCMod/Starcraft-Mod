@@ -5,9 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 
 import ga.scmc.api.IEntityTeamColorable;
+import ga.scmc.enums.EnumColors;
 import ga.scmc.enums.EnumFactionTypes;
-import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
+import ga.scmc.handlers.ItemHandler;
 import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -22,10 +23,11 @@ import net.minecraft.world.World;
 public abstract class EntityStarcraftPassive extends EntityTameable implements IEntityTeamColorable<EntityStarcraftPassive> {
 
 	private static final DataParameter<Integer>	COLOR		= EntityDataManager.createKey(EntityStarcraftPassive.class, DataSerializers.VARINT);
+	private static final DataParameter<String>	OWNER		= EntityDataManager.createKey(EntityStarcraftPassive.class, DataSerializers.STRING);
 
 	List<EnumTypeAttributes>					types		= new ArrayList<EnumTypeAttributes>(15);
 	List<EnumFactionTypes>						factions	= new ArrayList<EnumFactionTypes>(15);
-	EnumTeamColors								teamColor;
+	EnumColors									teamColor;
 	HashMap<EnumTypeAttributes, Double>			bonusDamage	= new HashMap<EnumTypeAttributes, Double>();
 
 	public EntityStarcraftPassive(World world) {
@@ -35,6 +37,14 @@ public abstract class EntityStarcraftPassive extends EntityTameable implements I
 	@Override
 	public boolean getCanSpawnHere() {
 		return true;
+	}
+
+	@Override
+	protected void entityInit() {
+		super.entityInit();
+
+		this.getDataManager().register(COLOR, 0);
+		this.getDataManager().register(OWNER, "");
 	}
 
 	public int secondsToTicks(int seconds) {
@@ -59,8 +69,8 @@ public abstract class EntityStarcraftPassive extends EntityTameable implements I
 		return false;
 	}
 
-	public EnumTeamColors getTeamColor() {
-		for (EnumTeamColors color : EnumTeamColors.values()) {
+	public EnumColors getColor() {
+		for (EnumColors color : EnumColors.values()) {
 			if (color.getId() == this.getNBTColor()) {
 				return color;
 			}
@@ -68,7 +78,7 @@ public abstract class EntityStarcraftPassive extends EntityTameable implements I
 		return null;
 	}
 
-	public EntityStarcraftPassive setTeamColor(EnumTeamColors team) {
+	public EntityStarcraftPassive setColor(EnumColors team) {
 		this.teamColor = team;
 		this.setNBTColor(team.getId());
 		return this;
@@ -98,17 +108,11 @@ public abstract class EntityStarcraftPassive extends EntityTameable implements I
 	}
 
 	@Override
-	protected void entityInit() {
-		super.entityInit();
-
-		this.getDataManager().register(COLOR, 0);
-	}
-
-	@Override
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
 
 		nbt.setInteger("Color", this.getNBTColor());
+		nbt.setString("Owner", this.getStarcraftOwner());
 	}
 
 	@Override
@@ -116,6 +120,25 @@ public abstract class EntityStarcraftPassive extends EntityTameable implements I
 		super.readEntityFromNBT(nbt);
 
 		this.setNBTColor(nbt.getInteger("Color"));
+		this.setStarcraftOwner(nbt.getString("Owner"));
+	}
+	
+	/**
+	 * Gets the owner of this animal. Used mostly to determine if two entities should attack, along with the factions.
+	 * 
+	 * @return String
+	 */
+	public String getStarcraftOwner() {
+		return this.getDataManager().get(OWNER);
+	}
+
+	/**
+	 * Sets the owner of this animal. Set through events such as unit purchase, mind control, and so on.
+	 * 
+	 * @param owner The owner this mob will be under.
+	 */
+	public void setStarcraftOwner(String owner) {
+		this.getDataManager().set(OWNER, owner);
 	}
 
 	public int getNBTColor() {
@@ -130,9 +153,13 @@ public abstract class EntityStarcraftPassive extends EntityTameable implements I
 	@Override
 	public boolean processInteract(EntityPlayer player, EnumHand hand, ItemStack stack) {
 		ItemStack heldItem = player.getHeldItem(hand);
-		if (heldItem != null && heldItem.getItem() == Items.DYE) {
+		if (heldItem != null && heldItem.getItem() == ItemHandler.PLEDGE) {
+			this.setStarcraftOwner(player.getUniqueID().toString());
+			heldItem.stackSize -= 1;
+			return true;
+		} else if (heldItem != null && heldItem.getItem() == Items.DYE) {
 			int meta = heldItem.getMetadata();
-			setTeamColor(EnumTeamColors.values()[15 - meta]);
+			setColor(EnumColors.values()[15 - meta]);
 			heldItem.stackSize -= 1;
 			return true;
 		} else {

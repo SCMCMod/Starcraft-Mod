@@ -43,7 +43,7 @@ public class MessageMorphLarva implements IMessage, IMessageHandler<MessageMorph
 		if (world.getEntityByID(message.id) instanceof EntityLarva) {
 			EntityLarva larva = (EntityLarva) world.getEntityByID(message.id);
 			EntityLarvaCocoon cocoon = new EntityLarvaCocoon(world, message.replaceId);
-			cocoon.setTeamColor(larva.getTeamColor());
+			cocoon.setColor(larva.getColor());
 			Library.replaceEntity(true, larva, cocoon);
 		}
 

@@ -2,17 +2,14 @@ package ga.scmc.entity.living;
 
 import com.google.common.base.Predicate;
 
-import ga.scmc.capabilities.ColorProvider;
-import ga.scmc.capabilities.IColor;
 import ga.scmc.entity.EntityC14GaussRifleBullet;
+import ga.scmc.enums.EnumColors;
 import ga.scmc.enums.EnumFactionTypes;
-import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
 import hypeirochus.api.world.entity.ItemDrop;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackRanged;
@@ -45,9 +42,9 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 		super(world);
 		setSize(0.8F, 2.2F);
 		experienceValue = 30;
-		this.setTeamColor(EnumTeamColors.BLUE);
+		this.setColor(EnumColors.BLUE);
 		this.setFactions(EnumFactionTypes.RAIDERS);
-		setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
+		setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
 		tasks.addTask(1, new EntityAIAttackRanged(this, 1.0D, 17, 16.0F));
 		tasks.addTask(2, new EntityAISwimming(this));
 		tasks.addTask(3, new EntityAIWander(this, 1.0D));
@@ -97,54 +94,17 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12.0D);
 	}
 
+	/**
+	 * The method where this entity handles checks to make sure it can attack the target.
+	 */
 	@Override
 	public boolean apply(EntityLivingBase entity) {
-		if (!entity.isInvisible()) {
-			if (entity instanceof EntityStarcraftMob) {
-				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if (!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.RAIDERS)) {
-						if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
-							return true;
-						} else {
-							return false;
-						}
-					} else if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
-						return true;
-					}
-				}
-			} else if (entity instanceof EntityStarcraftPassive) {
-				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if (!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.RAIDERS)) {
-						if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor() && !((EntityStarcraftPassive) entity).isType(EnumTypeAttributes.CRITTER)) {
-							return true;
-						} else {
-							return false;
-						}
-					} else if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
-						return true;
-					}
-				}
-			} else if (entity instanceof EntityPlayer) {
-				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
-				if (color.getColor() == this.getTeamColor().getId()) {
-					return false;
-				} else {
-					return true;
-				}
-			} else {
-				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					return false;
-				}
-				return true;
-			}
-		} else if (entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)) {
-			return true;
-		} else {
-			return false;
-		}
-		return false;
+		return checkTarget(entity, EnumFactionTypes.RAIDERS);
 	}
 
+	/**
+	 * Allows the marine to attack using projectiles based on its held weapon.
+	 */
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float p_82196_2_) {
 		if(this.getHeldItemMainhand().getItem() == ItemHandler.C14_GAUSS_RIFLE) {

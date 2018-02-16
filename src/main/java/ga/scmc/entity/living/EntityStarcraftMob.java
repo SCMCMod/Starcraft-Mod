@@ -1,16 +1,16 @@
 package ga.scmc.entity.living;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import ga.scmc.api.IEntityTeamColorable;
-import ga.scmc.capabilities.ColorProvider;
-import ga.scmc.capabilities.IColor;
+import ga.scmc.enums.EnumColors;
 import ga.scmc.enums.EnumFactionTypes;
-import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
+import ga.scmc.handlers.ItemHandler;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -25,28 +25,52 @@ import net.minecraft.world.World;
 
 public abstract class EntityStarcraftMob extends EntityMob implements IEntityTeamColorable<EntityStarcraftMob> {
 
-	private static final DataParameter<Integer>	COLOR		= EntityDataManager.createKey(EntityStarcraftMob.class, DataSerializers.VARINT);
+	private static final DataParameter<Integer>	COLOR	= EntityDataManager.createKey(EntityStarcraftMob.class, DataSerializers.VARINT);
+	private static final DataParameter<String>	OWNER	= EntityDataManager.createKey(EntityStarcraftMob.class, DataSerializers.STRING);
 
-	List<EnumTypeAttributes>					types		= new ArrayList<EnumTypeAttributes>(15);
-	List<EnumFactionTypes>						factions	= new ArrayList<EnumFactionTypes>(15);
-	EnumTeamColors								teamColor;
-	HashMap<EnumTypeAttributes, Double>			bonusDamage	= new HashMap<EnumTypeAttributes, Double>();
+	List<EnumTypeAttributes>					types	= new ArrayList<EnumTypeAttributes>(15);
+	EnumFactionTypes							faction;
+	EnumColors									color;
 
 	public EntityStarcraftMob(World world) {
 		super(world);
 	}
 
+	public String getOwnerFromFaction(EnumFactionTypes faction) {
+		return faction.toString();
+	}
+
+	/**
+	 * Makes starcraft mobs spawn anywhere, as long as the difficulty is not
+	 * peaceful.
+	 */
 	@Override
 	public boolean getCanSpawnHere() {
 		if (this.world.getDifficulty() != EnumDifficulty.PEACEFUL) {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
 
-	public boolean isType(EnumTypeAttributes type) {
+	/**
+	 * Initializes the entity NBT values. Owner is set to empty by default.
+	 */
+	@Override
+	protected void entityInit() {
+		super.entityInit();
+
+		this.getDataManager().register(COLOR, 0);
+		this.getDataManager().register(OWNER, "");
+	}
+
+	/**
+	 * 
+	 * @param type
+	 *            The type we are checking the mob for.
+	 * @return True if the mob if is the type requested, false otherwise.
+	 */
+	public boolean hasAttribute(EnumTypeAttributes type) {
 		for (int x = 0; x < types.size(); x++) {
 			if (this.types.get(x) == type) {
 				return true;
@@ -55,88 +79,128 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 		return false;
 	}
 
+	/**
+	 * 
+	 * @param faction
+	 *            The faction we are checking the mob for.
+	 * @return True if the mob is of the requested faction, false otherwise.
+	 */
 	public boolean isFaction(EnumFactionTypes faction) {
-		for (int x = 0; x < factions.size(); x++) {
-			if (this.factions.get(x) == faction) {
-				return true;
-			}
-		}
-		return false;
+		return faction == this.faction;
 	}
 
-	public EnumTeamColors getTeamColor() {
-		for (EnumTeamColors color : EnumTeamColors.values()) {
-			if (color.getId() == this.getNBTColor()) {
+	/**
+	 * Gets the color of the mob.
+	 */
+	public EnumColors getColor() {
+		for (EnumColors color : EnumColors.values()) {
+			if (color.getId() == this.getColorID()) {
 				return color;
 			}
 		}
 		return null;
 	}
 
-	public EntityStarcraftMob setTeamColor(EnumTeamColors team) {
-		this.teamColor = team;
-		this.setNBTColor(team.getId());
+	/**
+	 * Sets the color of this mob to whatever the color specified is.
+	 */
+	public EntityStarcraftMob setColor(EnumColors color) {
+		this.color = color;
+		this.setColorID(color.getId());
 		return this;
 	}
 
-	public EntityStarcraftMob setTypes(EnumTypeAttributes... types) {
+	/**
+	 * 
+	 * @param types
+	 *            The attributes we want our entity to have.
+	 * @return The mob.
+	 */
+	public EntityStarcraftMob setAttributes(EnumTypeAttributes... types) {
 		for (int x = 0; x < types.length; x++) {
 			this.types.add(x, types[x]);
 		}
 		return this;
 	}
 
-	public EntityStarcraftMob setFactions(EnumFactionTypes... types) {
-		for (int x = 0; x < types.length; x++) {
-			this.factions.add(x, types[x]);
+	/**
+	 * 
+	 * @param types
+	 *            Sets the mob to be under the given factions.
+	 * @return The mob.
+	 */
+	public EntityStarcraftMob setFactions(EnumFactionTypes faction) {
+		if(this.getStarcraftOwner().contentEquals("")) {
+			this.setStarcraftOwner(this.getOwnerFromFaction(faction));
 		}
+		this.faction = faction;
 		return this;
 	}
 
-	public EntityStarcraftMob setDamageAgainstType(EnumTypeAttributes type, double dmg) {
-		bonusDamage.put(type, dmg);
-		return this;
-	}
-
-	public double getDamageAgainstType(EnumTypeAttributes type) {
-		return bonusDamage.get(type);
-	}
-
-	@Override
-	protected void entityInit() {
-		super.entityInit();
-
-		this.getDataManager().register(COLOR, 0);
-	}
-
+	/**
+	 * Stores the NBT for the entity.
+	 */
 	@Override
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
 
-		nbt.setInteger("Color", this.getNBTColor());
+		nbt.setInteger("Color", this.getColorID());
+		nbt.setString("Owner", this.getStarcraftOwner());
 	}
 
+	/**
+	 * Reads the NBT from saved files for this entity.
+	 */
 	@Override
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
 
-		this.setNBTColor(nbt.getInteger("Color"));
+		this.setColorID(nbt.getInteger("Color"));
+		this.setStarcraftOwner(nbt.getString("Owner"));
 	}
 
-	public int getNBTColor() {
+	public int getColorID() {
 		return this.getDataManager().get(COLOR);
 	}
 
-	public void setNBTColor(int colornum) {
+	public void setColorID(int colornum) {
 		this.getDataManager().set(COLOR, colornum);
 	}
 
+	/**
+	 * Gets the owner of this mob. Used mostly to determine if two entities should
+	 * attack, along with the factions.
+	 * 
+	 * @return
+	 */
+	public String getStarcraftOwner() {
+		return this.getDataManager().get(OWNER);
+	}
+
+	/**
+	 * Sets the owner of this mob. Set through events such as unit purchase, mind
+	 * control, and so on.
+	 * 
+	 * @param owner
+	 *            The owner this mob will be under.
+	 */
+	public void setStarcraftOwner(String owner) {
+		this.getDataManager().set(OWNER, owner);
+	}
+
+	/**
+	 * Used for changing the ownership of a mob.
+	 */
 	@Override
 	protected boolean processInteract(EntityPlayer player, EnumHand hand, ItemStack stack) {
 		ItemStack heldItem = player.getHeldItem(hand);
-		if (heldItem != null && heldItem.getItem() == Items.DYE) {
+		if (heldItem != null && heldItem.getItem() == ItemHandler.PLEDGE) {
+			this.setStarcraftOwner(player.getUniqueID().toString());
+			heldItem.stackSize -= 1;
+			return true;
+		} else if (heldItem != null && heldItem.getItem() == Items.DYE) {
 			int meta = heldItem.getMetadata();
-			setTeamColor(EnumTeamColors.values()[15 - meta]);
+			setColor(EnumColors.values()[15 - meta]);
 			heldItem.stackSize -= 1;
 			return true;
 		} else {
@@ -144,23 +208,27 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 		}
 	}
 
+	/**
+	 * This is for handling how the mob behaves towards players and entities
+	 * depending on owners
+	 */
 	@Override
 	public void setAttackTarget(EntityLivingBase entitylivingbaseIn) {
 		if (entitylivingbaseIn instanceof EntityPlayer) {
-			IColor color = ((EntityPlayer) entitylivingbaseIn).getCapability(ColorProvider.COLOR, null);
-			if (color.getColor() == this.getTeamColor().getId()) {
+			String owner = ((EntityPlayer) entitylivingbaseIn).getUniqueID().toString();
+			if (owner.contentEquals(this.getStarcraftOwner())) {
 				this.setAttackTarget(null);
 			} else {
 				super.setAttackTarget(entitylivingbaseIn);
 			}
 		} else if (entitylivingbaseIn instanceof EntityStarcraftMob) {
-			if (((EntityStarcraftMob) entitylivingbaseIn).getTeamColor() == this.getTeamColor()) {
+			if (((EntityStarcraftMob) entitylivingbaseIn).getStarcraftOwner().contentEquals(this.getStarcraftOwner())) {
 				this.setAttackTarget(null);
 			} else {
 				super.setAttackTarget(entitylivingbaseIn);
 			}
 		} else if (entitylivingbaseIn instanceof EntityStarcraftPassive) {
-			if (((EntityStarcraftPassive) entitylivingbaseIn).getTeamColor() == this.getTeamColor()) {
+			if (((EntityStarcraftPassive) entitylivingbaseIn).getStarcraftOwner().contentEquals(this.getStarcraftOwner())) {
 				this.setAttackTarget(null);
 			} else {
 				super.setAttackTarget(entitylivingbaseIn);
@@ -168,5 +236,48 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 		} else {
 			super.setAttackTarget(entitylivingbaseIn);
 		}
+	}
+
+	public boolean checkTarget(Entity entity, EnumFactionTypes faction) {
+		if (!entity.isInvisible()) {
+			if (entity instanceof EntityStarcraftMob) {
+				System.out.println(this.getStarcraftOwner());
+				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
+					if (!((EntityStarcraftMob) entity).getStarcraftOwner().contentEquals(this.getStarcraftOwner())) {
+						return true;
+					} else {
+						return false;
+					}
+				}
+			} else if (entity instanceof EntityStarcraftPassive) {
+				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
+					if (!((EntityStarcraftPassive) entity).isFaction(faction)) {
+						if (!((EntityStarcraftPassive) entity).getUniqueID().toString().contentEquals(this.getStarcraftOwner()) && !((EntityStarcraftPassive) entity).isType(EnumTypeAttributes.CRITTER)) {
+							return true;
+						} else {
+							return false;
+						}
+					} else if (!((EntityStarcraftPassive) entity).getStarcraftOwner().contentEquals(this.getStarcraftOwner())) {
+						return true;
+					}
+				}
+			} else if (entity instanceof EntityPlayer) {
+				if (((EntityPlayer) entity).getUniqueID().toString().contentEquals(this.getStarcraftOwner())) {
+					return false;
+				} else {
+					return true;
+				}
+			} else {
+				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
+					return false;
+				}
+				return true;
+			}
+		} else if (entity.isInvisible() && this.hasAttribute(EnumTypeAttributes.DETECTOR)) {
+			return true;
+		} else {
+			return false;
+		}
+		return false;
 	}
 }

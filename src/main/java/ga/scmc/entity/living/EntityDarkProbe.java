@@ -1,8 +1,8 @@
 package ga.scmc.entity.living;
 
+import ga.scmc.enums.EnumColors;
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumMetaItem;
-import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.Access;
 import ga.scmc.handlers.ItemHandler;
@@ -33,7 +33,7 @@ public class EntityDarkProbe extends EntityProtossPassive {
 	public EntityDarkProbe(World world) {
 		super(world);
 		setSize(1.0F, 1.5F);
-		this.setTeamColor(EnumTeamColors.RED);
+		this.setColor(EnumColors.RED);
 		this.setFactions(EnumFactionTypes.TALDARIM);
 		setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.MECHANICAL, EnumTypeAttributes.GROUND);
 		tasks.addTask(0, new EntityAISwimming(this));

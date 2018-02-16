@@ -9,7 +9,7 @@ import ga.scmc.lib.StarcraftUtils;
  * 
  * @author Ocelot5836
  */
-public enum EnumTeamColors {
+public enum EnumColors {
 	WHITE(0, 238, 237, 233),
 	ORANGE(1, 228, 113, 10),
 	MAGENTA(2, 172, 62, 166),
@@ -32,7 +32,7 @@ public enum EnumTeamColors {
 	private float	g;
 	private float	b;
 
-	EnumTeamColors(int ID, float r, float g, float b) {
+	EnumColors(int ID, float r, float g, float b) {
 		this.ID = ID;
 		this.r = r;
 		this.g = g;
@@ -65,8 +65,8 @@ public enum EnumTeamColors {
 	 * @param id
 	 *            The id of the color
 	 */
-	public static EnumTeamColors getColorById(int id) {
-		return EnumTeamColors.values()[id];
+	public static EnumColors getColorById(int id) {
+		return EnumColors.values()[id];
 	}
 
 	/**
@@ -75,8 +75,8 @@ public enum EnumTeamColors {
 	 * @param id
 	 *            The id of the color
 	 */
-	public static EnumTeamColors getColorByMeta(int id) {
-		return EnumTeamColors.values()[EnumTeamColors.values().length - id];
+	public static EnumColors getColorByMeta(int id) {
+		return EnumColors.values()[EnumColors.values().length - id];
 	}
 
 	/**
@@ -86,7 +86,7 @@ public enum EnumTeamColors {
 	 *            The id of the color
 	 * 
 	 */
-	public static EnumTeamColors getColorStarcraft(int id) {
-		return EnumTeamColors.values()[StarcraftUtils.minecraftColorToStarcraftColor(id)];
+	public static EnumColors getColorStarcraft(int id) {
+		return EnumColors.values()[StarcraftUtils.minecraftColorToStarcraftColor(id)];
 	}
 }

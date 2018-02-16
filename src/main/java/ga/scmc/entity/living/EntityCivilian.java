@@ -4,8 +4,8 @@ import java.util.Random;
 
 import ga.scmc.Starcraft;
 import ga.scmc.entity.ai.EntityAITradePlayer;
+import ga.scmc.enums.EnumColors;
 import ga.scmc.enums.EnumFactionTypes;
-import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.GuiHandler;
 import net.minecraft.entity.EntityAgeable;
@@ -30,7 +30,7 @@ public class EntityCivilian extends EntityTerranPassive {
 	public EntityCivilian(World world) {
 		super(world);
 		setSize(0.6F, 1.8F);
-		this.setTeamColor(EnumTeamColors.BLUE);
+		this.setColor(EnumColors.BLUE);
 		this.setFactions(EnumFactionTypes.RAIDERS);
 		setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
 		tasks.addTask(0, new EntityAISwimming(this));

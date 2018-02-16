@@ -6,9 +6,9 @@ import com.google.common.base.Predicate;
 
 import ga.scmc.capabilities.ColorProvider;
 import ga.scmc.capabilities.IColor;
+import ga.scmc.enums.EnumColors;
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumMetaItem;
-import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
@@ -42,9 +42,9 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 		super(world);
 		setSize(5.0F, 5.0F);
 		experienceValue = 133;
-		this.setTeamColor(EnumTeamColors.LIGHT_BLUE);
+		this.setColor(EnumColors.LIGHT_BLUE);
 		this.setFactions(EnumFactionTypes.DAELAAM);
-		setTypes(EnumTypeAttributes.MASSIVE, EnumTypeAttributes.MECHANICAL, EnumTypeAttributes.GROUND, EnumTypeAttributes.ARMORED);
+		setAttributes(EnumTypeAttributes.MASSIVE, EnumTypeAttributes.MECHANICAL, EnumTypeAttributes.GROUND, EnumTypeAttributes.ARMORED);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackRanged(this, 0.25F, 85, 30));
 		tasks.addTask(2, new EntityAIMoveTowardsRestriction(this, 1));
@@ -61,30 +61,30 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 			if (entity instanceof EntityStarcraftMob) {
 				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
 					if (!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.DAELAAM)) {
-						if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+						if (((EntityStarcraftMob) entity).getColor() != this.getColor()) {
 							return true;
 						} else {
 							return false;
 						}
-					} else if (((EntityStarcraftMob) entity).getTeamColor() != this.getTeamColor()) {
+					} else if (((EntityStarcraftMob) entity).getColor() != this.getColor()) {
 						return true;
 					}
 				}
 			} else if (entity instanceof EntityStarcraftPassive) {
 				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
 					if (!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.DAELAAM)) {
-						if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor() && !((EntityStarcraftPassive) entity).isType(EnumTypeAttributes.CRITTER)) {
+						if (((EntityStarcraftPassive) entity).getColor() != this.getColor() && !((EntityStarcraftPassive) entity).isType(EnumTypeAttributes.CRITTER)) {
 							return true;
 						} else {
 							return false;
 						}
-					} else if (((EntityStarcraftPassive) entity).getTeamColor() != this.getTeamColor()) {
+					} else if (((EntityStarcraftPassive) entity).getColor() != this.getColor()) {
 						return true;
 					}
 				}
 			} else if (entity instanceof EntityPlayer) {
 				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
-				if (color.getColor() == this.getTeamColor().getId()) {
+				if (color.getColor() == this.getColor().getId()) {
 					return false;
 				} else {
 					return true;
@@ -95,7 +95,7 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 				}
 				return true;
 			}
-		} else if (entity.isInvisible() && this.isType(EnumTypeAttributes.DETECTOR)) {
+		} else if (entity.isInvisible() && this.hasAttribute(EnumTypeAttributes.DETECTOR)) {
 			return true;
 		} else {
 			return false;
@@ -122,7 +122,7 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase entity, float distance) {
 		if (!world.isRemote && this.ammo > 1) {
-			EntityScarab scarab = new EntityScarab(world, this.getTeamColor(), EnumFactionTypes.DAELAAM);
+			EntityScarab scarab = new EntityScarab(world, this.getColor(), EnumFactionTypes.DAELAAM);
 			scarab.setLocationAndAngles(posX, posY, posZ, 0, 0);
 			world.spawnEntity(scarab);
 			ammo--;

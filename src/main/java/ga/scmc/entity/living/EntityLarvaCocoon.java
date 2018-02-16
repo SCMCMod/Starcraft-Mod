@@ -4,8 +4,8 @@ import java.util.List;
 
 import ga.scmc.Starcraft;
 import ga.scmc.client.gui.GuiLarvaProgress;
+import ga.scmc.enums.EnumColors;
 import ga.scmc.enums.EnumFactionTypes;
-import ga.scmc.enums.EnumTeamColors;
 import ga.scmc.enums.EnumTypeAttributes;
 import ga.scmc.handlers.GuiHandler;
 import ga.scmc.handlers.SoundHandler;
@@ -49,7 +49,7 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 		super(world);
 		this.setSize(1.0F, 1.0F);
 		this.transformId = id;
-		this.setTeamColor(EnumTeamColors.PURPLE);
+		this.setColor(EnumColors.PURPLE);
 		this.setFactions(EnumFactionTypes.SWARM);
 		this.setTypes(EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
 	}
@@ -96,9 +96,9 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 	protected void updateAITasks() {
 		if (ticksExisted > getTransformTime()) {
 			if (getEntityById(world, transformId) instanceof EntityStarcraftMob) {
-				Library.replaceEntity(true, this, ((EntityStarcraftMob) getEntityById(world, transformId)).setTeamColor(teamColor));
+				Library.replaceEntity(true, this, ((EntityStarcraftMob) getEntityById(world, transformId)).setColor(teamColor));
 			} else if (getEntityById(world, transformId) instanceof EntityStarcraftPassive) {
-				Library.replaceEntity(true, this, ((EntityStarcraftPassive) getEntityById(world, transformId)).setTeamColor(teamColor));
+				Library.replaceEntity(true, this, ((EntityStarcraftPassive) getEntityById(world, transformId)).setColor(teamColor));
 			} else {
 				Library.replaceEntity(true, this, getEntityById(world, transformId));
 			}
