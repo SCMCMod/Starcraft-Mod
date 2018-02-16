@@ -16,10 +16,10 @@ import com.hypeirochus.scmc.items.metaitems.ItemMagazine;
 import com.hypeirochus.scmc.network.NetworkHandler;
 import com.hypeirochus.scmc.network.message.MessageSpawnItem;
 import com.ocelot.api.utils.GuiUtils;
+import com.ocelot.api.utils.GuiUtils.GuiType;
 import com.ocelot.api.utils.InventoryUtils;
 import com.ocelot.api.utils.SoundUtils;
 import com.ocelot.api.utils.TimeUtils;
-import com.ocelot.api.utils.GuiUtils.GuiType;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;

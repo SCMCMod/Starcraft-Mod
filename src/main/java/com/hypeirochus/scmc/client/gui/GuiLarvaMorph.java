@@ -15,10 +15,10 @@ import com.hypeirochus.scmc.network.NetworkHandler;
 import com.hypeirochus.scmc.network.message.MessageMorphLarva;
 import com.hypeirochus.scmc.network.message.MessageSyncLarvaGui;
 import com.ocelot.api.utils.GuiUtils;
+import com.ocelot.api.utils.GuiUtils.GuiType;
 import com.ocelot.api.utils.InventoryUtils;
 import com.ocelot.api.utils.SoundUtils;
 import com.ocelot.api.utils.TextureUtils;
-import com.ocelot.api.utils.GuiUtils.GuiType;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;

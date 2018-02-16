@@ -242,7 +242,6 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	public boolean checkTarget(Entity entity, EnumFactionTypes faction) {
 		if (!entity.isInvisible()) {
 			if (entity instanceof EntityStarcraftMob) {
-				System.out.println(this.getStarcraftOwner());
 				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
 					if (!((EntityStarcraftMob) entity).getStarcraftOwner().contentEquals(this.getStarcraftOwner())) {
 						return true;

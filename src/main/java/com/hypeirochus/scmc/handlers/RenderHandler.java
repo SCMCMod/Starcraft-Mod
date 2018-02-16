@@ -410,31 +410,73 @@ public class RenderHandler {
 	}
 
 	private static void registerItemModelVariants() {
-		ModelBakery.registerItemVariants(ItemHandler.MINERAL_SHARD, new ResourceLocation(Library.MODID, "mineral.blue"), new ResourceLocation(Library.MODID, "mineral.rich"));
-		ModelBakery.registerItemVariants(ItemHandler.VESPENE, new ResourceLocation(Library.MODID, "vespene.raw"), new ResourceLocation(Library.MODID, "vespene.protoss"), new ResourceLocation(Library.MODID, "vespene.terran"), new ResourceLocation(Library.MODID, "vespene.zerg"));
-		ModelBakery.registerItemVariants(ItemHandler.TERRAZINE, new ResourceLocation(Library.MODID, "terrazine.raw"), new ResourceLocation(Library.MODID, "protoss.terrazine"), new ResourceLocation(Library.MODID, "terran.terrazine"), new ResourceLocation(Library.MODID, "zerg.terrazine"));
-		ModelBakery.registerItemVariants(ItemHandler.ENERGY, new ResourceLocation(Library.MODID, "energy.pure"), new ResourceLocation(Library.MODID, "energy.corrupted"), new ResourceLocation(Library.MODID, "energy.void"));
-		ModelBakery.registerItemVariants(ItemHandler.DUST, new ResourceLocation(Library.MODID, "dust.iron"), new ResourceLocation(Library.MODID, "dust.steel"), new ResourceLocation(Library.MODID, "dust.carbon"));
-		ModelBakery.registerItemVariants(ItemHandler.INGOT, new ResourceLocation(Library.MODID, "ingot.copper"), new ResourceLocation(Library.MODID, "ingot.titanium"), new ResourceLocation(Library.MODID, "ingot.steel"), new ResourceLocation(Library.MODID, "ingot.neosteel"));
-		ModelBakery.registerItemVariants(ItemHandler.PROTOSS_INGOT, new ResourceLocation(Library.MODID, "protoss.ingot.khalai"), new ResourceLocation(Library.MODID, "protoss.ingot.dark"));
-		ModelBakery.registerItemVariants(ItemHandler.PSI_BLADE_FOCUSER_UNCHARGED, new ResourceLocation(Library.MODID, "protoss_psiblade_focuser_uncharged_aiur"), new ResourceLocation(Library.MODID, "protoss_psiblade_focuser_uncharged_dark"));
-		ModelBakery.registerItemVariants(ItemHandler.C14_PARTS, new ResourceLocation(Library.MODID, "part.c14rifle.body"), new ResourceLocation(Library.MODID, "part.c14rifle.barrel"), new ResourceLocation(Library.MODID, "part.c14rifle.grip"));
-		ModelBakery.registerItemVariants(ItemHandler.BULLET_MAGAZINE, new ResourceLocation(Library.MODID, "magazine.c14"));
-		ModelBakery.registerItemVariants(ItemHandler.ZERG_CARAPACE, new ResourceLocation(Library.MODID, "zerg_icarapace_t1"), new ResourceLocation(Library.MODID, "zerg_icarapace_t2"), new ResourceLocation(Library.MODID, "zerg_icarapace_t3"));
-		ModelBakery.registerItemVariants(ItemHandler.PROTOSS_UPGRADE, new ResourceLocation(Library.MODID, "protoss.upgrade.speed"), new ResourceLocation(Library.MODID, "protoss.upgrade.efficiency"));
-		ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.PROTOSS_METAL_T1), new ResourceLocation(Library.MODID, "protoss.metal.1.aiur"), new ResourceLocation(Library.MODID, "protoss.metal.1.dark"), new ResourceLocation(Library.MODID, "protoss.metal.1.green"), new ResourceLocation(Library.MODID, "protoss.metal.1.blue"), new ResourceLocation(Library.MODID, "protoss.metal.1.red"));
-		ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.PROTOSS_METAL_T2), new ResourceLocation(Library.MODID, "protoss.metal.2.aiur"), new ResourceLocation(Library.MODID, "protoss.metal.2.dark"), new ResourceLocation(Library.MODID, "protoss.metal.2.green"), new ResourceLocation(Library.MODID, "protoss.metal.2.blue"), new ResourceLocation(Library.MODID, "protoss.metal.2.red"));
-		ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.PROTOSS_METAL_T3), new ResourceLocation(Library.MODID, "protoss.metal.3.aiur"), new ResourceLocation(Library.MODID, "protoss.metal.3.dark"), new ResourceLocation(Library.MODID, "protoss.metal.3.green"), new ResourceLocation(Library.MODID, "protoss.metal.3.blue"), new ResourceLocation(Library.MODID, "protoss.metal.3.red"));
-		ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.PYLON_CRYSTAL), new ResourceLocation(Library.MODID, "protoss.pyloncrystal.pure"), new ResourceLocation(Library.MODID, "protoss.pyloncrystal.dark"), new ResourceLocation(Library.MODID, "protoss.pyloncrystal.void"));
-		ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.ZERG_CARAPACE_BLOCK), new ResourceLocation(Library.MODID, "zerg.carapace.1"), new ResourceLocation(Library.MODID, "zerg.carapace.2"), new ResourceLocation(Library.MODID, "zerg.carapace.3"));
-		ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.ZERG_FLESH), new ResourceLocation(Library.MODID, "zerg.flesh.purple"), new ResourceLocation(Library.MODID, "zerg.flesh.brown"), new ResourceLocation(Library.MODID, "zerg.flesh.pink"), new ResourceLocation(Library.MODID, "zerg.flesh.blue"), new ResourceLocation(Library.MODID, "zerg.flesh.cyan"), new ResourceLocation(Library.MODID, "zerg.flesh.gray"), new ResourceLocation(Library.MODID, "zerg.flesh.green"),
-				new ResourceLocation(Library.MODID, "zerg.flesh.lightblue"), new ResourceLocation(Library.MODID, "zerg.flesh.lime"), new ResourceLocation(Library.MODID, "zerg.flesh.magenta"), new ResourceLocation(Library.MODID, "zerg.flesh.orange"), new ResourceLocation(Library.MODID, "zerg.flesh.red"), new ResourceLocation(Library.MODID, "zerg.flesh.silver"), new ResourceLocation(Library.MODID, "zerg.flesh.white"), new ResourceLocation(Library.MODID, "zerg.flesh.yellow"));
-		ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.PARISTEEL_METAL), new ResourceLocation(Library.MODID, "terran.paristeel.purple"), new ResourceLocation(Library.MODID, "terran.paristeel.brown"), new ResourceLocation(Library.MODID, "terran.paristeel.pink"), new ResourceLocation(Library.MODID, "terran.paristeel.blue"), new ResourceLocation(Library.MODID, "terran.paristeel.cyan"), new ResourceLocation(Library.MODID, "terran.paristeel.gray"),
-				new ResourceLocation(Library.MODID, "terran.paristeel.green"), new ResourceLocation(Library.MODID, "terran.paristeel.lightblue"), new ResourceLocation(Library.MODID, "terran.paristeel.lime"), new ResourceLocation(Library.MODID, "terran.paristeel.magenta"), new ResourceLocation(Library.MODID, "terran.paristeel.orange"), new ResourceLocation(Library.MODID, "terran.paristeel.red"), new ResourceLocation(Library.MODID, "terran.paristeel.silver"),
-				new ResourceLocation(Library.MODID, "terran.paristeel.white"), new ResourceLocation(Library.MODID, "terran.paristeel.yellow"), new ResourceLocation(Library.MODID, "terran.paristeel.black"));
-		ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.COMP_METAL_T1), new ResourceLocation(Library.MODID, "terran.metal.copper"), new ResourceLocation(Library.MODID, "terran.metal.steel"), new ResourceLocation(Library.MODID, "terran.metal.titanium"));
-		ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.NEOSTEEL_METAL), new ResourceLocation(Library.MODID, "terran.neosteel.base"), new ResourceLocation(Library.MODID, "terran.neosteel.frame"));
-		ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.COMP_MINERAL), new ResourceLocation(Library.MODID, "mineral.compressed.blue"), new ResourceLocation(Library.MODID, "mineral.compressed.rich"));
+
+		for (int i = 0; i < EnumMetaItem.MineralType.values().length; i++) {
+			ModelBakery.registerItemVariants(ItemHandler.MINERAL_SHARD, new ResourceLocation("mineral." + EnumMetaItem.MineralType.values()[i].getName()));
+		}
+		for (int i = 0; i < EnumMetaItem.VespeneType.values().length; i++) {
+			ModelBakery.registerItemVariants(ItemHandler.VESPENE, new ResourceLocation("vespene." + EnumMetaItem.VespeneType.values()[i].getName()));
+		}
+		for (int i = 0; i < EnumMetaItem.TerrazineType.values().length; i++) {
+			ModelBakery.registerItemVariants(ItemHandler.TERRAZINE, new ResourceLocation("terrazine." + EnumMetaItem.TerrazineType.values()[i].getName()));
+		}
+		for (int i = 0; i < EnumMetaItem.EnergyType.values().length; i++) {
+			ModelBakery.registerItemVariants(ItemHandler.ENERGY, new ResourceLocation("energy." + EnumMetaItem.EnergyType.values()[i].getName()));
+		}
+		for (int i = 0; i < EnumMetaItem.DustType.values().length; i++) {
+			ModelBakery.registerItemVariants(ItemHandler.DUST, new ResourceLocation("dust." + EnumMetaItem.DustType.values()[i].getName()));
+		}
+		for (int i = 0; i < EnumMetaItem.IngotType.values().length; i++) {
+			ModelBakery.registerItemVariants(ItemHandler.INGOT, new ResourceLocation("ingot." + EnumMetaItem.IngotType.values()[i].getName()));
+		}
+		for (int i = 0; i < EnumMetaItem.ProtossIngotType.values().length; i++) {
+			ModelBakery.registerItemVariants(ItemHandler.PROTOSS_INGOT, new ResourceLocation("protoss.ingot." + EnumMetaItem.ProtossIngotType.values()[i].getName()));
+		}
+		for (int i = 0; i < EnumMetaItem.FocuserType.values().length; i++) {
+			ModelBakery.registerItemVariants(ItemHandler.PSI_BLADE_FOCUSER_UNCHARGED, new ResourceLocation("protoss_psiblade_focuser_uncharged_" + EnumMetaItem.FocuserType.values()[i].getName()));
+		}
+		for (int i = 0; i < EnumMetaItem.C14PartType.values().length; i++) {
+			ModelBakery.registerItemVariants(ItemHandler.C14_PARTS, new ResourceLocation("part.c14rifle." + EnumMetaItem.C14PartType.values()[i].getName()));
+		}
+		for (int i = 0; i < EnumMetaItem.BulletMagazineType.values().length; i++) {
+			ModelBakery.registerItemVariants(ItemHandler.BULLET_MAGAZINE, new ResourceLocation("magazine." + EnumMetaItem.BulletMagazineType.values()[i].getName()));
+		}
+		for (int i = 0; i < EnumMetaItem.CarapaceType.values().length; i++) {
+			ModelBakery.registerItemVariants(ItemHandler.ZERG_CARAPACE, new ResourceLocation("zerg_icarapace_" + EnumMetaItem.CarapaceType.values()[i].getName()));
+		}
+		for (int i = 0; i < EnumMetaItem.ProtossUpgradeType.values().length; i++) {
+			ModelBakery.registerItemVariants(ItemHandler.PROTOSS_UPGRADE, new ResourceLocation("protoss.upgrade." + EnumMetaItem.ProtossUpgradeType.values()[i].getName()));
+		}
+		for (int i = 0; i < BlockProtossMetalT1.ProtossMetalType.values().length; i++) {
+			ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.PROTOSS_METAL_T1), new ResourceLocation("protoss.metal.1." + BlockProtossMetalT1.ProtossMetalType.values()[i].getName()));
+		}
+		for (int i = 0; i < BlockProtossMetalT2.ProtossMetalType.values().length; i++) {
+			ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.PROTOSS_METAL_T2), new ResourceLocation("protoss.metal.2." + BlockProtossMetalT2.ProtossMetalType.values()[i].getName()));
+		}
+		for (int i = 0; i < BlockProtossMetalT3.ProtossMetalType.values().length; i++) {
+			ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.PROTOSS_METAL_T3), new ResourceLocation("protoss.metal.3." + BlockProtossMetalT3.ProtossMetalType.values()[i].getName()));
+		}
+		for (int i = 0; i < BlockKhaydarinCrystal.PylonCrystalType.values().length; i++) {
+			ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.PYLON_CRYSTAL), new ResourceLocation("protoss.pyloncrystal." + BlockKhaydarinCrystal.PylonCrystalType.values()[i].getName()));
+		}
+		for (int i = 0; i < BlockZergCarapace.ZergStructureCarapaceType.values().length; i++) {
+			ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.ZERG_CARAPACE_BLOCK), new ResourceLocation("zerg.carapace." + BlockZergCarapace.ZergStructureCarapaceType.values()[i].getName()));
+		}
+		for (int i = 0; i < BlockZergFlesh.ZergFleshType.values().length; i++) {
+			ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.ZERG_FLESH), new ResourceLocation("zerg.flesh." + BlockZergFlesh.ZergFleshType.values()[i].getName()));
+		}
+		for (int i = 0; i < BlockParisteel.ParisteelMetalType.values().length; i++) {
+			ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.PARISTEEL_METAL), new ResourceLocation("terran.paristeel." + BlockParisteel.ParisteelMetalType.values()[i].getName()));
+		}
+		for (int i = 0; i < BlockTerranMetal.CompressedMetalType.values().length; i++) {
+			ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.COMP_METAL_T1), new ResourceLocation("terran.metal." + BlockTerranMetal.CompressedMetalType.values()[i].getName()));
+		}
+		for (int i = 0; i < BlockNeosteel.NeosteelMetalType.values().length; i++) {
+			ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.NEOSTEEL_METAL), new ResourceLocation("terran.neosteel." + BlockNeosteel.NeosteelMetalType.values()[i].getName()));
+		}
+		for (int i = 0; i < BlockMineral.CompressedMineralType.values().length; i++) {
+			ModelBakery.registerItemVariants(Item.getItemFromBlock(MetaBlockHandler.COMP_MINERAL), new ResourceLocation("mineral.compressed." + BlockMineral.CompressedMineralType.values()[i].getName()));
+		}
 	}
 
 	private static void registerEntityRenderers() {

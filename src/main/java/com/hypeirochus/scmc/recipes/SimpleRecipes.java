@@ -1,13 +1,13 @@
 package com.hypeirochus.scmc.recipes;
 
 import com.hypeirochus.scmc.blocks.metablocks.BlockGasCollector;
+import com.hypeirochus.scmc.blocks.metablocks.BlockKhaydarinCrystal.PylonCrystalType;
 import com.hypeirochus.scmc.blocks.metablocks.BlockMineral;
 import com.hypeirochus.scmc.blocks.metablocks.BlockProtossMetalT1;
 import com.hypeirochus.scmc.blocks.metablocks.BlockProtossMetalT2;
 import com.hypeirochus.scmc.blocks.metablocks.BlockProtossMetalT3;
 import com.hypeirochus.scmc.blocks.metablocks.BlockTerranMetal;
 import com.hypeirochus.scmc.blocks.metablocks.BlockZergCarapace;
-import com.hypeirochus.scmc.blocks.metablocks.BlockKhaydarinCrystal.PylonCrystalType;
 import com.hypeirochus.scmc.enums.EnumMetaItem;
 import com.hypeirochus.scmc.handlers.ArmorHandler;
 import com.hypeirochus.scmc.handlers.BlockHandler;
