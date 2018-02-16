@@ -9,7 +9,7 @@ import ga.scmc.enums.EnumColors;
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumTypeAttributes;
-import ga.scmc.handlers.Access;
+import ga.scmc.handlers.AccessHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
 import hypeirochus.api.client.entityfx.EntityFXElectricArc;
@@ -116,7 +116,7 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 	@SideOnly(Side.CLIENT)
 	private void spawnElectricArc(double posX, double posY, double posZ) {
 		for (int x = 0; x < 5; x++) {
-			Access.getMinecraft().effectRenderer.addEffect(new EntityFXElectricArc(this.world, this.posX, this.posY, this.posZ, posX + this.rand.nextInt(2), posY, posZ + this.rand.nextInt(2), 10, 2.5F, 0.5F, 0.05F, 0xFF00FFFF));
+			AccessHandler.getMinecraft().effectRenderer.addEffect(new EntityFXElectricArc(this.world, this.posX, this.posY, this.posZ, posX + this.rand.nextInt(2), posY, posZ + this.rand.nextInt(2), 10, 2.5F, 0.5F, 0.05F, 0xFF00FFFF));
 		}
 	}
 

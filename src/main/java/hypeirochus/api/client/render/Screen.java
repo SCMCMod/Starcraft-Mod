@@ -18,7 +18,7 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 
-import ga.scmc.handlers.Access;
+import ga.scmc.handlers.AccessHandler;
 import net.minecraft.client.Minecraft;
 
 public class Screen {
@@ -30,7 +30,7 @@ public class Screen {
 	 * @return Returns an instance of the compatibility version of ScaledResolution.
 	 */
 	public static ScaledResolution scaledDisplayResolution() {
-		return new ScaledResolution(Access.getMinecraft(), Access.getMinecraft().displayWidth, Access.getMinecraft().displayHeight);
+		return new ScaledResolution(AccessHandler.getMinecraft(), AccessHandler.getMinecraft().displayWidth, AccessHandler.getMinecraft().displayHeight);
 	}
 
 	/**
@@ -40,8 +40,8 @@ public class Screen {
 	public static Vector2d scaledMousePosition() {
 		final int SCALED_WIDTH = scaledDisplayResolution().getScaledWidth();
 		final int SCALED_HEIGHT = scaledDisplayResolution().getScaledHeight();
-		final int MOUSE_X = Mouse.getX() * SCALED_WIDTH / Access.getMinecraft().displayWidth;
-		final int MOUSE_Y = SCALED_HEIGHT - Mouse.getY() * SCALED_HEIGHT / Access.getMinecraft().displayHeight - 1;
+		final int MOUSE_X = Mouse.getX() * SCALED_WIDTH / AccessHandler.getMinecraft().displayWidth;
+		final int MOUSE_Y = SCALED_HEIGHT - Mouse.getY() * SCALED_HEIGHT / AccessHandler.getMinecraft().displayHeight - 1;
 		return new Vector2d(MOUSE_X, MOUSE_Y);
 	}
 
@@ -49,7 +49,7 @@ public class Screen {
 	 * @return Returns the current game display width and height as a Dimension
 	 */
 	public static Dimension displayResolution() {
-		Minecraft mc = Access.getMinecraft();
+		Minecraft mc = AccessHandler.getMinecraft();
 		return new Dimension(mc.displayWidth, mc.displayHeight);
 	}
 
@@ -78,13 +78,13 @@ public class Screen {
 	 *            - Height to capture screen at.
 	 */
 	public static void saveScreenshot(String filename, int x, int y, int width, int height) {
-		File file = new File(Access.getMinecraft().mcDataDir.getPath());
+		File file = new File(AccessHandler.getMinecraft().mcDataDir.getPath());
 
 		if (!file.exists()) {
 			file.mkdirs();
 		}
 
-		if (Access.getMinecraft().ingameGUI != null && Keyboard.isKeyDown(Keyboard.KEY_F3) && Keyboard.isKeyDown(Keyboard.KEY_U)) {
+		if (AccessHandler.getMinecraft().ingameGUI != null && Keyboard.isKeyDown(Keyboard.KEY_F3) && Keyboard.isKeyDown(Keyboard.KEY_U)) {
 			try {
 				OpenGL.readBuffer(GL11.GL_FRONT);
 				int bpp = 4;

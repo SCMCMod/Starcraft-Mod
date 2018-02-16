@@ -8,7 +8,7 @@ import ga.scmc.enums.EnumColors;
 import ga.scmc.enums.EnumFactionTypes;
 import ga.scmc.enums.EnumMetaItem;
 import ga.scmc.enums.EnumTypeAttributes;
-import ga.scmc.handlers.Access;
+import ga.scmc.handlers.AccessHandler;
 import ga.scmc.handlers.ItemHandler;
 import ga.scmc.handlers.SoundHandler;
 import hypeirochus.api.world.entity.ItemDrop;
@@ -153,7 +153,7 @@ public class EntityBrakk extends EntityZergMob implements IMob, Predicate<Entity
 	@Override
 	public void onDeath(DamageSource cause) {
 		if (world.isRemote) {
-			PlayerList list = Access.getMinecraft().getIntegratedServer().getPlayerList();
+			PlayerList list = AccessHandler.getMinecraft().getIntegratedServer().getPlayerList();
 			for (int i = 0; i < list.getCurrentPlayerCount(); i++) {
 				EntityPlayer thePlayer = list.getPlayers().get(i);
 				thePlayer.sendMessage(new TextComponentString("Brakk has been slain!").setStyle(new Style().setColor(TextFormatting.DARK_RED)));

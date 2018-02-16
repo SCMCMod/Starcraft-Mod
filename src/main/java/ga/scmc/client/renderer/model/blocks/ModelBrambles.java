@@ -1,6 +1,6 @@
 package ga.scmc.client.renderer.model.blocks;
 
-import ga.scmc.handlers.Access;
+import ga.scmc.handlers.AccessHandler;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;
@@ -176,7 +176,7 @@ public class ModelBrambles extends ModelBase {
 	@SideOnly(Side.CLIENT)
 	public void setRotationAngles(float ageIn) {
 		if (ageIn != 0) {
-			float age = ageIn + Access.getPartialTicks();
+			float age = ageIn + AccessHandler.getPartialTicks();
 			this.branch11.rotateAngleX = MathHelper.sin(age * 0.1f) * 0.1f;
 			this.branch09.rotateAngleX = MathHelper.sin(age * 0.05f) * 0.1f;
 			this.branch02.rotateAngleX = MathHelper.sin(age * 0.05f) * 0.15f;

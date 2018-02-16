@@ -12,7 +12,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * 
  * @author CJMinecraft
  */
-public class Access {
+public class AccessHandler {
 
 	public static Minecraft getMinecraft() {
 		return Minecraft.getMinecraft();

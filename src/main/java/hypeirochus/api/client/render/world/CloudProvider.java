@@ -2,7 +2,7 @@ package hypeirochus.api.client.render.world;
 
 import org.lwjgl.opengl.GL11;
 
-import ga.scmc.handlers.Access;
+import ga.scmc.handlers.AccessHandler;
 import hypeirochus.api.client.render.OpenGL;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
@@ -28,9 +28,9 @@ public abstract class CloudProvider extends IRenderHandler implements ICloudProv
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
 	public static void updateClouds(ClientTickEvent event) {
-		World world = Access.getMinecraft().world;
+		World world = AccessHandler.getMinecraft().world;
 
-		if (world != null && !Access.getMinecraft().isGamePaused()) {
+		if (world != null && !AccessHandler.getMinecraft().isGamePaused()) {
 			if (world.provider instanceof IClimateProvider) {
 				IClimateProvider weatherProvider = (IClimateProvider) world.provider;
 
@@ -65,10 +65,10 @@ public abstract class CloudProvider extends IRenderHandler implements ICloudProv
 			ICloudProvider clouds = (ICloudProvider) weatherProvider.getCloudProvider();
 
 			if (clouds.areCloudsApplicableTo(world.provider)) {
-				if (Access.getMinecraft().gameSettings.shouldRenderClouds() >= 1) {
+				if (AccessHandler.getMinecraft().gameSettings.shouldRenderClouds() >= 1) {
 					OpenGL.pushMatrix();
 					{
-						if (Access.getMinecraft().gameSettings.fancyGraphics) {
+						if (AccessHandler.getMinecraft().gameSettings.fancyGraphics) {
 							OpenGL.enable(GL11.GL_FOG);
 						}
 
@@ -84,14 +84,14 @@ public abstract class CloudProvider extends IRenderHandler implements ICloudProv
 	@SideOnly(Side.CLIENT)
 	public void renderClouds(float renderPartialTicks) {
 		GlStateManager.disableCull();
-		Entity entity = Access.getMinecraft().getRenderViewEntity();
+		Entity entity = AccessHandler.getMinecraft().getRenderViewEntity();
 		float yOffset = (float) (entity.lastTickPosY + (entity.posY - entity.lastTickPosY) * (double) renderPartialTicks);
 		byte cloudSections = 4;
 		Tessellator tessellator = Tessellator.getInstance();
 		VertexBuffer vertexbuffer = tessellator.getBuffer();
 		double viewX = (entity.prevPosX + (entity.posX - entity.prevPosX) * (double) renderPartialTicks + getCloudMovementX(entity.world, cloudTicksPrev, cloudTicks) * 0.029999999329447746D) / 12.0D;
 		double viewZ = (entity.prevPosZ + (entity.posZ - entity.prevPosZ) * (double) renderPartialTicks + getCloudMovementZ(entity.world, cloudTicksPrev, cloudTicks) * 0.029999999329447746D) / 12.0D;
-		float cloudHeight = Access.getMinecraft().world.provider.getCloudHeight() - yOffset + 0.33F;
+		float cloudHeight = AccessHandler.getMinecraft().world.provider.getCloudHeight() - yOffset + 0.33F;
 		viewX = viewX - (double) (MathHelper.floor(viewX / 2048.0D) * 2048);
 		viewZ = viewZ - (double) (MathHelper.floor(viewZ / 2048.0D) * 2048);
 		getCloudTexture().bind();

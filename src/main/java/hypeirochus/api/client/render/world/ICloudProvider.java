@@ -1,6 +1,6 @@
 package hypeirochus.api.client.render.world;
 
-import ga.scmc.handlers.Access;
+import ga.scmc.handlers.AccessHandler;
 import hypeirochus.api.client.render.Texture;
 import hypeirochus.api.client.render.model.SCMathHelper;
 import net.minecraft.world.World;
@@ -23,7 +23,7 @@ public interface ICloudProvider {
 	public Texture getCloudTexture();
 
 	public default double getCloudMovementX(World world, float cloudTicksPrev, float cloudTicks) {
-		return SCMathHelper.interpolateRotation(cloudTicksPrev, cloudTicks, Access.getPartialTicks());
+		return SCMathHelper.interpolateRotation(cloudTicksPrev, cloudTicks, AccessHandler.getPartialTicks());
 	}
 
 	public default double getCloudMovementZ(World world, float cloudTicksPrev, float cloudTicks) {
