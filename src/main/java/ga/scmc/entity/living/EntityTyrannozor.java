@@ -51,7 +51,8 @@ public class EntityTyrannozor extends EntityZergMob implements IMob, Predicate<E
 	}
 
 	/**
-	 * The method where this entity handles checks to make sure it can attack the target.
+	 * The method where this entity handles checks to make sure it can attack the
+	 * target.
 	 */
 	@Override
 	public boolean apply(EntityLivingBase entity) {

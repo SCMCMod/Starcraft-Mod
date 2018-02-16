@@ -7,7 +7,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class StructureMoonTemplate extends SCWorldGenerator {
-	
+
 	@Override
 	public boolean generateMoon(int planetSize, IBlockState block1, IBlockState block2, World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos pos) {
 		for (int i = 0; i < planetSize; i++) {

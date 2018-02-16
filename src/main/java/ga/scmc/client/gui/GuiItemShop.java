@@ -37,25 +37,25 @@ import ocelot.api.utils.TimeUtils;
 public class GuiItemShop extends BasicGui {
 
 	/** The player being traded with. */
-	private EntityPlayer customer;
-	private String displayName;
+	private EntityPlayer			customer;
+	private String					displayName;
 
-	private static final ItemStack MINERAL = new ItemStack(ItemHandler.MINERAL_SHARD);
-	private static final ItemStack VESPENE = new ItemStack(ItemHandler.VESPENE, 1, 2);
+	private static final ItemStack	MINERAL					= new ItemStack(ItemHandler.MINERAL_SHARD);
+	private static final ItemStack	VESPENE					= new ItemStack(ItemHandler.VESPENE, 1, 2);
 
-	public List<ItemShopTab> tabs = new ArrayList<ItemShopTab>();
-	private int tab;
+	public List<ItemShopTab>		tabs					= new ArrayList<ItemShopTab>();
+	private int						tab;
 
-	private GuiButton buttonBuy;
-	private GuiTextField textBox;
-	private static final int BUTTON_BUY = 0;
-	private static final int TEXT_BOX = 1;
+	private GuiButton				buttonBuy;
+	private GuiTextField			textBox;
+	private static final int		BUTTON_BUY				= 0;
+	private static final int		TEXT_BOX				= 1;
 
-	private int selectedIndex = -1;
-	private int buyAmount = 1;
-	private ItemStack modifyingStack = null;
-	private int modifyingStackWindowX = 0;
-	private int modifyingStackWindowY = 0;
+	private int						selectedIndex			= -1;
+	private int						buyAmount				= 1;
+	private ItemStack				modifyingStack			= null;
+	private int						modifyingStackWindowX	= 0;
+	private int						modifyingStackWindowY	= 0;
 
 	public GuiItemShop(EntityPlayer player) {
 		this.customer = player;
@@ -190,7 +190,8 @@ public class GuiItemShop extends BasicGui {
 
 		// if (selectedIndex != -1) {
 		// String buyAmountS = "x" + buyAmount;
-		// this.fontRendererObj.drawString(buyAmountS, 123 - this.fontRendererObj.getStringWidth(buyAmountS) / 2, 150, 4210752);
+		// this.fontRendererObj.drawString(buyAmountS, 123 -
+		// this.fontRendererObj.getStringWidth(buyAmountS) / 2, 150, 4210752);
 		// }
 
 		if (TimeUtils.isChristmas()) {

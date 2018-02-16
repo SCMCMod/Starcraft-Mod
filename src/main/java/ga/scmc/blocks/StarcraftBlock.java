@@ -23,7 +23,7 @@ public class StarcraftBlock extends Block {
 	public StarcraftBlock(Material material) {
 		super(material, material.getMaterialMapColor());
 	}
-	
+
 	public StarcraftBlock(Material material, MapColor color) {
 		super(material, color);
 	}

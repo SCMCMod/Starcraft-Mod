@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class WorldGenKaldirBrambles extends WorldGenerator {
-	
+
 	public boolean generate(World worldIn, Random rand, BlockPos position) {
 		for (int i = 0; i < 10; ++i) {
 			int j = position.getX() + rand.nextInt(8) - rand.nextInt(8);

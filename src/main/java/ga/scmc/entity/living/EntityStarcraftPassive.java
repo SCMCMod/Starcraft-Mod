@@ -122,9 +122,10 @@ public abstract class EntityStarcraftPassive extends EntityTameable implements I
 		this.setNBTColor(nbt.getInteger("Color"));
 		this.setStarcraftOwner(nbt.getString("Owner"));
 	}
-	
+
 	/**
-	 * Gets the owner of this animal. Used mostly to determine if two entities should attack, along with the factions.
+	 * Gets the owner of this animal. Used mostly to determine if two entities
+	 * should attack, along with the factions.
 	 * 
 	 * @return String
 	 */
@@ -133,9 +134,11 @@ public abstract class EntityStarcraftPassive extends EntityTameable implements I
 	}
 
 	/**
-	 * Sets the owner of this animal. Set through events such as unit purchase, mind control, and so on.
+	 * Sets the owner of this animal. Set through events such as unit purchase, mind
+	 * control, and so on.
 	 * 
-	 * @param owner The owner this mob will be under.
+	 * @param owner
+	 *            The owner this mob will be under.
 	 */
 	public void setStarcraftOwner(String owner) {
 		this.getDataManager().set(OWNER, owner);

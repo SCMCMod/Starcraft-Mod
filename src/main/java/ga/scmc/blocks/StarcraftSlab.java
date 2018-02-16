@@ -21,12 +21,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class StarcraftSlab extends Block {
 
-	public static final PropertyEnum<StarcraftSlab.Part> PART = PropertyEnum.<Part>create("part", Part.class);
+	public static final PropertyEnum<StarcraftSlab.Part>	PART				= PropertyEnum.<Part>create("part", Part.class);
 
-	public static final AxisAlignedBB AABB_BOTTOM_HALF = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.5D, 1.0D);
-	public static final AxisAlignedBB AABB_TOP_HALF = new AxisAlignedBB(0.0D, 0.5D, 0.0D, 1.0D, 1.0D, 1.0D);
+	public static final AxisAlignedBB						AABB_BOTTOM_HALF	= new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.5D, 1.0D);
+	public static final AxisAlignedBB						AABB_TOP_HALF		= new AxisAlignedBB(0.0D, 0.5D, 0.0D, 1.0D, 1.0D, 1.0D);
 
-	private final IBlockState blockType;
+	private final IBlockState								blockType;
 
 	public StarcraftSlab(IBlockState blockType) {
 		this(null, blockType);
@@ -113,7 +113,9 @@ public class StarcraftSlab extends Block {
 	}
 
 	public enum Part implements IStringSerializable {
-		TOP, BOTTOM, FULL;
+		TOP,
+		BOTTOM,
+		FULL;
 
 		@Override
 		public String getName() {

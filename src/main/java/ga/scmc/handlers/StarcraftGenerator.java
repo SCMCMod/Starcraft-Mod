@@ -218,7 +218,7 @@ public class StarcraftGenerator {
 	protected static void runMultisurfacePlanetGenerator(SCWorldGenerator generator, int id, int planetSize, int range, IBlockState block1, IBlockState block2, World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos pos) {
 		generator.generateMultisurfacePlanet(id, planetSize, range, block1, block2, world, rand, offsetX, offsetY, offsetZ, pos);
 	}
-	
+
 	protected static void runMoonGenerator(SCWorldGenerator generator, int planetSize, IBlockState block1, IBlockState block2, World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos pos) {
 		generator.generateMoon(planetSize, block1, block2, world, rand, offsetX, offsetY, offsetZ, pos);
 	}

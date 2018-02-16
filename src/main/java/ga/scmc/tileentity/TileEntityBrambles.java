@@ -13,8 +13,8 @@ import net.minecraft.util.ITickable;
  */
 public class TileEntityBrambles extends TileEntity implements ITickable {
 
-	private int age;
-	private int variant;
+	private int	age;
+	private int	variant;
 
 	public TileEntityBrambles() {
 		this(0);
@@ -67,7 +67,7 @@ public class TileEntityBrambles extends TileEntity implements ITickable {
 	public int getAge() {
 		return age;
 	}
-	
+
 	public int getVariant() {
 		return variant;
 	}

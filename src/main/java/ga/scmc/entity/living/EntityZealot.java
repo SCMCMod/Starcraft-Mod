@@ -71,7 +71,8 @@ public class EntityZealot extends EntityProtossMob implements IMob, Predicate<En
 	}
 
 	/**
-	 * The method where this entity handles checks to make sure it can attack the target.
+	 * The method where this entity handles checks to make sure it can attack the
+	 * target.
 	 */
 	@Override
 	public boolean apply(EntityLivingBase entity) {
@@ -139,9 +140,9 @@ public class EntityZealot extends EntityProtossMob implements IMob, Predicate<En
 	public void onUpdate() {
 		if (!world.isRemote) {
 			if (this.getAttackTarget() != null && this.getDistanceSqToEntity(this.getAttackTarget()) < 80.0D) {
-					this.setSheathed(true);
+				this.setSheathed(true);
 			} else if (this.getAttackTarget() == null) {
-					this.setSheathed(false);
+				this.setSheathed(false);
 			}
 		}
 		super.onUpdate();

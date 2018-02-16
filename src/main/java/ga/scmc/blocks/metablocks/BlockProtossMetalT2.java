@@ -54,7 +54,7 @@ public class BlockProtossMetalT2 extends Block implements IMetaBlockName {
 	public MapColor getMapColor(IBlockState state) {
 		return state.getValue(TYPE).getMapColor();
 	}
-	
+
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
 		return null;

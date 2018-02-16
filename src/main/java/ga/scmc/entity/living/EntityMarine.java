@@ -36,8 +36,8 @@ import net.minecraft.world.World;
  */
 public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
 
-	private static final DataParameter<Boolean>	AIM	= EntityDataManager.createKey(EntityMarine.class, DataSerializers.BOOLEAN);
-	
+	private static final DataParameter<Boolean> AIM = EntityDataManager.createKey(EntityMarine.class, DataSerializers.BOOLEAN);
+
 	public EntityMarine(World world) {
 		super(world);
 		setSize(0.8F, 2.2F);
@@ -53,7 +53,7 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, true, false, this));
 	}
-	
+
 	@Override
 	protected void entityInit() {
 		super.entityInit();
@@ -69,7 +69,6 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 		this.getDataManager().set(AIM, bool);
 	}
 
-
 	@Override
 	protected void dropFewItems(boolean recentlyHit, int looting) {
 		ItemDrop drop = new ItemDrop(1, new ItemStack(this.getHeldItemMainhand().getItem(), 0));
@@ -79,7 +78,7 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 		drop2.tryDrop(this);
 		drop3.tryDrop(this);
 	}
-	
+
 	@Override
 	public ItemStack getHeldItemMainhand() {
 		return new ItemStack(ItemHandler.C14_GAUSS_RIFLE);
@@ -95,7 +94,8 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 	}
 
 	/**
-	 * The method where this entity handles checks to make sure it can attack the target.
+	 * The method where this entity handles checks to make sure it can attack the
+	 * target.
 	 */
 	@Override
 	public boolean apply(EntityLivingBase entity) {
@@ -107,7 +107,7 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 	 */
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float p_82196_2_) {
-		if(this.getHeldItemMainhand().getItem() == ItemHandler.C14_GAUSS_RIFLE) {
+		if (this.getHeldItemMainhand().getItem() == ItemHandler.C14_GAUSS_RIFLE) {
 			EntityC14GaussRifleBullet bullet = new EntityC14GaussRifleBullet(this.world, this);
 			double d0 = target.posY + (double) target.getEyeHeight() - 1.800000023841858D - target.getDistanceSq(target.getPosition());
 			double d1 = target.posX - this.posX;
@@ -117,8 +117,8 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 			bullet.setThrowableHeading(d1, d2 + (double) f, d3, 1.6F, .0F);
 			this.playSound(SoundHandler.FX_C14GAUSSRIFLE_FIRING, 0.5F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
 			this.world.spawnEntity(bullet);
-		}else {
-			
+		} else {
+
 		}
 	}
 
@@ -126,7 +126,7 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 	public int getTalkInterval() {
 		return 160;
 	}
-	
+
 	@Override
 	public void onUpdate() {
 		if (!world.isRemote) {

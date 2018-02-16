@@ -57,7 +57,8 @@ public class EntityMutaliskPrimalDehaka extends EntityZergFlying implements IMob
 	}
 
 	/**
-	 * The method where this entity handles checks to make sure it can attack the target.
+	 * The method where this entity handles checks to make sure it can attack the
+	 * target.
 	 */
 	@Override
 	public boolean apply(EntityLivingBase entity) {

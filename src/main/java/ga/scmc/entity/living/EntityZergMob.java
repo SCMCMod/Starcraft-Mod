@@ -28,7 +28,7 @@ public class EntityZergMob extends EntityStarcraftMob {
 	public boolean getCanSpawnHere() {
 		if (this.world.getDifficulty() != EnumDifficulty.PEACEFUL) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}

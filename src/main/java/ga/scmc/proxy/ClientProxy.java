@@ -19,21 +19,21 @@ import ga.scmc.client.renderer.model.armor.ModelZergArmorT3;
  */
 public class ClientProxy extends CommonProxy {
 
-	private static final ModelArmorBase M0 = new ModelZergArmorT1(1.0f);
-	private static final ModelArmorBase M1 = new ModelZergArmorT1(0.5f);
-	private static final ModelArmorBase M2 = new ModelZergArmorT2(1.0f);
-	private static final ModelArmorBase M3 = new ModelZergArmorT2(0.5f);
-	private static final ModelArmorBase M4 = new ModelZergArmorT3(1.0f);
-	private static final ModelArmorBase M5 = new ModelZergArmorT3(0.5f);
-	private static final ModelArmorBase M6 = new ModelTerranMarineArmor(1.0f);
-	private static final ModelArmorBase M7 = new ModelTerranMarineArmor(0.5f);
-	private static final ModelArmorBase M8 = new ModelProtossArmor(1.0f);
-	private static final ModelArmorBase M9 = new ModelProtossArmor(0.5f);
-	private static final ModelArmorBase M10 = new ModelProtossTaldarimArmor(1.0f);
-	private static final ModelArmorBase M11 = new ModelProtossTaldarimArmor(0.5f);
-	private static final ModelArmorBase M12 = new ModelProtossNerazimArmor(1.0f);
-	private static final ModelArmorBase M13 = new ModelProtossNerazimArmor(0.5f);
-	
+	private static final ModelArmorBase	M0	= new ModelZergArmorT1(1.0f);
+	private static final ModelArmorBase	M1	= new ModelZergArmorT1(0.5f);
+	private static final ModelArmorBase	M2	= new ModelZergArmorT2(1.0f);
+	private static final ModelArmorBase	M3	= new ModelZergArmorT2(0.5f);
+	private static final ModelArmorBase	M4	= new ModelZergArmorT3(1.0f);
+	private static final ModelArmorBase	M5	= new ModelZergArmorT3(0.5f);
+	private static final ModelArmorBase	M6	= new ModelTerranMarineArmor(1.0f);
+	private static final ModelArmorBase	M7	= new ModelTerranMarineArmor(0.5f);
+	private static final ModelArmorBase	M8	= new ModelProtossArmor(1.0f);
+	private static final ModelArmorBase	M9	= new ModelProtossArmor(0.5f);
+	private static final ModelArmorBase	M10	= new ModelProtossTaldarimArmor(1.0f);
+	private static final ModelArmorBase	M11	= new ModelProtossTaldarimArmor(0.5f);
+	private static final ModelArmorBase	M12	= new ModelProtossNerazimArmor(1.0f);
+	private static final ModelArmorBase	M13	= new ModelProtossNerazimArmor(0.5f);
+
 	@Override
 	public ModelArmorBase getArmorModel(int id) {
 		switch (id) {

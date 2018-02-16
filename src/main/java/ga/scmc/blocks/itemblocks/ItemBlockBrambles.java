@@ -36,7 +36,9 @@ public class ItemBlockBrambles extends ItemBlockMeta {
 	}
 
 	public enum Type {
-		KALDIR, SHAKURAS, ZERUS;
+		KALDIR,
+		SHAKURAS,
+		ZERUS;
 
 		public int getId() {
 			return this.ordinal();

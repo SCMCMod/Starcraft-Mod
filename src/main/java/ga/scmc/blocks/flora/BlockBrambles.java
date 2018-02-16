@@ -77,7 +77,7 @@ public class BlockBrambles extends BlockContainer implements IShearable, IMetaBl
 		}
 		super.breakBlock(world, pos, state);
 	}
-	
+
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
 		return null;
@@ -142,7 +142,8 @@ public class BlockBrambles extends BlockContainer implements IShearable, IMetaBl
 	}
 
 	public enum Part implements IStringSerializable {
-		BOTTOM, TOP;
+		BOTTOM,
+		TOP;
 
 		@Override
 		public String getName() {

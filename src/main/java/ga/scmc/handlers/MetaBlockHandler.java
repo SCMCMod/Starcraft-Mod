@@ -29,20 +29,20 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
  */
 public class MetaBlockHandler {
 
-	public static Block PROTOSS_METAL_T1 = new BlockProtossMetalT1();
-	public static Block PROTOSS_METAL_T2 = new BlockProtossMetalT2();
-	public static Block PROTOSS_METAL_T3 = new BlockProtossMetalT3();
-	public static Block ENERGY = new BlockEnergy();
-	public static Block PYLON_CRYSTAL = new BlockKhaydarinCrystal();
-	public static Block ZERG_CARAPACE_BLOCK = new BlockZergCarapace();
-	public static Block ZERG_FLESH = new BlockZergFlesh();
-	public static Block COMP_METAL_T1 = new BlockTerranMetal();
-	public static Block NEOSTEEL_METAL = new BlockNeosteel();
-	public static Block PARISTEEL_METAL = new BlockParisteel();
-	public static Block COMP_MINERAL = new BlockMineral();
-	public static Block GAS_COLLECTOR = new BlockGasCollector();
-	public static Block STAR_SURFACE = new BlockStarSurface();
-	public static Block PLANET_SURFACE = new BlockPlanetSurface();
+	public static Block	PROTOSS_METAL_T1	= new BlockProtossMetalT1();
+	public static Block	PROTOSS_METAL_T2	= new BlockProtossMetalT2();
+	public static Block	PROTOSS_METAL_T3	= new BlockProtossMetalT3();
+	public static Block	ENERGY				= new BlockEnergy();
+	public static Block	PYLON_CRYSTAL		= new BlockKhaydarinCrystal();
+	public static Block	ZERG_CARAPACE_BLOCK	= new BlockZergCarapace();
+	public static Block	ZERG_FLESH			= new BlockZergFlesh();
+	public static Block	COMP_METAL_T1		= new BlockTerranMetal();
+	public static Block	NEOSTEEL_METAL		= new BlockNeosteel();
+	public static Block	PARISTEEL_METAL		= new BlockParisteel();
+	public static Block	COMP_MINERAL		= new BlockMineral();
+	public static Block	GAS_COLLECTOR		= new BlockGasCollector();
+	public static Block	STAR_SURFACE		= new BlockStarSurface();
+	public static Block	PLANET_SURFACE		= new BlockPlanetSurface();
 
 	/**
 	 * Registers the blocks and items.
@@ -50,7 +50,7 @@ public class MetaBlockHandler {
 	public static void init() {
 		register();
 	}
-	
+
 	/**
 	 * Register the blocks.
 	 */

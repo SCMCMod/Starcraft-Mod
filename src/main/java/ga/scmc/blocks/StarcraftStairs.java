@@ -15,7 +15,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class StarcraftStairs extends BlockStairs {
-	
+
 	private ItemBlock item;
 
 	public StarcraftStairs(IBlockState block) {

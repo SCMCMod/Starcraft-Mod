@@ -26,9 +26,9 @@ public class RenderMarine extends RenderLiving<EntityMarine> implements LayerRen
 		model = ((ModelMarine) mainModel);
 		this.RENDERER = this;
 		this.addLayer(this);
-        this.addLayer(new LayerHeldItem(this));
+		this.addLayer(new LayerHeldItem(this));
 	}
-	
+
 	@Override
 	protected ResourceLocation getEntityTexture(EntityMarine entity) {
 		return BASE;

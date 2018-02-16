@@ -49,7 +49,8 @@ public class EntityZerglingSwarmling extends EntityZergMob implements IMob, Pred
 	}
 
 	/**
-	 * The method where this entity handles checks to make sure it can attack the target.
+	 * The method where this entity handles checks to make sure it can attack the
+	 * target.
 	 */
 	@Override
 	public boolean apply(EntityLivingBase entity) {

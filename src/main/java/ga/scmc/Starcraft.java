@@ -61,14 +61,14 @@ public class Starcraft {
 
 	/** The mod's instance. Used for GUI stuff. */
 	@Instance(Library.MODID)
-	public static Starcraft instance;
+	public static Starcraft		instance;
 
 	/** The common proxy instance */
 	@SidedProxy(clientSide = Library.CLIENT_SIDE_PROXY, serverSide = Library.SERVER_SIDE_PROXY)
-	public static CommonProxy proxy;
+	public static CommonProxy	proxy;
 
-	private static Logger logger;
-	private static LogRegistry logRegistry = new LogRegistry();
+	private static Logger		logger;
+	private static LogRegistry	logRegistry	= new LogRegistry();
 
 	static {
 		FluidRegistry.enableUniversalBucket();

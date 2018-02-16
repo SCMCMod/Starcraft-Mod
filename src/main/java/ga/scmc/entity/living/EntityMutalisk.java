@@ -56,7 +56,8 @@ public class EntityMutalisk extends EntityZergFlying implements IMob, IRangedAtt
 	}
 
 	/**
-	 * The method where this entity handles checks to make sure it can attack the target.
+	 * The method where this entity handles checks to make sure it can attack the
+	 * target.
 	 */
 	@Override
 	public boolean apply(EntityLivingBase entity) {

@@ -130,7 +130,7 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	 * @return The mob.
 	 */
 	public EntityStarcraftMob setFactions(EnumFactionTypes faction) {
-		if(this.getStarcraftOwner().contentEquals("")) {
+		if (this.getStarcraftOwner().contentEquals("")) {
 			this.setStarcraftOwner(this.getOwnerFromFaction(faction));
 		}
 		this.faction = faction;
