@@ -129,7 +129,7 @@ public class GuiLists {
 		larvaOptions.add(new LarvaOption(6, 100, 50).setTooltip(I18n.format("entity.starcraft.hydralisk.name")));
 		larvaOptions.add(new LarvaOption(7, 100, 150).setTooltip(I18n.format("entity.starcraft.infestor.name")));
 		larvaOptions.add(new LarvaOption(8, 100, 75).setTooltip(I18n.format("entity.starcraft.swarmHost.name")));
-		larvaOptions.add(new LarvaOption(9, 300, 200).setTooltip(I18n.format("entity.starcraft.mutalisk.name")));
+		larvaOptions.add(new LarvaOption(9, 100, 100).setTooltip(I18n.format("entity.starcraft.mutalisk.name")));
 		LARVA_OPTIONS = larvaOptions.build();
 
 		LOGS = new ArrayList<List<String>>();
