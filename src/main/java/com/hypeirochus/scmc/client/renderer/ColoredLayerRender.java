@@ -59,7 +59,7 @@ public class ColoredLayerRender {
 			OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float) j, (float) k);
 			renderer.setLightmap(entity, partialTicks);
 	        GlStateManager.disableBlend();
-			GlStateManager.color(1, 1, 1, 1);
+			GlStateManager.resetColor();
 		}
 	}
 

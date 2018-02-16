@@ -78,7 +78,7 @@ public class RenderZergling extends RenderLiving<EntityZergling> implements Laye
 	protected ResourceLocation getEntityTexture(EntityZergling entity) {
 		return BASE;
 	}
-
+	
 	@Override
 	protected void preRenderCallback(EntityZergling entitylivingbaseIn, float partialTickTime) {
 		GlStateManager.scale(1.25F + (entitylivingbaseIn.getBiomass() / 60), 1.25F + (entitylivingbaseIn.getBiomass() / 60), 1.25F + (entitylivingbaseIn.getBiomass() / 60));
@@ -92,6 +92,6 @@ public class RenderZergling extends RenderLiving<EntityZergling> implements Laye
 
 	@Override
 	public boolean shouldCombineTextures() {
-		return true;
+		return false;
 	}
 }
