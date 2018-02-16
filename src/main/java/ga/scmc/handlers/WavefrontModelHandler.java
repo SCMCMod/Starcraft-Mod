@@ -29,7 +29,7 @@ public class WavefrontModelHandler {
 	 * Registers the obj models.
 	 */
 	public static void register() {
-		registerModel(BlockHandler.TEST);
+		registerModel(BlockHandler.TEST_BLOCK);
 		registerModel(BlockHandler.PROTOSS_WORMHOLE);
 	}
 

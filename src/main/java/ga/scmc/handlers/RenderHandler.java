@@ -121,7 +121,7 @@ import static ga.scmc.handlers.BlockHandler.SLAB_PROTOSS_METAL_RED_T2;
 import static ga.scmc.handlers.BlockHandler.SLAB_PROTOSS_METAL_RED_T3;
 import static ga.scmc.handlers.BlockHandler.STARCRAFT_SKULL;
 import static ga.scmc.handlers.BlockHandler.TERRAN_WARNING_TAPE;
-import static ga.scmc.handlers.BlockHandler.TEST;
+import static ga.scmc.handlers.BlockHandler.TEST_BLOCK;
 import static ga.scmc.handlers.ItemHandler.BIOMASS;
 import static ga.scmc.handlers.ItemHandler.BULLET_MAGAZINE;
 import static ga.scmc.handlers.ItemHandler.C14_GAUSS_RIFLE;
@@ -388,7 +388,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class RenderingHandler {
+public class RenderHandler {
 
 	public static void preInit() {
 		registerStandardItemRenderers();
@@ -552,7 +552,7 @@ public class RenderingHandler {
 		registerItemRender(ICON_TERRAN);
 		registerItemRender(ICON_ZERG);
 
-		registerItemRender(ItemHandler.TEST);
+		registerItemRender(ItemHandler.TEST_ITEM);
 
 		for (int i = 0; i < EnumMetaItem.MineralType.values().length; i++) {
 			registerItemRender(MINERAL_SHARD, i, "mineral." + EnumMetaItem.MineralType.values()[i].getName());
@@ -742,7 +742,7 @@ public class RenderingHandler {
 		registerBlockModel(FURNACE_PROTOSS);
 
 		// Other
-		registerBlockModel(TEST);
+		registerBlockModel(TEST_BLOCK);
 
 		// Flora
 		registerBlockModel(FLORA_ZERUS_GLOW_POD);
@@ -831,7 +831,7 @@ public class RenderingHandler {
 			registerBlockModel(COMP_MINERAL, i, "mineral.compressed." + BlockMineral.CompressedMineralType.values()[i].getName());
 		}
 		for (int i = 0; i < EnergyType.values().length; i++) {
-			registerBlockModel(MetaBlockHandler.ENERGY, i, "block.energy." + EnergyType.values()[i].getName());
+			registerBlockModel(MetaBlockHandler.ENERGY_BLOCK, i, "block.energy." + EnergyType.values()[i].getName());
 		}
 		for (int i = 0; i < BlockGasCollector.GasCollectorType.values().length; i++) {
 			registerBlockModel(GAS_COLLECTOR, i, "gas.collector." + BlockGasCollector.GasCollectorType.values()[i].getName());

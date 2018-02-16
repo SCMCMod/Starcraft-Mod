@@ -23,7 +23,7 @@ import ga.scmc.handlers.FuelHandler;
 import ga.scmc.handlers.GuiHandler;
 import ga.scmc.handlers.KeybindingHandler;
 import ga.scmc.handlers.MaterialHandler;
-import ga.scmc.handlers.RenderingHandler;
+import ga.scmc.handlers.RenderHandler;
 import ga.scmc.handlers.SoundHandler;
 import ga.scmc.handlers.WavefrontModelHandler;
 import ga.scmc.handlers.WorldGenerationHandler;
@@ -95,7 +95,7 @@ public class Starcraft {
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 			WavefrontModelHandler.preInit();
 			FuelHandler.preInit();
-			RenderingHandler.preInit();
+			RenderHandler.preInit();
 			KeybindingHandler.preInit();
 		}
 	}
@@ -117,7 +117,7 @@ public class Starcraft {
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 			logRegistry = new LogRegistry();
 			MinecraftForge.EVENT_BUS.register(new GuiRenderEventHandler());
-			RenderingHandler.init();
+			RenderHandler.init();
 			getLogRegistry().init();
 		}
 	}

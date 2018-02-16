@@ -32,7 +32,7 @@ public class MetaBlockHandler {
 	public static Block	PROTOSS_METAL_T1	= new BlockProtossMetalT1();
 	public static Block	PROTOSS_METAL_T2	= new BlockProtossMetalT2();
 	public static Block	PROTOSS_METAL_T3	= new BlockProtossMetalT3();
-	public static Block	ENERGY				= new BlockEnergy();
+	public static Block	ENERGY_BLOCK		= new BlockEnergy();
 	public static Block	PYLON_CRYSTAL		= new BlockKhaydarinCrystal();
 	public static Block	ZERG_CARAPACE_BLOCK	= new BlockZergCarapace();
 	public static Block	ZERG_FLESH			= new BlockZergFlesh();
@@ -58,7 +58,7 @@ public class MetaBlockHandler {
 		registerBlock(PROTOSS_METAL_T1);
 		registerBlock(PROTOSS_METAL_T2);
 		registerBlock(PROTOSS_METAL_T3);
-		registerBlock(ENERGY);
+		registerBlock(ENERGY_BLOCK);
 		registerBlock(PYLON_CRYSTAL);
 		registerBlock(ZERG_CARAPACE_BLOCK);
 		registerBlock(ZERG_FLESH);

@@ -36,7 +36,7 @@ public class ItemRenderRegistrationHandler {
 	public static void onModelBake(ModelBakeEvent event) {
 		eventObj = event;
 
-		register(BlockHandler.TEST, new ItemRenderTable());
+		register(BlockHandler.TEST_BLOCK, new ItemRenderTable());
 		register(ItemHandler.C14_GAUSS_RIFLE, new ItemRenderC14GaussRifle());
 		register(ItemHandler.FLAMETHROWER, new ItemRenderFlamethrower());
 		register(ItemHandler.SOLARITE_REAPER, new ItemRenderSolariteReaper());

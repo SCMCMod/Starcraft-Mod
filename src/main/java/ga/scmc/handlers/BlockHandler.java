@@ -92,7 +92,7 @@ import net.minecraftforge.fml.relauncher.Side;
 public class BlockHandler {
 
 	public static Block					LIGHT_SOURCE;
-	public static Block					TEST;
+	public static Block					TEST_BLOCK;
 
 	public static Block					ASH_CHAR;
 
@@ -476,7 +476,7 @@ public class BlockHandler {
 		TERRAN_WARNING_TAPE = new StarcraftBlock("terran.warningtape", RegistryType.FULL, Material.IRON, MapColor.YELLOW).setBlockSoundType(SoundType.METAL).setHardness(3.5f).setResistance(10.0f).setCreativeTab(StarcraftCreativeTabs.TERRAN);
 		STARCRAFT_SKULL = new BlockStarcraftSkull();
 		CITY_STONE_KORHAL = new BlockKorhalCityStone();
-		TEST = new BlockTest();
+		TEST_BLOCK = new BlockTest();
 		LIGHT_SOURCE = new BlockMovingLightSource();
 		PROTOSS_WORMHOLE = new BlockProtossWormhole();
 	}
@@ -616,7 +616,7 @@ public class BlockHandler {
 
 		registerBlock(STARCRAFT_SKULL, new ItemBlockStarcraftSkull());
 
-		registerCompleteBlock(TEST);
+		registerCompleteBlock(TEST_BLOCK);
 	}
 
 	/**

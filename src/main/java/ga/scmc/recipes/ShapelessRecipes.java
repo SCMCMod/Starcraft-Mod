@@ -82,7 +82,7 @@ public class ShapelessRecipes {
 		// EnumMetaItem.EnergyType.VOID.getID()));
 
 		for (int i = 0; i < EnergyType.values().length; i++) {
-			GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.ENERGY, 9, EnumMetaItem.EnergyType.values()[i].getID()), new ItemStack(MetaBlockHandler.ENERGY, 1, i));
+			GameRegistry.addShapelessRecipe(new ItemStack(ItemHandler.ENERGY, 9, EnumMetaItem.EnergyType.values()[i].getID()), new ItemStack(MetaBlockHandler.ENERGY_BLOCK, 1, i));
 		}
 	}
 }

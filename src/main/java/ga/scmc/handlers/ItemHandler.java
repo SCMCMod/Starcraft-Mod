@@ -106,7 +106,7 @@ public class ItemHandler {
 	public static Item					ICON_TERRAN								= new Item().setUnlocalizedName("icon.terran").setRegistryName("icon.terran").setCreativeTab(null);
 	public static Item					ICON_ZERG								= new Item().setUnlocalizedName("icon.zerg").setRegistryName("icon.zerg").setCreativeTab(null);
 
-	public static Item					TEST									= new ItemTest();
+	public static Item					TEST_ITEM								= new ItemTest();
 
 	static {
 		ArmorHandler.init();
@@ -182,7 +182,7 @@ public class ItemHandler {
 		registerItem(ICON_TERRAN);
 		registerItem(ICON_ZERG);
 
-		registerItem(TEST);
+		registerItem(TEST_ITEM);
 
 		ArmorHandler.register();
 		WeaponHandler.register();
