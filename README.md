@@ -1,8 +1,8 @@
 Minecraft mod based on Starcraft. To install:  
 
-1. In project directory, run command `git clone https://github.com/Hypeirochus/Starcraft-Mod.git --branch master --single-branch starcraft`  
+1. In project directory, run command `git clone https://github.com/Hypeirochus/Starcraft-Mod.git --branch 1.12 --single-branch starcraft-1_12`  
 
-2. Run command `gradlew setupDecompWorkspace` in {SCMC}  
+2. Run command `gradlew setupDecompWorkspace` in {SCMC}
 
 3. Run command `gradlew eclipse` in {SCMC} For those using IDEA, use gradlew idea instead.
 
