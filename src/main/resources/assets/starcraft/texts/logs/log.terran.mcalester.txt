@@ -1,0 +1,7 @@
+#skinId:1
+#name: The Interstellar Escape
+The Interstellar Escape travel agency prides themselves on taking their clients to the most luxurious and pleasant surroundings that the galaxy has to offer. Pleasant sandy beaches and island casinos are the destination for many of these relaxation-seeking tourists. If you are looking for something a little bit more exciting for your upcoming vacation, check out Shipley Enterprises "Extreme Bodily Injury" set of destinations. 
+
+"Slow Burn is our most popular adventure package, taking you to the blisteringly hot planet of Char, once home to the dreaded Overmind. You are shoved out of the dropship with a Kel-Morian multi-functional knife, a compass and three days worth of food. At this point you have one week to cover 350 kilometers of lava strewn Zerg infested rock and reach the pick up site. While this may sound trivial, the fluctuating magnetic fields that cover the surface of Char make the compass unreliable at best, and the cloud of ash that surrounds the planet seldom allows the stars to peek through to the surface. If you want a vacation that will leave your family with something to talk about for years to come, then try the Slow Burn." 
+
+       - "One Eye" McAlester, Sales rep for Shipley Enterprises 

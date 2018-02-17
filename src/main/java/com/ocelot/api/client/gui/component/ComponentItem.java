@@ -4,6 +4,16 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.item.ItemStack;
 
+/**
+ * <em><b>Copyright (c) 2018 Ocelot5836.</b></em>
+ * 
+ * <br>
+ * </br>
+ * 
+ * An itemstack that can be rendered.
+ * 
+ * @author Ocelot5836
+ */
 public class ComponentItem extends Component {
 
 	private ItemStack stack;
@@ -33,7 +43,7 @@ public class ComponentItem extends Component {
 	@Override
 	public void renderForeground(Minecraft mc, float partialTicks, int mouseX, int mouseY) {
 		if (stack != null) {
-			mc.getRenderItem().renderItemOverlays(mc.fontRendererObj, stack, x / (width / 16), y / (height / 16));
+			mc.getRenderItem().renderItemOverlays(mc.fontRenderer, stack, x / (width / 16), y / (height / 16));
 		}
 	}
 }

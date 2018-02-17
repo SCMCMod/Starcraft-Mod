@@ -1,0 +1,35 @@
+{
+    "display": {
+	    "icon": {
+            "item": "starcraft:mineral",
+			"data": 0
+        },
+        "title": {
+            "translate": "advancements.starcraft.mineMinerals.title"
+        },
+        "description": {
+            "translate": "advancements.starcraft.mineMinerals.desc"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+	"parent": "starcraft:starcraft/root",
+    "criteria": {
+        "getMineral": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "starcraft:mineral",
+                        "count": {
+                            "min": 1
+                        },
+                        "data": 0
+                    }
+                ]
+            }
+        }
+    }
+}

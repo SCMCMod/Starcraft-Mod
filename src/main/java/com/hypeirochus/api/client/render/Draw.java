@@ -17,10 +17,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -34,7 +34,8 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
 
 public class Draw {
-	public static VertexBuffer buffer() {
+
+	public static BufferBuilder buffer() {
 		return Tessellator.getInstance().getBuffer();
 	}
 
@@ -54,23 +55,23 @@ public class Draw {
 		Tessellator.getInstance().draw();
 	}
 
-	public static VertexBuffer vertex(int x, int y, int z) {
+	public static BufferBuilder vertex(int x, int y, int z) {
 		return vertex((double) x, (double) y, (double) z);
 	}
 
-	public static VertexBuffer vertex(double x, double y, double z) {
+	public static BufferBuilder vertex(double x, double y, double z) {
 		return buffer().pos(x, y, z);
 	}
 
-	public static VertexBuffer vertex(int x, int y, int z, float u, float v) {
+	public static BufferBuilder vertex(int x, int y, int z, float u, float v) {
 		return vertex((double) x, (double) y, (double) z, u, v);
 	}
 
-	public static VertexBuffer vertex(double x, double y, double z, float u, float v) {
+	public static BufferBuilder vertex(double x, double y, double z, float u, float v) {
 		return buffer().pos(x, y, z).tex(u, v);
 	}
 
-	public static VertexBuffer vertex(double x, double y, double z, double u, double v) {
+	public static BufferBuilder vertex(double x, double y, double z, double u, double v) {
 		return buffer().pos(x, y, z).tex(u, v);
 	}
 
@@ -114,8 +115,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draws a rectangle at the specified coordinates, with the specified width,
-	 * height and color.
+	 * Draws a rectangle at the specified coordinates, with the specified width, height and color.
 	 * 
 	 * @param x
 	 *            - x coordinate
@@ -133,8 +133,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draws a rectangle at the specified coordinates, with the specified width,
-	 * height and linear gradient color.
+	 * Draws a rectangle at the specified coordinates, with the specified width, height and linear gradient color.
 	 * 
 	 * @param x
 	 *            - x coordinate
@@ -154,8 +153,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draws a rectangle at the specified coordinates, with the specified width,
-	 * height and linear gradient color.
+	 * Draws a rectangle at the specified coordinates, with the specified width, height and linear gradient color.
 	 * 
 	 * @param x
 	 *            - x coordinate
@@ -186,8 +184,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draws a quad at the specified coordinates, with the specified width and
-	 * height
+	 * Draws a quad at the specified coordinates, with the specified width and height
 	 * 
 	 * @param x
 	 *            - x coordinate
@@ -203,8 +200,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draws a quad at the specified coordinates, with the specified width and
-	 * height on the specified z level.
+	 * Draws a quad at the specified coordinates, with the specified width and height on the specified z level.
 	 * 
 	 * @param x
 	 *            - x coordinate
@@ -222,8 +218,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draws a quad at the specified coordinates, with the specified width and
-	 * height and specified texture uv coords.
+	 * Draws a quad at the specified coordinates, with the specified width and height and specified texture uv coords.
 	 * 
 	 * @param x
 	 *            - x coordinate
@@ -243,8 +238,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draws a quad at the specified coordinates, with the specified width and
-	 * height and specified texture uv coords.
+	 * Draws a quad at the specified coordinates, with the specified width and height and specified texture uv coords.
 	 * 
 	 * @param x
 	 *            - x coordinate
@@ -273,8 +267,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draws a quad at the specified coordinates, with the specified width and
-	 * height and specified texture uv coords.
+	 * Draws a quad at the specified coordinates, with the specified width and height and specified texture uv coords.
 	 * 
 	 * @param x
 	 *            - x coordinate
@@ -298,8 +291,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draws a quad at the specified coordinates, with the specified width and
-	 * height and specified texture uv coords.
+	 * Draws a quad at the specified coordinates, with the specified width and height and specified texture uv coords.
 	 * 
 	 * @param x
 	 *            - x coordinate
@@ -330,8 +322,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified String at the specified coordinates using the specified
-	 * color.
+	 * Draw the specified String at the specified coordinates using the specified color.
 	 * 
 	 * @param text
 	 *            - String to draw
@@ -365,8 +356,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified String at the specified coordinates using the specified
-	 * color.
+	 * Draw the specified String at the specified coordinates using the specified color.
 	 * 
 	 * @param text
 	 *            - String to draw
@@ -382,8 +372,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified String centered at the specified coordinates using the
-	 * specified color.
+	 * Draw the specified String centered at the specified coordinates using the specified color.
 	 *
 	 * @param text
 	 *            - String to draw
@@ -405,8 +394,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified String centered at the specified coordinates using the
-	 * specified color.
+	 * Draw the specified String centered at the specified coordinates using the specified color.
 	 * 
 	 * @param text
 	 *            - String to draw
@@ -422,8 +410,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified String centered at the specified coordinates using the
-	 * specified color.
+	 * Draw the specified String centered at the specified coordinates using the specified color.
 	 * 
 	 * @param text
 	 *            - String to draw
@@ -441,8 +428,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified String centered at the specified coordinates using the
-	 * specified color.
+	 * Draw the specified String centered at the specified coordinates using the specified color.
 	 * 
 	 * @param text
 	 *            - String to draw
@@ -458,8 +444,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified String aligned to the right at the specified coordinates
-	 * using the specified color.
+	 * Draw the specified String aligned to the right at the specified coordinates using the specified color.
 	 * 
 	 * @param text
 	 *            - String to draw
@@ -477,8 +462,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified String aligned to the right at the specified coordinates
-	 * using the specified color.
+	 * Draw the specified String aligned to the right at the specified coordinates using the specified color.
 	 * 
 	 * @param text
 	 *            - String to draw
@@ -502,9 +486,9 @@ public class Draw {
 		return AccessHandler.getFontRenderer().getStringWidth(TextFormatting.getTextWithoutFormattingCodes(s));
 	}
 
-	public static final String						TOOLTIP_LINESPACE	= "\u00A7h";
-	public static final String						TOOLTIP_HANDLER		= "\u00A7x";
-	public static List<Draw.ITooltipLineHandler>	tipLineHandlers		= new ArrayList<Draw.ITooltipLineHandler>();
+	public static final String TOOLTIP_LINESPACE = "\u00A7h";
+	public static final String TOOLTIP_HANDLER = "\u00A7x";
+	public static List<Draw.ITooltipLineHandler> tipLineHandlers = new ArrayList<Draw.ITooltipLineHandler>();
 
 	public static int getTipLineId(ITooltipLineHandler handler) {
 		tipLineHandlers.add(handler);
@@ -516,8 +500,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draws a tooltip box at the specified cordinates, with the specified width and
-	 * height.
+	 * Draws a tooltip box at the specified cordinates, with the specified width and height.
 	 * 
 	 * @param x
 	 *            - x coordinate
@@ -565,8 +548,7 @@ public class Draw {
 	 * @param color
 	 *            - The color of the progress bar
 	 * @param barStyle
-	 *            - Set to false for a solid style progress bar. Set to true for a
-	 *            box-style progress bar.
+	 *            - Set to false for a solid style progress bar. Set to true for a box-style progress bar.
 	 */
 	public static void drawProgressBar(String label, int maxProgress, int curProgress, int posX, int posY, int barWidth, int barHeight, int stringPosY, int color, boolean barStyle) {
 		OpenGL.pushMatrix();
@@ -595,8 +577,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draws a centered rectangle with an outline at the specified coordinates and
-	 * the specified width, height, and color.
+	 * Draws a centered rectangle with an outline at the specified coordinates and the specified width, height, and color.
 	 * 
 	 * @param x
 	 *            - x coordinate
@@ -622,8 +603,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draws a rectangle with an outline at the specified coordinates and the
-	 * specified width, height, and color.
+	 * Draws a rectangle with an outline at the specified coordinates and the specified width, height, and color.
 	 * 
 	 * @param x
 	 *            - x coordinate
@@ -654,8 +634,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draws an overlay across the entire screen using the specified
-	 * ResourceLocation
+	 * Draws an overlay across the entire screen using the specified ResourceLocation
 	 * 
 	 * @param resource
 	 *            - The ResourceLocation to draw
@@ -665,8 +644,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draws an overlay across the entire screen using the specified
-	 * ResourceLocation and an alpha value.
+	 * Draws an overlay across the entire screen using the specified ResourceLocation and an alpha value.
 	 * 
 	 * @param resource
 	 *            - The ResourceLocation to draw
@@ -678,8 +656,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draws an overlay across the entire screen using the specified
-	 * ResourceLocation and 3 RGB color values.
+	 * Draws an overlay across the entire screen using the specified ResourceLocation and 3 RGB color values.
 	 * 
 	 * @param resource
 	 *            - The ResourceLocation to draw
@@ -695,8 +672,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draws an overlay across the entire screen using the specified
-	 * ResourceLocation and 4 RGBA color values.
+	 * Draws an overlay across the entire screen using the specified ResourceLocation and 4 RGBA color values.
 	 * 
 	 * @param resource
 	 *            - The ResourceLocation to draw
@@ -726,8 +702,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified ModelBase instance at 0,0,0 with the specified
-	 * ResourceLocation.
+	 * Draw the specified ModelBase instance at 0,0,0 with the specified ResourceLocation.
 	 * 
 	 * @param model
 	 *            - ModelBase instance to draw.
@@ -739,8 +714,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified ModelBase instance at the specified coordinates with the
-	 * specified ResourceLocation.
+	 * Draw the specified ModelBase instance at the specified coordinates with the specified ResourceLocation.
 	 * 
 	 * @param model
 	 *            - ModelBase instance to draw.
@@ -758,8 +732,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified ModelBase instance at the specified coordinates with the
-	 * specified ResourceLocation.
+	 * Draw the specified ModelBase instance at the specified coordinates with the specified ResourceLocation.
 	 * 
 	 * @param entity
 	 *            - The entity class to provide the ModelBase instance with.
@@ -773,8 +746,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified ModelBase instance at the specified coordinates with the
-	 * specified ResourceLocation.
+	 * Draw the specified ModelBase instance at the specified coordinates with the specified ResourceLocation.
 	 * 
 	 * @param entity
 	 *            - The entity class to provide the ModelBase instance with.
@@ -797,8 +769,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified ModelBase instance at the specified coordinates with the
-	 * specified ResourceLocation.
+	 * Draw the specified ModelBase instance at the specified coordinates with the specified ResourceLocation.
 	 * 
 	 * @param model
 	 *            - ModelBase instance to draw.
@@ -828,8 +799,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified entity at the specified coordinates using the specified
-	 * scale, yaw, and pitch.
+	 * Draw the specified entity at the specified coordinates using the specified scale, yaw, and pitch.
 	 * 
 	 * @param x
 	 *            - x coordinate
@@ -862,8 +832,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the client player's face. Will default to a Steve face if one is not
-	 * present.
+	 * Draw the client player's face. Will default to a Steve face if one is not present.
 	 * 
 	 * @param player
 	 *            - The client player
@@ -886,8 +855,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified ResourceLocation at the specified coordinates and
-	 * dimensions.
+	 * Draw the specified ResourceLocation at the specified coordinates and dimensions.
 	 * 
 	 * @param resource
 	 *            - ResourceLocation to render
@@ -905,8 +873,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified ResourceLocation at the specified coordinates and
-	 * dimensions.
+	 * Draw the specified ResourceLocation at the specified coordinates and dimensions.
 	 * 
 	 * @param resource
 	 *            - ResourceLocation to render
@@ -932,8 +899,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified ResourceLocation at the specified coordinates and
-	 * dimensions.
+	 * Draw the specified ResourceLocation at the specified coordinates and dimensions.
 	 * 
 	 * @param resource
 	 *            - ResourceLocation to render
@@ -967,8 +933,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified ResourceLocation centered at the specified coordinates and
-	 * dimensions.
+	 * Draw the specified ResourceLocation centered at the specified coordinates and dimensions.
 	 * 
 	 * @param resource
 	 *            - ResourceLocation to render
@@ -986,8 +951,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified ResourceLocation centered at the specified coordinates and
-	 * dimensions.
+	 * Draw the specified ResourceLocation centered at the specified coordinates and dimensions.
 	 * 
 	 * @param resource
 	 *            - ResourceLocation to render
@@ -1013,8 +977,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified ResourceLocation centered at the specified coordinates and
-	 * dimensions.
+	 * Draw the specified ResourceLocation centered at the specified coordinates and dimensions.
 	 * 
 	 * @param resource
 	 *            - ResourceLocation to render
@@ -1107,8 +1070,7 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified itemstack in a GUI with a flat icon. No 3D rendering is
-	 * done.
+	 * Draw the specified itemstack in a GUI with a flat icon. No 3D rendering is done.
 	 * 
 	 * @param stack
 	 *            - The itemstack to draw
@@ -1156,8 +1118,7 @@ public class Draw {
 	}
 
 	/**
-	 * Get the full path of the specified ResourceLocation. Format:
-	 * domain:path/to/resource.png
+	 * Get the full path of the specified ResourceLocation. Format: domain:path/to/resource.png
 	 * 
 	 * @param resource
 	 *            - The ResourceLocation to retrieve a path of.

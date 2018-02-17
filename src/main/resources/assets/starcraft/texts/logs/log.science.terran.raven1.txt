@@ -1,0 +1,3 @@
+#skinId:1
+#name: Raven: Central Computer
+The Raven’s computer houses the main AI core that regulates all critical ship systems and subsystems—closely monitoring variables like overall condition, temperature, energy levels, and external hazards. It processes billions of instructions per second, affording the Raven an ample degree of independent thought and decision making. A few military consultants, speaking on condition of anonymity, have expressed concerns that such a powerful AI could gain sentience, leading to abject disaster. Thus far, there’s no evidence to back up those claims—and subsequently, no reason to worry.

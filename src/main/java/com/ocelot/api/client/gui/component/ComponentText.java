@@ -2,19 +2,29 @@ package com.ocelot.api.client.gui.component;
 
 import net.minecraft.client.Minecraft;
 
+/**
+ * <em><b>Copyright (c) 2018 Ocelot5836.</b></em>
+ * 
+ * <br>
+ * </br>
+ * 
+ * Text that is a part of a gui.
+ * 
+ * @author Ocelot5836
+ */
 public class ComponentText extends Component {
 
-	private String	text;
-	private int		color;
-	private boolean	dropShadow;
-	private boolean	centered;
+	private String text;
+	private int color;
+	private boolean dropShadow;
+	private boolean centered;
 
 	public ComponentText(int x, int y, String text, int color) {
 		this(x, y, text, color, false);
 	}
 
 	public ComponentText(int x, int y, String text, int color, boolean dropShadow) {
-		super(x, y, mc.fontRendererObj.getStringWidth(text), 8);
+		super(x, y, mc.fontRenderer.getStringWidth(text), 8);
 		this.text = text;
 		this.color = color;
 		this.dropShadow = dropShadow;
@@ -23,11 +33,11 @@ public class ComponentText extends Component {
 	@Override
 	public void renderForeground(Minecraft mc, float partialTicks, int mouseX, int mouseY) {
 		if (dropShadow) {
-			int xx = centered ? x - mc.fontRendererObj.getStringWidth(text) / 2 : x;
-			drawString(mc.fontRendererObj, text, xx, y, color);
+			int xx = centered ? x - mc.fontRenderer.getStringWidth(text) / 2 : x;
+			drawString(mc.fontRenderer, text, xx, y, color);
 		} else {
-			int xx = centered ? x - mc.fontRendererObj.getStringWidth(text) / 2 : x;
-			mc.fontRendererObj.drawString(text, xx, y, color);
+			int xx = centered ? x - mc.fontRenderer.getStringWidth(text) / 2 : x;
+			mc.fontRenderer.drawString(text, xx, y, color);
 		}
 	}
 

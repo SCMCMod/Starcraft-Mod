@@ -1,0 +1,3 @@
+#skinId:1
+#name: Viking: Auto-Shutdown
+To keep their occupants safe in case of emergency, Vikings are equipped with a circuit that cuts off all power from the reactor, preventing the machine from reaching critical levels. In dire situations, pilots have been known to disable this governor circuit to divert more power to systems, and even supercharge the reactor—resulting in a massive meltdown. This unofficial self-destruct mechanism has been dubbed the Heimdallr, for the incredibly bright flash that accompanies the final moments of the Viking and its pursuers.			

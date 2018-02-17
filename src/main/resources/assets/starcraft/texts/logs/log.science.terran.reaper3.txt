@@ -1,0 +1,3 @@
+#skinId:1
+#name: Reaper: Combat Drugs
+A potent cocktail of cell stimulants and growth hormones derived from the Stimpack base boosts the regenerative properties of the human body by 800%, which allows Reapers in the field to quickly treat most types of injury. The healing process starts a few seconds after administering a dose of the substance, which is often credited with saving more lives than some field medics.

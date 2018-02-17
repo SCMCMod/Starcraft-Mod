@@ -1,0 +1,3 @@
+#skinId:1
+#name: Mothership Core: Overview
+Ever since their return from deep space, the ancient Motherships have become an invaluable part of nearly every protoss fleet. But attempts to construct more of these formidable command vessels has proven costly and time consuming, especially amid battle. Faced with this problem, a few daring protoss began using the Mothership's core--a massive khaydarin crystal infused with psionic energy--as a weapon while the vessel's hull was under construction. This wildly successful tactic quickly spread throughout the protoss ranks. Now, many commanders are harnessing the core to thwart enemy attacks and teleport entire armies across the battlefield.

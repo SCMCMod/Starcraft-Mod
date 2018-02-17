@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=pure": { "model":"starcraft:protoss.pyloncrystal.pure" },
+        "type=dark": { "model":"starcraft:protoss.pyloncrystal.dark" },
+         "type=void": { "model":"starcraft:protoss.pyloncrystal.void" }
+    }
+}

@@ -1,0 +1,3 @@
+#skinId:1
+#name: Banshee: Pressurized Rockets
+The response towards the inception of the inflexible AH/G-24 was somewhat underwhelming, and the aircraft was relegated to backwater duties. Going forward, Procyon Industries integrated a fully pressurized cockpit and an oxygen generator into the Banshee’s design, allowing for quick orbital deployments to more efficiently support troops on the ground, and to strike at targets of opportunity.

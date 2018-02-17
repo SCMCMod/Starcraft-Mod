@@ -1,9 +1,7 @@
 package com.hypeirochus.scmc.creativetabs;
 
-import com.hypeirochus.scmc.handlers.ItemHandler;
-
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 public class StarcraftCreativeTabProtoss extends CreativeTabs {
 
@@ -14,8 +12,9 @@ public class StarcraftCreativeTabProtoss extends CreativeTabs {
 	}
 
 	@Override
-	public Item getTabIconItem() {
-		return ItemHandler.ICON_PROTOSS;
+	public ItemStack getTabIconItem() {
+		// return ItemHandler.ICON_PROTOSS;
+		return ItemStack.EMPTY;
 	}
 
 	@Override

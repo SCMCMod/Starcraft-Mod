@@ -1,0 +1,3 @@
+#skinId:1
+#name: Raven: Hull
+Layers of neosteel and synthetic weave make up the bulk of the Raven’s fuselage, with sturdy, space-grade fabric between each layer to provide insulation for internal components. The stabilizer fins and key points of the structure are equipped with microscopic weeping holes, which allow for the release of a multipurpose solution to break down ice buildups or cool the fuselage—depending on the environment the vessel is operating in. Further upgrades and adjustments have been implemented recently, as the ship transitions into a more active role while conflict levels escalate.

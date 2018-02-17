@@ -1,0 +1,3 @@
+#skinId:1
+#name: Warp Prism: Robotic Mind
+The operating mind of the Warp Prism is an advanced calculation system embedded in the molecules of an intricate crystal lattice. It transcends the constraints of space-time, and exists within—and beyond—itself. This allows it to manipulate matter and energy, as well as process near-infinite amounts of data faster than the speed of thought.

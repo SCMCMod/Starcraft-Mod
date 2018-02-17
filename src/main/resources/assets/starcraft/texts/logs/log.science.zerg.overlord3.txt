@@ -1,0 +1,3 @@
+#skinId:1
+#name: Overlord: Helium Synthesis
+Overlords are capable of generating helium through an efficient “respiratory” system distributed along the carapace. The excess helium is stored in thick sacs that contract or expand through rudimentary pulses, allowing the creature to regulate altitude and propulsion at will.

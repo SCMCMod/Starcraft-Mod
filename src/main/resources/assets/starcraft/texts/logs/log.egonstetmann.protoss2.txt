@@ -1,0 +1,7 @@
+#skinId:1
+#name:Log 2142
+The crystal is growing, and it appears to have something--some sort of... anti-matter? Gravitational anomaly? Non-standard phenomenon?--hovering over it. I'm now convinced that the crystal is drawing power from the ship, but in ways so subtle as to be undetectable.
+
+It is non-organic but has a molecular structure as diverse and complex as any organism's. It's developed an intricate matrix that makes it tough and surprisingly flexible. An alloy based on this crystal would have impressive damage mitigation. The structure of this matrix also suggests some sort of energy-storage system. There might be something to this.
+
+The protoss are so far beyond us. We must seem amoeboid to them.

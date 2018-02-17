@@ -1,0 +1,3 @@
+#skinId:1
+#name: Ghost: Ocular Implants
+Before the fall of the Confederacy, some Ghosts were subject to invasive surgical procedures to grant them an edge in combat. One of the most popular of said procedures entailed replacement of the subject’s optic nerves and retinas with cybernetic implants to improve sight range and target acquisition. The augmentations increased the operative’s combat efficiency by 35%, but were prone to lethal malfunctions when the subject’s psionic energy spiked. In recent years, the Dominion has reintroduced state-of-the-art masks as an alternative to implant technology; identical in functionality sans the drawbacks.

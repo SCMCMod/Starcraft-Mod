@@ -9,9 +9,9 @@ import com.hypeirochus.api.client.render.OpenGL;
 import com.hypeirochus.scmc.annotation.GLDependent;
 
 import net.minecraft.client.particle.Particle;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
@@ -20,19 +20,19 @@ import net.minecraft.world.World;
 
 @GLDependent
 public class EntityFXElectricArc extends Particle {
-	private static final ResourceLocation	PARTICLES	= new ResourceLocation("textures/particle/particles.png");
+	private static final ResourceLocation PARTICLES = new ResourceLocation("textures/particle/particles.png");
 
-	private Random							rand;
-	private int								color;
-	private int								tessellation;
-	private float							rotYaw;
-	private float							rotPitch;
-	private float							density;
-	private double							targetX;
-	private double							targetY;
-	private double							targetZ;
-	private double							displacement;
-	private double							complexity;
+	private Random rand;
+	private int color;
+	private int tessellation;
+	private float rotYaw;
+	private float rotPitch;
+	private float density;
+	private double targetX;
+	private double targetY;
+	private double targetZ;
+	private double displacement;
+	private double complexity;
 
 	public EntityFXElectricArc(World world, double x, double y, double z, double targetX, double targetY, double targetZ, int age) {
 		this(world, x, y, z, targetX, targetY, targetZ, age, 1.6D, 0.1D, 0.1F, 0xFFAA99FF);
@@ -58,7 +58,7 @@ public class EntityFXElectricArc extends Particle {
 	}
 
 	@Override
-	public void renderParticle(VertexBuffer buffer, Entity entity, float partialTicks, float rX, float rZ, float rYZ, float rXY, float rXZ) {
+	public void renderParticle(BufferBuilder buffer, Entity entity, float partialTicks, float rX, float rZ, float rYZ, float rXY, float rXZ) {
 		Resources.BLANK.bind();
 		this.drawArc(buffer, posX, posY, posZ, targetX, targetY, targetZ, displacement, complexity, density);
 	}
@@ -74,7 +74,7 @@ public class EntityFXElectricArc extends Particle {
 		this.rotPitch = ((float) (Math.atan2(y, variance) * 180.0D / Math.PI));
 	}
 
-	private void drawArc(VertexBuffer buffer, double x, double y, double z, double targetX, double targetY, double targetZ, double displacement, double complexity, float density) {
+	private void drawArc(BufferBuilder buffer, double x, double y, double z, double targetX, double targetY, double targetZ, double displacement, double complexity, float density) {
 		if (displacement < complexity) {
 			float rx = (float) (x - targetX);
 			float ry = (float) (y - targetY);

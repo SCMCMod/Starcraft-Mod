@@ -1,0 +1,6 @@
+{
+    "parent":"block/cube_all",
+    "textures": {
+        "all": "starcraft:blocks/protoss.metal.2.red"
+    }
+}

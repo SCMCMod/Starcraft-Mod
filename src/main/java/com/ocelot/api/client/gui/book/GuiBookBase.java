@@ -10,16 +10,35 @@ import com.ocelot.api.client.gui.component.listener.MouseListener;
 
 import net.minecraft.util.ChatAllowedCharacters;
 
+/**
+ * <em><b>Copyright (c) 2018 Ocelot5836.</b></em>
+ * 
+ * <br>
+ * </br>
+ * 
+ * Contains the basis for a custom book gui.
+ * 
+ * @author Ocelot5836
+ */
 public abstract class GuiBookBase extends GuiBase {
 
-	protected List<ComponentBookPage>	pages;
+	/** The pages inside of the book. */
+	protected List<ComponentBookPage> pages;
 
-	protected ComponentButton			buttonNext;
-	protected ComponentButton			buttonLast;
+	protected ComponentButton buttonNext;
+	protected ComponentButton buttonLast;
 
-	private int							maxPages;
-	private int							page;
+	private int maxPages;
+	private int page;
 
+	/**
+	 * Constructs a book gui with the specified width and height.
+	 * 
+	 * @param xSize
+	 *            The width of the book
+	 * @param ySize
+	 *            The height of the book
+	 */
 	public GuiBookBase(int xSize, int ySize) {
 		super(xSize, ySize);
 		pages = new ArrayList<ComponentBookPage>();
@@ -68,8 +87,17 @@ public abstract class GuiBookBase extends GuiBase {
 		this.maxPages = pages.size();
 	}
 
+	/**
+	 * Called on initialization to add all the text and modify the pages.
+	 */
 	protected abstract void initText();
 
+	/**
+	 * Sets the current page to the specified page.
+	 * 
+	 * @param page
+	 *            The page to be set
+	 */
 	protected void setPage(int page) {
 		if (page >= maxPages - 1)
 			page = maxPages - 1;
@@ -90,16 +118,30 @@ public abstract class GuiBookBase extends GuiBase {
 
 	@Override
 	protected void renderGuiForegroundLayer(int mouseX, int mouseY) {
-		this.fontRendererObj.drawString(page + 1 + "/" + maxPages, xSize - fontRendererObj.getStringWidth(page + 1 + "/" + maxPages) - 10, 8, 0);
+		this.fontRenderer.drawString(page + 1 + "/" + maxPages, xSize - fontRenderer.getStringWidth(page + 1 + "/" + maxPages) - 10, 8, 0);
 	}
 
+	/**
+	 * Adds a new line onto the next empty page line.
+	 * 
+	 * @param text
+	 *            The text to add
+	 */
 	protected void addLine(String text) {
 		this.addLine(text, 0);
 	}
 
-	int		pageCounter	= 0;
-	String	carriedOver	= "";
+	int pageCounter = 0;
+	String carriedOver = "";
 
+	/**
+	 * Adds a new line onto the next empty page line with a custom color.
+	 * 
+	 * @param text
+	 *            The text to add
+	 * @param color
+	 *            The color of the text
+	 */
 	protected void addLine(String text, int color) {
 		if (this.pages.get(pageCounter).body.isTextRoom()) {
 			carriedOver = this.pages.get(pageCounter).body.addText(text, color);
@@ -115,11 +157,17 @@ public abstract class GuiBookBase extends GuiBase {
 		}
 	}
 
+	/**
+	 * Adds another page to the lost of pages in the book.
+	 */
 	protected void addPage() {
 		pages.add(new ComponentBookPage(this));
 		maxPages = pages.size();
 	}
 
+	/**
+	 * Removes the last page in the book.
+	 */
 	protected void removePage() {
 		if (maxPages > 1) {
 			pages.remove(maxPages - 1);
@@ -130,11 +178,27 @@ public abstract class GuiBookBase extends GuiBase {
 		}
 	}
 
+	/**
+	 * Returns the lines from a string passed in.
+	 * 
+	 * @param string
+	 *            The string to split
+	 * @param width
+	 *            The maximum width the text can be at
+	 * @return The list of text to be added to a page
+	 */
 	protected String[] getLinesFromString(String string, int width) {
-		List<String> list = this.fontRendererObj.listFormattedStringToWidth(string, width);
+		List<String> list = this.fontRenderer.listFormattedStringToWidth(string, width);
 		return list.toArray(new String[list.size()]);
 	}
 
+	/**
+	 * Removes any illegal characters that can be in the string.
+	 * 
+	 * @param string
+	 *            The string to check for illegal characters
+	 * @return The string with the characters filtered out
+	 */
 	protected String makeStringValid(String string) {
 		StringBuilder builder = new StringBuilder();
 		for (int i = 0; i < string.length(); i++) {

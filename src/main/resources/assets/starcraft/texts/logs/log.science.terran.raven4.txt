@@ -1,0 +1,3 @@
+#skinId:1
+#name: Raven: Advanced Sensors
+Ravens have state-of-the-art surveillance and reconnaissance hardware. Two radars, operating at high / low frequencies respectively, and four high-resolution, multi-spectral cameras allow for target acquisition and tracking at long ranges. When the vessel’s low frequency radar detects anomalies, heuristic detection algorithms—supported by thermal and electrical imaging—sweep the area to find any cloaked threats. Ravens have become more common throughout the sector, but many wonder if the “protection” they offer is just an excuse the Dominion uses to spy on its citizens.

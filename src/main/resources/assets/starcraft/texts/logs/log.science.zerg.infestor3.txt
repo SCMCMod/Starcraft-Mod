@@ -1,0 +1,3 @@
+#skinId:1
+#name: Infestor: Fossorial Legs
+Evolution and adaptation have done wonders for the Borbu Matriarchs. Their sturdy legs secrete a corrosive substance that softens the soil and allows them to burrow in the blink of an eye.

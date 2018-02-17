@@ -11,11 +11,11 @@ import com.hypeirochus.scmc.api.Utils;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.EntityLivingBase;
@@ -23,7 +23,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
- * <em><b>Copyright (c) 2017 Ocelot5836.</b></em>
+ * <em><b>Copyright (c) 2018 Ocelot5836.</b></em>
  * 
  * @author Ocelot5836
  */
@@ -43,7 +43,7 @@ public class GuiUtils {
 	 */
 	public static void drawLines(List<String> lines, int x, int y, int color) {
 		for (int i = 0; i < lines.size(); i++) {
-			Minecraft.getMinecraft().fontRendererObj.drawString(lines.get(i), x, y + (i * 8), color);
+			Minecraft.getMinecraft().fontRenderer.drawString(lines.get(i), x, y + (i * 8), color);
 		}
 	}
 
@@ -95,16 +95,22 @@ public class GuiUtils {
 		int v = type.getV();
 		int cellSize = type.getCellSize();
 
-		GuiScreen.drawScaledCustomSizeModalRect(x + cellSize, y + cellSize, u + cellSize, v + cellSize, cellSize, cellSize, width - cellSize * 2, height - cellSize * 2, 256, 256);
-		GuiScreen.drawScaledCustomSizeModalRect(x, y + cellSize, u, v + cellSize, cellSize, cellSize, cellSize, height - cellSize * 2, 256, 256);
-		GuiScreen.drawScaledCustomSizeModalRect(x + width - cellSize, y + cellSize, u + cellSize * 2, v + cellSize, cellSize, cellSize, cellSize, height - cellSize * 2, 256, 256);
-		GuiScreen.drawScaledCustomSizeModalRect(x + cellSize, y + height - cellSize, u + cellSize, v + cellSize * 2, cellSize, cellSize, width - cellSize * 2, cellSize, 256, 256);
-		GuiScreen.drawScaledCustomSizeModalRect(x + cellSize, y, u + cellSize, v, cellSize, cellSize, width - cellSize * 2, cellSize, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x + cellSize, y + cellSize, u + cellSize, v + cellSize, cellSize,
+				cellSize, width - cellSize * 2, height - cellSize * 2, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x, y + cellSize, u, v + cellSize, cellSize, cellSize, cellSize,
+				height - cellSize * 2, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x + width - cellSize, y + cellSize, u + cellSize * 2, v + cellSize,
+				cellSize, cellSize, cellSize, height - cellSize * 2, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x + cellSize, y + height - cellSize, u + cellSize, v + cellSize * 2,
+				cellSize, cellSize, width - cellSize * 2, cellSize, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x + cellSize, y, u + cellSize, v, cellSize, cellSize,
+				width - cellSize * 2, cellSize, 256, 256);
 
 		drawStaticTextureModelRect(x, y, u, v, cellSize, cellSize);
 		drawStaticTextureModelRect(x + width - cellSize, y, u + cellSize * 2, v, cellSize, cellSize);
 		drawStaticTextureModelRect(x, y + height - cellSize, u, v + cellSize * 2, cellSize, cellSize);
-		drawStaticTextureModelRect(x + width - cellSize, y + height - cellSize, u + cellSize * 2, v + cellSize * 2, cellSize, cellSize);
+		drawStaticTextureModelRect(x + width - cellSize, y + height - cellSize, u + cellSize * 2, v + cellSize * 2,
+				cellSize, cellSize);
 	}
 
 	/**
@@ -152,7 +158,8 @@ public class GuiUtils {
 	 *            The entity to render
 	 */
 	@SideOnly(Side.CLIENT)
-	public static void drawEntityOnScreen(int x, int y, int scale, float mouseX, float mouseY, EntityLivingBase entity) {
+	public static void drawEntityOnScreen(int x, int y, int scale, float mouseX, float mouseY,
+			EntityLivingBase entity) {
 		if (entity != null) {
 			GlStateManager.enableColorMaterial();
 			GlStateManager.pushMatrix();
@@ -177,7 +184,7 @@ public class GuiUtils {
 			RenderManager rendermanager = Minecraft.getMinecraft().getRenderManager();
 			rendermanager.setPlayerViewY(180.0F);
 			rendermanager.setRenderShadow(false);
-			rendermanager.doRenderEntity(entity, 0.0D, 0.0D, 0.0D, 0.0F, 1.0F, false);
+			rendermanager.renderEntity(entity, 0.0D, 0.0D, 0.0D, 0.0F, 1.0F, false);
 			rendermanager.setRenderShadow(true);
 			entity.renderYawOffset = f;
 			entity.rotationYaw = f1;
@@ -215,12 +222,20 @@ public class GuiUtils {
 		float f = 0.00390625F;
 		float f1 = 0.00390625F;
 		Tessellator tessellator = Tessellator.getInstance();
-		VertexBuffer vertexbuffer = tessellator.getBuffer();
+		BufferBuilder vertexbuffer = tessellator.getBuffer();
 		vertexbuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
-		vertexbuffer.pos((double) (x + 0.0F), (double) (y + (float) maxV), (double) zLevel).tex((double) ((float) (minU + 0) * 0.00390625F), (double) ((float) (minV + maxV) * 0.00390625F)).endVertex();
-		vertexbuffer.pos((double) (x + (float) maxU), (double) (y + (float) maxV), (double) zLevel).tex((double) ((float) (minU + maxU) * 0.00390625F), (double) ((float) (minV + maxV) * 0.00390625F)).endVertex();
-		vertexbuffer.pos((double) (x + (float) maxU), (double) (y + 0.0F), (double) zLevel).tex((double) ((float) (minU + maxU) * 0.00390625F), (double) ((float) (minV + 0) * 0.00390625F)).endVertex();
-		vertexbuffer.pos((double) (x + 0.0F), (double) (y + 0.0F), (double) zLevel).tex((double) ((float) (minU + 0) * 0.00390625F), (double) ((float) (minV + 0) * 0.00390625F)).endVertex();
+		vertexbuffer.pos((double) (x + 0.0F), (double) (y + (float) maxV), (double) zLevel)
+				.tex((double) ((float) (minU + 0) * 0.00390625F), (double) ((float) (minV + maxV) * 0.00390625F))
+				.endVertex();
+		vertexbuffer.pos((double) (x + (float) maxU), (double) (y + (float) maxV), (double) zLevel)
+				.tex((double) ((float) (minU + maxU) * 0.00390625F), (double) ((float) (minV + maxV) * 0.00390625F))
+				.endVertex();
+		vertexbuffer.pos((double) (x + (float) maxU), (double) (y + 0.0F), (double) zLevel)
+				.tex((double) ((float) (minU + maxU) * 0.00390625F), (double) ((float) (minV + 0) * 0.00390625F))
+				.endVertex();
+		vertexbuffer.pos((double) (x + 0.0F), (double) (y + 0.0F), (double) zLevel)
+				.tex((double) ((float) (minU + 0) * 0.00390625F), (double) ((float) (minV + 0) * 0.00390625F))
+				.endVertex();
 		tessellator.draw();
 	}
 
@@ -254,12 +269,15 @@ public class GuiUtils {
 		return name;
 	}
 
+	/**
+	 * Specifies the type of gui you want to draw.
+	 */
 	public static class GuiType {
 
-		public static final GuiType	DEFAULT	= new GuiType(0, 0, 3, 3, 5);
-		public static final GuiType	BOOK	= new GuiType(15, 0, 3, 3, 8);
+		public static final GuiType DEFAULT = new GuiType(0, 0, 3, 3, 5);
+		public static final GuiType BOOK = new GuiType(15, 0, 3, 3, 8);
 
-		private int					u, v, width, height, cellSize;
+		private int u, v, width, height, cellSize;
 
 		private GuiType(int u, int v, int width, int height, int cellSize) {
 			this.u = u;
@@ -269,22 +287,37 @@ public class GuiUtils {
 			this.cellSize = cellSize;
 		}
 
+		/**
+		 * @return The x coordinate of the texture
+		 */
 		public int getU() {
 			return u;
 		}
 
+		/**
+		 * @return The y coordinate of the texture
+		 */
 		public int getV() {
 			return v;
 		}
 
+		/**
+		 * @return The width of the texture
+		 */
 		public int getWidth() {
 			return width;
 		}
 
+		/**
+		 * @return The height of the texture
+		 */
 		public int getHeight() {
 			return height;
 		}
 
+		/**
+		 * @return The size of each cell in the gui
+		 */
 		public int getCellSize() {
 			return cellSize;
 		}

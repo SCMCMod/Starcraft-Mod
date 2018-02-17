@@ -7,8 +7,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.api.Utils;
-import com.hypeirochus.scmc.lib.Library;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.IReloadableResourceManager;
@@ -17,23 +17,22 @@ import net.minecraft.client.resources.IResourceManagerReloadListener;
 import net.minecraft.util.ResourceLocation;
 
 /**
- * Contains the basic information for each log in the game. Used in the new
- * registry system.
+ * Contains the basic information for each log in the game. Used in the new registry system.
  * 
  * @author Ocelot5836
  */
 public class Log implements IResourceManagerReloadListener {
 
 	/** The containing folder of the logs */
-	public static final ResourceLocation	DEFAULT_LOCATION	= new ResourceLocation(Library.RL_BASE + "texts/logs/");
+	public static final ResourceLocation DEFAULT_LOCATION = new ResourceLocation(Starcraft.RL_BASE + "texts/logs/");
 
-	private int								id;
-	private String							fileName;
-	private String							propertiesFileName;
+	private int id;
+	private String fileName;
+	private String propertiesFileName;
 
-	private String							name;
-	private int								skinId;
-	private List<String>					text;
+	private String name;
+	private int skinId;
+	private List<String> text;
 
 	public Log(int id, String fileName) {
 		this.id = id;

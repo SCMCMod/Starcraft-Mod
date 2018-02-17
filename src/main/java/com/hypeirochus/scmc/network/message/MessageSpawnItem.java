@@ -24,7 +24,7 @@ public class MessageSpawnItem implements IMessage, IMessageHandler<MessageSpawnI
 	@Override
 	public void toBytes(ByteBuf buf) {
 		buf.writeInt(Item.getIdFromItem(stack.getItem()));
-		buf.writeInt(stack.stackSize);
+		buf.writeInt(stack.getCount());
 		buf.writeInt(stack.getMetadata());
 	}
 
@@ -35,8 +35,8 @@ public class MessageSpawnItem implements IMessage, IMessageHandler<MessageSpawnI
 
 	@Override
 	public IMessage onMessage(MessageSpawnItem message, MessageContext ctx) {
-		if (message.stack != null && message.stack.stackSize > 0 && message.stack.getMetadata() >= 0) {
-			EntityPlayer player = ctx.getServerHandler().playerEntity;
+		if (message.stack != null && message.stack.getCount() > 0 && message.stack.getMetadata() >= 0) {
+			EntityPlayer player = ctx.getServerHandler().player;
 			World world = player.world;
 			EntityItem item = new EntityItem(world, player.posX, player.posY, player.posZ, message.stack);
 			world.spawnEntity(item);

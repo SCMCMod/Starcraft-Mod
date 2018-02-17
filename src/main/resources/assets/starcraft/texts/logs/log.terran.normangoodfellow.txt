@@ -1,0 +1,6 @@
+#skinId:1
+#name: Detractor Complaints
+"Our detractors have accused us of catering to only hunters and combat fishermen with our wildly successful animal parks. Well, I am here to say to you good people that nothing is farther from the truth. Terran Wildlife Services actually has a wide array of parks that are not designed for the pursuit of sport at all. This dedication to the casual naturalist is exemplified in our Twisted Trail Park and Recreation Center. There is no finer hiking path in the sector, and this serene and peaceful area is normally far less crowded than our other reserves. I can't imagine a better spot for a calm, relaxing vacation away from the stress of civilization than in the fine outdoors. It's really a shame so few people ever get to see for themselves the exceptional beauty of this park." 
+
+     	-Norman Goodfellow
+      	Senior Park Ranger, Terran Wildlife Services 

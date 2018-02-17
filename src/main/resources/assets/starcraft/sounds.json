@@ -1,0 +1,618 @@
+{
+	"mob.zergling.live1": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/zergling/zergling-live1",
+			"stream": false
+		}]
+	},
+	"mob.zergling.live2": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/zergling/zergling-live2",
+			"stream": false
+		}]
+	},
+	"mob.zergling.live3": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/zergling/zergling-live3",
+			"stream": false
+		}]
+	},
+	"mob.zergling.live4": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/zergling/zergling-live4",
+			"stream": false
+		}]
+	},
+	"mob.zergling.hurt": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/zergling/zergling-hurt",
+			"stream": false
+		}]
+	},
+	"mob.zergling.death": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/zergling/zergling-death",
+			"stream": false
+		}]
+	},
+	"mob.zealot.live1": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/zealot/zealot-live1",
+			"stream": false
+		}]
+	},
+	"mob.zealot.live2": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/zealot/zealot-live2",
+			"stream": false
+		}]
+	},
+	"mob.zealot.live3": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/zealot/zealot-live3",
+			"stream": false
+		}]
+	},
+	"mob.zealot.live4": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/zealot/zealot-live4",
+			"stream": false
+		}]
+	},
+	"mob.zealot.hurt": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/zealot/zealot-hurt",
+			"stream": false
+		}]
+	},
+	"mob.zealot.death": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/zealot/zealot-death",
+			"stream": false
+		}]
+	},
+	"mob.darktemplar.live1": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/darktemplar/darkTemplar-live1",
+			"stream": false
+		}]
+	},
+	"mob.darktemplar.live2": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/darktemplar/darkTemplar-live2",
+			"stream": false
+		}]
+	},
+	"mob.darktemplar.hurt": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/darktemplar/darkTemplar-hurt",
+			"stream": false
+		}]
+	},
+	"mob.darktemplar.death": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/darktemplar/darkTemplar-death",
+			"stream": false
+		}]
+	},
+	"mob.probe.live1": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/probe/probe-live1",
+			"stream": false
+		}]
+	},
+	"mob.probe.hurt": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/probe/probe-hurt",
+			"stream": false
+		}]
+	},
+	"mob.probe.death": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/probe/probe-death",
+			"stream": false
+		}]
+	},
+	"mob.larva.live1": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/larva/larva-live1",
+			"stream": false
+		}]
+	},
+	"mob.larva.hurt": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/larva/larva-hurt",
+			"stream": false
+		}]
+	},
+	"mob.larva.death": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/larva/larva-death",
+			"stream": false
+		}]
+	},
+	"mob.zergcocoon.live1": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/zergcocoon/zergCocoon-live1",
+			"stream": false
+		}]
+	},
+	"mob.zergcocoon.hurt": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/zergcocoon/zergCocoon-hurt",
+			"stream": false
+		}]
+	},
+	"mob.zergcocoon.death": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/zergcocoon/zergCocoon-death",
+			"stream": false
+		}]
+	},
+	"mob.hydralisk.live1": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/hydralisk/hydralisk-live1",
+			"stream": false
+		}]
+	},
+	"mob.hydralisk.live2": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/hydralisk/hydralisk-live2",
+			"stream": false
+		}]
+	},
+	"mob.hydralisk.live3": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/hydralisk/hydralisk-live3",
+			"stream": false
+		}]
+	},
+	"mob.hydralisk.live4": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/hydralisk/hydralisk-live4",
+			"stream": false
+		}]
+	},
+	"mob.hydralisk.hurt": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/hydralisk/hydralisk-hurt",
+			"stream": false
+		}]
+	},
+	"mob.hydralisk.death": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/hydralisk/hydralisk-death",
+			"stream": false
+		}]
+	},
+	"mob.brutalisk.live1": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/brutalisk/brutalisk-live1",
+			"stream": false
+		}]
+	},
+	"mob.brutalisk.hurt": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/brutalisk/brutalisk-hurt",
+			"stream": false
+		}]
+	},
+	"mob.brutalisk.death": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/brutalisk/brutalisk-death",
+			"stream": false
+		}]
+	},
+	"mob.brutalisk.step": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/brutalisk/brutalisk-step",
+			"stream": false
+		}]
+	},
+	"mob.reaver.live1": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/preaver/reaver-live1",
+			"stream": false
+		}]
+	},
+	"mob.reaver.live2": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/preaver/reaver-live2",
+			"stream": false
+		}]
+	},
+	"mob.reaver.live3": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/preaver/reaver-live3",
+			"stream": false
+		}]
+	},
+	"mob.reaver.live4": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/preaver/reaver-live4",
+			"stream": false
+		}]
+	},
+	"mob.reaver.live5": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/preaver/reaver-live5",
+			"stream": false
+		}]
+	},
+	"mob.reaver.hurt": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/preaver/reaver-hurt",
+			"stream": false
+		}]
+	},
+	"mob.reaver.death": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/preaver/reaver-death",
+			"stream": false
+		}]
+	},
+	"mob.broodling.live1": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/broodling/broodling-live1",
+			"stream": false
+		}]
+	},
+	"mob.broodling.hurt": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/broodling/broodling-hurt",
+			"stream": false
+		}]
+	},
+	"mob.broodling.death": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/broodling/broodling-death",
+			"stream": false
+		}]
+	},
+	"struc.pylon.birth": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:struc/pylon/pylon-birth",
+			"stream": false
+		}]
+	},
+	"struc.gateway.birth": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:struc/gateway/gateway-birth",
+			"stream": false
+		}]
+	},
+	"struc.cyberneticscore.birth": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:struc/cybercore/cyberneticscore-birth",
+			"stream": false
+		}]
+	},
+	"fx.psiblade.attack": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:fx/psiblade/psiblade-attack",
+			"stream": false
+		}]
+	},
+	"fx.warpblade.attack": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:fx/warpblade/warpblade-attack",
+			"stream": false
+		}]
+	},
+	"fx.c14gaussrifle.firing": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:fx/c14gaussrifle/c14GaussRifle-firing",
+			"stream": false
+		}]
+	},
+	"fx.c14gaussrifle.out": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:fx/c14gaussrifle/c14GaussRifle-out",
+			"stream": false
+		}]
+	},
+	"fx.hydralisk.fire": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:fx/hydralisk/hydralisk-fire",
+			"stream": false
+		}]
+	},
+    "fx.mutalisk.fire": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:fx/mutalisk/mutalisk-fire",
+            "stream": false
+        }]
+    },
+	"block.flesh.break": {
+		"category": "block",
+		"sounds": [{
+			"name": "starcraft:block/flesh/break",
+			"stream": false
+		}]
+	},
+	"block.flesh.step": {
+		"category": "block",
+		"sounds": [{
+			"name": "starcraft:block/flesh/step",
+			"stream": false
+		}]
+	},
+	"block.flesh.place": {
+		"category": "block",
+		"sounds": [{
+			"name": "starcraft:block/flesh/place",
+			"stream": false
+		}]
+	},
+	"block.flesh.hit": {
+		"category": "block",
+		"sounds": [{
+			"name": "starcraft:block/flesh/hit",
+			"stream": false
+		}]
+	},
+	"block.flesh.fall": {
+		"category": "block",
+		"sounds": [{
+			"name": "starcraft:block/flesh/fall",
+			"stream": false
+		}]
+	},
+	"block.gas_collector.protoss": {
+		"category": "block",
+		"sounds": [{
+			"name": "starcraft:block/gas_collector/protoss",
+			"stream": false
+		}]
+	},
+	"block.gas_collector.terran": {
+		"category": "block",
+		"sounds": [{
+			"name": "starcraft:block/gas_collector/terran",
+			"stream": false
+		}]
+	},
+	"block.gas_collector.zerg": {
+		"category": "block",
+		"sounds": [{
+			"name": "starcraft:block/gas_collector/zerg",
+			"stream": false
+		}]
+	},
+	"mob.infestedcivilian.live1": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/infestedcivilian/infestedcivilian-live1",
+			"stream": false
+		}]
+	},
+	"mob.infestedcivilian.hurt": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/infestedcivilian/infestedcivilian-hurt",
+			"stream": false
+		}]
+	},
+	"mob.infestedcivilian.death": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/infestedcivilian/infestedcivilian-death",
+			"stream": false
+		}]
+	},
+	"mob.predator.live1": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/predator/predator-live1",
+			"stream": false
+		}]
+	},
+	"mob.predator.live2": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/predator/predator-live2",
+			"stream": false
+		}]
+	},
+	"mob.predator.hurt": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/predator/predator-hurt",
+			"stream": false
+		}]
+	},
+	"mob.predator.death": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:mob/predator/predator-death",
+			"stream": false
+		}]
+	},
+	"mob.kakaru.live1": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/kakaru/kakaru-live1",
+            "stream": false
+        }]
+    },
+    "mob.kakaru.live2": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/kakaru/kakaru-live2",
+            "stream": false
+        }]
+    },
+    "mob.kakaru.hurt": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/kakaru/kakaru-hurt",
+            "stream": false
+        }]
+    },
+    "mob.kakaru.death": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/kakaru/kakaru-death",
+            "stream": false
+        }]
+    },
+    "mob.ursadon.live1": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/ursadon/ursadon-live1",
+            "stream": false
+        }]
+    },
+    "mob.ursadon.live2": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/ursadon/ursadon-live2",
+            "stream": false
+        }]
+    },
+    "mob.ursadon.hurt": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/ursadon/ursadon-hurt",
+            "stream": false
+        }]
+    },
+    "mob.ursadon.death": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/ursadon/ursadon-death",
+            "stream": false
+        }]
+    },
+    "mob.marine.live1": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/marine/marine-live1",
+            "stream": false
+        }]
+    },
+    "mob.marine.hurt": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/marine/marine-hurt",
+            "stream": false
+        }]
+    },
+    "mob.marine.death": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/marine/marine-death",
+            "stream": false
+        }]
+    },
+    "mob.queen.live1": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/queen/queen-live1",
+            "stream": false
+        }]
+    },
+    "mob.queen.live2": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/queen/queen-live2",
+            "stream": false
+        }]
+    },
+    "mob.queen.hurt": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/queen/queen-hurt",
+            "stream": false
+        }]
+    },
+    "mob.queen.death": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/queen/queen-death",
+            "stream": false
+        }]
+    },
+    "mob.mutalisk.live1": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/mutalisk/mutalisk-live1",
+            "stream": false
+        }]
+    },
+    "mob.mutalisk.live2": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/mutalisk/mutalisk-live2",
+            "stream": false
+        }]
+    },
+    "mob.mutalisk.hurt": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/mutalisk/mutalisk-hurt",
+            "stream": false
+        }]
+    },
+    "mob.mutalisk.death": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/mutalisk/mutalisk-death",
+            "stream": false
+        }]
+    }
+}

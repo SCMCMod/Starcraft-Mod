@@ -1,0 +1,3 @@
+#skinId:1
+#name: Widow Mine: Overview
+Constructed around a modified version of the Spider Mine pioneered by Confederate rebel Victor Kachinsky, the Widow Mine represents the next step in Dominion automated weaponry.  The quadrupedal device is controlled remotely, piloted into a contested area and then set to activate when enemy units draw near. Once triggered, the Widow Mine launches a missile designed to explode in a firestorm of shrapnel, eliminating its primary target as well as any unlucky foes that might be nearby.

@@ -1,0 +1,3 @@
+#skinId:1
+#name: Zealot: Training
+The warriors of Aiur spend years honing their martial abilities, and complement them with a powerful psionic-emotional bond known as the Khala, which also contains the resonances of Protoss long departed. Zealots learn how to fine tune their connection to the Khala, and to channel this maelstrom of feelings into peaceful focus or unbridled rage. Their duty is to their people, and by mastering their emotions they can fight longer, harder, and better than any adversary who would dare stand in their way.

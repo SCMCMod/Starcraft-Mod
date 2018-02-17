@@ -1,0 +1,3 @@
+#skinId:1
+#name: Warp Prism: Hull
+The hull of the Warp Prism is a conductive framework that can absorb most types of energy. It houses thousands of psionic micro-receptors, which channel the power of the Prism’s crystal core and project “wings” laced with psionic energies. These wings are incredibly resilient, and serve as the primary navigation sensors of the vessel. The Warp Prism, a seamless blend of robotics and psionics, outperforms its predecessor, the Shuttle, in every possible way.

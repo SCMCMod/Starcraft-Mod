@@ -1,0 +1,3 @@
+#skinId:1
+#name: Widow Mine: IFF Designator
+After numerous friendly fire incidents, Widow Mines were outfitted with a powerful friend or foe identification system, which is loosely based on the operative algorithms present in all Crucio smart shells manufactured by LarsCorp. Initially, the system worked as intended, but it didn’t take long for casualty rates to rise once again.

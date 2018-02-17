@@ -1,0 +1,3 @@
+#skinId:1
+#name: Zergling: Overview
+The small, savage Dune-Runners of the sandworld Zz’gash were incorporated into the Swarm to serve as lookouts and assault troops. Although Zerglings are little more than feral animals, they work well in large groups under the command of larger Zerg. The voracious Zerglings are fond of ripping enemies to shreds with their razor-sharp, sickle-like limbs and fangs. Because the genetic code of the Zergling is so simple to replicate, a single Larva can spawn two separate Zerglings.

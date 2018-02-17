@@ -1,0 +1,3 @@
+#skinId:1
+#name: Overseer: Sensory Tendrils
+Evolution is a curious thing. The first batch of Overseers ended up crippled and blind when the arrays of microscopic filaments—relays of sensory and spatial data—located on their vestigial legs gained sentience and became ravenous to the point of consuming the appendages that housed them. To correct this situation, the legs were excised and the filaments were transformed into long, fleshy tendrils grown from the Overseer’s carapace.

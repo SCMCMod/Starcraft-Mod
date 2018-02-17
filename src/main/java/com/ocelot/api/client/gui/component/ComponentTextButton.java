@@ -2,12 +2,22 @@ package com.ocelot.api.client.gui.component;
 
 import net.minecraft.client.Minecraft;
 
+/**
+ * <em><b>Copyright (c) 2018 Ocelot5836.</b></em>
+ * 
+ * <br>
+ * </br>
+ * 
+ * A button that uses text instead of the vanilla button texture.
+ * 
+ * @author Ocelot5836
+ */
 public class ComponentTextButton extends Component {
 
-	private String	text;
-	private String	highlightText;
-	private int		color;
-	private int		highlightColor;
+	private String text;
+	private String highlightText;
+	private int color;
+	private int highlightColor;
 
 	public ComponentTextButton(int x, int y, String text, int color, int highlightColor) {
 		this(x, y, text, text, color, highlightColor);

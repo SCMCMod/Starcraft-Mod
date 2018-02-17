@@ -1,0 +1,3 @@
+#skinId:1
+#name: Larva: Dermis
+The inner layer of the creature’s skin is populated with receptor cells. Once an Overlord issues the morph command, the Larva’s organs are ejected—forming a hard egg-like cocoon—and its tissues are instantly reconfigured into the desired strain through a brief pupation period.

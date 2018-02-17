@@ -1,0 +1,3 @@
+#skinId:1
+#name: Overlord: Hermetic Carapace
+The thick outer shell of the Gargantis Proximae has changed little, even after Swarm assimilation. As spacefaring creatures, Overlords possess a carapace that pressurizes and seals whenever it cruises through the vacuum. Two species of unidentified, symbiotic organisms seem to help regulate these functions, but our scientists have been unable to obtain any living samples—they die in seconds if removed from the host.

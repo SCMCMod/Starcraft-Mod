@@ -1,0 +1,3 @@
+#skinId:1
+#name: Brood Lord: Sensory Organs
+Bone spikes located on the frontal section of the Brood Lord’s wings house an advanced glandular system capable of emitting and receiving high-frequency electrical pulses. With each pulse, a massive spherical field radiates from the creature, coating its surroundings and targets in bio-electric energy. Afterwards, the Brood Lord’s acute receptor glands pick up and process the gathered data. During deep space flights, the glands mutate to detect sources of radiation, electromagnetism, and light.

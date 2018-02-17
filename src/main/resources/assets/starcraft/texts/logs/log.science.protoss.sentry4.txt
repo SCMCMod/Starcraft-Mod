@@ -1,0 +1,3 @@
+#skinId:1
+#name: Sentry: Guardian Shield
+By weaving light into a semi-solid state, the Sentry can surround itself with an area-encompassing shield to safeguard Protoss ground forces. Projectiles or energy blasts that penetrate the field lose some of their kinetic or thermal energy, and part of their effectiveness. Due to its considerable coverage radius, the Guardian Shield is not powerful enough to make much of a difference against larger types of ordnance, but it does offer an additional layer of protection to the mighty warriors of Aiur.

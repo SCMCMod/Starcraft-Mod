@@ -1,0 +1,3 @@
+#skinId:1
+#name: Banshee: Turbofan Engines
+The Banshee is fitted with twin VTOL turbofans that provide an adequate thrust to cost ratio, and a fantail rotor assembly for steering and banking. The turbofans are sturdy, simple in design, and relatively easy to maintain, but only suitable for atmospheric flight. They do allow for indefinite loitering with minimal noise, which is perfect for stealth operations.

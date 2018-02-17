@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "burning=false,facing=north": { "model": "starcraft:char.furnace" },
+        "burning=false,facing=south": { "model": "starcraft:char.furnace", "y": 180 },
+        "burning=false,facing=west":  { "model": "starcraft:char.furnace", "y": 270 },
+        "burning=false,facing=east":  { "model": "starcraft:char.furnace", "y": 90 },
+        "burning=true,facing=north": { "model": "starcraft:char.furnace.lit" },
+        "burning=true,facing=south": { "model": "starcraft:char.furnace.lit", "y": 180 },
+        "burning=true,facing=west":  { "model": "starcraft:char.furnace.lit", "y": 270 },
+        "burning=true,facing=east":  { "model": "starcraft:char.furnace.lit", "y": 90 }
+    }
+}

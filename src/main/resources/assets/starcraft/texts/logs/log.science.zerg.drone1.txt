@@ -1,0 +1,3 @@
+#skinId:1
+#name: Drone: Pincers
+The Drone’s pincers are a minor evolution of the Larvae’s mandibles, which grants them the ability to clamp and transport objects. The osseous tissue hardens through the pupation cycle, and its density allows the Drones to cut mineral crystals with ease, or defend themselves in a pinch.

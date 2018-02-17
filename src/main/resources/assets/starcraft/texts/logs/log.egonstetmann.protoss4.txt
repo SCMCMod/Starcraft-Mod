@@ -1,0 +1,7 @@
+#skinId:1
+#name:Log 2299
+I've been staring at that anomalous sphere above the crystal. It's obviously an energy emitter, but it has such strong containment that the crystal can slowly draw power from it via some method I don't understand. That gives me an idea: using our own containment technology, I could modify our SCV manufacturing process to double capacity with no increased risk. I think.
+
+Breakthrough! The energy in this crystal is not kept in a vortex pattern. It was warping the energy around so fast that I couldn't detect it. In an odd coincidence, the warping slowed just enough for my sensors to pick it up. Not sure how or why. Everytime I reach my wits' end with this sample, something happens by... chance... and I get a breakthrough.
+
+Is it helping me? Clearly I've been working too many hours. I'm going to go lose some more credits on Lost Viking.

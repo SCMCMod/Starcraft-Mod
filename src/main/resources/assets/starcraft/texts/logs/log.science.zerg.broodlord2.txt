@@ -1,0 +1,3 @@
+#skinId:1
+#name: Brood Lord: Barbed Tail
+Grown out of the Corruptor’s Statocyst, the Brood Lord’s tail structure—including the spikes—constitutes a large biological gyroscope that maintains the creature’s level and orientation. The tail is directly linked to the Brood Lord's sensory organs, increasing its capability to locate prey.

@@ -1,0 +1,3 @@
+#skinId:1
+#name: Overlord: Central Nervous System
+The Overlord’s large, bulbous brain—safely stored under a heavily armored weave of bone and cartilage—is a rather large organ with millions of nerves and synaptic contacts. The vast network of nerve nodes extends in all directions throughout the creature, but is more heavily concentrated on the lower section and the legs. Overlords depend on this intricate system to relay commands and tactical data to the Zerg.

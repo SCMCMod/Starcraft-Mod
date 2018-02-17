@@ -1,0 +1,3 @@
+#skinId:1
+#name: Zealot: Crystal Matrices
+The Protoss, a race whose numbers have diminished through the crucible of conflict, go to great lengths to minimize warrior casualties in battle. High Templar calibrate and infuse each of these exquisite gemstones—which allow critically injured Zealots to be warped back to the nearest safe point—with psionic energy. The life of every warrior is a precious resource that must be preserved at all costs.

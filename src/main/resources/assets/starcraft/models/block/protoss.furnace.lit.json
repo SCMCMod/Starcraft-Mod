@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "up": "starcraft:blocks/protoss.furnace.top",
+        "down": "starcraft:blocks/protoss.metal.1.aiur",
+        "north": "starcraft:blocks/protoss.furnace.front.on",
+		"south": "starcraft:blocks/protoss.furnace.front.on",
+        "east": "starcraft:blocks/protoss.furnace.front.on",
+        "west": "starcraft:blocks/protoss.furnace.front.on",
+		"particle": "starcraft:blocks/protoss.metal.1.aiur"
+    }
+}

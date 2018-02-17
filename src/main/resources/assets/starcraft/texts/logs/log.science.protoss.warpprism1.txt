@@ -1,0 +1,3 @@
+#skinId:1
+#name: Warp Prism: Phasing Mode
+By opening the containment field around its synthetic power source, the Warp Prism can supply energy to nearby Protoss settlements. It also emits a signal which allows a Warp Gate to quickly teleport warriors to its location. While phasing, the Warp Prism diverts all energy away from its systems, becoming completely stationary.

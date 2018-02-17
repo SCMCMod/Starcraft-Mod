@@ -10,7 +10,7 @@ public class KeyEventHandler {
 	@SubscribeEvent
 	public void onKeyInput(InputEvent.KeyInputEvent event) {
 		if (KeybindingHandler.toggleMarineVisor.isPressed()) {
-			GuiRenderEventHandler.renderHelmetOverlay = !GuiRenderEventHandler.renderHelmetOverlay;
+			// GuiRenderEventHandler.renderHelmetOverlay = !GuiRenderEventHandler.renderHelmetOverlay;
 		}
 	}
 }

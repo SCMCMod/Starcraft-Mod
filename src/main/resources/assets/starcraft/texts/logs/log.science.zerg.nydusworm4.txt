@@ -1,0 +1,3 @@
+#skinId:1
+#name: Nydus Worm: Tissue Replication
+To transport the Swarm’s land creatures across any battlefield or landmass, the Nydus Worm can stretch indefinitely through on-demand tissue generation. Ever-connected to the Nydus Network—a central structure that provides the required nourishment—the worm expands and replicates its cells at a simple command to cover the distance to its target. Surplus tissue is reassimilated once the worm returns to the Network.

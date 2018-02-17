@@ -1,0 +1,3 @@
+#skinId:1
+#name: Thor: Plating
+Heavy composite neosteel-ceramic armor protects the lumbering Thor. The plates are modular and can be replaced easily if damaged, or exchanged for thicker versions depending on battlefield conditions. Designed to defeat high-explosive armor piercing rounds, as well as disrupt the searing beams of energy-based weapons, the Thor’s plating offers unparalleled protection to the pilot and the mech’s internal systems. Its innermost layer has a heat-resistant kinetic mesh that prevents damage from shrapnel, slugs, or even sheared armor fragments. This siege-walker may not be unstoppable, but it is undoubtedly close.

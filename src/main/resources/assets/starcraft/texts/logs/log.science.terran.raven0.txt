@@ -1,0 +1,3 @@
+#skinId:1
+#name: Raven: Overview
+The Raven is an all-around workhorse that combines the functions of a surveillance drone and a combat engineer. A common sight among the fringe-world colonies, these robust air-mobile vehicles are built to operate independently in harsh climates. Ravens excel in protection and reconnaissance due to their defensive Auto-Turrets and their advanced sensors, which can detect cloaked or burrowed enemies. The Terran Dominion initially designed the Raven to give low-level protection to its most isolated outposts, but recently the Raven has been used in escalating levels of conflict to replace the older and costlier Science Vessel.

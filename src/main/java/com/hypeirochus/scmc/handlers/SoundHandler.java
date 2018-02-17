@@ -1,11 +1,13 @@
 package com.hypeirochus.scmc.handlers;
 
+import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.lib.Library;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /**
@@ -259,7 +261,9 @@ public class SoundHandler {
 	}
 
 	private static SoundEvent registerSound(String soundName) {
-		final ResourceLocation soundID = new ResourceLocation(Library.MODID, soundName);
-		return GameRegistry.register(new SoundEvent(soundID).setRegistryName(soundID));
+		ResourceLocation soundID = new ResourceLocation(Starcraft.MOD_ID, soundName);
+		SoundEvent event = new SoundEvent(soundID);
+		ForgeRegistries.SOUND_EVENTS.register(event.setRegistryName(soundID));
+		return event;
 	}
 }

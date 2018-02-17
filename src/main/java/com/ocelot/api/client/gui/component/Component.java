@@ -7,19 +7,29 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
 
+/**
+ * <em><b>Copyright (c) 2018 Ocelot5836.</b></em>
+ * 
+ * <br>
+ * </br>
+ * 
+ * The basic class for all components.
+ * 
+ * @author Ocelot5836
+ */
 public abstract class Component extends Gui {
 
-	protected static Minecraft		mc				= Minecraft.getMinecraft();
-	protected static FontRenderer	fontRenderer	= mc.fontRendererObj;
+	protected static Minecraft mc = Minecraft.getMinecraft();
+	protected static FontRenderer fontRenderer = mc.fontRenderer;
 
-	protected GuiBase				parent;
-	protected int					x;
-	protected int					y;
-	protected int					width;
-	protected int					height;
-	protected boolean				visible;
+	protected GuiBase parent;
+	protected int x;
+	protected int y;
+	protected int width;
+	protected int height;
+	protected boolean visible;
 
-	protected MouseListener			mouseListener;
+	protected MouseListener mouseListener;
 
 	public Component(int x, int y, int width, int height) {
 		this.x = x;
@@ -29,34 +39,105 @@ public abstract class Component extends Gui {
 		this.visible = true;
 	}
 
+	/**
+	 * Called when the screen is updated.
+	 */
 	public void update() {
 	}
 
+	/**
+	 * Renders the background layer before anything else is rendered.
+	 * 
+	 * @param mc
+	 *            A {@link Minecraft} instance
+	 * @param partialTicks
+	 *            The partial ticks
+	 * @param mouseX
+	 *            The x position of the mouse
+	 * @param mouseY
+	 *            The y position of the mouse
+	 */
 	public void renderBackground(Minecraft mc, float partialTicks, int mouseX, int mouseY) {
 	}
 
+	/**
+	 * Renders the foreground layer after everything else is rendered.
+	 * 
+	 * @param mc
+	 *            A {@link Minecraft} instance
+	 * @param partialTicks
+	 *            The partial ticks
+	 * @param mouseX
+	 *            The x position of the mouse
+	 * @param mouseY
+	 *            The y position of the mouse
+	 */
 	public void renderForeground(Minecraft mc, float partialTicks, int mouseX, int mouseY) {
 	}
 
+	/**
+	 * Renders the tooltips after the foreground is rendered.
+	 * 
+	 * @param mc
+	 *            A {@link Minecraft} instance
+	 * @param partialTicks
+	 *            The partial ticks
+	 * @param mouseX
+	 *            The x position of the mouse
+	 * @param mouseY
+	 *            The y position of the mouse
+	 */
 	public void renderTooltips(int mouseX, int mouseY) {
 	}
 
+	/**
+	 * Checks whether or not the mouse is hovered over the component.
+	 * 
+	 * @param mouseX
+	 *            The x position of the mouse
+	 * @param mouseY
+	 *            The y position of the mouse
+	 * @return whether or not the mouse is hovered over the component
+	 */
 	public boolean isHovered(int mouseX, int mouseY) {
 		// mouseX -= parent.getX();
 		// mouseY -= parent.getY();
 		return this.visible && mouseX >= this.x && mouseY >= this.y && mouseX < this.x + this.width && mouseY < this.y + this.height;
 	}
 
+	/**
+	 * Called when the mouse is pressed.
+	 * 
+	 * @param mouseButton
+	 *            The button the mouse is using
+	 * @param mouseX
+	 *            The x position of the mouse
+	 * @param mouseY
+	 *            The y position of the mouse
+	 */
 	public void mousePressed(int mouseButton, int mouseX, int mouseY) {
 		if (mouseListener != null)
 			mouseListener.mousePressed(mouseButton, mouseX, mouseY);
 	}
 
+	/**
+	 * Called when the mouse is released.
+	 * 
+	 * @param mouseButton
+	 *            The button the mouse is using
+	 * @param mouseX
+	 *            The x position of the mouse
+	 * @param mouseY
+	 *            The y position of the mouse
+	 */
 	public void mouseReleased(int mouseButton, int mouseX, int mouseY) {
 		if (mouseListener != null)
 			mouseListener.mouseReleased(mouseButton, mouseX, mouseY);
 	}
 
+	/**
+	 * Called when the component is added to the gui.
+	 */
 	public void onAddComponent() {
 	}
 
@@ -104,6 +185,9 @@ public abstract class Component extends Gui {
 		this.mouseListener = mouseListener;
 	}
 
+	/**
+	 * <b><i>PLEASE DO NOT TOUCH THIS! IT IS USED INTERNALLY!</i></b>
+	 */
 	public void setParent(GuiBase parent) {
 		this.parent = parent;
 	}

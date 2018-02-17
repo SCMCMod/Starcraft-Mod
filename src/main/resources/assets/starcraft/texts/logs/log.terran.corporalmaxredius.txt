@@ -1,0 +1,5 @@
+#skinId:1
+#name: Hell Frozen Over
+"Hell's supposed to be some kind of torture chamber filled with fire and brimstone, right? Well, after serving a tour of duty in the ice and snow of Braxis, the only difference I see is that at least Hell would be a lot warmer..."
+
+	-Corporal Max Redius

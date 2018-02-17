@@ -1,9 +1,7 @@
 package com.hypeirochus.scmc.creativetabs;
 
-import com.hypeirochus.scmc.handlers.BlockHandler;
-
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 public class StarcraftCreativeTabFlora extends CreativeTabs {
 
@@ -13,12 +11,8 @@ public class StarcraftCreativeTabFlora extends CreativeTabs {
 	}
 
 	@Override
-	public Item getTabIconItem() {
-		return Item.getItemFromBlock(BlockHandler.FLORA_ZERUS_GLOW_POD);
-	}
-
-	@Override
-	public boolean hasSearchBar() {
-		return false;
+	public ItemStack getTabIconItem() {
+		// return ItemHandler.FLORA_ZERUS_GLOW_POD;
+		return ItemStack.EMPTY;
 	}
 }

@@ -1,0 +1,3 @@
+#skinId:1
+#name: High Templar: Energy Manipulation
+High Templar are deeply attuned to the energy flows that surround them. By means of their formidable psionic ability, these warriors can grasp the energy currents present in beings or machines, and drain them through a violent chain reaction. This backlash may cause grievous wounds to living beings, or massive structural damage to machines. If the target happens to bristle with energy, the powerful psionic Feedback may destroy it outright.

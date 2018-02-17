@@ -1,0 +1,7 @@
+#skinId:1
+#name:Log 2297
+The zerg sample has developed an ocular organ. Will limbs be next? There is a basic dichotomy to zerg cell reproduction. Type A cells throw off seemingly random mutations. Type B cells hunt down these mutations and destroy them. It's survival of the fittest on the cellular level. Successful mutations thrive.
+
+I used microscopic scrapings from the sample to test an electrical discharge field I'd been tinkering with for some time. The results were gratifying. As an interesting side effect, the zerg matter developed into a very dense but flexible material. This material could be used to reinforce the superstructure of those old Hercules-class cargo ships that Swann's always trying to find a use for.
+
+I wish there were time to both pursue the discharge field and iterate on the hardened matter. I doubt there will be.

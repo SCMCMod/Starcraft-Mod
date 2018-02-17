@@ -5,6 +5,16 @@ import java.util.List;
 
 import net.minecraft.client.Minecraft;
 
+/**
+ * <em><b>Copyright (c) 2018 Ocelot5836.</b></em>
+ * 
+ * <br>
+ * </br>
+ * 
+ * A component that holds a list of {@link ComponentText} that can be rendered.
+ * 
+ * @author Ocelot5836
+ */
 public class ComponentTextArea extends Component {
 
 	private List<ComponentText> text;

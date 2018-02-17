@@ -1,0 +1,7 @@
+#skinId:1
+#name: The Gemini Series
+[[Universal News Network]]
+[[DEC HQ, Moria]]
+New Station Design Available
+The Dominion Engineering Corps (a division of the Kel-Morian Combine) proudly announces the availability of a new, low cost station design. The Gemini Series, a revolutionary step in space platform architecture, is suitable for nearly any orbital application. By utilizing a patented symmetrical structural layout, Gemini Series platforms can be constructed for half the cost of traditional station designs in half the time! Organizations or independently financed groups in need of a spaceborne facility for use in either business or pleasure applications should contact their local DEC representative for a presentation of the Gemini today.
+[[End Sponsored Segment]]

@@ -5,7 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 /**
- * <em><b>Copyright (c) 2017 Ocelot5836.</b></em>
+ * <em><b>Copyright (c) 2018 Ocelot5836.</b></em>
  * 
  * <br>
  * </br>
@@ -29,7 +29,7 @@ public class InventoryUtils {
 		for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
 			ItemStack tempStack = player.inventory.getStackInSlot(i);
 			if (tempStack != null && tempStack.getItem() == item) {
-				amount += tempStack.stackSize;
+				amount += tempStack.getCount();
 			}
 		}
 		return amount;
@@ -50,7 +50,7 @@ public class InventoryUtils {
 		for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
 			ItemStack tempStack = player.inventory.getStackInSlot(i);
 			if (tempStack != null && tempStack.getItem() == item && tempStack.getMetadata() == meta) {
-				amount += tempStack.stackSize;
+				amount += tempStack.getCount();
 			}
 		}
 		return amount;
@@ -70,7 +70,7 @@ public class InventoryUtils {
 		for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
 			ItemStack tempStack = player.inventory.getStackInSlot(i);
 			if (tempStack != null && tempStack == stack) {
-				amount += tempStack.stackSize;
+				amount += tempStack.getCount();
 			}
 		}
 		return amount;
@@ -146,7 +146,7 @@ public class InventoryUtils {
 		int count = 0;
 		for (ItemStack tempStack : player.inventory.mainInventory) {
 			if (tempStack != null && tempStack.getItem() == item) {
-				count += tempStack.stackSize;
+				count += tempStack.getCount();
 			}
 		}
 		return amount <= count;
@@ -168,7 +168,7 @@ public class InventoryUtils {
 		int count = 0;
 		for (ItemStack tempStack : player.inventory.mainInventory) {
 			if (tempStack != null && tempStack.getItem() == item && tempStack.getMetadata() == meta) {
-				count += tempStack.stackSize;
+				count += tempStack.getCount();
 			}
 		}
 		return amount <= count;
@@ -188,7 +188,7 @@ public class InventoryUtils {
 		int count = 0;
 		for (ItemStack tempStack : player.inventory.mainInventory) {
 			if (tempStack != null && tempStack == stack) {
-				count += tempStack.stackSize;
+				count += tempStack.getCount();
 			}
 		}
 		return amount <= count;
@@ -209,12 +209,12 @@ public class InventoryUtils {
 			for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
 				ItemStack tempStack = player.inventory.getStackInSlot(i);
 				if (tempStack != null && tempStack.getItem() == item) {
-					if (amount - tempStack.stackSize < 0) {
-						tempStack.stackSize -= amount;
+					if (amount - tempStack.getCount() < 0) {
+						tempStack.shrink(amount);
 						return true;
 					} else {
-						amount -= tempStack.stackSize;
-						player.inventory.mainInventory[i] = null;
+						amount -= tempStack.getCount();
+						player.inventory.setInventorySlotContents(i, ItemStack.EMPTY);
 						if (amount == 0)
 							return true;
 					}
@@ -241,12 +241,12 @@ public class InventoryUtils {
 			for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
 				ItemStack tempStack = player.inventory.getStackInSlot(i);
 				if (tempStack != null && tempStack.getItem() == item && tempStack.getMetadata() == meta) {
-					if (amount - tempStack.stackSize < 0) {
-						tempStack.stackSize -= amount;
+					if (amount - tempStack.getCount() < 0) {
+						tempStack.shrink(amount);
 						return true;
 					} else {
-						amount -= tempStack.stackSize;
-						player.inventory.mainInventory[i] = null;
+						amount -= tempStack.getCount();
+						player.inventory.setInventorySlotContents(i, ItemStack.EMPTY);
 						if (amount == 0)
 							return true;
 					}
@@ -271,12 +271,12 @@ public class InventoryUtils {
 			for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
 				ItemStack tempStack = player.inventory.getStackInSlot(i);
 				if (tempStack != null && tempStack == stack) {
-					if (amount - tempStack.stackSize < 0) {
-						tempStack.stackSize -= amount;
+					if (amount - tempStack.getCount() < 0) {
+						tempStack.shrink(amount);
 						return true;
 					} else {
-						amount -= tempStack.stackSize;
-						player.inventory.mainInventory[i] = null;
+						amount -= tempStack.getCount();
+						player.inventory.setInventorySlotContents(i, ItemStack.EMPTY);
 						if (amount == 0)
 							return true;
 					}

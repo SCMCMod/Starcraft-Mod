@@ -1,0 +1,3 @@
+#skinId:1
+#name: Siege Tank: Overview
+The Crucio is the Dominion’s replacement for the popular but aging Arclite Siege Tank. Originally designed to be a defensive security cannon, the Arclite utilized a two-stage configuration: a mobile Tank Mode and a static, long-range Siege Mode. The inherent flexibility of this model was a great success. The new Crucio has been designed for increased survivability, with an enlarged, reinforced turret and hull. The turret layout also features an upgraded Tank-Mode armament package, allowing the Crucio to defend itself more successfully in open battlefields. The Crucio is costlier than its predecessor, but its increased versatility justifies the additional expense.

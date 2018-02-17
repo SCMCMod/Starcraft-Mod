@@ -1,0 +1,3 @@
+#skinId:1
+#name: Corruptor: Ink Sacs
+These thick organs produce and store parasite spores, an ink-like substance that disrupts matter at a molecular level. Any vehicles or personnel doused with this vile compound will become very vulnerable, as the atomic chains that keep them together turn brittle. The Corruptor also circulates the spores through the capillaries of its tentacles from time to time, and it seems to inhibit—and even regress—the development of its ever-present cancerous growths. It is assumed that the creature does this to adjust its flight capabilities to new atmospheres, and to prevent the cancerous cells from consuming its tentacles.

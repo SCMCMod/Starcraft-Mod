@@ -1,0 +1,3 @@
+#skinId:1
+#name: Siege Tank: Climate Control
+The crew compartment in the Crucio Siege Tank, like the Arclite before it, gets hot enough to be uncomfortable. As such, all models come equipped with a set of heavy compressors that regulate the air inside the cabin, taxing the engine in the process. Some veteran tank operators—and a few borderline obsessive rookies—opt to modify the climate control system, buying additional performance with the sweat of their brows.

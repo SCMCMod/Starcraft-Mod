@@ -1,0 +1,3 @@
+#skinId:1
+#name: Observer: Sensor Matrix
+Complex arrays of self-focusing lenses, powered by psionic lattices, allow the Observer to analyze the battlefield from its vantage point in the sky. It can easily spot burrowers, as well as defeat all types of camouflage or stealth systems. Nothing can go unseen under the Observer’s watchful gaze.

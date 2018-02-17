@@ -12,6 +12,11 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 /**
+ * <em><b>Copyright (c) 2018 Ocelot5836.</b></em>
+ * 
+ * <br>
+ * </br>
+ * 
  * A gui that can be used for reference when trying to create a new custom one.
  * 
  * @author Ocelot5836
@@ -19,8 +24,8 @@ import net.minecraft.item.ItemStack;
  */
 public class GuiTest extends GuiBase {
 
-	private Component	item;
-	private Component	button;
+	private Component item;
+	private Component button;
 
 	public GuiTest() {
 		super(150, 150);

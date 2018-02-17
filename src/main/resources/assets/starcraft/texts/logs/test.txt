@@ -1,0 +1,3 @@
+#skinId:3
+#name:Spawn Log
+Hello, this is for testing.

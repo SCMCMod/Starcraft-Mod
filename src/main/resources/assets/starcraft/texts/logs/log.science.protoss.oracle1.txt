@@ -1,0 +1,3 @@
+#skinId:1
+#name: Oracle: Temporal Sight
+The manipulation of time allows Oracle pilots to see through the eyes of their enemies for a brief period. This preternatural technique can also reveal burrowed creatures, invisible troopers, or machines obscured by cloaking fields without the need for specialized detection systems.

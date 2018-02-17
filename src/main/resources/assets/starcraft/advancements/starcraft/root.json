@@ -1,0 +1,25 @@
+{
+    "display": {
+	    "icon": {
+            "item": "starcraft:dust",
+			"data": 1
+        },
+        "title": {
+            "translate": "advancements.pageStarcraft"
+        },
+        "description": {
+            "translate": "advancements.pageStarcraft"
+        },
+        "frame": "task",
+		"announce_to_chat": false,
+		"show_toast": false,
+        "hidden": false,
+        "background": "minecraft:textures/gui/advancements/backgrounds/stone.png"
+    },
+    "criteria": {
+			"tick": {
+				"trigger": "minecraft:tick"
+			}
+		}
+    }
+}

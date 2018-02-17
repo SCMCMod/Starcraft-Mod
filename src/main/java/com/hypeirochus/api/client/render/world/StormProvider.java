@@ -12,10 +12,11 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.renderer.vertex.VertexBuffer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -180,7 +181,7 @@ public abstract class StormProvider implements Predicate<Entity>, IStormProvider
 						entity.motionZ += 0.03F;
 						entity.motionY += MathHelper.sin(world.getWorldTime() * 0.4F) * 0.1F;
 						entity.fallDistance = 0F;
-						entity.attackEntityFrom(DamageSource.lava, 0.5F);
+						entity.attackEntityFrom(DamageSource.LAVA, 0.5F);
 					}
 				}
 			}
@@ -214,7 +215,7 @@ public abstract class StormProvider implements Predicate<Entity>, IStormProvider
 		int posX = MathHelper.floor(entity.posX);
 		int posY = MathHelper.floor(entity.posY);
 		int posZ = MathHelper.floor(entity.posZ);
-		VertexBuffer buffer = Draw.buffer();
+		BufferBuilder buffer = Draw.buffer();
 		GlStateManager.disableCull();
 		GlStateManager.glNormal3f(0.0F, 1.0F, 0.0F);
 		GlStateManager.enableBlend();

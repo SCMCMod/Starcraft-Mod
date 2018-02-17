@@ -1,0 +1,3 @@
+#skinId:1
+#name: Mothership Core: Photon Overcharge
+By channeling a torrent of raw psionic power into the Nexus’ Khaydarin Crystal, the Mothership Core can turn it into a deadly weapon. In this state, the supercharged matrix fires psionically imbued photon bolts that can tear through enemy scouts and light raiding parties, as well as deter larger attack groups until reinforcements can be warped in.

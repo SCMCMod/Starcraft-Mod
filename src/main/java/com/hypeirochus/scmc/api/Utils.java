@@ -13,9 +13,7 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.vector.Matrix4f;
 
 import com.google.gson.Gson;
-import com.hypeirochus.api.world.entity.player.inventory.Inventories;
 import com.hypeirochus.scmc.Starcraft;
-import com.hypeirochus.scmc.items.metaitems.ItemMagazine;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -44,14 +42,13 @@ import net.minecraftforge.oredict.OreDictionary;
  */
 public class Utils {
 
-	public static final FloatBuffer	projection	= GLAllocation.createDirectFloatBuffer(16);
-	public static final FloatBuffer	modelview	= GLAllocation.createDirectFloatBuffer(16);
+	public static final FloatBuffer projection = GLAllocation.createDirectFloatBuffer(16);
+	public static final FloatBuffer modelview = GLAllocation.createDirectFloatBuffer(16);
 
 	/**
-	 * Makes the variables which will be initialized when there getter method is
-	 * called
+	 * Makes the variables which will be initialized when there getter method is called
 	 */
-	private static Lang				lang;
+	private static Lang lang;
 
 	/**
 	 * @return The player's projection matrix
@@ -71,7 +68,7 @@ public class Utils {
 	 * @return The {@link Logger}
 	 */
 	public static Logger getLogger() {
-		return Starcraft.getLogger();
+		return Starcraft.logger();
 	}
 
 	/**
@@ -128,7 +125,7 @@ public class Utils {
 		for (int j = 0; j < handler.getSlots(); j++) {
 			ItemStack stack = handler.getStackInSlot(j);
 			if (stack != null) {
-				f += (float) stack.stackSize / (float) Math.min(handler.getStackInSlot(j).getMaxStackSize(), stack.getMaxStackSize());
+				f += (float) stack.getCount() / (float) Math.min(handler.getStackInSlot(j).getMaxStackSize(), stack.getMaxStackSize());
 				i++;
 			}
 		}
@@ -213,7 +210,7 @@ public class Utils {
 	public static boolean isInventoryFull(IItemHandler handler) {
 		int filledSlots = 0;
 		for (int slot = 0; slot < handler.getSlots(); slot++) {
-			if (handler.getStackInSlot(slot).stackSize == handler.getStackInSlot(slot).getMaxStackSize())
+			if (handler.getStackInSlot(slot).getCount() == handler.getStackInSlot(slot).getMaxStackSize())
 				filledSlots++;
 		}
 		return filledSlots == handler.getSlots();
@@ -232,21 +229,18 @@ public class Utils {
 		int filledSlots = 0;
 		for (int slot = 0; slot < maxSlot; slot++) {
 			if (handler.getStackInSlot(slot) != null)
-				if (handler.getStackInSlot(slot).stackSize == handler.getStackInSlot(slot).getMaxStackSize())
+				if (handler.getStackInSlot(slot).getCount() == handler.getStackInSlot(slot).getMaxStackSize())
 					filledSlots++;
 		}
 		return filledSlots == maxSlot;
 	}
 
 	/**
-	 * Gets the correct colour from any item stack using the ore dictionary The item
-	 * must be registered as a dye
+	 * Gets the correct colour from any item stack using the ore dictionary The item must be registered as a dye
 	 * 
 	 * @param stack
 	 *            The {@link ItemStack} to test
-	 * @return The {@link EnumDyeColor} of the {@link ItemStack} to test. If the
-	 *         stack is not registered as a dye, the {@link EnumDyeColor#WHITE} will
-	 *         be used
+	 * @return The {@link EnumDyeColor} of the {@link ItemStack} to test. If the stack is not registered as a dye, the {@link EnumDyeColor#WHITE} will be used
 	 */
 	public static EnumDyeColor getColorFromDye(ItemStack stack) {
 		for (int id : OreDictionary.getOreIDs(stack)) {
@@ -286,6 +280,7 @@ public class Utils {
 		return EnumDyeColor.WHITE;
 	}
 
+	//FIXME This does not work anymore.
 	/**
 	 * Recieves the amount of ammo a player has in the inventory.
 	 * 
@@ -293,18 +288,19 @@ public class Utils {
 	 *            The player to search
 	 * @param item
 	 *            The item that has the tag BulletCount
-	 * @return The amount found if the tag was found. If it was not found it returns
-	 *         0
+	 * @return The amount found if the tag was found. If it was not found it returns 0
+	 * @deprecated does not work anymore. Must be fixed.
 	 */
 	public static int getTotalAmmo(EntityPlayer player, Item item) {
-		int totalCount = 0;
-		if (Inventories.playerHas(item, player)) {
-			for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
-				ItemStack stack = player.inventory.getStackInSlot(i);
-				totalCount += ItemMagazine.getBulletCount(stack);
-			}
-		}
-		return totalCount;
+		// int totalCount = 0;
+		// if (Inventories.playerHas(item, player)) {
+		// for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
+		// ItemStack stack = player.inventory.getStackInSlot(i);
+		// totalCount += ItemMagazine.getBulletCount(stack);
+		// }
+		// }
+		// return totalCount;
+		return 0;
 	}
 
 	public static boolean checkSurroundingBlocks(World world, IBlockState state) {

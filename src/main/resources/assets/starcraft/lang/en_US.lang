@@ -425,8 +425,8 @@ fluid.fluid.tar=Tar
 
 ### Protoss Items ###
 #############################################################################################
-item.pingot.khalai.name=Khalai Protoss Ingot
-item.pingot.dark.name=Dark Protoss Ingot
+item.protoss.ingot.khalai.name=Khalai Protoss Ingot
+item.protoss.ingot.dark.name=Dark Protoss Ingot
 
 item.protoss.focuser.aiur.name=Khalai Protoss Focuser
 item.protoss.focuser.dark.name=Dark Protoss Focuser
@@ -517,8 +517,8 @@ item.ingot.titanium.name=Titanium Ingot
 item.ingot.steel.name=Steel Ingot
 item.ingot.neosteel.name=Neosteel Ingot
 
-item.rifleC14.name=C14 Gauss Rifle
-item.flamethrower.name=Flamethrower
+item.terran.rifleC14.name=C14 Gauss Rifle
+item.terran.flamethrower.name=Flamethrower
 
 item.part.c14rifle.barrel.name=C14 Rifle Barrel
 item.part.c14rifle.body.name=C14 Rifle Body
@@ -820,63 +820,63 @@ gui.buy=Buy
 
 
 
-### Achievements ###
+### Advancements ###
 #############################################################################################
-achievement.pageStarcraft=Starcraft
+advancements.pageStarcraft=Starcraft
 
-achievement.mineMinerals=Ooo, Shiny!
-achievement.mineMinerals.desc=Get Mineral Shards!
+advancements.starcraft.mineMinerals.title=Ooo, Shiny!
+advancements.starcraft.mineMinerals.desc=Get Mineral Shards!
 
-achievement.mineRichMinerals=Shinier!
-achievement.mineRichMinerals.desc=Get Rich Mineral Shards!
+advancements.starcraft.mineRichMinerals.title=Shinier!
+advancements.starcraft.mineRichMinerals.desc=Get Rich Mineral Shards!
 
-achievement.mineVespene=Vespene Geyser Depleted!
-achievement.mineVespene.desc=Obtain Vespene!
+advancements.starcraft.mineVespene.title=Vespene Geyser Depleted!
+advancements.starcraft.mineVespene.desc=Obtain Vespene!
                 
-achievement.getC14GaussRifle=Hell, It's About Time!
-achievement.getC14GaussRifle.desc=Obtain a C14 Gauss Rifle!
+advancements.starcraft.getC14GaussRifle.title=Hell, It's About Time!
+advancements.starcraft.getC14GaussRifle.desc=Obtain a C14 Gauss Rifle!
 
-achievement.getFlamethrower=Let's Burn!
-achievement.getFlamethrower.desc=Obtain a Flamethrower!
+advancements.starcraft.getFlamethrower.title=Let's Burn!
+advancements.starcraft.getFlamethrower.desc=Obtain a Flamethrower!
 
-achievement.getPsiBladeFocuser=Embrace Purity
-achievement.getPsiBladeFocuser.desc=Obtain a Psi Blade Focuser!
+advancements.starcraft.getPsiBladeFocuser.title=Embrace Purity
+advancements.starcraft.getPsiBladeFocuser.desc=Obtain a Psi Blade Focuser!
 
-achievement.getPsiBladeFocuserDark=Embrace Corruption
-achievement.getPsiBladeFocuserDark.desc=Obtain a Psi Blade Focuser (dark)!
+advancements.starcraft.getPsiBladeFocuserDark.title=Embrace Corruption
+advancements.starcraft.getPsiBladeFocuserDark.desc=Obtain a Psi Blade Focuser (dark)!
 
-achievement.getPsiBlade=My Life for Aiur!
-achievement.getPsiBlade.desc=Obtain a Psi Blade!
+advancements.starcraft.getPsiBlade.title=My Life for Aiur!
+advancements.starcraft.getPsiBlade.desc=Obtain a Psi Blade!
 
-achievement.getPsiBladeDark=Amon's Will
-achievement.getPsiBladeDark.desc=Obtain a Bane Blade!
+advancements.starcraft.getPsiBladeDark.title=Amon's Will
+advancements.starcraft.getPsiBladeDark.desc=Obtain a Bane Blade!
 
-achievement.getWarpBlade=For Shakuras!
-achievement.getWarpBlade.desc=Obtain a Warp Blade!
+advancements.starcraft.getWarpBlade.title=For Shakuras!
+advancements.starcraft.getWarpBlade.desc=Obtain a Warp Blade!
 
-achievement.getMasterPsiBlade=En Taro Zeratul...
-achievement.getMasterPsiBlade.desc=Obtain Zeratul's Master Psi Blade!
+advancements.starcraft.getMasterPsiBlade.title=En Taro Zeratul...
+advancements.starcraft.getMasterPsiBlade.desc=Obtain Zeratul's Master Psi Blade!
 
-achievement.enterChar=The Devil's Nest
-achievement.enterChar.desc=Arrive on Char!
+advancements.starcraft.enterChar.title=The Devil's Nest
+advancements.starcraft.enterChar.desc=Arrive on Char!
 
-achievement.enterKaldir=As Cold As Ice
-achievement.enterKaldir.desc=Arrive on Kaldir!
+advancements.starcraft.enterKaldir.title=As Cold As Ice
+advancements.starcraft.enterKaldir.desc=Arrive on Kaldir!
 
-achievement.enterKorhal=Remember Korhal!
-achievement.enterKorhal.desc=Arrive on Korhal!
+advancements.starcraft.enterKorhal.title=Remember Korhal!
+advancements.starcraft.enterKorhal.desc=Arrive on Korhal!
 
-achievement.enterShakuras=We Linger, In Twilight
-achievement.enterShakuras.desc=Arrive on Shakuras!
+advancements.starcraft.enterShakuras.title=We Linger, In Twilight
+advancements.starcraft.enterShakuras.desc=Arrive on Shakuras!
 
-achievement.enterSlayn=The Forged
-achievement.enterShakuras.desc=Arrive on Slayn!
+advancements.starcraft.enterSlayn.title=The Forged
+advancements.starcraft.enterShakuras.desc=Arrive on Slayn!
 
-achievement.enterAiur=A Beacon Of Progress
-achievement.enterAiur.desc=Arrive on Aiur!
+advancements.starcraft.enterAiur.title=A Beacon Of Progress
+advancements.starcraft.enterAiur.desc=Arrive on Aiur!
 
-achievement.enterZerus=Primordial Soup
-achievement.enterShakuras.desc=Arrive on Zerus!
+advancements.starcraft.enterZerus.title=Primordial Soup
+advancements.starcraft.enterShakuras.desc=Arrive on Zerus!
 #############################################################################################
 
 

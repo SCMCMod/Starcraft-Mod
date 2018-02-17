@@ -32,12 +32,12 @@ public class MessageKillEntity implements IMessage, IMessageHandler<MessageKillE
 
 	@Override
 	public IMessage onMessage(MessageKillEntity message, MessageContext ctx) {
-		EntityPlayer player = ctx.getServerHandler().playerEntity;
+		EntityPlayer player = ctx.getServerHandler().player;
 		World world = player.world;
 
 		if (!world.isRemote) {
 			EntityLivingBase entity = (EntityLivingBase) world.getEntityByID(message.entityId);
-			entity.onDeath(DamageSource.outOfWorld);
+			entity.onDeath(DamageSource.OUT_OF_WORLD);
 			entity.setHealth(0);
 		}
 

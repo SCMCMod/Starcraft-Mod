@@ -1,0 +1,3 @@
+#skinId:1
+#name: Marauder: Concussive Shells
+On detonation, these shells generate a temporary gravitational warp that disrupts the gravity field surrounding a target or, in certain models, a group of targets. The warp is not powerful enough to affect anything of massive scale, but Dominion engineers remain optimistic about finding a way to correct this flaw. Concussive shells are a solid, tactical addition to any arsenal.

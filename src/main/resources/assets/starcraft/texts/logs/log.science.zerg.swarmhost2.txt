@@ -1,0 +1,3 @@
+#skinId:1
+#name: Swarm Host: Grinder Legs
+The legs of the Swarm Host boast powerful muscles that allow them to vibrate at hypersonic speeds, not unlike the teeth of the Nydus Worm. Despite that, the creature couldn´t burrow fast enough to adapt to shifting battlefield conditions. To correct this, a set of fragile—albeit regenerating—capillaries was put into place. Now, when the Swarm Host digs, the capillaries break and the creature’s acid blood softens the soil, allowing it to go underground in seconds.

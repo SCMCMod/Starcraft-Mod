@@ -1,0 +1,3 @@
+#skinId:1
+#name: Medivac: Healing Bay
+The Medivac is outfitted with a state-of-the-art medical bay and triage station that uses auto-sutures and laser scalpels to seal wounds and repair tissue almost as fast as it’s mangled. Soldiers are administered pain suppressants, growth stimulators, and nanomachines to keep them in the field. The machines also bond with damaged tissue, exponentially boosting its natural regenerative properties.

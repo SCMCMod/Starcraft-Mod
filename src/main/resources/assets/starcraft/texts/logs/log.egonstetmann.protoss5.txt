@@ -1,0 +1,3 @@
+#skinId:1
+#name:Log 2318
+Okay, I may be exceeding the boundaries of good science, but I am now sure this crystal has some sort of... if not sentience, at least... direction. I put a broken nano-fabricator in the tank last night, and today it's fixed. And it can accomplish things it shouldn't. If I can reverse engineer this fabricator, I could do amazing things with automated repair, or even near-instant manufacturing of advanced AI weaponry. Possibilities are limitless. On the less upbeat end of things, the level of energy stored in the crystal's matrix has not increased at all, despite the fact that the crystal continues to grow. So it must be emitting that energy somehow, some... where.

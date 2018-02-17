@@ -1,0 +1,3 @@
+#skinId:1
+#name: Battlecruiser: Fusion Reactor
+Old reactor technology proved insufficient for the Minotaur-Class Battlecruiser, which led to the creation of a cleaner, more efficient fusion reactor. Production of the outdated power sources used in old Behemoth cruisers is slowly being discontinued in favor of new fusion technology, and supreme efforts are being made to retrofit old vessels. To this day, many Battlecruisers belonging to the old ex-Confederate guard still use antiquated reactors—poorly maintained or jury-rigged to yield higher energy outputs—that have a tendency to leak. The new Fusion Reactors do not have this problem.

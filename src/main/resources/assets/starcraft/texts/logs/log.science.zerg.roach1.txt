@@ -1,0 +1,3 @@
+#skinId:1
+#name: Roach: Osmotic Epithelium
+Zantar Slugs have always been a resilient breed, capable of healing maimed or damaged tissue by absorbing nutrients from the soil. Once these creatures were incorporated into the Swarm—and their metabolism accelerated tenfold—the aptly named Roaches gained the ability to quickly regenerate even the most grievous wounds while burrowed.

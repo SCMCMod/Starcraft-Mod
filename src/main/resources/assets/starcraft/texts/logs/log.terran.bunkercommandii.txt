@@ -1,0 +1,5 @@
+#skinId:1
+#name: Bunker Command II
+"In this powerful remake of a true action classic, Bunker Command II recreates all of the excitement of the original strategic conflict while including all-new units to command. Lead your squad of experienced marines across a new and dangerous landscape, seeking out enemy bunkers to destroy before they can do the same thing to you. As you eliminate your foes and the bunkers they defend, reinforcements arrive to help carry on the fight for ultimate victory. Bunker Command II will prove to be the leader in the next generation of Real Time Bunker games."
+
+     -Rexx Perry, V.P. of Bunker Command Marketing, UED Region

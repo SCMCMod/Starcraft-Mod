@@ -12,20 +12,48 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 
+/**
+ * <em><b>Copyright (c) 2018 Ocelot5836.</b></em>
+ * 
+ * <br>
+ * </br>
+ * 
+ * Allows for a basic gui that handles most of the work and errors in a normal gui.
+ * 
+ * @author Ocelot5836
+ */
 public abstract class GuiBase extends GuiScreen {
 
-	private List<Component>	components	= new ArrayList<Component>();
+	private List<Component> components = new ArrayList<Component>();
 
-	protected int			xSize, ySize;
-	protected int			guiLeft, guiTop;
-	protected boolean		renderDefaultBackground;
+	protected int xSize, ySize;
+	protected int guiLeft, guiTop;
+	protected boolean renderDefaultBackground;
 
-	private Component		selectedComonent;
+	private Component selectedComonent;
 
+	/**
+	 * Constructs a gui with the specified width and height.
+	 * 
+	 * @param xSize
+	 *            The width of the gui
+	 * @param ySize
+	 *            The height of the gui
+	 */
 	public GuiBase(int xSize, int ySize) {
 		this(xSize, ySize, true);
 	}
 
+	/**
+	 * Constructs a gui with the specified width, height, and whether or not to render the background behind it.
+	 * 
+	 * @param xSize
+	 *            The width of the gui
+	 * @param ySize
+	 *            The height of the gui
+	 * @param renderDefaultBackground
+	 *            Whether or not to render the black background behind the gui
+	 */
 	public GuiBase(int xSize, int ySize, boolean renderDefaultBackground) {
 		this.xSize = xSize;
 		this.ySize = ySize;

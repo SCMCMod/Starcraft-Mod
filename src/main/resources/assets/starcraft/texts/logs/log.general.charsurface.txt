@@ -1,0 +1,3 @@
+#skinId:1
+#name: The Surface Of Char
+The temperatures on the planet Char can become so intense that large portions of the planet's surface become completely liquefied. During certain times, when the planet is furthest from the twin suns of the system, small islands form on top of these seas of magma. These bits of land are, not surprisingly, replete with minerals and greatly prized as sources of incredible wealth. These riches are not without cost, however, as more than one potential prospector has met his demise within the fierce heat of Char.

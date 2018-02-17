@@ -1,0 +1,3 @@
+#skinId:1
+#name: Dark Templar: Warp Blade
+Armed with knowledge gained from the ancient xel’naga ship they were exiled in, the Dark Templar used the Psi-Blade technology of the Templar caste as a template to forge an instrument with which to shape their burgeoning psionic ability, and infuse it with Void energy. Warp Blades react to the user’s strength of will, turning centuries of discipline and training into a very powerful weapon. Further iterations on its design yielded scythe-like blades, which helped diversify the combat style of the Dark Templar.

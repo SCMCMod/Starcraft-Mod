@@ -7,11 +7,21 @@ import com.ocelot.api.client.gui.book.GuiBookBase;
 
 import net.minecraft.client.Minecraft;
 
+/**
+ * <em><b>Copyright (c) 2018 Ocelot5836.</b></em>
+ * 
+ * <br>
+ * </br>
+ * 
+ * A page within a book gui.
+ * 
+ * @author Ocelot5836
+ */
 public class ComponentBookPage extends Component {
 
-	public ComponentText		title;
-	public ComponentTextArea	body;
-	public List<Component>		components;
+	public ComponentText title;
+	public ComponentTextArea body;
+	public List<Component> components;
 
 	public ComponentBookPage(GuiBookBase book) {
 		super(book.getX(), book.getY(), book.getWidth(), book.getHeight());

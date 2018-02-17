@@ -1,0 +1,3 @@
+#skinId:1
+#name: Stalker: Shadow Essence
+Nerazim warriors can choose to undergo a ritual which fuses their shadow essence to nimble machines known as Stalkers, granting them a preternatural degree of control over their new bodies. Unlike their Khalai counterparts—Dragoons and Immortals—the Stalker does not contain the severely injured body of a Protoss warrior. Instead, their armored plates and mechanical systems are home to the powerful presence of Dark Templar who sacrificed their former lives to protect their brethren from the shadows.

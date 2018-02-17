@@ -1,5 +1,6 @@
 package com.hypeirochus.scmc.handlers;
 
+import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.lib.Library;
 
 import net.minecraft.block.Block;
@@ -23,7 +24,7 @@ public class WavefrontModelHandler {
 	 * Adds a new OBJ loader domain.
 	 */
 	public static void pre(FMLPreInitializationEvent event) {
-		OBJLoader.INSTANCE.addDomain(Library.MODID);
+		OBJLoader.INSTANCE.addDomain(Starcraft.MOD_ID);
 		register();
 	}
 
@@ -31,8 +32,7 @@ public class WavefrontModelHandler {
 	 * Registers the obj models.
 	 */
 	public static void register() {
-		registerModel(BlockHandler.TEST_BLOCK);
-		registerModel(BlockHandler.PROTOSS_WORMHOLE);
+
 	}
 
 	/**

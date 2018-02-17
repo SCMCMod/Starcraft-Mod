@@ -1,0 +1,3 @@
+#skinId:1
+#name: Dark Templar: Overview
+The Dark Templar are powerful psionic warriors whose ancestors resettled on the planet Shakuras after they were exiled from the Protoss homeworld of Aiur for refusing to join the emerging Khala, the communal mind link shared by the entire race. In place of the Khala’s bright energies, the Dark Templar learned to manipulate the darker powers of the Void, which gave the Dark Templar the ability to become invisible at will. Armed with their potent Warp Blades, the Dark Templar are deadly and relentless foes capable of devastating conventional forces. Now that Aiur has fallen and its refugees have fled to Shakuras, the Dark Templar have joined their considerable strength to the Protoss’ numbers.

@@ -1,0 +1,3 @@
+#skinId:1
+#name: Nydus Worm: Chemical Receptors
+Nydus Worms are specialized lifeforms that have no brains of their own; only a simple array of organs that react to peristaltic motion and chemical stimuli from the Nydus Network. This array allows the creature to navigate through difficult or rough terrain, and also helps regulate its biological functions. The Nydus Worm is merely an extension of the Nydus Network, and the latter is an extension of the Swarm itself.

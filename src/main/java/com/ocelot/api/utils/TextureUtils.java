@@ -4,7 +4,7 @@ import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.hypeirochus.scmc.lib.Library;
+import com.hypeirochus.scmc.Starcraft;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.DynamicTexture;
@@ -23,9 +23,9 @@ import net.minecraft.util.ResourceLocation;
  */
 public class TextureUtils {
 
-	private static Minecraft						mc			= Minecraft.getMinecraft();
+	private static Minecraft mc = Minecraft.getMinecraft();
 
-	private static Map<String, ResourceLocation>	textures	= new HashMap<String, ResourceLocation>();
+	private static Map<String, ResourceLocation> textures = new HashMap<String, ResourceLocation>();
 
 	/**
 	 * Creates a texture from a buffered image.
@@ -84,7 +84,7 @@ public class TextureUtils {
 	 *            The path to the texture
 	 */
 	public static void bindTexture(String path) {
-		String locationString = Library.RL_BASE + path;
+		String locationString = Starcraft.RL_BASE + path;
 		if (textures.containsKey(locationString)) {
 			mc.getTextureManager().bindTexture(textures.get(locationString));
 		} else {

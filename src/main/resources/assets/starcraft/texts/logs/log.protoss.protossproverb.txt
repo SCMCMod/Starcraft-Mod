@@ -1,0 +1,6 @@
+#skinId:1
+#name: The Legend Of The Crossroads
+"All warriors shall come to a crossroads, and there shall fate pass judgement."
+       -Popular Protoss proverb 
+
+The legend of the Crossroads is one that holds great power in the minds of many Protoss warriors. First spoken of by Khas in the sacred scriptures, it is said that, "All true warriors will come to a place they do not expect to be and encounter those they did not expect to find. It is in that place the fate of the true warrior will be decided."

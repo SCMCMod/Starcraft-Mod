@@ -1,0 +1,3 @@
+#skinId:1
+#name: Marine: CMC Armor
+The suit, also known as Hardskin, is a staple of Terran forces everywhere, boasting features that enhance the survivability and combat abilities of the wearer. Full life support, compatibility with gravity accelerators, and an emergency lock system are a few of the perks the troops benefit from when out in the field. Easy-to-replace cartridges, conveniently located in the chest area, supply power to the suit’s systems. The extensive array of servos in the suit—while vulnerable to damage—augment the physical traits of the soldier, enhancing their combat prowess.

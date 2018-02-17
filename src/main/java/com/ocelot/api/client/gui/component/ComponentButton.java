@@ -1,5 +1,6 @@
 package com.ocelot.api.client.gui.component;
 
+import com.ocelot.api.client.gui.GuiBase;
 import com.ocelot.api.utils.SoundUtils;
 
 import net.minecraft.client.Minecraft;
@@ -7,13 +8,23 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
 
+/**
+ * <em><b>Copyright (c) 2018 Ocelot5836.</b></em>
+ * 
+ * <br>
+ * </br>
+ * 
+ * A very simple button.
+ * 
+ * @author Ocelot5836
+ */
 public class ComponentButton extends Component {
 
-	protected static final ResourceLocation	BUTTON_TEXTURES	= new ResourceLocation("textures/gui/widgets.png");
+	protected static final ResourceLocation BUTTON_TEXTURES = new ResourceLocation("textures/gui/widgets.png");
 
-	public String							displayString;
-	public boolean							enabled;
-	protected boolean						hovered;
+	public String displayString;
+	public boolean enabled;
+	protected boolean hovered;
 
 	public ComponentButton(int x, int y, String buttonText) {
 		this(x, y, 200, 20, buttonText);
@@ -41,7 +52,7 @@ public class ComponentButton extends Component {
 	public void renderBackground(Minecraft mc, float partialTicks, int mouseX, int mouseY) {
 		if (this.visible) {
 			GlStateManager.pushMatrix();
-			FontRenderer fontrenderer = mc.fontRendererObj;
+			FontRenderer fontrenderer = mc.fontRenderer;
 			mc.getTextureManager().bindTexture(BUTTON_TEXTURES);
 			GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 			this.hovered = mouseX >= this.x && mouseY >= this.y && mouseX < this.x + this.width && mouseY < this.y + this.height;

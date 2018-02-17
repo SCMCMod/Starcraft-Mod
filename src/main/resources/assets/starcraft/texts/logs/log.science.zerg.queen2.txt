@@ -1,0 +1,3 @@
+#skinId:1
+#name: Queen: Mutated Ovipositor
+The Arachnis-Brood Keeper was capable of laying medium to large clutches of eggs every season. Such a trait was deemed unnecessary for the Zerg Queens fielded before and during the Brood War, as their role in the hive was not tied to the reproduction of the Swarm. Today, the egg-laying capabilities of the Arachnis template have been revised and altered to produce living globs of tissue, which adhere to creep and accelerate its growth.	

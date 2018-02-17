@@ -1,0 +1,3 @@
+#skinId:1
+#name: Carrier: Graviton Catapult
+These nimble robotic fighters are built in an automated manufacturing plant connected to the Carrier’s hangar, where diligent Khalai engineers see to their maintenance and launch operations. Each Interceptor is fitted with two small plasma cannons—as heavier ordnance would decrease maneuverability—and a simple AI with highly advanced targeting subroutines. Some of these fighters have independent fire-control circuits, which allow them to continue firing even if the enemy jams the command signal or destroys the Interceptor’s robotic brain.

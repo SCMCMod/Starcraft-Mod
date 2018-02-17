@@ -1,0 +1,9 @@
+#skinId:1
+#name:Log 2103
+Zerg sample recovered by Raynor's Raiders, 6.10.2504.
+
+Sample appeared dead when brought in, including tissue necrosis. However, tests now reveal frantic cellular activity, and it is moving.
+
+This defies everything I understand about biology. I'm tracking massive generational changes in each cell. In the last hour, this thing has evolved more than humans did in 100,000 years.
+
+If I can harness this, it could lead to huge military innovations for the Raiders.

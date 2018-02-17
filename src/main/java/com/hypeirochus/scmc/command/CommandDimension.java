@@ -50,7 +50,7 @@ public class CommandDimension extends CommandBase {
 				if (dimId == maxIds[i]) {
 					if (player.dimension != dimId) {
 						EntityPlayerMP playerMp = (EntityPlayerMP) player;
-						playerMp.getServer().getPlayerList().transferPlayerToDimension(playerMp, dimId, new TeleporterHandler(playerMp.getServerWorld().provider.getDimension(), playerMp.mcServer.worldServerForDimension(dimId), player.posX, playerMp.getServerWorld().getHeight((int) player.posX, (int) player.posZ), player.posZ, dimId == 9, false));
+						playerMp.getServer().getPlayerList().transferPlayerToDimension(playerMp, dimId, new TeleporterHandler(playerMp.getServerWorld().provider.getDimension(), playerMp.mcServer.getWorld(dimId), player.posX, playerMp.getServerWorld().getHeight((int) player.posX, (int) player.posZ), player.posZ, dimId == 9, false));
 						notifyCommandListener(sender, this, "commands.dimension.success", new Object[] { player.getName(), dimId });
 					} else {
 						throw new CommandException("commands.dimension.same_dim", new Object[] { player.getName(), dimId });

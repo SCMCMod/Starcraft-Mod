@@ -1,0 +1,5 @@
+#skinId:1
+#name: Bengalaas
+"The Bengalaas are not only one of the most colorful creatures in the universe, but are also counted amongst it's most feared predators. These jungle cats love to toy with their prey and have been observed slapping smaller creatures about in a sadistically playful manner for several minutes before finally making the kill with one swift bite to the neck. The predatory habits of the Bengalaas are not limited to small or defenseless animals, however. Exhibiting acutely intelligent hunting tactics, packs of Bengalaas can bring down an aggressive, dangerous target that is several times their own size. These noble cats are truly one of nature's finest and deadliest creations." 
+
+     - Benjamin Slater, Doctor of Zoology

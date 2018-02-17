@@ -1,0 +1,3 @@
+#skinId:1
+#name: Phoenix: Inertial Drive
+The Phoenix is equipped with a compact Inertial Drive that projects a powerful warp field around the ship, which allows for swift displacement in deep space or planetary atmospheres. Twin high-power plasma thrusters supplement the Inertial Drive, making the Phoenix a formidable interceptor craft.

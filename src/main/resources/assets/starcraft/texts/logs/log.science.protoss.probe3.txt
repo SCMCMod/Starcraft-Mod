@@ -1,0 +1,3 @@
+#skinId:1
+#name: Probe: Particle Beam
+As multipurpose platforms designed to operate in hazardous environments—likely teeming with dangerous creatures—Probes are equipped with a miniature energy projector. Commonly used to collect samples and mineral crystals, the beam can be boosted to cause kinetic damage to targets deemed a threat.

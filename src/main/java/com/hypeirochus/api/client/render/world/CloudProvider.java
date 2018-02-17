@@ -7,9 +7,9 @@ import com.hypeirochus.scmc.handlers.AccessHandler;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
@@ -22,9 +22,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 //@EventBusSubscriber
 public abstract class CloudProvider extends IRenderHandler implements ICloudProvider {
-	protected float	cloudSpeed	= getMaxNormalCloudSpeed();
-	protected long	cloudTicks;
-	protected long	cloudTicksPrev;
+	protected float cloudSpeed = getMaxNormalCloudSpeed();
+	protected long cloudTicks;
+	protected long cloudTicksPrev;
 
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
@@ -89,7 +89,7 @@ public abstract class CloudProvider extends IRenderHandler implements ICloudProv
 		float yOffset = (float) (entity.lastTickPosY + (entity.posY - entity.lastTickPosY) * (double) renderPartialTicks);
 		byte cloudSections = 4;
 		Tessellator tessellator = Tessellator.getInstance();
-		VertexBuffer vertexbuffer = tessellator.getBuffer();
+		BufferBuilder vertexbuffer = tessellator.getBuffer();
 		double viewX = (entity.prevPosX + (entity.posX - entity.prevPosX) * (double) renderPartialTicks + getCloudMovementX(entity.world, cloudTicksPrev, cloudTicks) * 0.029999999329447746D) / 12.0D;
 		double viewZ = (entity.prevPosZ + (entity.posZ - entity.prevPosZ) * (double) renderPartialTicks + getCloudMovementZ(entity.world, cloudTicksPrev, cloudTicks) * 0.029999999329447746D) / 12.0D;
 		float cloudHeight = AccessHandler.getMinecraft().world.provider.getCloudHeight() - yOffset + 0.33F;
@@ -99,9 +99,9 @@ public abstract class CloudProvider extends IRenderHandler implements ICloudProv
 		GlStateManager.enableBlend();
 		GlStateManager.tryBlendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
 
-		float r = (float) entity.world.provider.getCloudColor(renderPartialTicks).xCoord;
-		float g = (float) entity.world.provider.getCloudColor(renderPartialTicks).yCoord;
-		float b = (float) entity.world.provider.getCloudColor(renderPartialTicks).zCoord;
+		float r = (float) entity.world.provider.getCloudColor(renderPartialTicks).x;
+		float g = (float) entity.world.provider.getCloudColor(renderPartialTicks).y;
+		float b = (float) entity.world.provider.getCloudColor(renderPartialTicks).z;
 
 		float f17 = (float) MathHelper.floor(viewX) * 0.00390625F;
 		float f18 = (float) MathHelper.floor(viewZ) * 0.00390625F;

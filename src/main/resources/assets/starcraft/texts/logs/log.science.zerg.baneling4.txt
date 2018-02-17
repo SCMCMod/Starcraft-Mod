@@ -1,0 +1,3 @@
+#skinId:1
+#name: Baneling: Organ Mutation
+As the Soronan mold is part of their genetic structure, Banelings are capable of surviving on very low concentrations of oxygen and minimal moisture. During pupation, the digestive and respiratory systems are assimilated as nutrients to accelerate the process, and also to make room for the fleshy, mutated adrenal glands—repurposed to produce and store large quantities of highly corrosive acid.

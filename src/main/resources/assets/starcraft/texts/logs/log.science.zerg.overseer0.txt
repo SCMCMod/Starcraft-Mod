@@ -1,0 +1,3 @@
+#skinId:1
+#name: Overseer: Overview
+Overseers are an evolution of the Overlord, fitted with highly evolved optical receptors that boast hypersensitive retinas. These “eyes” have been through much iteration, each developmental cycle improving upon the preceding one’s optical evolution. The Zerg are obsessed with detecting subtler motions and more advanced camouflage techniques, and this latest evolution allows the Overseer to detect any hidden enemy units, including those that are burrowed underground or cloaked. Perhaps most disturbing are reports that Overseers can either carry or give birth to Changelings, infiltrator organisms that can convincingly mimic enemy Zerg, Terrans, or Protoss.

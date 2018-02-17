@@ -1,0 +1,12 @@
+#skinId:1
+#name: XT39323: Overview
+The worlds that claim allegiance to the Umojan Protectorate have long held independence as their defining trait. The Protectorate defies the espoused right of Emperor Arcturus Mengsk to rule all terrans, and it takes great pains to ensure that their way of life isn't compromised by the Dominion. Nowhere is the Umojan caution about Dominion influence and intrusion more pronounced than in scientific research and development. Hidden laboratories and plausible deniability aren't options – they're standards.
+
+Nearly every inch of the primary research facility on the tiny planetoid designated XT39323 is monitored by camera-controlled turrets; the research staff is protected by trained Umojan marines equipped for ground-force operations, and individual sectors can be swiftly locked down to terminate a project or isolate a portion of the lab. Due to the size of the premises, remote-operated platforms are in common use by scientists travelling between wings of the facility.
+
+
+Accomplished xenobiologists from throughout the Protectorate find themselves gravitating to XT39323’s massive laboratories for the prospect of working with rare, volatile and dangerous subjects – among them zerg specimens, psionically neutered and removed from the Swarm.
+
+
+For the opportunity to experiment on live zerg, the fortress-like test center and fixation on secrecy are a small price to pay indeed.
+
