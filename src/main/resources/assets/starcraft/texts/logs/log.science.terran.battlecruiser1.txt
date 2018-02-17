@@ -1,3 +1,0 @@
-#skinId:1
-#name: Battlecruiser: Yamato Cannon
-Massive, prow-mounted plasma weapon that draws power from the Battlecruiser’s core. The Yamato generates a dense magnetic field to harness a controlled nuclear reaction, turning it into a concentrated energy blast that can destroy almost anything with a few shots. Upon its inception, the Yamato Cannon had to be retrofitted into the existing Dominion fleet of Behemoth-Class Battlecruisers—and some of the older vessels were not upgraded due to costs and limited supply. Today, many newly built Minotaur-Class Battlecruisers are equipped with a Type-V Yamato Cannon.

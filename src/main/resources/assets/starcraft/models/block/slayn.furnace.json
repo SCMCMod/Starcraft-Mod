@@ -1,8 +1,0 @@
-{
-    "parent": "block/orientable",
-    "textures": {
-        "top": "starcraft:blocks/slayn.furnace.top",
-        "front": "starcraft:blocks/slayn.furnace.front.off",
-        "side": "starcraft:blocks/slayn.furnace.side"
-    }
-}

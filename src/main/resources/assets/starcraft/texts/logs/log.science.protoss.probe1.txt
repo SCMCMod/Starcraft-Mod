@@ -1,3 +1,0 @@
-#skinId:1
-#name: Probe: Warp Beacons
-Probes are at the forefront of Protoss colonization and military efforts. After locking dimensional coordinates, these small robotic constructs manufacture and set micro-beacons that anchor the teleport matrices of all necessary infrastructure. This process enables the Protoss to quickly settle in new worlds—or establish Nexus points to strike at their enemies—with nothing more than a handful of Probes.

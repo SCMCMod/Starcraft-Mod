@@ -1,3 +1,0 @@
-#skinId:1
-#name: Colossus: Thermal Lances
-These twin cannons fire beams of superheated plasma that quickly incinerate scores of enemy ground targets. While powerful, Colossi weapons present a design issue, as their range is somewhat limited. Khalai phase-smiths built an extended Thermal Lance with enhanced airflow that could operate at higher temperatures, increasing beam velocity and effective range without loss in power output.

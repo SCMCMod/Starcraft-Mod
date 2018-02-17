@@ -1,3 +1,0 @@
-#skinId:1
-#name: Hydralisk: Claws
-Grown from the relatively soft ribs of the Slothien, and hardened through genetic manipulation, these tri-bladed scythes are formidable weapons in close quarters combat. The high-density bone blades are connected to a set of fast-twitching, striated muscles, which allow for great striking power with a modest range of motion—deadly even in restricted mobility scenarios such as tight corridors or trenches.

@@ -1,5 +1,0 @@
-#skinId:1
-#name: Debriefing Of UED Marine 384DTA47631
-"Char? You want me to tell you about Char? Oh man, I still wake up screaming from the nightmares I have about that pit. A thick layer of ash covers everything, and there's this eerie red glow that comes from the magma that seeps up through the surface of the planet. One wrong step and you find yourself wading in a pool of hot lava. You ever hear the scream of a man as he is being burned alive by lava, Major? It's not something you soon forget, let me tell you. And if the infernal planet doesn't get you, there's always the damned Zerg that'll try and finish the job. Those devils were everywhere, and they killed a whole lot of my buddies in ways I don't want to remember. Char was a hellhole, alright, and I rather have you kill me than send me back there again."
-
-    - Debriefing of UED Marine 384DTA47631

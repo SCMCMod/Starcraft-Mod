@@ -1,3 +1,0 @@
-#skinId:1
-#name: Phoenix: Graviton Beam
-Phoenix pilots can use the ship´s inertial drive as a catalyst to channel the warp field that surrounds their craft. The result is a stream of anti-gravity—dubbed the Graviton Beam—which turns the target into a near weightless object, but also forces the Phoenix to remain stationary while it’s active. The Graviton Beam was originally conceived as a last resort, one the Protoss fleet has come to embrace as an effective control weapon.

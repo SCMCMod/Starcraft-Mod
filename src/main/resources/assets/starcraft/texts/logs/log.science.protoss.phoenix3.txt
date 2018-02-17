@@ -1,3 +1,0 @@
-#skinId:1
-#name: Phoenix: Energy Weave
-This thin mesh looks like a highly advanced circuit board. It is made out of light-reactive fibers that absorb, channel, and redirect all types of energy—including the pilot’s psionic input. The Weave’s primary function is to maintain the coherence of the warp field that sheathes the Phoenix’s fuselage, and enhance the ship’s stability and maneuverability when banking, rolling, or sliding at high speeds.

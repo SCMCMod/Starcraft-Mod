@@ -1,3 +1,0 @@
-#skinId:1
-#name: Infestor: Parasitic Stinger
-The sole purpose of this flexible appendage is to bore through natural or artificial plating in order to inject a neural parasite directly into the victim’s nervous system. The amorphous, multi-mouthed parasite cannot survive for long within a foreign body, but whatever horrific deeds the host carries out while under the influence of the Swarm will leave everlasting scars.

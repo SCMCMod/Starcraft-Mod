@@ -1,3 +1,0 @@
-#skinId:1
-#name: Immortal: Hardened Shields
-The use of energy for defensive purposes is a standard Protoss practice. By intertwining spectrums and wavelengths of varying intensity, they have created an incredibly dense field that mitigates powerful impacts—like siege tank cannon fire, or the blades of an Ultralisk—through energy dissipation. When the remaining Dragoons were turned into Immortals, the Protoss decided to outfit them with these Hardened Shields in an attempt to further preserve their most ancient and venerable warriors.

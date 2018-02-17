@@ -1,3 +1,0 @@
-#skinId:1
-#name: Marauder: Quad K12 Grenade Launcher
-This fully automated weapon system can deliver armor-piercing “Punisher” grenades to large or small ground targets. The K12 autoloader assembly also boasts a miniature manufacturing plant that replenishes the suit’s ammunition stores while in the field, allowing the Marauder to fight through drawn out engagements without the need to resupply. While not as powerful as tank shells, Punisher grenades can quickly reduce an armored vehicle to a burning heap of scrap metal.

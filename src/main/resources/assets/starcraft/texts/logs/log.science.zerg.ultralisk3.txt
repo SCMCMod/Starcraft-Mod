@@ -1,3 +1,0 @@
-#skinId:1
-#name: Ultralisk: Organ Redundancy
-The genetic code of the hapless Brontoliths has been dissected, rebuilt and repurposed multiple times. Each phase of the process has served to eliminate less desirable traits, as well as augment the creature’s ability to withstand severe punishment. As a finishing touch to the Ultralisk, a masterpiece of DNA manipulation, the Swarm added a gene with the sole purpose of growing heavily armored copies of the beast’s primary organs in random locations of its body.

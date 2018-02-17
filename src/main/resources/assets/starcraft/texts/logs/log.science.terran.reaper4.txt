@@ -1,3 +1,0 @@
-#skinId:1
-#name: Reaper: Flight Goggles
-Reapers’ polarized, plasteel eyewear boasts a miniaturized HUD that is well-suited for hit and run operations. The data display includes a terrain mapper, a targeting system, a heart rate monitor, an ammunition counter, and different vision modes. These high-tech goggles are made to fit any soldier, and come in a stylish orange color.

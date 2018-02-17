@@ -1,3 +1,0 @@
-#skinId:1
-#name: Infestor: Storage Sacs
-These abominations are known to ingest infested terran marines to use as terror weapons on the battlefield. The twisted marines are stored in thick flesh cavities until the Infestor regurgitates them to face their former compatriots—or anything else that might pose a threat to the Swarm.

@@ -1,9 +1,0 @@
-#skinId:1
-#name: Catwalk Alley
-[[Universal News Network]]
-[[Theta Prime Station, Tarsonis]]
-
-New Station Unveiled
-The Dominion Engineering Corps (a division of the Kel-Morian Combine) has taken up the task of rebuilding the many vital orbital platforms required for a healthy flow of commerce in the aftermath of recent upheaval and subsequent demise of the Terran Confederacy. The DEC is utilizing many new design elements in the construction of these stations, and the Theta Prime supply depot orbiting Tarsonis is a shining example of innovative thinking. Coined "Catwalk Alley" by the project engineers, the ingenious use of elevated catwalks provides a host of improved station functions, including easier maintenance and better defensibility from insurgent forces. The station is expected to serve as a showcase for the power and ingenuity of the Dominion for many centuries. 
-
-[[End News Brief]]

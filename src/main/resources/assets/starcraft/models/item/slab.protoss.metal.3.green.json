@@ -1,8 +1,0 @@
-{
-    "parent": "block/half_slab",
-	"textures": {
-		"bottom": "starcraft:blocks/protoss.metal.3.green",
-		"top": "starcraft:blocks/protoss.metal.3.green",
-		"side": "starcraft:blocks/protoss.metal.3.green"
-	}
-}

@@ -1,3 +1,0 @@
-#skinId:1
-#name: High Templar: Overview
-The High Templar are the most seasoned warriors of the Protoss armies, an elite cadre who have advanced far beyond the Zealots to attain an even higher plane of martial focus. Although they excel in physical combat, High Templar prefer to use psionic attacks that they have developed through intensive training. The Protoss have such powerful psionic abilities that their presence inadvertently disrupts other life-forms. With careful guidance, High Templar can learn to augment this effect, creating storms of raw psionic energy that can tear apart the minds of lesser species.

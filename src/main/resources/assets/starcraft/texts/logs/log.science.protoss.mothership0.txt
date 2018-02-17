@@ -1,3 +1,0 @@
-#skinId:1
-#name: Mothership: Overview
-During the golden age of Protoss expansion, Motherships led vast armadas throughout deep space. In the centuries since, these primary command ships had departed the field of battle and become holy shrines, venerated by mystics and historians. But the loss of Aiur has convinced the Protoss to resurrect their oldest and most powerful weapons. All Motherships hold a huge khaydarin crystal infused with enough psionic energy to distort the very fabric of time and space. When wielding this force, these vessels can instantly destroy squadrons of enemy ships or even entire planets.

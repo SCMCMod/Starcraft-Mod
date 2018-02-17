@@ -1,4 +1,0 @@
-#skinId:1
-#name: Larva: Unyielding Shell
-The need to survive has played a key role in the evolution of the Larva’s carapace. Its plates have turned into an incredibly dense material that is not easily scratched—much less punctured—even by non-conventional weaponry. We suspect this highly-resistant carapace served as a template for the enhancements to the heavily armored Ultralisk.
-														

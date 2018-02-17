@@ -1,3 +1,0 @@
-#skinId:1
-#name: Hellbat: Upgraded Engine
-The Hellbat is equipped with a large variable burn engine powered by a variety of liquid or compressed fuels—essentially the big brother of the stock Hellion engine with much improved airflow. This upgraded engine provides enough newtons to compensate for the extra weight of the Hellbat’s bulky systems. Like the Hellion, it is also rumored to run on Scotty Bolger’s Old No. 8 Whiskey.

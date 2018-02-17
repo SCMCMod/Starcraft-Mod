@@ -1,3 +1,0 @@
-#skinId:1
-#name: Observer: Thruster
-The Observer’s primary means of locomotion is a discrete thruster that creates a gravity field, while energy-sheathed “fins” manipulate said field to generate lift and propulsion. Without modifications, the Observer can adequately travel from one point to another, but is hard pressed to outrun pursuers—unless outfitted with a set of Gravitic Boosters.

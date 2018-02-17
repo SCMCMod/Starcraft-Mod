@@ -1,8 +1,0 @@
-{
-    "parent": "block/farmland",
-    "textures": {
-        "particle": "starcraft:blocks/shakuras.dirt",
-        "dirt": "starcraft:blocks/shakuras.dirt",
-        "top": "starcraft:blocks/shakuras.farmland.dry"
-    }
-}

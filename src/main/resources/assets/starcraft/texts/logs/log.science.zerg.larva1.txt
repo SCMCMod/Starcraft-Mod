@@ -1,3 +1,0 @@
-#skinId:1
-#name: Larva: Segmented Body
-Every segment of the Larva’s body contains all the required organs to ensure its survival in the direst situations. Such a trait, combined with near-instant wound clotting, allows Larvae to function and morph normally even if cut in half.

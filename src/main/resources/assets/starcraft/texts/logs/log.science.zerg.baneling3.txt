@@ -1,3 +1,0 @@
-#skinId:1
-#name: Baneling: Sonar
-The Baneling possesses a rudimentary sonar system—presumably a degeneration of the complex optical structure of the Zergling—which consists of a transmitter in the center of the skull, and two receivers spaced evenly to the sides. The transmitter emits pulses that “map” the surrounding area and echo back to the receiver, feeding the Baneling with a continuous stream of spatial information.

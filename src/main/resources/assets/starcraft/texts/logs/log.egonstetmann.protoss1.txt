@@ -1,7 +1,0 @@
-#skinId:1
-#name:Log 2133
-Protoss "crystal" sample recovered by Raynor's Raiders, 10.7.2504.
-
-I placed the crystal in saline solution for storage. Its density has increased 533% in the last twelve hours. Where does it get energy or raw materials for that? I have a terrible suspicion that it's... connecting to the ship somehow. If Swann suspects, he'll drop it out the airlock, and that would be a tragedy. This sample could lead to huge breakthroughs for the Raiders.
-
-I Just have to be careful, and if there's any sign that it will harm the Hyperion, I'll destroy the crystal myself.

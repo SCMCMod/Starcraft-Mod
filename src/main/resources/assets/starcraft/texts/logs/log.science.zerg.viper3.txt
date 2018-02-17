@@ -1,3 +1,0 @@
-#skinId:1
-#name: Viper: Plagued Blood
-The Defiler was a creature born out of festering, carcinogenic pathogens which were, in essence, the leftover genetic chains from other Zerg strains. This crude support weapon—as dangerous to the enemy as it was to the Swarm itself—evolved into obsolescence after the Brood War. Now, with the need for a specialized support strain, the Swarm seems to have revisited and perfected the Defiler template with genetic data from an as-yet-unknown species, preserving its core functions while excising its unnecessary lethality.

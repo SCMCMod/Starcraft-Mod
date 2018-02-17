@@ -1,3 +1,0 @@
-#skinId:1
-#name: Hydralisk: Hyperaccelerated Metabolism
-Hydralisks are fearless, living weapons. Their endocrine and adrenal systems have been altered for that purpose, and the chemicals pumped into their bloodstream effectively force them to live in a perpetual “fight response.” Some Hydralisk variants seem to be able to overcharge their specialized endocrine system, substantially increasing aggression and savagery.

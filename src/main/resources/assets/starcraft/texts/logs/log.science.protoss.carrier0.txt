@@ -1,3 +1,0 @@
-#skinId:1
-#name: Carrier: Overview
-The massive Carriers serve as operation centers for leaders of the Protoss fleet. Heavily armored and shielded, Carriers can punch their way through enemy blockades by unleashing flights of robotic Interceptors. Interceptors are maneuverable, computer-guided craft that can tear through flight formations and relentlessly strafe slower ground targets with their plasma charges. Interceptors are automatically manufactured and serviced inside of the Carriers’ bays, and a number of prepped Interceptors can be launched in rapid succession. In battle, Carriers appear to be virtual hornet’s nests of activity as their small allies dart swiftly in and out, alternating between attacking enemies and repairing damage.

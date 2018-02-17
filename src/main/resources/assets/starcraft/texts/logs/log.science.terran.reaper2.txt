@@ -1,3 +1,0 @@
-#skinId:1
-#name: Reaper: Jump Packs
-Originally, Reapers were outfitted with large, flight-capable jetpacks. Crashes and fatalities were common among new “recruits,” as the unwieldy booster proved difficult to control. The hardware was also known to randomly explode due to poor distribution of fuel lines and air intakes, leading to a complete overhaul. Prototypes of a flightless, twin-turbine jump pack surfaced soon after—which gave the Reapers enough mobility to carry out their missions and return to base in one piece.

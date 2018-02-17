@@ -1,3 +1,0 @@
-#skinId:1
-#name: Zergling: Spiked Tail
-Allows the creature to maintain its balance when running at high speeds. The somewhat sharp spikes that protrude from the tip have no discernible purpose, and seem to be a vestigial trait from the original Dune Runner genetic code.

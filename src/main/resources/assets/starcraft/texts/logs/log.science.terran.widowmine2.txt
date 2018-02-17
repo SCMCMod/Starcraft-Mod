@@ -1,3 +1,0 @@
-#skinId:1
-#name: Widow Mine: Sentinel Missiles
-Widow Mines have short range missiles that pack a fragmentation warhead—delivering superheated shrapnel to the target and the adjacent area on detonation. The missiles are assembled in an automated manufacturing plant located in the “thorax” of the unit. These robotic crawlers have been used in diverse scenarios: perimeter defense, tactical ambushes, and political assassinations. An apocryphal record even attests to a single Widow Mine killing a corrupt colonial Magistrate and his entourage of like-minded officials by destroying the dining room they were in.

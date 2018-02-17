@@ -1,3 +1,0 @@
-#skinId:1
-#name: High Templar: Psionic Mastery
-As veteran warriors, the High Templar have attained a superior plane of martial focus, where control and ironclad stoicism replace the battle rage and traditional forms of combat employed by the Zealots. The High Templar’s training has also amplified their psionic presence to such a degree that it is capable of disrupting the physical world around them. By concentrating this power, the High Templar can unleash massive storms of psionic energy that rip the minds, bodies, and machines of their enemies to shreds.

@@ -1,8 +1,0 @@
-{
-    "parent": "starcraft:block/gas.collector",
-    "textures": {
-		"side": "starcraft:blocks/gas.collector.terran.side",
-		"up": "starcraft:blocks/gas.collector.terran.top",
-		"down": "starcraft:blocks/gas.collector.terran.bottom"
-    }
-}

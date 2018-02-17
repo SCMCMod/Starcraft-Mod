@@ -1,5 +1,0 @@
-#skinId:1
-#name: Unification
-"The constant strife and warfare that has divided our species has led us now to follow a new and shining path gilded with cooperation. With our new found allies, we shall begin to build an enlightened civilization of truth, honor and beauty. We will forge a new and lasting peace... a peace through superior firepower..."
-
-	- Unknown Protoss Source

@@ -1,3 +1,0 @@
-#skinId:1
-#name: Carrier: Hardened Hull
-After the Zerg invaded Aiur, the Protoss sought a way to improve Carrier efficiency in combat. When they focused their efforts on expediting launch and recovery of Interceptors with minimal delay, the Graviton Catapult was born. This mechanized assembly harnesses the unique properties of graviton particles to hasten Interceptor deployment.

@@ -1,3 +1,0 @@
-#skinId:1
-#name: Widow Mine: Drilling Claws
-These arachnid machines were inspired by Zerg burrowers, and built around a modified version of the Spider Mine. Field tests revealed that the burrowing capabilities of the Widow Mine could be improved at a nominal cost. The addition of Neosteel Carbide tips, and sonic oscillators that allow each leg to vibrate independently at high speeds, significantly reduced burrow times. The enhanced claws have seen much use in “Mine Fighting”, a popular—and illegal—sport that pits two of these robots against each other for credits and glory.

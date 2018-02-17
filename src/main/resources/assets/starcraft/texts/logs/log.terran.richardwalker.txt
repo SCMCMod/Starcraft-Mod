@@ -1,5 +1,0 @@
-#skinId:1
-#name: Nukes Away
-"The most popular exercise in the Ghost training regimen is scenario A11-X93, commonly referred to by trainees as "Nukes Away". In this scenario, Ghosts practice a variety of covert infiltration techniques while gaining the technical knowledge necessary for the proper guidance of field-standard tactical nuclear weapons. Since nuclear weaponry is too expensive to be used in live fire training, the exercise is performed using an extremely lifelike holoprojection simulation. The competition between the teams of Ghosts can be extremely intense, and all too commonly we see recruits spending what little leisure time they have inside the simulation, honing their skills."
-
-      -Commander Richard Walker

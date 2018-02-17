@@ -1,3 +1,0 @@
-#skinId:1
-#name: Mutalisk: Collapsible Structure
-The rigors of deep space travel are a natural part of the Mutalisk’s life. The skin of their annelid-like bodies takes on a gelatinous consistency and seeps through the dermal layer. This process compacts their organs and circulatory system to prevent damage from external pressure.

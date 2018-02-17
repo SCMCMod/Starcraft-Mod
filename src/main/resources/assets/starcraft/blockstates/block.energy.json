@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "type=pure": { "model": "starcraft:block.energy.pure" },
-        "type=corrupted": { "model": "starcraft:block.energy.corrupted" },
-        "type=void": { "model": "starcraft:block.energy.void" }
-    }
-}

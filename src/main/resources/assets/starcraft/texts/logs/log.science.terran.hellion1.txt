@@ -1,3 +1,0 @@
-#skinId:1
-#name: Hellion: Engine
-The Hellion uses a variable burn engine powered by diverse liquid or compressed fuels—with portrenol being the most popular due to its low cost. This high-shift newton engine makes for a very fast vehicle, and is a versatile piece of engineering. Some veteran Hellion drivers claim it will run on anything, even a bottle of Scotty Bolger's Old No. 8 Whiskey.

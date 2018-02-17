@@ -1,3 +1,0 @@
-#skinId:1
-#name: Untamed Woods
-Some battles are fought over strategically located space platforms to increase the military's tactical position. Others are matters of honor to be settled on ancient Protoss proving grounds. Most encounters, however, occur by mere chance in the wilderness of the galaxy. In these skirmishes, battlefield intelligence can be scarce and fate does not always provide each combatant with equally defensible terrain. In the wild you can quickly find yourself in a situation that requires you to adapt or be destroyed. 

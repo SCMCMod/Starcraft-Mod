@@ -1,3 +1,0 @@
-#skinId:1
-#name: Phoenix: Overview
-The Phoenix is a swift and deadly spacecraft that is rapidly replacing the older Scouts and Corsairs of the Protoss main fleet. Phoenix patrols are a common sight on the outer rim of Protoss territory, where they scour deep space for alien threats. The Phoenix’s armament of Twin Ion Cannons is well suited for ship-to-ship combat; when confronted by particularly dangerous enemies, a Phoenix pilot can unleash a short-lived gravity beam by overloading the ship’s warp field through its inertial drive. The beam can immobilize an opponent for a few precious seconds.

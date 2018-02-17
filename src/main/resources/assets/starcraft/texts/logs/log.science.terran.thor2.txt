@@ -1,3 +1,0 @@
-#skinId:1
-#name: Thor: Punisher Cannons
-The guns on the Thor’s back—a replacement for the old strike cannons—fire 250mm anti-aircraft shells fitted with advanced electronics to minimize wasted shots. Their depleted uranium cores allow them to punch through the plating of heavily armored aerial targets, causing serious damage. Each shell is individually chambered by a basic auto-loading mechanism that simplifies maintenance and repairs. The Punisher Cannons’ rate of fire is capped to avoid malfunctions and to extend the service life of the ordnance. Bypassing the limit is not recommended, as the cannons may melt or explode.

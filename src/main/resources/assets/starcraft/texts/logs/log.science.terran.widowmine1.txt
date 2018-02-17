@@ -1,3 +1,0 @@
-#skinId:1
-#name: Widow Mine: Recovery Algorithm
-If the Widow Mine sustains crippling damage to any of its systems, an advanced heuristics recovery algorithm quickly begins the process of determining what’s the best course of action to restore operative efficiency. After executing multiple simulated scenarios, the simple onboard AI reroutes power from affected systems and reprograms the unit’s behavioral patterns to either allow it to complete its mission, or return home for repairs.

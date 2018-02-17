@@ -1,3 +1,0 @@
-#skinId:1
-#name: Brood Lord: Overview
-These massive manta-like flying creatures serve as aerial siege units for the Swarm. Only seen in the largest of conflicts, the Brood Lord has the ability to spit out biological symbiotes that function as living ammunition. These regurgitated creatures focus on their target, ravaging it until they destroy it or die in the attempt. This attack makes Brood Lords extremely dangerous to opposing installations. However, despite their impressive offensive abilities, Brood Lords are not very durable, and they make easy targets for most aerial-strike combatants.

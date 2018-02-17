@@ -1,3 +1,0 @@
-#skinId:1
-#name: Overlord: Legs
-The elongated appendages hanging from the creature’s underbelly have evolved into an array of microscopic filaments that gather sensory and spatial information through intermittent pulses, which is then fed directly into the Overlord’s nervous system. All data is processed as fast as it is received, allowing these gargantuan fliers to navigate through any environment and relay important tactical data to the Swarm.

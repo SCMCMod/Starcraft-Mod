@@ -1,3 +1,0 @@
-#skinId:1
-#name: Stalker: Particle Disruptors
-These weapons draw upon the power of the Dark Templar’s training and technology to fire lethal blasts of entropic Void energy. Each shot destabilizes matter at a fundamental level, and ultimately tears it apart by disintegrating its atomic composition. The Particle Disruptors are especially effective against materials with high hardness indexes—like chitinous carapaces or heavy armor plating.

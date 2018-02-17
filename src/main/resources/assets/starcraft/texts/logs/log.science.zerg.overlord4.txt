@@ -1,3 +1,0 @@
-#skinId:1
-#name: Overlord: Adaptable Organs
-One of the more unique traits of the Overlords is the ability to liquefy their own internal organs to produce creep, which is then stored in multiple glands near their heads. The process is instantaneous, and also takes place when space is needed for the transportation of Zerg land-based creatures. Overlords are not only able to regrow their organs at will, they can also modify them to adapt, and derive sustenance from inhospitable environments.

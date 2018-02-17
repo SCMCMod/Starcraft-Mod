@@ -1,3 +1,0 @@
-#skinId:1
-#name: Infestor: Sensory Tentacles
-These writhing feelers serve as a secondary, albeit more powerful, set of eyes and ears by means of thousands of microscopic growths that function as biological “transceivers”. Further research on the subject has been slow and fruitless.

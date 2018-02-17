@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "type=1": { "model":"starcraft:zerg.carapace.1" },
-        "type=2": { "model":"starcraft:zerg.carapace.2" },
-         "type=3": { "model":"starcraft:zerg.carapace.3" }
-    }
-}

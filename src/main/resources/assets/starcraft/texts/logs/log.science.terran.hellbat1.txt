@@ -1,3 +1,0 @@
-#skinId:1
-#name: Hellbat: Transformation Servos
-The Hellbat template was built upon a heavily modified version of the Hellion’s stock neosteel frame, which houses the complex set of servos, hydraulic systems, and robotic components that allow the mechanized walker to seamlessly transform into a vehicle and vice versa. After the Hellbat proved its worth on the battlefield, Dominion engineers quickly developed an upgrade kit to retrofit all previous generation Hellions with the required components.

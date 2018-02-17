@@ -1,3 +1,0 @@
-#skinId:1
-#name: Immortal: Overview
-Before the loss of Aiur, crippled Protoss warriors could volunteer to continue their service by transplanting their shattered remains into Dragoon exoskeletons. Tragically, the technology to continue this practice was lost in the rubble of their fallen homeworld. The remaining Dragoons, now known as Immortals, have been refitted with Twin Phase Disruptors and hardened energy shields. These heavily armed and shielded fighters give critical support by eliminating enemy artillery and ranged attackers, although they are vulnerable to rapid assaults from lesser foes. These ancient warriors are a dying breed willing to sacrifice everything for their people. Soon none will remain.

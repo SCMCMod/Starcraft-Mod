@@ -1,3 +1,0 @@
-#skinId:1
-#name: Sentry: Holo-Projector
-This focused energy beam disjoins the molecular structure of the target and disrupts its atomic chains—liquefying light armor and soft tissues. The effectiveness of the Disruption Beam decreases against targets with a high mass index—or dense plating—because most of the Sentry’s power is allocated to its formidable support systems.										

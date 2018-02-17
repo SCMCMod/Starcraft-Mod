@@ -1,8 +1,0 @@
-{
-    "parent": "block/orientable",
-    "textures": {
-        "top": "starcraft:blocks/zerus.furnace.top",
-        "front": "starcraft:blocks/zerus.furnace.front.off",
-        "side": "starcraft:blocks/zerus.furnace.side"
-    }
-}

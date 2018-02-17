@@ -1,8 +1,0 @@
-{
-    "parent": "block/farmland",
-    "textures": {
-        "particle": "starcraft:blocks/zerus.dirt",
-        "dirt": "starcraft:blocks/zerus.dirt",
-        "top": "starcraft:blocks/zerus.farmland.dry"
-    }
-}

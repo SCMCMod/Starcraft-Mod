@@ -1,3 +1,0 @@
-#skinId:1
-#name: Viking: Adaptable Hydraulics
-Vikings were designed with versatility in mind, down to the letter. Most moving parts in the vehicle can be replaced with easy-to-find spares, and even the complex servo systems located in the arms and legs are interchangeable. It is not uncommon for Viking pilots to ditch an arm in order to replace a damaged leg servo and return to battle.

@@ -1,3 +1,0 @@
-#skinId:1
-#name: Cyclone: Overview
-The latest advancements in Dominion military technology produced the Cyclone, a swift war machine capable of firing Typhoon Missiles with pinpoint accuracy while on the move. Its origins as an AI-controlled automaton resulted in several revisions due to underwhelming performance, and its engineers ultimately decided to turn it into a human-piloted weapons platform. This change saw efficiency increases in multiple fronts, because an artificial intelligence, no matter how advanced, will never match the antics of a daredevil—borderline insane—human driver.

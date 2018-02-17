@@ -1,7 +1,0 @@
-#skinId:1
-#name: Helioc III
-"Not every locale in the Koprulu sector is a hotbed of violence and mayhem. There are actually areas that are quiet, peaceful places to relax as the problems of the universe just pass you by. The secluded oasis known as the Watering Hole on the planet of Helioc III has a set of wonderfully scenic vistas where you can observe the beautiful native wildlife in their natural habitat. If you have the means, I suggest you give it a try as there's way too much stress in the galaxy these days."
-
-- Uran Golenko, leading stress therapist and featured guest on the popular "Universe Today" talk show
-
-TRAVEL NOTE: A sudden influx of tourists, coupled with the discovery of considerable mineral wealth on the planet, has left the ecology of Helioc III in a less than optimal state. Once the use of tactical nuclear weaponry has subsided, geologists expect a high level of planetary recovery. 

@@ -24,7 +24,7 @@ public class AccessHandler {
 	}
 
 	public static float getPartialTicks() {
-		return Minecraft.theMinecraft.getRenderPartialTicks();
+		return getMinecraft().getRenderPartialTicks();
 	}
 
 	public static boolean isDevEnvironment() {

@@ -1,3 +1,0 @@
-#skinId:1
-#name: Corruptor: Tentacles
-The Corruptor’s tentacles consist of elongated muscle fibers laden with cancerous growths. As said growths increase in size, consuming the surrounding tissues in the process, they generate a powerful electromagnetic field that warps gravity around the creature, granting it flight. If the Corruptor does not regulate the growths, they are more than capable of completely consuming its tentacles.

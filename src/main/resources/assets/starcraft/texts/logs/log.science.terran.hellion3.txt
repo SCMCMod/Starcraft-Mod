@@ -1,3 +1,0 @@
-#skinId:1
-#name: Hellion: Infernal Flamethrower
-The Infernal Flamethrower projects a burst of ignited plasma fuel, which is deadly against lightly armored targets. Two shielded tanks in the central area of the vehicle hold the volatile mixture, and offer an adequate supply of fuel for skirmishes. Yet, the unreliability of the ignition system meant Hellion drivers would have to use a lighter, or sometimes a cigarette, to ignite the weapon. This led to the development of a better fuel mix and the Infernal Pre-Igniter, which won’t go out even in poor weather conditions.

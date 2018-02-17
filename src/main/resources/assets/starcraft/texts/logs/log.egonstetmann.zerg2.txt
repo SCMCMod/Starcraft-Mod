@@ -1,3 +1,0 @@
-#skinId:1
-#name:Log 2139
-The recovered zerg sample is still growing. I introduced a protein solution. Might have been a mistake. At cellular level, the sample shown strains of every known zerg creatures - and many other strains that I do not recognize. It will take a while to map it all, but I've already begun extracting data from an ultralisk cell, and I found a spore crawler cell that may yield data on its instinctive threat-recognition routines.

@@ -1,3 +1,0 @@
-#skinId:1
-#name: Ultralisk: Mono-Molecular Blades
-Kaiser Blades are terrifying to behold, for one swipe is all it takes to bisect walls, neosteel plating, or more exotic materials. The density, bevel, and edges of these organic weapons are honed at the genetic level, and the Swarm has recently found a way to fit four of them on a single Ultralisk.

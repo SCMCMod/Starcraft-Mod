@@ -1,3 +1,0 @@
-#skinId:1
-#name: Oracle: Overview
-The Oracle is an agile support vessel boasting some of the most advanced protoss technologies in existence. Deciding when to use the ship's combat systems is a specialty among Oracle pilots, as these brilliant individuals hail from an order of young dark templar dedicated to understanding--and controlling--time itself. Their unique knowledge allows them to calculate how their ships can most effectively turn the tide of battle. Although small in number, the Oracle pilots believe that they can change the outcome of any conflict, and by extension, the fate of the protoss race.

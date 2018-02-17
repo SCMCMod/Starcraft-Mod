@@ -1,3 +1,0 @@
-#skinId:1
-#name: Marine: C-14 Gauss Rifle
-The “Impaler” is the standard issue rifle of the Dominion Marine Corps in the Koprulu sector. It is a fully automatic weapon capable of firing different types of ammunition such as: solid 8mm spikes, hollow point rounds, depleted uranium slugs (also known as U-238 shells or “hot shots”), and incendiary rounds. Its frame offers some degree of customization, allowing the user to install bayonets, laser sights, or underbarrel grenade launchers—for a high-explosive payload.
