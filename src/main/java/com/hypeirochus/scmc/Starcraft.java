@@ -10,13 +10,16 @@ import com.hypeirochus.scmc.capabilities.Shield;
 import com.hypeirochus.scmc.capabilities.ShieldStorage;
 import com.hypeirochus.scmc.command.CommandDimension;
 import com.hypeirochus.scmc.handlers.ConfigHandler;
+import com.hypeirochus.scmc.handlers.GuiHandler;
 import com.hypeirochus.scmc.handlers.KeybindingHandler;
+import com.hypeirochus.scmc.handlers.RenderHandler;
 import com.hypeirochus.scmc.handlers.SoundHandler;
 import com.hypeirochus.scmc.handlers.WavefrontModelHandler;
 import com.hypeirochus.scmc.log.LogRegistry;
 import com.hypeirochus.scmc.network.NetworkHandler;
 import com.hypeirochus.scmc.proxy.CommonProxy;
 import com.hypeirochus.scmc.recipes.OreDictionaryHandler;
+import com.hypeirochus.scmc.recipes.SmeltingRecipes;
 import com.hypeirochus.scmc.registry.Registry;
 
 import net.minecraftforge.common.MinecraftForge;
@@ -75,7 +78,6 @@ public class Starcraft {
 		// FluidHandler.pre(event);
 		SoundHandler.pre(event);
 		// BlockHandler.pre(event);
-		OreDictionaryHandler.pre(event);
 		// WorldGenerationHandler.pre(event);
 		// BiomeHandler.pre(event);
 		// DimensionHandler.pre(event);
@@ -83,8 +85,7 @@ public class Starcraft {
 
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 			WavefrontModelHandler.pre(event);
-			// FuelHandler.pre(event);
-			// RenderHandler.pre(event);
+			RenderHandler.pre(event);
 			KeybindingHandler.pre(event);
 		}
 	}
@@ -92,11 +93,9 @@ public class Starcraft {
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
 		// EntityHandler.init(event);
-		// Achievements.init(event);
-		// SimpleRecipes.init(event);
-		// ShapelessRecipes.init(event);
-		// SmeltingRecipes.init(event);
-		// GuiHandler.init(event);
+		OreDictionaryHandler.init(event);
+		SmeltingRecipes.init(event);
+		GuiHandler.init(event);
 
 		CapabilityManager.INSTANCE.register(IColor.class, new ColorStorage(), Color::new);
 		CapabilityManager.INSTANCE.register(IShield.class, new ShieldStorage(), Shield::new);

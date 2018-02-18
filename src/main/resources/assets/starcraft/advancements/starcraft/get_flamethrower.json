@@ -1,32 +1,30 @@
 {
     "display": {
 	    "icon": {
-            "item": "starcraft:mineral",
-			"data": 1
+            "item": "starcraft:terran.flamethrower"
         },
         "title": {
-            "translate": "advancements.starcraft.mineRichMinerals.title"
+            "translate": "advancements.starcraft.getFlamethrower.title"
         },
         "description": {
-            "translate": "advancements.starcraft.mineRichMinerals.desc"
+            "translate": "advancements.starcraft.getFlamethrower.desc"
         },
         "frame": "task",
         "show_toast": true,
         "announce_to_chat": true,
         "hidden": false
     },
-	"parent": "starcraft:starcraft/mine_minerals",
+	"parent": "starcraft:starcraft/get_c14_gauss_rifle",
     "criteria": {
-        "getRichMineral": {
+        "getFlamethrower": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
                     {
-                        "item": "starcraft:mineral",
+                        "item": "starcraft:terran.flamethrower",
                         "count": {
                             "min": 1
-                        },
-                        "data": 1
+                        }
                     }
                 ]
             }

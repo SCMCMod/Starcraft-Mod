@@ -1,18 +1,19 @@
 package com.hypeirochus.scmc.registry;
 
+import static com.hypeirochus.scmc.handlers.RenderHandler.registerItemRender;
+
 import com.hypeirochus.scmc.Starcraft;
+import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
-import com.hypeirochus.scmc.handlers.RenderingHandler;
+import com.hypeirochus.scmc.handlers.RenderHandler;
 
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.registries.ForgeRegistry;
 
 @EventBusSubscriber(modid = Starcraft.MOD_ID)
 public class Registry {
@@ -20,41 +21,34 @@ public class Registry {
 	public Registry() {
 		Starcraft.logger().info("Registry initialized");
 	}
-	
+
 	@SubscribeEvent
-	public void onItemRegisterEvnt(RegistryEvent.Register<Item> event) {
+	public void registerItems(RegistryEvent.Register<Item> event) {
 		event.getRegistry().registerAll(ItemHandler.getItems());
+		event.getRegistry().registerAll(BlockHandler.getItems());
 	}
 
 	@SubscribeEvent
-	public void onBlockRegisterEvnt(RegistryEvent.Register<Block> event) {
-
+	public void registerBlocks(RegistryEvent.Register<Block> event) {
+		event.getRegistry().registerAll(BlockHandler.getBlocks());
 	}
 
 	@SubscribeEvent
-	public static void registerModels(ModelRegistryEvent event) {
-		RenderingHandler.registerItemMetaRenders();
+	public void registerModels(ModelRegistryEvent event) {
+		RenderHandler.registerItemMetaRenders();
 		for (Item item : ItemHandler.getItems()) {
-			if (!item.getHasSubtypes()) {
-				registerModel(item);
+			if (item != null && !item.getHasSubtypes()) {
+				registerItemRender(item);
 			}
 		}
 
-		// ModBlocks.registerMetaRenders();
-		// for (Block block : ModBlocks.getBlocks()) {
-		// if (Item.getItemFromBlock(block) == null || !Item.getItemFromBlock(block).getHasSubtypes()) {
-		// registerModel(block);
-		// }
-		// }
-		//
+		RenderHandler.registerBlockMetaRenders();
+		for (ItemBlock item : BlockHandler.getItems()) {
+			if (item != null && !item.getHasSubtypes()) {
+				registerItemRender(item);
+			}
+		}
+
 		// ModTools.TOOLS.forEach(ModelHandler::registerModel);
-	}
-
-	private static void registerModel(Block block) {
-		registerModel(Item.getItemFromBlock(block));
-	}
-
-	private static void registerModel(Item item) {
-		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
 	}
 }

@@ -1,32 +1,30 @@
 {
     "display": {
 	    "icon": {
-            "item": "starcraft:mineral",
-			"data": 1
+            "item": "starcraft:terran.riflec14"
         },
         "title": {
-            "translate": "advancements.starcraft.mineRichMinerals.title"
+            "translate": "advancements.starcraft.getC14GaussRifle.title"
         },
         "description": {
-            "translate": "advancements.starcraft.mineRichMinerals.desc"
+            "translate": "advancements.starcraft.getC14GaussRifle.desc"
         },
         "frame": "task",
         "show_toast": true,
         "announce_to_chat": true,
         "hidden": false
     },
-	"parent": "starcraft:starcraft/mine_minerals",
+	"parent": "starcraft:starcraft/root",
     "criteria": {
-        "getRichMineral": {
+        "getC14GaussRifle": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
                     {
-                        "item": "starcraft:mineral",
+                        "item": "starcraft:terran.riflec14",
                         "count": {
                             "min": 1
-                        },
-                        "data": 1
+                        }
                     }
                 ]
             }

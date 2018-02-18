@@ -4,12 +4,12 @@ import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
 
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class OreDictionaryHandler {
 
-	public static void pre(FMLPreInitializationEvent event) {
+	public static void init(FMLInitializationEvent event) {
 		// OreDictionary.registerOre("blockSteel", new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, BlockTerranMetal.CompressedMetalType.STEEL.getID()));
 		// OreDictionary.registerOre("blockCopper", new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, BlockTerranMetal.CompressedMetalType.COPPER.getID()));
 		// OreDictionary.registerOre("blockTitanium", new ItemStack(MetaBlockHandler.COMP_METAL_T1, 1, BlockTerranMetal.CompressedMetalType.TITANIUM.getID()));

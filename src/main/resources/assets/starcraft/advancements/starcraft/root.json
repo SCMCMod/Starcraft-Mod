@@ -8,7 +8,7 @@
             "translate": "advancements.pageStarcraft"
         },
         "description": {
-            "translate": "advancements.pageStarcraft"
+            "translate": "advancements.pageStarcraft.desc"
         },
         "frame": "task",
 		"announce_to_chat": false,

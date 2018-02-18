@@ -2,6 +2,7 @@ package com.hypeirochus.scmc.items;
 
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler.MineralType;
+import com.hypeirochus.scmc.enums.MetaHandler.TerrazineType;
 import com.hypeirochus.scmc.enums.MetaHandler.VespeneType;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -12,7 +13,6 @@ public class ItemVespene extends StarcraftItem {
 
 	public ItemVespene() {
 		super("vespene");
-		setCreativeTab(StarcraftCreativeTabs.MISC);
 		setHasSubtypes(true);
 	}
 
@@ -23,6 +23,15 @@ public class ItemVespene extends StarcraftItem {
 				items.add(new ItemStack(this, 1, i));
 			}
 		}
+		
+		if(tab == StarcraftCreativeTabs.MISC)
+			items.add(new ItemStack(this, 1, 0));
+		if(tab == StarcraftCreativeTabs.PROTOSS)
+			items.add(new ItemStack(this, 1, 1));
+		if(tab == StarcraftCreativeTabs.TERRAN)
+			items.add(new ItemStack(this, 1, 2));
+		if(tab == StarcraftCreativeTabs.ZERG)
+			items.add(new ItemStack(this, 1, 3));
 	}
 
 	@Override

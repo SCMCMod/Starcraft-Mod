@@ -44,7 +44,7 @@ public class CommandDimension extends CommandBase {
 			EntityPlayer player = args.length > 1 ? getPlayer(server, sender, args[1]) : getCommandSenderAsPlayer(sender);
 
 			int dimId = parseInt(args[0]);
-			Integer[] maxIds = DimensionManager.getIDs();
+			Integer[] maxIds = DimensionManager.getStaticDimensionIDs();
 
 			for (int i = 0; i < maxIds.length; i++) {
 				if (dimId == maxIds[i]) {

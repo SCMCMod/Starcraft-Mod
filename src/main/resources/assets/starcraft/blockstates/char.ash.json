@@ -9,6 +9,6 @@
         "layers=5": { "model": "starcraft:char.ash.10" },
         "layers=6": { "model": "starcraft:char.ash.12" },
         "layers=7": { "model": "starcraft:char.ash.14" },
-        "layers=8": { "model": "starcraft:char_ash" }
+        "layers=8": { "model": "starcraft:char.ash.16" }
     }
 }
