@@ -3,13 +3,17 @@
     "defaults": {
         "textures": {
             "all": "starcraft:blocks/shakuras.redstone"
-        }
+        },
+		"model": "cube_all"
     },
     "variants": {
-        "normal": [{
-            "model": "cube_all"
-        }],
-        "inventory": [{
+		"active": {
+			"true": {
+			},
+			"false": {
+			}
+		},
+		"inventory": [{
             "model": "cube_all"
         }]
     }

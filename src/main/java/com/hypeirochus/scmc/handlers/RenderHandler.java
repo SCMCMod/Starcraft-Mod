@@ -15,6 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class RenderHandler {
 
@@ -40,11 +41,26 @@ public class RenderHandler {
 		for (int i = 0; i < MetaHandler.IngotType.values().length; i++) {
 			registerItemRender(INGOT, i, "ingot." + MetaHandler.IngotType.values()[i].getName());
 		}
-		for (int i = 0; i < MetaHandler.ProtossIngotType.values().length; i++) {
-			registerItemRender(PROTOSS_INGOT, i, "protoss.ingot." + MetaHandler.ProtossIngotType.values()[i].getName());
+		for (int i = 0; i < C14_GAUSS_RIFLE_PARTS.getNumParts(); i++) {
+			registerItemRender(C14_GAUSS_RIFLE_PARTS, i, "terran.riflec14.part." + i);
+		}
+		for (int i = 0; i < FLAMETHROWER_PARTS.getNumParts(); i++) {
+			registerItemRender(FLAMETHROWER_PARTS, i, "terran.flamethrower.part." + i);
 		}
 		for (int i = 0; i < MetaHandler.BulletMagazineType.values().length; i++) {
 			registerItemRender(BULLET_MAGAZINE, i, "terran.magazine." + MetaHandler.BulletMagazineType.values()[i].getName());
+		}
+		for (int i = 0; i < MetaHandler.ProtossIngotType.values().length; i++) {
+			registerItemRender(PROTOSS_INGOT, i, "protoss.ingot." + MetaHandler.ProtossIngotType.values()[i].getName());
+		}
+		for (int i = 0; i < MetaHandler.FocuserType.values().length; i++) {
+			registerItemRender(PSI_BLADE_FOCUSER_UNCHARGED, i, "protoss.focuser." + MetaHandler.FocuserType.values()[i].getName());
+		}
+		for (int i = 0; i < MetaHandler.CarapaceType.values().length; i++) {
+			registerItemRender(ZERG_CARAPACE, i, "zerg.carapace" + MetaHandler.CarapaceType.values()[i].getName());
+		}
+		for (int i = 0; i < MetaHandler.IconType.values().length; i++) {
+			registerItemRender(ICON, i, "icon." + MetaHandler.IconType.values()[i].getName());
 		}
 	}
 

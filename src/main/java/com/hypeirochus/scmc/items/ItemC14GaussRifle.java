@@ -3,30 +3,55 @@ package com.hypeirochus.scmc.items;
 import com.hypeirochus.api.world.entity.player.inventory.Inventories;
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler;
+import com.hypeirochus.scmc.handlers.AccessHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
 import com.hypeirochus.scmc.handlers.SoundHandler;
 import com.ocelot.api.utils.InventoryUtils;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-public class ItemC14GaussRifle extends ItemWeapon {
+public class ItemC14GaussRifle extends ItemGun {
 
 	public ItemC14GaussRifle() {
-		super("terran.riflec14", 5, 25);
+		super("terran.riflec14", 6, 60);
 		setFull3D();
 		setMaxStackSize(1);
 		setCreativeTab(StarcraftCreativeTabs.TERRAN);
 	}
 
 	@Override
-	public void shoot(EntityPlayer shooter) {
-		super.shoot(shooter);
-		shooter.world.playSound(null, shooter.getPosition().getX(), shooter.getPosition().getY(), shooter.getPosition().getZ(), SoundHandler.FX_C14GAUSSRIFLE_FIRING, SoundCategory.PLAYERS, 0.4F, 1.5F);
+	public boolean onBlockStartBreak(ItemStack itemstack, BlockPos pos, EntityPlayer player) {
+		return false;
+	}
+
+	@Override
+	public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack stack) {
+		return true;
+	}
+
+	@Override
+	public void onFire(World world, EntityPlayer shooter, ItemStack heldItem) {
+		world.playSound(null, shooter.getPosition().getX(), shooter.getPosition().getY(), shooter.getPosition().getZ(), SoundHandler.FX_C14GAUSSRIFLE_FIRING, SoundCategory.PLAYERS, 0.4F, 1.5F);
+		Vec3d look = shooter.getLook(AccessHandler.getPartialTicks());
+
+		if (world.isRemote) {
+			Minecraft.getMinecraft().addScheduledTask(() -> {
+				for (int i = 0; i < this.getGunRange(heldItem); i++) {
+					i *= 2;
+					world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, shooter.posX + i * look.x, shooter.posY + shooter.getEyeHeight() + i * look.y, shooter.posZ + i * look.z, 0, 0, 0, new int[0]);
+				}
+			});
+		}
 	}
 
 	@Override
@@ -42,10 +67,6 @@ public class ItemC14GaussRifle extends ItemWeapon {
 		return false;
 	}
 
-	public Item getAmmo(World world, EntityPlayer player) {
-		return ItemHandler.BULLET_MAGAZINE;
-	}
-
 	@Override
 	public void takeAmmo(World world, EntityPlayer player, ItemStack stack) {
 		ItemStack ammoStack = player.inventory.mainInventory.get(InventoryUtils.getItemSlot(player, getAmmo(world, player), MetaHandler.BulletMagazineType.C14.getID()));
@@ -57,4 +78,9 @@ public class ItemC14GaussRifle extends ItemWeapon {
 			}
 		}
 	}
+
+	public Item getAmmo(World world, EntityPlayer player) {
+		return ItemHandler.BULLET_MAGAZINE;
+	}
+
 }

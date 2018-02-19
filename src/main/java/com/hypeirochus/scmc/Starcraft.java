@@ -9,7 +9,9 @@ import com.hypeirochus.scmc.capabilities.IShield;
 import com.hypeirochus.scmc.capabilities.Shield;
 import com.hypeirochus.scmc.capabilities.ShieldStorage;
 import com.hypeirochus.scmc.command.CommandDimension;
+import com.hypeirochus.scmc.events.GuiRenderOverlay;
 import com.hypeirochus.scmc.handlers.ConfigHandler;
+import com.hypeirochus.scmc.handlers.EntityHandler;
 import com.hypeirochus.scmc.handlers.GuiHandler;
 import com.hypeirochus.scmc.handlers.KeybindingHandler;
 import com.hypeirochus.scmc.handlers.RenderHandler;
@@ -84,6 +86,7 @@ public class Starcraft {
 		// EntityHandler.pre(event);
 
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+			MinecraftForge.EVENT_BUS.register(new GuiRenderOverlay());
 			WavefrontModelHandler.pre(event);
 			RenderHandler.pre(event);
 			KeybindingHandler.pre(event);
@@ -92,7 +95,7 @@ public class Starcraft {
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-		// EntityHandler.init(event);
+		EntityHandler.init(event);
 		OreDictionaryHandler.init(event);
 		SmeltingRecipes.init(event);
 		GuiHandler.init(event);

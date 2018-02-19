@@ -2,6 +2,7 @@ package com.hypeirochus.scmc.client.renderer;
 
 import com.hypeirochus.scmc.api.Utils;
 import com.hypeirochus.scmc.client.renderer.item.ItemRenderC14GaussRifle;
+import com.hypeirochus.scmc.client.renderer.item.ItemRenderFlamethrower;
 import com.hypeirochus.scmc.handlers.ItemHandler;
 
 import net.minecraft.block.Block;
@@ -25,7 +26,7 @@ public class ItemRenderRegistrationHandler {
 		eventObj = event;
 
 		register(ItemHandler.C14_GAUSS_RIFLE, new ItemRenderC14GaussRifle());
-		// register(ItemHandler.FLAMETHROWER, new ItemRenderFlamethrower());
+		register(ItemHandler.FLAMETHROWER, new ItemRenderFlamethrower());
 		// register(ItemHandler.SOLARITE_REAPER, new ItemRenderSolariteReaper());
 		// register(BlockHandler.STARCRAFT_SKULL, new ItemRenderStarcraftSkull());
 		// register(BlockHandler.FLORA_ZERUS_GLOW_POD, new ItemRenderZerusGlowPod());

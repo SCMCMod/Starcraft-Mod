@@ -513,12 +513,17 @@ item.ingot.titanium.name=Titanium Ingot
 item.ingot.steel.name=Steel Ingot
 item.ingot.neosteel.name=Neosteel Ingot
 
-item.terran.rifleC14.name=C14 Gauss Rifle
+item.terran.riflec14.name=C14 Gauss Rifle
 item.terran.flamethrower.name=Flamethrower
 
-item.part.c14rifle.barrel.name=C14 Rifle Barrel
-item.part.c14rifle.body.name=C14 Rifle Body
-item.part.c14rifle.grip.name=C14 Rifle Grip
+item.terran.riflec14.part.0.name=C14 Rifle Barrel
+item.terran.riflec14.part.1.name=C14 Rifle Body
+item.terran.riflec14.part.2.name=C14 Rifle Grip
+
+item.terran.flamethrower.part.0.name=Flamethrower Nozzle
+item.terran.flamethrower.part.1.name=Flamethrower Base
+item.terran.flamethrower.part.2.name=Flamethrower Handle
+item.terran.flamethrower.part.3.name=Flamethrower Chambers
 
 item.terran.magazine.c14.name=C14 Rifle Magazine
 item.terran.magazine.flamethrower.name=Flamethrower Fuel
@@ -598,11 +603,6 @@ item.dust.steel.name=Steel Dust
 item.dust.iron.name=Iron Dust
 
 item.dust.carbon.name=Carbon Dust
-
-item.flamethrower.part.nozzle.name=Flamethrower Nozzle
-item.flamethrower.part.base.name=Flamethrower Base
-item.flamethrower.part.handle.name=Flamethrower Handle
-item.flamethrower.part.chambers.name=Flamethrower Chambers
 
 item.terran.marine.helmet.visor.name=Marine Visor
 #############################################################################################
@@ -829,7 +829,10 @@ advancements.starcraft.mineRichMinerals.desc=Get Rich Mineral Shards!
 
 advancements.starcraft.mineVespene.title=Vespene Geyser Depleted!
 advancements.starcraft.mineVespene.desc=Obtain Vespene!
-                
+
+advancements.starcraft.mineTerrazine.title=More Power!
+advancements.starcraft.mineTerrazine.desc=Obtain Terrazine!
+                          
 advancements.starcraft.getC14GaussRifle.title=Hell, It's About Time!
 advancements.starcraft.getC14GaussRifle.desc=Obtain a C14 Gauss Rifle!
 

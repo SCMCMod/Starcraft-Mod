@@ -2,10 +2,18 @@ package com.hypeirochus.scmc.events;
 
 import com.hypeirochus.scmc.capabilities.ColorProvider;
 import com.hypeirochus.scmc.capabilities.IColor;
+import com.hypeirochus.scmc.client.renderer.item.ItemRenderC14GaussRifle;
+import com.hypeirochus.scmc.handlers.ItemHandler;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.EnumHand;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * This class handles events that involve the player.
@@ -61,4 +69,5 @@ public class PlayerEventHandler {
 	// // add sound here
 	// }
 	// }
+
 }

@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "starcraft:misc/dust/steel"
+    ]
+  },
+  "criteria": {
+    "has_any_dust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+			"type": "forge:ore_dict",
+            "ore": "dust"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "starcraft:misc/dust/steel"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_any_dust",
+      "has_the_recipe"
+    ]
+  ]
+}

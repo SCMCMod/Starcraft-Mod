@@ -8,7 +8,6 @@ import net.minecraft.world.storage.loot.LootTableList;
 
 public class LootTableHandler {
 
-	public static final ResourceLocation TEST = register("chests/test");
 	public static final ResourceLocation TERRAN_BUNKER = register("chests/terran_bunker");
 
 	/**

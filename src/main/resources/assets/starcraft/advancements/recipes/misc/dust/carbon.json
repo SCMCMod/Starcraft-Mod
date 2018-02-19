@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "starcraft:misc/dust/carbon"
+    ]
+  },
+  "criteria": {
+    "has_carbon": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "type": "forge:ore_dict",
+			"ore": "carbon"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "starcraft:misc/dust/carbon"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_carbon",
+      "has_the_recipe"
+    ]
+  ]
+}

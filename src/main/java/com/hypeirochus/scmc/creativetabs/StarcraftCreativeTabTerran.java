@@ -1,5 +1,8 @@
 package com.hypeirochus.scmc.creativetabs;
 
+import com.hypeirochus.scmc.enums.MetaHandler;
+import com.hypeirochus.scmc.handlers.ItemHandler;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 
@@ -12,8 +15,7 @@ public class StarcraftCreativeTabTerran extends CreativeTabs {
 
 	@Override
 	public ItemStack getTabIconItem() {
-		// return ItemHandler.ICON_TERRAN;
-		return ItemStack.EMPTY;
+		return new ItemStack(ItemHandler.ICON, 1, MetaHandler.IconType.TERRAN.getID());
 	}
 
 	@Override

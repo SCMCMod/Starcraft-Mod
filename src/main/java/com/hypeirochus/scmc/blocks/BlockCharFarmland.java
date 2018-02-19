@@ -108,9 +108,6 @@ public class BlockCharFarmland extends BlockFarmland {
 		return true;
 	}
 
-	/**
-	 * Get the Item that this Block should drop when harvested.
-	 */
 	@Nullable
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {

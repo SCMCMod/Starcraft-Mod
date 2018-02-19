@@ -1,0 +1,17 @@
+{
+    "type": "forge:ore_shapeless",
+    "ingredients": [
+        {
+            "item": "starcraft:protoss.ingot",
+			"data": 0
+        },
+        {
+            "type": "forge:ore_dict",
+			"ore": "dyeBlack"
+        }
+    ],
+    "result": {
+        "item": "starcraft:protoss.ingot",
+		"data": 1
+    }
+}

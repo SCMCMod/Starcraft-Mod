@@ -11,7 +11,7 @@ import net.minecraft.util.EnumHandSide;
 
 public class ItemRenderC14GaussRifle extends ItemRenderer {
 
-	private boolean aiming;
+	private static boolean aiming;
 
 	public ItemRenderC14GaussRifle() {
 		super(new ModelC14GaussRifle(), ModelC14GaussRifle.TEXTURE);
@@ -19,7 +19,7 @@ public class ItemRenderC14GaussRifle extends ItemRenderer {
 
 	@Override
 	public void renderPre(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
-		if (this.mc.gameSettings.keyBindAttack.isKeyDown()) {
+		if (this.mc.gameSettings.keyBindAttack.isKeyDown() && cameraTransformType == TransformType.FIRST_PERSON_RIGHT_HAND) {
 			aiming = true;
 		} else {
 			aiming = false;
@@ -44,10 +44,10 @@ public class ItemRenderC14GaussRifle extends ItemRenderer {
 		double z = 0;
 
 		if (aiming) {
-			if (hand == EnumHandSide.RIGHT)
-				x += 14.5;
-			else
-				x -= 14.5;
+			y -= 4.6;
+			GlStateManager.rotate(8, 1, 0, 0);
+			GlStateManager.rotate(1.4f, 0, 1, 0);
+			x += 14.25;
 		}
 
 		GlStateManager.pushMatrix();
@@ -146,7 +146,7 @@ public class ItemRenderC14GaussRifle extends ItemRenderer {
 
 	}
 
-	public boolean isAiming() {
+	public static boolean isAiming() {
 		return aiming;
 	}
 }
