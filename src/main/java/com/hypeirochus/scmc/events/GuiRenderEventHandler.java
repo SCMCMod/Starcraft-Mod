@@ -11,7 +11,12 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
- * This class handles events that involve the player.
+ * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
+ * 
+ * <br>
+ * </br>
+ * 
+ * This class handles all of the events that have to do with client sided rendering.
  * 
  * @author Ocelot5836
  */

@@ -11,16 +11,15 @@ import com.hypeirochus.scmc.capabilities.IShield;
 import com.hypeirochus.scmc.capabilities.Shield;
 import com.hypeirochus.scmc.capabilities.ShieldStorage;
 import com.hypeirochus.scmc.command.CommandDimension;
+import com.hypeirochus.scmc.config.StarcraftConfig;
 import com.hypeirochus.scmc.events.GuiRenderEventHandler;
-import com.hypeirochus.scmc.events.OnPlayerLoggedInEvent;
-import com.hypeirochus.scmc.handlers.ConfigHandler;
+import com.hypeirochus.scmc.events.StarcraftEventHandler;
 import com.hypeirochus.scmc.handlers.EntityHandler;
 import com.hypeirochus.scmc.handlers.GuiHandler;
 import com.hypeirochus.scmc.handlers.KeybindingHandler;
 import com.hypeirochus.scmc.handlers.RenderHandler;
 import com.hypeirochus.scmc.handlers.SoundHandler;
 import com.hypeirochus.scmc.handlers.WavefrontModelHandler;
-import com.hypeirochus.scmc.handlers.WorldGenerationHandler;
 import com.hypeirochus.scmc.log.LogRegistry;
 import com.hypeirochus.scmc.network.NetworkHandler;
 import com.hypeirochus.scmc.proxy.CommonProxy;
@@ -53,7 +52,7 @@ import net.minecraftforge.fml.relauncher.Side;
  * @author Hypeirochus
  * @author Ocelot
  */
-@Mod(modid = Starcraft.MOD_ID, acceptedMinecraftVersions = "[1.12][1.12.2]", useMetadata = true, version = "${version}")
+@Mod(modid = Starcraft.MOD_ID, acceptedMinecraftVersions = "[1.12][1.12.2]", useMetadata = true, guiFactory = "com.hypeirochus.scmc.config.StarcraftConfigGuiFactory")
 public class Starcraft {
 
 	public static final String MOD_ID = "starcraft";
@@ -82,14 +81,15 @@ public class Starcraft {
 
 		MinecraftForge.EVENT_BUS.register(new Registry());
 
-		ConfigHandler.pre(event);
+		StarcraftConfig.pre(event);
 		NetworkHandler.pre(event);
 		// FluidHandler.pre(event);
 		SoundHandler.pre(event);
-		WorldGenerationHandler.pre(event);
+		// WorldGenerationHandler.pre(event);
 		// EntityHandler.pre(event);
 
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+			StarcraftConfig.clientPre(event);
 			WavefrontModelHandler.pre(event);
 			RenderHandler.pre(event);
 			KeybindingHandler.pre(event);
@@ -108,11 +108,10 @@ public class Starcraft {
 		CapabilityManager.INSTANCE.register(IShield.class, new ShieldStorage(), Shield::new);
 
 		MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
-		MinecraftForge.EVENT_BUS.register(new OnPlayerLoggedInEvent());
+		MinecraftForge.EVENT_BUS.register(new StarcraftEventHandler());
 
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 			MinecraftForge.EVENT_BUS.register(new GuiRenderEventHandler());
-			// RenderHandler.init(event);
 			getLogRegistry().init(event);
 		}
 	}

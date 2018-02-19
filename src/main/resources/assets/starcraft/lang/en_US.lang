@@ -882,6 +882,49 @@ advancements.starcraft.enterShakuras.desc=Arrive on Zerus!
 
 
 
+### Config ###
+#############################################################################################
+gui.starcraft.config.main_title=Starcraft Configuration
+gui.starcraft.config.category.general=General
+gui.starcraft.config.category.general.tooltip=General settings
+gui.starcraft.config.category.dimension.ids=Dimension IDs
+gui.starcraft.config.category.dimension.ids.tooltip=Change the IDs of the dimensions
+gui.starcraft.config.category.mob.options=Mob Options
+gui.starcraft.config.category.mob.options.tooltip=Decide what options you wish to have on the mobs
+
+# General
+gui.starcraft.config.block.creep.spread.name=Zerg - Creep Can Spread
+gui.starcraft.config.block.creep.spread.comment=Whether or not Zerg Creep can spread
+gui.starcraft.config.block.creep.spread.base.name=Creep Spread Base Value
+gui.starcraft.config.block.creep.spread.base.comment=Base value for Creep Spread. WARNING, DO NOT SET THIS HIGH
+
+#Dim Ids
+gui.starcraft.config.dimension.char.id.name=Char ID
+gui.starcraft.config.dimension.char.id.comment=ID for the planet Char
+gui.starcraft.config.dimension.shakuras.id.name=Shakuras ID
+gui.starcraft.config.dimension.shakuras.id.comment=ID for the planet Shakuras
+gui.starcraft.config.dimension.slayn.id.name=Slayn ID
+gui.starcraft.config.dimension.slayn.id.comment=ID for the planet Slayn
+gui.starcraft.config.dimension.korhal.id.name=Korhal ID
+gui.starcraft.config.dimension.korhal.id.comment=ID for the planet Korhal
+gui.starcraft.config.dimension.kaldir.id.name=Kaldir ID
+gui.starcraft.config.dimension.kaldir.id.comment=ID for the planet Kaldir
+gui.starcraft.config.dimension.aiur.id.name=Aiur ID
+gui.starcraft.config.dimension.aiur.id.comment=ID for the planet Aiur
+gui.starcraft.config.dimension.zerus.id.name=Zerus ID
+gui.starcraft.config.dimension.zerus.id.comment=ID for the planet Zerus
+gui.starcraft.config.dimension.space.id.name=Space ID
+gui.starcraft.config.dimension.space.id.comment=ID for Space
+
+# Mob Options
+gui.starcraft.config.vanilla.mob.spawn.name=Vanilla - Vanilla Mob Spawning Is Disabled
+gui.starcraft.config.dimension.space.id.comment=Stop all vanilla mobs from spawning in the world
+gui.starcraft.config.starcraft.templar.dark.visible.name=Starcraft - Dark Templar is Visible
+gui.starcraft.config.starcraft.templar.dark.visible.comment=Make the dark templar invisible or not
+#############################################################################################
+
+
+
 ### JEI ###
 #############################################################################################
 gui.starcraft.category.gascollector=Gas Collector

@@ -1,8 +1,7 @@
 {
     "display": {
 	    "icon": {
-            "item": "starcraft:terrazine",
-			"data": 0
+            "item": "starcraft:char.stone"
         },
         "title": {
             "translate": "advancements.starcraft.enterChar.title"
@@ -20,7 +19,7 @@
         "entered_char": {
             "trigger": "minecraft:changed_dimension",
             "conditions": {
-                "to": "char"
+                "to": "the_nether"
             }
         }
     }

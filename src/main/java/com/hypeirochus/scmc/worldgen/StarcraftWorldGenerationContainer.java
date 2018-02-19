@@ -4,8 +4,8 @@ import java.util.Random;
 
 import com.hypeirochus.scmc.handlers.BiomeHandler;
 import com.hypeirochus.scmc.handlers.BlockHandler;
-import com.hypeirochus.scmc.handlers.ConfigHandler;
 import com.hypeirochus.scmc.handlers.StarcraftGenerator;
+import com.hypeirochus.scmc.lib.FactorySettings;
 import com.hypeirochus.scmc.tileentity.TileEntityBrambles;
 import com.hypeirochus.scmc.tileentity.TileEntityZerusGlowPod;
 import com.hypeirochus.scmc.tileentity.TileEntityZerusLightcap;
@@ -22,7 +22,7 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 	/**
 	 * The instance of this class. Used in WorldGenerationHandler.java to generate ores, structures, and bosses.
 	 */
-	public static final StarcraftWorldGenerationContainer instance = new StarcraftWorldGenerationContainer();
+	public static final StarcraftWorldGenerationContainer INSTANCE = new StarcraftWorldGenerationContainer();
 	public static boolean generationCompleted = false;
 
 	/**
@@ -492,7 +492,7 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 			this.runStarGenerator(STAR_TEMPLATE, 51, 75, BlockHandler.STAR_SURFACE.getStateFromMeta(2), world, random, 0, 0, 0, new BlockPos(200, 128, 0));
 
 			/** Char **/
-			this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, ConfigHandler.INT_DIMENSION_CHAR, 21, 31, BlockHandler.PLANET_SURFACE.getStateFromMeta(14), BlockHandler.PLANET_SURFACE.getStateFromMeta(8), world, random, 0, 0, 0, new BlockPos(-1515, 128, 17776));
+			this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, FactorySettings.INT_DIMENSION_CHAR, 21, 31, BlockHandler.PLANET_SURFACE.getStateFromMeta(14), BlockHandler.PLANET_SURFACE.getStateFromMeta(8), world, random, 0, 0, 0, new BlockPos(-1515, 128, 17776));
 			/** Char's moons **/
 			this.runMoonGenerator(MOON_TEMPLATE, 7, BlockHandler.PLANET_SURFACE.getStateFromMeta(11), BlockHandler.PLANET_SURFACE.getStateFromMeta(8), world, random, 0, 0, 0, new BlockPos(-1452, 128, 17776));
 			this.runMoonGenerator(MOON_TEMPLATE, 5, BlockHandler.PLANET_SURFACE.getStateFromMeta(11), BlockHandler.PLANET_SURFACE.getStateFromMeta(8), world, random, 0, 0, 0, new BlockPos(-1555, 148, 17804));
@@ -501,16 +501,16 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 			this.runStarGenerator(STAR_TEMPLATE, 21, 47, BlockHandler.STAR_SURFACE.getStateFromMeta(2), world, random, 0, 0, 0, new BlockPos(-1609, 128, 17748));
 
 			/** Shakuras **/
-			this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, ConfigHandler.INT_DIMENSION_SHAKURAS, 21, 31, BlockHandler.PLANET_SURFACE.getStateFromMeta(0), BlockHandler.PLANET_SURFACE.getStateFromMeta(5), world, random, 0, 0, 0, new BlockPos(6666, 128, 18180));
+			this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, FactorySettings.INT_DIMENSION_SHAKURAS, 21, 31, BlockHandler.PLANET_SURFACE.getStateFromMeta(0), BlockHandler.PLANET_SURFACE.getStateFromMeta(5), world, random, 0, 0, 0, new BlockPos(6666, 128, 18180));
 
 			/** Aiur **/
-			this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, ConfigHandler.INT_DIMENSION_AIUR, 41, 51, BlockHandler.PLANET_SURFACE.getStateFromMeta(0), BlockHandler.PLANET_SURFACE.getStateFromMeta(4), world, random, 0, 0, 0, new BlockPos(4444, 128, 17365));
+			this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, FactorySettings.INT_DIMENSION_AIUR, 41, 51, BlockHandler.PLANET_SURFACE.getStateFromMeta(0), BlockHandler.PLANET_SURFACE.getStateFromMeta(4), world, random, 0, 0, 0, new BlockPos(4444, 128, 17365));
 
 			/** Slayn **/
-			this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, ConfigHandler.INT_DIMENSION_SLAYN, 31, 41, BlockHandler.PLANET_SURFACE.getStateFromMeta(14), BlockHandler.PLANET_SURFACE.getStateFromMeta(10), world, random, 0, 0, 0, new BlockPos(7000, 128, 16666));
+			this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, FactorySettings.INT_DIMENSION_SLAYN, 31, 41, BlockHandler.PLANET_SURFACE.getStateFromMeta(14), BlockHandler.PLANET_SURFACE.getStateFromMeta(10), world, random, 0, 0, 0, new BlockPos(7000, 128, 16666));
 
 			/** Korhal **/
-			this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, ConfigHandler.INT_DIMENSION_SHAKURAS, 35, 45, BlockHandler.PLANET_SURFACE.getStateFromMeta(14), BlockHandler.PLANET_SURFACE.getStateFromMeta(5), world, random, 0, 0, 0, new BlockPos(3290, 128, 11000));
+			this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, FactorySettings.INT_DIMENSION_SHAKURAS, 35, 45, BlockHandler.PLANET_SURFACE.getStateFromMeta(14), BlockHandler.PLANET_SURFACE.getStateFromMeta(5), world, random, 0, 0, 0, new BlockPos(3290, 128, 11000));
 
 			this.generationCompleted = true;
 		}

@@ -4,12 +4,11 @@ import java.util.Random;
 
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 import com.hypeirochus.scmc.handlers.BlockHandler;
-import com.hypeirochus.scmc.handlers.ConfigHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
 import com.hypeirochus.scmc.handlers.SoundHandler.SoundTypes;
+import com.hypeirochus.scmc.lib.FactorySettings;
 import com.hypeirochus.scmc.lib.Library;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -19,12 +18,10 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BlockZergCreep extends Block {
+public class BlockZergCreep extends StarcraftBlock {
 
 	public BlockZergCreep() {
-		super(Material.GROUND, MapColor.BLACK);
-		setUnlocalizedName("zerg.creep");
-		setRegistryName("zerg.creep");
+		super("zerg.creep", RegistryType.FULL, Material.GROUND, MapColor.BLACK);
 		setSoundType(SoundTypes.FLESH);
 		setHardness(5.0F);
 		setResistance(5.0F);
@@ -82,8 +79,8 @@ public class BlockZergCreep extends Block {
 	@Override
 	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
 		if (!worldIn.isRemote) {
-			if (worldIn.getLightFromNeighbors(pos.up()) >= 9 && ConfigHandler.BOOL_CREEP_CAN_SPREAD) {
-				for (int i = 0; i < 1000 * ConfigHandler.INT_CREEP_SPREAD_BASE_VALUE; ++i) {
+			if (worldIn.getLightFromNeighbors(pos.up()) >= 9 && FactorySettings.BOOL_CREEP_CAN_SPREAD) {
+				for (int i = 0; i < 1000 * FactorySettings.INT_CREEP_SPREAD_BASE_VALUE; ++i) {
 					BlockPos blockpos = pos.add(rand.nextInt(3) - 1, rand.nextInt(5) - 3, rand.nextInt(3) - 1);
 
 					if (blockpos.getY() >= 0 && blockpos.getY() < 256 && !worldIn.isBlockLoaded(blockpos)) {
