@@ -1,6 +1,7 @@
 package com.hypeirochus.scmc.blocks;
 
 import com.hypeirochus.scmc.blocks.items.ItemBlockLayered;
+import com.hypeirochus.scmc.blocks.items.ItemBlockMeta;
 import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.handlers.RenderHandler;
 
@@ -15,7 +16,6 @@ import net.minecraftforge.fml.relauncher.Side;
 
 public class StarcraftBlock extends Block {
 
-	private RegistryType type;
 	private ItemBlock item;
 
 	public StarcraftBlock(Material material) {
@@ -36,36 +36,39 @@ public class StarcraftBlock extends Block {
 
 	public StarcraftBlock(String name, RegistryType type, Material material, MapColor color) {
 		super(material, color);
-		this.type = type;
 		this.setNames(name);
-		this.registerPre();
+		this.registerPre(type);
 	}
 
 	public StarcraftBlock(RegistryType type, Material material, MapColor color) {
 		super(material, color);
-		this.type = type;
-		this.registerPre();
+		this.registerPre(type);
 	}
 
-	public void registerPre() {
+	public void registerPre(RegistryType type) {
 		if (type == RegistryType.FULL) {
-			if (item == null) {
+			if (this.item == null) {
 				BlockHandler.registerFullBlock(this);
 			} else {
-				BlockHandler.registerBlockWithItemBlock(this, item);
+				BlockHandler.registerBlockWithItemBlock(this, this.item);
 			}
 		} else if (type == RegistryType.BLOCK) {
 			BlockHandler.register(this);
 		} else if (type == RegistryType.LAYERED) {
 			if (this instanceof StarcraftBlockLayered) {
 				setItemBlock(new ItemBlockLayered((StarcraftBlockLayered) this));
-				BlockHandler.registerBlockWithItemBlock(this, item);
+				BlockHandler.registerBlockWithItemBlock(this, this.item);
 				if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 					RenderHandler.registerLayered(this);
 				}
 			} else {
 				throw new IllegalArgumentException(String.format("The given Block %s tried to register as a layered block, but it is not an instance of StarcraftBlockLayered!", this.getUnlocalizedName()));
 			}
+		} else if (type == RegistryType.META) {
+			setItemBlock(new ItemBlockMeta(this));
+			BlockHandler.registerBlockWithItemBlock(this, this.item);
+		} else {
+			throw new IllegalArgumentException(String.format("The registry type %s for block %s is not currently supported. Either add support for it or change the type of registry.", type, this.getRegistryName()));
 		}
 	}
 

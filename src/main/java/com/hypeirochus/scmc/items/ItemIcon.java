@@ -1,12 +1,13 @@
 package com.hypeirochus.scmc.items;
 
+import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.enums.MetaHandler.IconType;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemIcon extends StarcraftItem {
+public class ItemIcon extends StarcraftItem implements IMetaRenderHandler {
 
 	public ItemIcon() {
 		super("icon");
@@ -28,5 +29,15 @@ public class ItemIcon extends StarcraftItem {
 			}
 		}
 		return getUnlocalizedName() + "." + IconType.PROTOSS.getName();
+	}
+
+	@Override
+	public int getItemCount() {
+		return IconType.values().length;
+	}
+
+	@Override
+	public String getName(int meta) {
+		return "icon." + MetaHandler.IconType.values()[meta].getName();
 	}
 }

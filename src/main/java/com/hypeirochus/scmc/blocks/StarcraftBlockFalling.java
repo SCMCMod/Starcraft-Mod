@@ -62,6 +62,8 @@ public class StarcraftBlockFalling extends BlockFalling {
 			}
 		} else if (type == RegistryType.BLOCK) {
 			BlockHandler.register(this);
+		} else {
+			throw new IllegalArgumentException(String.format("The registry type %s for block %s is not currently supported. Either add support for it or change the type of registry.", type, this.getRegistryName()));
 		}
 	}
 

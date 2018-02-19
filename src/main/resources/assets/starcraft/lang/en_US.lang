@@ -131,6 +131,7 @@ tile.slab.protoss.metal.3.red.name=Red T3 Protoss Metal Slab
 tile.terran.metal.copper.name=Block of Copper
 tile.terran.metal.steel.name=Block of Steel
 tile.terran.metal.titanium.name=Block of Titanium
+tile.terran.metal.neosteel.name=Block of Neosteel
 tile.terran.warningtape.name=Warning Tape
 
 tile.terran.neosteel.base.name=Neosteel Base

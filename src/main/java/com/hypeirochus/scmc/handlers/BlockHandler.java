@@ -9,8 +9,10 @@ import com.hypeirochus.scmc.blocks.BlockAsh;
 import com.hypeirochus.scmc.blocks.BlockCharFarmland;
 import com.hypeirochus.scmc.blocks.BlockCharOre;
 import com.hypeirochus.scmc.blocks.BlockDimPortal;
+import com.hypeirochus.scmc.blocks.BlockEntitySpawner;
 import com.hypeirochus.scmc.blocks.BlockMagma;
 import com.hypeirochus.scmc.blocks.BlockOverworldOre;
+import com.hypeirochus.scmc.blocks.BlockPlanetTeleporter;
 import com.hypeirochus.scmc.blocks.BlockProtossEnergyChannel;
 import com.hypeirochus.scmc.blocks.BlockProtossEnergyChannelDark;
 import com.hypeirochus.scmc.blocks.BlockProtossEnergyChannelVoid;
@@ -19,13 +21,18 @@ import com.hypeirochus.scmc.blocks.BlockProtossEnergyStabilizerDark;
 import com.hypeirochus.scmc.blocks.BlockProtossEnergyStabilizerVoid;
 import com.hypeirochus.scmc.blocks.BlockProtossFurnace;
 import com.hypeirochus.scmc.blocks.BlockProtossShield;
+import com.hypeirochus.scmc.blocks.BlockProtossWormhole;
 import com.hypeirochus.scmc.blocks.BlockShakurasFarmland;
 import com.hypeirochus.scmc.blocks.BlockShakurasOre;
 import com.hypeirochus.scmc.blocks.BlockSlaynFarmland;
 import com.hypeirochus.scmc.blocks.BlockSlaynOre;
+import com.hypeirochus.scmc.blocks.BlockSolarCore;
 import com.hypeirochus.scmc.blocks.BlockStarcraftDirt;
 import com.hypeirochus.scmc.blocks.BlockStarcraftFurnace;
 import com.hypeirochus.scmc.blocks.BlockStarcraftGravel;
+import com.hypeirochus.scmc.blocks.BlockStarcraftSkull;
+import com.hypeirochus.scmc.blocks.BlockTerrazineGas;
+import com.hypeirochus.scmc.blocks.BlockVespeneGas;
 import com.hypeirochus.scmc.blocks.BlockZergCreep;
 import com.hypeirochus.scmc.blocks.BlockZergKeratin;
 import com.hypeirochus.scmc.blocks.BlockZerusFarmland;
@@ -37,6 +44,24 @@ import com.hypeirochus.scmc.blocks.StarcraftBlock;
 import com.hypeirochus.scmc.blocks.StarcraftBlockCustomDrop;
 import com.hypeirochus.scmc.blocks.StarcraftBlockFalling;
 import com.hypeirochus.scmc.blocks.StarcraftProtossCoreBlock;
+import com.hypeirochus.scmc.blocks.flora.BlockBrambles;
+import com.hypeirochus.scmc.blocks.flora.BlockZerusGlowPod;
+import com.hypeirochus.scmc.blocks.flora.BlockZerusLightcap;
+import com.hypeirochus.scmc.blocks.items.ItemBlockStarcraftSkull;
+import com.hypeirochus.scmc.blocks.metablocks.BlockEnergy;
+import com.hypeirochus.scmc.blocks.metablocks.BlockGasCollector;
+import com.hypeirochus.scmc.blocks.metablocks.BlockKhaydarinCrystal;
+import com.hypeirochus.scmc.blocks.metablocks.BlockMineral;
+import com.hypeirochus.scmc.blocks.metablocks.BlockNeosteel;
+import com.hypeirochus.scmc.blocks.metablocks.BlockParisteel;
+import com.hypeirochus.scmc.blocks.metablocks.BlockPlanetSurface;
+import com.hypeirochus.scmc.blocks.metablocks.BlockProtossMetalT1;
+import com.hypeirochus.scmc.blocks.metablocks.BlockProtossMetalT2;
+import com.hypeirochus.scmc.blocks.metablocks.BlockProtossMetalT3;
+import com.hypeirochus.scmc.blocks.metablocks.BlockStarSurface;
+import com.hypeirochus.scmc.blocks.metablocks.BlockTerranMetal;
+import com.hypeirochus.scmc.blocks.metablocks.BlockZergCarapace;
+import com.hypeirochus.scmc.blocks.metablocks.BlockZergFlesh;
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 import com.hypeirochus.scmc.enums.EnumWorldType;
 
@@ -46,11 +71,24 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.relauncher.Side;
 
 public class BlockHandler {
 
 	public static List<Block> blocks;
 	public static List<ItemBlock> items;
+
+	// Misc
+	public static Block ENTITY_SPAWNER;
+	public static Block PLANET_TELEPORTER;
+	public static Block SOLAR_CORE;
+	public static Block STARCRAFT_SKULL;
+	public static Block ENERGY_BLOCK;
+	public static Block COMP_MINERAL;
+	public static Block GAS_COLLECTOR;
+	public static Block STAR_SURFACE;
+	public static Block PLANET_SURFACE;
 
 	// Portals
 	public static Block DIM_PORTAL_CHAR;
@@ -162,6 +200,9 @@ public class BlockHandler {
 	public static Block ORE_MINERAL_SLAYN;
 	public static Block ORE_RICHMINERAL_SLAYN;
 
+	// Korhal
+	public static Block CITY_STONE_KORHAL;
+
 	// Furnaces
 	public static BlockStarcraftFurnace FURNACE_SHAKURAS;
 	public static BlockStarcraftFurnace FURNACE_CHAR;
@@ -177,6 +218,11 @@ public class BlockHandler {
 	public static Block PROTOSS_VOID_ENERGY_STABILIZER;
 	public static Block PROTOSS_DARK_ENERGY_CHANNEL;
 	public static Block PROTOSS_DARK_ENERGY_STABILIZER;
+	public static Block PROTOSS_WORMHOLE;
+	public static Block PROTOSS_METAL_T1;
+	public static Block PROTOSS_METAL_T2;
+	public static Block PROTOSS_METAL_T3;
+	public static Block PYLON_CRYSTAL;
 
 	// Protoss Cores
 	public static Block CORE_CYBERNETICSCORE_DARK;
@@ -190,6 +236,10 @@ public class BlockHandler {
 	public static Block CORE_WARPGATE_VOID;
 
 	// Terran
+	public static Block TERRAN_WARNING_TAPE;
+	public static Block TERRAN_METAL;
+	public static Block NEOSTEEL_METAL;
+	public static Block PARISTEEL_METAL;
 
 	// Terran Cores
 	public static Block CORE_BARRACKS;
@@ -198,6 +248,17 @@ public class BlockHandler {
 	// Zerg
 	public static Block ZERG_CREEP;
 	public static Block KERATIN_CHUNK;
+	public static Block ZERG_CARAPACE_BLOCK;
+	public static Block ZERG_FLESH;
+
+	// Gasses
+	public static Block GAS_VESPENE;
+	public static Block GAS_TERRAZINE;
+
+	// Flora
+	public static Block FLORA_ZERUS_GLOW_POD;
+	public static Block FLORA_BRAMBLES;
+	public static Block FLORA_ZERUS_LIGHTCAP;
 
 	// Stairs
 
@@ -206,15 +267,32 @@ public class BlockHandler {
 	private static void init() {
 		blocks = new ArrayList<Block>();
 		items = new ArrayList<ItemBlock>();
+		MaterialHandler.init();
 
 		if (AccessHandler.isDevEnvironment()) {
 			Starcraft.logger().info("Registering blocks");
 		}
 
 		instantiate();
+
+		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+			RenderHandler.createStateMappers();
+		}
 	}
 
 	private static void instantiate() {
+		// Misc
+		ENTITY_SPAWNER = new BlockEntitySpawner("block.entityspawner", 5);
+		PLANET_TELEPORTER = new BlockPlanetTeleporter("block.planetteleporter", 100);
+		SOLAR_CORE = new BlockSolarCore("block.solarcore", 100);
+		STARCRAFT_SKULL = new BlockStarcraftSkull();
+		BlockHandler.registerBlockWithItemBlock(STARCRAFT_SKULL, new ItemBlockStarcraftSkull());
+		ENERGY_BLOCK = new BlockEnergy();
+		COMP_MINERAL = new BlockMineral();
+		GAS_COLLECTOR = new BlockGasCollector();
+		STAR_SURFACE = new BlockStarSurface();
+		PLANET_SURFACE = new BlockPlanetSurface();
+
 		// Portals
 		DIM_PORTAL_OVERWORLD = new BlockDimPortal("overworld.portal", 0);
 		DIM_PORTAL_KORHAL = new BlockDimPortal("korhal.portal", ConfigHandler.INT_DIMENSION_KORHAL);
@@ -323,6 +401,9 @@ public class BlockHandler {
 		ORE_URANIUM_SLAYN = new BlockSlaynOre("slayn.uranium", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 1).setBlockHarvestLevel("pickaxe", 2).setCreativeTab(StarcraftCreativeTabs.MISC);
 		ORE_PHOSPHORUS_SLAYN = new BlockSlaynOre("slayn.phosphorus", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 1).setBlockHarvestLevel("pickaxe", 1).setCreativeTab(StarcraftCreativeTabs.MISC);
 
+		// Korhal
+		CITY_STONE_KORHAL = new StarcraftBlock("korhal.stone.city", RegistryType.FULL, Material.ROCK, MapColor.BLACK).setBlockHarvestLevel("pickaxe", 0).setHardness(1.5f).setResistance(10.0f).setCreativeTab(StarcraftCreativeTabs.MISC);
+
 		// Furnaces
 		FURNACE_SHAKURAS = new BlockStarcraftFurnace(MapColor.LIGHT_BLUE, EnumWorldType.SHAKURAS);
 		FURNACE_CHAR = new BlockStarcraftFurnace(MapColor.BLACK, EnumWorldType.CHAR);
@@ -331,13 +412,18 @@ public class BlockHandler {
 		FURNACE_PROTOSS = new BlockProtossFurnace();
 
 		// Protoss
+		PROTOSS_SHIELD = new BlockProtossShield();
+		PROTOSS_VOID_ENERGY_CHANNEL = new BlockProtossEnergyChannelVoid();
+		PROTOSS_VOID_ENERGY_STABILIZER = new BlockProtossEnergyStabilizerVoid();
 		PROTOSS_ENERGY_CHANNEL = new BlockProtossEnergyChannel();
 		PROTOSS_ENERGY_STABILIZER = new BlockProtossEnergyStabilizer();
 		PROTOSS_DARK_ENERGY_CHANNEL = new BlockProtossEnergyChannelDark();
 		PROTOSS_DARK_ENERGY_STABILIZER = new BlockProtossEnergyStabilizerDark();
-		PROTOSS_SHIELD = new BlockProtossShield();
-		PROTOSS_VOID_ENERGY_CHANNEL = new BlockProtossEnergyChannelVoid();
-		PROTOSS_VOID_ENERGY_STABILIZER = new BlockProtossEnergyStabilizerVoid();
+		PROTOSS_WORMHOLE = new BlockProtossWormhole();
+		PROTOSS_METAL_T1 = new BlockProtossMetalT1();
+		PROTOSS_METAL_T2 = new BlockProtossMetalT2();
+		PROTOSS_METAL_T3 = new BlockProtossMetalT3();
+		PYLON_CRYSTAL = new BlockKhaydarinCrystal();
 
 		// Protoss Cores
 		CORE_CYBERNETICSCORE_VOID = new StarcraftProtossCoreBlock("protoss.cyberneticscorecore.void", RegistryType.FULL, Material.IRON, MapColor.GREEN).setDomeSize(-5, 24, 24, 3);
@@ -351,10 +437,25 @@ public class BlockHandler {
 		CORE_WARPGATE_KHALAI = new StarcraftProtossCoreBlock("protoss.warpgatecore.khalai", RegistryType.FULL, Material.IRON, MapColor.YELLOW).setDomeSize(-5, 16, 13, 3);
 
 		// Terran
+		TERRAN_WARNING_TAPE = new StarcraftBlock("terran.warningtape", RegistryType.FULL, Material.IRON, MapColor.YELLOW).setSoundType(SoundType.METAL).setHardness(3.5f).setResistance(10.0f).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		TERRAN_METAL = new BlockTerranMetal();
+		NEOSTEEL_METAL = new BlockNeosteel();
+		PARISTEEL_METAL = new BlockParisteel();
 
 		// Zerg
 		ZERG_CREEP = new BlockZergCreep();
 		KERATIN_CHUNK = new BlockZergKeratin();
+		ZERG_CARAPACE_BLOCK = new BlockZergCarapace();
+		ZERG_FLESH = new BlockZergFlesh();
+
+		// Gasses
+		GAS_VESPENE = new BlockVespeneGas();
+		GAS_TERRAZINE = new BlockTerrazineGas();
+
+		// Flora
+		FLORA_ZERUS_GLOW_POD = new BlockZerusGlowPod();
+		FLORA_BRAMBLES = new BlockBrambles();
+		FLORA_ZERUS_LIGHTCAP = new BlockZerusLightcap();
 	}
 
 	/**

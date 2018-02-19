@@ -1,13 +1,14 @@
 package com.hypeirochus.scmc.items;
 
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.enums.MetaHandler.FocuserType;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemPsiBladeFocuserUncharged extends StarcraftItem {
+public class ItemPsiBladeFocuserUncharged extends StarcraftItem implements IMetaRenderHandler {
 
 	public ItemPsiBladeFocuserUncharged() {
 		super("protoss.focuser");
@@ -34,5 +35,15 @@ public class ItemPsiBladeFocuserUncharged extends StarcraftItem {
 			}
 		}
 		return getUnlocalizedName() + "." + FocuserType.AIUR.getName();
+	}
+
+	@Override
+	public int getItemCount() {
+		return FocuserType.values().length;
+	}
+
+	@Override
+	public String getName(int meta) {
+		return "protoss.focuser." + MetaHandler.FocuserType.values()[meta].getName();
 	}
 }

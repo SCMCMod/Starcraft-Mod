@@ -7,7 +7,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemZergCarapace extends StarcraftItem {
+public class ItemZergCarapace extends StarcraftItem implements IMetaRenderHandler {
 
 	public ItemZergCarapace() {
 		super("zerg.icarapace");
@@ -34,5 +34,15 @@ public class ItemZergCarapace extends StarcraftItem {
 			}
 		}
 		return getUnlocalizedName() + "." + CarapaceType.T1.getName();
+	}
+
+	@Override
+	public int getItemCount() {
+		return CarapaceType.values().length;
+	}
+
+	@Override
+	public String getName(int meta) {
+		return "zerg.carapace." + CarapaceType.values()[meta].getName();
 	}
 }

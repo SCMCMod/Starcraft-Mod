@@ -1,7 +1,9 @@
 package com.hypeirochus.scmc;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.hypeirochus.scmc.capabilities.CapabilityHandler;
 import com.hypeirochus.scmc.capabilities.Color;
 import com.hypeirochus.scmc.capabilities.ColorStorage;
 import com.hypeirochus.scmc.capabilities.IColor;
@@ -9,7 +11,8 @@ import com.hypeirochus.scmc.capabilities.IShield;
 import com.hypeirochus.scmc.capabilities.Shield;
 import com.hypeirochus.scmc.capabilities.ShieldStorage;
 import com.hypeirochus.scmc.command.CommandDimension;
-import com.hypeirochus.scmc.events.GuiRenderOverlay;
+import com.hypeirochus.scmc.events.GuiRenderEventHandler;
+import com.hypeirochus.scmc.events.OnPlayerLoggedInEvent;
 import com.hypeirochus.scmc.handlers.ConfigHandler;
 import com.hypeirochus.scmc.handlers.EntityHandler;
 import com.hypeirochus.scmc.handlers.GuiHandler;
@@ -17,6 +20,7 @@ import com.hypeirochus.scmc.handlers.KeybindingHandler;
 import com.hypeirochus.scmc.handlers.RenderHandler;
 import com.hypeirochus.scmc.handlers.SoundHandler;
 import com.hypeirochus.scmc.handlers.WavefrontModelHandler;
+import com.hypeirochus.scmc.handlers.WorldGenerationHandler;
 import com.hypeirochus.scmc.log.LogRegistry;
 import com.hypeirochus.scmc.network.NetworkHandler;
 import com.hypeirochus.scmc.proxy.CommonProxy;
@@ -39,8 +43,12 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.relauncher.Side;
 
 /**
- * The main Starcraft mod class<br>
- * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
+ * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
+ * 
+ * <br>
+ * </br>
+ * 
+ * The main Starcraft Mod class. Registers and sets everything into motion when the game starts up.
  * 
  * @author Hypeirochus
  * @author Ocelot
@@ -76,23 +84,19 @@ public class Starcraft {
 
 		ConfigHandler.pre(event);
 		NetworkHandler.pre(event);
-		// MaterialHandler.pre(event);
 		// FluidHandler.pre(event);
 		SoundHandler.pre(event);
-		// BlockHandler.pre(event);
-		// WorldGenerationHandler.pre(event);
-		// BiomeHandler.pre(event);
-		// DimensionHandler.pre(event);
+		WorldGenerationHandler.pre(event);
 		// EntityHandler.pre(event);
 
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
-			MinecraftForge.EVENT_BUS.register(new GuiRenderOverlay());
 			WavefrontModelHandler.pre(event);
 			RenderHandler.pre(event);
 			KeybindingHandler.pre(event);
 		}
 	}
 
+	/** Initialization **/
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
 		EntityHandler.init(event);
@@ -103,17 +107,17 @@ public class Starcraft {
 		CapabilityManager.INSTANCE.register(IColor.class, new ColorStorage(), Color::new);
 		CapabilityManager.INSTANCE.register(IShield.class, new ShieldStorage(), Shield::new);
 
-		// MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
-		// MinecraftForge.EVENT_BUS.register(new OnPlayerLoggedInEvent());
+		MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
+		MinecraftForge.EVENT_BUS.register(new OnPlayerLoggedInEvent());
 
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
-			// logRegistry = new LogRegistry();
-			// MinecraftForge.EVENT_BUS.register(new GuiRenderEventHandler());
+			MinecraftForge.EVENT_BUS.register(new GuiRenderEventHandler());
 			// RenderHandler.init(event);
-			// getLogRegistry().init(event);
+			getLogRegistry().init(event);
 		}
 	}
 
+	/** Post Initialization **/
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
@@ -126,10 +130,14 @@ public class Starcraft {
 	}
 
 	public static Logger logger() {
+		if (logger == null)
+			logger = LogManager.getLogger(MOD_ID);
 		return logger;
 	}
 
 	public static LogRegistry getLogRegistry() {
+		if (logRegistry == null)
+			logRegistry = new LogRegistry();
 		return logRegistry;
 	}
 }

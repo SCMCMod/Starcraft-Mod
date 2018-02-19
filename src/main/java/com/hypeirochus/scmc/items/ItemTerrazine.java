@@ -1,6 +1,7 @@
 package com.hypeirochus.scmc.items;
 
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.enums.MetaHandler.MineralType;
 import com.hypeirochus.scmc.enums.MetaHandler.TerrazineType;
 import com.hypeirochus.scmc.enums.MetaHandler.TerrazineType;
@@ -9,7 +10,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemTerrazine extends StarcraftItem {
+public class ItemTerrazine extends StarcraftItem implements IMetaRenderHandler {
 
 	public ItemTerrazine() {
 		super("terrazine");
@@ -44,5 +45,15 @@ public class ItemTerrazine extends StarcraftItem {
 			}
 		}
 		return getUnlocalizedName() + "." + TerrazineType.RAW.getName();
+	}
+
+	@Override
+	public int getItemCount() {
+		return TerrazineType.values().length;
+	}
+
+	@Override
+	public String getName(int meta) {
+		return "terrazine." + MetaHandler.TerrazineType.values()[meta].getName();
 	}
 }

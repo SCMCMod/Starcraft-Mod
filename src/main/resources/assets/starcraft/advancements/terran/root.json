@@ -1,0 +1,25 @@
+{
+    "display": {
+	    "icon": {
+            "item": "starcraft:icon",
+			"data": 1
+        },
+        "title": {
+            "translate": "advancements.pageTerran"
+        },
+        "description": {
+            "translate": "advancements.pageTerran.desc"
+        },
+        "frame": "task",
+		"announce_to_chat": false,
+		"show_toast": false,
+        "hidden": false,
+        "background": "starcraft:textures/blocks/terran.paristeel.gray.png"
+    },
+    "criteria": {
+			"tick": {
+				"trigger": "minecraft:tick"
+			}
+		}
+    }
+}

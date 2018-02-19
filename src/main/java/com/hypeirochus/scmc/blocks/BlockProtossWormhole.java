@@ -6,7 +6,6 @@ import com.hypeirochus.api.client.entityfx.EntityFXElectricArc;
 import com.hypeirochus.scmc.handlers.AccessHandler;
 import com.hypeirochus.scmc.tileentity.TileEntityProtossWormhole;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -24,12 +23,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockProtossWormhole extends Block implements ITileEntityProvider {
+public class BlockProtossWormhole extends StarcraftBlock implements ITileEntityProvider {
 
 	public BlockProtossWormhole() {
-		super(Material.ROCK, MapColor.BLACK);
-		setUnlocalizedName("protoss.wormhole");
-		setRegistryName("protoss.wormhole");
+		super("protoss.wormhole", RegistryType.BLOCK, Material.ROCK, MapColor.BLACK);
 		setSoundType(SoundType.STONE);
 		setBlockUnbreakable();
 		setTickRandomly(true);

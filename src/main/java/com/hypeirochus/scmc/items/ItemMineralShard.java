@@ -7,7 +7,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemMineralShard extends StarcraftItem {
+public class ItemMineralShard extends StarcraftItem implements IMetaRenderHandler {
 
 	public ItemMineralShard() {
 		super("mineral");
@@ -34,5 +34,15 @@ public class ItemMineralShard extends StarcraftItem {
 			}
 		}
 		return getUnlocalizedName() + "." + MineralType.BLUE.getName();
+	}
+
+	@Override
+	public int getItemCount() {
+		return MineralType.values().length;
+	}
+
+	@Override
+	public String getName(int meta) {
+		return "mineral." + MineralType.values()[meta].getName();
 	}
 }

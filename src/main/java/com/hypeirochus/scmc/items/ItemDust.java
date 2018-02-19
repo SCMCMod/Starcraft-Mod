@@ -7,7 +7,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemDust extends StarcraftItem {
+public class ItemDust extends StarcraftItem implements IMetaRenderHandler {
 
 	public ItemDust() {
 		super("dust");
@@ -34,5 +34,15 @@ public class ItemDust extends StarcraftItem {
 			}
 		}
 		return getUnlocalizedName() + "." + DustType.STEEL.getName();
+	}
+
+	@Override
+	public int getItemCount() {
+		return DustType.values().length;
+	}
+
+	@Override
+	public String getName(int meta) {
+		return "dust." + DustType.values()[meta].getName();
 	}
 }

@@ -1,7 +1,35 @@
 {
+    "forge_marker": 1,
+    "defaults": {
+        "model": "cube_all",
+        "transform":"forge:default-block",
+        "uvlock": true
+    },
     "variants": {
-        "type=copper": { "model":"starcraft:terran.metal.copper" },
-        "type=steel": { "model":"starcraft:terran.metal.steel" },
-        "type=titanium": { "model":"starcraft:terran.metal.titanium" }
+        "type":{
+            "copper": {
+				"textures": {
+					"all": "starcraft:blocks/terran.metal.copper"
+				}
+			},
+            "steel": {
+				"textures": {
+					"all": "starcraft:blocks/terran.metal.steel"
+				}
+			},
+            "titanium": {
+				"textures": {
+					"all": "starcraft:blocks/terran.metal.titanium"
+				}
+			},
+            "neosteel": {
+				"textures": {
+					"all": "starcraft:blocks/terran.metal.neosteel"
+				}
+			}                        
+        },
+		"inventory": [{
+            "model": "cube_all"
+        }]
     }
 }

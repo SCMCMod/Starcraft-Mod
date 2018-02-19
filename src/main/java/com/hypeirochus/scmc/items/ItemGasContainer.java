@@ -3,6 +3,7 @@ package com.hypeirochus.scmc.items;
 import java.awt.Container;
 
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.enums.MetaHandler.ContainerType;
 import com.hypeirochus.scmc.enums.MetaHandler.MineralType;
 import com.hypeirochus.scmc.enums.MetaHandler.VespeneType;
@@ -11,7 +12,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemGasContainer extends StarcraftItem {
+public class ItemGasContainer extends StarcraftItem implements IMetaRenderHandler {
 
 	public ItemGasContainer() {
 		super("container");
@@ -44,5 +45,15 @@ public class ItemGasContainer extends StarcraftItem {
 			}
 		}
 		return getUnlocalizedName() + "." + ContainerType.PROTOSS.getName();
+	}
+
+	@Override
+	public int getItemCount() {
+		return ContainerType.values().length;
+	}
+
+	@Override
+	public String getName(int meta) {
+		return "container." + MetaHandler.ContainerType.values()[meta].getName();
 	}
 }

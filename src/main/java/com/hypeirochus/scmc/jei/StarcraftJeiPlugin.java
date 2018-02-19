@@ -8,6 +8,7 @@ import mezz.jei.api.ISubtypeRegistry;
 import mezz.jei.api.JEIPlugin;
 import mezz.jei.api.ingredients.IIngredientRegistry;
 import mezz.jei.api.recipe.transfer.IRecipeTransferRegistry;
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
@@ -61,6 +62,19 @@ public class StarcraftJeiPlugin implements IModPlugin {
 				for (int j = 0; j < 16; j++) {
 					if (tooltip.getTooltip(j) != null) {
 						registry.addIngredientInfo(new ItemStack(item, 1, j), ItemStack.class, tooltip.getTooltip(j));
+					} else {
+						continue;
+					}
+				}
+			}
+		}
+		
+		for (Block block : Block.REGISTRY) {
+			if (block != null && block instanceof IJeiTooltip) {
+				IJeiTooltip tooltip = (IJeiTooltip) block;
+				for (int j = 0; j < 16; j++) {
+					if (tooltip.getTooltip(j) != null) {
+						registry.addIngredientInfo(new ItemStack(block, 1, j), ItemStack.class, tooltip.getTooltip(j));
 					} else {
 						continue;
 					}

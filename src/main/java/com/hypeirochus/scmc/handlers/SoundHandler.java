@@ -140,7 +140,7 @@ public class SoundHandler {
 	}
 
 	public static class SoundTypes {
-
+		
 		/** @author Ocelot5836 */
 		public static SoundType FLESH;
 

@@ -22,7 +22,7 @@ import net.minecraft.world.World;
  * 
  * @author Ocelot5836
  */
-public class ItemMagazine extends StarcraftItem {
+public class ItemMagazine extends StarcraftItem implements IMetaRenderHandler {
 
 	public ItemMagazine() {
 		super("terran.magazine");
@@ -116,5 +116,15 @@ public class ItemMagazine extends StarcraftItem {
 			count = stack.getTagCompound().getInteger("BulletCount");
 		}
 		return count;
+	}
+
+	@Override
+	public int getItemCount() {
+		return BulletMagazineType.values().length;
+	}
+
+	@Override
+	public String getName(int meta) {
+		return "terran.magazine." + MetaHandler.BulletMagazineType.values()[meta].getName();
 	}
 }

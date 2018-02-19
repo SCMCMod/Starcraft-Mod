@@ -1,9 +1,30 @@
 package com.hypeirochus.scmc.handlers;
 
-import static com.hypeirochus.scmc.handlers.ItemHandler.*;
+import static com.hypeirochus.scmc.handlers.BlockHandler.STARCRAFT_SKULL;
+import static com.hypeirochus.scmc.handlers.ItemHandler.BULLET_MAGAZINE;
+import static com.hypeirochus.scmc.handlers.ItemHandler.C14_GAUSS_RIFLE_PARTS;
+import static com.hypeirochus.scmc.handlers.ItemHandler.ENERGY;
+import static com.hypeirochus.scmc.handlers.ItemHandler.FLAMETHROWER_PARTS;
+import static com.hypeirochus.scmc.handlers.ItemHandler.ICON;
+import static com.hypeirochus.scmc.handlers.ItemHandler.INGOT;
+import static com.hypeirochus.scmc.handlers.ItemHandler.PROTOSS_INGOT;
+import static com.hypeirochus.scmc.handlers.ItemHandler.PSI_BLADE_FOCUSER_UNCHARGED;
+import static com.hypeirochus.scmc.handlers.ItemHandler.ZERG_CARAPACE;
 
 import com.hypeirochus.scmc.Starcraft;
+import com.hypeirochus.scmc.blocks.BlockStarcraftSkull;
+import com.hypeirochus.scmc.client.renderer.tileentity.RendererBrambles;
+import com.hypeirochus.scmc.client.renderer.tileentity.RendererProtossWormhole;
+import com.hypeirochus.scmc.client.renderer.tileentity.RendererStarcraftSkull;
+import com.hypeirochus.scmc.client.renderer.tileentity.RendererZerusGlowPod;
+import com.hypeirochus.scmc.client.renderer.tileentity.RendererZerusLightcap;
 import com.hypeirochus.scmc.enums.MetaHandler;
+import com.hypeirochus.scmc.items.IMetaRenderHandler;
+import com.hypeirochus.scmc.tileentity.TileEntityBrambles;
+import com.hypeirochus.scmc.tileentity.TileEntityProtossWormhole;
+import com.hypeirochus.scmc.tileentity.TileEntityStarcraftSkull;
+import com.hypeirochus.scmc.tileentity.TileEntityZerusGlowPod;
+import com.hypeirochus.scmc.tileentity.TileEntityZerusLightcap;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -11,65 +32,73 @@ import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class RenderHandler {
 
 	public static void registerItemMetaRenders() {
-		for (int i = 0; i < MetaHandler.MineralType.values().length; i++) {
-			registerItemRender(MINERAL_SHARD, i, "mineral." + MetaHandler.MineralType.values()[i].getName());
-		}
-		for (int i = 0; i < MetaHandler.ContainerType.values().length; i++) {
-			registerItemRender(GAS_CONTAINER, i, "container." + MetaHandler.ContainerType.values()[i].getName());
-		}
-		for (int i = 0; i < MetaHandler.VespeneType.values().length; i++) {
-			registerItemRender(VESPENE, i, "vespene." + MetaHandler.VespeneType.values()[i].getName());
-		}
-		for (int i = 0; i < MetaHandler.TerrazineType.values().length; i++) {
-			registerItemRender(TERRAZINE, i, "terrazine." + MetaHandler.TerrazineType.values()[i].getName());
-		}
-		for (int i = 0; i < MetaHandler.EnergyType.values().length; i++) {
-			registerItemRender(ENERGY, i, "energy." + MetaHandler.EnergyType.values()[i].getName());
-		}
-		for (int i = 0; i < MetaHandler.DustType.values().length; i++) {
-			registerItemRender(DUST, i, "dust." + MetaHandler.DustType.values()[i].getName());
-		}
-		for (int i = 0; i < MetaHandler.IngotType.values().length; i++) {
-			registerItemRender(INGOT, i, "ingot." + MetaHandler.IngotType.values()[i].getName());
-		}
-		for (int i = 0; i < C14_GAUSS_RIFLE_PARTS.getNumParts(); i++) {
-			registerItemRender(C14_GAUSS_RIFLE_PARTS, i, "terran.riflec14.part." + i);
-		}
-		for (int i = 0; i < FLAMETHROWER_PARTS.getNumParts(); i++) {
-			registerItemRender(FLAMETHROWER_PARTS, i, "terran.flamethrower.part." + i);
-		}
-		for (int i = 0; i < MetaHandler.BulletMagazineType.values().length; i++) {
-			registerItemRender(BULLET_MAGAZINE, i, "terran.magazine." + MetaHandler.BulletMagazineType.values()[i].getName());
-		}
-		for (int i = 0; i < MetaHandler.ProtossIngotType.values().length; i++) {
-			registerItemRender(PROTOSS_INGOT, i, "protoss.ingot." + MetaHandler.ProtossIngotType.values()[i].getName());
-		}
-		for (int i = 0; i < MetaHandler.FocuserType.values().length; i++) {
-			registerItemRender(PSI_BLADE_FOCUSER_UNCHARGED, i, "protoss.focuser." + MetaHandler.FocuserType.values()[i].getName());
-		}
-		for (int i = 0; i < MetaHandler.CarapaceType.values().length; i++) {
-			registerItemRender(ZERG_CARAPACE, i, "zerg.carapace" + MetaHandler.CarapaceType.values()[i].getName());
-		}
-		for (int i = 0; i < MetaHandler.IconType.values().length; i++) {
-			registerItemRender(ICON, i, "icon." + MetaHandler.IconType.values()[i].getName());
+		for (Item item : Item.REGISTRY) {
+			if (item != null && item instanceof IMetaRenderHandler) {
+				IMetaRenderHandler handler = (IMetaRenderHandler) item;
+				if (!item.getHasSubtypes())
+					throw new IllegalArgumentException(String.format("Item %s attempted to register as a meta item but does not have subtypes!", item.getRegistryName()));
+				for (int j = 0; j < handler.getItemCount(); j++) {
+					if (handler.getName(j) != null) {
+						registerItemRender(item, j, handler.getName(j));
+					} else {
+						continue;
+					}
+				}
+			}
 		}
 	}
 
 	public static void registerBlockMetaRenders() {
+		for (int i = 0; i < BlockStarcraftSkull.EnumSkullType.values().length; i++) {
+			registerBlockRender(STARCRAFT_SKULL, i, "skull");
+		}
 
+		for (Block block : Block.REGISTRY) {
+			if (block != null && block instanceof IMetaRenderHandler) {
+				IMetaRenderHandler handler = (IMetaRenderHandler) block;
+				if (!Item.getItemFromBlock(block).getHasSubtypes())
+					throw new IllegalArgumentException(String.format("Block %s attempted to register as a meta item but does not have subtypes!", block.getRegistryName()));
+				for (int j = 0; j < handler.getItemCount(); j++) {
+					if (handler.getName(j) != null) {
+						registerBlockRender(block, j, handler.getName(j));
+					} else {
+						continue;
+					}
+				}
+			}
+		}
 	}
 
 	public static void pre(FMLPreInitializationEvent event) {
+		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+			registerTileEntityRenders();
+		}
+	}
 
+	private static void registerTileEntityRenders() {
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStarcraftSkull.class, new RendererStarcraftSkull());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityZerusGlowPod.class, new RendererZerusGlowPod());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBrambles.class, new RendererBrambles());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityZerusLightcap.class, new RendererZerusLightcap());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityProtossWormhole.class, new RendererProtossWormhole());
+	}
+
+	@SideOnly(Side.CLIENT)
+	public static void createStateMappers() {
+		ModelLoader.setCustomStateMapper(STARCRAFT_SKULL, getNormalVariant(STARCRAFT_SKULL));
 	}
 
 	public static void registerItemRender(Item item) {
@@ -121,5 +150,14 @@ public class RenderHandler {
 				return new ModelResourceLocation(block.getRegistryName(), "layers=" + num);
 			}
 		});
+	}
+
+	public static StateMapperBase getNormalVariant(Block block) {
+		return new StateMapperBase() {
+			@Override
+			protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
+				return new ModelResourceLocation(block.getRegistryName(), "normal");
+			}
+		};
 	}
 }

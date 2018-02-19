@@ -1,6 +1,25 @@
 {
-    "variants": {
-        "type=base": { "model":"starcraft:terran.neosteel.base" },
-        "type=frame": { "model":"starcraft:terran.neosteel.frame" }
+    "forge_marker": 1,
+    "defaults": {
+        "model": "cube_all",
+        "transform":"forge:default-block",
+        "uvlock": true
+    },
+    "variants": { 
+        "type":{
+            "base": {
+				"textures": {
+					"all": "starcraft:blocks/terran.neosteel.base"
+				}
+			},
+            "frame": {
+				"textures": {
+					"all": "starcraft:blocks/terran.neosteel.frame"
+				}
+			}                     
+        },
+		"inventory": [{
+            "model": "cube_all"
+        }]
     }
 }

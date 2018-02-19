@@ -9,13 +9,16 @@ import net.minecraft.util.NonNullList;
  * 
  * @author Ocelot5836
  */
-public class ItemGunParts extends StarcraftItem {
+public class ItemGunParts extends StarcraftItem implements IMetaRenderHandler {
 
+	private final String name;
 	private final int numParts;
 
 	public ItemGunParts(String name, int numParts) {
 		super(name);
+		this.name = name;
 		this.numParts = numParts;
+		this.setHasSubtypes(true);
 	}
 
 	@Override
@@ -46,5 +49,15 @@ public class ItemGunParts extends StarcraftItem {
 	@Override
 	public ItemGunParts setCreativeTab(CreativeTabs tab) {
 		return (ItemGunParts) super.setCreativeTab(tab);
+	}
+
+	@Override
+	public int getItemCount() {
+		return numParts;
+	}
+
+	@Override
+	public String getName(int meta) {
+		return this.name + "." + meta;
 	}
 }

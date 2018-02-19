@@ -1,0 +1,35 @@
+{
+    "display": {
+	    "icon": {
+            "item": "starcraft:protoss.focuser",
+			"data": 1
+        },
+        "title": {
+            "translate": "advancements.starcraft.getPsiBladeFocuserDark.title"
+        },
+        "description": {
+            "translate": "advancements.starcraft.getPsiBladeFocuserDark.desc"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+	"parent": "starcraft:protoss/root",
+    "criteria": {
+        "getPsiBladeFocuserDark": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "starcraft:protoss.focuser",
+                        "count": {
+                            "min": 1
+                        },
+						"data": 1
+                    }
+                ]
+            }
+        }
+    }
+}

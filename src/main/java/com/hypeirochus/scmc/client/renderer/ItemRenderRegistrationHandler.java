@@ -3,6 +3,9 @@ package com.hypeirochus.scmc.client.renderer;
 import com.hypeirochus.scmc.api.Utils;
 import com.hypeirochus.scmc.client.renderer.item.ItemRenderC14GaussRifle;
 import com.hypeirochus.scmc.client.renderer.item.ItemRenderFlamethrower;
+import com.hypeirochus.scmc.client.renderer.item.ItemRenderSolariteReaper;
+import com.hypeirochus.scmc.client.renderer.item.ItemRenderStarcraftSkull;
+import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
 
 import net.minecraft.block.Block;
@@ -27,12 +30,12 @@ public class ItemRenderRegistrationHandler {
 
 		register(ItemHandler.C14_GAUSS_RIFLE, new ItemRenderC14GaussRifle());
 		register(ItemHandler.FLAMETHROWER, new ItemRenderFlamethrower());
-		// register(ItemHandler.SOLARITE_REAPER, new ItemRenderSolariteReaper());
-		// register(BlockHandler.STARCRAFT_SKULL, new ItemRenderStarcraftSkull());
+		register(ItemHandler.SOLARITE_REAPER, new ItemRenderSolariteReaper());
+		register(BlockHandler.STARCRAFT_SKULL, new ItemRenderStarcraftSkull());
 		// register(BlockHandler.FLORA_ZERUS_GLOW_POD, new ItemRenderZerusGlowPod());
 		// register(BlockHandler.FLORA_BRAMBLES, new ItemRenderBrambles());
 		// register(BlockHandler.FLORA_ZERUS_LIGHTCAP, new ItemRenderZerusLightcap());
-		//
+
 		// register(ArmorHandler.TERRAN_MARINE_T1_HELMET, new ItemRenderModelArmorItem(EntityEquipmentSlot.HEAD, (IArmorItem) Starcraft.proxy.getArmorModel(6), ArmorHandler.TERRAN_MARINE_ARMOR_MATERIAL_T1));
 		// register(ArmorHandler.TERRAN_MARINE_T1_CHESTPLATE, new ItemRenderModelArmorItem(EntityEquipmentSlot.CHEST, (IArmorItem) Starcraft.proxy.getArmorModel(6), ArmorHandler.TERRAN_MARINE_ARMOR_MATERIAL_T1));
 		// register(ArmorHandler.TERRAN_MARINE_T1_LEGGINGS, new ItemRenderModelArmorItem(EntityEquipmentSlot.LEGS, (IArmorItem) Starcraft.proxy.getArmorModel(7), ArmorHandler.TERRAN_MARINE_ARMOR_MATERIAL_T1));

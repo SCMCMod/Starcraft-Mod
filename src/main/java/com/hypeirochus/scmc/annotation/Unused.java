@@ -17,6 +17,6 @@ public @interface Unused {
 	 * 
 	 * @return The version this was deemed unused
 	 */
-	String since() default "";
+	String value() default "";
 
 }

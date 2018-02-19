@@ -1,15 +1,14 @@
 package com.hypeirochus.scmc.items;
 
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
-import com.hypeirochus.scmc.enums.MetaHandler.DustType;
-import com.hypeirochus.scmc.enums.MetaHandler.IngotType;
+import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.enums.MetaHandler.ProtossIngotType;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemProtossIngot extends StarcraftItem {
+public class ItemProtossIngot extends StarcraftItem implements IMetaRenderHandler {
 
 	public ItemProtossIngot() {
 		super("protoss.ingot");
@@ -36,5 +35,15 @@ public class ItemProtossIngot extends StarcraftItem {
 			}
 		}
 		return getUnlocalizedName() + "." + ProtossIngotType.KHALAI.getName();
+	}
+
+	@Override
+	public int getItemCount() {
+		return ProtossIngotType.values().length;
+	}
+
+	@Override
+	public String getName(int meta) {
+		return "protoss.ingot." + MetaHandler.ProtossIngotType.values()[meta].getName();
 	}
 }

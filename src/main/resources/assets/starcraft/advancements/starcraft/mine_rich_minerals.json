@@ -15,9 +15,9 @@
         "announce_to_chat": true,
         "hidden": false
     },
-	"parent": "starcraft:starcraft/mine_minerals",
+	"parent": "starcraft:starcraft/root",
     "criteria": {
-        "getRichMineral": {
+        "mineRichMinerals": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [

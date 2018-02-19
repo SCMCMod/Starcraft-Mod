@@ -1,3 +1,6 @@
 {
-    "parent": "starcraft:block/terran.metal.steel"
+    "parent":"block/cube_all",
+    "textures": {
+        "all": "starcraft:blocks/terran.metal.steel"
+    }
 }

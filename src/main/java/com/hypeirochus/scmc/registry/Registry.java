@@ -3,6 +3,7 @@ package com.hypeirochus.scmc.registry;
 import static com.hypeirochus.scmc.handlers.RenderHandler.registerItemRender;
 
 import com.hypeirochus.scmc.Starcraft;
+import com.hypeirochus.scmc.handlers.BiomeHandler;
 import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
 import com.hypeirochus.scmc.handlers.RenderHandler;
@@ -12,11 +13,12 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.world.DimensionType;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 @EventBusSubscriber(modid = Starcraft.MOD_ID)
 public class Registry {
@@ -54,9 +56,14 @@ public class Registry {
 
 		// ModTools.TOOLS.forEach(ModelHandler::registerModel);
 	}
-	
+
 	@SubscribeEvent
 	public void registerRecipes(RegistryEvent.Register<IRecipe> event) {
 		event.getRegistry().registerAll(CustomRecipes.getRecipes());
+	}
+
+	@SubscribeEvent
+	public void registerBiomes(RegistryEvent.Register<Biome> event) {
+		event.getRegistry().registerAll(BiomeHandler.getBiomes());
 	}
 }

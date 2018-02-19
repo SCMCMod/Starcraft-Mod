@@ -1,16 +1,14 @@
 package com.hypeirochus.scmc.items;
 
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.enums.MetaHandler.EnergyType;
-import com.hypeirochus.scmc.enums.MetaHandler.MineralType;
-import com.hypeirochus.scmc.enums.MetaHandler.TerrazineType;
-import com.hypeirochus.scmc.enums.MetaHandler.TerrazineType;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemEnergy extends StarcraftItem {
+public class ItemEnergy extends StarcraftItem implements IMetaRenderHandler {
 
 	public ItemEnergy() {
 		super("energy");
@@ -37,5 +35,15 @@ public class ItemEnergy extends StarcraftItem {
 			}
 		}
 		return getUnlocalizedName() + "." + EnergyType.PURE.getName();
+	}
+
+	@Override
+	public int getItemCount() {
+		return EnergyType.values().length;
+	}
+
+	@Override
+	public String getName(int meta) {
+		return "energy." + MetaHandler.EnergyType.values()[meta].getName();
 	}
 }
