@@ -1,13 +1,14 @@
 package com.hypeirochus.scmc.worldgen.dimshakuras;
 
-import com.hypeirochus.scmc.handlers.ConfigHandler;
 import com.hypeirochus.scmc.handlers.DimensionHandler;
+import com.hypeirochus.scmc.lib.FactorySettings;
 
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
-import net.minecraft.world.chunk.IChunkGenerator;
+import net.minecraft.world.biome.BiomeProvider;
+import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -46,29 +47,13 @@ public class WorldProviderShakuras extends WorldProvider {
 	}
 
 	@Override
-	protected void createBiomeProvider() {
-		biomeProvider = new ShakurasBiomeProvider(world.getWorldInfo());
+	public BiomeProvider getBiomeProvider() {
+		return biomeProvider = new ShakurasBiomeProvider(world.getWorldInfo());
 	}
 
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkProviderShakuras(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
-	}
-
-	/**
-	 * A Message to display to the user when they transfer out of this dimension.
-	 * 
-	 * @return The message to be displayed
-	 */
-	@Override
-	public String getDepartMessage() {
-
-		// Always true
-		if (this instanceof WorldProviderShakuras) {
-			return "Leaving Shakuras";
-		}
-
-		return null;
+		return new ChunkGeneratorShakuras(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
 	}
 
 	@Override
@@ -86,7 +71,7 @@ public class WorldProviderShakuras extends WorldProvider {
 	 */
 	@Override
 	public int getRespawnDimension(net.minecraft.entity.player.EntityPlayerMP player) {
-		return ConfigHandler.INT_DIMENSION_SHAKURAS;
+		return FactorySettings.INT_DIMENSION_SHAKURAS;
 	}
 
 	@Override
@@ -117,20 +102,6 @@ public class WorldProviderShakuras extends WorldProvider {
 		brightness = (float) (brightness * (1.0D - this.world.getRainStrength(angle) * 5.0F / 16.0D));
 		brightness = (float) (brightness * (1.0D - this.world.getThunderStrength(angle) * 5.0F / 16.0D));
 		return brightness * 0.45F;
-	}
-
-	/**
-	 * A message to display to the user when they transfer to this dimension.
-	 * 
-	 * @return The message to be displayed
-	 */
-	@Override
-	public String getWelcomeMessage() {
-		if (this instanceof WorldProviderShakuras) {
-			return "Entering Shakuras";
-		}
-
-		return null;
 	}
 
 	@Override

@@ -1,11 +1,9 @@
-package com.hypeirochus.scmc.worldgen.dimzerus;
+package com.hypeirochus.scmc.worldgen.dimchar;
 
 import java.util.List;
 import java.util.Random;
 
 import javax.annotation.Nullable;
-
-import com.hypeirochus.scmc.handlers.BlockHandler;
 
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.state.IBlockState;
@@ -21,42 +19,47 @@ import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
-import net.minecraft.world.gen.ChunkProviderSettings;
+import net.minecraft.world.gen.ChunkGeneratorSettings;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.MapGenBase;
+import net.minecraft.world.gen.MapGenCaves;
+import net.minecraft.world.gen.MapGenRavine;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
+import net.minecraft.world.gen.feature.WorldGenLakes;
+import net.minecraft.world.gen.structure.MapGenScatteredFeature;
 
-public class ChunkProviderZerus implements IChunkGenerator {
-	
-	protected static final IBlockState	STONE			= BlockHandler.STONE_ZERUS.getDefaultState();
-	private final Random				rand;
-	private NoiseGeneratorOctaves		minLimitPerlinNoise;
-	private NoiseGeneratorOctaves		maxLimitPerlinNoise;
-	private NoiseGeneratorOctaves		mainPerlinNoise;
-	private NoiseGeneratorPerlin		surfaceNoise;
-	public NoiseGeneratorOctaves		scaleNoise;
-	public NoiseGeneratorOctaves		depthNoise;
-	public NoiseGeneratorOctaves		forestNoise;
-	private final World					world;
-	private final boolean				mapFeaturesEnabled;
-	private final WorldType				terrainType;
-	private final double[]				heightMap;
-	private final float[]				biomeWeights;
-	private ChunkProviderSettings		settings;
-	private IBlockState					oceanBlock		= Blocks.WATER.getDefaultState();
-	private double[]					depthBuffer		= new double[256];
-	private MapGenBase					caveGenerator	= new ZerusGenCaves();
-	private MapGenBase					ravineGenerator	= new ZerusGenRavine();
-	private Biome[]						biomesForGeneration;
-	double[]							mainNoiseRegion;
-	double[]							minLimitRegion;
-	double[]							maxLimitRegion;
-	double[]							depthRegion;
+public class ChunkGeneratorChar implements IChunkGenerator {
+	protected static final IBlockState STONE = Blocks.STONE.getDefaultState();
+	private final Random rand;
+	private NoiseGeneratorOctaves minLimitPerlinNoise;
+	private NoiseGeneratorOctaves maxLimitPerlinNoise;
+	private NoiseGeneratorOctaves mainPerlinNoise;
+	private NoiseGeneratorPerlin surfaceNoise;
+	public NoiseGeneratorOctaves scaleNoise;
+	public NoiseGeneratorOctaves depthNoise;
+	public NoiseGeneratorOctaves forestNoise;
+	private final World world;
+	private final boolean mapFeaturesEnabled;
+	private final WorldType terrainType;
+	private final double[] heightMap;
+	private final float[] biomeWeights;
+	private ChunkGeneratorSettings settings;
+	private IBlockState oceanBlock = Blocks.WATER.getDefaultState();
+	private double[] depthBuffer = new double[256];
+	private MapGenBase caveGenerator = new MapGenCaves();
+	private MapGenScatteredFeature scatteredFeatureGenerator = new MapGenScatteredFeature();
+	private MapGenBase ravineGenerator = new MapGenRavine();
+	private Biome[] biomesForGeneration;
+	double[] mainNoiseRegion;
+	double[] minLimitRegion;
+	double[] maxLimitRegion;
+	double[] depthRegion;
 
-	public ChunkProviderZerus(World worldIn, long seed, boolean mapFeaturesEnabledIn, String p_i46668_5_) {
+	public ChunkGeneratorChar(World worldIn, long seed, boolean mapFeaturesEnabledIn, String generatorOptions) {
 		{
 			caveGenerator = net.minecraftforge.event.terraingen.TerrainGen.getModdedMapGen(caveGenerator, net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.CAVE);
+			scatteredFeatureGenerator = (MapGenScatteredFeature) net.minecraftforge.event.terraingen.TerrainGen.getModdedMapGen(scatteredFeatureGenerator, net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.SCATTERED_FEATURE);
 			ravineGenerator = net.minecraftforge.event.terraingen.TerrainGen.getModdedMapGen(ravineGenerator, net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.RAVINE);
 		}
 		this.world = worldIn;
@@ -80,8 +83,8 @@ public class ChunkProviderZerus implements IChunkGenerator {
 			}
 		}
 
-		if (p_i46668_5_ != null) {
-			this.settings = ChunkProviderSettings.Factory.jsonToFactory(p_i46668_5_).build();
+		if (generatorOptions != null) {
+			this.settings = ChunkGeneratorSettings.Factory.jsonToFactory(generatorOptions).build();
 			this.oceanBlock = this.settings.useLavaOceans ? Blocks.LAVA.getDefaultState() : Blocks.WATER.getDefaultState();
 			worldIn.setSeaLevel(this.settings.seaLevel);
 		}
@@ -170,7 +173,10 @@ public class ChunkProviderZerus implements IChunkGenerator {
 		}
 	}
 
-	public Chunk provideChunk(int x, int z) {
+	/**
+	 * Generates the chunk at the specified position, from scratch
+	 */
+	public Chunk generateChunk(int x, int z) {
 		this.rand.setSeed((long) x * 341873128712L + (long) z * 132897987541L);
 		ChunkPrimer chunkprimer = new ChunkPrimer();
 		this.setBlocksInChunk(x, z, chunkprimer);
@@ -183,6 +189,9 @@ public class ChunkProviderZerus implements IChunkGenerator {
 
 		if (this.settings.useRavines) {
 			this.ravineGenerator.generate(this.world, x, z, chunkprimer);
+		}
+
+		if (this.mapFeaturesEnabled) {
 		}
 
 		Chunk chunk = new Chunk(this.world, chunkprimer, x, z);
@@ -297,6 +306,10 @@ public class ChunkProviderZerus implements IChunkGenerator {
 		}
 	}
 
+	/**
+	 * Generate initial structures in this chunk, e.g. mineshafts, temples, lakes,
+	 * and dungeons
+	 */
 	public void populate(int x, int z) {
 		BlockFalling.fallInstantly = true;
 		int i = x * 16;
@@ -312,13 +325,15 @@ public class ChunkProviderZerus implements IChunkGenerator {
 
 		net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.world, this.rand, x, z, flag);
 
-		// TODO: Fix the lake spawning for this
+		if (this.mapFeaturesEnabled) {
+		}
+
 		if (biome != Biomes.DESERT && biome != Biomes.DESERT_HILLS && this.settings.useWaterLakes && !flag && this.rand.nextInt(this.settings.waterLakeChance) == 0)
 			if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, x, z, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE)) {
 				int i1 = this.rand.nextInt(16) + 8;
 				int j1 = this.rand.nextInt(256);
 				int k1 = this.rand.nextInt(16) + 8;
-				(new ZerusGenCustomLakes(Blocks.WATER)).generate(this.world, this.rand, blockpos.add(i1, j1, k1));
+				(new WorldGenLakes(Blocks.WATER)).generate(this.world, this.rand, blockpos.add(i1, j1, k1));
 			}
 
 		if (!flag && this.rand.nextInt(this.settings.lavaLakeChance / 10) == 0 && this.settings.useLavaLakes)
@@ -328,7 +343,7 @@ public class ChunkProviderZerus implements IChunkGenerator {
 				int k3 = this.rand.nextInt(16) + 8;
 
 				if (l2 < this.world.getSeaLevel() || this.rand.nextInt(this.settings.lavaLakeChance / 8) == 0) {
-					(new ZerusGenCustomLakes(Blocks.LAVA)).generate(this.world, this.rand, blockpos.add(i2, l2, k3));
+					(new WorldGenLakes(Blocks.LAVA)).generate(this.world, this.rand, blockpos.add(i2, l2, k3));
 				}
 			}
 
@@ -359,23 +374,34 @@ public class ChunkProviderZerus implements IChunkGenerator {
 		BlockFalling.fallInstantly = false;
 	}
 
+	/**
+	 * Called to generate additional structures after initial worldgen, used by
+	 * ocean monuments
+	 */
+	public boolean generateStructures(Chunk chunkIn, int x, int z) {
+		return false;
+	}
+
 	public List<Biome.SpawnListEntry> getPossibleCreatures(EnumCreatureType creatureType, BlockPos pos) {
 		Biome biome = this.world.getBiome(pos);
 		return biome.getSpawnableList(creatureType);
 	}
 
-	@Nullable
-	public BlockPos getStrongholdGen(World worldIn, String structureName, BlockPos position) {
-		return null;
-	}
-
-	@Override
-	public boolean generateStructures(Chunk chunkIn, int x, int z) {
+	public boolean isInsideStructure(World worldIn, String structureName, BlockPos pos) {
 		return false;
 	}
 
-	@Override
-	public void recreateStructures(Chunk chunkIn, int x, int z) {
+	@Nullable
+	public BlockPos getNearestStructurePos(World worldIn, String structureName, BlockPos position, boolean findUnexplored) {
+		return null;
+	}
 
+	/**
+	 * Recreates data about structures intersecting given chunk (used for example by
+	 * getPossibleCreatures), without placing any blocks. When called for the first
+	 * time before any chunk is generated - also initializes the internal state
+	 * needed by getPossibleCreatures.
+	 */
+	public void recreateStructures(Chunk chunkIn, int x, int z) {
 	}
 }

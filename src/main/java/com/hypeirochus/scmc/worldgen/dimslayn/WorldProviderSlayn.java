@@ -3,14 +3,15 @@ package com.hypeirochus.scmc.worldgen.dimslayn;
 import com.hypeirochus.api.client.render.world.IClimateProvider;
 import com.hypeirochus.api.client.render.world.ICloudProvider;
 import com.hypeirochus.api.client.render.world.IStormProvider;
-import com.hypeirochus.scmc.handlers.ConfigHandler;
 import com.hypeirochus.scmc.handlers.DimensionHandler;
+import com.hypeirochus.scmc.lib.FactorySettings;
 
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
-import net.minecraft.world.chunk.IChunkGenerator;
+import net.minecraft.world.biome.BiomeProvider;
+import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -51,29 +52,13 @@ public class WorldProviderSlayn extends WorldProvider implements IClimateProvide
 	}
 
 	@Override
-	protected void createBiomeProvider() {
-		biomeProvider = new SlaynBiomeProvider(world.getWorldInfo());
+	public BiomeProvider getBiomeProvider() {
+		return biomeProvider = new SlaynBiomeProvider(world.getWorldInfo());
 	}
 
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkProviderSlayn(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
-	}
-
-	/**
-	 * A Message to display to the user when they transfer out of this dimension.
-	 * 
-	 * @return The message to be displayed
-	 */
-	@Override
-	public String getDepartMessage() {
-
-		// Always true
-		if (this instanceof WorldProviderSlayn) {
-			return "Leaving Slayn";
-		}
-
-		return null;
+		return new ChunkGeneratorSlayn(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
 	}
 
 	@Override
@@ -91,7 +76,7 @@ public class WorldProviderSlayn extends WorldProvider implements IClimateProvide
 	 */
 	@Override
 	public int getRespawnDimension(net.minecraft.entity.player.EntityPlayerMP player) {
-		return ConfigHandler.INT_DIMENSION_SLAYN;
+		return FactorySettings.INT_DIMENSION_SLAYN;
 	}
 
 	@Override
@@ -122,22 +107,6 @@ public class WorldProviderSlayn extends WorldProvider implements IClimateProvide
 		brightness = (float) (brightness * (1.0D - this.world.getRainStrength(angle) * 5.0F / 16.0D));
 		brightness = (float) (brightness * (1.0D - this.world.getThunderStrength(angle) * 5.0F / 16.0D));
 		return brightness * 0.45F;
-	}
-
-	/**
-	 * A message to display to the user when they transfer to this dimension.
-	 * 
-	 * @return The message to be displayed
-	 */
-	@Override
-	public String getWelcomeMessage() {
-
-		// Always true
-		if (this instanceof WorldProviderSlayn) {
-			return "Entering Slayn";
-		}
-
-		return null;
 	}
 
 	@Override

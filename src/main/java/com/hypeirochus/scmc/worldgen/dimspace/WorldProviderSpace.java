@@ -9,7 +9,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
-import net.minecraft.world.chunk.IChunkGenerator;
+import net.minecraft.world.biome.BiomeProvider;
+import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -38,11 +39,15 @@ public class WorldProviderSpace extends WorldProvider implements IClimateProvide
 	public IRenderHandler getSkyRenderer() {
 		return skyRenderer == null ? skyRenderer = new RenderSkySpace() : skyRenderer;
 	}
+	
+	@Override
+	public boolean hasSkyLight() {
+		return false;
+	}
 
 	@Override
-	protected void createBiomeProvider() {
-		biomeProvider = new SpaceBiomeProvider(world.getWorldInfo());
-		this.hasNoSky = true;
+	public BiomeProvider getBiomeProvider() {
+		return biomeProvider = new SpaceBiomeProvider(world.getWorldInfo());
 	}
 
 	/**
@@ -76,25 +81,9 @@ public class WorldProviderSpace extends WorldProvider implements IClimateProvide
 
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkProviderSpace(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
+		return new ChunkGeneratorSpace(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
 	}
-
-	/**
-	 * A Message to display to the user when they transfer out of this dimension.
-	 * 
-	 * @return The message to be displayed
-	 */
-	@Override
-	public String getDepartMessage() {
-
-		// Always true
-		if (this instanceof WorldProviderSpace) {
-			return "Leaving Space";
-		}
-
-		return null;
-	}
-
+	
 	@Override
 	public DimensionType getDimensionType() {
 		return DimensionHandler.space_dt;
@@ -121,21 +110,6 @@ public class WorldProviderSpace extends WorldProvider implements IClimateProvide
 	@Override
 	public Vec3d getSkyColor(Entity cameraEntity, float partialTicks) {
 		return new Vec3d(0.0D, 0.0D, 0.0D);
-	}
-
-	/**
-	 * A message to display to the user when they transfer to this dimension.
-	 * 
-	 * @return The message to be displayed
-	 */
-	@Override
-	public String getWelcomeMessage() {
-
-		if (this instanceof WorldProviderSpace) {
-			return "Entering Space";
-		}
-
-		return null;
 	}
 
 	@Override
