@@ -10,6 +10,7 @@ import com.hypeirochus.scmc.handlers.BlockHandler;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -20,39 +21,40 @@ import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
-import net.minecraft.world.chunk.IChunkGenerator;
-import net.minecraft.world.gen.ChunkProviderSettings;
+import net.minecraft.world.gen.ChunkGeneratorSettings;
+import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
+import net.minecraft.world.gen.feature.WorldGenLakes;
 
-public class ChunkProviderChar implements IChunkGenerator {
-	protected static final IBlockState	STONE			= BlockHandler.STONE_CHAR.getDefaultState();
-	private final Random				rand;
-	private NoiseGeneratorOctaves		minLimitPerlinNoise;
-	private NoiseGeneratorOctaves		maxLimitPerlinNoise;
-	private NoiseGeneratorOctaves		mainPerlinNoise;
-	private NoiseGeneratorPerlin		surfaceNoise;
-	public NoiseGeneratorOctaves		scaleNoise;
-	public NoiseGeneratorOctaves		depthNoise;
-	public NoiseGeneratorOctaves		forestNoise;
-	private final World					world;
-	private final boolean				mapFeaturesEnabled;
-	private final WorldType				terrainType;
-	private final double[]				heightMap;
-	private final float[]				biomeWeights;
-	private ChunkProviderSettings		settings;
-	private IBlockState					oceanBlock		= Blocks.LAVA.getDefaultState();
-	private double[]					depthBuffer		= new double[256];
-	private MapGenBase					caveGenerator	= new CharGenCaves();
-	private MapGenBase					ravineGenerator	= new CharGenRavine();
-	private Biome[]						biomesForGeneration;
-	double[]							mainNoiseRegion;
-	double[]							minLimitRegion;
-	double[]							maxLimitRegion;
-	double[]							depthRegion;
+public class ChunkGeneratorChar implements IChunkGenerator {
+	protected static final IBlockState STONE = BlockHandler.STONE_CHAR.getDefaultState();
+	private final Random rand;
+	private NoiseGeneratorOctaves minLimitPerlinNoise;
+	private NoiseGeneratorOctaves maxLimitPerlinNoise;
+	private NoiseGeneratorOctaves mainPerlinNoise;
+	private NoiseGeneratorPerlin surfaceNoise;
+	public NoiseGeneratorOctaves scaleNoise;
+	public NoiseGeneratorOctaves depthNoise;
+	public NoiseGeneratorOctaves forestNoise;
+	private final World world;
+	private final boolean mapFeaturesEnabled;
+	private final WorldType terrainType;
+	private final double[] heightMap;
+	private final float[] biomeWeights;
+	private ChunkGeneratorSettings settings;
+	private IBlockState oceanBlock = Blocks.LAVA.getDefaultState();
+	private double[] depthBuffer = new double[256];
+	private MapGenBase caveGenerator = new CharGenCaves();
+	private MapGenBase ravineGenerator = new CharGenRavine();
+	private Biome[] biomesForGeneration;
+	double[] mainNoiseRegion;
+	double[] minLimitRegion;
+	double[] maxLimitRegion;
+	double[] depthRegion;
 
-	public ChunkProviderChar(World worldIn, long seed, boolean mapFeaturesEnabledIn, String p_i46668_5_) {
+	public ChunkGeneratorChar(World worldIn, long seed, boolean mapFeaturesEnabledIn, String generatorOptions) {
 		{
 			caveGenerator = net.minecraftforge.event.terraingen.TerrainGen.getModdedMapGen(caveGenerator, net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.CAVE);
 			ravineGenerator = net.minecraftforge.event.terraingen.TerrainGen.getModdedMapGen(ravineGenerator, net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.RAVINE);
@@ -78,9 +80,9 @@ public class ChunkProviderChar implements IChunkGenerator {
 			}
 		}
 
-		if (p_i46668_5_ != null) {
-			this.settings = ChunkProviderSettings.Factory.jsonToFactory(p_i46668_5_).build();
-			this.oceanBlock = this.settings.useLavaOceans ? Blocks.LAVA.getDefaultState() : Blocks.LAVA.getDefaultState();
+		if (generatorOptions != null) {
+			this.settings = ChunkGeneratorSettings.Factory.jsonToFactory(generatorOptions).build();
+			this.oceanBlock = this.settings.useLavaOceans ? Blocks.LAVA.getDefaultState() : Blocks.WATER.getDefaultState();
 			worldIn.setSeaLevel(this.settings.seaLevel);
 		}
 
@@ -168,7 +170,10 @@ public class ChunkProviderChar implements IChunkGenerator {
 		}
 	}
 
-	public Chunk provideChunk(int x, int z) {
+	/**
+	 * Generates the chunk at the specified position, from scratch
+	 */
+	public Chunk generateChunk(int x, int z) {
 		this.rand.setSeed((long) x * 341873128712L + (long) z * 132897987541L);
 		ChunkPrimer chunkprimer = new ChunkPrimer();
 		this.setBlocksInChunk(x, z, chunkprimer);
@@ -181,6 +186,9 @@ public class ChunkProviderChar implements IChunkGenerator {
 
 		if (this.settings.useRavines) {
 			this.ravineGenerator.generate(this.world, x, z, chunkprimer);
+		}
+
+		if (this.mapFeaturesEnabled) {
 		}
 
 		Chunk chunk = new Chunk(this.world, chunkprimer, x, z);
@@ -295,6 +303,10 @@ public class ChunkProviderChar implements IChunkGenerator {
 		}
 	}
 
+	/**
+	 * Generate initial structures in this chunk, e.g. mineshafts, temples, lakes,
+	 * and dungeons
+	 */
 	public void populate(int x, int z) {
 		BlockFalling.fallInstantly = true;
 		int i = x * 16;
@@ -333,9 +345,35 @@ public class ChunkProviderChar implements IChunkGenerator {
 		if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, x, z, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.ANIMALS))
 			WorldEntitySpawner.performWorldGenSpawning(this.world, biome, i + 8, j + 8, 16, 16, this.rand);
 		blockpos = blockpos.add(8, 0, 8);
+
+		if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, x, z, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.ICE)) {
+			for (int k2 = 0; k2 < 16; ++k2) {
+				for (int j3 = 0; j3 < 16; ++j3) {
+					BlockPos blockpos1 = this.world.getPrecipitationHeight(blockpos.add(k2, 0, j3));
+					BlockPos blockpos2 = blockpos1.down();
+
+					if (this.world.canBlockFreezeWater(blockpos2)) {
+						this.world.setBlockState(blockpos2, Blocks.ICE.getDefaultState(), 2);
+					}
+
+					if (this.world.canSnowAt(blockpos1, true)) {
+						this.world.setBlockState(blockpos1, Blocks.SNOW_LAYER.getDefaultState(), 2);
+					}
+				}
+			}
+		} // Forge: End ICE
+
 		net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(false, this, this.world, this.rand, x, z, flag);
 
 		BlockFalling.fallInstantly = false;
+	}
+
+	/**
+	 * Called to generate additional structures after initial worldgen, used by
+	 * ocean monuments
+	 */
+	public boolean generateStructures(Chunk chunkIn, int x, int z) {
+		return false;
 	}
 
 	public List<Biome.SpawnListEntry> getPossibleCreatures(EnumCreatureType creatureType, BlockPos pos) {
@@ -343,18 +381,21 @@ public class ChunkProviderChar implements IChunkGenerator {
 		return biome.getSpawnableList(creatureType);
 	}
 
-	@Nullable
-	public BlockPos getStrongholdGen(World worldIn, String structureName, BlockPos position) {
-		return null;
-	}
-
-	@Override
-	public boolean generateStructures(Chunk chunkIn, int x, int z) {
+	public boolean isInsideStructure(World worldIn, String structureName, BlockPos pos) {
 		return false;
 	}
 
-	@Override
-	public void recreateStructures(Chunk chunkIn, int x, int z) {
+	@Nullable
+	public BlockPos getNearestStructurePos(World worldIn, String structureName, BlockPos position, boolean findUnexplored) {
+		return null;
+	}
 
+	/**
+	 * Recreates data about structures intersecting given chunk (used for example by
+	 * getPossibleCreatures), without placing any blocks. When called for the first
+	 * time before any chunk is generated - also initializes the internal state
+	 * needed by getPossibleCreatures.
+	 */
+	public void recreateStructures(Chunk chunkIn, int x, int z) {
 	}
 }

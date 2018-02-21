@@ -3,12 +3,14 @@ package com.hypeirochus.scmc.worldgen.dimaiur;
 import com.hypeirochus.api.client.render.world.IClimateProvider;
 import com.hypeirochus.api.client.render.world.ICloudProvider;
 import com.hypeirochus.api.client.render.world.IStormProvider;
-import com.hypeirochus.scmc.handlers.ConfigHandler;
+import com.hypeirochus.scmc.config.StarcraftConfig;
 import com.hypeirochus.scmc.handlers.DimensionHandler;
+import com.hypeirochus.scmc.lib.FactorySettings;
 
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
-import net.minecraft.world.chunk.IChunkGenerator;
+import net.minecraft.world.biome.BiomeProvider;
+import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -47,31 +49,15 @@ public class WorldProviderAiur extends WorldProvider implements IClimateProvider
 	public void updateWeather() {
 		super.updateWeather();
 	}
-
+	
 	@Override
-	protected void createBiomeProvider() {
-		biomeProvider = new AiurBiomeProvider(world.getWorldInfo());
+	public BiomeProvider getBiomeProvider() {
+		return biomeProvider = new AiurBiomeProvider(world.getWorldInfo());
 	}
 
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkProviderAiur(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
-	}
-
-	/**
-	 * A Message to display to the user when they transfer out of this dimension.
-	 * 
-	 * @return The message to be displayed
-	 */
-	@Override
-	public String getDepartMessage() {
-
-		// Always true
-		if (this instanceof WorldProviderAiur) {
-			return "Leaving Aiur";
-		}
-
-		return null;
+		return new ChunkGeneratorAiur(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
 	}
 
 	@Override
@@ -89,25 +75,9 @@ public class WorldProviderAiur extends WorldProvider implements IClimateProvider
 	 */
 	@Override
 	public int getRespawnDimension(net.minecraft.entity.player.EntityPlayerMP player) {
-		return ConfigHandler.INT_DIMENSION_AIUR;
+		return FactorySettings.INT_DIMENSION_AIUR;
 	}
-
-	/**
-	 * A message to display to the user when they transfer to this dimension.
-	 * 
-	 * @return The message to be displayed
-	 */
-	@Override
-	public String getWelcomeMessage() {
-
-		// Always true
-		if (this instanceof WorldProviderAiur) {
-			return "Entering Aiur";
-		}
-
-		return null;
-	}
-
+	
 	@Override
 	public ICloudProvider getCloudProvider() {
 		return clouds;

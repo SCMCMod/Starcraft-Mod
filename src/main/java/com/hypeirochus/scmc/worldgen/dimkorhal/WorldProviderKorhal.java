@@ -1,38 +1,23 @@
 package com.hypeirochus.scmc.worldgen.dimkorhal;
 
-import com.hypeirochus.scmc.handlers.ConfigHandler;
 import com.hypeirochus.scmc.handlers.DimensionHandler;
+import com.hypeirochus.scmc.lib.FactorySettings;
 
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
-import net.minecraft.world.chunk.IChunkGenerator;
+import net.minecraft.world.biome.BiomeProvider;
+import net.minecraft.world.gen.IChunkGenerator;
 
 public class WorldProviderKorhal extends WorldProvider {
 
 	@Override
-	protected void createBiomeProvider() {
-		biomeProvider = new KorhalBiomeProvider(world.getWorldInfo());
+	public BiomeProvider getBiomeProvider() {
+		return biomeProvider = new KorhalBiomeProvider(world.getWorldInfo());
 	}
 
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkProviderKorhal(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
-	}
-
-	/**
-	 * A Message to display to the user when they transfer out of this dimension.
-	 * 
-	 * @return The message to be displayed
-	 */
-	@Override
-	public String getDepartMessage() {
-
-		// Always true
-		if (this instanceof WorldProviderKorhal) {
-			return "Leaving Korhal";
-		}
-
-		return null;
+		return new ChunkGeneratorKorhal(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
 	}
 
 	@Override
@@ -50,22 +35,6 @@ public class WorldProviderKorhal extends WorldProvider {
 	 */
 	@Override
 	public int getRespawnDimension(net.minecraft.entity.player.EntityPlayerMP player) {
-		return ConfigHandler.INT_DIMENSION_KORHAL;
-	}
-
-	/**
-	 * A message to display to the user when they transfer to this dimension.
-	 * 
-	 * @return The message to be displayed
-	 */
-	@Override
-	public String getWelcomeMessage() {
-
-		// Always true
-		if (this instanceof WorldProviderKorhal) {
-			return "Entering Korhal";
-		}
-
-		return null;
+		return FactorySettings.INT_DIMENSION_KORHAL;
 	}
 }

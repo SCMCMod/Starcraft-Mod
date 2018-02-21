@@ -3,8 +3,8 @@ package com.hypeirochus.scmc.worldgen.dimchar;
 import com.hypeirochus.api.client.render.world.IClimateProvider;
 import com.hypeirochus.api.client.render.world.ICloudProvider;
 import com.hypeirochus.api.client.render.world.IStormProvider;
-import com.hypeirochus.scmc.handlers.ConfigHandler;
 import com.hypeirochus.scmc.handlers.DimensionHandler;
+import com.hypeirochus.scmc.lib.FactorySettings;
 
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.math.BlockPos;
@@ -12,8 +12,9 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
+import net.minecraft.world.biome.BiomeProvider;
 import net.minecraft.world.chunk.Chunk;
-import net.minecraft.world.chunk.IChunkGenerator;
+import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -54,28 +55,13 @@ public class WorldProviderChar extends WorldProvider implements IClimateProvider
 	}
 
 	@Override
-	protected void createBiomeProvider() {
-		biomeProvider = new CharBiomeProvider(world.getWorldInfo());
+	public BiomeProvider getBiomeProvider() {
+		return biomeProvider = new CharBiomeProvider(world.getWorldInfo());
 	}
 
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkProviderChar(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
-	}
-
-	/**
-	 * A Message to display to the user when they transfer out of this dimension.
-	 * 
-	 * @return The message to be displayed
-	 */
-	@Override
-	public String getDepartMessage() {
-		// Always true
-		if (this instanceof WorldProviderChar) {
-			return "Leaving Char";
-		}
-
-		return null;
+		return new ChunkGeneratorChar(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
 	}
 
 	@Override
@@ -93,22 +79,7 @@ public class WorldProviderChar extends WorldProvider implements IClimateProvider
 	 */
 	@Override
 	public int getRespawnDimension(EntityPlayerMP player) {
-		return ConfigHandler.INT_DIMENSION_CHAR;
-	}
-
-	/**
-	 * A message to display to the user when they transfer to this dimension.
-	 * 
-	 * @return The message to be displayed
-	 */
-	@Override
-	public String getWelcomeMessage() {
-		// Always true
-		if (this instanceof WorldProviderChar) {
-			return "Entering Char";
-		}
-
-		return null;
+		return FactorySettings.INT_DIMENSION_CHAR;
 	}
 
 	@Override

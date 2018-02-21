@@ -1,11 +1,12 @@
 package com.hypeirochus.scmc.worldgen.dimzerus;
 
-import com.hypeirochus.scmc.handlers.ConfigHandler;
 import com.hypeirochus.scmc.handlers.DimensionHandler;
+import com.hypeirochus.scmc.lib.FactorySettings;
 
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
+import net.minecraft.world.biome.BiomeProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -14,11 +15,12 @@ public class WorldProviderZerus extends WorldProvider {
 
 	public Vec3d vec = new Vec3d(1.0D, 1.0D, 0.87D);
 
+	
 	@Override
-	protected void createBiomeProvider() {
-		biomeProvider = new ZerusBiomeProvider(world.getWorldInfo());
+	public BiomeProvider getBiomeProvider() {
+		return biomeProvider = new ZerusBiomeProvider(world.getWorldInfo());
 	}
-
+	
 	@Override
 	public double getVoidFogYFactor() {
 		return 1.0D;
@@ -36,21 +38,7 @@ public class WorldProviderZerus extends WorldProvider {
 
 	@Override
 	public IChunkGenerator createChunkGenerator() {
-		return new ChunkProviderZerus(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
-	}
-
-	/**
-	 * A Message to display to the user when they transfer out of this dimension.
-	 * 
-	 * @return The message to be displayed
-	 */
-	@Override
-	public String getDepartMessage() {
-		if (this instanceof WorldProviderZerus) {
-			return "Leaving Zerus";
-		}
-
-		return null;
+		return new ChunkGeneratorZerus(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
 	}
 
 	@Override
@@ -68,22 +56,6 @@ public class WorldProviderZerus extends WorldProvider {
 	 */
 	@Override
 	public int getRespawnDimension(net.minecraft.entity.player.EntityPlayerMP player) {
-		return ConfigHandler.INT_DIMENSION_ZERUS;
-	}
-
-	/**
-	 * A message to display to the user when they transfer to this dimension.
-	 * 
-	 * @return The message to be displayed
-	 */
-	@Override
-	public String getWelcomeMessage() {
-
-		// Always true
-		if (this instanceof WorldProviderZerus) {
-			return "Entering Zerus";
-		}
-
-		return null;
+		return FactorySettings.INT_DIMENSION_ZERUS;
 	}
 }
