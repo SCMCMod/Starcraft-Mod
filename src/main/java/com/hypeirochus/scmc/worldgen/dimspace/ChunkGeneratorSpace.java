@@ -47,9 +47,6 @@ public class ChunkGeneratorSpace implements IChunkGenerator {
 	private ChunkGeneratorSettings settings;
 	private IBlockState oceanBlock = Blocks.WATER.getDefaultState();
 	private double[] depthBuffer = new double[256];
-	private MapGenBase caveGenerator = new MapGenCaves();
-	private MapGenScatteredFeature scatteredFeatureGenerator = new MapGenScatteredFeature();
-	private MapGenBase ravineGenerator = new MapGenRavine();
 	private Biome[] biomesForGeneration;
 	double[] mainNoiseRegion;
 	double[] minLimitRegion;
@@ -57,11 +54,6 @@ public class ChunkGeneratorSpace implements IChunkGenerator {
 	double[] depthRegion;
 
 	public ChunkGeneratorSpace(World worldIn, long seed, boolean mapFeaturesEnabledIn, String generatorOptions) {
-		{
-			caveGenerator = net.minecraftforge.event.terraingen.TerrainGen.getModdedMapGen(caveGenerator, net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.CAVE);
-			scatteredFeatureGenerator = (MapGenScatteredFeature) net.minecraftforge.event.terraingen.TerrainGen.getModdedMapGen(scatteredFeatureGenerator, net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.SCATTERED_FEATURE);
-			ravineGenerator = net.minecraftforge.event.terraingen.TerrainGen.getModdedMapGen(ravineGenerator, net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.RAVINE);
-		}
 		this.world = worldIn;
 		this.mapFeaturesEnabled = mapFeaturesEnabledIn;
 		this.terrainType = worldIn.getWorldInfo().getTerrainType();
@@ -126,17 +118,6 @@ public class ChunkGeneratorSpace implements IChunkGenerator {
 		this.setBlocksInChunk(x, z, chunkprimer);
 		this.biomesForGeneration = this.world.getBiomeProvider().getBiomes(this.biomesForGeneration, x * 16, z * 16, 16, 16);
 		this.replaceBiomeBlocks(x, z, chunkprimer, this.biomesForGeneration);
-
-		if (this.settings.useCaves) {
-			this.caveGenerator.generate(this.world, x, z, chunkprimer);
-		}
-
-		if (this.settings.useRavines) {
-			this.ravineGenerator.generate(this.world, x, z, chunkprimer);
-		}
-
-		if (this.mapFeaturesEnabled) {
-		}
 
 		Chunk chunk = new Chunk(this.world, chunkprimer, x, z);
 		byte[] abyte = chunk.getBiomeArray();

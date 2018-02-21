@@ -5,10 +5,11 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import com.hypeirochus.scmc.handlers.BiomeHandler;
+
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -22,12 +23,9 @@ import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.ChunkGeneratorSettings;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.MapGenBase;
-import net.minecraft.world.gen.MapGenCaves;
-import net.minecraft.world.gen.MapGenRavine;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.WorldGenLakes;
-import net.minecraft.world.gen.structure.MapGenScatteredFeature;
 
 public class ChunkGeneratorAiur implements IChunkGenerator {
 	protected static final IBlockState STONE = Blocks.STONE.getDefaultState();
@@ -47,9 +45,8 @@ public class ChunkGeneratorAiur implements IChunkGenerator {
 	private ChunkGeneratorSettings settings;
 	private IBlockState oceanBlock = Blocks.WATER.getDefaultState();
 	private double[] depthBuffer = new double[256];
-	private MapGenBase caveGenerator = new MapGenCaves();
-	private MapGenScatteredFeature scatteredFeatureGenerator = new MapGenScatteredFeature();
-	private MapGenBase ravineGenerator = new MapGenRavine();
+	private MapGenBase caveGenerator = new AiurGenCaves();
+	private MapGenBase ravineGenerator = new AiurGenRavine();
 	private Biome[] biomesForGeneration;
 	double[] mainNoiseRegion;
 	double[] minLimitRegion;
@@ -59,7 +56,6 @@ public class ChunkGeneratorAiur implements IChunkGenerator {
 	public ChunkGeneratorAiur(World worldIn, long seed, boolean mapFeaturesEnabledIn, String generatorOptions) {
 		{
 			caveGenerator = net.minecraftforge.event.terraingen.TerrainGen.getModdedMapGen(caveGenerator, net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.CAVE);
-			scatteredFeatureGenerator = (MapGenScatteredFeature) net.minecraftforge.event.terraingen.TerrainGen.getModdedMapGen(scatteredFeatureGenerator, net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.SCATTERED_FEATURE);
 			ravineGenerator = net.minecraftforge.event.terraingen.TerrainGen.getModdedMapGen(ravineGenerator, net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.RAVINE);
 		}
 		this.world = worldIn;
@@ -325,10 +321,7 @@ public class ChunkGeneratorAiur implements IChunkGenerator {
 
 		net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.world, this.rand, x, z, flag);
 
-		if (this.mapFeaturesEnabled) {
-		}
-
-		if (biome != Biomes.DESERT && biome != Biomes.DESERT_HILLS && this.settings.useWaterLakes && !flag && this.rand.nextInt(this.settings.waterLakeChance) == 0)
+		if (biome != BiomeHandler.biomeAiurProtossCity && this.settings.useWaterLakes && !flag && this.rand.nextInt(this.settings.waterLakeChance) == 0)
 			if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, x, z, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE)) {
 				int i1 = this.rand.nextInt(16) + 8;
 				int j1 = this.rand.nextInt(256);
@@ -336,7 +329,7 @@ public class ChunkGeneratorAiur implements IChunkGenerator {
 				(new WorldGenLakes(Blocks.WATER)).generate(this.world, this.rand, blockpos.add(i1, j1, k1));
 			}
 
-		if (!flag && this.rand.nextInt(this.settings.lavaLakeChance / 10) == 0 && this.settings.useLavaLakes)
+		if (biome != BiomeHandler.biomeAiurProtossCity && this.rand.nextInt(this.settings.lavaLakeChance / 10) == 0 && this.settings.useLavaLakes)
 			if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, x, z, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAVA)) {
 				int i2 = this.rand.nextInt(16) + 8;
 				int l2 = this.rand.nextInt(this.rand.nextInt(248) + 8);
@@ -347,7 +340,7 @@ public class ChunkGeneratorAiur implements IChunkGenerator {
 				}
 			}
 
-		biome.decorate(this.world, this.rand, new BlockPos(i, 0, j));
+		// biome.decorate(this.world, this.rand, new BlockPos(i, 0, j));
 		if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, x, z, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.ANIMALS))
 			WorldEntitySpawner.performWorldGenSpawning(this.world, biome, i + 8, j + 8, 16, 16, this.rand);
 		blockpos = blockpos.add(8, 0, 8);
