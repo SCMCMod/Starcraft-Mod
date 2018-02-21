@@ -77,20 +77,25 @@ public class BlockZergCreep extends StarcraftBlock {
 	}
 
 	@Override
-	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-		if (!worldIn.isRemote) {
-			if (worldIn.getLightFromNeighbors(pos.up()) >= 9 && FactorySettings.BOOL_CREEP_CAN_SPREAD) {
+	public int tickRate(World world) {
+		return FactorySettings.INT_CREEP_SPREAD_BASE_VALUE * 20;
+	}
+
+	@Override
+	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
+		if (!world.isRemote) {
+			if (world.getLightFromNeighbors(pos.up()) >= 9 && FactorySettings.BOOL_CREEP_CAN_SPREAD) {
 				for (int i = 0; i < 1000 * FactorySettings.INT_CREEP_SPREAD_BASE_VALUE; ++i) {
 					BlockPos blockpos = pos.add(rand.nextInt(3) - 1, rand.nextInt(5) - 3, rand.nextInt(3) - 1);
 
-					if (blockpos.getY() >= 0 && blockpos.getY() < 256 && !worldIn.isBlockLoaded(blockpos)) {
+					if (blockpos.getY() >= 0 && blockpos.getY() < 256 && !world.isBlockLoaded(blockpos)) {
 						return;
 					}
 
-					IBlockState iblockstate = worldIn.getBlockState(blockpos);
+					IBlockState iblockstate = world.getBlockState(blockpos);
 
-					if (iblockstate.isOpaqueCube() && !Library.checkCube(worldIn, Blocks.AIR.getDefaultState(), blockpos, 3).isEmpty() && (iblockstate.getBlock() == Blocks.GRASS || iblockstate.getBlock() == Blocks.SAND || iblockstate.getBlock() == Blocks.SNOW || iblockstate.getBlock() == BlockHandler.DIRT_SLAYN || iblockstate.getBlock() == BlockHandler.SAND_SLAYN || iblockstate.getBlock() == BlockHandler.SAND_SHAKURAS || iblockstate.getBlock() == BlockHandler.DIRT_SHAKURAS || iblockstate.getBlock() == BlockHandler.SAND_ZERUS || iblockstate.getBlock() == BlockHandler.DIRT_ZERUS || iblockstate.getBlock() == BlockHandler.DIRT_CHAR)) {
-						worldIn.setBlockState(blockpos, BlockHandler.ZERG_CREEP.getDefaultState());
+					if (iblockstate.isOpaqueCube() && !Library.checkCube(world, Blocks.AIR.getDefaultState(), blockpos, 3).isEmpty() && (iblockstate.getBlock() == Blocks.GRASS || iblockstate.getBlock() == Blocks.SAND || iblockstate.getBlock() == Blocks.SNOW || iblockstate.getBlock() == BlockHandler.DIRT_SLAYN || iblockstate.getBlock() == BlockHandler.SAND_SLAYN || iblockstate.getBlock() == BlockHandler.SAND_SHAKURAS || iblockstate.getBlock() == BlockHandler.DIRT_SHAKURAS || iblockstate.getBlock() == BlockHandler.SAND_ZERUS || iblockstate.getBlock() == BlockHandler.DIRT_ZERUS || iblockstate.getBlock() == BlockHandler.DIRT_CHAR)) {
+						world.setBlockState(blockpos, BlockHandler.ZERG_CREEP.getDefaultState());
 					}
 				}
 			}

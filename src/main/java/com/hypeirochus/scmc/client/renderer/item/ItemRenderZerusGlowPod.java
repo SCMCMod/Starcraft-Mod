@@ -29,7 +29,7 @@ public class ItemRenderZerusGlowPod extends ItemRenderer {
 	@Override
 	public void renderFirstPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
 		GlStateManager.pushMatrix();
-		GlStateManager.rotate(0, 0, 1, 0);
+		GlStateManager.scale(1.5, 1.5, 1.5);
 		GlStateManager.translate(-0.5, -0.9, -0.5);
 		renderModel(0.0625 * 0.4);
 		GlStateManager.popMatrix();
@@ -40,8 +40,8 @@ public class ItemRenderZerusGlowPod extends ItemRenderer {
 		GlStateManager.pushMatrix();
 		GlStateManager.rotate(30, 1, 0, 0);
 		GlStateManager.rotate(225, 0, 1, 0);
-		GlStateManager.scale(1.8, 1.8, 1.8);
-		GlStateManager.translate(-0.5, -0.68, -0.5);
+		GlStateManager.scale(2.8, 2.6, 2.8);
+		GlStateManager.translate(-0.52, -0.66, -0.48);
 		renderModel(0.0625 * 0.626);
 		GlStateManager.popMatrix();
 	}
@@ -78,9 +78,9 @@ public class ItemRenderZerusGlowPod extends ItemRenderer {
 	@Override
 	public void renderThirdPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
 		GlStateManager.pushMatrix();
+		GlStateManager.scale(1.5, 1.5, 1.5);
 		GlStateManager.rotate(75, 1, 0, 0);
-		GlStateManager.rotate(45, 0, 1, 0);
-		GlStateManager.translate(-0.45, -0.9, -0.55);
+		GlStateManager.translate(-0.5, -0.9, -0.6);
 		renderModel(0.0625 * 0.4);
 		GlStateManager.popMatrix();
 	}

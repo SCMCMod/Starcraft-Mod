@@ -1,5 +1,7 @@
 package com.hypeirochus.scmc.proxy;
 
+import com.hypeirochus.scmc.client.model.armor.ModelArmorBase;
+
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -25,7 +27,7 @@ public abstract class CommonProxy {
 	public void postInit(FMLPostInitializationEvent event) {
 	}
 
-	// public ModelArmorBase getArmorModel(int id) {
-	// return null;
-	// }
+	public ModelArmorBase getArmorModel(int id) {
+		return null;
+	}
 }

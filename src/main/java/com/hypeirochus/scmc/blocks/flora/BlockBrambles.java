@@ -6,6 +6,7 @@ import java.util.Random;
 import com.hypeirochus.scmc.blocks.items.IMetaBlockName;
 import com.hypeirochus.scmc.blocks.items.ItemBlockBrambles;
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.items.IMetaRenderHandler;
 import com.hypeirochus.scmc.tileentity.TileEntityBrambles;
 
 import net.minecraft.block.BlockContainer;

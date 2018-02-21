@@ -13,10 +13,12 @@ import com.hypeirochus.scmc.items.ItemGasContainer;
 import com.hypeirochus.scmc.items.ItemGunParts;
 import com.hypeirochus.scmc.items.ItemIcon;
 import com.hypeirochus.scmc.items.ItemIngot;
+import com.hypeirochus.scmc.items.ItemKhaydarinCrystal;
 import com.hypeirochus.scmc.items.ItemLog;
 import com.hypeirochus.scmc.items.ItemMagazine;
 import com.hypeirochus.scmc.items.ItemMineralShard;
 import com.hypeirochus.scmc.items.ItemProtossIngot;
+import com.hypeirochus.scmc.items.ItemProtossUpgrade;
 import com.hypeirochus.scmc.items.ItemPsiBladeFocuserUncharged;
 import com.hypeirochus.scmc.items.ItemSolariteReaper;
 import com.hypeirochus.scmc.items.ItemStimpack;
@@ -49,9 +51,12 @@ public class ItemHandler {
 	// Protoss
 	public static Item PROTOSS_INGOT;
 	public static Item PSI_BLADE_FOCUSER_UNCHARGED;
+	public static Item PROTOSS_UPGRADE;
+	public static Item KHAYDARIN_CRYSTAL;
 
 	// Terran
 	public static Item STIMPACK;
+	public static Item MARINE_HELMET_VISOR;
 
 	// Terran Weapons
 	public static ItemC14GaussRifle C14_GAUSS_RIFLE;
@@ -74,6 +79,10 @@ public class ItemHandler {
 		items = new ArrayList<Item>();
 
 		instantiate();
+
+		WeaponHandler.init();
+		ToolHandler.init();
+		ArmorHandler.init();
 	}
 
 	private static void instantiate() {
@@ -95,9 +104,12 @@ public class ItemHandler {
 		// Protoss
 		PROTOSS_INGOT = new ItemProtossIngot();
 		PSI_BLADE_FOCUSER_UNCHARGED = new ItemPsiBladeFocuserUncharged();
+		PROTOSS_UPGRADE = new ItemProtossUpgrade();
+		KHAYDARIN_CRYSTAL = new ItemKhaydarinCrystal();
 
 		// Terran
 		STIMPACK = new ItemStimpack();
+		MARINE_HELMET_VISOR = new StarcraftItem("terran.marine.helmet.visor").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 
 		// Terran Weapons
 		C14_GAUSS_RIFLE = new ItemC14GaussRifle();

@@ -47,6 +47,7 @@ import com.hypeirochus.scmc.blocks.StarcraftProtossCoreBlock;
 import com.hypeirochus.scmc.blocks.flora.BlockBrambles;
 import com.hypeirochus.scmc.blocks.flora.BlockZerusGlowPod;
 import com.hypeirochus.scmc.blocks.flora.BlockZerusLightcap;
+import com.hypeirochus.scmc.blocks.items.ItemBlockBrambles;
 import com.hypeirochus.scmc.blocks.items.ItemBlockStarcraftSkull;
 import com.hypeirochus.scmc.blocks.metablocks.BlockEnergy;
 import com.hypeirochus.scmc.blocks.metablocks.BlockGasCollector;
@@ -90,6 +91,7 @@ public class BlockHandler {
 	public static Block GAS_COLLECTOR;
 	public static Block STAR_SURFACE;
 	public static Block PLANET_SURFACE;
+	public static Block LIGHT_SOURCE;
 
 	// Portals
 	public static Block DIM_PORTAL_CHAR;
@@ -456,6 +458,7 @@ public class BlockHandler {
 		// Flora
 		FLORA_ZERUS_GLOW_POD = new BlockZerusGlowPod();
 		FLORA_BRAMBLES = new BlockBrambles();
+		registerBlockWithItemBlock(FLORA_BRAMBLES, new ItemBlockBrambles());
 		FLORA_ZERUS_LIGHTCAP = new BlockZerusLightcap();
 	}
 

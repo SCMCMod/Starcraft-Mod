@@ -1,6 +1,7 @@
 package com.hypeirochus.scmc.blocks.flora;
 
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.tileentity.TileEntityZerusLightcap;
 
 import net.minecraft.block.BlockContainer;
@@ -22,6 +23,7 @@ public class BlockZerusLightcap extends BlockContainer {
 		setUnlocalizedName("flora.zerus.lightcap");
 		setSoundType(SoundType.PLANT);
 		setCreativeTab(StarcraftCreativeTabs.FLORA);
+		BlockHandler.registerFullBlock(this);
 	}
 
 	@Override
