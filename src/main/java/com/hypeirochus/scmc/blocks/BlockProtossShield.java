@@ -27,7 +27,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
- * Dark Protoss Energy Stabilizer block.<br>
  * Copyright 2017 the Starcraft Minecraft mod team
  * 
  * @author Hypeirochus
@@ -43,6 +42,7 @@ public class BlockProtossShield extends Block {
 	}
 
 	@SideOnly(Side.CLIENT)
+	@Override
 	public BlockRenderLayer getBlockLayer() {
 		return BlockRenderLayer.TRANSLUCENT;
 	}
@@ -51,8 +51,9 @@ public class BlockProtossShield extends Block {
 		return SHIELD_BLOCK_AABB;
 	}
 
+	@Override
 	@Nullable
-	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos) {
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
 		return NULL_AABB;
 	}
 
@@ -61,8 +62,7 @@ public class BlockProtossShield extends Block {
 	}
 
 	@Override
-	public void onBlockDestroyedByExplosion(World worldIn, BlockPos pos, Explosion explosionIn) {
-	}
+	public void onBlockDestroyedByExplosion(World worldIn, BlockPos pos, Explosion explosionIn) {}
 
 	/**
 	 * Used to determine ambient occlusion and culling when rebuilding chunks for
@@ -91,6 +91,7 @@ public class BlockProtossShield extends Block {
 	}
 
 	@SideOnly(Side.CLIENT)
+	@Override
 	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
 		IBlockState iblockstate = blockAccess.getBlockState(pos.offset(side));
 		Block block = iblockstate.getBlock();
