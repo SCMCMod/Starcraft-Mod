@@ -1,5 +1,7 @@
 package com.hypeirochus.scmc.blocks;
 
+import javax.annotation.Nullable;
+
 import com.hypeirochus.scmc.handlers.BlockHandler;
 
 import net.minecraft.block.Block;
@@ -30,12 +32,14 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * 
  * @author Hypeirochus
  */
-public class BlockProtossShield extends StarcraftBlock {
+public class BlockProtossShield extends Block {
 
 	public static final AxisAlignedBB SHIELD_BLOCK_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D);
 
 	public BlockProtossShield() {
-		super("protoss.shield", RegistryType.FULL, Material.AIR, MapColor.LIGHT_BLUE);
+		super(Material.AIR, MapColor.LIGHT_BLUE);
+		setUnlocalizedName("protoss.shield");
+		setRegistryName("protoss.shield");
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -43,17 +47,15 @@ public class BlockProtossShield extends StarcraftBlock {
 		return BlockRenderLayer.TRANSLUCENT;
 	}
 
-	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		return SHIELD_BLOCK_AABB;
 	}
 
-	@Override
-	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess world, BlockPos pos) {
+	@Nullable
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos) {
 		return NULL_AABB;
 	}
 
-	@Override
 	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
@@ -62,7 +64,10 @@ public class BlockProtossShield extends StarcraftBlock {
 	public void onBlockDestroyedByExplosion(World worldIn, BlockPos pos, Explosion explosionIn) {
 	}
 
-	@Override
+	/**
+	 * Used to determine ambient occlusion and culling when rebuilding chunks for
+	 * render
+	 */
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
