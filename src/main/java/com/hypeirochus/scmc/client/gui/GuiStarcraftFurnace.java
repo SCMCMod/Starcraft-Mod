@@ -66,13 +66,20 @@ public class GuiStarcraftFurnace extends GuiContainer {
 	}
 
 	@Override
+	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+		drawDefaultBackground();
+		super.drawScreen(mouseX, mouseY, partialTicks);
+		renderHoveredToolTip(mouseX, mouseY);
+	}
+	
+	@Override
 	protected void drawGuiContainerBackgroundLayer(float v, int i, int i1) {
 		GlStateManager.color(1F, 1F, 1F, 1F);
 		this.mc.getTextureManager().bindTexture(this.texturePath);
 		this.drawTexturedModalRect(this.guiLeft, this.guiTop, 0, 0, this.xSize, this.ySize);
 
 		if (this.sync == 0)
-			NetworkHandler.sendToServer(new MessageGetFurnaceData(this.pos, "ga.scmc.client.gui.GuiStarcraftFurnace", "burnTime", "cookTime"));
+			NetworkHandler.sendToServer(new MessageGetFurnaceData(this.pos, "com.hypeirochus.scmc.client.gui.GuiStarcraftFurnace", "burnTime", "cookTime"));
 		this.sync++;
 		this.sync %= 10;
 

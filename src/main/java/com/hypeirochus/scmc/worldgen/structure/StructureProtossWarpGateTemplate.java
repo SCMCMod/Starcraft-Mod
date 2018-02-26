@@ -12,17 +12,29 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
-	private Block	chanBlock;
-	private Block	dimBlock;
-	private int		metaDim;
-	private int		metaPrimColor;
-	private int		metaSecColor;
-	private Block	stabBlock;
+	
+	private Block chanBlock;
+	private Block dimBlock;
+	private int metaDim;
+	private int metaPrimColor;
+	private int metaSecColor;
+	private Block stabBlock;
+
+	public StructureProtossWarpGateTemplate() {
+
+	}
+
+	public StructureProtossWarpGateTemplate(int metaPrimColor, int metaSecColor) {
+		this.metaPrimColor = metaPrimColor;
+		this.metaSecColor = metaSecColor;
+	}
 
 	@Override
 	public boolean generate(int metaPrimColor, int metaSecColor, World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos pos, boolean flag) {
-		this.metaPrimColor = metaPrimColor;
-		this.metaSecColor = metaSecColor;
+		if (metaPrimColor < 0)
+			metaPrimColor = this.metaPrimColor;
+		if (metaSecColor < 0)
+			metaSecColor = this.metaSecColor;
 		this.metaDim = rand.nextInt(100);
 		if (world.provider.getDimension() == 0) {
 			if (metaDim <= 14) {

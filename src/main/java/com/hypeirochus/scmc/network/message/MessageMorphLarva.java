@@ -1,5 +1,9 @@
 package com.hypeirochus.scmc.network.message;
 
+import com.hypeirochus.scmc.entity.living.EntityLarva;
+import com.hypeirochus.scmc.entity.living.EntityLarvaCocoon;
+import com.hypeirochus.scmc.lib.Library;
+
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -15,10 +19,10 @@ public class MessageMorphLarva implements IMessage, IMessageHandler<MessageMorph
 	public MessageMorphLarva() {
 	}
 
-	// public MessageMorphLarva(EntityLarva larva, int replaceId) {
-	// this.id = larva.getEntityId();
-	// this.replaceId = (byte) replaceId;
-	// }
+	public MessageMorphLarva(EntityLarva larva, int replaceId) {
+		this.id = larva.getEntityId();
+		this.replaceId = (byte) replaceId;
+	}
 
 	@Override
 	public void toBytes(ByteBuf buf) {
@@ -37,12 +41,12 @@ public class MessageMorphLarva implements IMessage, IMessageHandler<MessageMorph
 		EntityPlayer player = ctx.getServerHandler().player;
 		World world = player.world;
 
-		// if (world.getEntityByID(message.id) instanceof EntityLarva) {
-		// EntityLarva larva = (EntityLarva) world.getEntityByID(message.id);
-		// EntityLarvaCocoon cocoon = new EntityLarvaCocoon(world, message.replaceId);
-		// cocoon.setColor(larva.getColor());
-		// Library.replaceEntity(true, larva, cocoon);
-		// }
+		if (world.getEntityByID(message.id) instanceof EntityLarva) {
+			EntityLarva larva = (EntityLarva) world.getEntityByID(message.id);
+			EntityLarvaCocoon cocoon = new EntityLarvaCocoon(world, message.replaceId);
+			cocoon.setColor(larva.getColor());
+			Library.replaceEntity(true, larva, cocoon);
+		}
 
 		return null;
 	}

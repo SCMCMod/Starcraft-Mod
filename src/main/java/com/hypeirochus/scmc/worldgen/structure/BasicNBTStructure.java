@@ -2,6 +2,7 @@ package com.hypeirochus.scmc.worldgen.structure;
 
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.structure.template.Template;
 
 /**
  * Allows support for basic NBT structures at ease.
@@ -18,7 +19,12 @@ public class BasicNBTStructure extends SCWorldGenerator implements INBTStructure
 
 	@Override
 	public boolean generate(World world, int offsetX, int offsetY, int offsetZ, BlockPos position) {
-		return hasLoadedStructure(position, world, name);
+		Template template = getTemplate(world, name);
+		if(template != null) {
+			template.addBlocksToWorld(world, position, getDefaultPlacementSettings());
+			return true;
+		}
+		return false;
 	}
 
 	@Override

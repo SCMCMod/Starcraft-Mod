@@ -128,7 +128,9 @@ public class GuiItemShop extends BasicGui {
 			GlStateManager.color(1, 1, 1, 1);
 			GuiUtils.drawCustomSizeGui(modifyingStackWindowX, modifyingStackWindowY, 80, 50, GuiType.DEFAULT);
 			GuiUtils.drawSlot(modifyingStackWindowX + 5, modifyingStackWindowY + 5, 18, 18);
+			GlStateManager.enableDepth();
 			Minecraft.getMinecraft().getRenderItem().renderItemAndEffectIntoGUI(modifyingStack, modifyingStackWindowX + 6, modifyingStackWindowY + 6);
+			GlStateManager.disableDepth();
 			textBox.drawTextBox();
 			this.fontRenderer.drawString("How Much?", modifyingStackWindowX + 25, modifyingStackWindowY + 12, 4210752);
 		}

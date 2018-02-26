@@ -2,6 +2,7 @@ package com.hypeirochus.scmc.client.model.item;
 
 import com.hypeirochus.api.client.render.model.Model;
 import com.hypeirochus.scmc.Starcraft;
+import com.ocelot.api.utils.ModelUtils;
 
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -243,6 +244,7 @@ public class ModelC14GaussRifle extends Model {
 
 	@Override
 	public void render(Entity entity, float swing, float swingPrev, float idle, float headYaw, float headPitch, float scale) {
+		ModelUtils.enableBackCull();
 		this.main42.render(scale);
 		this.main45.render(scale);
 		this.main40.render(scale);
@@ -291,5 +293,6 @@ public class ModelC14GaussRifle extends Model {
 		this.main12.render(scale);
 		this.main35.render(scale);
 		this.main41.render(scale);
+		ModelUtils.disableCull();
 	}
 }

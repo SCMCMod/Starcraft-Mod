@@ -50,8 +50,10 @@ public class BlockProtossWormhole extends StarcraftBlock implements ITileEntityP
 	private void spawnElectricArc(World world, BlockPos pos, Random rand, double posX, double posY, double posZ, int color) {
 		GlStateManager.enableBlend();
 		GlStateManager.pushMatrix();
-		AccessHandler.getMinecraft().effectRenderer.addEffect(new EntityFXElectricArc(world, pos.getX(), pos.getY(), pos.getZ(), posX + (rand.nextInt(4) - 2), posY, posZ + (rand.nextInt(4) - 2), 10, 2.5F, 0.5F, 0.05F, color));
-		AccessHandler.getMinecraft().effectRenderer.addEffect(new EntityFXElectricArc(world, pos.getX(), pos.getY(), pos.getZ(), posX - (rand.nextInt(2) - 2), posY, posZ - (rand.nextInt(2) - 2), 10, 2.5F, 0.5F, 0.05F, color));
+		AccessHandler.getMinecraft().effectRenderer.addEffect(new EntityFXElectricArc(world, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, posX + (rand.nextInt(4) - 1), posY, posZ + (rand.nextInt(4) - 1), 10, 2.5F, 0.5F, 0.05F, color));
+		AccessHandler.getMinecraft().effectRenderer.addEffect(new EntityFXElectricArc(world, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, posX - (rand.nextInt(2) - 1), posY, posZ - (rand.nextInt(2) - 1), 10, 2.5F, 0.5F, 0.05F, color));
+		AccessHandler.getMinecraft().effectRenderer.addEffect(new EntityFXElectricArc(world, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, posX + (rand.nextInt(4) - 1), posY, posZ - (rand.nextInt(4) - 1), 10, 2.5F, 0.5F, 0.05F, color));
+		AccessHandler.getMinecraft().effectRenderer.addEffect(new EntityFXElectricArc(world, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, posX - (rand.nextInt(2) - 1), posY, posZ + (rand.nextInt(2) - 1), 10, 2.5F, 0.5F, 0.05F, color));
 		GlStateManager.popMatrix();
 		GlStateManager.disableBlend();
 	}

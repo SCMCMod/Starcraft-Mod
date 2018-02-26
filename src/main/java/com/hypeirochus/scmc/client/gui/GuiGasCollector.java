@@ -71,7 +71,9 @@ public class GuiGasCollector extends GuiContainer {
 
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+		drawDefaultBackground();
 		super.drawScreen(mouseX, mouseY, partialTicks);
+		renderHoveredToolTip(mouseX, mouseY);
 		if (itemHandler.getStackInSlot(9) == null) {
 			bindTexture();
 			String ss = "s";
@@ -80,7 +82,7 @@ public class GuiGasCollector extends GuiContainer {
 			String s = TextFormatting.GRAY + I18n.format("gui.gas_collector." + GasCollectorType.values()[te.getType()] + ".fuel.tooltip", getRequiredFuel(), TextFormatting.DARK_GRAY + names[te.getType()] + TextFormatting.GRAY);
 			drawTooltip(s, (width / 2) + 45, (height / 2) - 49, 17, 18, mouseX, mouseY);
 		}
-	}
+	}	
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {

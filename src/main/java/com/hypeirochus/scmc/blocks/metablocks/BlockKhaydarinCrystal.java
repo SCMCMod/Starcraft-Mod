@@ -27,7 +27,7 @@ import net.minecraft.world.World;
 /**
  * This block has three variants. Refer to {@link PylonCrystalType}
  */
-public class BlockKhaydarinCrystal extends StarcraftBlock implements IMetaBlockName,IMetaRenderHandler {
+public class BlockKhaydarinCrystal extends StarcraftBlock implements IMetaBlockName, IMetaRenderHandler {
 
 	/** The type property */
 	public static final PropertyEnum<PylonCrystalType> TYPE = PropertyEnum.create("type", PylonCrystalType.class);
@@ -108,7 +108,7 @@ public class BlockKhaydarinCrystal extends StarcraftBlock implements IMetaBlockN
 	 */
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		return getDefaultState().withProperty(TYPE, PylonCrystalType.values()[meta]);
+		return getDefaultState().withProperty(TYPE, PylonCrystalType.values()[meta % PylonCrystalType.values().length]);
 	}
 
 	@Override

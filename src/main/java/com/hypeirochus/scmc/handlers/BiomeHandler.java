@@ -35,6 +35,7 @@ import com.hypeirochus.scmc.worldgen.dimzerus.BiomeGenZerusJungle;
 import com.hypeirochus.scmc.worldgen.dimzerus.BiomeGenZerusMountains;
 
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 
 public class BiomeHandler extends Biome {
@@ -171,8 +172,9 @@ public class BiomeHandler extends Biome {
 		register(biomeKaldirZergHive);
 
 		register(biomeSpace);
-		
-//		 DimensionHandler.init();
+
+		DimensionHandler.init();
+		WorldGenerationHandler.init();
 	}
 
 	public static void registerBiomes() {

@@ -1,16 +1,157 @@
 package com.hypeirochus.scmc.enums;
 
+import com.hypeirochus.scmc.handlers.SoundHandler;
+import com.hypeirochus.scmc.worldgen.structure.SCWorldGenerator;
+import com.hypeirochus.scmc.worldgen.structure.StructureProtossCyberneticsCoreTemplate;
+import com.hypeirochus.scmc.worldgen.structure.StructureProtossPylonTemplate;
+import com.hypeirochus.scmc.worldgen.structure.StructureProtossWarpGateTemplate;
+
 import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.SoundEvent;
 
 /***
- * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
+ * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
  * 
  * <br>
  * </br>
  * 
- * Holds the enums for the items in the mod.
+ * Holds the enums for the meta blocks/items in the mod.
  */
 public class MetaHandler {
+
+	public enum ProtossStructureSpawnerType implements IStringSerializable {
+		DARK_CYBERNETICSCORE("cyberneticscore.dark", 0, new StructureProtossCyberneticsCoreTemplate(1, 4), SoundHandler.STRUC_CYBERNETICSCORE_BIRTH), 
+		VOID_CYBERNETICSCORE("cyberneticscore.void", 1, new StructureProtossCyberneticsCoreTemplate(1, 2), SoundHandler.STRUC_CYBERNETICSCORE_BIRTH), 
+		CYBERNETICSCORE("cyberneticscore", 2, new StructureProtossCyberneticsCoreTemplate(0, 3), SoundHandler.STRUC_CYBERNETICSCORE_BIRTH), 
+		DARK_PYLON("pylon.dark", 3, new StructureProtossPylonTemplate(1,1), SoundHandler.STRUC_PYLON_BIRTH), 
+		VOID_PYLON("pylon.void", 4, new StructureProtossPylonTemplate(1,4),SoundHandler.STRUC_PYLON_BIRTH), 
+		PROTOSS_PYLON("pylon", 5, new StructureProtossPylonTemplate(0,0), SoundHandler.STRUC_PYLON_BIRTH), 
+		DARK_WARPGATE("warpgate.dark", 6, new StructureProtossWarpGateTemplate(1,4), SoundHandler.STRUC_GATEWAY_BIRTH), 
+		VOID_WARPGATE("warpgate.void", 7, new StructureProtossWarpGateTemplate(1,2), SoundHandler.STRUC_GATEWAY_BIRTH), 
+		WARPGATE("warpgate", 8, new StructureProtossWarpGateTemplate(0,3), SoundHandler.STRUC_GATEWAY_BIRTH);
+
+		private int ID;
+		private String name;
+		private SCWorldGenerator structure;
+		private SoundEvent spawnSound;
+
+		ProtossStructureSpawnerType(String name, int ID, SCWorldGenerator structure) {
+			this(name, ID, structure, null);
+		}
+
+		ProtossStructureSpawnerType(String name, int ID, SCWorldGenerator structure, SoundEvent spawnSound) {
+			this.ID = ID;
+			this.name = name;
+			this.structure = structure;
+			this.spawnSound = spawnSound;
+		}
+
+		public int getID() {
+			return ID;
+		}
+
+		@Override
+		public String getName() {
+			return name;
+		}
+
+		public SCWorldGenerator getStructure() {
+			return structure;
+		}
+
+		public SoundEvent getSpawnSound() {
+			return spawnSound;
+		}
+
+		@Override
+		public String toString() {
+			return getName();
+		}
+	}
+
+	public enum TerranStructureSpawnerType implements IStringSerializable {
+		;
+
+		private int ID;
+		private String name;
+		private SCWorldGenerator structure;
+		private SoundEvent spawnSound;
+
+		TerranStructureSpawnerType(String name, int ID, SCWorldGenerator structure) {
+			this(name, ID, structure, null);
+		}
+
+		TerranStructureSpawnerType(String name, int ID, SCWorldGenerator structure, SoundEvent spawnSound) {
+			this.ID = ID;
+			this.name = name;
+			this.structure = structure;
+			this.spawnSound = spawnSound;
+		}
+
+		public int getID() {
+			return ID;
+		}
+
+		@Override
+		public String getName() {
+			return name;
+		}
+
+		public SCWorldGenerator getStructure() {
+			return structure;
+		}
+
+		public SoundEvent getSpawnSound() {
+			return spawnSound;
+		}
+
+		@Override
+		public String toString() {
+			return getName();
+		}
+	}
+
+	public enum ZergStructureSpawnerType implements IStringSerializable {
+		;
+
+		private int ID;
+		private String name;
+		private SCWorldGenerator structure;
+		private SoundEvent spawnSound;
+
+		ZergStructureSpawnerType(String name, int ID, SCWorldGenerator structure) {
+			this(name, ID, structure, null);
+		}
+
+		ZergStructureSpawnerType(String name, int ID, SCWorldGenerator structure, SoundEvent spawnSound) {
+			this.ID = ID;
+			this.name = name;
+			this.structure = structure;
+			this.spawnSound = spawnSound;
+		}
+
+		public int getID() {
+			return ID;
+		}
+
+		@Override
+		public String getName() {
+			return name;
+		}
+
+		public SCWorldGenerator getStructure() {
+			return structure;
+		}
+
+		public SoundEvent getSpawnSound() {
+			return spawnSound;
+		}
+
+		@Override
+		public String toString() {
+			return getName();
+		}
+	}
 
 	public enum IconType implements IStringSerializable {
 		PROTOSS("protoss", 0), TERRAN("terran", 1), ZERG("zerg", 2);

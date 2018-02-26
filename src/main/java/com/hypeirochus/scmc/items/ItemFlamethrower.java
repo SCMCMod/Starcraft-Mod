@@ -9,6 +9,7 @@ import com.ocelot.api.utils.InventoryUtils;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
@@ -32,29 +33,29 @@ public class ItemFlamethrower extends ItemGun {
 	}
 
 	@Override
-	public void onFire(World world, EntityPlayer shooter, ItemStack heldItem) {
-		world.playSound(shooter, shooter.getPosition().getX(), shooter.getPosition().getY(), shooter.getPosition().getZ(), SoundEvents.BLOCK_LAVA_EXTINGUISH, SoundCategory.PLAYERS, 0.25f, 1f);
-		Vec3d look = shooter.getLook(AccessHandler.getPartialTicks());
+	public void onFire(World world, EntityLivingBase entity, ItemStack heldItem) {
+		world.playSound(null, entity.getPosition().getX(), entity.getPosition().getY(), entity.getPosition().getZ(), SoundEvents.BLOCK_LAVA_EXTINGUISH, SoundCategory.PLAYERS, 0.25f, 1f);
+		Vec3d look = entity.getLook(AccessHandler.getPartialTicks());
 
 		if (world.isRemote) {
 			Minecraft.getMinecraft().addScheduledTask(() -> {
 				for (int i = 0; i < this.getGunRange(heldItem); i++) {
-					world.spawnParticle(EnumParticleTypes.FLAME, shooter.posX + i * look.x, shooter.posY + shooter.getEyeHeight() + i * look.y, shooter.posZ + i * look.z, 0, 0, 0, new int[0]);
+					world.spawnParticle(EnumParticleTypes.FLAME, entity.posX + i * look.x, entity.posY + entity.getEyeHeight() + i * look.y, entity.posZ + i * look.z, 0, 0, 0, new int[0]);
 				}
 			});
 		}
 	}
 
 	@Override
-	public void hitEntity(World world, EntityPlayer player, Entity hitEntity, ItemStack heldItem) {
+	public void hitEntity(World world, EntityLivingBase entity, Entity hitEntity, ItemStack heldItem) {
 		hitEntity.setFire(5);
 	}
 
 	@Override
-	public void hitBlock(World world, EntityPlayer player, BlockPos pos, EnumFacing facing, ItemStack heldItem) {
+	public void hitBlock(World world, EntityLivingBase entity, BlockPos pos, EnumFacing facing, ItemStack heldItem) {
 		if (!world.isRemote) {
 			pos = pos.offset(facing);
-			if (player.canPlayerEdit(pos, facing, heldItem)) {
+			if (!(entity instanceof EntityPlayer) || entity instanceof EntityPlayer && ((EntityPlayer) entity).canPlayerEdit(pos, facing, heldItem)) {
 				if (world.isAirBlock(pos)) {
 					world.setBlockState(pos, Blocks.FIRE.getDefaultState(), 11);
 				}

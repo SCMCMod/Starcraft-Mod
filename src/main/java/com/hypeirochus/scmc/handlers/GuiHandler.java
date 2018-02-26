@@ -3,6 +3,8 @@ package com.hypeirochus.scmc.handlers;
 import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.client.gui.GuiGasCollector;
 import com.hypeirochus.scmc.client.gui.GuiItemShop;
+import com.hypeirochus.scmc.client.gui.GuiLarvaMorph;
+import com.hypeirochus.scmc.client.gui.GuiLarvaProgress;
 import com.hypeirochus.scmc.client.gui.GuiLog;
 import com.hypeirochus.scmc.client.gui.GuiPlayerMessage;
 import com.hypeirochus.scmc.client.gui.GuiPlayerMessage.EnumPlayerMessageType;
@@ -82,10 +84,10 @@ public class GuiHandler implements IGuiHandler {
 			return new GuiGasCollector(player, (TileEntityGasCollector) te);
 		if (ID == SHOP_ID)
 			return new GuiItemShop(player);
-		// if (ID == LARVA_MORPH_ID)
-		// return new GuiLarvaMorph();
-		// if (ID == LARVA_PROGRESS_ID)
-		// return new GuiLarvaProgress();
+		if (ID == LARVA_MORPH_ID)
+			return new GuiLarvaMorph();
+		if (ID == LARVA_PROGRESS_ID)
+			return new GuiLarvaProgress();
 		if (ID == LOG)
 			return new GuiLog(Starcraft.getLogRegistry().getRegisteredLog(x));
 		if (ID == PLAYER_MESSAGE)

@@ -1,5 +1,8 @@
 package com.hypeirochus.scmc.network.message;
 
+import com.hypeirochus.scmc.client.gui.GuiLarvaMorph;
+import com.hypeirochus.scmc.entity.living.EntityLarva;
+
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,9 +18,9 @@ public class MessageSyncLarvaGui implements IMessage, IMessageHandler<MessageSyn
 	public MessageSyncLarvaGui() {
 	}
 
-	// public MessageSyncLarvaGui(EntityLarva larva) {
-	// this.id = larva.getEntityId();
-	// }
+	 public MessageSyncLarvaGui(EntityLarva larva) {
+	 this.id = larva.getEntityId();
+	 }
 
 	@Override
 	public void toBytes(ByteBuf buf) {
@@ -34,12 +37,12 @@ public class MessageSyncLarvaGui implements IMessage, IMessageHandler<MessageSyn
 		EntityPlayer player = Minecraft.getMinecraft().player;
 		World world = player.world;
 
-		// if (world.isRemote) {
-		// if (Minecraft.getMinecraft().currentScreen instanceof GuiLarvaMorph) {
-		// GuiLarvaMorph gui = (GuiLarvaMorph) Minecraft.getMinecraft().currentScreen;
-		// gui.setLarva((EntityLarva) world.getEntityByID(message.id));
-		// }
-		// }
+		if (world.isRemote) {
+			if (Minecraft.getMinecraft().currentScreen instanceof GuiLarvaMorph) {
+				GuiLarvaMorph gui = (GuiLarvaMorph) Minecraft.getMinecraft().currentScreen;
+				gui.setLarva((EntityLarva) world.getEntityByID(message.id));
+			}
+		}
 
 		return null;
 	}

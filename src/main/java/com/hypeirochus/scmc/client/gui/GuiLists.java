@@ -5,6 +5,7 @@ import java.awt.Color;
 import com.google.common.collect.ImmutableList;
 import com.hypeirochus.scmc.blocks.metablocks.BlockNeosteel.NeosteelMetalType;
 import com.hypeirochus.scmc.blocks.metablocks.BlockParisteel.ParisteelMetalType;
+import com.hypeirochus.scmc.client.gui.element.LarvaOption;
 import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.handlers.ArmorHandler;
 import com.hypeirochus.scmc.handlers.BlockHandler;
@@ -13,13 +14,14 @@ import com.hypeirochus.scmc.handlers.ToolHandler;
 import com.hypeirochus.scmc.handlers.WeaponHandler;
 import com.hypeirochus.scmc.items.ItemMagazine;
 
+import net.minecraft.client.resources.I18n;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 public class GuiLists {
 
 	public static final ImmutableList<Product>[] TRADES;
-//	public static final ImmutableList<LarvaOption> LARVA_OPTIONS;
+	public static final ImmutableList<LarvaOption> LARVA_OPTIONS;
 
 	public static final int HIGHLIGHT_COLOR = new Color(246, 255, 0, 60).getRGB();
 	public static final int NO_FUNDS_COLOR = new Color(200, 50, 0, 60).getRGB();
@@ -110,16 +112,16 @@ public class GuiLists {
 		tab5.add(new Product(new ItemStack(ToolHandler.STEEL_HOE, 1, 0), 12, 2));
 		TRADES[5] = tab5.build();
 
-		// ImmutableList.Builder<LarvaOption> larvaOptions = ImmutableList.builder();
-		// larvaOptions.add(new LarvaOption(0, 50, 0).setTooltip(I18n.format("entity.starcraft.drone.name")));
-		// larvaOptions.add(new LarvaOption(1, 100, 0).setTooltip(I18n.format("entity.starcraft.overlord.name")));
-		// larvaOptions.add(new LarvaOption(new LarvaOption(2, 50, 0).setTooltip(I18n.format("entity.starcraft.zerglingSC2.name")), new LarvaOption(3, 50, 0).setTooltip(I18n.format("entity.starcraft.zerglingSwarmling.name")), new LarvaOption(4, 50, 0).setTooltip(I18n.format("entity.starcraft.zerglingRaptor.name"))));
-		// larvaOptions.add(new LarvaOption(5, 75, 25).setTooltip(I18n.format("entity.starcraft.roach.name")));
-		// larvaOptions.add(new LarvaOption(6, 100, 50).setTooltip(I18n.format("entity.starcraft.hydralisk.name")));
-		// larvaOptions.add(new LarvaOption(7, 100, 150).setTooltip(I18n.format("entity.starcraft.infestor.name")));
-		// larvaOptions.add(new LarvaOption(8, 100, 75).setTooltip(I18n.format("entity.starcraft.swarmHost.name")));
-		// larvaOptions.add(new LarvaOption(9, 100, 100).setTooltip(I18n.format("entity.starcraft.mutalisk.name")));
-		// LARVA_OPTIONS = larvaOptions.build();
+		ImmutableList.Builder<LarvaOption> larvaOptions = ImmutableList.builder();
+		larvaOptions.add(new LarvaOption(0, 50, 0).setTooltip(I18n.format("entity.starcraft.drone.name")));
+		larvaOptions.add(new LarvaOption(1, 100, 0).setTooltip(I18n.format("entity.starcraft.overlord.name")));
+		larvaOptions.add(new LarvaOption(new LarvaOption(2, 50, 0).setTooltip(I18n.format("entity.starcraft.zerglingSC2.name")), new LarvaOption(3, 50, 0).setTooltip(I18n.format("entity.starcraft.zerglingSwarmling.name")), new LarvaOption(4, 50, 0).setTooltip(I18n.format("entity.starcraft.zerglingRaptor.name"))));
+		larvaOptions.add(new LarvaOption(5, 75, 25).setTooltip(I18n.format("entity.starcraft.roach.name")));
+		larvaOptions.add(new LarvaOption(6, 100, 50).setTooltip(I18n.format("entity.starcraft.hydralisk.name")));
+		larvaOptions.add(new LarvaOption(7, 100, 150).setTooltip(I18n.format("entity.starcraft.infestor.name")));
+		larvaOptions.add(new LarvaOption(8, 100, 75).setTooltip(I18n.format("entity.starcraft.swarmHost.name")));
+		larvaOptions.add(new LarvaOption(9, 100, 100).setTooltip(I18n.format("entity.starcraft.mutalisk.name")));
+		LARVA_OPTIONS = larvaOptions.build();
 
 		// LOGS = new ArrayList<List<String>>();
 		// LOGS.add(Utils.loadTextFromFile(new ResourceLocation(Starcraft.RL_BASE + "texts/logs/log.egonstetmann.protoss1.txt")));

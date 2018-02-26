@@ -5,6 +5,7 @@ import com.ocelot.api.utils.WorldUtils;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.DamageSource;
@@ -65,24 +66,46 @@ public abstract class ItemGun extends StarcraftItem {
 		return super.onItemRightClick(world, player, hand);
 	}
 
-	private void damageEntity(World world, EntityPlayer player, Entity hitEntity, ItemStack heldItem) {
+	public void onItemRightClick(World world, EntityLivingBase livingEntity, EntityEquipmentSlot slot) {
+		ItemStack heldItem = livingEntity.getItemStackFromSlot(slot);
+		RayTraceResult ray = WorldUtils.getRay(this.getGunRange(heldItem));
+		Entity entity = ray.entityHit;
+		BlockPos hitBlock = ray.getBlockPos();
+
+		if (!(livingEntity instanceof EntityPlayer) || (livingEntity instanceof EntityPlayer && this.hasAmmo(world, (EntityPlayer) livingEntity, heldItem))) {
+			this.onFire(world, livingEntity, heldItem);
+			if (!world.isRemote && livingEntity instanceof EntityPlayer) {
+				this.takeAmmo(world, (EntityPlayer) livingEntity, heldItem);
+			}
+
+			if (entity != null) {
+				EntityLivingBase hitEntity = (EntityLivingBase) entity.getEntityWorld().getEntityByID(entity.getEntityId());
+				this.damageEntity(world, livingEntity, hitEntity, heldItem);
+				this.hitEntity(world, livingEntity, hitEntity, heldItem);
+			} else if (hitBlock != null) {
+				this.hitBlock(world, livingEntity, ray.getBlockPos(), ray.sideHit, heldItem);
+			}
+		}
+	}
+
+	private void damageEntity(World world, EntityLivingBase entity, Entity hitEntity, ItemStack heldItem) {
 		if (!world.isRemote) {
 			if (hitEntity != null) {
-				hitEntity.attackEntityFrom(DamageSource.causePlayerDamage(player), this.getGunDamage(heldItem));
+				hitEntity.attackEntityFrom(DamageSource.causeMobDamage(entity), this.getGunDamage(heldItem));
 				hitEntity.hurtResistantTime = 0;
 			}
 		}
 	}
-	
-	public void onFire(World world, EntityPlayer shooter, ItemStack heldItem) {
+
+	public void onFire(World world, EntityLivingBase entity, ItemStack heldItem) {
 
 	}
 
-	public void hitEntity(World world, EntityPlayer player, Entity hitEntity, ItemStack heldItem) {
+	public void hitEntity(World world, EntityLivingBase entity, Entity hitEntity, ItemStack heldItem) {
 
 	}
 
-	public void hitBlock(World world, EntityPlayer player, BlockPos pos, EnumFacing facing, ItemStack heldItem) {
+	public void hitBlock(World world, EntityLivingBase entity, BlockPos pos, EnumFacing facing, ItemStack heldItem) {
 
 	}
 

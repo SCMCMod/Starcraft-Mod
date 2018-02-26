@@ -6,6 +6,7 @@ package com.hypeirochus.scmc.worldgen.structure;
 import java.util.Random;
 
 import com.hypeirochus.scmc.handlers.BlockHandler;
+import com.hypeirochus.scmc.handlers.BlockHandler;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -235,9 +236,9 @@ public class StructureZergSpawningPoolTemplate extends SCWorldGenerator {
 		world.setBlockState(pos.add(4, 1 + offsetY, 8), BlockHandler.ZERG_FLESH.getDefaultState(), 2);
 		world.setBlockState(pos.add(5, 1 + offsetY, 8), BlockHandler.ZERG_FLESH.getDefaultState(), 2);
 		world.setBlockState(pos.add(6, 1 + offsetY, 8), BlockHandler.ZERG_FLESH.getDefaultState(), 2);
-		// world.setBlockState(pos.add(7, 1 + offsetY, 8), BlockHandler.FLUID_ACID.getDefaultState(), 2);
-		// world.setBlockState(pos.add(8, 1 + offsetY, 8), BlockHandler.FLUID_ACID.getDefaultState(), 2);
-		// world.setBlockState(pos.add(9, 1 + offsetY, 8), BlockHandler.FLUID_ACID.getDefaultState(), 2);
+//		world.setBlockState(pos.add(7, 1 + offsetY, 8), BlockHandler.FLUID_ACID.getDefaultState(), 2);
+//		world.setBlockState(pos.add(8, 1 + offsetY, 8), BlockHandler.FLUID_ACID.getDefaultState(), 2);
+//		world.setBlockState(pos.add(9, 1 + offsetY, 8), BlockHandler.FLUID_ACID.getDefaultState(), 2);
 		world.setBlockState(pos.add(10, 1 + offsetY, 8), BlockHandler.ZERG_FLESH.getDefaultState(), 2);
 		world.setBlockState(pos.add(11, 1 + offsetY, 8), BlockHandler.ZERG_FLESH.getDefaultState(), 2);
 		world.setBlockState(pos.add(12, 1 + offsetY, 8), BlockHandler.ZERG_FLESH.getDefaultState(), 2);
@@ -395,7 +396,7 @@ public class StructureZergSpawningPoolTemplate extends SCWorldGenerator {
 //		world.setBlockState(pos.add(9, 2 + offsetY, 12), BlockHandler.FLUID_ACID.getDefaultState(), 2);
 //		world.setBlockState(pos.add(10, 2 + offsetY, 12), BlockHandler.FLUID_ACID.getDefaultState(), 2);
 //		world.setBlockState(pos.add(11, 2 + offsetY, 12), BlockHandler.FLUID_ACID.getDefaultState(), 2);
-		world.setBlockState(pos.add(12, 2 + offsetY, 12), BlockHandler.ZERG_FLESH.getDefaultState(), 2);
+//		world.setBlockState(pos.add(12, 2 + offsetY, 12), BlockHandler.ZERG_FLESH.getDefaultState(), 2);
 		world.setBlockState(pos.add(13, 2 + offsetY, 12), BlockHandler.KERATIN_CHUNK.getDefaultState(), 2);
 		world.setBlockState(pos.add(14, 2 + offsetY, 12), BlockHandler.ZERG_FLESH.getDefaultState(), 2);
 		world.setBlockState(pos.add(4, 2 + offsetY, 13), BlockHandler.ZERG_FLESH.getDefaultState(), 2);

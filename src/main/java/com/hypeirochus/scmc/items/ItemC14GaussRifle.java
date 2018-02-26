@@ -40,15 +40,15 @@ public class ItemC14GaussRifle extends ItemGun {
 	}
 
 	@Override
-	public void onFire(World world, EntityPlayer shooter, ItemStack heldItem) {
-		world.playSound(null, shooter.getPosition().getX(), shooter.getPosition().getY(), shooter.getPosition().getZ(), SoundHandler.FX_C14GAUSSRIFLE_FIRING, SoundCategory.PLAYERS, 0.4F, 1.5F);
-		Vec3d look = shooter.getLook(AccessHandler.getPartialTicks());
+	public void onFire(World world, EntityLivingBase entity, ItemStack heldItem) {
+		world.playSound(null, entity.getPosition().getX(), entity.getPosition().getY(), entity.getPosition().getZ(), SoundHandler.FX_C14GAUSSRIFLE_FIRING, SoundCategory.PLAYERS, 0.4F, 1.5F);
+		Vec3d look = entity.getLook(AccessHandler.getPartialTicks());
 
 		if (world.isRemote) {
 			Minecraft.getMinecraft().addScheduledTask(() -> {
 				for (int i = 0; i < this.getGunRange(heldItem); i++) {
 					i *= 2;
-					world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, shooter.posX + i * look.x, shooter.posY + shooter.getEyeHeight() + i * look.y, shooter.posZ + i * look.z, 0, 0, 0, new int[0]);
+					world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, entity.posX + i * look.x, entity.posY + entity.getEyeHeight() + i * look.y, entity.posZ + i * look.z, 0, 0, 0, new int[0]);
 				}
 			});
 		}

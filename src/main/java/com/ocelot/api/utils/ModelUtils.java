@@ -48,4 +48,23 @@ public class ModelUtils {
 
 		GlStateManager.translate(translation, -1.1, -0.9);
 	}
+
+	public static void enableBackCull() {
+		GlStateManager.enableCull();
+		GlStateManager.cullFace(GlStateManager.CullFace.BACK);
+	}
+
+	public static void enableFrontCull() {
+		GlStateManager.enableCull();
+		GlStateManager.cullFace(GlStateManager.CullFace.FRONT);
+	}
+
+	public static void enableBackFrontCull() {
+		GlStateManager.enableCull();
+		GlStateManager.cullFace(GlStateManager.CullFace.FRONT_AND_BACK);
+	}
+
+	public static void disableCull() {
+		GlStateManager.disableCull();
+	}
 }

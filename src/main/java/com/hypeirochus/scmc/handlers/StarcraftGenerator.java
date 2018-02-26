@@ -238,16 +238,16 @@ public class StarcraftGenerator {
 		}
 	}
 
-	protected static void runMetaGenerator(SCWorldGenerator generator, int meta, World world, Random rand, int chunk_X, int chunk_Z, int offsetX, int offsetY, int offsetZ, int chancesToSpawn, int minHeight, int maxHeight) {
-
-		checkHeight(minHeight, maxHeight);
-
-		int heightDiff = maxHeight - minHeight + 1;
-
-		for (int i = 0; i < chancesToSpawn; i++) {
-			generator.generate(meta, world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + rand.nextInt(16), minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + rand.nextInt(16)));
-		}
-	}
+	 protected static void runMetaGenerator(SCWorldGenerator generator, int meta, World world, Random rand, int chunk_X, int chunk_Z, int offsetX, int offsetY, int offsetZ, int chancesToSpawn, int minHeight, int maxHeight) {
+	
+	 checkHeight(minHeight, maxHeight);
+	
+	 int heightDiff = maxHeight - minHeight + 1;
+	
+	 for (int i = 0; i < chancesToSpawn; i++) {
+	 generator.generate(meta, world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + rand.nextInt(16), minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + rand.nextInt(16)));
+	 }
+	 }
 
 	protected static void runOreGenerator(WorldGenerator generator, World world, Random rand, int chunk_X, int chunk_Z, int chancesToSpawn, int minHeight, int maxHeight) {
 

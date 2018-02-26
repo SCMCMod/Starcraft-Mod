@@ -85,13 +85,11 @@ public class Starcraft {
 		NetworkHandler.pre(event);
 		// FluidHandler.pre(event);
 		SoundHandler.pre(event);
-		// WorldGenerationHandler.pre(event);
-		// EntityHandler.pre(event);
+		EntityHandler.pre(event);
 
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 			StarcraftConfig.clientPre(event);
 			WavefrontModelHandler.pre(event);
-			RenderHandler.pre(event);
 			KeybindingHandler.pre(event);
 		}
 	}
@@ -111,6 +109,7 @@ public class Starcraft {
 		MinecraftForge.EVENT_BUS.register(new StarcraftEventHandler());
 
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+			RenderHandler.init(event);
 			MinecraftForge.EVENT_BUS.register(new GuiRenderEventHandler());
 			getLogRegistry().init(event);
 		}

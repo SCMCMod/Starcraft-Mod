@@ -2,6 +2,7 @@ package com.hypeirochus.scmc.client.model.item;
 
 import com.hypeirochus.api.client.render.model.Model;
 import com.hypeirochus.scmc.Starcraft;
+import com.ocelot.api.utils.ModelUtils;
 
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -44,6 +45,7 @@ public class ModelFlamethrower extends Model {
 	public ModelRenderer main31;
 
 	public ModelFlamethrower() {
+		ModelUtils.enableBackCull();
 		this.textureWidth = 200;
 		this.textureHeight = 200;
 		this.main14 = new ModelRenderer(this, 85, 30);
@@ -139,6 +141,7 @@ public class ModelFlamethrower extends Model {
 		this.main30.setRotationPoint(-14.0F, 14.0F, -2.0F);
 		this.main30.addBox(0.0F, 0.0F, 0.0F, 1, 1, 5, 0.0F);
 		this.setRotation(main30, 0.0F, 0.0F, -0.41887902047863906F);
+		ModelUtils.disableCull();
 	}
 
 	@Override

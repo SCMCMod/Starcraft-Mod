@@ -16,8 +16,24 @@ import net.minecraft.world.World;
 
 public class StructureProtossPylonTemplate extends SCWorldGenerator {
 
+	private int metaPrimColor;
+	private int metaSecColor;
+	
+	public StructureProtossPylonTemplate() {
+		
+	}
+	
+	public StructureProtossPylonTemplate(int metaPrimColor, int metaSecColor) {
+		this.metaPrimColor = metaPrimColor;
+		this.metaSecColor = metaSecColor;
+	}
+	
 	@Override
 	public boolean generate(int metaPrimColor, int metaSecColor, World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos pos, boolean flag) {
+		if(metaPrimColor < 0)
+			metaPrimColor = this.metaPrimColor;
+		if(metaSecColor < 0)
+			metaSecColor = this.metaSecColor;
 		generate_r0(metaPrimColor, metaSecColor, world, offsetY, pos, flag);
 		return true;
 	}

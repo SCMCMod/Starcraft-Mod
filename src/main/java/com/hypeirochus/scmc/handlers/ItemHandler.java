@@ -26,6 +26,7 @@ import com.hypeirochus.scmc.items.ItemTerrazine;
 import com.hypeirochus.scmc.items.ItemVespene;
 import com.hypeirochus.scmc.items.ItemZergCarapace;
 import com.hypeirochus.scmc.items.StarcraftItem;
+import com.hypeirochus.scmc.items.structurespawner.ItemProtossStructureSpawner;
 
 import net.minecraft.item.Item;
 
@@ -53,6 +54,7 @@ public class ItemHandler {
 	public static Item PSI_BLADE_FOCUSER_UNCHARGED;
 	public static Item PROTOSS_UPGRADE;
 	public static Item KHAYDARIN_CRYSTAL;
+	public static Item PROTOSS_STRUCTURE_SPAWNER;
 
 	// Terran
 	public static Item STIMPACK;
@@ -106,6 +108,7 @@ public class ItemHandler {
 		PSI_BLADE_FOCUSER_UNCHARGED = new ItemPsiBladeFocuserUncharged();
 		PROTOSS_UPGRADE = new ItemProtossUpgrade();
 		KHAYDARIN_CRYSTAL = new ItemKhaydarinCrystal();
+		PROTOSS_STRUCTURE_SPAWNER = new ItemProtossStructureSpawner();
 
 		// Terran
 		STIMPACK = new ItemStimpack();

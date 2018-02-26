@@ -24,7 +24,7 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 
 	public static final WorldGenerationHandler INSTANCE = new WorldGenerationHandler();
 
-	public static void pre(FMLPreInitializationEvent event) {
+	public static void init() {
 		GameRegistry.registerWorldGenerator(INSTANCE, 0);
 	}
 

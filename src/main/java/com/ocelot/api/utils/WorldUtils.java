@@ -4,24 +4,26 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.BlockRendererDispatcher;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItemFrame;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WorldUtils {
-
-	@Nullable
-	public static RayTraceResult blockRayTrace(BlockPos pos, Vec3d start, Vec3d end, AxisAlignedBB boundingBox) {
-		Vec3d vec3d = start.subtract((double) pos.getX(), (double) pos.getY(), (double) pos.getZ());
-		Vec3d vec3d1 = end.subtract((double) pos.getX(), (double) pos.getY(), (double) pos.getZ());
-		RayTraceResult raytraceresult = boundingBox.calculateIntercept(vec3d, vec3d1);
-		return raytraceresult == null ? null : new RayTraceResult(raytraceresult.hitVec.addVector((double) pos.getX(), (double) pos.getY(), (double) pos.getZ()), raytraceresult.sideHit, pos);
-	}
 
 	/**
 	 * Returns an entity that is found within the distance facing the player's look vector.
@@ -161,5 +163,77 @@ public class WorldUtils {
 			}
 		}
 		return omo;
+	}
+
+	/**
+	 * Renders a block at the specified position
+	 * 
+	 * @param world
+	 *            The world
+	 * @param state
+	 *            The state to render
+	 * @param pos
+	 *            The position to render at
+	 * @param tessellator
+	 *            The tessellator instance
+	 * @param buffer
+	 *            The buffer instance
+	 */
+	@SideOnly(Side.CLIENT)
+	public static void renderBlock(World world, IBlockState state, BlockPos pos, Tessellator tessellator, BufferBuilder buffer) {
+		buffer.begin(7, DefaultVertexFormats.BLOCK);
+		BlockRendererDispatcher blockrendererdispatcher = Minecraft.getMinecraft().getBlockRendererDispatcher();
+		blockrendererdispatcher.getBlockModelRenderer().renderModel(world, blockrendererdispatcher.getModelForState(state), state, pos, buffer, false, MathHelper.getPositionRandom(pos));
+		tessellator.draw();
+	}
+
+	/**
+	 * Renders a bounding box at the specifed pos with the specified size.
+	 * 
+	 * @param tessellator
+	 *            The tessellator instance
+	 * @param buffer
+	 *            The buffer instance
+	 * @param x
+	 *            The x start of the box
+	 * @param y
+	 *            The y start of the box
+	 * @param z
+	 *            The z start of the box
+	 * @param x1
+	 *            The x size of the box
+	 * @param y1
+	 *            The y size of the box
+	 * @param z1
+	 *            The z size of the box
+	 * @param xPos
+	 *            The x pos of the box
+	 * @param yPos
+	 *            The x pos of the box
+	 * @param zPos
+	 *            The x pos of the box
+	 */
+	private void renderBox(Tessellator tessellator, BufferBuilder buffer, double x, double y, double z, double x1, double y1, double z1, int xPos, int yPos, int zPos) {
+		GlStateManager.glLineWidth(2.0F);
+		buffer.begin(3, DefaultVertexFormats.POSITION_COLOR);
+		buffer.pos(x, y, z).color((float) yPos, (float) yPos, (float) yPos, 0.0F).endVertex();
+		buffer.pos(x, y, z).color(yPos, yPos, yPos, xPos).endVertex();
+		buffer.pos(x1, y, z).color(yPos, zPos, zPos, xPos).endVertex();
+		buffer.pos(x1, y, z1).color(yPos, yPos, yPos, xPos).endVertex();
+		buffer.pos(x, y, z1).color(yPos, yPos, yPos, xPos).endVertex();
+		buffer.pos(x, y, z).color(zPos, zPos, yPos, xPos).endVertex();
+		buffer.pos(x, y1, z).color(zPos, yPos, zPos, xPos).endVertex();
+		buffer.pos(x1, y1, z).color(yPos, yPos, yPos, xPos).endVertex();
+		buffer.pos(x1, y1, z1).color(yPos, yPos, yPos, xPos).endVertex();
+		buffer.pos(x, y1, z1).color(yPos, yPos, yPos, xPos).endVertex();
+		buffer.pos(x, y1, z).color(yPos, yPos, yPos, xPos).endVertex();
+		buffer.pos(x, y1, z1).color(yPos, yPos, yPos, xPos).endVertex();
+		buffer.pos(x, y, z1).color(yPos, yPos, yPos, xPos).endVertex();
+		buffer.pos(x1, y, z1).color(yPos, yPos, yPos, xPos).endVertex();
+		buffer.pos(x1, y1, z1).color(yPos, yPos, yPos, xPos).endVertex();
+		buffer.pos(x1, y1, z).color(yPos, yPos, yPos, xPos).endVertex();
+		buffer.pos(x1, y, z).color(yPos, yPos, yPos, xPos).endVertex();
+		buffer.pos(x1, y, z).color((float) yPos, (float) yPos, (float) yPos, 0.0F).endVertex();
+		tessellator.draw();
 	}
 }

@@ -73,15 +73,6 @@ public class BlockZergFlesh extends StarcraftBlock implements IMetaBlockName, IM
 	}
 
 	/**
-	 * Makes sure the block drops the correct version of itself
-	 */
-	/*
-	 * will be re-added when we have colored flesh
-	 * 
-	 * @Override public int damageDropped(IBlockState state) { return getMetaFromState(state); }
-	 */
-
-	/**
 	 * Gets the right meta data from the {@link IBlockState}
 	 */
 	@Override

@@ -1,6 +1,7 @@
 package com.hypeirochus.scmc.command;
 
 import com.hypeirochus.scmc.handlers.TeleporterHandler;
+import com.hypeirochus.scmc.lib.FactorySettings;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
@@ -9,6 +10,7 @@ import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.DimensionType;
 import net.minecraftforge.common.DimensionManager;
 
 public class CommandDimension extends CommandBase {
@@ -43,22 +45,39 @@ public class CommandDimension extends CommandBase {
 		} else {
 			EntityPlayer player = args.length > 1 ? getPlayer(server, sender, args[1]) : getCommandSenderAsPlayer(sender);
 
-			int dimId = parseInt(args[0]);
-			Integer[] maxIds = DimensionManager.getStaticDimensionIDs();
+			try {
+				int dimId = Integer.parseInt(args[0]);
+				Integer[] maxIds = DimensionManager.getStaticDimensionIDs();
 
-			for (int i = 0; i < maxIds.length; i++) {
-				if (dimId == maxIds[i]) {
-					if (player.dimension != dimId) {
-						EntityPlayerMP playerMp = (EntityPlayerMP) player;
-						playerMp.getServer().getPlayerList().transferPlayerToDimension(playerMp, dimId, new TeleporterHandler(playerMp.getServerWorld().provider.getDimension(), playerMp.mcServer.getWorld(dimId), player.posX, playerMp.getServerWorld().getHeight((int) player.posX, (int) player.posZ), player.posZ, dimId == 9, false));
-						notifyCommandListener(sender, this, "commands.dimension.success", new Object[] { player.getName(), dimId });
-					} else {
-						throw new CommandException("commands.dimension.same_dim", new Object[] { player.getName(), dimId });
+				for (int i = 0; i < maxIds.length; i++) {
+					if (dimId == maxIds[i]) {
+						if (player.dimension != dimId) {
+							EntityPlayerMP playerMp = (EntityPlayerMP) player;
+							playerMp.getServer().getPlayerList().transferPlayerToDimension(playerMp, dimId, new TeleporterHandler(playerMp.getServerWorld().provider.getDimension(), server.getWorld(dimId), player.posX, playerMp.getServerWorld().getHeight((int) player.posX, (int) player.posZ), player.posZ, dimId == FactorySettings.INT_DIMENSION_SPACE, false));
+							notifyCommandListener(sender, this, "commands.dimension.success", new Object[] { player.getName(), dimId });
+						} else {
+							throw new CommandException("commands.dimension.same_dim", new Object[] { player.getName(), dimId });
+						}
+						return;
 					}
-					return;
 				}
+				throw new CommandException("commands.dimension.out_of_range", new Object[] { dimId });
+			} catch (NumberFormatException e) {
+				String dim = args[0];
+				for (int i = 0; i < DimensionType.values().length; i++) {
+					if (dim.equalsIgnoreCase(DimensionType.values()[i].getName())) {
+						if (player.dimension != i) {
+							EntityPlayerMP playerMp = (EntityPlayerMP) player;
+							playerMp.getServer().getPlayerList().transferPlayerToDimension(playerMp, i, new TeleporterHandler(playerMp.getServerWorld().provider.getDimension(), server.getWorld(i), player.posX, playerMp.getServerWorld().getHeight((int) player.posX, (int) player.posZ), player.posZ, i == FactorySettings.INT_DIMENSION_SPACE, false));
+							notifyCommandListener(sender, this, "commands.dimension.success", new Object[] { player.getName(), dim });
+						} else {
+							throw new CommandException("commands.dimension.same_dim", new Object[] { player.getName(), dim });
+						}
+						return;
+					}
+				}
+				throw new CommandException("commands.dimension.out_of_range", new Object[] { dim });
 			}
-			throw new CommandException("commands.dimension.out_of_range", new Object[] { dimId });
 		}
 	}
 

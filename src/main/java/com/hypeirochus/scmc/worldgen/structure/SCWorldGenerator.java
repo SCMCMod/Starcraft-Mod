@@ -2,8 +2,9 @@ package com.hypeirochus.scmc.worldgen.structure;
 
 import java.util.Random;
 
+import javax.annotation.Nullable;
+
 import com.hypeirochus.scmc.Starcraft;
-import com.hypeirochus.scmc.lib.Library;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -22,12 +23,18 @@ import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
 
+/**
+ * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
+ * 
+ * <br>
+ * </br>
+ * 
+ * @deprecated This is being phased out and should no longer be used as a world generator. Use {@link StarcraftStructureGenerator} instead for structures.
+ */
 public abstract class SCWorldGenerator {
 
 	/**
-	 * Sets wither or not the generator should notify blocks of blocks it changes.
-	 * When the world is first generated, this is false, when saplings grow, this is
-	 * true.
+	 * Sets whether or not the generator should notify blocks of blocks it changes. When the world is first generated, this is false, when saplings grow, this is true.
 	 */
 	private final boolean doBlockNotify;
 
@@ -117,11 +124,7 @@ public abstract class SCWorldGenerator {
 	public void clear(World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos position) {
 	}
 
-	protected void loadStructure(BlockPos pos, World world, String name) {
-		hasLoadedStructure(pos, world, name);
-	}
-
-	protected boolean hasLoadedStructure(BlockPos pos, World world, String name) {
+	protected boolean loadStructure(BlockPos pos, World world, String name) {
 		if (!world.isRemote) {
 			WorldServer worldserver = (WorldServer) world;
 			MinecraftServer minecraftserver = world.getMinecraftServer();
@@ -140,6 +143,27 @@ public abstract class SCWorldGenerator {
 			return false;
 		}
 		return false;
+	}
+
+	@Nullable
+	protected Template getTemplate(World world, String name) {
+		if (!world.isRemote) {
+			WorldServer worldserver = (WorldServer) world;
+			MinecraftServer minecraftserver = world.getMinecraftServer();
+			TemplateManager templatemanager = worldserver.getStructureTemplateManager();
+			ResourceLocation loc = new ResourceLocation(Starcraft.MOD_ID, name);
+			Template template = templatemanager.getTemplate(minecraftserver, loc);
+			return template;
+		}
+		return null;
+	}
+
+	protected PlacementSettings getDefaultPlacementSettings() {
+		return getPlacementSettings(Mirror.NONE, Rotation.NONE, false);
+	}
+
+	protected PlacementSettings getPlacementSettings(Mirror mirror, Rotation rotation, boolean ignoreEntities) {
+		return new PlacementSettings().setMirror(mirror).setRotation(rotation).setIgnoreEntities(ignoreEntities).setChunk((ChunkPos) null).setReplacedBlock((Block) null).setIgnoreStructureBlock(false);
 	}
 
 	protected void setBlockStateAndUpdate(World world, BlockPos pos, IBlockState state) {

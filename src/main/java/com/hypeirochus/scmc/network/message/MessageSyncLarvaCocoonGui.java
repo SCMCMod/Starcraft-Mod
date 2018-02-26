@@ -1,5 +1,8 @@
 package com.hypeirochus.scmc.network.message;
 
+import com.hypeirochus.scmc.client.gui.GuiLarvaProgress;
+import com.hypeirochus.scmc.entity.living.EntityLarvaCocoon;
+
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,9 +18,9 @@ public class MessageSyncLarvaCocoonGui implements IMessage, IMessageHandler<Mess
 	public MessageSyncLarvaCocoonGui() {
 	}
 
-	// public MessageSyncLarvaCocoonGui(EntityLarvaCocoon larva) {
-	// this.id = larva.getEntityId();
-	// }
+	 public MessageSyncLarvaCocoonGui(EntityLarvaCocoon larva) {
+	 this.id = larva.getEntityId();
+	 }
 
 	@Override
 	public void toBytes(ByteBuf buf) {
@@ -34,12 +37,12 @@ public class MessageSyncLarvaCocoonGui implements IMessage, IMessageHandler<Mess
 		EntityPlayer player = Minecraft.getMinecraft().player;
 		World world = player.world;
 
-//		if (world.isRemote) {
-//			if (Minecraft.getMinecraft().currentScreen instanceof GuiLarvaProgress) {
-//				GuiLarvaProgress gui = (GuiLarvaProgress) Minecraft.getMinecraft().currentScreen;
-//				gui.setCocoon((EntityLarvaCocoon) world.getEntityByID(message.id));
-//			}
-//		}
+		if (world.isRemote) {
+			if (Minecraft.getMinecraft().currentScreen instanceof GuiLarvaProgress) {
+				GuiLarvaProgress gui = (GuiLarvaProgress) Minecraft.getMinecraft().currentScreen;
+				gui.setCocoon((EntityLarvaCocoon) world.getEntityByID(message.id));
+			}
+		}
 
 		return null;
 	}

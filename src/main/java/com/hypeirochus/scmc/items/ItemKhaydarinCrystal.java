@@ -5,7 +5,6 @@ import com.hypeirochus.scmc.blocks.metablocks.BlockKhaydarinCrystal.PylonCrystal
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
@@ -27,8 +26,10 @@ public class ItemKhaydarinCrystal extends StarcraftItem implements IMetaRenderHa
 
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-		for (int i = 0; i < BlockKhaydarinCrystal.PylonCrystalType.values().length; i++) {
-			items.add(new ItemStack(this, 1, i));
+		if (this.isInCreativeTab(tab)) {
+			for (int i = 0; i < BlockKhaydarinCrystal.PylonCrystalType.values().length; i++) {
+				items.add(new ItemStack(this, 1, i));
+			}
 		}
 	}
 
