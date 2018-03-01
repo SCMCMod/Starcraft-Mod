@@ -10,7 +10,6 @@ import com.hypeirochus.scmc.handlers.RenderHandler;
 import com.hypeirochus.scmc.recipes.CustomRecipes;
 
 import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.crafting.IRecipe;

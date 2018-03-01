@@ -1,6 +1,5 @@
 package com.ocelot.api.client.gui.component;
 
-import com.ocelot.api.client.gui.GuiBase;
 import com.ocelot.api.utils.SoundUtils;
 
 import net.minecraft.client.Minecraft;

@@ -1,6 +1,5 @@
 package com.hypeirochus.scmc.blocks;
 
-import com.hypeirochus.scmc.blocks.items.ItemBlockLayered;
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 
 import net.minecraft.block.SoundType;

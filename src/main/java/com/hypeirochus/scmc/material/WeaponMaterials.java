@@ -9,6 +9,7 @@ public class WeaponMaterials {
 	public static final ToolMaterial COPPER_MATERIAL = EnumHelper.addToolMaterial("COPPER", 2, 190, 4.5F, 1.0F, 10);
 	public static final ToolMaterial MASTERPSIBLADE_MATERIAL = EnumHelper.addToolMaterial("MASTERPSIBLADE", 0, 750, 9.5F, 38.5F, 0);
 	public static final ToolMaterial PSIBLADE_MATERIAL = EnumHelper.addToolMaterial("PSIBLADE", 0, 150, 9.5F, 4.0F, 0);
+	public static final ToolMaterial SOLARITEREAPER_MATERIAL = EnumHelper.addToolMaterial("SOLARITEREAPER", 0, 150, 9.5F, 0.0F, 0);
 	public static final ToolMaterial STEEL_MATERIAL = EnumHelper.addToolMaterial("STEEL", 2, 753, 6.5F, 3.0F, 10);
 	public static final ToolMaterial TITANIUM_MATERIAL = EnumHelper.addToolMaterial("TITANIUM", 2, 502, 5.5F, 2.0F, 10);
 	public static final ToolMaterial WARPBLADE_MATERIAL = EnumHelper.addToolMaterial("WARPBLADE", 0, 250, 9.5F, 18.5F, 0);

@@ -2,8 +2,6 @@ package com.ocelot.api.utils;
 
 import java.util.BitSet;
 
-import org.lwjgl.BufferUtils;
-
 public class RandomHalton {
 
 	BitSet haltonGrid = new BitSet();

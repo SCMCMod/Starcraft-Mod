@@ -1,7 +1,6 @@
 package com.hypeirochus.scmc.blocks.items;
 
 import com.hypeirochus.scmc.blocks.BlockStarcraftSkull;
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.tileentity.TileEntityStarcraftSkull;
 

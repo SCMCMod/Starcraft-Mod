@@ -2,7 +2,6 @@ package com.hypeirochus.scmc.items;
 
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler;
-import com.hypeirochus.scmc.enums.MetaHandler.DustType;
 import com.hypeirochus.scmc.enums.MetaHandler.IngotType;
 
 import net.minecraft.creativetab.CreativeTabs;

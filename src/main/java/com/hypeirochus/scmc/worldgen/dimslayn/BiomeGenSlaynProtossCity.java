@@ -4,7 +4,6 @@ import java.util.Random;
 
 import com.hypeirochus.scmc.handlers.BiomeHandler;
 import com.hypeirochus.scmc.handlers.BlockHandler;
-import com.hypeirochus.scmc.handlers.BlockHandler;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.world.World;

@@ -2,8 +2,6 @@ package com.hypeirochus.scmc.items;
 
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler;
-import com.hypeirochus.scmc.enums.MetaHandler.MineralType;
-import com.hypeirochus.scmc.enums.MetaHandler.TerrazineType;
 import com.hypeirochus.scmc.enums.MetaHandler.TerrazineType;
 
 import net.minecraft.creativetab.CreativeTabs;

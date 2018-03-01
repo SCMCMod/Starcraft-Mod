@@ -9,7 +9,6 @@ import com.hypeirochus.scmc.items.weapons.WeaponWarpBlade;
 import com.hypeirochus.scmc.material.WeaponMaterials;
 
 import net.minecraft.item.Item;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /**
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>

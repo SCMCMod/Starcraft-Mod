@@ -1,7 +1,6 @@
 package com.hypeirochus.scmc.blocks;
 
 import java.util.Arrays;
-import java.util.List;
 
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;

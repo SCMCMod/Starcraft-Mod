@@ -1,12 +1,8 @@
 package com.hypeirochus.scmc.items;
 
-import java.awt.Container;
-
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.enums.MetaHandler.ContainerType;
-import com.hypeirochus.scmc.enums.MetaHandler.MineralType;
-import com.hypeirochus.scmc.enums.MetaHandler.VespeneType;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;

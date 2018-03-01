@@ -4,7 +4,6 @@ import com.hypeirochus.scmc.material.FluidMaterials;
 
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 /**
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>

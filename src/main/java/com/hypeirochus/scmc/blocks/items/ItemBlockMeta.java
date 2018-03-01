@@ -1,7 +1,5 @@
 package com.hypeirochus.scmc.blocks.items;
 
-import com.hypeirochus.scmc.items.IMetaRenderHandler;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;

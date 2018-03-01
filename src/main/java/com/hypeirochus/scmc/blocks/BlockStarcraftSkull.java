@@ -8,7 +8,6 @@ import javax.annotation.Nullable;
 
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 import com.hypeirochus.scmc.handlers.BlockHandler;
-import com.hypeirochus.scmc.items.IMetaRenderHandler;
 import com.hypeirochus.scmc.tileentity.TileEntityStarcraftSkull;
 
 import net.minecraft.block.BlockContainer;

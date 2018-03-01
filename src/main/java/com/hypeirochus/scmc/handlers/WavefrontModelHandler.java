@@ -1,7 +1,6 @@
 package com.hypeirochus.scmc.handlers;
 
 import com.hypeirochus.scmc.Starcraft;
-import com.hypeirochus.scmc.lib.Library;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;

@@ -6,8 +6,8 @@ import com.google.common.base.Predicate;
 import com.hypeirochus.api.world.entity.ItemDrop;
 import com.hypeirochus.scmc.enums.EnumColors;
 import com.hypeirochus.scmc.enums.EnumFactionTypes;
-import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.enums.EnumTypeAttributes;
+import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
 import com.hypeirochus.scmc.handlers.SoundHandler;
 

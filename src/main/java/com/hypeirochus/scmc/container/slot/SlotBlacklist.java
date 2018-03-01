@@ -1,7 +1,5 @@
 package com.hypeirochus.scmc.container.slot;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

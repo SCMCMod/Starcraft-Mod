@@ -6,7 +6,6 @@ package com.hypeirochus.scmc.worldgen.structure;
 import java.util.Random;
 
 import com.hypeirochus.scmc.handlers.BlockHandler;
-import com.hypeirochus.scmc.handlers.BlockHandler;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

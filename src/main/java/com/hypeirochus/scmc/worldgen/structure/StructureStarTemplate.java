@@ -4,7 +4,6 @@ import java.util.Random;
 
 import com.hypeirochus.scmc.blocks.metablocks.BlockStarSurface;
 import com.hypeirochus.scmc.handlers.BlockHandler;
-import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.tileentity.TileEntitySolarCore;
 
 import net.minecraft.block.state.IBlockState;

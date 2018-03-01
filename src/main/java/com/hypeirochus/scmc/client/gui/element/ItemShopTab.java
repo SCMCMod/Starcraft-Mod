@@ -5,7 +5,6 @@ import java.io.IOException;
 import com.google.common.collect.ImmutableList;
 import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.client.gui.GuiLists.Product;
-import com.hypeirochus.scmc.lib.Library;
 import com.ocelot.api.utils.GuiUtils;
 import com.ocelot.api.utils.SoundUtils;
 import com.ocelot.api.utils.TextureUtils;
