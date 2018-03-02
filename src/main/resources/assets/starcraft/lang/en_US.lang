@@ -491,7 +491,7 @@ item.protoss.blade.warp.aiur.name=Khalai Psi Blade
 item.protoss.blade.warp.dark.name=Dark Warp Blade
 item.protoss.blade.master.name=Master Psi Blade
 
-item.solariteReaper.name=Solarite Reaper
+item.protoss.weapon.solaritereaper.name=Solarite Reaper
 
 item.protoss.khaydarincrystal.pure.name=Pure Khaydarin Crystal
 item.protoss.khaydarincrystal.dark.name=Dark Khaydarin Crystal
@@ -660,22 +660,7 @@ item.energy.pure.name=Khala Energy
 item.energy.corrupted.name=Nerazim Energy
 item.energy.void.name=Void Energy
 
-item.pledge.purple.name=Team Purple Pledge
-item.pledge.brown.name=Team Brown Pledge
-item.pledge.pink.name=Team Pink Pledge
-item.pledge.blue.name=Team Blue Pledge
-item.pledge.cyan.name=Team Cyan Pledge
-item.pledge.gray.name=Team Gray Pledge
-item.pledge.green.name=Team Green Pledge
-item.pledge.lightblue.name=Team Light Blue Pledge
-item.pledge.lime.name=Team Lime Pledge
-item.pledge.magenta.name=Team Magenta Pledge
-item.pledge.orange.name=Team Orange Pledge
-item.pledge.red.name=Team Red Pledge
-item.pledge.silver.name=Team Silver Pledge
-item.pledge.white.name=Team White Pledge
-item.pledge.yellow.name=Team Yellow Pledge
-item.pledge.black.name=Team Black Pledge
+item.pledge.name=Team Pledge
 
 item.icon.protoss.name=Protoss
 item.icon.terran.name=Terran
@@ -715,56 +700,56 @@ tile.zerus.portal.name=Aiur Portal
 
 ### Entities ###
 #############################################################################################
-entity.starcraft.larva.name=Larva
-entity.starcraft.larvaCocoon.name=Larva Cocoon
-entity.starcraft.broodling.name=Broodling
-entity.starcraft.zerglingSC2.name=Zergling
-entity.starcraft.zerglingRaptor.name=Zergling (Raptor Strain)
-entity.starcraft.zerglingSwarmling.name=Zergling (Swarmling Strain)
-entity.starcraft.zerglingBoost.name=Zergling (Metabolic Boost)
-entity.starcraft.infestedCivilian.name=Infested Civilian
-entity.starcraft.brutalisk.name=Brutalisk
-entity.starcraft.hydralisk.name=Hydralisk
-entity.starcraft.mutalisk.name=Mutalisk
-entity.starcraft.mutaliskBroodlord.name=Mutalisk (Broodlord Strain)
-entity.starcraft.mutaliskViper.name=Mutalisk (Viper Strain)
+entity.larva.name=Larva
+entity.larvaCocoon.name=Larva Cocoon
+entity.broodling.name=Broodling
+entity.zerglingSC2.name=Zergling
+entity.zerglingRaptor.name=Zergling (Raptor Strain)
+entity.zerglingSwarmling.name=Zergling (Swarmling Strain)
+entity.zerglingBoost.name=Zergling (Metabolic Boost)
+entity.infestedCivilian.name=Infested Civilian
+entity.brutalisk.name=Brutalisk
+entity.hydralisk.name=Hydralisk
+entity.mutalisk.name=Mutalisk
+entity.mutaliskBroodlord.name=Mutalisk (Broodlord Strain)
+entity.mutaliskViper.name=Mutalisk (Viper Strain)
 
-entity.starcraft.queen.name=Queen
-entity.starcraft.nafash.name=Nafash
+entity.queen.name=Queen
+entity.nafash.name=Nafash
 
-entity.starcraft.mutaliskPrimal.name=Primal Mutalisk
-entity.starcraft.zerglingPrimal1.name=Primal Zergling
-entity.starcraft.zerglingPrimal2.name=Primal Zergling
-entity.starcraft.zerglingPrimal3.name=Primal Zergling
-entity.starcraft.hydraliskPrimal.name=Primal Hydralisk
-entity.starcraft.tyrannozor.name=Tyrannozor
-entity.starcraft.brakk.name=Brakk
+entity.mutaliskPrimal.name=Primal Mutalisk
+entity.zerglingPrimal1.name=Primal Zergling
+entity.zerglingPrimal2.name=Primal Zergling
+entity.zerglingPrimal3.name=Primal Zergling
+entity.hydraliskPrimal.name=Primal Hydralisk
+entity.tyrannozor.name=Tyrannozor
+entity.brakk.name=Brakk
 
-entity.starcraft.zerglingPrimalDehaka.name=Primal Zergling (Dehaka)
-entity.starcraft.zerglingPrimalDehakaBoost.name=Primal Zergling (Metabolic Boost, Dehaka)
-entity.starcraft.mutaliskPrimalDehaka.name=Primal Mutalisk (Dehaka)
-entity.starcraft.hydraliskPrimalDehaka.name=Primal Hydralisk (Dehaka)
-entity.starcraft.tyrannozorDehaka.name=Tyrannozor (Dehaka)
+entity.zerglingPrimalDehaka.name=Primal Zergling (Dehaka)
+entity.zerglingPrimalDehakaBoost.name=Primal Zergling (Metabolic Boost, Dehaka)
+entity.mutaliskPrimalDehaka.name=Primal Mutalisk (Dehaka)
+entity.hydraliskPrimalDehaka.name=Primal Hydralisk (Dehaka)
+entity.tyrannozorDehaka.name=Tyrannozor (Dehaka)
 
-entity.starcraft.probe.name=Probe
-entity.starcraft.darkProbe.name=Dark Probe
-entity.starcraft.voidProbe.name=Void Probe
-entity.starcraft.darkTemplar.name=Dark Templar
-entity.starcraft.zealot.name=Zealot
-entity.starcraft.protossReaver.name=Reaver
-entity.starcraft.scarab.name=Scarab
-entity.starcraft.zeratul.name=Zeratul
+entity.probe.name=Probe
+entity.darkProbe.name=Dark Probe
+entity.voidProbe.name=Void Probe
+entity.darkTemplar.name=Dark Templar
+entity.zealot.name=Zealot
+entity.protossReaver.name=Reaver
+entity.scarab.name=Scarab
+entity.zeratul.name=Zeratul
 
-entity.starcraft.civilian.name=Civilian
-entity.starcraft.predator.name=Predator
-entity.starcraft.marine.name=Marine
-entity.starcraft.jimRaynor.name=Jim Raynor
+entity.civilian.name=Civilian
+entity.predator.name=Predator
+entity.marine.name=Marine
+entity.jimRaynor.name=Jim Raynor
 
-entity.starcraft.kakaru.name=Kakaru
-entity.starcraft.tastelope.name=Tastelope
-entity.starcraft.artosilope.name=Artosilope
-entity.starcraft.ursadon.name=Ursadon
-entity.starcraft.ursadonMatriarch.name=Ursadon Matriarch
+entity.kakaru.name=Kakaru
+entity.tastelope.name=Tastelope
+entity.artosilope.name=Artosilope
+entity.ursadon.name=Ursadon
+entity.ursadonMatriarch.name=Ursadon Matriarch
 #############################################################################################
 
 
@@ -822,62 +807,62 @@ gui.buy=Buy
 advancements.pageStarcraft=Starcraft
 advancements.pageStarcraft.desc=The Void hungers! Prepare for epic conquest, as three races battle each other to the death! Choose your side, conquer the universe... all while a horrible evil stirs in The Void...
 
-advancements.starcraft.mineMinerals.title=Ooo, Shiny!
-advancements.starcraft.mineMinerals.desc=Get Mineral Shards!
+advancements.mineMinerals.title=Ooo, Shiny!
+advancements.mineMinerals.desc=Get Mineral Shards!
 
-advancements.starcraft.mineRichMinerals.title=Shinier!
-advancements.starcraft.mineRichMinerals.desc=Get Rich Mineral Shards!
+advancements.mineRichMinerals.title=Shinier!
+advancements.mineRichMinerals.desc=Get Rich Mineral Shards!
 
-advancements.starcraft.mineVespene.title=Vespene Geyser Depleted!
-advancements.starcraft.mineVespene.desc=Obtain Vespene!
+advancements.mineVespene.title=Vespene Geyser Depleted!
+advancements.mineVespene.desc=Obtain Vespene!
 
-advancements.starcraft.mineTerrazine.title=More Power!
-advancements.starcraft.mineTerrazine.desc=Obtain Terrazine!
+advancements.mineTerrazine.title=More Power!
+advancements.mineTerrazine.desc=Obtain Terrazine!
                           
-advancements.starcraft.getC14GaussRifle.title=Hell, It's About Time!
-advancements.starcraft.getC14GaussRifle.desc=Obtain a C14 Gauss Rifle!
+advancements.getC14GaussRifle.title=Hell, It's About Time!
+advancements.getC14GaussRifle.desc=Obtain a C14 Gauss Rifle!
 
-advancements.starcraft.getFlamethrower.title=Let's Burn!
-advancements.starcraft.getFlamethrower.desc=Obtain a Flamethrower!
+advancements.getFlamethrower.title=Let's Burn!
+advancements.getFlamethrower.desc=Obtain a Flamethrower!
 
-advancements.starcraft.getPsiBladeFocuser.title=Embrace Purity
-advancements.starcraft.getPsiBladeFocuser.desc=Obtain a Psi Blade Focuser!
+advancements.getPsiBladeFocuser.title=Embrace Purity
+advancements.getPsiBladeFocuser.desc=Obtain a Psi Blade Focuser!
 
-advancements.starcraft.getPsiBladeFocuserDark.title=Embrace Corruption
-advancements.starcraft.getPsiBladeFocuserDark.desc=Obtain a Psi Blade Focuser (dark)!
+advancements.getPsiBladeFocuserDark.title=Embrace Corruption
+advancements.getPsiBladeFocuserDark.desc=Obtain a Psi Blade Focuser (dark)!
 
-advancements.starcraft.getPsiBlade.title=My Life for Aiur!
-advancements.starcraft.getPsiBlade.desc=Obtain a Psi Blade!
+advancements.getPsiBlade.title=My Life for Aiur!
+advancements.getPsiBlade.desc=Obtain a Psi Blade!
 
-advancements.starcraft.getPsiBladeDark.title=Amon's Will
-advancements.starcraft.getPsiBladeDark.desc=Obtain a Bane Blade!
+advancements.getPsiBladeDark.title=Amon's Will
+advancements.getPsiBladeDark.desc=Obtain a Bane Blade!
 
-advancements.starcraft.getWarpBlade.title=For Shakuras!
-advancements.starcraft.getWarpBlade.desc=Obtain a Warp Blade!
+advancements.getWarpBlade.title=For Shakuras!
+advancements.getWarpBlade.desc=Obtain a Warp Blade!
 
-advancements.starcraft.getMasterPsiBlade.title=En Taro Zeratul...
-advancements.starcraft.getMasterPsiBlade.desc=Obtain Zeratul's Master Psi Blade!
+advancements.getMasterPsiBlade.title=En Taro Zeratul...
+advancements.getMasterPsiBlade.desc=Obtain Zeratul's Master Psi Blade!
 
-advancements.starcraft.enterChar.title=The Devil's Nest
-advancements.starcraft.enterChar.desc=Arrive on Char!
+advancements.enterChar.title=The Devil's Nest
+advancements.enterChar.desc=Arrive on Char!
 
-advancements.starcraft.enterKaldir.title=As Cold As Ice
-advancements.starcraft.enterKaldir.desc=Arrive on Kaldir!
+advancements.enterKaldir.title=As Cold As Ice
+advancements.enterKaldir.desc=Arrive on Kaldir!
 
-advancements.starcraft.enterKorhal.title=Remember Korhal!
-advancements.starcraft.enterKorhal.desc=Arrive on Korhal!
+advancements.enterKorhal.title=Remember Korhal!
+advancements.enterKorhal.desc=Arrive on Korhal!
 
-advancements.starcraft.enterShakuras.title=We Linger, In Twilight
-advancements.starcraft.enterShakuras.desc=Arrive on Shakuras!
+advancements.enterShakuras.title=We Linger, In Twilight
+advancements.enterShakuras.desc=Arrive on Shakuras!
 
-advancements.starcraft.enterSlayn.title=The Forged
-advancements.starcraft.enterShakuras.desc=Arrive on Slayn!
+advancements.enterSlayn.title=The Forged
+advancements.enterShakuras.desc=Arrive on Slayn!
 
-advancements.starcraft.enterAiur.title=A Beacon Of Progress
-advancements.starcraft.enterAiur.desc=Arrive on Aiur!
+advancements.enterAiur.title=A Beacon Of Progress
+advancements.enterAiur.desc=Arrive on Aiur!
 
-advancements.starcraft.enterZerus.title=Primordial Soup
-advancements.starcraft.enterShakuras.desc=Arrive on Zerus!
+advancements.enterZerus.title=Primordial Soup
+advancements.enterShakuras.desc=Arrive on Zerus!
 #############################################################################################
 
 

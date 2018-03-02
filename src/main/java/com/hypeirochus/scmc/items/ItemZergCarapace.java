@@ -43,6 +43,6 @@ public class ItemZergCarapace extends StarcraftItem implements IMetaRenderHandle
 
 	@Override
 	public String getName(int meta) {
-		return "zerg.carapace." + CarapaceType.values()[meta].getName();
+		return "zerg.icarapace." + CarapaceType.values()[meta].getName();
 	}
 }
