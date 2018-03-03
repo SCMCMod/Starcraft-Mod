@@ -272,10 +272,6 @@ public class BlockHandler {
 		items = new ArrayList<ItemBlock>();
 		MaterialHandler.init();
 
-		if (AccessHandler.isDevEnvironment()) {
-			Starcraft.logger().info("Registering blocks");
-		}
-
 		instantiate();
 
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {

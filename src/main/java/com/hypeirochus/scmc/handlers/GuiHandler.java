@@ -89,7 +89,7 @@ public class GuiHandler implements IGuiHandler {
 		if (ID == LARVA_PROGRESS_ID)
 			return new GuiLarvaProgress();
 		if (ID == LOG)
-			return new GuiLog(Starcraft.getLogRegistry().getRegisteredLog(x));
+			return new GuiLog(Starcraft.logRegistry().getRegisteredLog(x));
 		if (ID == PLAYER_MESSAGE)
 			return new GuiPlayerMessage(EnumPlayerMessageType.values()[x & EnumPlayerMessageType.values().length - 1]);
 		if (ID == CHAR_FURNACE)

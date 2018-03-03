@@ -46,10 +46,7 @@ public class ItemC14GaussRifle extends ItemGun {
 
 		if (world.isRemote) {
 			Minecraft.getMinecraft().addScheduledTask(() -> {
-				for (int i = 0; i < this.getGunRange(heldItem); i++) {
-					i *= 2;
-					world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, entity.posX + i * look.x, entity.posY + entity.getEyeHeight() + i * look.y, entity.posZ + i * look.z, 0, 0, 0, new int[0]);
-				}
+				world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, entity.posX + look.x * 0.5, entity.posY + entity.getEyeHeight() + look.y * 0.5, entity.posZ + look.z * 0.5, 0, 0, 0, new int[0]);
 			});
 		}
 	}

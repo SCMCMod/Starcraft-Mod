@@ -116,7 +116,7 @@ public class Starcraft {
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 			RenderHandler.init(event);
 			MinecraftForge.EVENT_BUS.register(new GuiRenderEventHandler());
-			getLogRegistry().init(event);
+			logRegistry().init(event);
 		}
 
 		if (AccessHandler.isDevEnvironment()) {
@@ -144,7 +144,7 @@ public class Starcraft {
 		return logger;
 	}
 
-	public static LogRegistry getLogRegistry() {
+	public static LogRegistry logRegistry() {
 		if (logRegistry == null)
 			logRegistry = new LogRegistry();
 		return logRegistry;
