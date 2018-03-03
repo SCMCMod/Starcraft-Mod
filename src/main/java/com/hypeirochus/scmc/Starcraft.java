@@ -1,6 +1,5 @@
 package com.hypeirochus.scmc;
 
-import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.hypeirochus.scmc.capabilities.CapabilityHandler;
@@ -14,6 +13,7 @@ import com.hypeirochus.scmc.command.CommandDimension;
 import com.hypeirochus.scmc.config.StarcraftConfig;
 import com.hypeirochus.scmc.events.GuiRenderEventHandler;
 import com.hypeirochus.scmc.events.StarcraftEventHandler;
+import com.hypeirochus.scmc.handlers.AccessHandler;
 import com.hypeirochus.scmc.handlers.EntityHandler;
 import com.hypeirochus.scmc.handlers.GuiHandler;
 import com.hypeirochus.scmc.handlers.KeybindingHandler;
@@ -27,6 +27,7 @@ import com.hypeirochus.scmc.recipes.OreDictionaryHandler;
 import com.hypeirochus.scmc.recipes.SmeltingRecipes;
 import com.hypeirochus.scmc.registry.Registry;
 
+import net.minecraft.init.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -92,6 +93,10 @@ public class Starcraft {
 			WavefrontModelHandler.pre(event);
 			KeybindingHandler.pre(event);
 		}
+
+		if (AccessHandler.isDevEnvironment()) {
+			logger.info("Pre Initialized");
+		}
 	}
 
 	/** Initialization **/
@@ -113,12 +118,20 @@ public class Starcraft {
 			MinecraftForge.EVENT_BUS.register(new GuiRenderEventHandler());
 			getLogRegistry().init(event);
 		}
+
+		if (AccessHandler.isDevEnvironment()) {
+			logger.info("Initialized");
+		}
 	}
 
 	/** Post Initialization **/
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+		}
+
+		if (AccessHandler.isDevEnvironment()) {
+			logger.info("Post Initialized");
 		}
 	}
 
@@ -128,8 +141,6 @@ public class Starcraft {
 	}
 
 	public static Logger logger() {
-		if (logger == null)
-			logger = LogManager.getLogger(MOD_ID);
 		return logger;
 	}
 
