@@ -1,13 +1,11 @@
 package com.hypeirochus.scmc.entity.living;
 
 import com.hypeirochus.api.client.entityfx.EntityFXElectricArc;
-import com.hypeirochus.api.world.entity.ItemDrop;
 import com.hypeirochus.scmc.enums.EnumColors;
 import com.hypeirochus.scmc.enums.EnumFactionTypes;
 import com.hypeirochus.scmc.enums.EnumTypeAttributes;
-import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.handlers.AccessHandler;
-import com.hypeirochus.scmc.handlers.ItemHandler;
+import com.hypeirochus.scmc.handlers.LootTableHandler;
 import com.hypeirochus.scmc.handlers.SoundHandler;
 
 import net.minecraft.entity.EntityAgeable;
@@ -19,8 +17,8 @@ import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -28,8 +26,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EntityDarkProbe extends EntityProtossPassive {
 
-	public float	offsetHealth;
-	public int		timeSinceHurt;
+	public float offsetHealth;
+	public int timeSinceHurt;
 
 	public EntityDarkProbe(World world) {
 		super(world);
@@ -79,9 +77,8 @@ public class EntityDarkProbe extends EntityProtossPassive {
 	}
 
 	@Override
-	protected void dropFewItems(boolean recentlyHit, int looting) {
-		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.PROTOSS_INGOT, 1 + this.rand.nextInt(2), MetaHandler.ProtossIngotType.DARK.getID()));
-		drop.tryDrop(this);
+	protected ResourceLocation getLootTable() {
+		return LootTableHandler.ENTITY_PROBE_DARK;
 	}
 
 	@Override

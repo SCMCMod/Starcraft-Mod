@@ -1,0 +1,28 @@
+{
+    "pools": [
+        {
+			"name": "probe_void",
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "starcraft:protoss.ingot",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+								"min": 1,
+								"max": 3
+							}
+                        },
+                        {
+                            "function": "set_data",
+                            "data": 1
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
