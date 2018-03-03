@@ -1,7 +1,7 @@
 package com.hypeirochus.scmc.worldgen.dimshakuras;
 
+import com.hypeirochus.scmc.config.StarcraftConfig;
 import com.hypeirochus.scmc.handlers.DimensionHandler;
-import com.hypeirochus.scmc.lib.FactorySettings;
 
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
@@ -71,7 +71,7 @@ public class WorldProviderShakuras extends WorldProvider {
 	 */
 	@Override
 	public int getRespawnDimension(net.minecraft.entity.player.EntityPlayerMP player) {
-		return FactorySettings.INT_DIMENSION_SHAKURAS;
+		return StarcraftConfig.INT_DIMENSION_SHAKURAS;
 	}
 
 	@Override

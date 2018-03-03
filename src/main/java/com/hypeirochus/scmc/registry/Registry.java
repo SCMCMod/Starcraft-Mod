@@ -3,6 +3,7 @@ package com.hypeirochus.scmc.registry;
 import static com.hypeirochus.scmc.handlers.RenderHandler.registerItemRender;
 
 import com.hypeirochus.scmc.Starcraft;
+import com.hypeirochus.scmc.handlers.AccessHandler;
 import com.hypeirochus.scmc.handlers.BiomeHandler;
 import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
@@ -24,18 +25,26 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class Registry {
 
 	public Registry() {
-		Starcraft.logger().info("Registry initialized");
+		if (AccessHandler.isDevEnvironment()) {
+			Starcraft.logger().info("Registry created");
+		}
 	}
 
 	@SubscribeEvent
 	public void registerItems(RegistryEvent.Register<Item> event) {
 		event.getRegistry().registerAll(ItemHandler.getItems());
 		event.getRegistry().registerAll(BlockHandler.getItems());
+		if (AccessHandler.isDevEnvironment()) {
+			Starcraft.logger().info("Registered Items");
+		}
 	}
 
 	@SubscribeEvent
 	public void registerBlocks(RegistryEvent.Register<Block> event) {
 		event.getRegistry().registerAll(BlockHandler.getBlocks());
+		if (AccessHandler.isDevEnvironment()) {
+			Starcraft.logger().info("Registered Blocks");
+		}
 	}
 
 	@SubscribeEvent
@@ -46,12 +55,18 @@ public class Registry {
 				registerItemRender(item);
 			}
 		}
+		if (AccessHandler.isDevEnvironment()) {
+			Starcraft.logger().info("Registered Item Models");
+		}
 
 		RenderHandler.registerBlockMetaRenders();
 		for (ItemBlock item : BlockHandler.getItems()) {
 			if (item != null && !item.getHasSubtypes()) {
 				registerItemRender(item);
 			}
+		}
+		if (AccessHandler.isDevEnvironment()) {
+			Starcraft.logger().info("Registered Block Models");
 		}
 
 		// ModTools.TOOLS.forEach(ModelHandler::registerModel);
@@ -60,6 +75,9 @@ public class Registry {
 	@SubscribeEvent
 	public void registerRecipes(RegistryEvent.Register<IRecipe> event) {
 		event.getRegistry().registerAll(CustomRecipes.getRecipes());
+		if (AccessHandler.isDevEnvironment()) {
+			Starcraft.logger().info("Registered Recipes");
+		}
 	}
 
 	@SubscribeEvent
@@ -68,6 +86,10 @@ public class Registry {
 
 		for (Biome biome : BiomeHandler.getBiomes()) {
 			BiomeDictionary.addTypes(biome, BiomeDictionary.Type.VOID);
+		}
+
+		if (AccessHandler.isDevEnvironment()) {
+			Starcraft.logger().info("Registered Biomes");
 		}
 	}
 }

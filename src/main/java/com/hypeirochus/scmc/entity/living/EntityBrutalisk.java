@@ -7,6 +7,7 @@ import com.hypeirochus.scmc.enums.EnumFactionTypes;
 import com.hypeirochus.scmc.enums.EnumTypeAttributes;
 import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
+import com.hypeirochus.scmc.handlers.LootTableHandler;
 import com.hypeirochus.scmc.handlers.SoundHandler;
 
 import net.minecraft.block.Block;
@@ -24,6 +25,7 @@ import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -52,8 +54,7 @@ public class EntityBrutalisk extends EntityZergMob implements IMob, Predicate<En
 	}
 
 	/**
-	 * The method where this entity handles checks to make sure it can attack the
-	 * target.
+	 * The method where this entity handles checks to make sure it can attack the target.
 	 */
 	@Override
 	public boolean apply(EntityLivingBase entity) {
@@ -77,18 +78,9 @@ public class EntityBrutalisk extends EntityZergMob implements IMob, Predicate<En
 		return false;
 	}
 
-	/**
-	 * Drop up to 2 items when killed
-	 * 
-	 * @param damagedByPlayer
-	 *            true if the most recent damage was dealt by a player
-	 * @param lootingLevel
-	 *            level of Looting on kill weapon
-	 */
 	@Override
-	protected void dropFewItems(boolean recentlyHit, int looting) {
-		ItemDrop drop = new ItemDrop(100, new ItemStack(ItemHandler.ZERG_CARAPACE, 3 + this.rand.nextInt(3), MetaHandler.CarapaceType.T3.getID()));
-		drop.tryDrop(this);
+	protected ResourceLocation getLootTable() {
+		return LootTableHandler.ENTITY_BRUTALISK;
 	}
 
 	@Override

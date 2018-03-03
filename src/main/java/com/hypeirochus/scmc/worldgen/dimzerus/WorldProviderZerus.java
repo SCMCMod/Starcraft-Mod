@@ -1,7 +1,7 @@
 package com.hypeirochus.scmc.worldgen.dimzerus;
 
+import com.hypeirochus.scmc.config.StarcraftConfig;
 import com.hypeirochus.scmc.handlers.DimensionHandler;
-import com.hypeirochus.scmc.lib.FactorySettings;
 
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
@@ -56,6 +56,6 @@ public class WorldProviderZerus extends WorldProvider {
 	 */
 	@Override
 	public int getRespawnDimension(net.minecraft.entity.player.EntityPlayerMP player) {
-		return FactorySettings.INT_DIMENSION_ZERUS;
+		return StarcraftConfig.INT_DIMENSION_ZERUS;
 	}
 }

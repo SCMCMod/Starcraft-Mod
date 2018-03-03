@@ -42,7 +42,7 @@ public class BlockKhaydarinCrystal extends StarcraftBlock implements IMetaBlockN
 	 */
 	public BlockKhaydarinCrystal() {
 		super("protoss.pyloncrystal", RegistryType.META, Material.ROCK);
-		setSoundType(SoundType.STONE);
+		setSoundType(SoundType.GLASS);
 		setHardness(10.0F);
 		setResistance(10.0F);
 		setLightLevel(4.0F);

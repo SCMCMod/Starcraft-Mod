@@ -8,7 +8,6 @@ import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.config.category.CategoryEntryDimensionIds;
 import com.hypeirochus.scmc.config.category.CategoryEntryGeneral;
 import com.hypeirochus.scmc.config.category.CategoryEntryMobSpawning;
-import com.hypeirochus.scmc.lib.FactorySettings;
 
 import net.minecraft.client.resources.I18n;
 import net.minecraftforge.common.MinecraftForge;
@@ -40,6 +39,21 @@ public class StarcraftConfig {
 	public static final String CATEGORY_NAME_DIMENSION_IDS = registerCategory(new Category("dimension.ids", CategoryEntryDimensionIds.class));
 	public static final String CATEGORY_NAME_MOB_OPTIONS = registerCategory(new Category("mob.options", CategoryEntryMobSpawning.class));
 
+	public static int INT_DIMENSION_CHAR = 2;
+	public static int INT_DIMENSION_SHAKURAS = 3;
+	public static int INT_DIMENSION_SLAYN = 4;
+	public static int INT_DIMENSION_KORHAL = 5;
+	public static int INT_DIMENSION_KALDIR = 6;
+	public static int INT_DIMENSION_AIUR = 7;
+	public static int INT_DIMENSION_ZERUS = 8;
+	public static int INT_DIMENSION_SPACE = 9;
+
+	public static boolean BOOL_VANILLA_MOB_SPAWNING_DISABLED = false;
+	public static boolean BOOL_IS_DARK_TEMPLAR_VISIBLE = false;
+	public static boolean BOOL_CREEP_CAN_SPREAD = true;
+
+	public static int INT_CREEP_SPREAD_BASE_VALUE = 1;
+
 	public static void pre(FMLPreInitializationEvent event) {
 		File configFile = new File(Loader.instance().getConfigDir(), "Starcraft.cfg");
 		config = new Configuration(configFile);
@@ -67,56 +81,56 @@ public class StarcraftConfig {
 			config.load();
 		}
 
-		Property propertyCreepCanSpread = config.get(CATEGORY_NAME_GENERAL, "block.creep.spread", true);
+		Property propertyCreepCanSpread = config.get(CATEGORY_NAME_GENERAL, "block.creep.spread", FactorySettings.BOOL_CREEP_CAN_SPREAD);
 		propertyCreepCanSpread.setLanguageKey("gui.starcraft.config.block.creep.spread.name");
 		propertyCreepCanSpread.setComment(I18n.format("gui.starcraft.config.block.creep.spread.comment"));
 
-		Property propertyCreepSpreadBaseValue = config.get(CATEGORY_NAME_GENERAL, "block.creep.spread.base", 1);
+		Property propertyCreepSpreadBaseValue = config.get(CATEGORY_NAME_GENERAL, "block.creep.spread.base", FactorySettings.INT_CREEP_SPREAD_BASE_VALUE);
 		propertyCreepSpreadBaseValue.setLanguageKey("gui.starcraft.config.block.creep.spread.base.name");
 		propertyCreepSpreadBaseValue.setComment(I18n.format("gui.starcraft.config.block.creep.spread.base.comment"));
 		propertyCreepSpreadBaseValue.setMinValue(0);
 		propertyCreepSpreadBaseValue.setMaxValue(16);
 
-		Property propertyDimIdChar = config.get(CATEGORY_NAME_DIMENSION_IDS, "dimension.char.id", 2);
+		Property propertyDimIdChar = config.get(CATEGORY_NAME_DIMENSION_IDS, "dimension.char.id", FactorySettings.INT_DIMENSION_CHAR);
 		propertyDimIdChar.setLanguageKey("gui.starcraft.config.dimension.char.id.name");
 		propertyDimIdChar.setComment(I18n.format("gui.starcraft.config.dimension.char.id.comment"));
 
-		Property propertyDimIdShakuras = config.get(CATEGORY_NAME_DIMENSION_IDS, "dimension.shakuras.id", 3);
+		Property propertyDimIdShakuras = config.get(CATEGORY_NAME_DIMENSION_IDS, "dimension.shakuras.id", FactorySettings.INT_DIMENSION_SHAKURAS);
 		propertyDimIdShakuras.setLanguageKey("gui.starcraft.config.dimension.shakuras.id.name");
 		propertyDimIdShakuras.setComment(I18n.format("gui.starcraft.config.dimension.shakuras.id.comment"));
 
-		Property propertyDimIdSlayn = config.get(CATEGORY_NAME_DIMENSION_IDS, "dimension.slayn.id", 4);
+		Property propertyDimIdSlayn = config.get(CATEGORY_NAME_DIMENSION_IDS, "dimension.slayn.id", FactorySettings.INT_DIMENSION_SLAYN);
 		propertyDimIdSlayn.setLanguageKey("gui.starcraft.config.dimension.slayn.id.name");
 		propertyDimIdSlayn.setComment(I18n.format("gui.starcraft.config.dimension.slayn.id.comment"));
 
-		Property propertyDimIdKorhal = config.get(CATEGORY_NAME_DIMENSION_IDS, "dimension.korhal.id", 5);
+		Property propertyDimIdKorhal = config.get(CATEGORY_NAME_DIMENSION_IDS, "dimension.korhal.id", FactorySettings.INT_DIMENSION_KORHAL);
 		propertyDimIdKorhal.setLanguageKey("gui.starcraft.config.dimension.korhal.id.name");
 		propertyDimIdKorhal.setComment(I18n.format("gui.starcraft.config.dimension.korhal.id.comment"));
 
-		Property propertyDimIdKaldir = config.get(CATEGORY_NAME_DIMENSION_IDS, "dimension.kaldir.id", 6);
+		Property propertyDimIdKaldir = config.get(CATEGORY_NAME_DIMENSION_IDS, "dimension.kaldir.id", FactorySettings.INT_DIMENSION_KALDIR);
 		propertyDimIdKaldir.setLanguageKey("gui.starcraft.config.dimension.kaldir.id.name");
 		propertyDimIdKaldir.setComment(I18n.format("gui.starcraft.config.dimension.kaldir.id.comment"));
 
-		Property propertyDimIdAiur = config.get(CATEGORY_NAME_DIMENSION_IDS, "dimension.aiur.id", 7);
+		Property propertyDimIdAiur = config.get(CATEGORY_NAME_DIMENSION_IDS, "dimension.aiur.id", FactorySettings.INT_DIMENSION_AIUR);
 		propertyDimIdAiur.setLanguageKey("gui.starcraft.config.dimension.aiur.id.name");
 		propertyDimIdAiur.setComment(I18n.format("gui.starcraft.config.dimension.aiur.id.comment"));
 
-		Property propertyDimIdZerus = config.get(CATEGORY_NAME_DIMENSION_IDS, "dimension.zerus.id",8);
+		Property propertyDimIdZerus = config.get(CATEGORY_NAME_DIMENSION_IDS, "dimension.zerus.id", FactorySettings.INT_DIMENSION_ZERUS);
 		propertyDimIdZerus.setLanguageKey("gui.starcraft.config.dimension.zerus.id.name");
 		propertyDimIdZerus.setComment(I18n.format("gui.starcraft.config.dimension.zerus.id.comment"));
 
-		Property propertyDimIdSpace = config.get(CATEGORY_NAME_DIMENSION_IDS, "dimension.space.id", 9);
+		Property propertyDimIdSpace = config.get(CATEGORY_NAME_DIMENSION_IDS, "dimension.space.id", FactorySettings.INT_DIMENSION_SPACE);
 		propertyDimIdSpace.setLanguageKey("gui.starcraft.config.dimension.space.id.name");
 		propertyDimIdSpace.setComment(I18n.format("gui.starcraft.config.dimension.space.id.comment"));
 
-		Property propertyDisableVanillaMobSpawning = config.get(CATEGORY_NAME_MOB_OPTIONS, "vanilla.mob.spawn", false);
+		Property propertyDisableVanillaMobSpawning = config.get(CATEGORY_NAME_MOB_OPTIONS, "vanilla.mob.spawn", FactorySettings.BOOL_VANILLA_MOB_SPAWNING_DISABLED);
 		propertyDisableVanillaMobSpawning.setLanguageKey("gui.starcraft.config.vanilla.mob.spawn.name");
 		propertyDisableVanillaMobSpawning.setComment(I18n.format("gui.starcraft.config.vanilla.mob.spawn.comment"));
-		
-		Property propertyDarkTeplarVisible = config.get(CATEGORY_NAME_MOB_OPTIONS, "starcraft.templar.dark.visible", true);
+
+		Property propertyDarkTeplarVisible = config.get(CATEGORY_NAME_MOB_OPTIONS, "starcraft.templar.dark.visible", FactorySettings.BOOL_IS_DARK_TEMPLAR_VISIBLE);
 		propertyDarkTeplarVisible.setLanguageKey("gui.starcraft.config.starcraft.templar.dark.visible.name");
 		propertyDarkTeplarVisible.setComment(I18n.format("gui.starcraft.config.starcraft.templar.dark.visible.comment"));
-		
+
 		List<String> propertyOrderGeneral = new ArrayList<String>();
 		propertyOrderGeneral.add(propertyCreepCanSpread.getName());
 		propertyOrderGeneral.add(propertyCreepSpreadBaseValue.getName());
@@ -139,32 +153,32 @@ public class StarcraftConfig {
 		config.setCategoryPropertyOrder(CATEGORY_NAME_MOB_OPTIONS, propertyOrderMobOptions);
 
 		if (readFieldsFromConfig) {
-			FactorySettings.BOOL_CREEP_CAN_SPREAD = propertyCreepCanSpread.getBoolean();
-			FactorySettings.INT_CREEP_SPREAD_BASE_VALUE = propertyCreepSpreadBaseValue.getInt();
-			FactorySettings.INT_DIMENSION_CHAR = propertyDimIdChar.getInt();
-			FactorySettings.INT_DIMENSION_SHAKURAS = propertyDimIdShakuras.getInt();
-			FactorySettings.INT_DIMENSION_SLAYN = propertyDimIdSlayn.getInt();
-			FactorySettings.INT_DIMENSION_KORHAL = propertyDimIdKorhal.getInt();
-			FactorySettings.INT_DIMENSION_KALDIR = propertyDimIdKaldir.getInt();
-			FactorySettings.INT_DIMENSION_AIUR = propertyDimIdAiur.getInt();
-			FactorySettings.INT_DIMENSION_ZERUS = propertyDimIdZerus.getInt();
-			FactorySettings.INT_DIMENSION_SPACE = propertyDimIdSpace.getInt();
-			FactorySettings.BOOL_VANILLA_MOB_SPAWNING_DISABLED = propertyDisableVanillaMobSpawning.getBoolean();
-			FactorySettings.BOOL_IS_DARK_TEMPLAR_VISIBLE = propertyDarkTeplarVisible.getBoolean();
+			BOOL_CREEP_CAN_SPREAD = propertyCreepCanSpread.getBoolean();
+			INT_CREEP_SPREAD_BASE_VALUE = propertyCreepSpreadBaseValue.getInt();
+			INT_DIMENSION_CHAR = propertyDimIdChar.getInt();
+			INT_DIMENSION_SHAKURAS = propertyDimIdShakuras.getInt();
+			INT_DIMENSION_SLAYN = propertyDimIdSlayn.getInt();
+			INT_DIMENSION_KORHAL = propertyDimIdKorhal.getInt();
+			INT_DIMENSION_KALDIR = propertyDimIdKaldir.getInt();
+			INT_DIMENSION_AIUR = propertyDimIdAiur.getInt();
+			INT_DIMENSION_ZERUS = propertyDimIdZerus.getInt();
+			INT_DIMENSION_SPACE = propertyDimIdSpace.getInt();
+			BOOL_VANILLA_MOB_SPAWNING_DISABLED = propertyDisableVanillaMobSpawning.getBoolean();
+			BOOL_IS_DARK_TEMPLAR_VISIBLE = propertyDarkTeplarVisible.getBoolean();
 		}
 
-		propertyCreepCanSpread.set(FactorySettings.BOOL_CREEP_CAN_SPREAD);
-		propertyCreepSpreadBaseValue.set(FactorySettings.INT_CREEP_SPREAD_BASE_VALUE);
-		propertyDimIdChar.set(FactorySettings.INT_DIMENSION_CHAR);
-		propertyDimIdShakuras.set(FactorySettings.INT_DIMENSION_SHAKURAS);
-		propertyDimIdSlayn.set(FactorySettings.INT_DIMENSION_SLAYN);
-		propertyDimIdKorhal.set(FactorySettings.INT_DIMENSION_KORHAL);
-		propertyDimIdKaldir.set(FactorySettings.INT_DIMENSION_KALDIR);
-		propertyDimIdAiur.set(FactorySettings.INT_DIMENSION_AIUR);
-		propertyDimIdZerus.set(FactorySettings.INT_DIMENSION_ZERUS);
-		propertyDimIdSpace.set(FactorySettings.INT_DIMENSION_SPACE);
-		propertyDisableVanillaMobSpawning.set(FactorySettings.BOOL_VANILLA_MOB_SPAWNING_DISABLED);
-		propertyDarkTeplarVisible.set(FactorySettings.BOOL_IS_DARK_TEMPLAR_VISIBLE);
+		propertyCreepCanSpread.set(BOOL_CREEP_CAN_SPREAD);
+		propertyCreepSpreadBaseValue.set(INT_CREEP_SPREAD_BASE_VALUE);
+		propertyDimIdChar.set(INT_DIMENSION_CHAR);
+		propertyDimIdShakuras.set(INT_DIMENSION_SHAKURAS);
+		propertyDimIdSlayn.set(INT_DIMENSION_SLAYN);
+		propertyDimIdKorhal.set(INT_DIMENSION_KORHAL);
+		propertyDimIdKaldir.set(INT_DIMENSION_KALDIR);
+		propertyDimIdAiur.set(INT_DIMENSION_AIUR);
+		propertyDimIdZerus.set(INT_DIMENSION_ZERUS);
+		propertyDimIdSpace.set(INT_DIMENSION_SPACE);
+		propertyDisableVanillaMobSpawning.set(BOOL_VANILLA_MOB_SPAWNING_DISABLED);
+		propertyDarkTeplarVisible.set(BOOL_IS_DARK_TEMPLAR_VISIBLE);
 
 		if (config.hasChanged()) {
 			config.save();

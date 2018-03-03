@@ -20,8 +20,10 @@ import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.particle.ParticleManager;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -42,11 +44,8 @@ public class BlockStarcraftSkull extends BlockContainer {
 	public static final PropertyDirection FACING = BlockDirectional.FACING;
 	public static final PropertyBool NODROP = PropertyBool.create("nodrop");
 
-	protected static final AxisAlignedBB DEFAULT_AABB = new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 0.5D, 0.75D);
-	protected static final AxisAlignedBB NORTH_AABB = new AxisAlignedBB(0.25D, 0.25D, 0.5D, 0.75D, 0.75D, 1.0D);
-	protected static final AxisAlignedBB SOUTH_AABB = new AxisAlignedBB(0.25D, 0.25D, 0.0D, 0.75D, 0.75D, 0.5D);
-	protected static final AxisAlignedBB WEST_AABB = new AxisAlignedBB(0.5D, 0.25D, 0.25D, 1.0D, 0.75D, 0.75D);
-	protected static final AxisAlignedBB EAST_AABB = new AxisAlignedBB(0.0D, 0.25D, 0.25D, 0.5D, 0.75D, 0.75D);
+	public static final AxisAlignedBB DEFAULT_AABB = new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 0.5D, 0.75D);
+	public static final AxisAlignedBB[] BOXES = new AxisAlignedBB[] { new AxisAlignedBB(0.25D, 0.25D, 0.0D, 0.75D, 0.75D, 0.5D), new AxisAlignedBB(0.5D, 0.25D, 0.25D, 1.0D, 0.75D, 0.75D), new AxisAlignedBB(0.25D, 0.25D, 0.5D, 0.75D, 0.75D, 1.0D), new AxisAlignedBB(0.0D, 0.25D, 0.25D, 0.5D, 0.75D, 0.75D) };
 
 	public BlockStarcraftSkull() {
 		super(Material.CIRCUITS, MapColor.SNOW);
@@ -59,9 +58,6 @@ public class BlockStarcraftSkull extends BlockContainer {
 		setCreativeTab(StarcraftCreativeTabs.MISC);
 	}
 
-	/**
-	 * Used to determine ambient occlusion and culling when rebuilding chunks for render
-	 */
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
@@ -74,37 +70,17 @@ public class BlockStarcraftSkull extends BlockContainer {
 
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-		// switch ((EnumFacing) state.getValue(FACING)) {
-		// default:
-		// return DEFAULT_AABB;
-		// case NORTH:
-		// return NORTH_AABB;
-		// case SOUTH:
-		// return SOUTH_AABB;
-		// case WEST:
-		// return WEST_AABB;
-		// case EAST:
-		// return EAST_AABB;t
-		// }
 		EnumFacing facing = state.getValue(FACING);
-		AxisAlignedBB[] DEFAULT = new AxisAlignedBB[] { new AxisAlignedBB(0.25D, 0.25D, 0.0D, 0.75D, 0.75D, 0.5D), new AxisAlignedBB(0.5D, 0.25D, 0.25D, 1.0D, 0.75D, 0.75D), new AxisAlignedBB(0.25D, 0.25D, 0.5D, 0.75D, 0.75D, 1.0D), new AxisAlignedBB(0.0D, 0.25D, 0.25D, 0.5D, 0.75D, 0.75D) };
-		if (facing.getIndex() < 3) {
+		if (facing.getIndex() < 3)
 			return DEFAULT_AABB;
-		}
-		return DEFAULT[facing.getHorizontalIndex()];
+		return BOXES[facing.getHorizontalIndex()];
 	}
 
-	/**
-	 * Called by ItemBlocks just before a block is actually set in the world, to allow for adjustments to the IBlockstate
-	 */
 	@Override
 	public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
 		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing()).withProperty(NODROP, Boolean.valueOf(false));
 	}
 
-	/**
-	 * Returns a new instance of a block's tile entity class. Called on placing the block.
-	 */
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
 		return new TileEntityStarcraftSkull();
@@ -150,26 +126,17 @@ public class BlockStarcraftSkull extends BlockContainer {
 		return ret;
 	}
 
-	/**
-	 * Get the Item that this Block should drop when harvested.
-	 */
 	@Nullable
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
 		return Item.getItemFromBlock(BlockHandler.STARCRAFT_SKULL);
 	}
 
-	/**
-	 * Convert the given metadata into a BlockState for this Block
-	 */
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 		return this.getDefaultState().withProperty(FACING, EnumFacing.getFront(meta & 7)).withProperty(NODROP, Boolean.valueOf((meta & 8) > 0));
 	}
 
-	/**
-	 * Convert the BlockState into the correct metadata value
-	 */
 	@Override
 	public int getMetaFromState(IBlockState state) {
 		int i = 0;
@@ -182,17 +149,11 @@ public class BlockStarcraftSkull extends BlockContainer {
 		return i;
 	}
 
-	/**
-	 * Returns the blockstate with the given rotation from the passed blockstate. If inapplicable, returns the passed blockstate.
-	 */
 	@Override
 	public IBlockState withRotation(IBlockState state, Rotation rot) {
 		return state.withProperty(FACING, rot.rotate((EnumFacing) state.getValue(FACING)));
 	}
 
-	/**
-	 * Returns the blockstate with the given mirror of the passed blockstate. If inapplicable, returns the passed blockstate.
-	 */
 	@Override
 	public IBlockState withMirror(IBlockState state, Mirror mirrorIn) {
 		return state.withRotation(mirrorIn.toRotation((EnumFacing) state.getValue(FACING)));
@@ -201,6 +162,12 @@ public class BlockStarcraftSkull extends BlockContainer {
 	@Override
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, new IProperty[] { FACING, NODROP });
+	}
+
+	@Override
+	public boolean addDestroyEffects(World world, BlockPos pos, ParticleManager manager) {
+		manager.addBlockDestroyEffects(pos, Blocks.SOUL_SAND.getDefaultState());
+		return true;
 	}
 
 	public static enum EnumSkullType implements IStringSerializable {

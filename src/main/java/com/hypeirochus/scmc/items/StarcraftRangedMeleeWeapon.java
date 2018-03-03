@@ -22,23 +22,25 @@ public abstract class StarcraftRangedMeleeWeapon extends StarcraftSword {
 		this.damage = damage;
 		this.range = range;
 	}
-	
+
 	@Override
 	public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack stack) {
-		EntityPlayer player = (EntityPlayer)entityLiving;
-		ItemStack heldItem = stack;
-		RayTraceResult ray = WorldUtils.getRay(this.getMeleeRange(heldItem));
+		EntityPlayer player = (EntityPlayer) entityLiving;
+		World world = player.world;
+		RayTraceResult ray = WorldUtils.getRay(this.getMeleeRange(stack));
 		Entity entity = ray.entityHit;
 		BlockPos hitBlock = ray.getBlockPos();
 
-		this.onFire(player.getEntityWorld(), player, heldItem);
-
-		if (entity != null) {
-			EntityLivingBase hitEntity = (EntityLivingBase) player.getEntityWorld().getEntityByID(entity.getEntityId());
-			this.damageEntity(player.getEntityWorld(), player, hitEntity, heldItem);
-			this.hitEntity(player.getEntityWorld(), player, hitEntity, heldItem);
-		} else if (hitBlock != null) {
-			this.hitBlock(player.getEntityWorld(), player, ray.getBlockPos(), ray.sideHit, heldItem);
+		this.onSwing(player.getEntityWorld(), player, stack);
+		if (world != null) {
+			if (entity != null) {
+				this.onEntityHit(world, player, entity, stack);
+				if (entity instanceof EntityLivingBase) {
+					this.damageEntity(world, player, (EntityLivingBase) world.getEntityByID(entity.getEntityId()), stack);
+				}
+			} else if (hitBlock != null) {
+				this.onBlockHit(world, player, hitBlock, ray.sideHit, stack);
+			}
 		}
 		return super.onEntitySwing(entityLiving, stack);
 	}
@@ -47,21 +49,17 @@ public abstract class StarcraftRangedMeleeWeapon extends StarcraftSword {
 		if (!world.isRemote) {
 			if (hitEntity != null) {
 				hitEntity.attackEntityFrom(DamageSource.causeMobDamage(entity), this.getWeaponDamage(heldItem));
-				hitEntity.hurtResistantTime = 0;
 			}
 		}
 	}
 
-	public void onFire(World world, EntityLivingBase entity, ItemStack heldItem) {
-
+	public void onSwing(World world, EntityLivingBase entity, ItemStack heldItem) {
 	}
 
-	public void hitEntity(World world, EntityLivingBase entity, Entity hitEntity, ItemStack heldItem) {
-
+	public void onEntityHit(World world, EntityLivingBase entity, Entity hitEntity, ItemStack heldItem) {
 	}
 
-	public void hitBlock(World world, EntityLivingBase entity, BlockPos pos, EnumFacing facing, ItemStack heldItem) {
-
+	public void onBlockHit(World world, EntityLivingBase entity, BlockPos pos, EnumFacing facing, ItemStack heldItem) {
 	}
 
 	public float getWeaponDamage(ItemStack stack) {

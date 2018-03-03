@@ -2,6 +2,8 @@ package com.hypeirochus.scmc.tileentity;
 
 import javax.annotation.Nullable;
 
+import com.hypeirochus.scmc.blocks.items.ItemBlockBrambles;
+
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
@@ -13,8 +15,8 @@ import net.minecraft.util.ITickable;
  */
 public class TileEntityBrambles extends TileEntity implements ITickable {
 
-	private int	age;
-	private int	variant;
+	private int age;
+	private int variant;
 
 	public TileEntityBrambles() {
 		this(0);
@@ -23,6 +25,7 @@ public class TileEntityBrambles extends TileEntity implements ITickable {
 	public TileEntityBrambles(int variant) {
 		this.age = 0;
 		this.variant = variant;
+		markDirty();
 	}
 
 	@Override
@@ -70,5 +73,9 @@ public class TileEntityBrambles extends TileEntity implements ITickable {
 
 	public int getVariant() {
 		return variant;
+	}
+
+	public ItemBlockBrambles.Type getVariantEnum() {
+		return ItemBlockBrambles.Type.values()[variant & ItemBlockBrambles.Type.values().length - 1];
 	}
 }

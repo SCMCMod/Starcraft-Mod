@@ -31,6 +31,7 @@ public class WorldUtils {
 	 * @param distance
 	 *            The distance of the ray search area
 	 * @return The entity that was found in the path of the ray
+	 * @deprecated Use {@link #getRay(double)} instead of this.
 	 */
 	public static EntityLivingBase getEntity(double distance) {
 		Minecraft mc = Minecraft.getMinecraft();

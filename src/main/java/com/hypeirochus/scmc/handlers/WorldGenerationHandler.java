@@ -2,7 +2,7 @@ package com.hypeirochus.scmc.handlers;
 
 import java.util.Random;
 
-import com.hypeirochus.scmc.lib.FactorySettings;
+import com.hypeirochus.scmc.config.StarcraftConfig;
 import com.hypeirochus.scmc.worldgen.StarcraftWorldGenerationContainer;
 
 import net.minecraft.world.World;
@@ -33,28 +33,28 @@ public class WorldGenerationHandler extends StarcraftGenerator implements IWorld
 		case 0:
 			StarcraftWorldGenerationContainer.INSTANCE.generateOverworld(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
 		default:
-			if (world.provider.getDimension() == FactorySettings.INT_DIMENSION_CHAR)
+			if (world.provider.getDimension() == StarcraftConfig.INT_DIMENSION_CHAR)
 				StarcraftWorldGenerationContainer.INSTANCE.generateChar(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
 
-			if (world.provider.getDimension() == FactorySettings.INT_DIMENSION_SHAKURAS)
+			if (world.provider.getDimension() == StarcraftConfig.INT_DIMENSION_SHAKURAS)
 				StarcraftWorldGenerationContainer.INSTANCE.generateShakuras(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
 
-			if (world.provider.getDimension() == FactorySettings.INT_DIMENSION_SLAYN)
+			if (world.provider.getDimension() == StarcraftConfig.INT_DIMENSION_SLAYN)
 				StarcraftWorldGenerationContainer.INSTANCE.generateSlayn(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
 
-			if (world.provider.getDimension() == FactorySettings.INT_DIMENSION_KORHAL)
+			if (world.provider.getDimension() == StarcraftConfig.INT_DIMENSION_KORHAL)
 				StarcraftWorldGenerationContainer.INSTANCE.generateKorhal(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
 
-			if (world.provider.getDimension() == FactorySettings.INT_DIMENSION_KALDIR)
+			if (world.provider.getDimension() == StarcraftConfig.INT_DIMENSION_KALDIR)
 				StarcraftWorldGenerationContainer.INSTANCE.generateKaldir(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
 
-			if (world.provider.getDimension() == FactorySettings.INT_DIMENSION_ZERUS)
+			if (world.provider.getDimension() == StarcraftConfig.INT_DIMENSION_ZERUS)
 				StarcraftWorldGenerationContainer.INSTANCE.generateZerus(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
 
-			if (world.provider.getDimension() == FactorySettings.INT_DIMENSION_AIUR)
+			if (world.provider.getDimension() == StarcraftConfig.INT_DIMENSION_AIUR)
 				StarcraftWorldGenerationContainer.INSTANCE.generateAiur(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
 
-			if (world.provider.getDimension() == FactorySettings.INT_DIMENSION_SPACE)
+			if (world.provider.getDimension() == StarcraftConfig.INT_DIMENSION_SPACE)
 				StarcraftWorldGenerationContainer.INSTANCE.generateSpace(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
 
 			break;

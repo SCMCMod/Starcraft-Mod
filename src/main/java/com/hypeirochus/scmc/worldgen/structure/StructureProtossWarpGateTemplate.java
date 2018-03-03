@@ -2,8 +2,8 @@ package com.hypeirochus.scmc.worldgen.structure;
 
 import java.util.Random;
 
+import com.hypeirochus.scmc.config.StarcraftConfig;
 import com.hypeirochus.scmc.handlers.BlockHandler;
-import com.hypeirochus.scmc.lib.FactorySettings;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -68,7 +68,7 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 			} else if (metaDim >= 90 && metaDim <= 100) {
 				dimBlock = BlockHandler.DIM_PORTAL_ZERUS;
 			}
-		} else if (world.provider.getDimension() == FactorySettings.INT_DIMENSION_CHAR) {
+		} else if (world.provider.getDimension() == StarcraftConfig.INT_DIMENSION_CHAR) {
 			if (metaDim <= 14) {
 				dimBlock = BlockHandler.DIM_PORTAL_OVERWORLD;
 			} else if (metaDim >= 15 && metaDim <= 29) {
@@ -84,7 +84,7 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 			} else if (metaDim >= 90 && metaDim <= 100) {
 				dimBlock = BlockHandler.DIM_PORTAL_ZERUS;
 			}
-		} else if (world.provider.getDimension() == FactorySettings.INT_DIMENSION_SHAKURAS) {
+		} else if (world.provider.getDimension() == StarcraftConfig.INT_DIMENSION_SHAKURAS) {
 			if (metaDim <= 14) {
 				dimBlock = BlockHandler.DIM_PORTAL_CHAR;
 			} else if (metaDim >= 15 && metaDim <= 29) {
@@ -100,7 +100,7 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 			} else if (metaDim >= 90 && metaDim <= 100) {
 				dimBlock = BlockHandler.DIM_PORTAL_ZERUS;
 			}
-		} else if (world.provider.getDimension() == FactorySettings.INT_DIMENSION_KORHAL) {
+		} else if (world.provider.getDimension() == StarcraftConfig.INT_DIMENSION_KORHAL) {
 			if (metaDim <= 14) {
 				dimBlock = BlockHandler.DIM_PORTAL_CHAR;
 			} else if (metaDim >= 15 && metaDim <= 29) {
@@ -116,7 +116,7 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 			} else if (metaDim >= 90 && metaDim <= 100) {
 				dimBlock = BlockHandler.DIM_PORTAL_ZERUS;
 			}
-		} else if (world.provider.getDimension() == FactorySettings.INT_DIMENSION_KALDIR) {
+		} else if (world.provider.getDimension() == StarcraftConfig.INT_DIMENSION_KALDIR) {
 			if (metaDim <= 14) {
 				dimBlock = BlockHandler.DIM_PORTAL_CHAR;
 			} else if (metaDim >= 15 && metaDim <= 29) {
@@ -132,7 +132,7 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 			} else if (metaDim >= 90 && metaDim <= 100) {
 				dimBlock = BlockHandler.DIM_PORTAL_ZERUS;
 			}
-		} else if (world.provider.getDimension() == FactorySettings.INT_DIMENSION_SLAYN) {
+		} else if (world.provider.getDimension() == StarcraftConfig.INT_DIMENSION_SLAYN) {
 			if (metaDim <= 14) {
 				dimBlock = BlockHandler.DIM_PORTAL_CHAR;
 			} else if (metaDim >= 15 && metaDim <= 29) {
@@ -148,7 +148,7 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 			} else if (metaDim >= 90 && metaDim <= 100) {
 				dimBlock = BlockHandler.DIM_PORTAL_ZERUS;
 			}
-		} else if (world.provider.getDimension() == FactorySettings.INT_DIMENSION_AIUR) {
+		} else if (world.provider.getDimension() == StarcraftConfig.INT_DIMENSION_AIUR) {
 			if (metaDim <= 14) {
 				dimBlock = BlockHandler.DIM_PORTAL_CHAR;
 			} else if (metaDim >= 15 && metaDim <= 29) {
@@ -164,7 +164,7 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 			} else if (metaDim >= 90 && metaDim <= 100) {
 				dimBlock = BlockHandler.DIM_PORTAL_ZERUS;
 			}
-		} else if (world.provider.getDimension() == FactorySettings.INT_DIMENSION_ZERUS) {
+		} else if (world.provider.getDimension() == StarcraftConfig.INT_DIMENSION_ZERUS) {
 			if (metaDim <= 14) {
 				dimBlock = BlockHandler.DIM_PORTAL_CHAR;
 			} else if (metaDim >= 15 && metaDim <= 29) {

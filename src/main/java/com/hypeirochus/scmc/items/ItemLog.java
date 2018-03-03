@@ -34,7 +34,7 @@ public class ItemLog extends StarcraftItem {
 		if (stack.hasTagCompound()) {
 			NBTTagCompound nbt = stack.getTagCompound();
 			if (nbt.hasKey("type")) {
-				Log log = Starcraft.getLogRegistry().getRegisteredLog(nbt.getInteger("type"));
+				Log log = Starcraft.logRegistry().getRegisteredLog(nbt.getInteger("type"));
 				if (log != null) {
 					return log.getTitle();
 				}
@@ -58,8 +58,8 @@ public class ItemLog extends StarcraftItem {
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
 		if (isInCreativeTab(tab)) {
-			for (int i : Starcraft.getLogRegistry().getLogs().keySet()) {
-				items.add(getBook(Starcraft.getLogRegistry().getLogs().get(i)));
+			for (int i : Starcraft.logRegistry().getLogs().keySet()) {
+				items.add(getBook(Starcraft.logRegistry().getLogs().get(i)));
 			}
 		}
 	}

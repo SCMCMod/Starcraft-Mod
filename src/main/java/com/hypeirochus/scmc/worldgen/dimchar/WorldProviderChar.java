@@ -3,8 +3,8 @@ package com.hypeirochus.scmc.worldgen.dimchar;
 import com.hypeirochus.api.client.render.world.IClimateProvider;
 import com.hypeirochus.api.client.render.world.ICloudProvider;
 import com.hypeirochus.api.client.render.world.IStormProvider;
+import com.hypeirochus.scmc.config.StarcraftConfig;
 import com.hypeirochus.scmc.handlers.DimensionHandler;
-import com.hypeirochus.scmc.lib.FactorySettings;
 
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.math.BlockPos;
@@ -79,7 +79,7 @@ public class WorldProviderChar extends WorldProvider implements IClimateProvider
 	 */
 	@Override
 	public int getRespawnDimension(EntityPlayerMP player) {
-		return FactorySettings.INT_DIMENSION_CHAR;
+		return StarcraftConfig.INT_DIMENSION_CHAR;
 	}
 
 	@Override

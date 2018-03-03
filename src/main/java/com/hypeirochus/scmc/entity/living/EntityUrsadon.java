@@ -3,8 +3,8 @@ package com.hypeirochus.scmc.entity.living;
 import java.util.Random;
 
 import com.google.common.base.Predicate;
+import com.hypeirochus.scmc.config.StarcraftConfig;
 import com.hypeirochus.scmc.handlers.SoundHandler;
-import com.hypeirochus.scmc.lib.FactorySettings;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -77,7 +77,7 @@ public class EntityUrsadon extends EntityMob implements IMob, Predicate<EntityLi
 
 	@Override
 	public boolean getCanSpawnHere() {
-		if (this.world.provider.getDimension() == FactorySettings.INT_DIMENSION_KALDIR && world.getDifficulty() != EnumDifficulty.PEACEFUL) {
+		if (this.world.provider.getDimension() == StarcraftConfig.INT_DIMENSION_KALDIR && world.getDifficulty() != EnumDifficulty.PEACEFUL) {
 			return true;
 		}
 		return false;

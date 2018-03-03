@@ -10,6 +10,7 @@ import com.hypeirochus.scmc.enums.EnumTypeAttributes;
 import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.handlers.AccessHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
+import com.hypeirochus.scmc.handlers.LootTableHandler;
 import com.hypeirochus.scmc.handlers.SoundHandler;
 
 import net.minecraft.entity.Entity;
@@ -29,6 +30,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.management.PlayerList;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentString;
@@ -121,6 +123,11 @@ public class EntityBrakk extends EntityZergMob implements IMob, Predicate<Entity
 		drop.tryDrop(this);
 	}
 
+	@Override
+	protected ResourceLocation getLootTable() {
+		return LootTableHandler.ENTITY_BRAKK;
+	}
+	
 	@Override
 	public SoundEvent getAmbientSound() {
 		Random rand = new Random();

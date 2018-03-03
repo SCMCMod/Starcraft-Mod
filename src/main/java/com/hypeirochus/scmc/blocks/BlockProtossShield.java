@@ -1,7 +1,5 @@
 package com.hypeirochus.scmc.blocks;
 
-import javax.annotation.Nullable;
-
 import com.hypeirochus.scmc.handlers.BlockHandler;
 
 import net.minecraft.block.Block;
@@ -23,51 +21,41 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
- * Dark Protoss Energy Stabilizer block.<br>
- * Copyright 2017 the Starcraft Minecraft mod team
+ * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
  * 
- * @author Hypeirochus
+ * <br>
+ * </br>
+ * 
+ * @author Ocelot5836
  */
-public class BlockProtossShield extends Block {
-
-	public static final AxisAlignedBB SHIELD_BLOCK_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D);
+public class BlockProtossShield extends StarcraftBlock {
 
 	public BlockProtossShield() {
-		super(Material.AIR, MapColor.LIGHT_BLUE);
-		setUnlocalizedName("protoss.shield");
-		setRegistryName("protoss.shield");
+		super("protoss.shield", RegistryType.FULL, Material.AIR, MapColor.LIGHT_BLUE);
 	}
 
-	@SideOnly(Side.CLIENT)
+	@Override
 	public BlockRenderLayer getBlockLayer() {
 		return BlockRenderLayer.TRANSLUCENT;
 	}
 
-	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-		return SHIELD_BLOCK_AABB;
-	}
-
-	@Nullable
-	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos) {
+	@Override
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess world, BlockPos pos) {
 		return NULL_AABB;
 	}
 
+	@Override
 	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
 
 	@Override
-	public void onBlockDestroyedByExplosion(World worldIn, BlockPos pos, Explosion explosionIn) {
+	public void onBlockDestroyedByExplosion(World world, BlockPos pos, Explosion explosionIn) {
 	}
 
-	/**
-	 * Used to determine ambient occlusion and culling when rebuilding chunks for
-	 * render
-	 */
+	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
@@ -90,7 +78,7 @@ public class BlockProtossShield extends Block {
 		return super.isEntityInsideMaterial(world, blockpos, iblockstate, entityIn, yToTest, materialIn, testingHead);
 	}
 
-	@SideOnly(Side.CLIENT)
+	@Override
 	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
 		IBlockState iblockstate = blockAccess.getBlockState(pos.offset(side));
 		Block block = iblockstate.getBlock();

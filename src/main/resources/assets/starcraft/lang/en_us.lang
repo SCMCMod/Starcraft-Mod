@@ -804,65 +804,65 @@ gui.buy=Buy
 
 ### Advancements ###
 #############################################################################################
-advancements.pageStarcraft=Starcraft
-advancements.pageStarcraft.desc=The Void hungers! Prepare for epic conquest, as three races battle each other to the death! Choose your side, conquer the universe... all while a horrible evil stirs in The Void...
+advancements.starcraft.pageStarcraft=Starcraft
+advancements.starcraft.pageStarcraft.desc=The Void hungers! Prepare for epic conquest, as three races battle each other to the death! Choose your side, conquer the universe... all while a horrible evil stirs in The Void...
 
-advancements.mineMinerals.title=Ooo, Shiny!
-advancements.mineMinerals.desc=Get Mineral Shards!
+advancements.starcraft.mineMinerals.title=Ooo, Shiny!
+advancements.starcraft.mineMinerals.desc=Get Mineral Shards!
 
-advancements.mineRichMinerals.title=Shinier!
-advancements.mineRichMinerals.desc=Get Rich Mineral Shards!
+advancements.starcraft.mineRichMinerals.title=Shinier!
+advancements.starcraft.mineRichMinerals.desc=Get Rich Mineral Shards!
 
-advancements.mineVespene.title=Vespene Geyser Depleted!
-advancements.mineVespene.desc=Obtain Vespene!
+advancements.starcraft.mineVespene.title=Vespene Geyser Depleted!
+advancements.starcraft.mineVespene.desc=Obtain Vespene!
 
-advancements.mineTerrazine.title=More Power!
-advancements.mineTerrazine.desc=Obtain Terrazine!
+advancements.starcraft.mineTerrazine.title=More Power!
+advancements.starcraft.mineTerrazine.desc=Obtain Terrazine!
                           
-advancements.getC14GaussRifle.title=Hell, It's About Time!
-advancements.getC14GaussRifle.desc=Obtain a C14 Gauss Rifle!
+advancements.starcraft.getC14GaussRifle.title=Hell, It's About Time!
+advancements.starcraft.getC14GaussRifle.desc=Obtain a C14 Gauss Rifle!
 
-advancements.getFlamethrower.title=Let's Burn!
-advancements.getFlamethrower.desc=Obtain a Flamethrower!
+advancements.starcraft.getFlamethrower.title=Let's Burn!
+advancements.starcraft.getFlamethrower.desc=Obtain a Flamethrower!
 
-advancements.getPsiBladeFocuser.title=Embrace Purity
-advancements.getPsiBladeFocuser.desc=Obtain a Psi Blade Focuser!
+advancements.starcraft.getPsiBladeFocuser.title=Embrace Purity
+advancements.starcraft.getPsiBladeFocuser.desc=Obtain a Psi Blade Focuser!
 
-advancements.getPsiBladeFocuserDark.title=Embrace Corruption
-advancements.getPsiBladeFocuserDark.desc=Obtain a Psi Blade Focuser (dark)!
+advancements.starcraft.getPsiBladeFocuserDark.title=Embrace Corruption
+advancements.starcraft.getPsiBladeFocuserDark.desc=Obtain a Psi Blade Focuser (dark)!
 
-advancements.getPsiBlade.title=My Life for Aiur!
-advancements.getPsiBlade.desc=Obtain a Psi Blade!
+advancements.starcraft.getPsiBlade.title=My Life for Aiur!
+advancements.starcraft.getPsiBlade.desc=Obtain a Psi Blade!
 
-advancements.getPsiBladeDark.title=Amon's Will
-advancements.getPsiBladeDark.desc=Obtain a Bane Blade!
+advancements.starcraft.getPsiBladeDark.title=Amon's Will
+advancements.starcraft.getPsiBladeDark.desc=Obtain a Bane Blade!
 
-advancements.getWarpBlade.title=For Shakuras!
-advancements.getWarpBlade.desc=Obtain a Warp Blade!
+advancements.starcraft.getWarpBlade.title=For Shakuras!
+advancements.starcraft.getWarpBlade.desc=Obtain a Warp Blade!
 
-advancements.getMasterPsiBlade.title=En Taro Zeratul...
-advancements.getMasterPsiBlade.desc=Obtain Zeratul's Master Psi Blade!
+advancements.starcraft.getMasterPsiBlade.title=En Taro Zeratul...
+advancements.starcraft.getMasterPsiBlade.desc=Obtain Zeratul's Master Psi Blade!
 
-advancements.enterChar.title=The Devil's Nest
-advancements.enterChar.desc=Arrive on Char!
+advancements.starcraft.enterChar.title=The Devil's Nest
+advancements.starcraft.enterChar.desc=Arrive on Char!
 
-advancements.enterKaldir.title=As Cold As Ice
-advancements.enterKaldir.desc=Arrive on Kaldir!
+advancements.starcraft.enterKaldir.title=As Cold As Ice
+advancements.starcraft.enterKaldir.desc=Arrive on Kaldir!
 
-advancements.enterKorhal.title=Remember Korhal!
-advancements.enterKorhal.desc=Arrive on Korhal!
+advancements.starcraft.enterKorhal.title=Remember Korhal!
+advancements.starcraft.enterKorhal.desc=Arrive on Korhal!
 
-advancements.enterShakuras.title=We Linger, In Twilight
-advancements.enterShakuras.desc=Arrive on Shakuras!
+advancements.starcraft.enterShakuras.title=We Linger, In Twilight
+advancements.starcraft.enterShakuras.desc=Arrive on Shakuras!
 
-advancements.enterSlayn.title=The Forged
-advancements.enterShakuras.desc=Arrive on Slayn!
+advancements.starcraft.enterSlayn.title=The Forged
+advancements.starcraft.enterShakuras.desc=Arrive on Slayn!
 
-advancements.enterAiur.title=A Beacon Of Progress
-advancements.enterAiur.desc=Arrive on Aiur!
+advancements.starcraft.enterAiur.title=A Beacon Of Progress
+advancements.starcraft.enterAiur.desc=Arrive on Aiur!
 
-advancements.enterZerus.title=Primordial Soup
-advancements.enterShakuras.desc=Arrive on Zerus!
+advancements.starcraft.enterZerus.title=Primordial Soup
+advancements.starcraft.enterShakuras.desc=Arrive on Zerus!
 #############################################################################################
 
 
@@ -878,7 +878,7 @@ gui.starcraft.config.category.mob.options=Mob Options
 gui.starcraft.config.category.mob.options.tooltip=Decide what options you wish to have on the mobs
 
 # General
-gui.starcraft.config.block.creep.spread.name=Zerg - Creep Can Spread
+gui.starcraft.config.block.creep.spread.name=Creep Can Spread
 gui.starcraft.config.block.creep.spread.comment=Whether or not Zerg Creep can spread
 gui.starcraft.config.block.creep.spread.base.name=Creep Spread Base Value
 gui.starcraft.config.block.creep.spread.base.comment=Base value for Creep Spread. WARNING, DO NOT SET THIS HIGH
@@ -902,9 +902,9 @@ gui.starcraft.config.dimension.space.id.name=Space ID
 gui.starcraft.config.dimension.space.id.comment=ID for Space
 
 # Mob Options
-gui.starcraft.config.vanilla.mob.spawn.name=Vanilla - Vanilla Mob Spawning Is Disabled
-gui.starcraft.config.dimension.space.id.comment=Stop all vanilla mobs from spawning in the world
-gui.starcraft.config.starcraft.templar.dark.visible.name=Starcraft - Dark Templar is Visible
+gui.starcraft.config.vanilla.mob.spawn.name=Vanilla Mob Spawning Is Disabled
+gui.starcraft.config.dimension.mob.spawn.comment=Stop all vanilla mobs from spawning in the world
+gui.starcraft.config.starcraft.templar.dark.visible.name=Dark Templar is Visible
 gui.starcraft.config.starcraft.templar.dark.visible.comment=Make the dark templar invisible or not
 #############################################################################################
 

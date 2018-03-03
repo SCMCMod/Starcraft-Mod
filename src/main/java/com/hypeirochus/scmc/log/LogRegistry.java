@@ -3,6 +3,9 @@ package com.hypeirochus.scmc.log;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.hypeirochus.scmc.Starcraft;
+import com.hypeirochus.scmc.handlers.AccessHandler;
+
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -393,6 +396,10 @@ public class LogRegistry {
 		register(new Log(id++, "log.science.zerg.zergling4"));
 		register(new Log(id++, "log.science.zerg.zergling5"));
 		register(new Log(id++, "log.science.zerg.zergling6"));
+		
+		if(AccessHandler.isDevEnvironment()) {
+			Starcraft.logger().info("Logs Registered");
+		}
 	}
 
 	public void register(Log log) {

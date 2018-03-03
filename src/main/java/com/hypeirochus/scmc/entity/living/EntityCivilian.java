@@ -8,6 +8,7 @@ import com.hypeirochus.scmc.enums.EnumColors;
 import com.hypeirochus.scmc.enums.EnumFactionTypes;
 import com.hypeirochus.scmc.enums.EnumTypeAttributes;
 import com.hypeirochus.scmc.handlers.GuiHandler;
+import com.hypeirochus.scmc.handlers.LootTableHandler;
 
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -21,6 +22,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 public class EntityCivilian extends EntityTerranPassive {
@@ -66,6 +68,11 @@ public class EntityCivilian extends EntityTerranPassive {
 		} else {
 			return super.processInteract(player, hand);
 		}
+	}
+
+	@Override
+	protected ResourceLocation getLootTable() {
+		return LootTableHandler.ENTITY_CIVILIAN;
 	}
 
 	@Override

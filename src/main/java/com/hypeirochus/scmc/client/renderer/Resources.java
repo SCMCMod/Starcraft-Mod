@@ -112,7 +112,7 @@ public class Resources {
 	public static final String ZERGLINGSWARMLING_GLOW_STATIC = Starcraft.RL_BASE + "textures/entity/zerglingswarmling_glow_static.png";
 
 	public static final ResourceLocation KALDIR_BRAMBLES_TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/kaldir_brambles.png");
-	public static final ResourceLocation SHAKURAS_BRAMBLES_TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/shakuras_brambles.png");
-	public static final ResourceLocation ZERUS_BRAMBLES_TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/zerus_brambles.png");
+	public static final ResourceLocation SHAKURAS_PALM_TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/shakuras_brambles.png");
+	public static final ResourceLocation ZERUS_PALM_TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/zerus_brambles.png");
 
 }
