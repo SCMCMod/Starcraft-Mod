@@ -4,12 +4,11 @@ import java.util.List;
 
 import com.hypeirochus.scmc.blocks.items.IMetaBlockName;
 import com.hypeirochus.scmc.blocks.items.ItemBlockBrambles;
-import com.hypeirochus.scmc.client.renderer.Resources;
-import com.hypeirochus.scmc.client.renderer.particle.CustomTextureDestroyEffect;
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 import com.hypeirochus.scmc.items.IMetaRenderHandler;
 import com.hypeirochus.scmc.tileentity.TileEntityBrambles;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -28,7 +27,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
@@ -37,8 +35,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.IShearable;
-import net.minecraftforge.fml.common.FMLCommonHandler;
-import net.minecraftforge.fml.relauncher.Side;
 
 public class BlockBrambles extends BlockContainer implements IShearable, IMetaBlockName, IMetaRenderHandler, IPlantable {
 
@@ -73,7 +69,10 @@ public class BlockBrambles extends BlockContainer implements IShearable, IMetaBl
 
 	@Override
 	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
-		world.setBlockState(pos.up(), this.getDefaultState().withProperty(PART, Part.TOP));
+		if (world.getTileEntity(pos) instanceof TileEntityBrambles) {
+			world.setBlockState(pos.up(), this.getDefaultState().withProperty(PART, Part.TOP));
+			world.setTileEntity(pos.up(), new TileEntityBrambles(((TileEntityBrambles)world.getTileEntity(pos)).getVariant()));
+		}
 	}
 
 	@Override
@@ -83,55 +82,62 @@ public class BlockBrambles extends BlockContainer implements IShearable, IMetaBl
 
 	@Override
 	public boolean addDestroyEffects(World world, BlockPos pos, ParticleManager manager) {
-//		IBlockState state = world.getBlockState(pos);
-//		if (state.getBlock() == this) {
-//			if (world.isRemote) {
-//				state = state.getActualState(world, pos);
-//				int i = 4;
-//
-//				ResourceLocation location = AIR_ID;
-//				int u = 0;
-//				int v = 0;
-//
-//				if (world.getTileEntity(pos) instanceof TileEntityBrambles) {
-//					TileEntityBrambles te = (TileEntityBrambles) world.getTileEntity(pos);
-//					switch (te.getVariantEnum()) {
-//					case KALDIR:
-//						location = Resources.KALDIR_BRAMBLES_TEXTURE;
-//						u = 112;
-//						v = 112;
-//						break;
-//					case SHAKURAS:
-//						location = Resources.SHAKURAS_PALM_TEXTURE;
-//						break;
-//					case ZERUS:
-//						location = Resources.ZERUS_PALM_TEXTURE;
-//						break;
-//					}
-//				}
-//
-//				for (int j = 0; j < 4; ++j) {
-//					for (int k = 0; k < 4; ++k) {
-//						for (int l = 0; l < 4; ++l) {
-//							double d0 = ((double) j + 0.5D) / 4.0D;
-//							double d1 = ((double) k + 0.5D) / 4.0D;
-//							double d2 = ((double) l + 0.5D) / 4.0D;
-//							manager.addEffect((new CustomTextureDestroyEffect(world, (double) pos.getX() + d0, (double) pos.getY() + d1, (double) pos.getZ() + d2, d0 - 0.5D, d1 - 0.5D, d2 - 0.5D, state, location, u, v, 16, 16)).setBlockPos(pos));
-//						}
-//					}
-//				}
-//			}
-//			return true;
-//		}
+		// IBlockState state = world.getBlockState(pos);
+		// if (state.getBlock() == this) {
+		// if (world.isRemote) {
+		// state = state.getActualState(world, pos);
+		// int i = 4;
+		//
+		// ResourceLocation location = AIR_ID;
+		// int u = 0;
+		// int v = 0;
+		//
+		// if (world.getTileEntity(pos) instanceof TileEntityBrambles) {
+		// TileEntityBrambles te = (TileEntityBrambles) world.getTileEntity(pos);
+		// switch (te.getVariantEnum()) {
+		// case KALDIR:
+		// location = Resources.KALDIR_BRAMBLES_TEXTURE;
+		// u = 112;
+		// v = 112;
+		// break;
+		// case SHAKURAS:
+		// location = Resources.SHAKURAS_PALM_TEXTURE;
+		// break;
+		// case ZERUS:
+		// location = Resources.ZERUS_PALM_TEXTURE;
+		// break;
+		// }
+		// }
+		//
+		// for (int j = 0; j < 4; ++j) {
+		// for (int k = 0; k < 4; ++k) {
+		// for (int l = 0; l < 4; ++l) {
+		// double d0 = ((double) j + 0.5D) / 4.0D;
+		// double d1 = ((double) k + 0.5D) / 4.0D;
+		// double d2 = ((double) l + 0.5D) / 4.0D;
+		// manager.addEffect((new CustomTextureDestroyEffect(world, (double) pos.getX() + d0, (double) pos.getY() + d1, (double) pos.getZ() + d2, d0 - 0.5D, d1 - 0.5D, d2 - 0.5D, state, location, u, v, 16, 16)).setBlockPos(pos));
+		// }
+		// }
+		// }
+		// }
+		// return true;
+		// }
 		return super.addDestroyEffects(world, pos, manager);
 	}
 
 	@Override
-	public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state) {
+	public void breakBlock(World world, BlockPos pos, IBlockState state) {
 		if (state.getValue(PART) == Part.BOTTOM) {
 			world.destroyBlock(pos.up(), false);
 		} else {
 			world.destroyBlock(pos.down(), false);
+		}
+	}
+
+	@Override
+	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos) {
+		if (state.getValue(PART) == Part.BOTTOM && !world.getBlockState(pos.down()).getBlock().canSustainPlant(this.getDefaultState(), world, pos.down(), EnumFacing.DOWN, this)) {
+			this.breakBlock(world, fromPos, state);
 		}
 	}
 

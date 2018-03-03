@@ -25,6 +25,7 @@ public class TileEntityBrambles extends TileEntity implements ITickable {
 	public TileEntityBrambles(int variant) {
 		this.age = 0;
 		this.variant = variant;
+		markDirty();
 	}
 
 	@Override

@@ -2,6 +2,7 @@ package com.hypeirochus.scmc.client.renderer.item;
 
 import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.client.model.block.ModelBrambles;
+import com.hypeirochus.scmc.client.model.block.ModelPalm;
 import com.ocelot.api.utils.TextureUtils;
 
 import net.minecraft.client.renderer.GlStateManager;
@@ -16,14 +17,15 @@ import net.minecraft.util.ResourceLocation;
  */
 public class ItemRenderBrambles extends ItemRenderer {
 
-	private static final ModelBrambles MODEL = new ModelBrambles();
+	private static final ModelBrambles BRAMBLES = new ModelBrambles();
+	private static final ModelPalm PALM = new ModelPalm();
 
 	public static final ResourceLocation KALDIR_BRAMBLES_TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/kaldir_brambles.png");
 	public static final ResourceLocation SHAKURAS_BRAMBLES_TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/shakuras_brambles.png");
 	public static final ResourceLocation ZERUS_BRAMBLES_TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/zerus_brambles.png");
 
 	public ItemRenderBrambles() {
-		super(MODEL, null);
+		super(BRAMBLES, null);
 	}
 
 	@Override
@@ -105,12 +107,15 @@ public class ItemRenderBrambles extends ItemRenderer {
 				switch (nbt.getInteger("variant")) {
 				case 0:
 					TextureUtils.bindTexture(KALDIR_BRAMBLES_TEXTURE);
+					BRAMBLES.render((float) scale, ticksAlive);
 					break;
 				case 1:
 					TextureUtils.bindTexture(SHAKURAS_BRAMBLES_TEXTURE);
+					PALM.render((float) scale, ticksAlive);
 					break;
 				case 2:
 					TextureUtils.bindTexture(ZERUS_BRAMBLES_TEXTURE);
+					PALM.render((float) scale, ticksAlive);
 					break;
 				}
 			} else {
@@ -118,8 +123,8 @@ public class ItemRenderBrambles extends ItemRenderer {
 			}
 		} else {
 			TextureUtils.bindTexture(KALDIR_BRAMBLES_TEXTURE);
+			BRAMBLES.render((float) scale, ticksAlive);
 		}
-		MODEL.render((float) scale, ticksAlive);
 		GlStateManager.popMatrix();
 	}
 }

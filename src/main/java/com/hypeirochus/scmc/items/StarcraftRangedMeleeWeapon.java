@@ -49,7 +49,6 @@ public abstract class StarcraftRangedMeleeWeapon extends StarcraftSword {
 		if (!world.isRemote) {
 			if (hitEntity != null) {
 				hitEntity.attackEntityFrom(DamageSource.causeMobDamage(entity), this.getWeaponDamage(heldItem));
-				hitEntity.hurtResistantTime = 0;
 			}
 		}
 	}

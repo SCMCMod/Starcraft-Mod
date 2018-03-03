@@ -2,9 +2,11 @@ package com.hypeirochus.scmc.client.renderer.tileentity;
 
 import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.client.model.block.ModelBrambles;
+import com.hypeirochus.scmc.client.model.block.ModelPalm;
 import com.hypeirochus.scmc.tileentity.TileEntityBrambles;
 
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
@@ -16,7 +18,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RendererBrambles extends TileEntitySpecialRenderer<TileEntityBrambles> {
 
-	private static final ModelBrambles MODEL = new ModelBrambles();
+	private static final ModelBrambles BRAMBLES = new ModelBrambles();
+	private static final ModelPalm PALM = new ModelPalm();
 
 	public static final ResourceLocation KALDIR_BRAMBLES_TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/kaldir_brambles.png");
 	public static final ResourceLocation SHAKURAS_BRAMBLES_TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/shakuras_brambles.png");
@@ -27,22 +30,26 @@ public class RendererBrambles extends TileEntitySpecialRenderer<TileEntityBrambl
 		super.render(te, x, y, z, partialTicks, destroyStage, alpha);
 
 		if (te.getBlockMetadata() == 0) {
+			GlStateManager.disableCull();
 			GlStateManager.pushMatrix();
 			GlStateManager.translate(x + 0.5, y + 1.5, z + 0.5);
 			GlStateManager.rotate(180, 0, 0, 1);
 			switch (te.getVariant()) {
 			case 0:
 				bindTexture(KALDIR_BRAMBLES_TEXTURE);
+				BRAMBLES.render(0.0625f, te.getAge());
 				break;
 			case 1:
 				bindTexture(SHAKURAS_BRAMBLES_TEXTURE);
+				PALM.render(0.0625f, te.getAge());
 				break;
 			case 2:
 				bindTexture(ZERUS_BRAMBLES_TEXTURE);
+				PALM.render(0.0625f, te.getAge());
 				break;
 			}
-			MODEL.render(0.0625f, te.getAge());
 			GlStateManager.popMatrix();
+			GlStateManager.enableCull();
 		}
 	}
 }
