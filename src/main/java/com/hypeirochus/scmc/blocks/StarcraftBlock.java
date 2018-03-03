@@ -1,5 +1,10 @@
 package com.hypeirochus.scmc.blocks;
 
+import java.util.List;
+
+import javax.annotation.Nullable;
+
+import com.google.common.collect.Lists;
 import com.hypeirochus.scmc.blocks.items.ItemBlockLayered;
 import com.hypeirochus.scmc.blocks.items.ItemBlockMeta;
 import com.hypeirochus.scmc.handlers.BlockHandler;
@@ -11,13 +16,22 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
 
 public class StarcraftBlock extends Block {
 
-	private ItemBlock item;
+	public static final int BIT_NO_METADATA = 0x01;
 
+	private ItemBlock item;
+	
+	private boolean noMeta = false;
+	
 	public StarcraftBlock(Material material) {
 		super(material, material.getMaterialMapColor());
 	}
@@ -30,6 +44,11 @@ public class StarcraftBlock extends Block {
 		this(name, type, material, material.getMaterialMapColor());
 	}
 
+	public StarcraftBlock(String name, RegistryType type, Material material, int modifiers) {
+		this(name, type, material);
+		setModifiers(modifiers);
+	}
+
 	public StarcraftBlock(RegistryType type, Material material) {
 		this(type, material, material.getMaterialMapColor());
 	}
@@ -38,6 +57,11 @@ public class StarcraftBlock extends Block {
 		super(material, color);
 		this.setNames(name);
 		this.registerPre(type);
+	}
+
+	public StarcraftBlock(String name, RegistryType type, Material material, MapColor color, int modifiers) {
+		this(name, type, material, color);
+		setModifiers(modifiers);
 	}
 
 	public StarcraftBlock(RegistryType type, Material material, MapColor color) {
@@ -52,6 +76,13 @@ public class StarcraftBlock extends Block {
 			} else {
 				BlockHandler.registerBlockWithItemBlock(this, this.item);
 			}
+			if(FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+				if(noMeta) {
+					for(int i = 0; i < 16; i++) {
+						RenderHandler.registerBlockRender(this, i, this.getRegistryName().toString());
+					}
+				}
+			}
 		} else if (type == RegistryType.BLOCK) {
 			BlockHandler.register(this);
 		} else if (type == RegistryType.LAYERED) {
@@ -60,6 +91,11 @@ public class StarcraftBlock extends Block {
 				BlockHandler.registerBlockWithItemBlock(this, this.item);
 				if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 					RenderHandler.registerLayered(this);
+					if(noMeta) {
+						for(int i = 0; i < 16; i++) {
+							RenderHandler.registerBlockRender(this, i, this.getRegistryName().toString());
+						}
+					}
 				}
 			} else {
 				throw new IllegalArgumentException(String.format("The given Block %s tried to register as a layered block, but it is not an instance of StarcraftBlockLayered!", this.getUnlocalizedName()));
@@ -67,9 +103,51 @@ public class StarcraftBlock extends Block {
 		} else if (type == RegistryType.META) {
 			setItemBlock(new ItemBlockMeta(this));
 			BlockHandler.registerBlockWithItemBlock(this, this.item);
+			if(FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+				if(noMeta) {
+					for(int i = 0; i < 16; i++) {
+						RenderHandler.registerBlockRender(this, i, this.getRegistryName().toString());
+					}
+				}
+			}
 		} else {
 			throw new IllegalArgumentException(String.format("The registry type %s for block %s is not currently supported. Either add support for it or change the type of registry.", type, this.getRegistryName()));
 		}
+	}
+
+	private void setModifiers(int modifiers) {
+		this.noMeta = (modifiers & BIT_NO_METADATA) > 0;
+	}
+
+	@Nullable
+	public RayTraceResult collisionRayTrace(IBlockState blockState, World world, BlockPos pos, Vec3d start, Vec3d end) {
+		List<RayTraceResult> list = Lists.<RayTraceResult>newArrayList();
+		List<AxisAlignedBB> boxes = Lists.<AxisAlignedBB>newArrayList();
+		this.getCollisionBoxList(this.getActualState(blockState, world, pos), world, pos, boxes);
+
+		for (AxisAlignedBB axisalignedbb : boxes) {
+			list.add(this.rayTrace(pos, start, end, axisalignedbb));
+		}
+
+		RayTraceResult raytraceresult1 = null;
+		double d1 = 0.0D;
+
+		for (RayTraceResult raytraceresult : list) {
+			if (raytraceresult != null) {
+				double d0 = raytraceresult.hitVec.squareDistanceTo(end);
+
+				if (d0 > d1) {
+					raytraceresult1 = raytraceresult;
+					d1 = d0;
+				}
+			}
+		}
+
+		return raytraceresult1;
+	}
+
+	protected void getCollisionBoxList(IBlockState state, World world, BlockPos pos, List<AxisAlignedBB> boxes) {
+		boxes.add(this.getBoundingBox(state, world, pos));
 	}
 
 	public void setNames(String name) {

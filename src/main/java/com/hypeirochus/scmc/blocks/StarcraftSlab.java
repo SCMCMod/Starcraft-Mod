@@ -20,7 +20,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class StarcraftSlab extends Block {
+public class StarcraftSlab extends StarcraftBlock {
 
 	public static final PropertyEnum<StarcraftSlab.Part> PART = PropertyEnum.<Part>create("part", Part.class);
 
@@ -34,9 +34,7 @@ public class StarcraftSlab extends Block {
 	}
 
 	public StarcraftSlab(String name, IBlockState blockType) {
-		super(blockType.getMaterial());
-		this.setUnlocalizedName(name);
-		this.setRegistryName(name);
+		super(name, RegistryType.FULL, blockType.getMaterial(), blockType.getMaterial().getMaterialMapColor());
 		this.blockType = blockType;
 		this.setSoundType(blockType.getBlock().blockSoundType);
 		this.setHardness(blockType.getBlock().blockHardness);
