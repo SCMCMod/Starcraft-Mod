@@ -28,9 +28,9 @@ public class BlockTerrazine extends BlockFluidClassic {
 
 	public BlockTerrazine() {
 		super(FluidHandler.TERRAZINE, Material.WATER);
-		setCreativeTab(null);
 		setUnlocalizedName("fluid.terrazine");
 		setRegistryName("fluid.terrazine");
+		BlockHandler.registerFullBlock(this);
 	}
 	
 	@Override

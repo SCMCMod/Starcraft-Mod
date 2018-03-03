@@ -1,7 +1,9 @@
 package com.hypeirochus.scmc.blocks;
 
 import com.hypeirochus.scmc.StarcraftDamageSources;
+import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.handlers.FluidHandler;
+import com.hypeirochus.scmc.handlers.RenderHandler;
 
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -24,6 +26,7 @@ public class BlockAcid extends BlockFluidClassic {
 		super(FluidHandler.ACID, Material.WATER);
 		setUnlocalizedName("fluid.acid");
 		setRegistryName("fluid.acid");
+		BlockHandler.registerFullBlock(this);
 	}
 
 	@Override

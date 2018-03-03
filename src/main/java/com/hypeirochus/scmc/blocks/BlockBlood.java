@@ -1,5 +1,6 @@
 package com.hypeirochus.scmc.blocks;
 
+import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.handlers.FluidHandler;
 
 import net.minecraft.block.material.MapColor;
@@ -22,7 +23,7 @@ public class BlockBlood extends BlockFluidClassic {
 		super(FluidHandler.BLOOD, Material.WATER);
 		setUnlocalizedName("fluid.blood");
 		setRegistryName("fluid.blood");
-		setCreativeTab(null);
+		BlockHandler.registerFullBlock(this);
 	}
 	
 	@Override

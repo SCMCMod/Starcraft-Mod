@@ -1,5 +1,6 @@
 package com.hypeirochus.scmc.blocks;
 
+import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.handlers.FluidHandler;
 
 import net.minecraft.block.material.MapColor;
@@ -23,7 +24,7 @@ public class BlockTar extends BlockFluidClassic {
 		super(FluidHandler.TAR, Material.WATER);
 		setUnlocalizedName("fluid.tar");
 		setRegistryName("fluid.tar");
-		setCreativeTab(null);
+		BlockHandler.registerFullBlock(this);
 	}
 
 	@Override

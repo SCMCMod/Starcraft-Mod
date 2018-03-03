@@ -26,9 +26,9 @@ public class BlockVespene extends BlockFluidClassic {
 
 	public BlockVespene() {
 		super(FluidHandler.VESPENE, Material.WATER);
-		setCreativeTab(null);
 		setUnlocalizedName("fluid.vespene");
 		setRegistryName("fluid.vespene");
+		BlockHandler.registerFullBlock(this);
 	}
 	
 	@Override
