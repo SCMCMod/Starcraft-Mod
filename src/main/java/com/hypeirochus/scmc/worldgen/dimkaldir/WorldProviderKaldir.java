@@ -3,8 +3,8 @@ package com.hypeirochus.scmc.worldgen.dimkaldir;
 import com.hypeirochus.api.client.render.world.IClimateProvider;
 import com.hypeirochus.api.client.render.world.ICloudProvider;
 import com.hypeirochus.api.client.render.world.IStormProvider;
+import com.hypeirochus.scmc.config.StarcraftConfig;
 import com.hypeirochus.scmc.handlers.DimensionHandler;
-import com.hypeirochus.scmc.lib.FactorySettings;
 
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
@@ -86,7 +86,7 @@ public class WorldProviderKaldir extends WorldProvider implements IClimateProvid
 	 */
 	@Override
 	public int getRespawnDimension(net.minecraft.entity.player.EntityPlayerMP player) {
-		return FactorySettings.INT_DIMENSION_KALDIR;
+		return StarcraftConfig.INT_DIMENSION_KALDIR;
 	}
 
 

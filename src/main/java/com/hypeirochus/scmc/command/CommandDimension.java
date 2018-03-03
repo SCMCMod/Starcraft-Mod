@@ -1,7 +1,7 @@
 package com.hypeirochus.scmc.command;
 
+import com.hypeirochus.scmc.config.StarcraftConfig;
 import com.hypeirochus.scmc.handlers.TeleporterHandler;
-import com.hypeirochus.scmc.lib.FactorySettings;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
@@ -53,7 +53,7 @@ public class CommandDimension extends CommandBase {
 					if (dimId == maxIds[i]) {
 						if (player.dimension != dimId) {
 							EntityPlayerMP playerMp = (EntityPlayerMP) player;
-							playerMp.getServer().getPlayerList().transferPlayerToDimension(playerMp, dimId, new TeleporterHandler(playerMp.getServerWorld().provider.getDimension(), server.getWorld(dimId), player.posX, playerMp.getServerWorld().getHeight((int) player.posX, (int) player.posZ), player.posZ, dimId == FactorySettings.INT_DIMENSION_SPACE, false));
+							playerMp.getServer().getPlayerList().transferPlayerToDimension(playerMp, dimId, new TeleporterHandler(playerMp.getServerWorld().provider.getDimension(), server.getWorld(dimId), player.posX, playerMp.getServerWorld().getHeight((int) player.posX, (int) player.posZ), player.posZ, dimId == StarcraftConfig.INT_DIMENSION_SPACE, false));
 							notifyCommandListener(sender, this, "commands.dimension.success", new Object[] { player.getName(), dimId });
 						} else {
 							throw new CommandException("commands.dimension.same_dim", new Object[] { player.getName(), dimId });
@@ -68,7 +68,7 @@ public class CommandDimension extends CommandBase {
 					if (dim.equalsIgnoreCase(DimensionType.values()[i].getName())) {
 						if (player.dimension != i) {
 							EntityPlayerMP playerMp = (EntityPlayerMP) player;
-							playerMp.getServer().getPlayerList().transferPlayerToDimension(playerMp, i, new TeleporterHandler(playerMp.getServerWorld().provider.getDimension(), server.getWorld(i), player.posX, playerMp.getServerWorld().getHeight((int) player.posX, (int) player.posZ), player.posZ, i == FactorySettings.INT_DIMENSION_SPACE, false));
+							playerMp.getServer().getPlayerList().transferPlayerToDimension(playerMp, i, new TeleporterHandler(playerMp.getServerWorld().provider.getDimension(), server.getWorld(i), player.posX, playerMp.getServerWorld().getHeight((int) player.posX, (int) player.posZ), player.posZ, i == StarcraftConfig.INT_DIMENSION_SPACE, false));
 							notifyCommandListener(sender, this, "commands.dimension.success", new Object[] { player.getName(), dim });
 						} else {
 							throw new CommandException("commands.dimension.same_dim", new Object[] { player.getName(), dim });

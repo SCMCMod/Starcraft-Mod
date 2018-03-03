@@ -63,9 +63,9 @@ import com.hypeirochus.scmc.blocks.metablocks.BlockStarSurface;
 import com.hypeirochus.scmc.blocks.metablocks.BlockTerranMetal;
 import com.hypeirochus.scmc.blocks.metablocks.BlockZergCarapace;
 import com.hypeirochus.scmc.blocks.metablocks.BlockZergFlesh;
+import com.hypeirochus.scmc.config.StarcraftConfig;
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 import com.hypeirochus.scmc.enums.EnumWorldType;
-import com.hypeirochus.scmc.lib.FactorySettings;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -298,14 +298,14 @@ public class BlockHandler {
 
 		// Portals
 		DIM_PORTAL_OVERWORLD = new BlockDimPortal("overworld.portal", 0);
-		DIM_PORTAL_KORHAL = new BlockDimPortal("korhal.portal", FactorySettings.INT_DIMENSION_KORHAL);
-		DIM_PORTAL_KALDIR = new BlockDimPortal("kaldir.portal", FactorySettings.INT_DIMENSION_KALDIR);
-		DIM_PORTAL_CHAR = new BlockDimPortal("char.portal", FactorySettings.INT_DIMENSION_CHAR);
-		DIM_PORTAL_SHAKURAS = new BlockDimPortal("shakuras.portal", FactorySettings.INT_DIMENSION_SHAKURAS);
-		DIM_PORTAL_SLAYN = new BlockDimPortal("slayn.portal", FactorySettings.INT_DIMENSION_SLAYN);
-		DIM_PORTAL_AIUR = new BlockDimPortal("aiur.portal", FactorySettings.INT_DIMENSION_AIUR);
-		DIM_PORTAL_ZERUS = new BlockDimPortal("zerus.portal", FactorySettings.INT_DIMENSION_ZERUS);
-		DIM_PORTAL_SPACE = new BlockDimPortal("space.portal", FactorySettings.INT_DIMENSION_SPACE);
+		DIM_PORTAL_KORHAL = new BlockDimPortal("korhal.portal", StarcraftConfig.INT_DIMENSION_KORHAL);
+		DIM_PORTAL_KALDIR = new BlockDimPortal("kaldir.portal", StarcraftConfig.INT_DIMENSION_KALDIR);
+		DIM_PORTAL_CHAR = new BlockDimPortal("char.portal", StarcraftConfig.INT_DIMENSION_CHAR);
+		DIM_PORTAL_SHAKURAS = new BlockDimPortal("shakuras.portal", StarcraftConfig.INT_DIMENSION_SHAKURAS);
+		DIM_PORTAL_SLAYN = new BlockDimPortal("slayn.portal", StarcraftConfig.INT_DIMENSION_SLAYN);
+		DIM_PORTAL_AIUR = new BlockDimPortal("aiur.portal", StarcraftConfig.INT_DIMENSION_AIUR);
+		DIM_PORTAL_ZERUS = new BlockDimPortal("zerus.portal", StarcraftConfig.INT_DIMENSION_ZERUS);
+		DIM_PORTAL_SPACE = new BlockDimPortal("space.portal", StarcraftConfig.INT_DIMENSION_SPACE);
 
 		// Overworld Ores
 		ORE_COPPER_OW = new BlockOverworldOre("overworld.copper", RegistryType.FULL, Material.ROCK, MapColor.GRAY, 1).setBlockHarvestLevel("pickaxe", 1).setCreativeTab(StarcraftCreativeTabs.MISC);

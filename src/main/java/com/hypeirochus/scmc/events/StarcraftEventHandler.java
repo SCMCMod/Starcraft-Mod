@@ -2,7 +2,7 @@ package com.hypeirochus.scmc.events;
 
 import com.hypeirochus.scmc.capabilities.ColorProvider;
 import com.hypeirochus.scmc.capabilities.IColor;
-import com.hypeirochus.scmc.lib.FactorySettings;
+import com.hypeirochus.scmc.config.StarcraftConfig;
 
 import net.minecraft.entity.monster.EntityCaveSpider;
 import net.minecraft.entity.monster.EntityCreeper;
@@ -37,7 +37,7 @@ public class StarcraftEventHandler {
 
 	@SubscribeEvent
 	public static void onEntitySpawn(EntityJoinWorldEvent event) {
-		if (FactorySettings.BOOL_VANILLA_MOB_SPAWNING_DISABLED) {
+		if (StarcraftConfig.BOOL_VANILLA_MOB_SPAWNING_DISABLED) {
 			if (event.getEntity() instanceof EntityCaveSpider || event.getEntity() instanceof EntitySilverfish || event.getEntity() instanceof EntityWitch || event.getEntity() instanceof EntitySlime || event.getEntity() instanceof EntityEnderman || event.getEntity() instanceof EntityCreeper || event.getEntity() instanceof EntitySkeleton || event.getEntity() instanceof EntityZombie || event.getEntity() instanceof EntitySpider) {
 				event.getEntity().setDropItemsWhenDead(false);
 				event.getEntity().setSilent(true);
