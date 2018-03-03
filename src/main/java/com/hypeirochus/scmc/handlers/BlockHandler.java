@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.hypeirochus.scmc.annotation.Unused;
+import com.hypeirochus.scmc.blocks.BlockAcid;
 import com.hypeirochus.scmc.blocks.BlockAsh;
+import com.hypeirochus.scmc.blocks.BlockBlood;
 import com.hypeirochus.scmc.blocks.BlockCharFarmland;
 import com.hypeirochus.scmc.blocks.BlockCharOre;
 import com.hypeirochus.scmc.blocks.BlockDimPortal;
@@ -30,7 +32,10 @@ import com.hypeirochus.scmc.blocks.BlockStarcraftDirt;
 import com.hypeirochus.scmc.blocks.BlockStarcraftFurnace;
 import com.hypeirochus.scmc.blocks.BlockStarcraftGravel;
 import com.hypeirochus.scmc.blocks.BlockStarcraftSkull;
+import com.hypeirochus.scmc.blocks.BlockTar;
+import com.hypeirochus.scmc.blocks.BlockTerrazine;
 import com.hypeirochus.scmc.blocks.BlockTerrazineGas;
+import com.hypeirochus.scmc.blocks.BlockVespene;
 import com.hypeirochus.scmc.blocks.BlockVespeneGas;
 import com.hypeirochus.scmc.blocks.BlockZergCreep;
 import com.hypeirochus.scmc.blocks.BlockZergKeratin;
@@ -80,6 +85,14 @@ public class BlockHandler {
 	public static List<Block> blocks;
 	public static List<ItemBlock> items;
 
+	//Fluids
+	public static Block ACID;
+	public static Block BLOOD;
+	public static Block VESPENE;
+	public static Block TERRAZINE;
+	public static Block TAR;
+	
+	
 	// Misc
 	public static Block ENTITY_SPAWNER;
 	public static Block PLANET_TELEPORTER;
@@ -279,6 +292,14 @@ public class BlockHandler {
 	}
 
 	private static void instantiate() {
+		
+		// Fluids
+		ACID = new BlockAcid().setCreativeTab(null);
+		BLOOD = new BlockBlood().setCreativeTab(null);
+		TAR = new BlockTar().setCreativeTab(null);
+		TERRAZINE = new BlockTerrazine().setCreativeTab(null);
+		VESPENE = new BlockVespene().setCreativeTab(null);
+		
 		// Misc
 		ENTITY_SPAWNER = new BlockEntitySpawner("block.entityspawner", 5);
 		PLANET_TELEPORTER = new BlockPlanetTeleporter("block.planetteleporter", 100);

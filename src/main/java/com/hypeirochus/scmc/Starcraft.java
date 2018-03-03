@@ -15,6 +15,7 @@ import com.hypeirochus.scmc.events.GuiRenderEventHandler;
 import com.hypeirochus.scmc.events.StarcraftEventHandler;
 import com.hypeirochus.scmc.handlers.AccessHandler;
 import com.hypeirochus.scmc.handlers.EntityHandler;
+import com.hypeirochus.scmc.handlers.FluidHandler;
 import com.hypeirochus.scmc.handlers.GuiHandler;
 import com.hypeirochus.scmc.handlers.KeybindingHandler;
 import com.hypeirochus.scmc.handlers.RenderHandler;
@@ -83,7 +84,7 @@ public class Starcraft {
 
 		StarcraftConfig.pre(event);
 		NetworkHandler.pre(event);
-		// FluidHandler.pre(event);
+		FluidHandler.pre(event);
 		SoundHandler.pre(event);
 		EntityHandler.pre(event);
 
