@@ -164,7 +164,7 @@ public class StarcraftGenerator {
 		int heightDiff = maxHeight - minHeight + 1;
 
 		for (int i = 0; i < chancesToSpawn; i++) {
-			generator.generate(state, state2, world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + rand.nextInt(16), minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + rand.nextInt(16)), flag);
+			generator.generate(state, state2, world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + 8, minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + 8), flag);
 		}
 	}
 
@@ -175,7 +175,7 @@ public class StarcraftGenerator {
 		int heightDiff = maxHeight - minHeight + 1;
 
 		for (int i = 0; i < chancesToSpawn; i++) {
-			generator.generate(range, entityToSpawn, color, world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + rand.nextInt(16), minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + rand.nextInt(16)), flag);
+			generator.generate(range, entityToSpawn, color, world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + 8, minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + 8), flag);
 		}
 	}
 
@@ -186,7 +186,7 @@ public class StarcraftGenerator {
 		int heightDiff = maxHeight - minHeight + 1;
 
 		for (int i = 0; i < chancesToSpawn; i++) {
-			generator.generate(metaColor, metaSecColor, world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + rand.nextInt(16), minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + rand.nextInt(16)), flag);
+			generator.generate(metaColor, metaSecColor, world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + 8, minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + 8), flag);
 		}
 	}
 
@@ -197,7 +197,7 @@ public class StarcraftGenerator {
 		int heightDiff = maxHeight - minHeight + 1;
 
 		for (int i = 0; i < chancesToSpawn; i++) {
-			generator.generate(world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + rand.nextInt(16), minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + rand.nextInt(16)), flag);
+			generator.generate(world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + 8, minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + 8), flag);
 		}
 	}
 
@@ -208,7 +208,7 @@ public class StarcraftGenerator {
 		int heightDiff = maxHeight - minHeight + 1;
 
 		for (int i = 0; i < chancesToSpawn; i++) {
-			generator.generate(world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + rand.nextInt(16), minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + rand.nextInt(16)));
+			generator.generate(world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + 8, minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + 8));
 		}
 	}
 
@@ -234,7 +234,7 @@ public class StarcraftGenerator {
 		int heightDiff = maxHeight - minHeight + 1;
 
 		for (int i = 0; i < chancesToSpawn; i++) {
-			generator.generateRandomStar(starSize, world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + rand.nextInt(16), minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + rand.nextInt(16)));
+			generator.generateRandomStar(starSize, world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + 8, minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + 8));
 		}
 	}
 
@@ -245,7 +245,7 @@ public class StarcraftGenerator {
 	 int heightDiff = maxHeight - minHeight + 1;
 	
 	 for (int i = 0; i < chancesToSpawn; i++) {
-	 generator.generate(meta, world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + rand.nextInt(16), minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + rand.nextInt(16)));
+	 generator.generate(meta, world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + 8, minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + 8));
 	 }
 	 }
 
@@ -256,7 +256,7 @@ public class StarcraftGenerator {
 		int heightDiff = maxHeight - minHeight + 1;
 
 		for (int i = 0; i < chancesToSpawn; i++) {
-			generator.generate(world, rand, new BlockPos(chunk_X * 16 + rand.nextInt(16), minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + rand.nextInt(16)));
+			generator.generate(world, rand, new BlockPos(chunk_X * 16 + 8, minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + 8));
 		}
 	}
 
@@ -267,7 +267,7 @@ public class StarcraftGenerator {
 		int heightDiff = maxHeight - minHeight + 1;
 
 		for (int i = 0; i < chancesToSpawn; i++) {
-			generator.generateTileEntity(entity, block, world, rand, new BlockPos(chunk_X * 16 + rand.nextInt(16), minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + rand.nextInt(16)));
+			generator.generateTileEntity(entity, block, world, rand, new BlockPos(chunk_X * 16 + 8, minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + 8));
 		}
 	}
 }
