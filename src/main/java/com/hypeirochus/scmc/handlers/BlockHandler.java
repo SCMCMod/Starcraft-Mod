@@ -3,7 +3,6 @@ package com.hypeirochus.scmc.handlers;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.annotation.Unused;
 import com.hypeirochus.scmc.blocks.BlockAsh;
 import com.hypeirochus.scmc.blocks.BlockCharFarmland;

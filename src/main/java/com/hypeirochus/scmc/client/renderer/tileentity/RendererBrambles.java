@@ -6,7 +6,6 @@ import com.hypeirochus.scmc.client.model.block.ModelPalm;
 import com.hypeirochus.scmc.tileentity.TileEntityBrambles;
 
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;

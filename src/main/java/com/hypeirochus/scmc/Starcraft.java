@@ -27,7 +27,6 @@ import com.hypeirochus.scmc.recipes.OreDictionaryHandler;
 import com.hypeirochus.scmc.recipes.SmeltingRecipes;
 import com.hypeirochus.scmc.registry.Registry;
 
-import net.minecraft.init.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.fluids.FluidRegistry;

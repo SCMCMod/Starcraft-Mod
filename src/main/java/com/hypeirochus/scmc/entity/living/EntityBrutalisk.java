@@ -1,12 +1,9 @@
 package com.hypeirochus.scmc.entity.living;
 
 import com.google.common.base.Predicate;
-import com.hypeirochus.api.world.entity.ItemDrop;
 import com.hypeirochus.scmc.enums.EnumColors;
 import com.hypeirochus.scmc.enums.EnumFactionTypes;
 import com.hypeirochus.scmc.enums.EnumTypeAttributes;
-import com.hypeirochus.scmc.enums.MetaHandler;
-import com.hypeirochus.scmc.handlers.ItemHandler;
 import com.hypeirochus.scmc.handlers.LootTableHandler;
 import com.hypeirochus.scmc.handlers.SoundHandler;
 
@@ -23,7 +20,6 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
