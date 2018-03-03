@@ -36,7 +36,7 @@ import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.IShearable;
 
-public class BlockBrambles extends BlockContainer implements IShearable, IMetaBlockName, IMetaRenderHandler, IPlantable {
+public class BlockBrambles extends BlockContainer implements IShearable, IMetaBlockName, IPlantable {
 
 	public static final PropertyEnum<Part> PART = PropertyEnum.create("part", Part.class);
 
@@ -237,16 +237,6 @@ public class BlockBrambles extends BlockContainer implements IShearable, IMetaBl
 			}
 		}
 		return ItemBlockBrambles.Type.KALDIR.getName();
-	}
-
-	@Override
-	public int getItemCount() {
-		return ItemBlockBrambles.Type.values().length;
-	}
-
-	@Override
-	public String getName(int meta) {
-		return "flora.brambles";
 	}
 
 	@Override
