@@ -7,8 +7,10 @@ import com.ocelot.api.utils.TextureUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Gui;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
@@ -84,41 +86,46 @@ public class CustomTextureDestroyEffect extends Particle {
 	 * Renders the particle
 	 */
 	public void renderParticle(BufferBuilder buffer, Entity entityIn, float partialTicks, float rotationX, float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
-		if (buffer.getVertexFormat() != null) {
-			TextureUtils.bindTexture(texture);
-			float f = ((float) this.particleTextureIndexX + this.particleTextureJitterX / 4.0F) / 16.0F;
-			float f1 = f + 0.015609375F;
-			float f2 = ((float) this.particleTextureIndexY + this.particleTextureJitterY / 4.0F) / 16.0F;
-			float f3 = f2 + 0.015609375F;
-			float f4 = 0.1F * this.particleScale;
+		// TODO finish this class
+		TextureUtils.bindTexture(texture);
+		// float f = (float) this.particleTextureIndexX / 16.0F;
+		// float f1 = f + 0.0624375F;
+		// float f2 = (float) this.particleTextureIndexY / 16.0F;
+		// float f3 = f2 + 0.0624375F;
+		// float f4 = 0.1F * this.particleScale;
+		//
+		// f = u;
+		// f1 = v;
+		// f2 = width;
+		// f3 = height;
+		//
+		float f5 = (float) (this.prevPosX + (this.posX - this.prevPosX) * (double) partialTicks - interpPosX);
+		float f6 = (float) (this.prevPosY + (this.posY - this.prevPosY) * (double) partialTicks - interpPosY);
+		float f7 = (float) (this.prevPosZ + (this.posZ - this.prevPosZ) * (double) partialTicks - interpPosZ);
+		// int i = this.getBrightnessForRender(partialTicks);
+		// int j = i >> 16 & 65535;
+		// int k = i & 65535;
+		// Vec3d[] avec3d = new Vec3d[] { new Vec3d((double) (-rotationX * f4 - rotationXY * f4), (double) (-rotationZ * f4), (double) (-rotationYZ * f4 - rotationXZ * f4)), new Vec3d((double) (-rotationX * f4 + rotationXY * f4), (double) (rotationZ * f4), (double) (-rotationYZ * f4 + rotationXZ * f4)), new Vec3d((double) (rotationX * f4 + rotationXY * f4), (double) (rotationZ * f4), (double) (rotationYZ * f4 + rotationXZ * f4)), new Vec3d((double) (rotationX * f4 - rotationXY * f4), (double) (-rotationZ * f4), (double) (rotationYZ * f4 - rotationXZ * f4)) };
+		//
+		// float f8 = this.particleAngle + (this.particleAngle - this.prevParticleAngle) * partialTicks;
+		// float f9 = MathHelper.cos(f8 * 0.5F);
+		// float f10 = MathHelper.sin(f8 * 0.5F) * (float) cameraViewDir.x;
+		// float f11 = MathHelper.sin(f8 * 0.5F) * (float) cameraViewDir.y;
+		// float f12 = MathHelper.sin(f8 * 0.5F) * (float) cameraViewDir.z;
+		// Vec3d vec3d = new Vec3d((double) f10, (double) f11, (double) f12);
+		//
+		// for (int l = 0; l < 4; ++l) {
+		// avec3d[l] = vec3d.scale(2.0D * avec3d[l].dotProduct(vec3d)).add(avec3d[l].scale((double) (f9 * f9) - vec3d.dotProduct(vec3d))).add(vec3d.crossProduct(avec3d[l]).scale((double) (2.0F * f9)));
+		// }
 
-			f = this.getInterpolatedU((double) (this.particleTextureJitterX / 4.0F * 16.0F));
-			f1 = this.getInterpolatedU((double) ((this.particleTextureJitterX + 1.0F) / 4.0F * 16.0F));
-			f2 = this.getInterpolatedV((double) (this.particleTextureJitterY / 4.0F * 16.0F));
-			f3 = this.getInterpolatedV((double) ((this.particleTextureJitterY + 1.0F) / 4.0F * 16.0F));
-
-			float f5 = (float) (this.prevPosX + (this.posX - this.prevPosX) * (double) partialTicks - interpPosX);
-			float f6 = (float) (this.prevPosY + (this.posY - this.prevPosY) * (double) partialTicks - interpPosY);
-			float f7 = (float) (this.prevPosZ + (this.posZ - this.prevPosZ) * (double) partialTicks - interpPosZ);
-			int i = this.getBrightnessForRender(partialTicks);
-			int j = i >> 16 & 65535;
-
-			int k = i & 65535;
-			buffer.pos((double) (f5 - rotationX * f4 - rotationXY * f4), (double) (f6 - rotationZ * f4), (double) (f7 - rotationYZ * f4 - rotationXZ * f4)).tex((double) f, (double) f3).color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(j, k).endVertex();
-			buffer.pos((double) (f5 - rotationX * f4 + rotationXY * f4), (double) (f6 + rotationZ * f4), (double) (f7 - rotationYZ * f4 + rotationXZ * f4)).tex((double) f, (double) f2).color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(j, k).endVertex();
-			buffer.pos((double) (f5 + rotationX * f4 + rotationXY * f4), (double) (f6 + rotationZ * f4), (double) (f7 + rotationYZ * f4 + rotationXZ * f4)).tex((double) f1, (double) f2).color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(j, k).endVertex();
-			buffer.pos((double) (f5 + rotationX * f4 - rotationXY * f4), (double) (f6 - rotationZ * f4), (double) (f7 + rotationYZ * f4 - rotationXZ * f4)).tex((double) f1, (double) f3).color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(j, k).endVertex();
-		}
-	}
-
-	private float getInterpolatedU(double u) {
-		float f = this.u + this.width - this.u;
-		return this.u + f * (float) u / 16.0F;
-	}
-
-	private float getInterpolatedV(double v) {
-		float f = this.v + this.height - this.v;
-		return this.v + f * (float) v / 16.0F;
+		// buffer.pos((double) f5 + avec3d[0].x, (double) f6 + avec3d[0].y, (double) f7 + avec3d[0].z).tex((double) f1, (double) f3).color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).lightmap(j, k).endVertex();
+		// buffer.pos((double) f5 + avec3d[1].x, (double) f6 + avec3d[1].y, (double) f7 + avec3d[1].z).tex((double) f1, (double) f2).color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).lightmap(j, k).endVertex();
+		// buffer.pos((double) f5 + avec3d[2].x, (double) f6 + avec3d[2].y, (double) f7 + avec3d[2].z).tex((double) f, (double) f2).color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).lightmap(j, k).endVertex();
+		// buffer.pos((double) f5 + avec3d[3].x, (double) f6 + avec3d[3].y, (double) f7 + avec3d[3].z).tex((double) f, (double) f3).color(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha).lightmap(j, k).endVertex();
+		GlStateManager.pushMatrix();
+		GlStateManager.translate(f5, f6, f7);
+		Gui.drawRect(0, 0, 1, 1, 0xff000000);
+		GlStateManager.popMatrix();
 	}
 
 	public int getBrightnessForRender(float p_189214_1_) {
