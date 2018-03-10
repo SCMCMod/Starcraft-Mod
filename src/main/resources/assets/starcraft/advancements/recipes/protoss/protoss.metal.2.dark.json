@@ -1,0 +1,45 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "starcraft:protoss/protoss.metal.2.dark"
+    ]
+  },
+  "criteria": {
+    "has_dark_protoss_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+			"item": "starcraft:protoss.ingot",
+			"data": 1
+          }
+        ]
+      }
+    },
+	"has_t1_metal_dark": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+			"item": "starcraft:protoss.metal.1",
+			"data": 1
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "starcraft:protoss/protoss.metal.2.dark"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dark_protoss_ingot",
+	  "has_t1_metal_dark",
+      "has_the_recipe"
+    ]
+  ]
+}

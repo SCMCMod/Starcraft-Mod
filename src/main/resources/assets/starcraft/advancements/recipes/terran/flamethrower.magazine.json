@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "starcraft:terran/riflec14.magazine"
+      "starcraft:terran/flamethrower.magazine"
     ]
   },
   "criteria": {
@@ -20,7 +20,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "starcraft:terran/riflec14.magazine"
+        "recipe": "starcraft:terran/flamethrower.magazine"
       }
     }
   },

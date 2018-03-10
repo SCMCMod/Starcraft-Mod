@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.hypeirochus.scmc.Starcraft;
-import com.hypeirochus.scmc.recipes.custom.RecipeFlamethrowerFuel;
-import com.hypeirochus.scmc.recipes.custom.RecipeRifleC14Magazine;
 
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
@@ -31,8 +29,6 @@ public class CustomRecipes {
 	}
 
 	private static void register() {
-		registerRecipe(new RecipeRifleC14Magazine(), "riflec14.magazine");
-		registerRecipe(new RecipeFlamethrowerFuel(), "flamethrower.fuel");
 	}
 
 	/**

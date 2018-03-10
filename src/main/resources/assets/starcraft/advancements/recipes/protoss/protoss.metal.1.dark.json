@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "starcraft:terran/riflec14.magazine"
+      "starcraft:protoss/protoss.metal.1.dark"
     ]
   },
   "criteria": {
-    "has_steel": {
+    "has_dark_protoss_ingot": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "type": "forge:ore_dict",
-			"ore": "ingotSteel"
+			"item": "starcraft:protoss.ingot",
+			"data": 1
           }
         ]
       }
@@ -20,13 +20,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "starcraft:terran/riflec14.magazine"
+        "recipe": "starcraft:protoss/protoss.metal.1.dark"
       }
     }
   },
   "requirements": [
     [
-      "has_steel",
+      "has_dark_protoss_ingot",
       "has_the_recipe"
     ]
   ]

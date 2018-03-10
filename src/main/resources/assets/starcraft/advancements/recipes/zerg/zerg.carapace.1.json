@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "starcraft:flamethrower.fuel"
+      "starcraft:zerg/zerg.carapace.1"
     ]
   },
   "criteria": {
-    "has_steel": {
+    "has_zerg_capapace_1": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "type": "forge:ore_dict",
-			"ore": "ingotSteel"
+			"item": "starcraft:zerg.icarapace",
+			"data": 0
           }
         ]
       }
@@ -20,13 +20,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "starcraft:flamethrower.fuel"
+        "recipe": "starcraft:zerg/zerg.carapace.1"
       }
     }
   },
   "requirements": [
     [
-      "has_steel",
+      "has_zerg_capapace_1",
       "has_the_recipe"
     ]
   ]

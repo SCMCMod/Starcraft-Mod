@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "starcraft:terran/riflec14.magazine"
+      "starcraft:zerg/zerg.carapace.2"
     ]
   },
   "criteria": {
-    "has_steel": {
+    "has_zerg_capapace_2": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "type": "forge:ore_dict",
-			"ore": "ingotSteel"
+			"item": "starcraft:zerg.icarapace",
+			"data": 1
           }
         ]
       }
@@ -20,13 +20,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "starcraft:terran/riflec14.magazine"
+        "recipe": "starcraft:zerg/zerg.carapace.2"
       }
     }
   },
   "requirements": [
     [
-      "has_steel",
+      "has_zerg_capapace_2",
       "has_the_recipe"
     ]
   ]

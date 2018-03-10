@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "starcraft:terran/riflec14.magazine"
+      "starcraft:misc/ore/shakuras.iron"
     ]
   },
   "criteria": {
-    "has_steel": {
+    "has_iron_dust": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "type": "forge:ore_dict",
-			"ore": "ingotSteel"
+			"ore": "dustIron"
           }
         ]
       }
@@ -20,13 +20,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "starcraft:terran/riflec14.magazine"
+        "recipe": "starcraft:misc/ore/shakuras.iron"
       }
     }
   },
   "requirements": [
     [
-      "has_steel",
+      "has_iron_dust",
       "has_the_recipe"
     ]
   ]
