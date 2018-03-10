@@ -8,6 +8,10 @@ import javax.annotation.Nullable;
 
 import com.google.common.collect.Maps;
 import com.hypeirochus.scmc.api.Utils;
+import com.hypeirochus.scmc.enums.MetaHandler.TerrazineType;
+import com.hypeirochus.scmc.enums.MetaHandler.VespeneType;
+import com.hypeirochus.scmc.handlers.BlockHandler;
+import com.hypeirochus.scmc.handlers.ItemHandler;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -31,12 +35,12 @@ public class GasCollectorRecipes {
 	}
 
 	private GasCollectorRecipes() {
-		// this.addProtossRecipe(BlockHandler.GAS_VESPENE, new ItemStack(ItemHandler.VESPENE, 1, VespeneType.PROTOSS.getID()));
-		// this.addTerranRecipe(BlockHandler.GAS_VESPENE, new ItemStack(ItemHandler.VESPENE, 1, VespeneType.TERRAN.getID()));
-		// this.addZergRecipe(BlockHandler.GAS_VESPENE, new ItemStack(ItemHandler.VESPENE, 1, VespeneType.ZERG.getID()));
-		// this.addProtossRecipe(BlockHandler.GAS_TERRAZINE, new ItemStack(ItemHandler.TERRAZINE, 1, TerrazineType.PROTOSS.getID()));
-		// this.addTerranRecipe(BlockHandler.GAS_TERRAZINE, new ItemStack(ItemHandler.TERRAZINE, 1, TerrazineType.TERRAN.getID()));
-		// this.addZergRecipe(BlockHandler.GAS_TERRAZINE, new ItemStack(ItemHandler.TERRAZINE, 1, TerrazineType.ZERG.getID()));
+		this.addProtossRecipe(BlockHandler.GAS_VESPENE, new ItemStack(ItemHandler.VESPENE, 1, VespeneType.PROTOSS.getID()));
+		this.addTerranRecipe(BlockHandler.GAS_VESPENE, new ItemStack(ItemHandler.VESPENE, 1, VespeneType.TERRAN.getID()));
+		this.addZergRecipe(BlockHandler.GAS_VESPENE, new ItemStack(ItemHandler.VESPENE, 1, VespeneType.ZERG.getID()));
+		this.addProtossRecipe(BlockHandler.GAS_TERRAZINE, new ItemStack(ItemHandler.TERRAZINE, 1, TerrazineType.PROTOSS.getID()));
+		this.addTerranRecipe(BlockHandler.GAS_TERRAZINE, new ItemStack(ItemHandler.TERRAZINE, 1, TerrazineType.TERRAN.getID()));
+		this.addZergRecipe(BlockHandler.GAS_TERRAZINE, new ItemStack(ItemHandler.TERRAZINE, 1, TerrazineType.ZERG.getID()));
 	}
 
 	public void addProtossRecipe(Block input, ItemStack stack) {
