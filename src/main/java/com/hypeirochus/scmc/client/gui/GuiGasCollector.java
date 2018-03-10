@@ -51,7 +51,7 @@ public class GuiGasCollector extends GuiContainer {
 	public void initGui() {
 		this.guiLeft = 175;
 		this.guiTop = 165;
-		names = new String[] { ItemHandler.PROTOSS_INGOT.getItemStackDisplayName(new ItemStack(ItemHandler.PROTOSS_INGOT, 4, 0)) + "s", Item.getItemFromBlock(Blocks.PLANKS).getItemStackDisplayName(new ItemStack(Blocks.PLANKS, 4)), ItemHandler.ORGANIC_TISSUE.getItemStackDisplayName(new ItemStack(ItemHandler.ORGANIC_TISSUE, 1, 0)) + "s" };
+		names = new String[] { ItemHandler.PROTOSS_INGOT.getItemStackDisplayName(new ItemStack(ItemHandler.PROTOSS_INGOT, 4, 0)) + "s", Item.getItemFromBlock(Blocks.PLANKS).getItemStackDisplayName(new ItemStack(Blocks.PLANKS, 4)), ItemHandler.ORGANIC_TISSUE.getItemStackDisplayName(new ItemStack(ItemHandler.ORGANIC_TISSUE, 1, 0)) };
 		super.initGui();
 	}
 
@@ -60,7 +60,7 @@ public class GuiGasCollector extends GuiContainer {
 		bindTexture();
 		GlStateManager.color(1F, 1F, 1F, 1F);
 		drawTexturedModalRect((width - xSize) / 2, (height - ySize) / 2, 0, 0, this.xSize, this.ySize);
-		if (itemHandler.getStackInSlot(9) == null)
+		if (itemHandler.getStackInSlot(9).isEmpty())
 			GlStateManager.pushMatrix();
 		GlStateManager.scale(0.5f, 0.5f, 0.5f);
 		drawTexturedModalRect(((width / 2) + 46) * 2, ((height / 2) - 48) * 2, xSize, 0, 32, 32);
@@ -74,13 +74,13 @@ public class GuiGasCollector extends GuiContainer {
 		drawDefaultBackground();
 		super.drawScreen(mouseX, mouseY, partialTicks);
 		renderHoveredToolTip(mouseX, mouseY);
-		if (itemHandler.getStackInSlot(9) == null) {
+		if (itemHandler.getStackInSlot(9).isEmpty()) {
 			bindTexture();
 			String ss = "s";
 			if (te.getType() == 1 || getRequiredFuel() == 1)
 				ss = "";
 			String s = TextFormatting.GRAY + I18n.format("gui.gas_collector." + GasCollectorType.values()[te.getType()] + ".fuel.tooltip", getRequiredFuel(), TextFormatting.DARK_GRAY + names[te.getType()] + TextFormatting.GRAY);
-			drawTooltip(s, (width / 2) + 45, (height / 2) - 49, 17, 18, mouseX, mouseY);
+			drawTooltip(s, guiLeft + 133, guiTop + 34, 18, 18, mouseX, mouseY);
 		}
 	}	
 
@@ -94,7 +94,7 @@ public class GuiGasCollector extends GuiContainer {
 
 	public int getRequiredFuel() {
 		ItemStack stack = itemHandler.getStackInSlot(9);
-		if (stack != null) {
+		if (!stack.isEmpty()) {
 			if (stack.getCount() > 4) {
 				return 0;
 			} else {

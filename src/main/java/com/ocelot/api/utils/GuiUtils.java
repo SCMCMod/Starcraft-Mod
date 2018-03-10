@@ -65,10 +65,7 @@ public class GuiUtils {
 	 * @return Whether the mouse is inside of that location
 	 */
 	public static boolean isMouseInside(int x, int y, int width, int height, int mouseX, int mouseY) {
-		if (mouseX >= x && mouseX <= (x + width) && mouseY >= y && mouseY < (y + height)) {
-			return true;
-		}
-		return false;
+		return mouseX >= x && mouseX < (x + width) && mouseY >= y && mouseY < (y + height);
 	}
 
 	/**
@@ -83,8 +80,7 @@ public class GuiUtils {
 	 * @param height
 	 *            The height of the window
 	 * @param zLevel
-	 *            <em> MAKE SURE NOT TO EDIT THIS VALUE UNLESS YOU KNOW WHAT YOU ARE
-	 *            DOING!!</em>
+	 *            <em> MAKE SURE NOT TO EDIT THIS VALUE UNLESS YOU KNOW WHAT YOU ARE DOING!!</em>
 	 */
 	@SideOnly(Side.CLIENT)
 	public static void drawCustomSizeGui(int x, int y, int width, int height, GuiType type) {
@@ -95,27 +91,20 @@ public class GuiUtils {
 		int v = type.getV();
 		int cellSize = type.getCellSize();
 
-		GuiScreen.drawScaledCustomSizeModalRect(x + cellSize, y + cellSize, u + cellSize, v + cellSize, cellSize,
-				cellSize, width - cellSize * 2, height - cellSize * 2, 256, 256);
-		GuiScreen.drawScaledCustomSizeModalRect(x, y + cellSize, u, v + cellSize, cellSize, cellSize, cellSize,
-				height - cellSize * 2, 256, 256);
-		GuiScreen.drawScaledCustomSizeModalRect(x + width - cellSize, y + cellSize, u + cellSize * 2, v + cellSize,
-				cellSize, cellSize, cellSize, height - cellSize * 2, 256, 256);
-		GuiScreen.drawScaledCustomSizeModalRect(x + cellSize, y + height - cellSize, u + cellSize, v + cellSize * 2,
-				cellSize, cellSize, width - cellSize * 2, cellSize, 256, 256);
-		GuiScreen.drawScaledCustomSizeModalRect(x + cellSize, y, u + cellSize, v, cellSize, cellSize,
-				width - cellSize * 2, cellSize, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x + cellSize, y + cellSize, u + cellSize, v + cellSize, cellSize, cellSize, width - cellSize * 2, height - cellSize * 2, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x, y + cellSize, u, v + cellSize, cellSize, cellSize, cellSize, height - cellSize * 2, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x + width - cellSize, y + cellSize, u + cellSize * 2, v + cellSize, cellSize, cellSize, cellSize, height - cellSize * 2, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x + cellSize, y + height - cellSize, u + cellSize, v + cellSize * 2, cellSize, cellSize, width - cellSize * 2, cellSize, 256, 256);
+		GuiScreen.drawScaledCustomSizeModalRect(x + cellSize, y, u + cellSize, v, cellSize, cellSize, width - cellSize * 2, cellSize, 256, 256);
 
 		drawStaticTextureModelRect(x, y, u, v, cellSize, cellSize);
 		drawStaticTextureModelRect(x + width - cellSize, y, u + cellSize * 2, v, cellSize, cellSize);
 		drawStaticTextureModelRect(x, y + height - cellSize, u, v + cellSize * 2, cellSize, cellSize);
-		drawStaticTextureModelRect(x + width - cellSize, y + height - cellSize, u + cellSize * 2, v + cellSize * 2,
-				cellSize, cellSize);
+		drawStaticTextureModelRect(x + width - cellSize, y + height - cellSize, u + cellSize * 2, v + cellSize * 2, cellSize, cellSize);
 	}
 
 	/**
-	 * Draws a default minecraft slot at the specified position with the specified
-	 * size.
+	 * Draws a default minecraft slot at the specified position with the specified size.
 	 * 
 	 * @param x
 	 *            The x position
@@ -158,8 +147,7 @@ public class GuiUtils {
 	 *            The entity to render
 	 */
 	@SideOnly(Side.CLIENT)
-	public static void drawEntityOnScreen(int x, int y, int scale, float mouseX, float mouseY,
-			EntityLivingBase entity) {
+	public static void drawEntityOnScreen(int x, int y, int scale, float mouseX, float mouseY, EntityLivingBase entity) {
 		if (entity != null) {
 			GlStateManager.enableColorMaterial();
 			GlStateManager.pushMatrix();
@@ -203,18 +191,15 @@ public class GuiUtils {
 	}
 
 	/**
-	 * A static reference to
-	 * {@link #drawTexturedModalRect(float, float, int, int, int, int)}.
+	 * A static reference to {@link #drawTexturedModalRect(float, float, int, int, int, int)}.
 	 * 
 	 * <br>
 	 * </br>
 	 * 
-	 * <em> Draws a textured rectangle using the texture currently bound to the
-	 * TextureManager </em>
+	 * <em> Draws a textured rectangle using the texture currently bound to the TextureManager </em>
 	 * 
 	 * @param zLevel
-	 *            <em> MAKE SURE NOT TO EDIT THIS VALUE UNLESS YOU KNOW WHAT YOU ARE
-	 *            DOING!!</em>
+	 *            <em> MAKE SURE NOT TO EDIT THIS VALUE UNLESS YOU KNOW WHAT YOU ARE DOING!!</em>
 	 */
 	@SideOnly(Side.CLIENT)
 	private static void drawStaticTextureModelRect(float x, float y, int minU, int minV, int maxU, int maxV) {
@@ -224,18 +209,10 @@ public class GuiUtils {
 		Tessellator tessellator = Tessellator.getInstance();
 		BufferBuilder vertexbuffer = tessellator.getBuffer();
 		vertexbuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
-		vertexbuffer.pos((double) (x + 0.0F), (double) (y + (float) maxV), (double) zLevel)
-				.tex((double) ((float) (minU + 0) * 0.00390625F), (double) ((float) (minV + maxV) * 0.00390625F))
-				.endVertex();
-		vertexbuffer.pos((double) (x + (float) maxU), (double) (y + (float) maxV), (double) zLevel)
-				.tex((double) ((float) (minU + maxU) * 0.00390625F), (double) ((float) (minV + maxV) * 0.00390625F))
-				.endVertex();
-		vertexbuffer.pos((double) (x + (float) maxU), (double) (y + 0.0F), (double) zLevel)
-				.tex((double) ((float) (minU + maxU) * 0.00390625F), (double) ((float) (minV + 0) * 0.00390625F))
-				.endVertex();
-		vertexbuffer.pos((double) (x + 0.0F), (double) (y + 0.0F), (double) zLevel)
-				.tex((double) ((float) (minU + 0) * 0.00390625F), (double) ((float) (minV + 0) * 0.00390625F))
-				.endVertex();
+		vertexbuffer.pos((double) (x + 0.0F), (double) (y + (float) maxV), (double) zLevel).tex((double) ((float) (minU + 0) * 0.00390625F), (double) ((float) (minV + maxV) * 0.00390625F)).endVertex();
+		vertexbuffer.pos((double) (x + (float) maxU), (double) (y + (float) maxV), (double) zLevel).tex((double) ((float) (minU + maxU) * 0.00390625F), (double) ((float) (minV + maxV) * 0.00390625F)).endVertex();
+		vertexbuffer.pos((double) (x + (float) maxU), (double) (y + 0.0F), (double) zLevel).tex((double) ((float) (minU + maxU) * 0.00390625F), (double) ((float) (minV + 0) * 0.00390625F)).endVertex();
+		vertexbuffer.pos((double) (x + 0.0F), (double) (y + 0.0F), (double) zLevel).tex((double) ((float) (minU + 0) * 0.00390625F), (double) ((float) (minV + 0) * 0.00390625F)).endVertex();
 		tessellator.draw();
 	}
 

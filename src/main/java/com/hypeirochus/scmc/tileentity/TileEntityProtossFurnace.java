@@ -66,7 +66,7 @@ public class TileEntityProtossFurnace extends TileEntitySidedInventory implement
 	 * @return can we smelt the current item?
 	 */
 	private boolean canSmelt() {
-		if (!this.handler.getStackInSlot(0).isEmpty()) {
+		if (this.handler.getStackInSlot(0).isEmpty()) {
 			return false;
 		} else {
 			if (hasPylons()) {
@@ -94,7 +94,9 @@ public class TileEntityProtossFurnace extends TileEntitySidedInventory implement
 			}
 		}
 
-		return positions.size() >= getSpeedBonus() / 2 && positions.size() - getSpeedBonus() / 2 >= getEfficiencyBonus() / 2 && positions.size() > 0;
+		System.out.println(positions.size());
+		
+		return positions.size() - 1 >= getSpeedBonus() && positions.size() - 1 >= getEfficiencyBonus() && positions.size() > 0;
 	}
 
 	private void smeltItem() {
@@ -102,10 +104,10 @@ public class TileEntityProtossFurnace extends TileEntitySidedInventory implement
 			ItemStack itemstack = FurnaceRecipes.instance().getSmeltingResult(this.handler.getStackInSlot(0)).copy();
 			itemstack.setCount(itemstack.getCount() * getEfficiencyBonus() + 1);
 
-			if (!this.handler.getStackInSlot(1).isEmpty()) {
+			if (this.handler.getStackInSlot(1).isEmpty()) {
 				this.handler.setStackInSlot(1, itemstack);
-			} else if (this.handler.getStackInSlot(1).getItem() == itemstack.getItem()) {
-				this.handler.getStackInSlot(1).grow(itemstack.getCount()); // Forge BugFix: Results may have multiple items
+			} else if (this.handler.getStackInSlot(1).getItem() == itemstack.getItem() && this.handler.getStackInSlot(1).getMetadata() == itemstack.getMetadata()) {
+				this.handler.getStackInSlot(1).grow(itemstack.getCount());
 				this.handler.getStackInSlot(1).setCount(MathHelper.clamp(this.handler.getStackInSlot(1).getCount(), 0, this.handler.getStackInSlot(1).getMaxStackSize()));
 			}
 			this.handler.getStackInSlot(0).shrink(1);
