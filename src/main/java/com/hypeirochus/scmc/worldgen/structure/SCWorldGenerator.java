@@ -28,8 +28,6 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
  * 
  * <br>
  * </br>
- * 
- * @deprecated This is being phased out and should no longer be used as a world generator. Use {@link StarcraftStructureGenerator} instead for structures.
  */
 public abstract class SCWorldGenerator {
 

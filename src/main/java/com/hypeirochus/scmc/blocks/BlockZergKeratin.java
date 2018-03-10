@@ -13,12 +13,10 @@ import net.minecraft.block.material.Material;
  * 
  * @author Hypeirochus
  */
-public class BlockZergKeratin extends Block {
+public class BlockZergKeratin extends StarcraftBlock {
 
 	public BlockZergKeratin() {
-		super(Material.GROUND, MapColor.SNOW);
-		setUnlocalizedName("zerg.keratin");
-		setRegistryName("zerg.keratin");
+		super("zerg.keratin", RegistryType.FULL, Material.GROUND, MapColor.SNOW);
 		setSoundType(SoundType.STONE);
 		setHardness(10.0F);
 		setResistance(10.0F);
