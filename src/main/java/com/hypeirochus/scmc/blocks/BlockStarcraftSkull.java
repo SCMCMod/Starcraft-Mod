@@ -8,6 +8,7 @@ import javax.annotation.Nullable;
 
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 import com.hypeirochus.scmc.handlers.BlockHandler;
+import com.hypeirochus.scmc.items.IMetaRenderHandler;
 import com.hypeirochus.scmc.tileentity.TileEntityStarcraftSkull;
 
 import net.minecraft.block.BlockContainer;
@@ -39,7 +40,7 @@ import net.minecraft.world.World;
 /**
  * @author Ocelot5836
  */
-public class BlockStarcraftSkull extends BlockContainer {
+public class BlockStarcraftSkull extends BlockContainer implements IMetaRenderHandler {
 
 	public static final PropertyDirection FACING = BlockDirectional.FACING;
 	public static final PropertyBool NODROP = PropertyBool.create("nodrop");
@@ -194,5 +195,15 @@ public class BlockStarcraftSkull extends BlockContainer {
 		public String toString() {
 			return getName();
 		}
+	}
+
+	@Override
+	public int getItemCount() {
+		return EnumSkullType.values().length;
+	}
+
+	@Override
+	public String getName(int meta) {
+		return "skull";
 	}
 }
