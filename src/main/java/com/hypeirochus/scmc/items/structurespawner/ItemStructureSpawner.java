@@ -40,7 +40,7 @@ public abstract class ItemStructureSpawner extends StarcraftItem implements IMet
 		ItemStack heldItem = player.getHeldItem(hand);
 		SCWorldGenerator structure = this.getStructure(heldItem.getMetadata());
 		Random rand = new Random();
-		structure.generate(-1, -1, world, rand, 0, 0, 0, pos, false);
+		this.generate(structure, world, rand, pos, heldItem);
 		if (this.getSpawnSound(heldItem.getMetadata()) != null)
 			world.playSound(pos.getX(), pos.getY(), pos.getZ(), this.getSpawnSound(heldItem.getMetadata()), null, 0.7F, 1F, false);
 		return super.onItemUse(player, world, pos, hand, facing, hitX, hitY, hitZ);
@@ -53,6 +53,8 @@ public abstract class ItemStructureSpawner extends StarcraftItem implements IMet
 	public abstract String getUnlocalizedName(ItemStack stack);
 
 	public abstract SCWorldGenerator getStructure(int meta);
+
+	public abstract void generate(SCWorldGenerator structure, World world, Random rand, BlockPos pos, ItemStack stack);
 
 	public SoundEvent getSpawnSound(int meta) {
 		return null;

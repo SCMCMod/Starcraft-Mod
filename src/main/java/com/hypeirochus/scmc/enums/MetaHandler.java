@@ -5,6 +5,11 @@ import com.hypeirochus.scmc.worldgen.structure.SCWorldGenerator;
 import com.hypeirochus.scmc.worldgen.structure.StructureProtossCyberneticsCoreTemplate;
 import com.hypeirochus.scmc.worldgen.structure.StructureProtossPylonTemplate;
 import com.hypeirochus.scmc.worldgen.structure.StructureProtossWarpGateTemplate;
+import com.hypeirochus.scmc.worldgen.structure.StructureTerranBarracksTemplate;
+import com.hypeirochus.scmc.worldgen.structure.StructureTerranBunkerTemplate;
+import com.hypeirochus.scmc.worldgen.structure.StructureZergHydraliskDenTemplate;
+import com.hypeirochus.scmc.worldgen.structure.StructureZergSpawningPoolTemplate;
+import com.hypeirochus.scmc.worldgen.structure.StructureZergSpireTemplate;
 
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.SoundEvent;
@@ -20,15 +25,7 @@ import net.minecraft.util.SoundEvent;
 public class MetaHandler {
 
 	public enum ProtossStructureSpawnerType implements IStringSerializable {
-		DARK_CYBERNETICSCORE("cyberneticscore.dark", 0, new StructureProtossCyberneticsCoreTemplate(1, 4), SoundHandler.STRUC_CYBERNETICSCORE_BIRTH), 
-		VOID_CYBERNETICSCORE("cyberneticscore.void", 1, new StructureProtossCyberneticsCoreTemplate(1, 2), SoundHandler.STRUC_CYBERNETICSCORE_BIRTH), 
-		CYBERNETICSCORE("cyberneticscore", 2, new StructureProtossCyberneticsCoreTemplate(0, 3), SoundHandler.STRUC_CYBERNETICSCORE_BIRTH), 
-		DARK_PYLON("pylon.dark", 3, new StructureProtossPylonTemplate(1,1), SoundHandler.STRUC_PYLON_BIRTH), 
-		VOID_PYLON("pylon.void", 4, new StructureProtossPylonTemplate(1,4),SoundHandler.STRUC_PYLON_BIRTH), 
-		PROTOSS_PYLON("pylon", 5, new StructureProtossPylonTemplate(0,0), SoundHandler.STRUC_PYLON_BIRTH), 
-		DARK_WARPGATE("warpgate.dark", 6, new StructureProtossWarpGateTemplate(1,4), SoundHandler.STRUC_GATEWAY_BIRTH), 
-		VOID_WARPGATE("warpgate.void", 7, new StructureProtossWarpGateTemplate(1,2), SoundHandler.STRUC_GATEWAY_BIRTH), 
-		WARPGATE("warpgate", 8, new StructureProtossWarpGateTemplate(0,3), SoundHandler.STRUC_GATEWAY_BIRTH);
+		DARK_CYBERNETICSCORE("cyberneticscore.dark", 0, new StructureProtossCyberneticsCoreTemplate(1, 4), SoundHandler.STRUC_CYBERNETICSCORE_BIRTH), VOID_CYBERNETICSCORE("cyberneticscore.void", 1, new StructureProtossCyberneticsCoreTemplate(1, 2), SoundHandler.STRUC_CYBERNETICSCORE_BIRTH), CYBERNETICSCORE("cyberneticscore", 2, new StructureProtossCyberneticsCoreTemplate(0, 3), SoundHandler.STRUC_CYBERNETICSCORE_BIRTH), DARK_PYLON("pylon.dark", 3, new StructureProtossPylonTemplate(1, 1), SoundHandler.STRUC_PYLON_BIRTH), VOID_PYLON("pylon.void", 4, new StructureProtossPylonTemplate(1, 4), SoundHandler.STRUC_PYLON_BIRTH), PROTOSS_PYLON("pylon", 5, new StructureProtossPylonTemplate(0, 0), SoundHandler.STRUC_PYLON_BIRTH), DARK_WARPGATE("warpgate.dark", 6, new StructureProtossWarpGateTemplate(1, 4), SoundHandler.STRUC_GATEWAY_BIRTH), VOID_WARPGATE("warpgate.void", 7, new StructureProtossWarpGateTemplate(1, 2), SoundHandler.STRUC_GATEWAY_BIRTH), WARPGATE("warpgate", 8, new StructureProtossWarpGateTemplate(0, 3), SoundHandler.STRUC_GATEWAY_BIRTH);
 
 		private int ID;
 		private String name;
@@ -70,7 +67,7 @@ public class MetaHandler {
 	}
 
 	public enum TerranStructureSpawnerType implements IStringSerializable {
-		;
+		BUNKER("bunker", 0, new StructureTerranBunkerTemplate()), BARRACKS("barracks", 1, new StructureTerranBarracksTemplate()), COMMAND_CENTER("commandcenter", 2, new StructureTerranBunkerTemplate());
 
 		private int ID;
 		private String name;
@@ -112,7 +109,7 @@ public class MetaHandler {
 	}
 
 	public enum ZergStructureSpawnerType implements IStringSerializable {
-		;
+		SPAWNINGPOOL("spawningpool", 0, new StructureZergSpawningPoolTemplate()), SPIRE("spire", 1, new StructureZergSpireTemplate()), HYDRALISKDEN("hydraliskden", 2, new StructureZergHydraliskDenTemplate());
 
 		private int ID;
 		private String name;
