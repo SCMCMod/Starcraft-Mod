@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.hypeirochus.scmc.blocks.items.IMetaBlockName;
 import com.hypeirochus.scmc.blocks.items.ItemBlockBrambles;
+import com.hypeirochus.scmc.client.renderer.Resources;
+import com.hypeirochus.scmc.client.renderer.particle.CustomTextureDestroyEffect;
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 import com.hypeirochus.scmc.tileentity.TileEntityBrambles;
 
@@ -17,6 +19,7 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.particle.ParticleManager;
+import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -26,6 +29,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
@@ -70,7 +74,7 @@ public class BlockBrambles extends BlockContainer implements IShearable, IMetaBl
 	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
 		if (world.getTileEntity(pos) instanceof TileEntityBrambles) {
 			world.setBlockState(pos.up(), this.getDefaultState().withProperty(PART, Part.TOP));
-			world.setTileEntity(pos.up(), new TileEntityBrambles(((TileEntityBrambles)world.getTileEntity(pos)).getVariant()));
+			world.setTileEntity(pos.up(), new TileEntityBrambles(((TileEntityBrambles) world.getTileEntity(pos)).getVariant()));
 		}
 	}
 
@@ -81,46 +85,46 @@ public class BlockBrambles extends BlockContainer implements IShearable, IMetaBl
 
 	@Override
 	public boolean addDestroyEffects(World world, BlockPos pos, ParticleManager manager) {
-		// IBlockState state = world.getBlockState(pos);
-		// if (state.getBlock() == this) {
-		// if (world.isRemote) {
-		// state = state.getActualState(world, pos);
-		// int i = 4;
-		//
-		// ResourceLocation location = AIR_ID;
-		// int u = 0;
-		// int v = 0;
-		//
-		// if (world.getTileEntity(pos) instanceof TileEntityBrambles) {
-		// TileEntityBrambles te = (TileEntityBrambles) world.getTileEntity(pos);
-		// switch (te.getVariantEnum()) {
-		// case KALDIR:
-		// location = Resources.KALDIR_BRAMBLES_TEXTURE;
-		// u = 112;
-		// v = 112;
-		// break;
-		// case SHAKURAS:
-		// location = Resources.SHAKURAS_PALM_TEXTURE;
-		// break;
-		// case ZERUS:
-		// location = Resources.ZERUS_PALM_TEXTURE;
-		// break;
-		// }
-		// }
-		//
-		// for (int j = 0; j < 4; ++j) {
-		// for (int k = 0; k < 4; ++k) {
-		// for (int l = 0; l < 4; ++l) {
-		// double d0 = ((double) j + 0.5D) / 4.0D;
-		// double d1 = ((double) k + 0.5D) / 4.0D;
-		// double d2 = ((double) l + 0.5D) / 4.0D;
-		// manager.addEffect((new CustomTextureDestroyEffect(world, (double) pos.getX() + d0, (double) pos.getY() + d1, (double) pos.getZ() + d2, d0 - 0.5D, d1 - 0.5D, d2 - 0.5D, state, location, u, v, 16, 16)).setBlockPos(pos));
-		// }
-		// }
-		// }
-		// }
-		// return true;
-		// }
+		IBlockState state = world.getBlockState(pos);
+		if (state.getBlock() == this) {
+			if (world.isRemote) {
+				state = state.getActualState(world, pos);
+				int i = 4;
+
+				ResourceLocation location = TextureMap.LOCATION_BLOCKS_TEXTURE;
+				int u = 0;
+				int v = 0;
+
+				if (world.getTileEntity(pos) instanceof TileEntityBrambles) {
+					TileEntityBrambles te = (TileEntityBrambles) world.getTileEntity(pos);
+					switch (te.getVariantEnum()) {
+					case KALDIR:
+						location = Resources.KALDIR_BRAMBLES_TEXTURE;
+						u = 112;
+						v = 112;
+						break;
+					case SHAKURAS:
+						location = Resources.SHAKURAS_PALM_TEXTURE;
+						break;
+					case ZERUS:
+						location = Resources.ZERUS_PALM_TEXTURE;
+						break;
+					}
+				}
+
+				for (int j = 0; j < 4; ++j) {
+					for (int k = 0; k < 4; ++k) {
+						for (int l = 0; l < 4; ++l) {
+							double d0 = ((double) j + 0.5D) / 4.0D;
+							double d1 = ((double) k + 0.5D) / 4.0D;
+							double d2 = ((double) l + 0.5D) / 4.0D;
+							manager.addEffect((new CustomTextureDestroyEffect(world, (double) pos.getX() + d0, (double) pos.getY() + d1, (double) pos.getZ() + d2, d0 - 0.5D, d1 - 0.5D, d2 - 0.5D, state, location, u, v, 16, 16)).setBlockPos(pos));
+						}
+					}
+				}
+			}
+			return true;
+		}
 		return super.addDestroyEffects(world, pos, manager);
 	}
 
