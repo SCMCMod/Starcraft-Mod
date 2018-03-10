@@ -2,6 +2,7 @@ package com.hypeirochus.scmc.items;
 
 import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.handlers.GuiHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
 import com.hypeirochus.scmc.items.override.LogOverride;
 import com.hypeirochus.scmc.log.Log;
@@ -49,7 +50,7 @@ public class ItemLog extends StarcraftItem {
 		if (stack.hasTagCompound()) {
 			NBTTagCompound nbt = stack.getTagCompound();
 			if (nbt.hasKey("type")) {
-				// player.openGui(Starcraft.instance, GuiHandler.LOG, world, Starcraft.getLogRegistry().getRegisteredLog(nbt.getInteger("type")).getId(), -1, -1);
+				player.openGui(Starcraft.instance, GuiHandler.LOG, world, Starcraft.logRegistry().getRegisteredLog(nbt.getInteger("type")).getId(), -1, -1);
 			}
 		}
 		return super.onItemRightClick(world, player, hand);
