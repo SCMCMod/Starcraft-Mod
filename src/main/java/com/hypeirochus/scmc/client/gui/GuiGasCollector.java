@@ -7,6 +7,7 @@ import com.hypeirochus.scmc.blocks.metablocks.BlockGasCollector.GasCollectorType
 import com.hypeirochus.scmc.container.ContainerGasCollector;
 import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
+import com.hypeirochus.scmc.lib.Library;
 import com.hypeirochus.scmc.tileentity.TileEntityGasCollector;
 import com.ocelot.api.utils.GuiUtils;
 import com.ocelot.api.utils.TextureUtils;
@@ -65,8 +66,10 @@ public class GuiGasCollector extends GuiContainer {
 		GlStateManager.scale(0.5f, 0.5f, 0.5f);
 		drawTexturedModalRect(((width / 2) + 46) * 2, ((height / 2) - 48) * 2, xSize, 0, 32, 32);
 		GlStateManager.popMatrix();
-		TextureUtils.bindTexture("textures/gui/container/gas_collector_base.png");
-		drawTexturedModalRect(guiLeft + 35, guiTop + 35, 63, 0, 16, 16);
+		if (Library.isJeiInstalled()) {
+			TextureUtils.bindTexture("textures/gui/container/gas_collector_base.png");
+			drawTexturedModalRect(guiLeft + 35, guiTop + 35, 63, 0, 16, 16);
+		}
 	}
 
 	@Override
@@ -82,7 +85,7 @@ public class GuiGasCollector extends GuiContainer {
 			String s = TextFormatting.GRAY + I18n.format("gui.gas_collector." + GasCollectorType.values()[te.getType()] + ".fuel.tooltip", getRequiredFuel(), TextFormatting.DARK_GRAY + names[te.getType()] + TextFormatting.GRAY);
 			drawTooltip(s, guiLeft + 133, guiTop + 34, 18, 18, mouseX, mouseY);
 		}
-	}	
+	}
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {

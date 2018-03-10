@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.hypeirochus.scmc.handlers.BlockHandler;
 
+import mezz.jei.api.recipe.IStackHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -11,6 +12,9 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 
 /**
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
@@ -24,6 +28,8 @@ import net.minecraft.world.World;
  * @author He who is nameless
  */
 public class Library {
+	
+	private static boolean isJeiInstalled;
 
 	/**
 	 * Makes a cube out of {@code blockState} anchored at the bottom-middle. NOTE: this ignores the anchor. Also, make sure the side length is an odd natural number, else you'll break something
@@ -165,5 +171,16 @@ public class Library {
 			for (int z = -radius; z <= radius; z++)
 				if (world.getBlockState(pos.add(x, domeHeight - 1, z)).getBlock() == Blocks.SNOW_LAYER || world.getBlockState(pos.add(x, domeHeight - 1, z)).getBlock() == BlockHandler.ASH_CHAR || world.getBlockState(pos.add(x, domeHeight - 1, z)).getBlock() == Blocks.AIR || world.getBlockState(pos.add(x, domeHeight - 1, z)).getBlock() == BlockHandler.PROTOSS_SHIELD)
 					world.setBlockState(pos.add(x, domeHeight - 1, z), state);
+	}
+	
+	/**
+	 * @return Whether or not the JEI mod is installed
+	 */
+	public static boolean isJeiInstalled() {
+		return isJeiInstalled;
+	}
+	
+	public static void checkMods(FMLPostInitializationEvent event) {
+		isJeiInstalled = Loader.isModLoaded("jei");
 	}
 }

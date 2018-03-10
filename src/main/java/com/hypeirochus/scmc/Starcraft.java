@@ -21,6 +21,7 @@ import com.hypeirochus.scmc.handlers.KeybindingHandler;
 import com.hypeirochus.scmc.handlers.RenderHandler;
 import com.hypeirochus.scmc.handlers.SoundHandler;
 import com.hypeirochus.scmc.handlers.WavefrontModelHandler;
+import com.hypeirochus.scmc.lib.Library;
 import com.hypeirochus.scmc.log.LogRegistry;
 import com.hypeirochus.scmc.network.NetworkHandler;
 import com.hypeirochus.scmc.proxy.CommonProxy;
@@ -127,6 +128,8 @@ public class Starcraft {
 	/** Post Initialization **/
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
+		Library.checkMods(event);
+		
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 		}
 
