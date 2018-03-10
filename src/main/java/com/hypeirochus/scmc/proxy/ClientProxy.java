@@ -10,7 +10,7 @@ import com.hypeirochus.scmc.client.model.armor.ModelZergArmorT2;
 import com.hypeirochus.scmc.client.model.armor.ModelZergArmorT3;
 
 /**
- * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
+ * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
  * 
  * <br>
  * </br>
