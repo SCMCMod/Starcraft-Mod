@@ -93,8 +93,6 @@ public class TileEntityProtossFurnace extends TileEntitySidedInventory implement
 				positions.add(pos);
 			}
 		}
-
-		System.out.println(positions.size());
 		
 		return positions.size() - 1 >= getSpeedBonus() && positions.size() - 1 >= getEfficiencyBonus() && positions.size() > 0;
 	}
