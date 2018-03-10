@@ -1,16 +1,13 @@
 {
-    "forge_marker": 1,
-    "defaults": {
-    	"model":"forge:fluid"
-    },
-    "variants": {
-        "normal": {
-        	"model": "forge:fluid",
-        	"custom": { "fluid": "fluid.tar" }
-        },
-        "fluid": {
-	        "model": "forge:fluid",
-        	"custom": { "fluid": "fluid.tar" }
-        }
-    }
+   	"forge_marker": 1,
+   	"defaults": {
+   		"model": "forge:fluid"
+   	},
+   	"variants": {
+   		"fluid": [{
+   			"custom": {
+   				"fluid": "fluid.tar"
+   			}
+   		}]
+   	}
 }

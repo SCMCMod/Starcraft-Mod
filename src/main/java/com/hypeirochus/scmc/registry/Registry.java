@@ -18,6 +18,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -60,8 +61,9 @@ public class Registry {
 		}
 
 		RenderHandler.registerBlockMetaRenders();
+		RenderHandler.registerFluidRenders();
 		for (ItemBlock item : BlockHandler.getItems()) {
-			if (item != null && !item.getHasSubtypes()) {
+			if (item != null && !item.getHasSubtypes() && !(item.getBlock() instanceof BlockFluidBase)) {
 				registerItemRender(item);
 			}
 		}

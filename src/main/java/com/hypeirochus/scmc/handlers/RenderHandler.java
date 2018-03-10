@@ -190,10 +190,6 @@ public class RenderHandler {
 	}
 
 	public static void registerBlockMetaRenders() {
-		for (int i = 0; i < BlockStarcraftSkull.EnumSkullType.values().length; i++) {
-			registerBlockRender(STARCRAFT_SKULL, i, "skull");
-		}
-
 		for (Block block : Block.REGISTRY) {
 			if (block != null && block instanceof IMetaRenderHandler) {
 				IMetaRenderHandler handler = (IMetaRenderHandler) block;
@@ -208,6 +204,14 @@ public class RenderHandler {
 				}
 			}
 		}
+	}
+
+	public static void registerFluidRenders() {
+		registerFluid(BlockHandler.ACID);
+		registerFluid(BlockHandler.BLOOD);
+		registerFluid(BlockHandler.VESPENE);
+		registerFluid(BlockHandler.TERRAZINE);
+		registerFluid(BlockHandler.TAR);
 	}
 
 	public static void init(FMLInitializationEvent event) {

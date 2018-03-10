@@ -1,4 +1,4 @@
-package com.hypeirochus.scmc.blocks;
+package com.hypeirochus.scmc.blocks.fluid;
 
 import com.hypeirochus.scmc.StarcraftDamageSources;
 import com.hypeirochus.scmc.handlers.BlockHandler;
@@ -10,9 +10,11 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.BlockFluidClassic;
+import net.minecraftforge.fluids.FluidRegistry;
 
 /**
  * Acid fluid. Hurts entities that come into contact<br>
@@ -33,7 +35,13 @@ public class BlockAcid extends BlockFluidClassic {
 	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
 		return MapColor.GREEN;
 	}
-
+	
+	@Override
+	public Vec3d getFogColor(World world, BlockPos pos, IBlockState state, Entity entity, Vec3d originalColor, float partialTicks) {
+        int color = 0xff407A19;
+        return new Vec3d((color >> 16 & 0xFF) / 255.0F, (color >> 8 & 0xFF) / 255.0F, (color & 0xFF) / 255.0F);
+	}
+	 
 	/**
 	 * Executes code when an entity collides with this block's bounds
 	 * 
