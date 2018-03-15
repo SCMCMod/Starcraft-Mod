@@ -9,6 +9,7 @@ import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.client.model.IArmorItem;
 import com.ocelot.api.utils.TextureUtils;
 
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.inventory.EntityEquipmentSlot;

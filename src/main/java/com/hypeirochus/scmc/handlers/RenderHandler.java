@@ -3,7 +3,6 @@ package com.hypeirochus.scmc.handlers;
 import static com.hypeirochus.scmc.handlers.BlockHandler.STARCRAFT_SKULL;
 
 import com.hypeirochus.scmc.Starcraft;
-import com.hypeirochus.scmc.blocks.BlockStarcraftSkull;
 import com.hypeirochus.scmc.client.model.entity.ModelBrakk;
 import com.hypeirochus.scmc.client.model.entity.ModelBroodling;
 import com.hypeirochus.scmc.client.model.entity.ModelBroodmother;

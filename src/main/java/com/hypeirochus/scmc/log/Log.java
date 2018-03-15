@@ -89,10 +89,10 @@ public class Log implements IResourceManagerReloadListener {
 					String[] tokens = line.split(":", 2);
 					if (tokens.length >= 1) {
 						if (line.contains("name")) {
-							this.name = tokens[1];
+							this.name = tokens[1].trim();
 						}
 						if (line.contains("skinId")) {
-							this.skinId = Integer.parseInt(tokens[1]);
+							this.skinId = Integer.parseInt(tokens[1].trim());
 						}
 					}
 
