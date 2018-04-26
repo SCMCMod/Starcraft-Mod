@@ -13,10 +13,10 @@ import net.minecraft.client.renderer.RenderHelper;
 
 public class BasicGui extends GuiScreen {
 
-	protected static final Minecraft	MC	= Minecraft.getMinecraft();
+	protected static final Minecraft MC = Minecraft.getMinecraft();
 
-	protected int						xSize, ySize;
-	protected int						guiLeft, guiTop;
+	protected int xSize, ySize;
+	protected int guiLeft, guiTop;
 
 	@Override
 	public void initGui() {

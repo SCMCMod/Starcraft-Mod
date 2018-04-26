@@ -180,7 +180,10 @@ public class Library {
 		return isJeiInstalled;
 	}
 	
-	public static void checkMods(FMLPostInitializationEvent event) {
+	/**
+	 * Checks if external mods are installed.
+	 */
+	public static void checkMods() {
 		isJeiInstalled = Loader.isModLoaded("jei");
 	}
 }

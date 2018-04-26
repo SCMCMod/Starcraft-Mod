@@ -130,7 +130,7 @@ public class Starcraft {
 	/** Post Initialization **/
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
-		Library.checkMods(event);
+		Library.checkMods();
 
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 		}

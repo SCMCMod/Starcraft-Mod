@@ -34,18 +34,22 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 
 /**
+ * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
+ * 
+ * <br>
+ * </br>
+ * 
  * @author Ocelot5836
  */
 public class GuiItemShop extends BasicGui {
 
-	/** The player being traded with. */
 	private EntityPlayer customer;
 	private String displayName;
 
 	private static final ItemStack MINERAL = new ItemStack(ItemHandler.MINERAL_SHARD);
 	private static final ItemStack VESPENE = new ItemStack(ItemHandler.VESPENE, 1, 2);
 
-	public List<ItemShopTab> tabs = new ArrayList<ItemShopTab>();
+	private List<ItemShopTab> tabs = new ArrayList<ItemShopTab>();
 	private int tab;
 
 	private GuiButton buttonBuy;
@@ -114,7 +118,7 @@ public class GuiItemShop extends BasicGui {
 			tab.renderIcon();
 		}
 
-		GlStateManager.translate((float) this.guiLeft, (float) this.guiTop, 0.0F);
+		GlStateManager.translate(this.guiLeft, this.guiTop, 0.0F);
 		drawCenterLayer(mouseX, mouseY);
 		RenderHelper.disableStandardItemLighting();
 		this.drawGuiForegroundLayer(mouseX, mouseY);
@@ -148,12 +152,12 @@ public class GuiItemShop extends BasicGui {
 		tabs.get(tab).renderBackground(guiLeft, guiTop, xSize, ySize);
 
 		if (MINERAL.getCount() <= 0) {
-			tabs.get(tab).bindTexture();
+			this.bindTexture();
 			this.drawTexturedModalRect(guiLeft + 105, guiTop + 91, 152, 0, 16, 16);
 		}
 
 		if (VESPENE.getCount() <= 0) {
-			tabs.get(tab).bindTexture();
+			this.bindTexture();
 			this.drawTexturedModalRect(guiLeft + 123, guiTop + 91, 152, 0, 16, 16);
 		}
 	}
@@ -173,7 +177,7 @@ public class GuiItemShop extends BasicGui {
 			for (int j = 0; j < 4; j++) {
 				int index = 4 * i + j;
 				if (index < tabs.get(tab).getItems().size()) {
-					if (index != selectedIndex && (MINERAL.getCount() < tabs.get(tab).getItems().get(index).getMineralCost() || VESPENE.getCount() < tabs.get(tab).getItems().get(index).getVespeneCost())) {
+					if (index != selectedIndex && (MINERAL.getCount() < tabs.get(tab).getItems().get(index).getMineralCost() * buyAmount || VESPENE.getCount() < tabs.get(tab).getItems().get(index).getVespeneCost() * buyAmount)) {
 						int selectedX = index % 4;
 						int selectedY = index / 4;
 						int xOffset = 25;
@@ -192,18 +196,12 @@ public class GuiItemShop extends BasicGui {
 		this.fontRenderer.drawString(displayName, xSize / 2 - this.fontRenderer.getStringWidth(displayName) / 2, 8, 4210752);
 		this.fontRenderer.drawString(I18n.format("gui.item_shop.money"), 123 - this.fontRenderer.getStringWidth(I18n.format("gui.item_shop.money")) / 2, 75, 4210752);
 
-		// if (selectedIndex != -1) {
-		// String buyAmountS = "x" + buyAmount;
-		// this.fontRenderer.drawString(buyAmountS, 123 -
-		// this.fontRenderer.getStringWidth(buyAmountS) / 2, 150, 4210752);
-		// }
-
 		if (TimeUtils.isChristmas()) {
 			this.fontRenderer.drawString(I18n.format("gui.item_shop.christmas"), xSize / 2 - this.fontRenderer.getStringWidth(I18n.format("gui.item_shop.christmas")) / 2, 206, 0x005f00);
 		}
 
-		MINERAL.setCount(InventoryUtils.getItemAmount(customer, MINERAL.getItem(), MINERAL.getItemDamage()));
-		VESPENE.setCount(InventoryUtils.getItemAmount(customer, VESPENE.getItem(), VESPENE.getItemDamage()));
+		MINERAL.setCount(InventoryUtils.getItemAmount(customer, MINERAL.getItem(), MINERAL.getMetadata()));
+		VESPENE.setCount(InventoryUtils.getItemAmount(customer, VESPENE.getItem(), VESPENE.getMetadata()));
 
 		if (MINERAL.getCount() > 0) {
 			Minecraft.getMinecraft().getRenderItem().renderItemAndEffectIntoGUI(MINERAL, 105, 91);
@@ -231,8 +229,8 @@ public class GuiItemShop extends BasicGui {
 					if (index < tabs.get(tab).getItems().size()) {
 						List<String> tooltip = tabs.get(tab).getItems().get(index).getStack().getTooltip(customer, TooltipFlags.values()[this.mc.gameSettings.advancedItemTooltips ? 1 : 0]);
 						tooltip.add("");
-						tooltip.add(TextFormatting.GRAY + I18n.format("gui.item_shop.tooltip.mineral_cost", tabs.get(tab).getItems().get(index).getMineralCost()));
-						tooltip.add(TextFormatting.GRAY + I18n.format("gui.item_shop.tooltip.vespene_cost", tabs.get(tab).getItems().get(index).getVespeneCost()));
+						tooltip.add(TextFormatting.GRAY + I18n.format("gui.item_shop.tooltip.mineral_cost", tabs.get(tab).getItems().get(index).getMineralCost() * buyAmount));
+						tooltip.add(TextFormatting.GRAY + I18n.format("gui.item_shop.tooltip.vespene_cost", tabs.get(tab).getItems().get(index).getVespeneCost() * buyAmount));
 						drawTooltip(tooltip, guiLeft + 24 + j * 18, guiTop + 24 + i * 22, 18, 18, mouseX, mouseY);
 					}
 				}
@@ -262,7 +260,7 @@ public class GuiItemShop extends BasicGui {
 					int newAmount = Integer.parseInt(textBox.getText());
 					this.buyAmount = newAmount;
 				} catch (NumberFormatException e) {
-					textBox.setText(this.buyAmount + "");
+					textBox.setText(Integer.toString(this.buyAmount));
 				}
 				modifyingStack = null;
 			}
@@ -366,8 +364,12 @@ public class GuiItemShop extends BasicGui {
 				int newAmount = Integer.parseInt(textBox.getText());
 				this.buyAmount = newAmount;
 			} catch (NumberFormatException e) {
-				textBox.setText(this.buyAmount + "");
+				textBox.setText(Integer.toString(this.buyAmount));
 			}
 		}
+	}
+
+	private void bindTexture() {
+		tabs.get(tab).bindTexture();
 	}
 }

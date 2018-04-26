@@ -36,7 +36,7 @@ public class ItemShopTab extends GuiScreen {
 	private int xOffset = 14;
 
 	public ItemShopTab(ItemStack icon, String name, int x, int y, ImmutableList<Product> items) {
-		this(icon, name, x, y, 32, 28, TimeUtils.isChristmas() ? new ResourceLocation(Starcraft.RL_BASE + "textures/gui/itemShop/item_shop_christmas.png") : new ResourceLocation(Starcraft.RL_BASE + "textures/gui/itemShop/item_shop.png"), items);
+		this(icon, name, x, y, 32, 28, TimeUtils.isChristmas() ? new ResourceLocation(Starcraft.RL_BASE + "textures/gui/item_shop/item_shop_christmas.png") : new ResourceLocation(Starcraft.RL_BASE + "textures/gui/item_shop/item_shop.png"), items);
 	}
 
 	public ItemShopTab(ItemStack icon, String name, int x, int y, ResourceLocation texture, ImmutableList<Product> items) {
@@ -44,7 +44,7 @@ public class ItemShopTab extends GuiScreen {
 	}
 
 	public ItemShopTab(ItemStack icon, String name, int x, int y, int width, int height, ImmutableList<Product> items) {
-		this(icon, name, x, y, width, height, TimeUtils.isChristmas() ? new ResourceLocation(Starcraft.RL_BASE + "textures/gui/itemShop/item_shop_christmas.png") : new ResourceLocation(Starcraft.RL_BASE + "textures/gui/itemShop/item_shop.png"), items);
+		this(icon, name, x, y, width, height, TimeUtils.isChristmas() ? new ResourceLocation(Starcraft.RL_BASE + "textures/gui/item_shop/item_shop_christmas.png") : new ResourceLocation(Starcraft.RL_BASE + "textures/gui/item_shop/item_shop.png"), items);
 	}
 
 	public ItemShopTab(ItemStack icon, String name, int x, int y, int width, int height, ResourceLocation texture, ImmutableList<Product> items) {

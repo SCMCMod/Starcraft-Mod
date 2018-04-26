@@ -28,7 +28,7 @@ public class InventoryUtils {
 		int amount = 0;
 		for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
 			ItemStack tempStack = player.inventory.getStackInSlot(i);
-			if (tempStack != null && tempStack.getItem() == item) {
+			if (!tempStack.isEmpty() && tempStack.getItem() == item) {
 				amount += tempStack.getCount();
 			}
 		}
@@ -49,7 +49,7 @@ public class InventoryUtils {
 		int amount = 0;
 		for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
 			ItemStack tempStack = player.inventory.getStackInSlot(i);
-			if (tempStack != null && tempStack.getItem() == item && tempStack.getMetadata() == meta) {
+			if (!tempStack.isEmpty() && tempStack.getItem() == item && tempStack.getMetadata() == meta) {
 				amount += tempStack.getCount();
 			}
 		}
@@ -69,7 +69,7 @@ public class InventoryUtils {
 		int amount = 0;
 		for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
 			ItemStack tempStack = player.inventory.getStackInSlot(i);
-			if (tempStack != null && tempStack == stack) {
+			if (!tempStack.isEmpty() && tempStack == stack) {
 				amount += tempStack.getCount();
 			}
 		}
@@ -87,7 +87,7 @@ public class InventoryUtils {
 	public static int getItemSlot(EntityPlayer player, Item item) {
 		for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
 			ItemStack tempStack = player.inventory.getStackInSlot(i);
-			if (tempStack != null && tempStack.getItem() == item) {
+			if (!tempStack.isEmpty() && tempStack.getItem() == item) {
 				return i;
 			}
 		}
@@ -107,7 +107,7 @@ public class InventoryUtils {
 	public static int getItemSlot(EntityPlayer player, Item item, int meta) {
 		for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
 			ItemStack stack = player.inventory.getStackInSlot(i);
-			if (stack != null && stack.getItem() == item && stack.getMetadata() == meta) {
+			if (!stack.isEmpty() && stack.getItem() == item && stack.getMetadata() == meta) {
 				return i;
 			}
 		}
@@ -125,7 +125,7 @@ public class InventoryUtils {
 	public static int getItemSlot(EntityPlayer player, ItemStack stack) {
 		for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
 			ItemStack tempStack = player.inventory.getStackInSlot(i);
-			if (tempStack != null && tempStack == stack) {
+			if (!tempStack.isEmpty() && tempStack == stack) {
 				return i;
 			}
 		}
@@ -145,7 +145,7 @@ public class InventoryUtils {
 	public static boolean hasItemAndAmount(EntityPlayer player, Item item, int amount) {
 		int count = 0;
 		for (ItemStack tempStack : player.inventory.mainInventory) {
-			if (tempStack != null && tempStack.getItem() == item) {
+			if (!tempStack.isEmpty() && tempStack.getItem() == item) {
 				count += tempStack.getCount();
 			}
 		}
@@ -167,7 +167,7 @@ public class InventoryUtils {
 	public static boolean hasItemAndAmount(EntityPlayer player, Item item, int amount, int meta) {
 		int count = 0;
 		for (ItemStack tempStack : player.inventory.mainInventory) {
-			if (tempStack != null && tempStack.getItem() == item && tempStack.getMetadata() == meta) {
+			if (!tempStack.isEmpty() && tempStack.getItem() == item && tempStack.getMetadata() == meta) {
 				count += tempStack.getCount();
 			}
 		}
@@ -187,7 +187,7 @@ public class InventoryUtils {
 	public static boolean hasStackAndAmount(EntityPlayer player, ItemStack stack, int amount) {
 		int count = 0;
 		for (ItemStack tempStack : player.inventory.mainInventory) {
-			if (tempStack != null && tempStack == stack) {
+			if (!tempStack.isEmpty() && tempStack == stack) {
 				count += tempStack.getCount();
 			}
 		}
@@ -208,7 +208,7 @@ public class InventoryUtils {
 		if (hasItemAndAmount(player, item, amount)) {
 			for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
 				ItemStack tempStack = player.inventory.getStackInSlot(i);
-				if (tempStack != null && tempStack.getItem() == item) {
+				if (!tempStack.isEmpty() && tempStack.getItem() == item) {
 					if (amount - tempStack.getCount() < 0) {
 						tempStack.shrink(amount);
 						return true;
@@ -240,7 +240,7 @@ public class InventoryUtils {
 		if (hasItemAndAmount(player, item, amount, meta)) {
 			for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
 				ItemStack tempStack = player.inventory.getStackInSlot(i);
-				if (tempStack != null && tempStack.getItem() == item && tempStack.getMetadata() == meta) {
+				if (!tempStack.isEmpty() && tempStack.getItem() == item && tempStack.getMetadata() == meta) {
 					if (amount - tempStack.getCount() < 0) {
 						tempStack.shrink(amount);
 						return true;
@@ -270,7 +270,7 @@ public class InventoryUtils {
 		if (hasStackAndAmount(player, stack, amount)) {
 			for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
 				ItemStack tempStack = player.inventory.getStackInSlot(i);
-				if (tempStack != null && tempStack == stack) {
+				if (!tempStack.isEmpty() && tempStack == stack) {
 					if (amount - tempStack.getCount() < 0) {
 						tempStack.shrink(amount);
 						return true;
