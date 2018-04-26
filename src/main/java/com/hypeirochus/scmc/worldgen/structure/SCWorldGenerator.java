@@ -11,6 +11,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityLockableLoot;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
@@ -120,6 +121,19 @@ public abstract class SCWorldGenerator {
 	}
 
 	public void clear(World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos position) {
+	}
+
+	protected void setTileEntityBlock(World world, BlockPos pos, IBlockState state, TileEntity te) {
+		world.setBlockState(pos, state);
+		te.validate();
+		world.setTileEntity(pos, te);
+	}
+
+	protected void setLockableLoot(World world, BlockPos pos, ResourceLocation lootTable) {
+		if (world.getTileEntity(pos) instanceof TileEntityLockableLoot) {
+			TileEntityLockableLoot te = (TileEntityLockableLoot) world.getTileEntity(pos);
+			te.setLootTable(lootTable, 0);
+		}
 	}
 
 	protected boolean loadStructure(BlockPos pos, World world, String name) {

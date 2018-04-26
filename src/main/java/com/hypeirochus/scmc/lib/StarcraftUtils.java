@@ -2,8 +2,11 @@ package com.hypeirochus.scmc.lib;
 
 import java.util.Random;
 
+import com.hypeirochus.scmc.capabilities.playerrace.IPlayerRace.Race;
 import com.hypeirochus.scmc.enums.EnumColors;
+import com.hypeirochus.scmc.handlers.CapabilityHandler;
 
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 /**
@@ -58,6 +61,30 @@ public class StarcraftUtils {
 			return EnumColors.YELLOW.getId();
 
 		return EnumColors.WHITE.getId();
+	}
+
+	/**
+	 * @param player
+	 *            The player to get the race from
+	 * @param race
+	 *            The player's new race
+	 */
+	public static void setPlayerRace(EntityPlayer player, Race race) {
+		if (player.hasCapability(CapabilityHandler.CAPABILITY_PLAYER_RACE, null)) {
+			player.getCapability(CapabilityHandler.CAPABILITY_PLAYER_RACE, null).setRace(race);
+		}
+	}
+
+	/**
+	 * @param player
+	 *            The player to get the race from
+	 * @return The player's race, undefined if the capability is null
+	 */
+	public static Race getPlayerRace(EntityPlayer player) {
+		if (player.hasCapability(CapabilityHandler.CAPABILITY_PLAYER_RACE, null)) {
+			return player.getCapability(CapabilityHandler.CAPABILITY_PLAYER_RACE, null).getRace();
+		}
+		return Race.UNDEFINED;
 	}
 
 	/**

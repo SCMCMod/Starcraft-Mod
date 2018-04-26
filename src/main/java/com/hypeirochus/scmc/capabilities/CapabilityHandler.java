@@ -1,6 +1,7 @@
 package com.hypeirochus.scmc.capabilities;
 
 import com.hypeirochus.scmc.Starcraft;
+import com.hypeirochus.scmc.capabilities.playerrace.RaceProvider;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -21,6 +22,7 @@ public class CapabilityHandler {
 
 	public static final ResourceLocation COLOR = new ResourceLocation(Starcraft.MOD_ID, "color");
 	public static final ResourceLocation SHIELD = new ResourceLocation(Starcraft.MOD_ID, "shield");
+	public static final ResourceLocation RACE = new ResourceLocation(Starcraft.MOD_ID, "race");
 
 	@SubscribeEvent
 	public void attachCapability(AttachCapabilitiesEvent<Entity> event) {
@@ -29,5 +31,6 @@ public class CapabilityHandler {
 
 		event.addCapability(SHIELD, new ShieldProvider());
 		event.addCapability(COLOR, new ColorProvider());
+		event.addCapability(RACE, new RaceProvider());
 	}
 }

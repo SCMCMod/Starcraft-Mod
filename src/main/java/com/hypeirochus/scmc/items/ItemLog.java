@@ -35,7 +35,7 @@ public class ItemLog extends StarcraftItem {
 		if (stack.hasTagCompound()) {
 			NBTTagCompound nbt = stack.getTagCompound();
 			if (nbt.hasKey("type")) {
-				Log log = Starcraft.logRegistry().getRegisteredLog(nbt.getInteger("type"));
+				Log log = Starcraft.logs().get(nbt.getInteger("type"));
 				if (log != null) {
 					return log.getTitle();
 				}
@@ -50,7 +50,7 @@ public class ItemLog extends StarcraftItem {
 		if (stack.hasTagCompound()) {
 			NBTTagCompound nbt = stack.getTagCompound();
 			if (nbt.hasKey("type")) {
-				player.openGui(Starcraft.instance, GuiHandler.LOG, world, Starcraft.logRegistry().getRegisteredLog(nbt.getInteger("type")).getId(), -1, -1);
+				player.openGui(Starcraft.instance, GuiHandler.LOG, world, Starcraft.logs().get(nbt.getInteger("type")).getId(), -1, -1);
 			}
 		}
 		return super.onItemRightClick(world, player, hand);
@@ -59,8 +59,8 @@ public class ItemLog extends StarcraftItem {
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
 		if (isInCreativeTab(tab)) {
-			for (int i : Starcraft.logRegistry().getLogs().keySet()) {
-				items.add(getBook(Starcraft.logRegistry().getLogs().get(i)));
+			for (int i : Starcraft.logs().getLogs().keySet()) {
+				items.add(getBook(Starcraft.logs().getLogs().get(i)));
 			}
 		}
 	}

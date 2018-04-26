@@ -756,11 +756,13 @@ entity.ursadonMatriarch.name=Ursadon Matriarch
 
 ### Damage Sources ###
 #############################################################################################
-death.attack.acid=%s melted into a puddle.
-death.attack.vespene=%s had their skin melt off.
-death.attack.vespene_gas=%s suffocated.
-death.attack.hydraneedle=%s was impaled by Hydralisk needles.
-death.attack.mutaglaive=%s was pummeled by Mutalisk glaive wurms.
+death.attack.bullet=%s was shot in the face
+death.attack.bullet.player=%s was shot by %s
+death.attack.hydraneedle=%s was impaled by Hydralisk needles
+death.attack.mutaglaive=%s was pummeled by Mutalisk Glaive Worms
+death.fluid.acid=%s melted into a puddle
+death.fluid.poison=%s's skin melted off their bones
+death.gas.poison=%s choked
 #############################################################################################
 
 

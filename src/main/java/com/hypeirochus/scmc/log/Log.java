@@ -23,7 +23,7 @@ import net.minecraft.util.ResourceLocation;
  */
 public class Log implements IResourceManagerReloadListener {
 
-	/** The containing folder of the logs */
+	/** The default containing folder of the logs */
 	public static final ResourceLocation DEFAULT_LOCATION = new ResourceLocation(Starcraft.RL_BASE + "texts/logs/");
 
 	private int id;
@@ -34,8 +34,7 @@ public class Log implements IResourceManagerReloadListener {
 	private int skinId;
 	private List<String> text;
 
-	public Log(int id, String fileName) {
-		this.id = id;
+	public Log(String fileName) {
 		this.fileName = fileName;
 		this.propertiesFileName = this.getRegistryName() + ".properties";
 		this.loadText();
@@ -115,10 +114,6 @@ public class Log implements IResourceManagerReloadListener {
 		return new ResourceLocation(DEFAULT_LOCATION.toString() + propertiesFileName);
 	}
 
-	public int getId() {
-		return id;
-	}
-
 	public String getFileName() {
 		return fileName + ".txt";
 	}
@@ -137,6 +132,14 @@ public class Log implements IResourceManagerReloadListener {
 
 	public List<String> getText() {
 		return text;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	@Override

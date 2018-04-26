@@ -20,7 +20,6 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
@@ -77,7 +76,7 @@ public class EntityJimRaynor extends EntityTerranMob implements IMob, IRangedAtt
 
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float p_82196_2_) {
-		ItemHandler.C14_GAUSS_RIFLE.onItemRightClick(world, this, EntityEquipmentSlot.MAINHAND);
+		// ItemHandler.C14_GAUSS_RIFLE.onItemRightClick(world, this, EntityEquipmentSlot.MAINHAND);
 	}
 
 	@Override

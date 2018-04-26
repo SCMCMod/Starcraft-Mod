@@ -3,6 +3,7 @@ package com.hypeirochus.scmc.events;
 import com.hypeirochus.scmc.capabilities.ColorProvider;
 import com.hypeirochus.scmc.capabilities.IColor;
 import com.hypeirochus.scmc.config.StarcraftConfig;
+import com.hypeirochus.scmc.items.ItemGun;
 
 import net.minecraft.entity.monster.EntityCaveSpider;
 import net.minecraft.entity.monster.EntityCreeper;
@@ -17,7 +18,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
@@ -62,5 +65,13 @@ public class StarcraftEventHandler {
 		EntityPlayer player = event.player;
 		String message = "Running SCMC version 2.1.691!";
 		player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.BLUE)));
+	}
+	
+	@SubscribeEvent
+	public void onBlockPunchEvent(BlockEvent.BreakEvent event) {
+		EntityPlayer player = event.getPlayer();
+		if(player.getHeldItemMainhand().getItem() instanceof ItemGun || player.getHeldItemOffhand().getItem() instanceof ItemGun) {
+			event.setCanceled(true);
+		}
 	}
 }

@@ -4,8 +4,8 @@ import java.util.Random;
 
 import org.lwjgl.util.vector.Vector3f;
 
-import com.hypeirochus.scmc.StarcraftDamageSources;
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.damagesource.StarcraftDamageSources;
 import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
 import com.hypeirochus.scmc.handlers.MaterialHandler;
@@ -62,7 +62,8 @@ public class BlockVespeneGas extends BlockGas {
 
 	@Override
 	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
-		entity.attackEntityFrom(StarcraftDamageSources.poison_gas, 1);
+		if (world.getBlockState(new BlockPos(pos.getX(), pos.getY() + entity.getEyeHeight(), pos.getZ())).getBlock() == this)
+			entity.attackEntityFrom(StarcraftDamageSources.poison_gas, 4);
 	}
 
 	@Override

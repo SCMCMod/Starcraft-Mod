@@ -2,7 +2,7 @@ package com.hypeirochus.scmc.blocks.fluid;
 
 import java.util.Random;
 
-import com.hypeirochus.scmc.StarcraftDamageSources;
+import com.hypeirochus.scmc.damagesource.StarcraftDamageSources;
 import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.handlers.FluidHandler;
 
@@ -31,16 +31,16 @@ public class BlockVespene extends BlockFluidClassic {
 		setRegistryName("fluid.vespene");
 		BlockHandler.registerFullBlock(this);
 	}
-	
+
 	@Override
 	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
 		return MapColor.GREEN;
 	}
-	
+
 	@Override
 	public Vec3d getFogColor(World world, BlockPos pos, IBlockState state, Entity entity, Vec3d originalColor, float partialTicks) {
-        int color = 0xff55B43D;
-        return new Vec3d((color >> 16 & 0xFF) / 255.0F, (color >> 8 & 0xFF) / 255.0F, (color & 0xFF) / 255.0F);
+		int color = 0xff55B43D;
+		return new Vec3d((color >> 16 & 0xFF) / 255.0F, (color >> 8 & 0xFF) / 255.0F, (color & 0xFF) / 255.0F);
 	}
 
 	@Override

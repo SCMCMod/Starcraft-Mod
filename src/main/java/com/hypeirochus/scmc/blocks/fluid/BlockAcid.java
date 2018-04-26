@@ -1,6 +1,6 @@
 package com.hypeirochus.scmc.blocks.fluid;
 
-import com.hypeirochus.scmc.StarcraftDamageSources;
+import com.hypeirochus.scmc.damagesource.StarcraftDamageSources;
 import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.handlers.FluidHandler;
 import com.hypeirochus.scmc.handlers.RenderHandler;

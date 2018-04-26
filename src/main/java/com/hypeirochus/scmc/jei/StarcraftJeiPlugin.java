@@ -53,6 +53,7 @@ public class StarcraftJeiPlugin implements IModPlugin {
 		registry.addRecipeCatalyst(new ItemStack(BlockHandler.FURNACE_SHAKURAS), VanillaRecipeCategoryUid.SMELTING, VanillaRecipeCategoryUid.FUEL);
 		registry.addRecipeCatalyst(new ItemStack(BlockHandler.FURNACE_CHAR), VanillaRecipeCategoryUid.SMELTING, VanillaRecipeCategoryUid.FUEL);
 		registry.addRecipeCatalyst(new ItemStack(BlockHandler.FURNACE_SLAYN), VanillaRecipeCategoryUid.SMELTING, VanillaRecipeCategoryUid.FUEL);
+		registry.addRecipeCatalyst(new ItemStack(BlockHandler.FURNACE_ZERUS), VanillaRecipeCategoryUid.SMELTING, VanillaRecipeCategoryUid.FUEL);
 		registry.addRecipeCatalyst(new ItemStack(BlockHandler.FURNACE_PROTOSS), VanillaRecipeCategoryUid.SMELTING);
 
 		registry.addRecipeClickArea(GuiProtossFurnace.class, 78, 32, 28, 23, VanillaRecipeCategoryUid.SMELTING);

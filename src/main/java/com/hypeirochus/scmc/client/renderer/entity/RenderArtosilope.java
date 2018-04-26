@@ -27,7 +27,7 @@ public class RenderArtosilope extends RenderLiving<EntityArtosilope> implements 
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityArtosilope entity) {
-		return new ResourceLocation(Resources.TASTELOPE_BASE);
+		return BASE;
 	}
 
 	@Override

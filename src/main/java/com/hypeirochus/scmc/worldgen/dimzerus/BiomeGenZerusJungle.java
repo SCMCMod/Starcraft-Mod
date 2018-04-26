@@ -9,6 +9,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomePlains;
 import net.minecraft.world.chunk.ChunkPrimer;
 
 public class BiomeGenZerusJungle extends BiomeHandler {
@@ -18,7 +19,7 @@ public class BiomeGenZerusJungle extends BiomeHandler {
 
 		setRegistryName("zerus_jungle");
 
-		topBlock = Blocks.GRASS.getDefaultState();
+		topBlock = BlockHandler.DIRT_ZERUS.getDefaultState();
 		fillerBlock = BlockHandler.DIRT_ZERUS.getDefaultState();
 
 		spawnableMonsterList.clear();
@@ -81,6 +82,6 @@ public class BiomeGenZerusJungle extends BiomeHandler {
 
 	@Override
 	public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal) {
-		genBiomeTerrain(worldIn, rand, chunkPrimerIn, x, z, noiseVal);
+//		genBiomeTerrain(worldIn, rand, chunkPrimerIn, x, z, noiseVal);
 	}
 }

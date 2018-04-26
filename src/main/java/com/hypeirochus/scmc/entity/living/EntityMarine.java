@@ -108,7 +108,7 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float p_82196_2_) {
 		if (this.getHeldItemMainhand().getItem() == ItemHandler.C14_GAUSS_RIFLE) {
 			ItemGun gun = (ItemGun) this.getHeldItemMainhand().getItem();
-			gun.onItemRightClick(world, this, EntityEquipmentSlot.MAINHAND);
+//			gun.onItemRightClick(world, this, EntityEquipmentSlot.MAINHAND);
 			this.playSound(SoundHandler.FX_C14GAUSSRIFLE_FIRING, 0.5F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
 		}
 	}

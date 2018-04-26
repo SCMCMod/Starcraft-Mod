@@ -3,12 +3,15 @@ package com.hypeirochus.scmc.worldgen.structure;
 import java.util.Random;
 
 import com.hypeirochus.scmc.handlers.BlockHandler;
+import com.hypeirochus.scmc.handlers.LootTableHandler;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
+import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.structure.WoodlandMansionPieces.MansionTemplate;
 
 public class StructureTerranBunkerTemplate extends SCWorldGenerator {
 
@@ -106,7 +109,10 @@ public class StructureTerranBunkerTemplate extends SCWorldGenerator {
 		worldIn.setBlockState(bp.add(i + 4, j + 0, k + 11), BlockHandler.NEOSTEEL_METAL.getStateFromMeta(1));
 		worldIn.setBlockState(bp.add(i + 4, j + 0, k + 12), BlockHandler.NEOSTEEL_METAL.getStateFromMeta(1));
 		worldIn.setBlockState(bp.add(i + 4, j + 1, k + 2), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
-		worldIn.setBlockState(bp.add(i + 4, j + 1, k + 12), Blocks.CHEST.getDefaultState(), 3);
+		
+		setTileEntityBlock(worldIn, bp.add(i + 4, j + 1, k + 12), Blocks.CHEST.getDefaultState(), new TileEntityChest());
+		setLockableLoot(worldIn, bp.add(i + 4, j + 1, k + 12), LootTableHandler.TERRAN_BUNKER);
+				
 		worldIn.setBlockState(bp.add(i + 4, j + 1, k + 13), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 4, j + 2, k + 2), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 4, j + 2, k + 13), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
@@ -241,7 +247,10 @@ public class StructureTerranBunkerTemplate extends SCWorldGenerator {
 		worldIn.setBlockState(bp.add(i + 7, j + 0, k + 12), BlockHandler.NEOSTEEL_METAL.getStateFromMeta(1));
 		worldIn.setBlockState(bp.add(i + 7, j + 0, k + 13), BlockHandler.NEOSTEEL_METAL.getStateFromMeta(1));
 		worldIn.setBlockState(bp.add(i + 7, j + 1, k + 1), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
-		worldIn.setBlockState(bp.add(i + 7, j + 1, k + 2), Blocks.CHEST.getDefaultState(), 3);
+		
+		setTileEntityBlock(worldIn, bp.add(i + 7, j + 1, k + 2), Blocks.CHEST.getDefaultState(), new TileEntityChest());
+		setLockableLoot(worldIn, bp.add(i + 7, j + 1, k + 2), LootTableHandler.TERRAN_BUNKER);
+		
 		worldIn.setBlockState(bp.add(i + 7, j + 1, k + 11), BlockHandler.NEOSTEEL_METAL.getStateFromMeta(1));
 		worldIn.setBlockState(bp.add(i + 7, j + 1, k + 14), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 7, j + 2, k + 1), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
@@ -408,7 +417,10 @@ public class StructureTerranBunkerTemplate extends SCWorldGenerator {
 		worldIn.setBlockState(bp.add(i + 10, j + 0, k + 13), BlockHandler.NEOSTEEL_METAL.getStateFromMeta(1));
 		worldIn.setBlockState(bp.add(i + 10, j + 1, k + 1), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 10, j + 1, k + 11), BlockHandler.NEOSTEEL_METAL.getStateFromMeta(1));
-		worldIn.setBlockState(bp.add(i + 10, j + 1, k + 13), Blocks.CHEST.getDefaultState(), 3);
+		
+		setTileEntityBlock(worldIn, bp.add(i + 10, j + 1, k + 13), Blocks.CHEST.getDefaultState(), new TileEntityChest());
+		setLockableLoot(worldIn, bp.add(i + 10, j + 1, k + 13), LootTableHandler.TERRAN_BUNKER);
+		
 		worldIn.setBlockState(bp.add(i + 10, j + 1, k + 14), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 10, j + 2, k + 1), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 10, j + 2, k + 14), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
@@ -545,7 +557,10 @@ public class StructureTerranBunkerTemplate extends SCWorldGenerator {
 		worldIn.setBlockState(bp.add(i + 13, j + 0, k + 11), BlockHandler.NEOSTEEL_METAL.getStateFromMeta(1));
 		worldIn.setBlockState(bp.add(i + 13, j + 0, k + 12), BlockHandler.NEOSTEEL_METAL.getStateFromMeta(1));
 		worldIn.setBlockState(bp.add(i + 13, j + 1, k + 2), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
-		worldIn.setBlockState(bp.add(i + 13, j + 1, k + 3), Blocks.CHEST.getDefaultState(), 3);
+		
+		setTileEntityBlock(worldIn, bp.add(i + 13, j + 1, k + 3), Blocks.CHEST.getDefaultState(), new TileEntityChest());
+		setLockableLoot(worldIn, bp.add(i + 13, j + 1, k + 3), LootTableHandler.TERRAN_BUNKER);
+				
 		worldIn.setBlockState(bp.add(i + 13, j + 1, k + 13), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 13, j + 2, k + 2), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 13, j + 2, k + 13), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));

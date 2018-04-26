@@ -2,6 +2,7 @@ package com.hypeirochus.scmc.items;
 
 import com.hypeirochus.api.world.entity.player.inventory.Inventories;
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.damagesource.StarcraftDamageSources;
 import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.handlers.AccessHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
@@ -9,6 +10,7 @@ import com.hypeirochus.scmc.handlers.SoundHandler;
 import com.ocelot.api.utils.InventoryUtils;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -27,16 +29,6 @@ public class ItemC14GaussRifle extends ItemGun {
 		setFull3D();
 		setMaxStackSize(1);
 		setCreativeTab(StarcraftCreativeTabs.TERRAN);
-	}
-
-	@Override
-	public boolean onBlockStartBreak(ItemStack itemstack, BlockPos pos, EntityPlayer player) {
-		return false;
-	}
-
-	@Override
-	public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack stack) {
-		return true;
 	}
 
 	@Override

@@ -1,7 +1,5 @@
 package com.hypeirochus.scmc.jei.gascollector;
 
-import java.util.List;
-
 import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.jei.StarcraftRecipeCategoryUid;
@@ -47,7 +45,7 @@ public class GasCollectorCategory implements IRecipeCategory<GasCollectorRecipe>
 	public String getUid() {
 		return StarcraftRecipeCategoryUid.GAS_COLLECTOR;
 	}
-	
+
 	@Override
 	public String getModName() {
 		return "Starcraft";
@@ -56,7 +54,7 @@ public class GasCollectorCategory implements IRecipeCategory<GasCollectorRecipe>
 	@Override
 	public void drawExtras(Minecraft minecraft) {
 		cycleId++;
-		cycleId %= 450;
+		cycleId %= (150 * 3);
 		RenderHelper.enableGUIStandardItemLighting();
 		minecraft.getRenderItem().renderItemAndEffectIntoGUI(new ItemStack(BlockHandler.GAS_COLLECTOR, 1, cycleId / 150), 1, 8);
 		RenderHelper.disableStandardItemLighting();

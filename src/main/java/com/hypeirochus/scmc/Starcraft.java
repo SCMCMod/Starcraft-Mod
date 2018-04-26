@@ -2,7 +2,6 @@ package com.hypeirochus.scmc;
 
 import org.apache.logging.log4j.Logger;
 
-import com.hypeirochus.scmc.capabilities.CapabilityHandler;
 import com.hypeirochus.scmc.capabilities.Color;
 import com.hypeirochus.scmc.capabilities.ColorStorage;
 import com.hypeirochus.scmc.capabilities.IColor;
@@ -14,6 +13,7 @@ import com.hypeirochus.scmc.config.StarcraftConfig;
 import com.hypeirochus.scmc.events.GuiRenderEventHandler;
 import com.hypeirochus.scmc.events.StarcraftEventHandler;
 import com.hypeirochus.scmc.handlers.AccessHandler;
+import com.hypeirochus.scmc.handlers.CapabilityHandler;
 import com.hypeirochus.scmc.handlers.EntityHandler;
 import com.hypeirochus.scmc.handlers.FluidHandler;
 import com.hypeirochus.scmc.handlers.GuiHandler;
@@ -95,7 +95,7 @@ public class Starcraft {
 			KeybindingHandler.pre(event);
 		}
 
-		if (AccessHandler.isDevEnvironment()) {
+		if (AccessHandler.isDeobfuscatedEnvironment()) {
 			logger.info("Pre Initialized");
 		}
 	}
@@ -107,20 +107,22 @@ public class Starcraft {
 		OreDictionaryHandler.init(event);
 		SmeltingRecipes.init(event);
 		GuiHandler.init(event);
+		CapabilityHandler.init(event);
 
+		// TODO move this to a capability handler
 		CapabilityManager.INSTANCE.register(IColor.class, new ColorStorage(), Color::new);
 		CapabilityManager.INSTANCE.register(IShield.class, new ShieldStorage(), Shield::new);
 
-		MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
+		MinecraftForge.EVENT_BUS.register(new com.hypeirochus.scmc.capabilities.CapabilityHandler());
 		MinecraftForge.EVENT_BUS.register(new StarcraftEventHandler());
 
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 			RenderHandler.init(event);
 			MinecraftForge.EVENT_BUS.register(new GuiRenderEventHandler());
-			logRegistry().init(event);
+			logs().init();
 		}
 
-		if (AccessHandler.isDevEnvironment()) {
+		if (AccessHandler.isDeobfuscatedEnvironment()) {
 			logger.info("Initialized");
 		}
 	}
@@ -129,11 +131,11 @@ public class Starcraft {
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 		Library.checkMods(event);
-		
+
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 		}
 
-		if (AccessHandler.isDevEnvironment()) {
+		if (AccessHandler.isDeobfuscatedEnvironment()) {
 			logger.info("Post Initialized");
 		}
 	}
@@ -147,7 +149,7 @@ public class Starcraft {
 		return logger;
 	}
 
-	public static LogRegistry logRegistry() {
+	public static LogRegistry logs() {
 		if (logRegistry == null)
 			logRegistry = new LogRegistry();
 		return logRegistry;

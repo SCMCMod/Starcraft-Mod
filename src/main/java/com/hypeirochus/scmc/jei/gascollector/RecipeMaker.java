@@ -48,7 +48,7 @@ public class RecipeMaker {
 			recipes.add(recipe);
 		}
 
-		if (AccessHandler.isDevEnvironment()) {
+		if (AccessHandler.isDeobfuscatedEnvironment()) {
 			Starcraft.logger().info("Constructed Gas Collector Recipes: " + recipes);
 		}
 

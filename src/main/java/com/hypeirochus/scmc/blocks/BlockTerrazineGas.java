@@ -12,6 +12,7 @@ import com.hypeirochus.scmc.handlers.MaterialHandler;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -65,9 +66,9 @@ public class BlockTerrazineGas extends BlockGas {
 	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
 		if (entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) entity;
-			player.addPotionEffect(new PotionEffect(Potion.getPotionById(1), 750));
-			player.addPotionEffect(new PotionEffect(Potion.getPotionById(5), 750));
-			player.addPotionEffect(new PotionEffect(Potion.getPotionById(9), 750));
+			player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 750));
+			player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 750));
+			player.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 750));
 		}
 	}
 

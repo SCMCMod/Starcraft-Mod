@@ -26,7 +26,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class Registry {
 
 	public Registry() {
-		if (AccessHandler.isDevEnvironment()) {
+		if (AccessHandler.isDeobfuscatedEnvironment()) {
 			Starcraft.logger().info("Registry created");
 		}
 	}
@@ -35,7 +35,7 @@ public class Registry {
 	public void registerItems(RegistryEvent.Register<Item> event) {
 		event.getRegistry().registerAll(ItemHandler.getItems());
 		event.getRegistry().registerAll(BlockHandler.getItems());
-		if (AccessHandler.isDevEnvironment()) {
+		if (AccessHandler.isDeobfuscatedEnvironment()) {
 			Starcraft.logger().info("Registered Items");
 		}
 	}
@@ -43,7 +43,7 @@ public class Registry {
 	@SubscribeEvent
 	public void registerBlocks(RegistryEvent.Register<Block> event) {
 		event.getRegistry().registerAll(BlockHandler.getBlocks());
-		if (AccessHandler.isDevEnvironment()) {
+		if (AccessHandler.isDeobfuscatedEnvironment()) {
 			Starcraft.logger().info("Registered Blocks");
 		}
 	}
@@ -56,7 +56,7 @@ public class Registry {
 				registerItemRender(item);
 			}
 		}
-		if (AccessHandler.isDevEnvironment()) {
+		if (AccessHandler.isDeobfuscatedEnvironment()) {
 			Starcraft.logger().info("Registered Item Models");
 		}
 
@@ -67,7 +67,7 @@ public class Registry {
 				registerItemRender(item);
 			}
 		}
-		if (AccessHandler.isDevEnvironment()) {
+		if (AccessHandler.isDeobfuscatedEnvironment()) {
 			Starcraft.logger().info("Registered Block Models");
 		}
 
@@ -77,7 +77,7 @@ public class Registry {
 	@SubscribeEvent
 	public void registerRecipes(RegistryEvent.Register<IRecipe> event) {
 		event.getRegistry().registerAll(CustomRecipes.getRecipes());
-		if (AccessHandler.isDevEnvironment()) {
+		if (AccessHandler.isDeobfuscatedEnvironment()) {
 			Starcraft.logger().info("Registered Recipes");
 		}
 	}
@@ -90,7 +90,7 @@ public class Registry {
 			BiomeDictionary.addTypes(biome, BiomeDictionary.Type.VOID);
 		}
 
-		if (AccessHandler.isDevEnvironment()) {
+		if (AccessHandler.isDeobfuscatedEnvironment()) {
 			Starcraft.logger().info("Registered Biomes");
 		}
 	}

@@ -1,6 +1,6 @@
 package com.hypeirochus.scmc.entity;
 
-import com.hypeirochus.scmc.StarcraftDamageSources;
+import com.hypeirochus.scmc.damagesource.StarcraftDamageSources;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
