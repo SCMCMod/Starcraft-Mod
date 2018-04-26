@@ -10,10 +10,10 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
-def currentJvm = org.gradle.internal.jvm.Jvm.current()
+
 version = "2.1.691"
 group = "com.hypeirochus.scmc" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "Starcraft-1.12.2"
+archivesBaseName = "starcraft"
 
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 compileJava {
@@ -21,7 +21,7 @@ compileJava {
 }
 
 minecraft {
-    version = "1.12.2-14.23.2.2624"
+    version = "1.12.2-14.23.3.2673"
     runDir = "run"
     
     // the mappings can be changed at any time, and must be in the following format.
@@ -51,15 +51,6 @@ dependencies {
   deobfProvided "mezz.jei:jei_1.12.2:4.8.5.159:api"
   // at runtime, use the full JEI jar
   runtime "mezz.jei:jei_1.12.2:4.8.5.159"
-}
-
-jar {
-     manifest.mainAttributes(
-            "Built-By": System.getProperty('user.name'),
-            "Created-By": currentJvm,
-            "Implementation-Title": archivesBaseName,
-            "Implementation-Version": project.version,
-            "FMLAT": "SCMC_at.cfg")
 }
 
 processResources {
