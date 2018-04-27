@@ -54,9 +54,9 @@ public class CommandDimension extends CommandBase {
 						if (player.dimension != dimId) {
 							EntityPlayerMP playerMp = (EntityPlayerMP) player;
 							playerMp.getServer().getPlayerList().transferPlayerToDimension(playerMp, dimId, new TeleporterHandler(playerMp.getServerWorld().provider.getDimension(), server.getWorld(dimId), player.posX, playerMp.getServerWorld().getHeight((int) player.posX, (int) player.posZ), player.posZ, dimId == StarcraftConfig.INT_DIMENSION_SPACE, false));
-							notifyCommandListener(sender, this, "commands.dimension.success", new Object[] { player.getName(), dimId });
+							notifyCommandListener(sender, this, "commands.dimension.success.id", new Object[] { player.getName(), dimId });
 						} else {
-							throw new CommandException("commands.dimension.same_dim", new Object[] { player.getName(), dimId });
+							throw new CommandException("commands.dimension.same_dim.name", new Object[] { player.getName(), dimId });
 						}
 						return;
 					}
@@ -64,25 +64,25 @@ public class CommandDimension extends CommandBase {
 				throw new CommandException("commands.dimension.out_of_range", new Object[] { dimId });
 			} catch (NumberFormatException e) {
 				String dim = args[0];
-				for (int i = 0; i < DimensionType.values().length; i++) {
-					if (dim.equalsIgnoreCase(DimensionType.values()[i].getName())) {
-						if (player.dimension != i) {
-							EntityPlayerMP playerMp = (EntityPlayerMP) player;
-							playerMp.getServer().getPlayerList().transferPlayerToDimension(playerMp, i, new TeleporterHandler(playerMp.getServerWorld().provider.getDimension(), server.getWorld(i), player.posX, playerMp.getServerWorld().getHeight((int) player.posX, (int) player.posZ), player.posZ, i == StarcraftConfig.INT_DIMENSION_SPACE, false));
-							notifyCommandListener(sender, this, "commands.dimension.success", new Object[] { player.getName(), dim });
-						} else {
-							throw new CommandException("commands.dimension.same_dim", new Object[] { player.getName(), dim });
-						}
-						return;
+				try {
+					int i = DimensionType.byName(dim).getId();
+					if (player.dimension != i) {
+						EntityPlayerMP playerMp = (EntityPlayerMP) player;
+						playerMp.getServer().getPlayerList().transferPlayerToDimension(playerMp, i, new TeleporterHandler(playerMp.getServerWorld().provider.getDimension(), server.getWorld(i), player.posX, playerMp.getServerWorld().getHeight((int) player.posX, (int) player.posZ), player.posZ, i == StarcraftConfig.INT_DIMENSION_SPACE, false));
+						notifyCommandListener(sender, this, "commands.dimension.success.name", new Object[] { player.getName(), dim });
+					} else {
+						throw new CommandException("commands.dimension.same_dim.name", new Object[] { player.getName(), dim });
 					}
+					return;
+				} catch (IllegalArgumentException ex) {
+					throw new CommandException("commands.dimension.illegal_dim", new Object[] { dim });
 				}
-				throw new CommandException("commands.dimension.out_of_range", new Object[] { dim });
 			}
 		}
 	}
 
 	@Override
 	public boolean isUsernameIndex(String[] args, int index) {
-		return index == 1;
+		return index == 0;
 	}
 }
