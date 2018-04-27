@@ -1,5 +1,11 @@
 package com.hypeirochus.scmc.command;
 
+import java.util.Collections;
+import java.util.List;
+
+import javax.annotation.Nullable;
+
+import com.google.common.collect.Lists;
 import com.hypeirochus.scmc.config.StarcraftConfig;
 import com.hypeirochus.scmc.handlers.TeleporterHandler;
 
@@ -10,6 +16,7 @@ import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DimensionType;
 import net.minecraftforge.common.DimensionManager;
 
@@ -79,6 +86,24 @@ public class CommandDimension extends CommandBase {
 				}
 			}
 		}
+	}
+
+	@Override
+	public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args, @Nullable BlockPos targetPos) {
+		if (args.length == 2) {
+			return getListOfStringsMatchingLastWord(args, server.getOnlinePlayerNames());
+		} else {
+			return args.length > 0 && args.length <= 1 ? getListOfStringsMatchingLastWord(args, this.generateDimensionNames()) : Collections.emptyList();
+		}
+	}
+
+	private List<String> generateDimensionNames() {
+		List<String> dims = Lists.newArrayList();
+		for (int i = 0; i < DimensionType.values().length; i++) {
+			DimensionType dim = DimensionType.values()[i];
+			dims.add(dim.getName());
+		}
+		return dims;
 	}
 
 	@Override
