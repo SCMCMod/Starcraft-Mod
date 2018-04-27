@@ -19,7 +19,7 @@ public class BiomeGenZerusJungle extends BiomeHandler {
 
 		setRegistryName("zerus_jungle");
 
-		topBlock = BlockHandler.DIRT_ZERUS.getDefaultState();
+		topBlock = BlockHandler.GRASS_ZERUS.getDefaultState();
 		fillerBlock = BlockHandler.DIRT_ZERUS.getDefaultState();
 
 		spawnableMonsterList.clear();

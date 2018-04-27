@@ -4,6 +4,7 @@ import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.enums.MetaHandler.TerrazineType;
 import com.hypeirochus.scmc.enums.MetaHandler.VespeneType;
+import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.creativetab.CreativeTabs;

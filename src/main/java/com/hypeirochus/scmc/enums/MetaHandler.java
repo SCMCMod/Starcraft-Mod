@@ -7,6 +7,7 @@ import com.hypeirochus.scmc.worldgen.structure.StructureProtossPylonTemplate;
 import com.hypeirochus.scmc.worldgen.structure.StructureProtossWarpGateTemplate;
 import com.hypeirochus.scmc.worldgen.structure.StructureTerranBarracksTemplate;
 import com.hypeirochus.scmc.worldgen.structure.StructureTerranBunkerTemplate;
+import com.hypeirochus.scmc.worldgen.structure.StructureTerranCommandCenterTemplate;
 import com.hypeirochus.scmc.worldgen.structure.StructureZergHydraliskDenTemplate;
 import com.hypeirochus.scmc.worldgen.structure.StructureZergSpawningPoolTemplate;
 import com.hypeirochus.scmc.worldgen.structure.StructureZergSpireTemplate;
@@ -67,7 +68,7 @@ public class MetaHandler {
 	}
 
 	public enum TerranStructureSpawnerType implements IStringSerializable {
-		BUNKER("bunker", 0, new StructureTerranBunkerTemplate()), BARRACKS("barracks", 1, new StructureTerranBarracksTemplate()), COMMAND_CENTER("commandcenter", 2, new StructureTerranBunkerTemplate());
+		BUNKER("bunker", 0, new StructureTerranBunkerTemplate()), BARRACKS("barracks", 1, new StructureTerranBarracksTemplate()), COMMAND_CENTER("commandcenter", 2, new StructureTerranCommandCenterTemplate());
 
 		private int ID;
 		private String name;

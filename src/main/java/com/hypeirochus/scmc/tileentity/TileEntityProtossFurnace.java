@@ -3,7 +3,7 @@ package com.hypeirochus.scmc.tileentity;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.hypeirochus.scmc.blocks.BlockStarcraftFurnace;
+import com.hypeirochus.scmc.blocks.StarcraftFurnace;
 import com.hypeirochus.scmc.enums.MetaHandler.ProtossUpgradeType;
 
 import net.minecraft.block.state.IBlockState;
@@ -211,7 +211,7 @@ public class TileEntityProtossFurnace extends TileEntitySidedInventory implement
 
 			if (originalIsBurning != isBurning()) {
 				dirty = true;
-				this.world.setBlockState(this.pos, this.world.getBlockState(this.pos).withProperty(BlockStarcraftFurnace.BURNING, isBurning()), 3);
+				this.world.setBlockState(this.pos, this.world.getBlockState(this.pos).withProperty(StarcraftFurnace.BURNING, isBurning()), 3);
 			}
 		}
 

@@ -5,6 +5,7 @@ import java.util.List;
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.enums.MetaHandler.BulletMagazineType;
+import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
 import com.ocelot.api.utils.InventoryUtils;
 

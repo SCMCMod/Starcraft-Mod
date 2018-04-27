@@ -21,7 +21,7 @@ import com.google.common.collect.Maps;
  */
 public abstract class StarcraftRegistry<K, V> implements IStarcraftRegistry<K, V> {
 
-	private Map<K, V> registered;
+	protected Map<K, V> registered;
 
 	public StarcraftRegistry() {
 		this.registered = Maps.<K, V>newHashMap();

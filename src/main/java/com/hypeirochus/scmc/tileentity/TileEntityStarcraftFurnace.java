@@ -1,6 +1,6 @@
 package com.hypeirochus.scmc.tileentity;
 
-import com.hypeirochus.scmc.blocks.BlockStarcraftFurnace;
+import com.hypeirochus.scmc.blocks.StarcraftFurnace;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -196,7 +196,7 @@ public class TileEntityStarcraftFurnace extends TileEntitySidedInventory impleme
 
 			if (originalIsBurning != isBurning()) {
 				dirty = true;
-				this.world.setBlockState(this.pos, this.world.getBlockState(this.pos).withProperty(BlockStarcraftFurnace.BURNING, isBurning()), 3);
+				this.world.setBlockState(this.pos, this.world.getBlockState(this.pos).withProperty(StarcraftFurnace.BURNING, isBurning()), 3);
 			}
 		}
 

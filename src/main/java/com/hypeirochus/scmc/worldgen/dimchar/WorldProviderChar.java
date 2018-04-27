@@ -20,11 +20,11 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class WorldProviderChar extends WorldProvider implements IClimateProvider {
-	private StormProviderChar	storm	= new StormProviderChar();
-	private CloudProviderChar	clouds	= new CloudProviderChar();
-	private IRenderHandler		skyRenderer;
-	private IRenderHandler		cliimateProvider;
-	private Vec3d				vec		= new Vec3d(0.0D, 0.0D, 0.0D);
+	private StormProviderChar storm = new StormProviderChar();
+	private CloudProviderChar clouds = new CloudProviderChar();
+	private IRenderHandler skyRenderer;
+	private IRenderHandler climateProvider;
+	private Vec3d vec = new Vec3d(0.0D, 0.0D, 0.0D);
 
 	@SideOnly(Side.CLIENT)
 	@Override
@@ -35,23 +35,13 @@ public class WorldProviderChar extends WorldProvider implements IClimateProvider
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IRenderHandler getCloudRenderer() {
-		return cliimateProvider == null ? cliimateProvider = new CloudProviderChar() : cliimateProvider;
+		return climateProvider == null ? climateProvider = new CloudProviderChar() : climateProvider;
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IRenderHandler getSkyRenderer() {
 		return skyRenderer == null ? skyRenderer = new RenderSkyChar() : skyRenderer;
-	}
-
-	@Override
-	public void onWorldUpdateEntities() {
-		super.onWorldUpdateEntities();
-	}
-
-	@Override
-	public void updateWeather() {
-		super.updateWeather();
 	}
 
 	@Override
@@ -70,8 +60,7 @@ public class WorldProviderChar extends WorldProvider implements IClimateProvider
 	}
 
 	/**
-	 * Determines the dimension the player will be respawned in, typically this
-	 * brings them back to the overworld.
+	 * Determines the dimension the player will be respawned in, typically this brings them back to the overworld.
 	 * 
 	 * @param player
 	 *            The player that is respawning

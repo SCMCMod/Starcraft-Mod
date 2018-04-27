@@ -2,6 +2,7 @@ package com.hypeirochus.scmc.items;
 
 import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.enums.MetaHandler.IconType;
+import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;

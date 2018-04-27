@@ -29,6 +29,7 @@ import com.hypeirochus.scmc.recipes.OreDictionaryHandler;
 import com.hypeirochus.scmc.recipes.SmeltingRecipes;
 import com.hypeirochus.scmc.registry.Registry;
 
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -133,6 +134,7 @@ public class Starcraft {
 		Library.checkMods();
 
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+			Registry.registerColors(Minecraft.getMinecraft().getItemColors(), Minecraft.getMinecraft().getBlockColors());
 		}
 
 		if (AccessHandler.isDeobfuscatedEnvironment()) {

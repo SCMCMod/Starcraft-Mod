@@ -11,6 +11,10 @@ import com.hypeirochus.scmc.handlers.RenderHandler;
 import com.hypeirochus.scmc.recipes.CustomRecipes;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.color.BlockColors;
+import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.client.renderer.color.IItemColor;
+import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.crafting.IRecipe;
@@ -67,6 +71,7 @@ public class Registry {
 				registerItemRender(item);
 			}
 		}
+
 		if (AccessHandler.isDeobfuscatedEnvironment()) {
 			Starcraft.logger().info("Registered Block Models");
 		}
@@ -92,6 +97,37 @@ public class Registry {
 
 		if (AccessHandler.isDeobfuscatedEnvironment()) {
 			Starcraft.logger().info("Registered Biomes");
+		}
+	}
+
+	public static void registerColors(ItemColors itemColors, BlockColors blockColors) {
+		Item[] items = ItemHandler.getItems();
+		ItemBlock[] itemBlocks = BlockHandler.getItems();
+		Block[] blocks = BlockHandler.getBlocks();
+
+		for (int i = 0; i < items.length; i++) {
+			Item item = items[i];
+			if (item instanceof IItemColor) {
+				itemColors.registerItemColorHandler((IItemColor) item, item);
+			}
+		}
+
+		for (int i = 0; i < itemBlocks.length; i++) {
+			Item item = itemBlocks[i];
+			if (item instanceof IItemColor) {
+				itemColors.registerItemColorHandler((IItemColor) item, item);
+			}
+		}
+
+		for (int i = 0; i < blocks.length; i++) {
+			Block block = blocks[i];
+			Item item = Item.getItemFromBlock(block);
+			if (block instanceof IBlockColor) {
+				blockColors.registerBlockColorHandler((IBlockColor) block, block);
+			}
+			if (block instanceof IItemColor) {
+				itemColors.registerItemColorHandler((IItemColor) block, item);
+			}
 		}
 	}
 }

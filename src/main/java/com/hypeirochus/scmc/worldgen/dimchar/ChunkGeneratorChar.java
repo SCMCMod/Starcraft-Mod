@@ -20,6 +20,7 @@ import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
+import net.minecraft.world.gen.ChunkGeneratorOverworld;
 import net.minecraft.world.gen.ChunkGeneratorSettings;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.MapGenBase;
@@ -27,7 +28,10 @@ import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 
 public class ChunkGeneratorChar implements IChunkGenerator {
-	protected static final IBlockState STONE = BlockHandler.STONE_CHAR.getDefaultState();
+	
+	private IBlockState stone = BlockHandler.STONE_CHAR.getDefaultState();
+	private IBlockState oceanBlock = Blocks.LAVA.getDefaultState();
+	
 	private final Random rand;
 	private NoiseGeneratorOctaves minLimitPerlinNoise;
 	private NoiseGeneratorOctaves maxLimitPerlinNoise;
@@ -42,7 +46,6 @@ public class ChunkGeneratorChar implements IChunkGenerator {
 	private final double[] heightMap;
 	private final float[] biomeWeights;
 	private ChunkGeneratorSettings settings;
-	private IBlockState oceanBlock = Blocks.LAVA.getDefaultState();
 	private double[] depthBuffer = new double[256];
 	private MapGenBase caveGenerator = new CharGenCaves();
 	private MapGenBase ravineGenerator = new CharGenRavine();
@@ -134,7 +137,7 @@ public class ChunkGeneratorChar implements IChunkGenerator {
 
 							for (int l2 = 0; l2 < 4; ++l2) {
 								if ((lvt_45_1_ += d16) > 0.0D) {
-									primer.setBlockState(i * 4 + k2, i2 * 8 + j2, l * 4 + l2, STONE);
+									primer.setBlockState(i * 4 + k2, i2 * 8 + j2, l * 4 + l2, stone);
 								} else if (i2 * 8 + j2 < this.settings.seaLevel) {
 									primer.setBlockState(i * 4 + k2, i2 * 8 + j2, l * 4 + l2, this.oceanBlock);
 								}

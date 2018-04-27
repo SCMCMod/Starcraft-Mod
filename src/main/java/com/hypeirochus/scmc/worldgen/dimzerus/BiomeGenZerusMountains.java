@@ -18,7 +18,7 @@ public class BiomeGenZerusMountains extends BiomeHandler {
 
 		setRegistryName("zerus_mountains");
 
-		topBlock = Blocks.GRASS.getDefaultState();
+		topBlock = BlockHandler.GRASS_ZERUS.getDefaultState();
 		fillerBlock = BlockHandler.DIRT_ZERUS.getDefaultState();
 
 		spawnableMonsterList.clear();

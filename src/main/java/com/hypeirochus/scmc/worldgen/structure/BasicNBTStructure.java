@@ -29,6 +29,5 @@ public class BasicNBTStructure extends SCWorldGenerator implements INBTStructure
 
 	@Override
 	public void clear(World world, int offsetX, int offsetY, int offsetZ, BlockPos position) {
-
 	}
 }

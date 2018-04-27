@@ -3,7 +3,6 @@ package com.hypeirochus.scmc.handlers;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.hypeirochus.scmc.annotation.Unused;
 import com.hypeirochus.scmc.blocks.BlockAsh;
 import com.hypeirochus.scmc.blocks.BlockCharFarmland;
 import com.hypeirochus.scmc.blocks.BlockCharOre;
@@ -26,10 +25,6 @@ import com.hypeirochus.scmc.blocks.BlockShakurasOre;
 import com.hypeirochus.scmc.blocks.BlockSlaynFarmland;
 import com.hypeirochus.scmc.blocks.BlockSlaynOre;
 import com.hypeirochus.scmc.blocks.BlockSolarCore;
-import com.hypeirochus.scmc.blocks.BlockStarcraftDirt;
-import com.hypeirochus.scmc.blocks.BlockStarcraftFurnace;
-import com.hypeirochus.scmc.blocks.BlockStarcraftGravel;
-import com.hypeirochus.scmc.blocks.BlockStarcraftSkull;
 import com.hypeirochus.scmc.blocks.BlockTerrazineGas;
 import com.hypeirochus.scmc.blocks.BlockVespeneGas;
 import com.hypeirochus.scmc.blocks.BlockZergCreep;
@@ -42,7 +37,12 @@ import com.hypeirochus.scmc.blocks.RegistryType;
 import com.hypeirochus.scmc.blocks.StarcraftBlock;
 import com.hypeirochus.scmc.blocks.StarcraftBlockCustomDrop;
 import com.hypeirochus.scmc.blocks.StarcraftBlockFalling;
+import com.hypeirochus.scmc.blocks.StarcraftDirt;
+import com.hypeirochus.scmc.blocks.StarcraftFurnace;
+import com.hypeirochus.scmc.blocks.StarcraftGrass;
+import com.hypeirochus.scmc.blocks.StarcraftGravel;
 import com.hypeirochus.scmc.blocks.StarcraftProtossCoreBlock;
+import com.hypeirochus.scmc.blocks.StarcraftSkull;
 import com.hypeirochus.scmc.blocks.flora.BlockBrambles;
 import com.hypeirochus.scmc.blocks.flora.BlockZerusGlowPod;
 import com.hypeirochus.scmc.blocks.flora.BlockZerusLightcap;
@@ -85,14 +85,13 @@ public class BlockHandler {
 	public static List<Block> blocks;
 	public static List<ItemBlock> items;
 
-	//Fluids
+	// Fluids
 	public static Block ACID;
 	public static Block BLOOD;
 	public static Block VESPENE;
 	public static Block TERRAZINE;
 	public static Block TAR;
-	
-	
+
 	// Misc
 	public static Block ENTITY_SPAWNER;
 	public static Block PLANET_TELEPORTER;
@@ -174,6 +173,7 @@ public class BlockHandler {
 	public static Block STONE_ZERUS;
 	public static Block FARMLAND_ZERUS;
 	public static Block DIRT_ZERUS;
+	public static Block GRASS_ZERUS;
 	public static Block SAND_ZERUS;
 	public static Block GRAVEL_ZERUS;
 
@@ -198,8 +198,7 @@ public class BlockHandler {
 	public static Block DIRT_SLAYN;
 	public static Block SAND_SLAYN;
 	public static Block GRAVEL_SLAYN;
-	@Unused
-	public static Block MAGMA_SLAYN;
+	// public static Block MAGMA_SLAYN;
 
 	// Slayn Ores
 	public static Block ORE_COAL_SLAYN;
@@ -219,10 +218,10 @@ public class BlockHandler {
 	public static Block CITY_STONE_KORHAL;
 
 	// Furnaces
-	public static BlockStarcraftFurnace FURNACE_SHAKURAS;
-	public static BlockStarcraftFurnace FURNACE_CHAR;
-	public static BlockStarcraftFurnace FURNACE_SLAYN;
-	public static BlockStarcraftFurnace FURNACE_ZERUS;
+	public static StarcraftFurnace FURNACE_SHAKURAS;
+	public static StarcraftFurnace FURNACE_CHAR;
+	public static StarcraftFurnace FURNACE_SLAYN;
+	public static StarcraftFurnace FURNACE_ZERUS;
 	public static Block FURNACE_PROTOSS;
 
 	// Protoss
@@ -292,19 +291,19 @@ public class BlockHandler {
 	}
 
 	private static void instantiate() {
-		
+
 		// Fluids
 		ACID = new BlockAcid().setCreativeTab(null);
 		BLOOD = new BlockBlood().setCreativeTab(null);
 		TAR = new BlockTar().setCreativeTab(null);
 		TERRAZINE = new BlockTerrazine().setCreativeTab(null);
 		VESPENE = new BlockVespene().setCreativeTab(null);
-		
+
 		// Misc
 		ENTITY_SPAWNER = new BlockEntitySpawner("block.entityspawner", 5);
 		PLANET_TELEPORTER = new BlockPlanetTeleporter("block.planetteleporter", 100);
 		SOLAR_CORE = new BlockSolarCore("block.solarcore", 100);
-		STARCRAFT_SKULL = new BlockStarcraftSkull();
+		STARCRAFT_SKULL = new StarcraftSkull();
 		BlockHandler.registerBlockWithItemBlock(STARCRAFT_SKULL, new ItemBlockStarcraftSkull());
 		ENERGY_BLOCK = new BlockEnergy();
 		COMP_MINERAL = new BlockMineral();
@@ -335,8 +334,8 @@ public class BlockHandler {
 		COBBLESTONE_CHAR = new StarcraftBlock("char.cobblestone", RegistryType.FULL, Material.ROCK, MapColor.BLACK).setBlockHarvestLevel("pickaxe", 0).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(2).setResistance(10);
 		STONE_CHAR = new StarcraftBlockCustomDrop("char.stone", RegistryType.FULL, Material.ROCK, MapColor.BLACK, new ItemStack(COBBLESTONE_CHAR)).setBlockHarvestLevel("pickaxe", 0).setHardness(1.5f).setResistance(10).setCreativeTab(StarcraftCreativeTabs.MISC);
 		FARMLAND_CHAR = new BlockCharFarmland();
-		DIRT_CHAR = new BlockStarcraftDirt("char.dirt", MapColor.BLACK, FARMLAND_CHAR.getDefaultState());
-		GRAVEL_CHAR = new BlockStarcraftGravel("char.gravel", RegistryType.FULL, Material.GROUND, MapColor.BLACK, 0x000000).setSoundType(SoundType.GROUND).setHardness(0.6f).setResistance(1).setCreativeTab(StarcraftCreativeTabs.MISC);
+		DIRT_CHAR = new StarcraftDirt("char.dirt", MapColor.BLACK, FARMLAND_CHAR.getDefaultState());
+		GRAVEL_CHAR = new StarcraftGravel("char.gravel", RegistryType.FULL, Material.GROUND, MapColor.BLACK, 0x000000).setSoundType(SoundType.GROUND).setHardness(0.6f).setResistance(1).setCreativeTab(StarcraftCreativeTabs.MISC);
 		MAGMA_CHAR = new BlockMagma("char.magma");
 
 		// Char Ores
@@ -358,8 +357,8 @@ public class BlockHandler {
 		COBBLESTONE_SHAKURAS = new StarcraftBlock("shakuras.cobblestone", RegistryType.FULL, Material.ROCK, MapColor.BLUE).setBlockHarvestLevel("pickaxe", 0).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(2).setResistance(10);
 		STONE_SHAKURAS = new StarcraftBlockCustomDrop("shakuras.stone", RegistryType.FULL, Material.ROCK, MapColor.LIGHT_BLUE, new ItemStack(COBBLESTONE_SHAKURAS)).setHardness(1.5f).setResistance(10).setCreativeTab(StarcraftCreativeTabs.MISC);
 		FARMLAND_SHAKURAS = new BlockShakurasFarmland();
-		DIRT_SHAKURAS = new BlockStarcraftDirt("shakuras.dirt", MapColor.LIGHT_BLUE, FARMLAND_SHAKURAS.getDefaultState());
-		GRAVEL_SHAKURAS = new BlockStarcraftGravel("shakuras.gravel", RegistryType.FULL, Material.GROUND, MapColor.LIGHT_BLUE, 0x55539B).setSoundType(SoundType.GROUND).setHardness(0.6f).setResistance(1).setCreativeTab(StarcraftCreativeTabs.MISC);
+		DIRT_SHAKURAS = new StarcraftDirt("shakuras.dirt", MapColor.LIGHT_BLUE, FARMLAND_SHAKURAS.getDefaultState());
+		GRAVEL_SHAKURAS = new StarcraftGravel("shakuras.gravel", RegistryType.FULL, Material.GROUND, MapColor.LIGHT_BLUE, 0x55539B).setSoundType(SoundType.GROUND).setHardness(0.6f).setResistance(1).setCreativeTab(StarcraftCreativeTabs.MISC);
 		SAND_SHAKURAS = new StarcraftBlockFalling("shakuras.sand", RegistryType.FULL, Material.SAND, MapColor.LIGHT_BLUE, 6724056).setSoundType(SoundType.SAND).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0.5f).setResistance(0.83f);
 
 		// Shakuras Ores
@@ -380,8 +379,9 @@ public class BlockHandler {
 		COBBLESTONE_ZERUS = new StarcraftBlock("zerus.cobblestone", RegistryType.FULL, Material.ROCK, MapColor.BROWN).setBlockHarvestLevel("pickaxe", 0).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(2).setResistance(10);
 		STONE_ZERUS = new StarcraftBlockCustomDrop("zerus.stone", RegistryType.FULL, Material.ROCK, MapColor.BROWN, new ItemStack(COBBLESTONE_ZERUS)).setHardness(1.5f).setResistance(10).setCreativeTab(StarcraftCreativeTabs.MISC);
 		FARMLAND_ZERUS = new BlockZerusFarmland();
-		DIRT_ZERUS = new BlockStarcraftDirt("zerus.dirt", MapColor.BROWN, FARMLAND_ZERUS.getDefaultState());
-		GRAVEL_ZERUS = new BlockStarcraftGravel("zerus.gravel", RegistryType.FULL, Material.GROUND, MapColor.BROWN, 0x55539B).setSoundType(SoundType.GROUND).setHardness(0.6f).setResistance(1).setCreativeTab(StarcraftCreativeTabs.MISC);
+		DIRT_ZERUS = new StarcraftDirt("zerus.dirt", MapColor.BROWN, FARMLAND_ZERUS.getDefaultState());
+		GRASS_ZERUS = new StarcraftGrass("zerus.grass", MapColor.GRASS, DIRT_ZERUS.getDefaultState());
+		GRAVEL_ZERUS = new StarcraftGravel("zerus.gravel", RegistryType.FULL, Material.GROUND, MapColor.BROWN, 0x55539B).setSoundType(SoundType.GROUND).setHardness(0.6f).setResistance(1).setCreativeTab(StarcraftCreativeTabs.MISC);
 		SAND_ZERUS = new StarcraftBlockFalling("zerus.sand", RegistryType.FULL, Material.SAND, MapColor.BROWN, 6724056).setSoundType(SoundType.SAND).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0.5f).setResistance(0.83f);
 
 		// Zerus ores
@@ -402,9 +402,9 @@ public class BlockHandler {
 		COBBLESTONE_SLAYN = new StarcraftBlock("slayn.cobblestone", RegistryType.FULL, Material.ROCK, MapColor.BLACK).setBlockHarvestLevel("pickaxe", 0).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(2).setResistance(10);
 		STONE_SLAYN = new StarcraftBlockCustomDrop("slayn.stone", RegistryType.FULL, Material.ROCK, MapColor.BLACK, new ItemStack(COBBLESTONE_SLAYN)).setBlockHarvestLevel("pickaxe", 0).setHardness(1.5f).setResistance(10).setCreativeTab(StarcraftCreativeTabs.MISC);
 		FARMLAND_SLAYN = new BlockSlaynFarmland();
-		DIRT_SLAYN = new BlockStarcraftDirt("slayn.dirt", MapColor.BLACK, FARMLAND_SLAYN.getDefaultState());
+		DIRT_SLAYN = new StarcraftDirt("slayn.dirt", MapColor.BLACK, FARMLAND_SLAYN.getDefaultState());
 		SAND_SLAYN = new StarcraftBlockFalling("slayn.sand", RegistryType.FULL, Material.SAND, MapColor.BLACK, 6724056).setSoundType(SoundType.SAND).setCreativeTab(StarcraftCreativeTabs.MISC).setHardness(0.5f).setResistance(0.83f);
-		GRAVEL_SLAYN = new BlockStarcraftGravel("slayn.gravel", RegistryType.FULL, Material.GROUND, MapColor.BLACK, 0x000000).setSoundType(SoundType.GROUND).setHardness(0.6f).setResistance(1).setCreativeTab(StarcraftCreativeTabs.MISC);
+		GRAVEL_SLAYN = new StarcraftGravel("slayn.gravel", RegistryType.FULL, Material.GROUND, MapColor.BLACK, 0x000000).setSoundType(SoundType.GROUND).setHardness(0.6f).setResistance(1).setCreativeTab(StarcraftCreativeTabs.MISC);
 
 		// Slayn Ores
 		ORE_COAL_SLAYN = new BlockSlaynOre("slayn.coal", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 0).setBlockHarvestLevel("pickaxe", 0).setCreativeTab(StarcraftCreativeTabs.MISC);
@@ -424,10 +424,10 @@ public class BlockHandler {
 		CITY_STONE_KORHAL = new StarcraftBlock("korhal.stone.city", RegistryType.FULL, Material.ROCK, MapColor.BLACK).setBlockHarvestLevel("pickaxe", 0).setHardness(1.5f).setResistance(10.0f).setCreativeTab(StarcraftCreativeTabs.MISC);
 
 		// Furnaces
-		FURNACE_SHAKURAS = new BlockStarcraftFurnace(MapColor.LIGHT_BLUE, EnumWorldType.SHAKURAS);
-		FURNACE_CHAR = new BlockStarcraftFurnace(MapColor.BLACK, EnumWorldType.CHAR);
-		FURNACE_SLAYN = new BlockStarcraftFurnace(MapColor.BLACK, EnumWorldType.SLAYN);
-		FURNACE_ZERUS = new BlockStarcraftFurnace(MapColor.BROWN, EnumWorldType.ZERUS);
+		FURNACE_SHAKURAS = new StarcraftFurnace(MapColor.LIGHT_BLUE, EnumWorldType.SHAKURAS);
+		FURNACE_CHAR = new StarcraftFurnace(MapColor.BLACK, EnumWorldType.CHAR);
+		FURNACE_SLAYN = new StarcraftFurnace(MapColor.BLACK, EnumWorldType.SLAYN);
+		FURNACE_ZERUS = new StarcraftFurnace(MapColor.BROWN, EnumWorldType.ZERUS);
 		FURNACE_PROTOSS = new BlockProtossFurnace();
 
 		// Protoss
@@ -460,6 +460,10 @@ public class BlockHandler {
 		TERRAN_METAL = new BlockTerranMetal();
 		NEOSTEEL_METAL = new BlockNeosteel();
 		PARISTEEL_METAL = new BlockParisteel();
+
+		// Terran Cores
+		CORE_BARRACKS = new StarcraftBlock("terran.barrackscore", RegistryType.FULL, Material.IRON, MapColor.BLUE).setBlockHarvestLevel("pickaxe", 2).setHardness(15.0F).setResistance(15.0F).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		CORE_COMMANDCENTER = new StarcraftBlock("terran.commandcentercore", RegistryType.FULL, Material.IRON, MapColor.BLUE).setBlockHarvestLevel("pickaxe", 2).setHardness(15.0F).setResistance(15.0F).setCreativeTab(StarcraftCreativeTabs.TERRAN);
 
 		// Zerg
 		ZERG_CREEP = new BlockZergCreep();

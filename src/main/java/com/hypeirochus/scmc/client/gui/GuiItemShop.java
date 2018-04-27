@@ -295,7 +295,8 @@ public class GuiItemShop extends BasicGui {
 								this.modifyingStackWindowX = mouseX + 10;
 								this.modifyingStackWindowY = mouseY - 15;
 								textBox = new GuiTextField(TEXT_BOX, mc.fontRenderer, modifyingStackWindowX + 6, modifyingStackWindowY + 28, 65, 14);
-								textBox.setText(buyAmount + "");
+								textBox.setText(Integer.toString(buyAmount)
+										);
 								SoundUtils.playButtonClick();
 								return;
 							}

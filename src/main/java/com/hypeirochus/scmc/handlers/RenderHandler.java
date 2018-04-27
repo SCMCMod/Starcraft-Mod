@@ -142,7 +142,6 @@ import com.hypeirochus.scmc.entity.living.EntityZerglingPrimalDehaka;
 import com.hypeirochus.scmc.entity.living.EntityZerglingPrimalDehakaBoost;
 import com.hypeirochus.scmc.entity.living.EntityZerglingRaptor;
 import com.hypeirochus.scmc.entity.living.EntityZerglingSwarmling;
-import com.hypeirochus.scmc.items.IMetaRenderHandler;
 import com.hypeirochus.scmc.tileentity.TileEntityBrambles;
 import com.hypeirochus.scmc.tileentity.TileEntityProtossWormhole;
 import com.hypeirochus.scmc.tileentity.TileEntityStarcraftSkull;
