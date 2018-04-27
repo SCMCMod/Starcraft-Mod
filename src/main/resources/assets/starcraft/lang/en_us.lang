@@ -349,6 +349,7 @@ tile.zerus.stone.name=Stone
 tile.zerus.sand.name=Sand
 tile.zerus.gravel.name=Gravel
 tile.zerus.dirt.name=Dirt
+tile.zerus.grass.name=Grass
 tile.zerus.farmland.name=Farmland
 
 tile.zerus.furnace.name=Furnace

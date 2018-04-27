@@ -6,8 +6,8 @@ import com.hypeirochus.scmc.blocks.RegistryType;
 import com.hypeirochus.scmc.blocks.StarcraftBlock;
 import com.hypeirochus.scmc.blocks.items.IMetaBlockName;
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
-import com.hypeirochus.scmc.items.IMetaRenderHandler;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;

@@ -21,13 +21,18 @@ import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 
 /**
+ * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
+ * 
+ * <br>
+ * </br>
+ * 
  * @author Ocelot5836
  */
-public class BlockStarcraftDirt extends StarcraftBlock {
+public class StarcraftDirt extends StarcraftBlock {
 
 	private IBlockState farmland;
 
-	public BlockStarcraftDirt(String name, MapColor color, IBlockState farmland) {
+	public StarcraftDirt(String name, MapColor color, IBlockState farmland) {
 		super(name, RegistryType.FULL, Material.GROUND, color);
 		setSoundType(SoundType.GROUND);
 		setHardness(0.5f);

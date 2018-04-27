@@ -8,8 +8,8 @@ import com.hypeirochus.scmc.blocks.items.IMetaBlockName;
 import com.hypeirochus.scmc.blocks.metablocks.BlockMineral.CompressedMineralType;
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler.EnergyType;
+import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
-import com.hypeirochus.scmc.items.IMetaRenderHandler;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;

@@ -1,5 +1,6 @@
 package com.hypeirochus.scmc.blocks;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Nullable;
@@ -15,6 +16,7 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -28,10 +30,9 @@ public class StarcraftBlock extends Block {
 
 	public static final int BIT_NO_METADATA = 0x01;
 
-	private ItemBlock item;
-	
-	private boolean noMeta = false;
-	
+	protected ItemBlock item;
+	protected boolean noMeta;
+
 	public StarcraftBlock(Material material) {
 		super(material, material.getMaterialMapColor());
 	}
@@ -76,9 +77,9 @@ public class StarcraftBlock extends Block {
 			} else {
 				BlockHandler.registerBlockWithItemBlock(this, this.item);
 			}
-			if(FMLCommonHandler.instance().getSide() == Side.CLIENT) {
-				if(noMeta) {
-					for(int i = 0; i < 16; i++) {
+			if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+				if (noMeta) {
+					for (int i = 0; i < 16; i++) {
 						RenderHandler.registerBlockRender(this, i, this.getRegistryName().toString());
 					}
 				}
@@ -91,8 +92,8 @@ public class StarcraftBlock extends Block {
 				BlockHandler.registerBlockWithItemBlock(this, this.item);
 				if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 					RenderHandler.registerLayered(this);
-					if(noMeta) {
-						for(int i = 0; i < 16; i++) {
+					if (noMeta) {
+						for (int i = 0; i < 16; i++) {
 							RenderHandler.registerBlockRender(this, i, this.getRegistryName().toString());
 						}
 					}
@@ -103,9 +104,9 @@ public class StarcraftBlock extends Block {
 		} else if (type == RegistryType.META) {
 			setItemBlock(new ItemBlockMeta(this));
 			BlockHandler.registerBlockWithItemBlock(this, this.item);
-			if(FMLCommonHandler.instance().getSide() == Side.CLIENT) {
-				if(noMeta) {
-					for(int i = 0; i < 16; i++) {
+			if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+				if (noMeta) {
+					for (int i = 0; i < 16; i++) {
 						RenderHandler.registerBlockRender(this, i, this.getRegistryName().toString());
 					}
 				}
@@ -123,7 +124,7 @@ public class StarcraftBlock extends Block {
 	public RayTraceResult collisionRayTrace(IBlockState blockState, World world, BlockPos pos, Vec3d start, Vec3d end) {
 		List<RayTraceResult> list = Lists.<RayTraceResult>newArrayList();
 		List<AxisAlignedBB> boxes = Lists.<AxisAlignedBB>newArrayList();
-		this.getCollisionBoxList(this.getActualState(blockState, world, pos), world, pos, boxes);
+		this.getCollisionBoxes(this.getActualState(blockState, world, pos), world, pos, boxes);
 
 		for (AxisAlignedBB axisalignedbb : boxes) {
 			list.add(this.rayTrace(pos, start, end, axisalignedbb));
@@ -146,7 +147,31 @@ public class StarcraftBlock extends Block {
 		return raytraceresult1;
 	}
 
-	protected void getCollisionBoxList(IBlockState state, World world, BlockPos pos, List<AxisAlignedBB> boxes) {
+	/**
+	 * @deprecated Use {@link #getCollisionBoxes(IBlockState, World, BlockPos, List)} instead.
+	 */
+	@Override
+	public void addCollisionBoxToList(IBlockState state, World world, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, Entity entityIn, boolean isActualState) {
+		List<AxisAlignedBB> boxes = new ArrayList<AxisAlignedBB>();
+		this.getCollisionBoxes(this.getActualState(state, world, pos), world, pos, boxes);
+		for (AxisAlignedBB box : boxes) {
+			this.addCollisionBoxToList(pos, entityBox, collidingBoxes, box);
+		}
+	}
+
+	/**
+	 * Gets the boxes of the block.
+	 * 
+	 * @param state
+	 *            The actual state of the block
+	 * @param world
+	 *            The world the block is in
+	 * @param pos
+	 *            The position of the block
+	 * @param boxes
+	 *            The list to add the boxes to
+	 */
+	protected void getCollisionBoxes(IBlockState state, World world, BlockPos pos, List<AxisAlignedBB> boxes) {
 		boxes.add(this.getBoundingBox(state, world, pos));
 	}
 

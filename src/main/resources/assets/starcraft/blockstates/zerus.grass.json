@@ -1,0 +1,31 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+		"textures": {
+			"particle": "starcraft:blocks/zerus.dirt",
+			"bottom": "starcraft:blocks/zerus.dirt",
+			"top": "starcraft:blocks/zerus.grass.top",
+			"side": "starcraft:blocks/zerus.grass.side",
+			"overlay": "starcraft:blocks/zerus.grass.side.overlay"
+		},
+		"model": "grass"
+    },
+    "variants": {
+		"snowy": {
+			"true": {
+				"textures": {
+				    "particle": "starcraft:blocks/zerus.dirt",
+					"bottom": "starcraft:blocks/zerus.dirt",
+					"top": "starcraft:blocks/zerus.grass.top",
+					"side": "starcraft:blocks/zerus.grass.side.snowed"
+				},
+				"model": "starcraft:grass.snowy"
+			},
+			"false": {
+			}
+		},
+		"inventory": [{
+            "model": "grass"
+        }]
+    }
+}

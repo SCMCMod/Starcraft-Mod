@@ -42,18 +42,23 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 
 /**
+ * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
+ * 
+ * <br>
+ * </br>
+ * 
  * A block which is used for all of the starcraft furnaces
  *
  * @author CJMinecraft
  */
-public class BlockStarcraftFurnace extends BlockContainer {
+public class StarcraftFurnace extends BlockContainer {
 
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 	public static final PropertyBool BURNING = PropertyBool.create("burning");
 
 	private EnumWorldType type;
 
-	public BlockStarcraftFurnace(MapColor mapColor, EnumWorldType type) {
+	public StarcraftFurnace(MapColor mapColor, EnumWorldType type) {
 		super(Material.ROCK, mapColor);
 		this.type = type;
 		this.setUnlocalizedName(type.getName() + ".furnace");

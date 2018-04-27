@@ -8,7 +8,7 @@ import javax.annotation.Nullable;
 
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 import com.hypeirochus.scmc.handlers.BlockHandler;
-import com.hypeirochus.scmc.items.IMetaRenderHandler;
+import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
 import com.hypeirochus.scmc.tileentity.TileEntityStarcraftSkull;
 
 import net.minecraft.block.BlockContainer;
@@ -38,9 +38,14 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 /**
+ * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
+ * 
+ * <br>
+ * </br>
+ * 
  * @author Ocelot5836
  */
-public class BlockStarcraftSkull extends BlockContainer implements IMetaRenderHandler {
+public class StarcraftSkull extends BlockContainer implements IMetaRenderHandler {
 
 	public static final PropertyDirection FACING = BlockDirectional.FACING;
 	public static final PropertyBool NODROP = PropertyBool.create("nodrop");
@@ -48,7 +53,7 @@ public class BlockStarcraftSkull extends BlockContainer implements IMetaRenderHa
 	public static final AxisAlignedBB DEFAULT_AABB = new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 0.5D, 0.75D);
 	public static final AxisAlignedBB[] BOXES = new AxisAlignedBB[] { new AxisAlignedBB(0.25D, 0.25D, 0.0D, 0.75D, 0.75D, 0.5D), new AxisAlignedBB(0.5D, 0.25D, 0.25D, 1.0D, 0.75D, 0.75D), new AxisAlignedBB(0.25D, 0.25D, 0.5D, 0.75D, 0.75D, 1.0D), new AxisAlignedBB(0.0D, 0.25D, 0.25D, 0.5D, 0.75D, 0.75D) };
 
-	public BlockStarcraftSkull() {
+	public StarcraftSkull() {
 		super(Material.CIRCUITS, MapColor.SNOW);
 		setUnlocalizedName("skull");
 		setRegistryName("skull");
@@ -174,16 +179,16 @@ public class BlockStarcraftSkull extends BlockContainer implements IMetaRenderHa
 	public static enum EnumSkullType implements IStringSerializable {
 		CIVILIAN("civilian", 0), ZERGLING_SC2("zergling_sc2", 1), HYDRALISK("hydralisk", 2), BRUTALISK("brutalisk", 3);
 
-		private int ID;
+		private int id;
 		private String name;
 
-		private EnumSkullType(String name, int ID) {
-			this.ID = ID;
+		private EnumSkullType(String name, int id) {
+			this.id = id;
 			this.name = name;
 		}
 
 		public int getID() {
-			return ID;
+			return id;
 		}
 
 		@Override

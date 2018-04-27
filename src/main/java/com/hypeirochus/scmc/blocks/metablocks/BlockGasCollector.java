@@ -7,8 +7,8 @@ import com.hypeirochus.scmc.blocks.StarcraftBlock;
 import com.hypeirochus.scmc.blocks.items.IMetaBlockName;
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 import com.hypeirochus.scmc.handlers.GuiHandler;
+import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
 import com.hypeirochus.scmc.handlers.SoundHandler.SoundTypes;
-import com.hypeirochus.scmc.items.IMetaRenderHandler;
 import com.hypeirochus.scmc.tileentity.TileEntityGasCollector;
 
 import net.minecraft.block.ITileEntityProvider;

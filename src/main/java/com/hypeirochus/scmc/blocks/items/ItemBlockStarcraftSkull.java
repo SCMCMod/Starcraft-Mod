@@ -1,6 +1,6 @@
 package com.hypeirochus.scmc.blocks.items;
 
-import com.hypeirochus.scmc.blocks.BlockStarcraftSkull;
+import com.hypeirochus.scmc.blocks.StarcraftSkull;
 import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.tileentity.TileEntityStarcraftSkull;
 
@@ -67,7 +67,7 @@ public class ItemBlockStarcraftSkull extends ItemBlock {
 				if (world.isRemote) {
 					return EnumActionResult.SUCCESS;
 				} else {
-					world.setBlockState(pos, BlockHandler.STARCRAFT_SKULL.getDefaultState().withProperty(BlockStarcraftSkull.FACING, facing), 11);
+					world.setBlockState(pos, BlockHandler.STARCRAFT_SKULL.getDefaultState().withProperty(StarcraftSkull.FACING, facing), 11);
 					int i = 0;
 
 					if (facing == EnumFacing.UP) {
@@ -95,7 +95,7 @@ public class ItemBlockStarcraftSkull extends ItemBlock {
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
 		if (isInCreativeTab(tab)) {
-			for (int i = 0; i < BlockStarcraftSkull.EnumSkullType.values().length; ++i) {
+			for (int i = 0; i < StarcraftSkull.EnumSkullType.values().length; ++i) {
 				items.add(new ItemStack(this, 1, i));
 			}
 		}
@@ -105,10 +105,10 @@ public class ItemBlockStarcraftSkull extends ItemBlock {
 	public String getUnlocalizedName(ItemStack stack) {
 		int i = stack.getMetadata();
 
-		if (i < 0 || i >= BlockStarcraftSkull.EnumSkullType.values().length) {
+		if (i < 0 || i >= StarcraftSkull.EnumSkullType.values().length) {
 			i = 0;
 		}
 
-		return super.getUnlocalizedName() + "." + BlockStarcraftSkull.EnumSkullType.values()[i];
+		return super.getUnlocalizedName() + "." + StarcraftSkull.EnumSkullType.values()[i];
 	}
 }
