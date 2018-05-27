@@ -22,11 +22,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeColorHelper;
+import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -44,6 +46,7 @@ public class StarcraftGrass extends StarcraftBlock implements IBlockColor, IItem
 		setHarvestLevel("shovel", -1);
 		setCreativeTab(StarcraftCreativeTabs.MISC);
 		setSoundType(SoundType.PLANT);
+		setTickRandomly(true);
 	}
 
 	@Override
@@ -52,7 +55,7 @@ public class StarcraftGrass extends StarcraftBlock implements IBlockColor, IItem
 			if (!worldIn.isAreaLoaded(pos, 3))
 				return;
 			if (worldIn.getLightFromNeighbors(pos.up()) < 4 && worldIn.getBlockState(pos.up()).getLightOpacity(worldIn, pos.up()) > 2) {
-				worldIn.setBlockState(pos, Blocks.DIRT.getDefaultState());
+				worldIn.setBlockState(pos, dirt);
 			} else {
 				if (worldIn.getLightFromNeighbors(pos.up()) >= 9) {
 					for (int i = 0; i < 4; ++i) {
@@ -65,13 +68,18 @@ public class StarcraftGrass extends StarcraftBlock implements IBlockColor, IItem
 						IBlockState iblockstate = worldIn.getBlockState(blockpos.up());
 						IBlockState iblockstate1 = worldIn.getBlockState(blockpos);
 
-						if (iblockstate1.getBlock() == BlockHandler.DIRT_ZERUS && worldIn.getLightFromNeighbors(blockpos.up()) >= 4 && iblockstate.getLightOpacity(worldIn, pos.up()) <= 2) {
-							worldIn.setBlockState(blockpos, BlockHandler.GRASS_ZERUS.getDefaultState());
+						if (iblockstate1.getBlock() == dirt.getBlock() && worldIn.getLightFromNeighbors(blockpos.up()) >= 4 && iblockstate.getLightOpacity(worldIn, pos.up()) <= 2) {
+							worldIn.setBlockState(blockpos, this.getDefaultState());
 						}
 					}
 				}
 			}
 		}
+	}
+
+	@Override
+	public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, IPlantable plantable) {
+		return true;
 	}
 
 	@Override
@@ -111,7 +119,7 @@ public class StarcraftGrass extends StarcraftBlock implements IBlockColor, IItem
 
 				placePos = placePos.add(rand.nextInt(3) - 1, (rand.nextInt(3) - 1) * rand.nextInt(3) / 2, rand.nextInt(3) - 1);
 
-				if (world.getBlockState(placePos.down()).getBlock() != BlockHandler.GRASS_ZERUS || world.getBlockState(placePos).isNormalCube()) {
+				if (world.getBlockState(placePos.down()).getBlock() != this || world.getBlockState(placePos).isNormalCube()) {
 					break;
 				}
 

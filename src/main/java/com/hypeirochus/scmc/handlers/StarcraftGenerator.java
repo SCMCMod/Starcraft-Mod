@@ -4,18 +4,9 @@ import java.util.Random;
 
 import com.hypeirochus.scmc.worldgen.StarcraftWorldGenMinable;
 import com.hypeirochus.scmc.worldgen.StarcraftWorldGenMinableRandomized;
-import com.hypeirochus.scmc.worldgen.structure.BossSpawner;
+import com.hypeirochus.scmc.worldgen.structure.IGenericStructure;
+import com.hypeirochus.scmc.worldgen.structure.INBTStructure;
 import com.hypeirochus.scmc.worldgen.structure.SCWorldGenerator;
-import com.hypeirochus.scmc.worldgen.structure.StructureGeyserTemplate;
-import com.hypeirochus.scmc.worldgen.structure.StructureMineralPatchTemplate;
-import com.hypeirochus.scmc.worldgen.structure.StructureMoonTemplate;
-import com.hypeirochus.scmc.worldgen.structure.StructureMultisurfacePlanetTemplate;
-import com.hypeirochus.scmc.worldgen.structure.StructurePlanetTemplate;
-import com.hypeirochus.scmc.worldgen.structure.StructureProtossCyberneticsCoreTemplate;
-import com.hypeirochus.scmc.worldgen.structure.StructureProtossPylonTemplate;
-import com.hypeirochus.scmc.worldgen.structure.StructureProtossWarpGateTemplate;
-import com.hypeirochus.scmc.worldgen.structure.StructureSingleBlockTemplate;
-import com.hypeirochus.scmc.worldgen.structure.StructureStarTemplate;
 import com.hypeirochus.scmc.worldgen.structure.StructureTerranBarracksTemplate;
 import com.hypeirochus.scmc.worldgen.structure.StructureTerranBunkerTemplate;
 import com.hypeirochus.scmc.worldgen.structure.StructureTerranCommandCenterTemplate;
@@ -23,21 +14,18 @@ import com.hypeirochus.scmc.worldgen.structure.StructureZergHydraliskDenTemplate
 import com.hypeirochus.scmc.worldgen.structure.StructureZergSpawningPoolTemplate;
 import com.hypeirochus.scmc.worldgen.structure.StructureZergSpireTemplate;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.fml.common.IWorldGenerator;
 
 public class StarcraftGenerator {
 
-	Random rand = new Random();
-	public static final StarcraftGenerator instance = new StarcraftGenerator();
+	protected Random rand = new Random();
+	public static final StarcraftGenerator INSTANCE = new StarcraftGenerator();
 
 	protected WorldGenerator TITANIUM_CHAR = new StarcraftWorldGenMinable(BlockHandler.STONE_CHAR, BlockHandler.ORE_TITANIUM_CHAR.getDefaultState(), 8);
 	protected WorldGenerator URANIUM_CHAR = new StarcraftWorldGenMinable(BlockHandler.STONE_CHAR, BlockHandler.ORE_URANIUM_CHAR.getDefaultState(), 1);
@@ -127,29 +115,28 @@ public class StarcraftGenerator {
 	protected WorldGenerator URANIUM_GENERIC = new WorldGenMinable(BlockHandler.ORE_URANIUM_OW.getDefaultState(), 1);
 	protected WorldGenerator RICHMINERAL_GENERIC = new WorldGenMinable(BlockHandler.ORE_RICHMINERAL_OW.getDefaultState(), 8);
 
-	protected SCWorldGenerator SPAWNING_POOL = new StructureZergSpawningPoolTemplate();
-	protected SCWorldGenerator ZERG_HYDRALISK_DEN = new StructureZergHydraliskDenTemplate();
-	protected SCWorldGenerator ZERG_SPIRE = new StructureZergSpireTemplate();
+	protected INBTStructure SPAWNING_POOL = new StructureZergSpawningPoolTemplate();
+	protected INBTStructure ZERG_HYDRALISK_DEN = new StructureZergHydraliskDenTemplate();
+	protected INBTStructure ZERG_SPIRE = new StructureZergSpireTemplate();
 
-	protected SCWorldGenerator TERRAN_BUNKER = new StructureTerranBunkerTemplate();
-	protected SCWorldGenerator TERRAN_BARRACKS = new StructureTerranBarracksTemplate();
-	protected SCWorldGenerator TERRAN_COMMAND_CENTER = new StructureTerranCommandCenterTemplate();
+	protected INBTStructure TERRAN_BUNKER = new StructureTerranBunkerTemplate();
+	protected INBTStructure TERRAN_BARRACKS = new StructureTerranBarracksTemplate();
+	protected INBTStructure TERRAN_COMMAND_CENTER = new StructureTerranCommandCenterTemplate();
 
-	protected SCWorldGenerator PROTOSS_PYLON = new StructureProtossPylonTemplate();
-	protected SCWorldGenerator PROTOSS_WARPGATE = new StructureProtossWarpGateTemplate();
-	protected SCWorldGenerator PROTOSS_CYBERNETICS_CORE = new StructureProtossCyberneticsCoreTemplate();
+	// protected INBTStructure PROTOSS_PYLON = new StructureProtossPylonTemplate();
+	// protected INBTStructure PROTOSS_WARPGATE = new StructureProtossWarpGateTemplate();
+	// protected INBTStructure PROTOSS_CYBERNETICS_CORE = new StructureProtossCyberneticsCoreTemplate();
 
-	protected SCWorldGenerator GEYSER = new StructureGeyserTemplate();
-	protected SCWorldGenerator MINERAL_PATCH = new StructureMineralPatchTemplate();
+	// protected INBTStructure GEYSER = new StructureGeyserTemplate();
+	// protected IGenericStructure MINERAL_PATCH = new StructureMineralPatchTemplate();
 
-	protected SCWorldGenerator MULTISURFACE_PLANET_TEMPLATE = new StructureMultisurfacePlanetTemplate();
-	protected SCWorldGenerator MOON_TEMPLATE = new StructureMoonTemplate();
-	protected SCWorldGenerator PLANET_TEMPLATE = new StructurePlanetTemplate();
-	protected SCWorldGenerator STAR_TEMPLATE = new StructureStarTemplate();
+	// protected IGenericStructure MULTISURFACE_PLANET_TEMPLATE = new StructureMultisurfacePlanetTemplate();
+	// protected IGenericStructure MOON_TEMPLATE = new StructureMoonTemplate();
+	// protected IGenericStructure PLANET_TEMPLATE = new StructurePlanetTemplate();
+	// protected IGenericStructure STAR_TEMPLATE = new StructureStarTemplate();
 
-	protected SCWorldGenerator BOSS_SPAWNER = new BossSpawner();
-
-	protected SCWorldGenerator TILEENTITY_SPAWNER = new StructureSingleBlockTemplate();
+	// protected IGenericStructure BOSS_SPAWNER = new BossSpawner();
+	// protected IGenericStructure TILEENTITY_SPAWNER = new StructureSingleBlockTemplate();
 
 	private static void checkHeight(int minHeight, int maxHeight) {
 		if (minHeight < 0 || maxHeight > 256 || minHeight > maxHeight) {
@@ -157,61 +144,110 @@ public class StarcraftGenerator {
 		}
 	}
 
-	protected static void runDualBlockStateGenerator(SCWorldGenerator generator, IBlockState state, IBlockState state2, World world, Random rand, int chunk_X, int chunk_Z, int offsetX, int offsetY, int offsetZ, int chancesToSpawn, int minHeight, int maxHeight, boolean flag) {
-
+	/**
+	 * Runs any SCMC world generator.
+	 * 
+	 * @param structure
+	 *            The structure to generate
+	 * @param world
+	 *            The world to generate in
+	 * @param rand
+	 *            The randomness used to determine exact position
+	 * @param chunk_X
+	 *            The x chunk
+	 * @param chunk_Z
+	 *            Thez chunk
+	 * @param offsetX
+	 *            The x offset
+	 * @param offsetY
+	 *            The y offset
+	 * @param offsetZ
+	 *            The x offset
+	 * @param chancesToSpawn
+	 *            The chances this has to spawn
+	 * @param minHeight
+	 *            The minimum height of this structure's spawn zone
+	 * @param maxHeight
+	 *            The maximum height of the structure spawn zone
+	 * @param flags
+	 *            The flags that are passed in
+	 */
+	public static void runGenerator(IGenericStructure structure, World world, Random rand, int chunk_X, int chunk_Z, int offsetX, int offsetY, int offsetZ, int chancesToSpawn, int minHeight, int maxHeight, Object... flags) {
 		checkHeight(minHeight, maxHeight);
 
 		int heightDiff = maxHeight - minHeight + 1;
 
 		for (int i = 0; i < chancesToSpawn; i++) {
-			generator.generate(state, state2, world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + 8, minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + 8), flag);
+			structure.setFlags(flags);
+			structure.generate(world, new BlockPos(chunk_X * 16 + 8, minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + 8).add(offsetX, offsetY, offsetZ));
 		}
 	}
 
-	protected static void runBossGenerator(SCWorldGenerator generator, int range, Entity entityToSpawn, TextFormatting color, World world, Random rand, int chunk_X, int chunk_Z, int offsetX, int offsetY, int offsetZ, int chancesToSpawn, int minHeight, int maxHeight, boolean flag) {
-
+	public static void runOreGenerator(WorldGenerator generator, World world, Random rand, int chunk_X, int chunk_Z, int chancesToSpawn, int minHeight, int maxHeight) {
 		checkHeight(minHeight, maxHeight);
 
 		int heightDiff = maxHeight - minHeight + 1;
 
 		for (int i = 0; i < chancesToSpawn; i++) {
-			generator.generate(range, entityToSpawn, color, world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + 8, minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + 8), flag);
+			generator.generate(world, rand, new BlockPos(chunk_X * 16 + 8, minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + 8));
 		}
 	}
 
-	protected static void runTeamColorGenerator(SCWorldGenerator generator, int metaColor, int metaSecColor, World world, Random rand, int chunk_X, int chunk_Z, int offsetX, int offsetY, int offsetZ, int chancesToSpawn, int minHeight, int maxHeight, boolean flag) {
-
-		checkHeight(minHeight, maxHeight);
-
-		int heightDiff = maxHeight - minHeight + 1;
-
-		for (int i = 0; i < chancesToSpawn; i++) {
-			generator.generate(metaColor, metaSecColor, world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + 8, minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + 8), flag);
-		}
-	}
-
-	protected static void runGenericFlagGenerator(SCWorldGenerator generator, World world, Random rand, int chunk_X, int chunk_Z, int offsetX, int offsetY, int offsetZ, int chancesToSpawn, int minHeight, int maxHeight, boolean flag) {
-
-		checkHeight(minHeight, maxHeight);
-
-		int heightDiff = maxHeight - minHeight + 1;
-
-		for (int i = 0; i < chancesToSpawn; i++) {
-			generator.generate(world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + 8, minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + 8), flag);
-		}
-	}
-
-	protected static void runGenericGenerator(SCWorldGenerator generator, World world, Random rand, int chunk_X, int chunk_Z, int offsetX, int offsetY, int offsetZ, int chancesToSpawn, int minHeight, int maxHeight) {
-
-		checkHeight(minHeight, maxHeight);
-
-		int heightDiff = maxHeight - minHeight + 1;
-
-		for (int i = 0; i < chancesToSpawn; i++) {
-			generator.generate(world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + 8, minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + 8));
-		}
-	}
-
+	// protected static void runDualBlockStateGenerator(SCWorldGenerator generator, IBlockState state, IBlockState state2, World world, Random rand, int chunk_X, int chunk_Z, int offsetX, int offsetY, int offsetZ, int chancesToSpawn, int minHeight, int maxHeight, boolean flag) {
+	//
+	// checkHeight(minHeight, maxHeight);
+	//
+	// int heightDiff = maxHeight - minHeight + 1;
+	//
+	// for (int i = 0; i < chancesToSpawn; i++) {
+	// generator.generate(state, state2, world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + 8, minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + 8), flag);
+	// }
+	// }
+	//
+	// protected static void runBossGenerator(SCWorldGenerator generator, int range, Entity entityToSpawn, TextFormatting color, World world, Random rand, int chunk_X, int chunk_Z, int offsetX, int offsetY, int offsetZ, int chancesToSpawn, int minHeight, int maxHeight, boolean flag) {
+	//
+	// checkHeight(minHeight, maxHeight);
+	//
+	// int heightDiff = maxHeight - minHeight + 1;
+	//
+	// for (int i = 0; i < chancesToSpawn; i++) {
+	// generator.generate(range, entityToSpawn, color, world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + 8, minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + 8), flag);
+	// }
+	// }
+	//
+	// protected static void runTeamColorGenerator(SCWorldGenerator generator, int metaColor, int metaSecColor, World world, Random rand, int chunk_X, int chunk_Z, int offsetX, int offsetY, int offsetZ, int chancesToSpawn, int minHeight, int maxHeight, boolean flag) {
+	//
+	// checkHeight(minHeight, maxHeight);
+	//
+	// int heightDiff = maxHeight - minHeight + 1;
+	//
+	// for (int i = 0; i < chancesToSpawn; i++) {
+	// generator.generate(metaColor, metaSecColor, world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + 8, minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + 8), flag);
+	// }
+	// }
+	//
+	// protected static void runGenericFlagGenerator(SCWorldGenerator generator, World world, Random rand, int chunk_X, int chunk_Z, int offsetX, int offsetY, int offsetZ, int chancesToSpawn, int minHeight, int maxHeight, boolean flag) {
+	//
+	// checkHeight(minHeight, maxHeight);
+	//
+	// int heightDiff = maxHeight - minHeight + 1;
+	//
+	// for (int i = 0; i < chancesToSpawn; i++) {
+	// generator.generate(world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + 8, minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + 8), flag);
+	// }
+	// }
+	//
+	// protected static void runGenericGenerator(SCWorldGenerator generator, World world, Random rand, int chunk_X, int chunk_Z, int offsetX, int offsetY, int offsetZ, int chancesToSpawn, int minHeight, int maxHeight) {
+	//
+	// checkHeight(minHeight, maxHeight);
+	//
+	// int heightDiff = maxHeight - minHeight + 1;
+	//
+	// for (int i = 0; i < chancesToSpawn; i++) {
+	// generator.generate(world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + 8, minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + 8));
+	// }
+	// }
+	//
 	protected static void runPlanetGenerator(SCWorldGenerator generator, int id, int planetSize, int range, IBlockState block, World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos pos) {
 		generator.generatePlanet(id, planetSize, range, block, world, rand, offsetX, offsetY, offsetZ, pos);
 	}
@@ -237,37 +273,26 @@ public class StarcraftGenerator {
 			generator.generateRandomStar(starSize, world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + 8, minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + 8));
 		}
 	}
-
-	 protected static void runMetaGenerator(SCWorldGenerator generator, int meta, World world, Random rand, int chunk_X, int chunk_Z, int offsetX, int offsetY, int offsetZ, int chancesToSpawn, int minHeight, int maxHeight) {
-	
-	 checkHeight(minHeight, maxHeight);
-	
-	 int heightDiff = maxHeight - minHeight + 1;
-	
-	 for (int i = 0; i < chancesToSpawn; i++) {
-	 generator.generate(meta, world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + 8, minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + 8));
-	 }
-	 }
-
-	protected static void runOreGenerator(WorldGenerator generator, World world, Random rand, int chunk_X, int chunk_Z, int chancesToSpawn, int minHeight, int maxHeight) {
-
-		checkHeight(minHeight, maxHeight);
-
-		int heightDiff = maxHeight - minHeight + 1;
-
-		for (int i = 0; i < chancesToSpawn; i++) {
-			generator.generate(world, rand, new BlockPos(chunk_X * 16 + 8, minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + 8));
-		}
-	}
-
-	protected static void runTileEntityGenerator(SCWorldGenerator generator, TileEntity entity, Block block, World world, Random rand, int chunk_X, int chunk_Z, int chancesToSpawn, int minHeight, int maxHeight) {
-
-		checkHeight(minHeight, maxHeight);
-
-		int heightDiff = maxHeight - minHeight + 1;
-
-		for (int i = 0; i < chancesToSpawn; i++) {
-			generator.generateTileEntity(entity, block, world, rand, new BlockPos(chunk_X * 16 + 8, minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + 8));
-		}
-	}
+	//
+	// protected static void runMetaGenerator(SCWorldGenerator generator, int meta, World world, Random rand, int chunk_X, int chunk_Z, int offsetX, int offsetY, int offsetZ, int chancesToSpawn, int minHeight, int maxHeight) {
+	//
+	// checkHeight(minHeight, maxHeight);
+	//
+	// int heightDiff = maxHeight - minHeight + 1;
+	//
+	// for (int i = 0; i < chancesToSpawn; i++) {
+	// generator.generate(meta, world, rand, offsetX, offsetY, offsetZ, new BlockPos(chunk_X * 16 + 8, minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + 8));
+	// }
+	// }
+	//
+	// protected static void runTileEntityGenerator(SCWorldGenerator generator, TileEntity entity, Block block, World world, Random rand, int chunk_X, int chunk_Z, int chancesToSpawn, int minHeight, int maxHeight) {
+	//
+	// checkHeight(minHeight, maxHeight);
+	//
+	// int heightDiff = maxHeight - minHeight + 1;
+	//
+	// for (int i = 0; i < chancesToSpawn; i++) {
+	// generator.generateTileEntity(entity, block, world, rand, new BlockPos(chunk_X * 16 + 8, minHeight + rand.nextInt(heightDiff), chunk_Z * 16 + 8));
+	// }
+	// }
 }

@@ -19,11 +19,11 @@ import net.minecraft.util.ResourceLocation;
 public class GasCollectorCategory implements IRecipeCategory<GasCollectorRecipe> {
 
 	public static final int inputSlot = 0;
-	public static final int outputSlot = 1;
+	public static final int machineSlot = 1;
+	public static final int outputSlot = 2;
 
 	private final IDrawable background;
 	private final String localizedName;
-	private int cycleId = 0;
 
 	public GasCollectorCategory(IGuiHelper guiHelper) {
 		ResourceLocation location = new ResourceLocation(Starcraft.RL_BASE + "textures/gui/container/gas_collector_base.png");
@@ -52,19 +52,11 @@ public class GasCollectorCategory implements IRecipeCategory<GasCollectorRecipe>
 	}
 
 	@Override
-	public void drawExtras(Minecraft minecraft) {
-		cycleId++;
-		cycleId %= (150 * 3);
-		RenderHelper.enableGUIStandardItemLighting();
-		minecraft.getRenderItem().renderItemAndEffectIntoGUI(new ItemStack(BlockHandler.GAS_COLLECTOR, 1, cycleId / 150), 1, 8);
-		RenderHelper.disableStandardItemLighting();
-	}
-
-	@Override
 	public void setRecipe(IRecipeLayout recipeLayout, GasCollectorRecipe recipeWrapper, IIngredients ingredients) {
 		IGuiItemStackGroup guiItemStacks = recipeLayout.getItemStacks();
 
 		guiItemStacks.init(inputSlot, true, 0, 25);
+		guiItemStacks.init(machineSlot, true, 0, 7);
 		guiItemStacks.init(outputSlot, false, 45, 25);
 
 		guiItemStacks.set(ingredients);

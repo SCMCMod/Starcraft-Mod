@@ -29,7 +29,6 @@ public class RendererBrambles extends TileEntitySpecialRenderer<TileEntityBrambl
 		super.render(te, x, y, z, partialTicks, destroyStage, alpha);
 
 		if (te.getBlockMetadata() == 0) {
-			GlStateManager.disableCull();
 			GlStateManager.pushMatrix();
 			GlStateManager.translate(x + 0.5, y + 1.5, z + 0.5);
 			GlStateManager.rotate(180, 0, 0, 1);
@@ -48,7 +47,6 @@ public class RendererBrambles extends TileEntitySpecialRenderer<TileEntityBrambl
 				break;
 			}
 			GlStateManager.popMatrix();
-			GlStateManager.enableCull();
 		}
 	}
 }

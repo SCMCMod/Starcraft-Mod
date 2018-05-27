@@ -38,6 +38,7 @@ public class StructureSingleBlockTemplate extends SCWorldGenerator {
 		if (!LocationIsValidSpawn(world, pos) || !LocationIsValidSpawn(world, pos.add(1, 0, 0)) || !LocationIsValidSpawn(world, pos.add(1, 0, 1)) || !LocationIsValidSpawn(world, pos.add(0, 0, 1))) {
 			return false;
 		}
+		entity.validate();
 		world.setTileEntity(pos.add(0, 1, 0), entity);
 		world.setBlockState(pos.add(0, 1, 0), block.getDefaultState());
 		System.out.println("true");

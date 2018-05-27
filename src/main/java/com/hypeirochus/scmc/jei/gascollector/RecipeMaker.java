@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.handlers.AccessHandler;
+import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.recipes.gascollector.GasCollectorRecipes;
 
 import mezz.jei.api.IJeiHelpers;
@@ -28,7 +29,7 @@ public class RecipeMaker {
 			IBlockState input = itemStackItemStackEntry.getKey();
 			ItemStack output = itemStackItemStackEntry.getValue();
 
-			GasCollectorRecipe recipe = new GasCollectorRecipe(input, output);
+			GasCollectorRecipe recipe = new GasCollectorRecipe(input, new ItemStack(BlockHandler.GAS_COLLECTOR, 1, 0), output);
 			recipes.add(recipe);
 		}
 
@@ -36,7 +37,7 @@ public class RecipeMaker {
 			IBlockState input = itemStackItemStackEntry.getKey();
 			ItemStack output = itemStackItemStackEntry.getValue();
 
-			GasCollectorRecipe recipe = new GasCollectorRecipe(input, output);
+			GasCollectorRecipe recipe = new GasCollectorRecipe(input, new ItemStack(BlockHandler.GAS_COLLECTOR, 1, 1), output);
 			recipes.add(recipe);
 		}
 
@@ -44,7 +45,7 @@ public class RecipeMaker {
 			IBlockState input = itemStackItemStackEntry.getKey();
 			ItemStack output = itemStackItemStackEntry.getValue();
 
-			GasCollectorRecipe recipe = new GasCollectorRecipe(input, output);
+			GasCollectorRecipe recipe = new GasCollectorRecipe(input, new ItemStack(BlockHandler.GAS_COLLECTOR, 1, 2), output);
 			recipes.add(recipe);
 		}
 

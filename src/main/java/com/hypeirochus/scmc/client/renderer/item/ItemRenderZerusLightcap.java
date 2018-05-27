@@ -51,7 +51,6 @@ public class ItemRenderZerusLightcap extends ItemRenderer {
 	public void renderInWorld(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
 		GlStateManager.pushMatrix();
 		GlStateManager.rotate(45, 0, 1, 0);
-		GlStateManager.scale(1.8, 1.8, 1.8);
 		GlStateManager.translate(-0.5, -1.2, -0.5);
 		renderModel(0.0625 * 0.25);
 		GlStateManager.popMatrix();
@@ -61,14 +60,13 @@ public class ItemRenderZerusLightcap extends ItemRenderer {
 	public void renderFixed(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
 		GlStateManager.pushMatrix();
 		GlStateManager.scale(1.8, 1.8, 1.8);
-		GlStateManager.translate(-0.5, -0.85, -0.5);
+		GlStateManager.translate(-0.5, -1, -0.5);
 		renderModel(0.0625 * 0.5);
 		GlStateManager.popMatrix();
 	}
 
 	@Override
 	public void renderHead(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
-
 	}
 
 	@Override

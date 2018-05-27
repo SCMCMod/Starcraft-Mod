@@ -2,13 +2,8 @@ package com.hypeirochus.scmc.worldgen;
 
 import java.util.Random;
 
-import com.hypeirochus.scmc.config.StarcraftConfig;
 import com.hypeirochus.scmc.handlers.BiomeHandler;
-import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.handlers.StarcraftGenerator;
-import com.hypeirochus.scmc.tileentity.TileEntityBrambles;
-import com.hypeirochus.scmc.tileentity.TileEntityZerusGlowPod;
-import com.hypeirochus.scmc.tileentity.TileEntityZerusLightcap;
 
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -85,10 +80,10 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 
 		if (checkCanGenerateOverworld(world)) {
 
-			runTeamColorGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 10, 0, 100, true);
-			runGenericFlagGenerator(TERRAN_BUNKER, world, random, chunkX, chunkZ, 0, 0, 0, 10, 0, 100, true);
-			runGenericFlagGenerator(TERRAN_BARRACKS, world, random, chunkX, chunkZ, 0, 0, 0, 10, 0, 100, true);
-			runGenericFlagGenerator(TERRAN_COMMAND_CENTER, world, random, chunkX, chunkZ, 0, 0, 0, 10, 0, 100, true);
+			// TODO runGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 10, 0, 100, true);
+			runGenerator(TERRAN_BUNKER, world, random, chunkX, chunkZ, 0, 0, 0, 10, 0, 100, true);
+			runGenerator(TERRAN_BARRACKS, world, random, chunkX, chunkZ, 0, 0, 0, 10, 0, 100, true);
+			runGenerator(TERRAN_COMMAND_CENTER, world, random, chunkX, chunkZ, 0, 0, 0, 10, 0, 100, true);
 
 		}
 	}
@@ -127,28 +122,29 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		runOreGenerator(MAGMA_CHAR, world, random, chunkX, chunkZ, 25, 0, 128);
 
 		if (checkCanGenerateWeightedBiomeSpecific(50, world, BiomeHandler.biomeCharZergHive, chunkX, chunkZ))
-			runGenericFlagGenerator(SPAWNING_POOL, world, random, chunkX, chunkZ, 0, 1, 0, 1, 0, 100, true);
+			runGenerator(SPAWNING_POOL, world, random, chunkX, chunkZ, 0, 1, 0, 1, 0, 100, true);
 
 		if (checkCanGenerateWeightedBiomeSpecific(45, world, BiomeHandler.biomeCharZergHive, chunkX, chunkZ))
-			runGenericFlagGenerator(ZERG_SPIRE, world, random, chunkX, chunkZ, 0, 1, 0, 1, 0, 100, true);
+			runGenerator(ZERG_SPIRE, world, random, chunkX, chunkZ, 0, 1, 0, 1, 0, 100, true);
 
 		if (checkCanGenerateWeightedBiomeSpecific(45, world, BiomeHandler.biomeCharZergHive, chunkX, chunkZ))
-			runGenericFlagGenerator(ZERG_HYDRALISK_DEN, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100, true);
+			runGenerator(ZERG_HYDRALISK_DEN, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100, true);
 
 		if (checkCanGenerateWeighted(10, world))
-			runTeamColorGenerator(PROTOSS_WARPGATE, 1, 2, world, random, chunkX, chunkZ, 0, -1, 0, 1, 0, 100, true);
+			// TODO runGenerator(PROTOSS_WARPGATE, 1, 2, world, random, chunkX, chunkZ, 0, -1, 0, 1, 0, 100, true);
 
-		// if (checkCanGenerateWeighted(2, world))
-		// runDualBlockStateGenerator(GEYSER, BlockHandler.STONE_CHAR.getDefaultState(), BlockHandler.FLUID_VESPENE.getDefaultState(), world, random, chunkX, chunkZ, 0, -32, 0, 1, 60, 80, true);
-		//
-		// if (checkCanGenerateWeighted(1, world))
-		// runDualBlockStateGenerator(GEYSER, BlockHandler.STONE_CHAR.getDefaultState(), BlockHandler.FLUID_TERRAZINE.getDefaultState(), world, random, chunkX, chunkZ, 0, -32, 0, 1, 60, 80, true);
+			// if (checkCanGenerateWeighted(2, world))
+			// runDualBlockStateGenerator(GEYSER, BlockHandler.STONE_CHAR.getDefaultState(), BlockHandler.FLUID_VESPENE.getDefaultState(), world, random, chunkX, chunkZ, 0, -32, 0, 1, 60, 80, true);
+			//
+			// if (checkCanGenerateWeighted(1, world))
+			// runDualBlockStateGenerator(GEYSER, BlockHandler.STONE_CHAR.getDefaultState(), BlockHandler.FLUID_TERRAZINE.getDefaultState(), world, random, chunkX, chunkZ, 0, -32, 0, 1, 60, 80, true);
 
-		if (checkCanGenerateWeighted(10, world))
-			runMetaGenerator(MINERAL_PATCH, 0, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
+			if (checkCanGenerateWeighted(10, world))
+				// TODO runGenerator(MINERAL_PATCH, 0, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
 
-		if (checkCanGenerateWeighted(5, world))
-			runMetaGenerator(MINERAL_PATCH, 1, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
+				if (checkCanGenerateWeighted(5, world)) {
+				}
+		// TODO runGenerator(MINERAL_PATCH, 1, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
 	}
 
 	/**
@@ -184,22 +180,22 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		runOreGenerator(PHOSPHORUS_GENERIC, world, random, chunkX, chunkZ, 6, 0, 128);
 
 		if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKaldirProtossCity) {
-			runTeamColorGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
+			// TODO runGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 		}
 		if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKaldirProtossCity) {
-			runTeamColorGenerator(PROTOSS_PYLON, 0, 0, world, random, chunkX, chunkZ, 0, 3, 0, 3, 0, 100, true);
+			// TODO runGenerator(PROTOSS_PYLON, 0, 0, world, random, chunkX, chunkZ, 0, 3, 0, 3, 0, 100, true);
 		}
 		if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKaldirProtossCity) {
-			runTeamColorGenerator(PROTOSS_CYBERNETICS_CORE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
+			// TODO runGenerator(PROTOSS_CYBERNETICS_CORE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 		}
 		if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKaldirZergHive) {
-			runGenericFlagGenerator(SPAWNING_POOL, world, random, chunkX, chunkZ, 0, 1, 0, 1, 0, 100, true);
+			runGenerator(SPAWNING_POOL, world, random, chunkX, chunkZ, 0, 1, 0, 1, 0, 100, true);
 		}
 		if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKaldirZergHive) {
-			runGenericFlagGenerator(ZERG_SPIRE, world, random, chunkX, chunkZ, 0, 1, 0, 1, 0, 100, true);
+			runGenerator(ZERG_SPIRE, world, random, chunkX, chunkZ, 0, 1, 0, 1, 0, 100, true);
 		}
 		if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKaldirZergHive) {
-			runGenericFlagGenerator(ZERG_HYDRALISK_DEN, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100, true);
+			runGenerator(ZERG_HYDRALISK_DEN, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100, true);
 		}
 		// if (world.rand.nextInt(100) < 2 && world.getWorldInfo().isMapFeaturesEnabled()) {
 		// runDualBlockStateGenerator(GEYSER, Blocks.STONE.getDefaultState(), BlockHandler.FLUID_VESPENE.getDefaultState(), world, random, chunkX, chunkZ, 0, -35, 0, 1, 60, 80, true);
@@ -208,17 +204,17 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		// runDualBlockStateGenerator(GEYSER, Blocks.STONE.getDefaultState(), BlockHandler.FLUID_TERRAZINE.getDefaultState(), world, random, chunkX, chunkZ, 0, -35, 0, 1, 60, 80, true);
 		// }
 		if (world.rand.nextInt(100) < 30 && world.getWorldInfo().isMapFeaturesEnabled()) {
-			runMetaGenerator(MINERAL_PATCH, 0, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
+			// TODO runGenerator(MINERAL_PATCH, 0, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
 		}
 		if (world.rand.nextInt(100) < 10 && world.getWorldInfo().isMapFeaturesEnabled()) {
-			runMetaGenerator(MINERAL_PATCH, 1, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
+			// TODO runGenerator(MINERAL_PATCH, 1, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
 		}
 
 		// if (world.rand.nextInt(10000) == 0) {
 		// this.runTileEntityGenerator(TILEENTITY_SPAWNER, new TileEntityEntitySpawner(30, new EntityNafash(world), TextFormatting.RED), BlockHandler.ENTITY_SPAWNER, world, random, chunkX, chunkZ, 1, 65, 70);
 		// }
 
-		this.runTileEntityGenerator(TILEENTITY_SPAWNER, new TileEntityBrambles(0), BlockHandler.FLORA_BRAMBLES, world, random, chunkX, chunkZ, 10, 65, 70);
+		// TODO this.runGenerator(TILEENTITY_SPAWNER, new TileEntityBrambles(0), BlockHandler.FLORA_BRAMBLES, world, random, chunkX, chunkZ, 10, 65, 70);
 	}
 
 	/**
@@ -254,13 +250,13 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		runOreGenerator(GRAVEL_SHAKURAS, world, random, chunkX, chunkZ, 10, 0, 128);
 
 		if (world.rand.nextInt(100) < 10 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeShakurasProtossCity) {
-			runTeamColorGenerator(PROTOSS_PYLON, 1, 2, world, random, chunkX, chunkZ, 0, 3, 0, 3, 0, 100, true);
+			// TODO runGenerator(PROTOSS_PYLON, 1, 2, world, random, chunkX, chunkZ, 0, 3, 0, 3, 0, 100, true);
 		}
 		if (world.rand.nextInt(100) < 10 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeShakurasProtossCity) {
-			runTeamColorGenerator(PROTOSS_WARPGATE, 1, 2, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
+			// TODO runGenerator(PROTOSS_WARPGATE, 1, 2, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 		}
 		if (world.rand.nextInt(100) < 10 && world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeShakurasProtossCity) {
-			runTeamColorGenerator(PROTOSS_CYBERNETICS_CORE, 1, 2, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
+			// TODO runGenerator(PROTOSS_CYBERNETICS_CORE, 1, 2, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 		}
 		// if (world.rand.nextInt(100) < 3 && world.getWorldInfo().isMapFeaturesEnabled()) {
 		// runDualBlockStateGenerator(GEYSER, BlockHandler.STONE_SHAKURAS.getDefaultState(), BlockHandler.FLUID_VESPENE.getDefaultState(), world, random, chunkX, chunkZ, 0, -35, 0, 1, 60, 80, true);
@@ -269,10 +265,10 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		// runDualBlockStateGenerator(GEYSER, BlockHandler.STONE_SHAKURAS.getDefaultState(), BlockHandler.FLUID_TERRAZINE.getDefaultState(), world, random, chunkX, chunkZ, 0, -35, 0, 1, 60, 80, true);
 		// }
 		if (world.rand.nextInt(100) < 10 && world.getWorldInfo().isMapFeaturesEnabled()) {
-			runMetaGenerator(MINERAL_PATCH, 0, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
+			// TODO runGenerator(MINERAL_PATCH, 0, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
 		}
 		if (world.rand.nextInt(100) < 5 && world.getWorldInfo().isMapFeaturesEnabled()) {
-			runMetaGenerator(MINERAL_PATCH, 1, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
+			// TODO runGenerator(MINERAL_PATCH, 1, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
 		}
 	}
 
@@ -309,10 +305,10 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		runOreGenerator(GRAVEL_ZERUS, world, random, chunkX, chunkZ, 10, 0, 128);
 
 		if (world.getWorldInfo().isMapFeaturesEnabled()) {
-			runTeamColorGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
+			// TODO runGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 		}
-		this.runTileEntityGenerator(TILEENTITY_SPAWNER, new TileEntityZerusGlowPod(), BlockHandler.FLORA_ZERUS_GLOW_POD, world, random, chunkX, chunkZ, 5, 65, 70);
-		this.runTileEntityGenerator(TILEENTITY_SPAWNER, new TileEntityZerusLightcap(), BlockHandler.FLORA_ZERUS_LIGHTCAP, world, random, chunkX, chunkZ, 5, 65, 70);
+		// TODO this.runGenerator(TILEENTITY_SPAWNER, new TileEntityZerusGlowPod(), BlockHandler.FLORA_ZERUS_GLOW_POD, world, random, chunkX, chunkZ, 5, 65, 70);
+		// TODO this.runGenerator(TILEENTITY_SPAWNER, new TileEntityZerusLightcap(), BlockHandler.FLORA_ZERUS_LIGHTCAP, world, random, chunkX, chunkZ, 5, 65, 70);
 	}
 
 	/**
@@ -348,13 +344,13 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		runOreGenerator(URANIUM_SLAYN, world, random, chunkX, chunkZ, 2, 4, 20);
 
 		if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeSlaynProtossCity) {
-			runTeamColorGenerator(PROTOSS_WARPGATE, 1, 4, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
+			// TODO runGenerator(PROTOSS_WARPGATE, 1, 4, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 		}
 		if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeSlaynProtossCity) {
-			runTeamColorGenerator(PROTOSS_WARPGATE, 1, 4, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
+			// TODO runGenerator(PROTOSS_WARPGATE, 1, 4, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 		}
 		if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeSlaynProtossCity) {
-			runTeamColorGenerator(PROTOSS_CYBERNETICS_CORE, 1, 4, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
+			// TODO runGenerator(PROTOSS_CYBERNETICS_CORE, 1, 4, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 		}
 		// if (world.rand.nextInt(100) < 4 && world.getWorldInfo().isMapFeaturesEnabled()) {
 		// runDualBlockStateGenerator(GEYSER, BlockHandler.STONE_SLAYN.getDefaultState(), BlockHandler.FLUID_VESPENE.getDefaultState(), world, random, chunkX, chunkZ, 0, -35, 0, 1, 60, 80, true);
@@ -363,10 +359,10 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		// runDualBlockStateGenerator(GEYSER, BlockHandler.STONE_SLAYN.getDefaultState(), BlockHandler.FLUID_TERRAZINE.getDefaultState(), world, random, chunkX, chunkZ, 0, -35, 0, 1, 60, 80, true);
 		// }
 		if (world.rand.nextInt(100) < 60 && world.getWorldInfo().isMapFeaturesEnabled()) {
-			runMetaGenerator(MINERAL_PATCH, 0, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
+			// TODO runGenerator(MINERAL_PATCH, 0, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
 		}
 		if (world.rand.nextInt(100) < 20 && world.getWorldInfo().isMapFeaturesEnabled()) {
-			runMetaGenerator(MINERAL_PATCH, 1, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
+			// TODO runGenerator(MINERAL_PATCH, 1, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
 		}
 	}
 
@@ -403,7 +399,7 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		runOreGenerator(URANIUM_GENERIC, world, random, chunkX, chunkZ, 2, 4, 20);
 
 		if (world.getWorldInfo().isMapFeaturesEnabled()) {
-			runTeamColorGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
+			// TODO runGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 3, 0, 100, true);
 		}
 	}
 
@@ -440,16 +436,16 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		runOreGenerator(URANIUM_GENERIC, world, random, chunkX, chunkZ, 2, 4, 20);
 
 		if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKorhalTerranCity) {
-			runGenericFlagGenerator(TERRAN_BUNKER, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100, true);
+			runGenerator(TERRAN_BUNKER, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100, true);
 		}
 		if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKorhalTerranCity) {
-			runGenericFlagGenerator(TERRAN_BARRACKS, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100, true);
+			// TODO runGenericFlagGenerator(TERRAN_BARRACKS, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100, true);
 		}
 		if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) == BiomeHandler.biomeKorhalTerranCity) {
-			runGenericFlagGenerator(TERRAN_COMMAND_CENTER, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100, true);
+			// TODO runGenericFlagGenerator(TERRAN_COMMAND_CENTER, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100, true);
 		}
 		if (world.getWorldInfo().isMapFeaturesEnabled() && world.getBiome(new BlockPos(chunkX * 16, 0, chunkZ * 16)) != BiomeHandler.biomeKorhalTerranCity) {
-			runTeamColorGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100, true);
+			// TODO runGenerator(PROTOSS_WARPGATE, 0, 3, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100, true);
 		}
 		// if (world.rand.nextInt(100) < 4 && world.getWorldInfo().isMapFeaturesEnabled()) {
 		// runDualBlockStateGenerator(GEYSER, Blocks.RED_SANDSTONE.getDefaultState(), BlockHandler.FLUID_VESPENE.getDefaultState(), world, random, chunkX, chunkZ, 0, -35, 0, 1, 60, 80, true);
@@ -458,10 +454,10 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 		// runDualBlockStateGenerator(GEYSER, Blocks.RED_SANDSTONE.getDefaultState(), BlockHandler.FLUID_TERRAZINE.getDefaultState(), world, random, chunkX, chunkZ, 0, -35, 0, 1, 60, 80, true);
 		// }
 		if (world.rand.nextInt(100) < 60 && world.getWorldInfo().isMapFeaturesEnabled()) {
-			runMetaGenerator(MINERAL_PATCH, 0, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
+			// TODO runGenerator(MINERAL_PATCH, 0, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
 		}
 		if (world.rand.nextInt(100) < 20 && world.getWorldInfo().isMapFeaturesEnabled()) {
-			runMetaGenerator(MINERAL_PATCH, 1, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
+			// TODO runGenerator(MINERAL_PATCH, 1, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 100);
 		}
 	}
 
@@ -485,41 +481,41 @@ public class StarcraftWorldGenerationContainer extends StarcraftGenerator {
 
 		if (this.generationCompleted == false) {
 			/** Earth **/
-			this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, 0, 21, 31, BlockHandler.PLANET_SURFACE.getStateFromMeta(0), BlockHandler.PLANET_SURFACE.getStateFromMeta(4), world, random, 0, 0, 0, new BlockPos(0, 128, 0));
+			// TODO this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, 0, 21, 31, BlockHandler.PLANET_SURFACE.getStateFromMeta(0), BlockHandler.PLANET_SURFACE.getStateFromMeta(4), world, random, 0, 0, 0, new BlockPos(0, 128, 0));
 			/** Earth's moon **/
-			this.runMoonGenerator(MOON_TEMPLATE, 5, BlockHandler.PLANET_SURFACE.getStateFromMeta(3), BlockHandler.PLANET_SURFACE.getStateFromMeta(3), world, random, 0, 0, 0, new BlockPos(30, 128, 30));
+			// TODO this.runMoonGenerator(MOON_TEMPLATE, 5, BlockHandler.PLANET_SURFACE.getStateFromMeta(3), BlockHandler.PLANET_SURFACE.getStateFromMeta(3), world, random, 0, 0, 0, new BlockPos(30, 128, 30));
 			/** Earth's star **/
-			this.runStarGenerator(STAR_TEMPLATE, 51, 75, BlockHandler.STAR_SURFACE.getStateFromMeta(2), world, random, 0, 0, 0, new BlockPos(200, 128, 0));
+			// TODO this.runStarGenerator(STAR_TEMPLATE, 51, 75, BlockHandler.STAR_SURFACE.getStateFromMeta(2), world, random, 0, 0, 0, new BlockPos(200, 128, 0));
 
 			/** Char **/
-			this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, StarcraftConfig.INT_DIMENSION_CHAR, 21, 31, BlockHandler.PLANET_SURFACE.getStateFromMeta(14), BlockHandler.PLANET_SURFACE.getStateFromMeta(8), world, random, 0, 0, 0, new BlockPos(-1515, 128, 17776));
+			// TODO this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, StarcraftConfig.INT_DIMENSION_CHAR, 21, 31, BlockHandler.PLANET_SURFACE.getStateFromMeta(14), BlockHandler.PLANET_SURFACE.getStateFromMeta(8), world, random, 0, 0, 0, new BlockPos(-1515, 128, 17776));
 			/** Char's moons **/
-			this.runMoonGenerator(MOON_TEMPLATE, 7, BlockHandler.PLANET_SURFACE.getStateFromMeta(11), BlockHandler.PLANET_SURFACE.getStateFromMeta(8), world, random, 0, 0, 0, new BlockPos(-1452, 128, 17776));
-			this.runMoonGenerator(MOON_TEMPLATE, 5, BlockHandler.PLANET_SURFACE.getStateFromMeta(11), BlockHandler.PLANET_SURFACE.getStateFromMeta(8), world, random, 0, 0, 0, new BlockPos(-1555, 148, 17804));
+			// TODO this.runMoonGenerator(MOON_TEMPLATE, 7, BlockHandler.PLANET_SURFACE.getStateFromMeta(11), BlockHandler.PLANET_SURFACE.getStateFromMeta(8), world, random, 0, 0, 0, new BlockPos(-1452, 128, 17776));
+			// TODO this.runMoonGenerator(MOON_TEMPLATE, 5, BlockHandler.PLANET_SURFACE.getStateFromMeta(11), BlockHandler.PLANET_SURFACE.getStateFromMeta(8), world, random, 0, 0, 0, new BlockPos(-1555, 148, 17804));
 			/** Char's stars **/
-			this.runStarGenerator(STAR_TEMPLATE, 71, 101, BlockHandler.STAR_SURFACE.getStateFromMeta(5), world, random, 0, 0, 0, new BlockPos(-1315, 128, 17748));
-			this.runStarGenerator(STAR_TEMPLATE, 21, 47, BlockHandler.STAR_SURFACE.getStateFromMeta(2), world, random, 0, 0, 0, new BlockPos(-1609, 128, 17748));
+			// TODO this.runStarGenerator(STAR_TEMPLATE, 71, 101, BlockHandler.STAR_SURFACE.getStateFromMeta(5), world, random, 0, 0, 0, new BlockPos(-1315, 128, 17748));
+			// TODO this.runStarGenerator(STAR_TEMPLATE, 21, 47, BlockHandler.STAR_SURFACE.getStateFromMeta(2), world, random, 0, 0, 0, new BlockPos(-1609, 128, 17748));
 
 			/** Shakuras **/
-			this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, StarcraftConfig.INT_DIMENSION_SHAKURAS, 21, 31, BlockHandler.PLANET_SURFACE.getStateFromMeta(0), BlockHandler.PLANET_SURFACE.getStateFromMeta(5), world, random, 0, 0, 0, new BlockPos(6666, 128, 18180));
+			// TODO this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, StarcraftConfig.INT_DIMENSION_SHAKURAS, 21, 31, BlockHandler.PLANET_SURFACE.getStateFromMeta(0), BlockHandler.PLANET_SURFACE.getStateFromMeta(5), world, random, 0, 0, 0, new BlockPos(6666, 128, 18180));
 
 			/** Aiur **/
-			this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, StarcraftConfig.INT_DIMENSION_AIUR, 41, 51, BlockHandler.PLANET_SURFACE.getStateFromMeta(0), BlockHandler.PLANET_SURFACE.getStateFromMeta(4), world, random, 0, 0, 0, new BlockPos(4444, 128, 17365));
+			// TODO this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, StarcraftConfig.INT_DIMENSION_AIUR, 41, 51, BlockHandler.PLANET_SURFACE.getStateFromMeta(0), BlockHandler.PLANET_SURFACE.getStateFromMeta(4), world, random, 0, 0, 0, new BlockPos(4444, 128, 17365));
 
 			/** Slayn **/
-			this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, StarcraftConfig.INT_DIMENSION_SLAYN, 31, 41, BlockHandler.PLANET_SURFACE.getStateFromMeta(14), BlockHandler.PLANET_SURFACE.getStateFromMeta(10), world, random, 0, 0, 0, new BlockPos(7000, 128, 16666));
+			// TODO this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, StarcraftConfig.INT_DIMENSION_SLAYN, 31, 41, BlockHandler.PLANET_SURFACE.getStateFromMeta(14), BlockHandler.PLANET_SURFACE.getStateFromMeta(10), world, random, 0, 0, 0, new BlockPos(7000, 128, 16666));
 
 			/** Korhal **/
-			this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, StarcraftConfig.INT_DIMENSION_SHAKURAS, 35, 45, BlockHandler.PLANET_SURFACE.getStateFromMeta(14), BlockHandler.PLANET_SURFACE.getStateFromMeta(5), world, random, 0, 0, 0, new BlockPos(3290, 128, 11000));
+			// TODO this.runMultisurfacePlanetGenerator(MULTISURFACE_PLANET_TEMPLATE, StarcraftConfig.INT_DIMENSION_SHAKURAS, 35, 45, BlockHandler.PLANET_SURFACE.getStateFromMeta(14), BlockHandler.PLANET_SURFACE.getStateFromMeta(5), world, random, 0, 0, 0, new BlockPos(3290, 128, 11000));
 
 			this.generationCompleted = true;
 		}
 
 		if (((chunkX < -80 || chunkX > -110) && (chunkZ > 1096 || chunkZ < 1126)) || ((chunkX < -15 || chunkX > 15) && (chunkZ > 15 || chunkZ < -15))) {
 			if (random.nextInt(750) == 0)
-				runRandomStarGenerator(STAR_TEMPLATE, random.nextInt(50) + 25, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 255);
-			if (random.nextInt(700) < 10)
-				runOreGenerator(COAL_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
+				// TODO runRandomStarGenerator(STAR_TEMPLATE, random.nextInt(50) + 25, world, random, chunkX, chunkZ, 0, 0, 0, 1, 0, 255);
+				if (random.nextInt(700) < 10)
+					runOreGenerator(COAL_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
 			if (random.nextInt(700) < 7)
 				runOreGenerator(COPPER_SPACE, world, random, chunkX, chunkZ, 1, 0, 255);
 			if (random.nextInt(700) < 1)

@@ -6,33 +6,78 @@ package com.hypeirochus.scmc.worldgen.structure;
 import java.util.Random;
 
 import com.hypeirochus.scmc.handlers.BlockHandler;
+import com.hypeirochus.scmc.lib.IObjectParsable;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.structure.template.Template;
 
-public class StructureProtossPylonTemplate extends SCWorldGenerator {
+public class StructureProtossPylonTemplate extends SCWorldGenerator implements INBTStructure, IObjectParsable {
 
+	public static final String STRUCTURE_NAME = "terran.command_center";
+
+	private int localMetaPrimColor;
+	private int localMetaSecColor;
+
+	private boolean checkSpawnPosition;
 	private int metaPrimColor;
 	private int metaSecColor;
-	
+
 	public StructureProtossPylonTemplate() {
-		
+		this(0, 0);
 	}
-	
+
 	public StructureProtossPylonTemplate(int metaPrimColor, int metaSecColor) {
-		this.metaPrimColor = metaPrimColor;
-		this.metaSecColor = metaSecColor;
+		this.localMetaPrimColor = metaPrimColor;
+		this.localMetaSecColor = metaSecColor;
+		this.checkSpawnPosition = false;
 	}
 	
 	@Override
+	public boolean generate(World world, BlockPos pos) {
+		if (this.checkSpawnPosition) {
+			if (!LocationIsValidSpawn(world, pos) || !LocationIsValidSpawn(world, pos.add(7, 0, 0)) || !LocationIsValidSpawn(world, pos.add(7, 0, 8)) || !LocationIsValidSpawn(world, pos.add(0, 0, 8))) {
+				return false;
+			}
+		}
+
+		Template template = this.getTemplate(world, STRUCTURE_NAME);
+		if (template != null) {
+			template.addBlocksToWorld(world, pos, this.getDefaultPlacementSettings());
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public void setFlags(Object[] flags) {
+		if (flags.length > 0) {
+			checkSpawnPosition = this.parseBoolean(flags[0]);
+			if(flags.length > 1) {
+				metaPrimColor = this.parseInt(flags[1]);
+				if(flags.length > 2) {
+					metaSecColor = this.parseInt(flags[2]);
+				}
+			}
+		}
+	}
+
+	@Override
+	public void onParseFail(byte parseType, Exception e) {
+		if(parseType == BOOLEAN) {
+			checkSpawnPosition = false;
+		}
+	}
+
+	@Override
 	public boolean generate(int metaPrimColor, int metaSecColor, World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos pos, boolean flag) {
-		if(metaPrimColor < 0)
-			metaPrimColor = this.metaPrimColor;
-		if(metaSecColor < 0)
-			metaSecColor = this.metaSecColor;
+		if (metaPrimColor < 0)
+			metaPrimColor = this.localMetaPrimColor;
+		if (metaSecColor < 0)
+			metaSecColor = this.localMetaSecColor;
 		generate_r0(metaPrimColor, metaSecColor, world, offsetY, pos, flag);
 		return true;
 	}
@@ -149,11 +194,11 @@ public class StructureProtossPylonTemplate extends SCWorldGenerator {
 		world.setBlockState(pos.add(3, 10 + offsetY, 4), BlockHandler.PYLON_CRYSTAL.getStateFromMeta(metaSecColor));
 		world.setBlockState(pos.add(4, 10 + offsetY, 4), BlockHandler.PYLON_CRYSTAL.getStateFromMeta(metaSecColor));
 		if (metaSecColor == 0) {
-			setBlockStateAndUpdate(world, pos.add(4, 6 + offsetY, 4), BlockHandler.CORE_PYLON_KHALAI.getDefaultState(), 2);
+			world.setBlockState(pos.add(4, 6 + offsetY, 4), BlockHandler.CORE_PYLON_KHALAI.getDefaultState(), 2);
 		} else if (metaSecColor == 2) {
-			setBlockStateAndUpdate(world, pos.add(4, 6 + offsetY, 4), BlockHandler.CORE_PYLON_VOID.getDefaultState(), 2);
+			world.setBlockState(pos.add(4, 6 + offsetY, 4), BlockHandler.CORE_PYLON_VOID.getDefaultState(), 2);
 		} else if (metaSecColor == 1) {
-			setBlockStateAndUpdate(world, pos.add(4, 6 + offsetY, 4), BlockHandler.CORE_PYLON_DARK.getDefaultState(), 2);
+			world.setBlockState(pos.add(4, 6 + offsetY, 4), BlockHandler.CORE_PYLON_DARK.getDefaultState(), 2);
 		}
 		return true;
 

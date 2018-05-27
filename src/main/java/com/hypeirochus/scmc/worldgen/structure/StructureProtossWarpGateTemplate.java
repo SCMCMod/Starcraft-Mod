@@ -958,11 +958,11 @@ public class StructureProtossWarpGateTemplate extends SCWorldGenerator {
 		world.setBlockState(pos.add(10, 12 + offsetY, 11), BlockHandler.PROTOSS_METAL_T1.getStateFromMeta(metaPrimColor));
 		world.setBlockState(pos.add(11, 12 + offsetY, 11), BlockHandler.PROTOSS_METAL_T1.getStateFromMeta(metaPrimColor));
 		if (metaSecColor == 0 || metaSecColor == 3) {
-			setBlockStateAndUpdate(world, pos.add(7, 3 + offsetY, 7), BlockHandler.CORE_WARPGATE_KHALAI.getDefaultState(), 2);
+			world.setBlockState(pos.add(7, 3 + offsetY, 7), BlockHandler.CORE_WARPGATE_KHALAI.getDefaultState(), 2);
 		} else if (metaSecColor == 2) {
-			setBlockStateAndUpdate(world, pos.add(7, 3 + offsetY, 7), BlockHandler.CORE_WARPGATE_VOID.getDefaultState(), 2);
+			world.setBlockState(pos.add(7, 3 + offsetY, 7), BlockHandler.CORE_WARPGATE_VOID.getDefaultState(), 2);
 		} else if (metaSecColor == 4) {
-			setBlockStateAndUpdate(world, pos.add(7, 3 + offsetY, 7), BlockHandler.CORE_WARPGATE_DARK.getDefaultState(), 2);
+			world.setBlockState(pos.add(7, 3 + offsetY, 7), BlockHandler.CORE_WARPGATE_DARK.getDefaultState(), 2);
 		}
 		return true;
 	}

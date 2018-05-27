@@ -1,10 +1,8 @@
 package com.hypeirochus.scmc.items.structurespawner;
 
-import java.util.Random;
-
 import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
 import com.hypeirochus.scmc.items.StarcraftItem;
-import com.hypeirochus.scmc.worldgen.structure.SCWorldGenerator;
+import com.hypeirochus.scmc.worldgen.structure.IGenericStructure;
 
 import net.minecraft.crash.CrashReport;
 import net.minecraft.creativetab.CreativeTabs;
@@ -41,12 +39,13 @@ public abstract class ItemStructureSpawner extends StarcraftItem implements IMet
 	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		try {
 			ItemStack heldItem = player.getHeldItem(hand);
-			this.generate(this.getStructure(heldItem.getMetadata()), world, world.rand, pos, heldItem);
+			if (!world.isRemote)
+				this.generate(this.getStructure(heldItem), world, pos, heldItem);
 			if (this.getSpawnSound(heldItem.getMetadata()) != null)
 				world.playSound(pos.getX(), pos.getY(), pos.getZ(), this.getSpawnSound(heldItem.getMetadata()), null, 0.7F, 1F, false);
 		} catch (Throwable e) {
 			CrashReport report = CrashReport.makeCrashReport(e, "Error when placing structure");
-			report.makeCategory("Item");
+			report.makeCategory("Item Used");
 			throw new ReportedException(report);
 		}
 		return super.onItemUse(player, world, pos, hand, facing, hitX, hitY, hitZ);
@@ -58,9 +57,9 @@ public abstract class ItemStructureSpawner extends StarcraftItem implements IMet
 	@Override
 	public abstract String getUnlocalizedName(ItemStack stack);
 
-	public abstract SCWorldGenerator getStructure(int meta);
+	public abstract IGenericStructure getStructure(ItemStack stack);
 
-	public abstract void generate(SCWorldGenerator structure, World world, Random rand, BlockPos pos, ItemStack stack);
+	public abstract void generate(IGenericStructure structure, World world, BlockPos pos, ItemStack stack);
 
 	public SoundEvent getSpawnSound(int meta) {
 		return null;

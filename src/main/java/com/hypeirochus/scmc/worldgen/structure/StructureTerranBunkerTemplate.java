@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.handlers.LootTableHandler;
+import com.hypeirochus.scmc.lib.IObjectParsable;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -12,12 +13,51 @@ import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.WoodlandMansionPieces.MansionTemplate;
+import net.minecraft.world.gen.structure.template.Template;
 
-public class StructureTerranBunkerTemplate extends SCWorldGenerator {
+public class StructureTerranBunkerTemplate extends SCWorldGenerator implements INBTStructure, IObjectParsable {
+
+	public static final String STRUCTURE_NAME = "terran.bunker";
+		
+	private boolean checkSpawnPosition;
+
+	public StructureTerranBunkerTemplate() {
+		this.checkSpawnPosition = false;
+	}
+	
+	@Override
+	public boolean generate(World world, BlockPos pos) {
+		if (this.checkSpawnPosition) {
+			if (!LocationIsValidSpawn(world, pos) || !LocationIsValidSpawn(world, pos.add(17, 0, 0)) || !LocationIsValidSpawn(world, pos.add(17, 0, 15)) || !LocationIsValidSpawn(world, pos.add(0, 0, 15))) {
+				return false;
+			}
+		}
+		
+		Template template = this.getTemplate(world, STRUCTURE_NAME);
+		if (template != null) {
+			placeStructure(template, world, pos, this.getDefaultPlacementSettings());
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public void setFlags(Object[] flags) {
+		if (flags.length > 0) {
+			checkSpawnPosition = this.parseBoolean(flags[0]);
+		}
+	}
+
+	@Override
+	public void onParseFail(byte parseType, Exception e) {
+		if(parseType == BOOLEAN) {
+			checkSpawnPosition = false;
+		}
+	}
 
 	@Override
 	public boolean generate(World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos pos, boolean flag) {
-		generate_r0(world, pos, flag);
+		generate_r0(world, pos, this.checkSpawnPosition);
 		return true;
 	}
 
@@ -109,10 +149,10 @@ public class StructureTerranBunkerTemplate extends SCWorldGenerator {
 		worldIn.setBlockState(bp.add(i + 4, j + 0, k + 11), BlockHandler.NEOSTEEL_METAL.getStateFromMeta(1));
 		worldIn.setBlockState(bp.add(i + 4, j + 0, k + 12), BlockHandler.NEOSTEEL_METAL.getStateFromMeta(1));
 		worldIn.setBlockState(bp.add(i + 4, j + 1, k + 2), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
-		
+
 		setTileEntityBlock(worldIn, bp.add(i + 4, j + 1, k + 12), Blocks.CHEST.getDefaultState(), new TileEntityChest());
 		setLockableLoot(worldIn, bp.add(i + 4, j + 1, k + 12), LootTableHandler.TERRAN_BUNKER);
-				
+
 		worldIn.setBlockState(bp.add(i + 4, j + 1, k + 13), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 4, j + 2, k + 2), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 4, j + 2, k + 13), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
@@ -247,10 +287,10 @@ public class StructureTerranBunkerTemplate extends SCWorldGenerator {
 		worldIn.setBlockState(bp.add(i + 7, j + 0, k + 12), BlockHandler.NEOSTEEL_METAL.getStateFromMeta(1));
 		worldIn.setBlockState(bp.add(i + 7, j + 0, k + 13), BlockHandler.NEOSTEEL_METAL.getStateFromMeta(1));
 		worldIn.setBlockState(bp.add(i + 7, j + 1, k + 1), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
-		
+
 		setTileEntityBlock(worldIn, bp.add(i + 7, j + 1, k + 2), Blocks.CHEST.getDefaultState(), new TileEntityChest());
 		setLockableLoot(worldIn, bp.add(i + 7, j + 1, k + 2), LootTableHandler.TERRAN_BUNKER);
-		
+
 		worldIn.setBlockState(bp.add(i + 7, j + 1, k + 11), BlockHandler.NEOSTEEL_METAL.getStateFromMeta(1));
 		worldIn.setBlockState(bp.add(i + 7, j + 1, k + 14), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 7, j + 2, k + 1), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
@@ -417,10 +457,10 @@ public class StructureTerranBunkerTemplate extends SCWorldGenerator {
 		worldIn.setBlockState(bp.add(i + 10, j + 0, k + 13), BlockHandler.NEOSTEEL_METAL.getStateFromMeta(1));
 		worldIn.setBlockState(bp.add(i + 10, j + 1, k + 1), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 10, j + 1, k + 11), BlockHandler.NEOSTEEL_METAL.getStateFromMeta(1));
-		
+
 		setTileEntityBlock(worldIn, bp.add(i + 10, j + 1, k + 13), Blocks.CHEST.getDefaultState(), new TileEntityChest());
 		setLockableLoot(worldIn, bp.add(i + 10, j + 1, k + 13), LootTableHandler.TERRAN_BUNKER);
-		
+
 		worldIn.setBlockState(bp.add(i + 10, j + 1, k + 14), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 10, j + 2, k + 1), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 10, j + 2, k + 14), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
@@ -557,10 +597,10 @@ public class StructureTerranBunkerTemplate extends SCWorldGenerator {
 		worldIn.setBlockState(bp.add(i + 13, j + 0, k + 11), BlockHandler.NEOSTEEL_METAL.getStateFromMeta(1));
 		worldIn.setBlockState(bp.add(i + 13, j + 0, k + 12), BlockHandler.NEOSTEEL_METAL.getStateFromMeta(1));
 		worldIn.setBlockState(bp.add(i + 13, j + 1, k + 2), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
-		
+
 		setTileEntityBlock(worldIn, bp.add(i + 13, j + 1, k + 3), Blocks.CHEST.getDefaultState(), new TileEntityChest());
 		setLockableLoot(worldIn, bp.add(i + 13, j + 1, k + 3), LootTableHandler.TERRAN_BUNKER);
-				
+
 		worldIn.setBlockState(bp.add(i + 13, j + 1, k + 13), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 13, j + 2, k + 2), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));
 		worldIn.setBlockState(bp.add(i + 13, j + 2, k + 13), BlockHandler.PARISTEEL_METAL.getStateFromMeta(5));

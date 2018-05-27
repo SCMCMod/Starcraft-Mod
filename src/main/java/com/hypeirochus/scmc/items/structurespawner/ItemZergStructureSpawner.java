@@ -1,10 +1,8 @@
 package com.hypeirochus.scmc.items.structurespawner;
 
-import java.util.Random;
-
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler.ZergStructureSpawnerType;
-import com.hypeirochus.scmc.worldgen.structure.SCWorldGenerator;
+import com.hypeirochus.scmc.worldgen.structure.IGenericStructure;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -52,13 +50,14 @@ public class ItemZergStructureSpawner extends ItemStructureSpawner {
 	}
 
 	@Override
-	public SCWorldGenerator getStructure(int meta) {
-		return ZergStructureSpawnerType.values()[meta].getStructure();
+	public IGenericStructure getStructure(ItemStack stack) {
+		return ZergStructureSpawnerType.values()[stack.getMetadata()].getStructure();
 	}
 
 	@Override
-	public void generate(SCWorldGenerator structure, World world, Random rand, BlockPos pos, ItemStack stack) {
-		structure.generate(world, rand, 0, 0, 0, pos, false);
+	public void generate(IGenericStructure structure, World world, BlockPos pos, ItemStack stack) {
+		structure.setFlags(new Object[] { false });
+		structure.generate(world, pos);
 	}
 
 	@Override

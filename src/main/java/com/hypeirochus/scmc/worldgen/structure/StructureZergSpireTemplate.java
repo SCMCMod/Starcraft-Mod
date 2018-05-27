@@ -3,15 +3,55 @@ package com.hypeirochus.scmc.worldgen.structure;
 import java.util.Random;
 
 import com.hypeirochus.scmc.handlers.BlockHandler;
+import com.hypeirochus.scmc.lib.IObjectParsable;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.structure.template.Template;
 
-public class StructureZergSpireTemplate extends SCWorldGenerator {
+public class StructureZergSpireTemplate extends SCWorldGenerator implements INBTStructure, IObjectParsable {
+	
+	public static final String STRUCTURE_NAME = "zerg.spire";
 
+	private boolean checkSpawnPosition;
+
+	public StructureZergSpireTemplate() {
+		this.checkSpawnPosition = false;
+	}
+	
+	@Override
+	public boolean generate(World world, BlockPos pos) {
+		if (this.checkSpawnPosition) {
+			if (!LocationIsValidSpawn(world, pos) || !LocationIsValidSpawn(world, pos.add(17, 0, 0)) || !LocationIsValidSpawn(world, pos.add(17, 0, 15)) || !LocationIsValidSpawn(world, pos.add(0, 0, 15))) {
+				return false;
+			}
+		}
+
+		Template template = this.getTemplate(world, STRUCTURE_NAME);
+		if (template != null) {
+			placeStructure(template, world, pos, this.getDefaultPlacementSettings());
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public void setFlags(Object[] flags) {
+		if (flags.length > 0) {
+			checkSpawnPosition = this.parseBoolean(flags[0]);
+		}
+	}
+
+	@Override
+	public void onParseFail(byte parseType, Exception e) {
+		if(parseType == BOOLEAN) {
+			checkSpawnPosition = false;
+		}
+	}
+	
 	@Override
 	public boolean generate(World world, Random rand, int offsetX, int offsetY, int offsetZ, BlockPos pos, boolean flag) {
 		generate_r0(world, rand, offsetX, offsetY, offsetZ, pos, flag);

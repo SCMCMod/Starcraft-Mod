@@ -102,7 +102,7 @@ public class Log implements IResourceManagerReloadListener {
 				line = reader.readLine();
 			}
 		} catch (IOException e) {
-			e.printStackTrace();
+			Starcraft.logger().catching(e);
 		}
 	}
 

@@ -55,7 +55,7 @@ import net.minecraftforge.fml.relauncher.Side;
  * @author Hypeirochus
  * @author Ocelot
  */
-@Mod(modid = Starcraft.MOD_ID, acceptedMinecraftVersions = "[1.12][1.12.2]", useMetadata = true, guiFactory = "com.hypeirochus.scmc.config.StarcraftConfigGuiFactory")
+@Mod(modid = Starcraft.MOD_ID, acceptedMinecraftVersions = "[1.12,1.12.2]", useMetadata = true, guiFactory = "com.hypeirochus.scmc.config.StarcraftConfigGuiFactory")
 public class Starcraft {
 
 	public static final String MOD_ID = "starcraft";

@@ -30,6 +30,7 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
  * <br>
  * </br>
  */
+@Deprecated
 public abstract class SCWorldGenerator {
 
 	/**
@@ -134,58 +135,5 @@ public abstract class SCWorldGenerator {
 			TileEntityLockableLoot te = (TileEntityLockableLoot) world.getTileEntity(pos);
 			te.setLootTable(lootTable, 0);
 		}
-	}
-
-	protected boolean loadStructure(BlockPos pos, World world, String name) {
-		if (!world.isRemote) {
-			WorldServer worldserver = (WorldServer) world;
-			MinecraftServer minecraftserver = world.getMinecraftServer();
-			TemplateManager templatemanager = worldserver.getStructureTemplateManager();
-			ResourceLocation loc = new ResourceLocation(Starcraft.MOD_ID, name);
-			Template template = templatemanager.getTemplate(minecraftserver, loc);
-
-			if (template != null) {
-				IBlockState iblockstate = world.getBlockState(pos);
-				world.notifyBlockUpdate(pos, iblockstate, iblockstate, 3);
-				PlacementSettings placementsettings = (new PlacementSettings()).setMirror(Mirror.NONE).setRotation(Rotation.NONE).setIgnoreEntities(false).setChunk((ChunkPos) null).setReplacedBlock((Block) null).setIgnoreStructureBlock(false);
-
-				template.addBlocksToWorldChunk(world, pos.add(0, 1, 0), placementsettings);
-				return true;
-			}
-			return false;
-		}
-		return false;
-	}
-
-	@Nullable
-	protected Template getTemplate(World world, String name) {
-		if (!world.isRemote) {
-			WorldServer worldserver = (WorldServer) world;
-			MinecraftServer minecraftserver = world.getMinecraftServer();
-			TemplateManager templatemanager = worldserver.getStructureTemplateManager();
-			ResourceLocation loc = new ResourceLocation(Starcraft.MOD_ID, name);
-			Template template = templatemanager.getTemplate(minecraftserver, loc);
-			return template;
-		}
-		return null;
-	}
-
-	protected PlacementSettings getDefaultPlacementSettings() {
-		return getPlacementSettings(Mirror.NONE, Rotation.NONE, false);
-	}
-
-	protected PlacementSettings getPlacementSettings(Mirror mirror, Rotation rotation, boolean ignoreEntities) {
-		return new PlacementSettings().setMirror(mirror).setRotation(rotation).setIgnoreEntities(ignoreEntities).setChunk((ChunkPos) null).setReplacedBlock((Block) null).setIgnoreStructureBlock(false);
-	}
-
-	protected void setBlockStateAndUpdate(World world, BlockPos pos, IBlockState state) {
-		this.setBlockStateAndUpdate(world, pos, state, 3);
-	}
-
-	protected void setBlockStateAndUpdate(World world, BlockPos pos, IBlockState state, int flags) {
-		IBlockState oldState = world.getBlockState(pos);
-		world.setBlockState(pos, state, flags);
-		world.setTileEntity(pos, state.getBlock().createTileEntity(world, oldState));
-		state.getBlock().onBlockAdded(world, pos, oldState);
 	}
 }

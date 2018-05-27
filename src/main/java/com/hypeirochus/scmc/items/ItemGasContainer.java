@@ -1,8 +1,12 @@
 package com.hypeirochus.scmc.items;
 
+import javax.management.RuntimeErrorException;
+
+import com.hypeirochus.scmc.blocks.metablocks.BlockGasCollector.GasCollectorType;
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.enums.MetaHandler.ContainerType;
+import com.hypeirochus.scmc.enums.MetaHandler.VespeneType;
 import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -18,18 +22,20 @@ public class ItemGasContainer extends StarcraftItem implements IMetaRenderHandle
 
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-		if (this.isInCreativeTab(tab)) {
-			for (int i = 0; i < ContainerType.values().length; i++) {
+		if (tab == CreativeTabs.SEARCH) {
+			for (int i = 0; i < GasCollectorType.values().length; i++) {
 				items.add(new ItemStack(this, 1, i));
 			}
+		} else {
+			if (tab == StarcraftCreativeTabs.MISC)
+				items.add(new ItemStack(this, 1, 0));
+			if (tab == StarcraftCreativeTabs.PROTOSS)
+				items.add(new ItemStack(this, 1, 1));
+			if (tab == StarcraftCreativeTabs.TERRAN)
+				items.add(new ItemStack(this, 1, 2));
+			if (tab == StarcraftCreativeTabs.ZERG)
+				items.add(new ItemStack(this, 1, 3));
 		}
-
-		if(tab == StarcraftCreativeTabs.PROTOSS)
-			items.add(new ItemStack(this, 1, 0));
-		if(tab == StarcraftCreativeTabs.TERRAN)
-			items.add(new ItemStack(this, 1, 1));
-		if(tab == StarcraftCreativeTabs.ZERG)
-			items.add(new ItemStack(this, 1, 2));
 	}
 
 	@Override

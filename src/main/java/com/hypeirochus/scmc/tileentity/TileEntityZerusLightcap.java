@@ -11,10 +11,10 @@ import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityZerusLightcap extends TileEntity {
 
-	private static Random	random	= new Random();
+	private static Random random = new Random();
 
-	private boolean			variant;
-	private int				rotation;
+	private boolean variant;
+	private int rotation;
 
 	public TileEntityZerusLightcap() {
 		variant = random.nextBoolean();

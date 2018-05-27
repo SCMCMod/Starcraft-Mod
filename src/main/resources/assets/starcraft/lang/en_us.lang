@@ -29,8 +29,11 @@ key.terran.marinevisor.toggle=Toggle Marine Armor Visor
 #############################################################################################
 commands.dimension.usage=/dimension <dimension> [player]
 commands.dimension.out_of_range=Id %s is out of the dimension range
-commands.dimension.same_dim=%s is already in dimension %s!
-commands.dimension.success=Sent %s to dimension %s
+commands.dimension.illegal_dim=Dimension %s is not a valid dimension
+commands.dimension.same_dim.id=%s is already in dimension %s!
+commands.dimension.same_dim.name=%s is already in %s!
+commands.dimension.success.id=Sent %s to dimension %s
+commands.dimension.success.name=Sent %s to %s
 #############################################################################################
 
 

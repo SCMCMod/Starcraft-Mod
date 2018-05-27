@@ -9,7 +9,7 @@ import net.minecraft.world.gen.structure.template.Template;
  * 
  * @author Ocelot5836
  */
-public class BasicNBTStructure extends SCWorldGenerator implements INBTStructure {
+public class BasicNBTStructure implements INBTStructure {
 
 	private String name;
 
@@ -18,16 +18,16 @@ public class BasicNBTStructure extends SCWorldGenerator implements INBTStructure
 	}
 
 	@Override
-	public boolean generate(World world, int offsetX, int offsetY, int offsetZ, BlockPos position) {
-		Template template = getTemplate(world, name);
-		if(template != null) {
-			template.addBlocksToWorld(world, position, getDefaultPlacementSettings());
-			return true;
-		}
-		return false;
+	public void setFlags(Object[] flags) {
 	}
 
 	@Override
-	public void clear(World world, int offsetX, int offsetY, int offsetZ, BlockPos position) {
+	public boolean generate(World world, BlockPos position) {
+		Template template = getTemplate(world, name);
+		if (template != null) {
+			template.addBlocksToWorld(world, position, this.getDefaultPlacementSettings());
+			return true;
+		}
+		return false;
 	}
 }

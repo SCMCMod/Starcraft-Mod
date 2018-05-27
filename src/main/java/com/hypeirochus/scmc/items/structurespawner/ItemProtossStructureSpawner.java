@@ -1,10 +1,8 @@
 package com.hypeirochus.scmc.items.structurespawner;
 
-import java.util.Random;
-
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler.ProtossStructureSpawnerType;
-import com.hypeirochus.scmc.worldgen.structure.SCWorldGenerator;
+import com.hypeirochus.scmc.worldgen.structure.IGenericStructure;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -38,7 +36,8 @@ public class ItemProtossStructureSpawner extends ItemStructureSpawner {
 				continue;
 			}
 		}
-		return getUnlocalizedName() + "." + ProtossStructureSpawnerType.DARK_CYBERNETICSCORE.getName();
+		// return getUnlocalizedName() + "." + ProtossStructureSpawnerType.DARK_CYBERNETICSCORE.getName();
+		return super.getUnlocalizedName();
 	}
 
 	@Override
@@ -52,15 +51,16 @@ public class ItemProtossStructureSpawner extends ItemStructureSpawner {
 	}
 
 	@Override
-	public SCWorldGenerator getStructure(int meta) {
-		return ProtossStructureSpawnerType.values()[meta].getStructure();
+	public IGenericStructure getStructure(ItemStack stack) {
+		return ProtossStructureSpawnerType.values()[stack.getMetadata()].getStructure();
 	}
-	
+
 	@Override
-	public void generate(SCWorldGenerator structure, World world, Random rand, BlockPos pos, ItemStack stack) {
-		structure.generate(-1, -1, world, rand, 0, 0, 0, pos, false);
+	public void generate(IGenericStructure structure, World world, BlockPos pos, ItemStack stack) {
+		structure.setFlags(new Object[] { false, -1, -1 });
+		structure.generate(world, pos);
 	}
-	
+
 	@Override
 	public SoundEvent getSpawnSound(int meta) {
 		return ProtossStructureSpawnerType.values()[meta].getSpawnSound();

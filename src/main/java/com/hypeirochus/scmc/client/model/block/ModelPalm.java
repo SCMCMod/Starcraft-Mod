@@ -4,6 +4,7 @@ import com.hypeirochus.scmc.handlers.AccessHandler;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -193,6 +194,7 @@ public class ModelPalm extends ModelBase {
 	}
 
 	public void render(float scale, float age) {
+		GlStateManager.disableCull();
 		this.setRotationAngles(age);
 		this.branch09a.render(scale);
 		this.branch12a.render(scale);
@@ -210,6 +212,7 @@ public class ModelPalm extends ModelBase {
 		this.branch02a.render(scale);
 		this.branch11a.render(scale);
 		this.branch07a.render(scale);
+		GlStateManager.enableCull();
 	}
 	
 	@SideOnly(Side.CLIENT)
