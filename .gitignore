@@ -1,22 +1,31 @@
-# Everything
-/*
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
 
-# Directories
-!/src
-!/gradle
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
 
-# files
-!/.gitignore
-!/.gitmodules
-!/CONTRIBUTING.MD
-!/LICENSE.txt
-!/README.md
-!/gradle.properties
-!/build.gradle
-!/gradlew
-!/gradlew.bat
-!/.travis.yml
-!/travisSetup.sh
-.DS_Store
+# gradle
+build
+.gradle
 
-gradle.properties
+# other
+eclipse
+run
+/README.txt
+/project.zip
+/Paulscode SoundSystem CodecIBXM License.txt
+/LICENSE-new.txt
+/MinecraftForge-Credits.txt
+/Paulscode IBXM Library License.txt
+/gradle.properties
+/forge-1.12.2-14.23.2.2617-changelog.txt
+/CREDITS-fml.txt
