@@ -3,6 +3,7 @@ package com.hypeirochus.scmc.client.gui;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.blocks.metablocks.BlockGasCollector.GasCollectorType;
 import com.hypeirochus.scmc.container.ContainerGasCollector;
 import com.hypeirochus.scmc.handlers.BlockHandler;
@@ -61,11 +62,6 @@ public class GuiGasCollector extends GuiContainer {
 		bindTexture();
 		GlStateManager.color(1F, 1F, 1F, 1F);
 		drawTexturedModalRect((width - xSize) / 2, (height - ySize) / 2, 0, 0, this.xSize, this.ySize);
-		if (itemHandler.getStackInSlot(9).isEmpty())
-			GlStateManager.pushMatrix();
-		GlStateManager.scale(0.5f, 0.5f, 0.5f);
-		drawTexturedModalRect(((width / 2) + 46) * 2, ((height / 2) - 48) * 2, xSize, 0, 32, 32);
-		GlStateManager.popMatrix();
 		if (Library.isJeiInstalled()) {
 			TextureUtils.bindTexture("textures/gui/container/gas_collector_base.png");
 			drawTexturedModalRect(guiLeft + 35, guiTop + 35, 63, 0, 16, 16);
@@ -79,9 +75,6 @@ public class GuiGasCollector extends GuiContainer {
 		renderHoveredToolTip(mouseX, mouseY);
 		if (itemHandler.getStackInSlot(9).isEmpty()) {
 			bindTexture();
-			String ss = "s";
-			if (te.getType() == 1 || getRequiredFuel() == 1)
-				ss = "";
 			String s = TextFormatting.GRAY + I18n.format("gui.gas_collector." + GasCollectorType.values()[te.getType()] + ".fuel.tooltip", getRequiredFuel(), TextFormatting.DARK_GRAY + names[te.getType()] + TextFormatting.GRAY);
 			drawTooltip(s, guiLeft + 133, guiTop + 34, 18, 18, mouseX, mouseY);
 		}
@@ -113,7 +106,7 @@ public class GuiGasCollector extends GuiContainer {
 	}
 
 	private void bindTexture() {
-		TextureUtils.bindTexture("textures/gui/container/gas_collector_" + GasCollectorType.values()[te.getType()].getName() + ".png");
+		TextureUtils.bindTexture(Starcraft.MOD_ID, "textures/gui/container/gas_collector_" + GasCollectorType.values()[te.getType()].getName() + ".png");
 	}
 
 	public void drawTooltip(List<String> lines, int posX, int posY, int width, int height, int mouseX, int mouseY) {

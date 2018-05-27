@@ -2,9 +2,11 @@ package com.hypeirochus.scmc.container;
 
 import com.hypeirochus.scmc.container.slot.SlotGasCollectorOutput;
 import com.hypeirochus.scmc.container.slot.SlotWhitelist;
+import com.hypeirochus.scmc.events.StarcraftEventHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
 import com.hypeirochus.scmc.tileentity.TileEntityGasCollector;
 
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.Container;
@@ -36,7 +38,12 @@ public class ContainerGasCollector extends Container {
 			}
 		}
 
-		this.addSlotToContainer(new SlotWhitelist(player, handler, fuel[te.getType()], 9, 134, 35));
+		this.addSlotToContainer(new SlotWhitelist(player, handler, fuel[te.getType()], 9, 134, 35) {
+			@Override
+			public TextureAtlasSprite getBackgroundSprite() {
+				return te.getType() == 0 ? StarcraftEventHandler.gasCollectorIngot : te.getType() == 1 ? StarcraftEventHandler.gasCollectorBlock : StarcraftEventHandler.gasCollectorFlesh;
+			}
+		});
 
 		int xPos = 8;
 		int yPos = 84;

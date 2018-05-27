@@ -1,10 +1,13 @@
 package com.hypeirochus.scmc.events;
 
+import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.capabilities.ColorProvider;
 import com.hypeirochus.scmc.capabilities.IColor;
 import com.hypeirochus.scmc.config.StarcraftConfig;
 import com.hypeirochus.scmc.items.ItemGun;
 
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.monster.EntityCaveSpider;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityEnderman;
@@ -15,15 +18,20 @@ import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.entity.monster.EntityWitch;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import scala.reflect.internal.Trees.Star;
 
 /**
  * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
@@ -37,6 +45,10 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
  */
 @EventBusSubscriber
 public class StarcraftEventHandler {
+
+	public static TextureAtlasSprite gasCollectorIngot;
+	public static TextureAtlasSprite gasCollectorBlock;
+	public static TextureAtlasSprite gasCollectorFlesh;
 
 	@SubscribeEvent
 	public static void onEntitySpawn(EntityJoinWorldEvent event) {
@@ -73,5 +85,14 @@ public class StarcraftEventHandler {
 		if(player.getHeldItemMainhand().getItem() instanceof ItemGun || player.getHeldItemOffhand().getItem() instanceof ItemGun) {
 			event.setCanceled(true);
 		}
+	}
+	
+	@SideOnly(Side.CLIENT)
+	@SubscribeEvent
+	public void onTextureStitchEvent(TextureStitchEvent.Pre event) {
+		TextureMap map = event.getMap();
+		gasCollectorIngot = map.registerSprite(new ResourceLocation(Starcraft.MOD_ID, "items/gas_collector/ingot"));
+		gasCollectorBlock = map.registerSprite(new ResourceLocation(Starcraft.MOD_ID, "items/gas_collector/block"));
+		gasCollectorFlesh = map.registerSprite(new ResourceLocation(Starcraft.MOD_ID, "items/gas_collector/flesh"));
 	}
 }
