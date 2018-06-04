@@ -4,7 +4,6 @@ import java.util.Random;
 
 import com.google.common.base.Predicate;
 import com.hypeirochus.scmc.config.StarcraftConfig;
-import com.hypeirochus.scmc.handlers.DimensionHandler;
 import com.hypeirochus.scmc.handlers.SoundHandler;
 
 import net.minecraft.entity.EntityLivingBase;
@@ -44,7 +43,7 @@ public class EntityUrsadonMatriarch extends EntityMob implements IMob, Predicate
 
 	@Override
 	public boolean getCanSpawnHere() {
-		if (this.world.provider.getDimension() == DimensionHandler.kaldir_dt.getId() && world.getDifficulty() != EnumDifficulty.PEACEFUL) {
+		if (this.world.provider.getDimension() == StarcraftConfig.INT_DIMENSION_KALDIR && world.getDifficulty() != EnumDifficulty.PEACEFUL) {
 			return true;
 		}
 		return false;

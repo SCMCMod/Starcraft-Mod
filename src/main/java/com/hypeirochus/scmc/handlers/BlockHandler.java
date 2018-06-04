@@ -313,14 +313,14 @@ public class BlockHandler {
 
 		// Portals
 		DIM_PORTAL_OVERWORLD = new BlockDimPortal("overworld.portal", 0);
-		DIM_PORTAL_KORHAL    = new BlockDimPortal("korhal.portal"   , DimensionHandler.korhal_dt.getId());
-		DIM_PORTAL_KALDIR    = new BlockDimPortal("kaldir.portal"   , DimensionHandler.korhal_dt.getId());
-		DIM_PORTAL_CHAR      = new BlockDimPortal("char.portal"     , DimensionHandler.kaldir_dt.getId());
-		DIM_PORTAL_SHAKURAS  = new BlockDimPortal("shakuras.portal" , DimensionHandler.shakuras_dt.getId());
-		DIM_PORTAL_SLAYN     = new BlockDimPortal("slayn.portal"    , DimensionHandler.slayn_dt.getId());
-		DIM_PORTAL_AIUR      = new BlockDimPortal("aiur.portal"     , DimensionHandler.aiur_dt.getId());
-		DIM_PORTAL_ZERUS     = new BlockDimPortal("zerus.portal"    , DimensionHandler.zerus_dt.getId());
-		DIM_PORTAL_SPACE     = new BlockDimPortal("space.portal"    , DimensionHandler.space_dt.getId());
+		DIM_PORTAL_KORHAL = new BlockDimPortal("korhal.portal", StarcraftConfig.INT_DIMENSION_KORHAL);
+		DIM_PORTAL_KALDIR = new BlockDimPortal("kaldir.portal", StarcraftConfig.INT_DIMENSION_KALDIR);
+		DIM_PORTAL_CHAR = new BlockDimPortal("char.portal", StarcraftConfig.INT_DIMENSION_CHAR);
+		DIM_PORTAL_SHAKURAS = new BlockDimPortal("shakuras.portal", StarcraftConfig.INT_DIMENSION_SHAKURAS);
+		DIM_PORTAL_SLAYN = new BlockDimPortal("slayn.portal", StarcraftConfig.INT_DIMENSION_SLAYN);
+		DIM_PORTAL_AIUR = new BlockDimPortal("aiur.portal", StarcraftConfig.INT_DIMENSION_AIUR);
+		DIM_PORTAL_ZERUS = new BlockDimPortal("zerus.portal", StarcraftConfig.INT_DIMENSION_ZERUS);
+		DIM_PORTAL_SPACE = new BlockDimPortal("space.portal", StarcraftConfig.INT_DIMENSION_SPACE);
 
 		// Overworld Ores
 		ORE_COPPER_OW = new BlockOverworldOre("overworld.copper", RegistryType.FULL, Material.ROCK, MapColor.GRAY, 1).setBlockHarvestLevel("pickaxe", 1).setCreativeTab(StarcraftCreativeTabs.MISC);
@@ -484,7 +484,7 @@ public class BlockHandler {
 
 	/**
 	 * Registers a block.
-	 *
+	 * 
 	 * @param block
 	 *            The block to register
 	 */
@@ -494,7 +494,7 @@ public class BlockHandler {
 
 	/**
 	 * Registers an item block.
-	 *
+	 * 
 	 * @param item
 	 *            The item block to register
 	 */
@@ -504,7 +504,7 @@ public class BlockHandler {
 
 	/**
 	 * Registers the block specified as well as an item block that represents the block.
-	 *
+	 * 
 	 * @param block
 	 *            The block to register
 	 */
@@ -517,7 +517,7 @@ public class BlockHandler {
 
 	/**
 	 * Registers the block specified as well as a custom specified item block that represents the block.
-	 *
+	 * 
 	 * @param block
 	 *            The block to register
 	 * @param item
@@ -531,7 +531,7 @@ public class BlockHandler {
 
 	/**
 	 * Used for registry.
-	 *
+	 * 
 	 * @return The list of blocks to be registered
 	 */
 	public static Block[] getBlocks() {
@@ -542,7 +542,7 @@ public class BlockHandler {
 
 	/**
 	 * Used for registry.
-	 *
+	 * 
 	 * @return The list of item blocks to be registered
 	 */
 	public static ItemBlock[] getItems() {

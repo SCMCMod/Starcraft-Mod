@@ -3,7 +3,6 @@ package com.hypeirochus.scmc.worldgen.dimkorhal;
 import com.hypeirochus.scmc.config.StarcraftConfig;
 import com.hypeirochus.scmc.handlers.DimensionHandler;
 
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.BiomeProvider;
@@ -35,7 +34,7 @@ public class WorldProviderKorhal extends WorldProvider {
 	 * @return The dimension to respawn the player in
 	 */
 	@Override
-	public int getRespawnDimension(EntityPlayerMP player) {
-		return getDimensionType().getId();
+	public int getRespawnDimension(net.minecraft.entity.player.EntityPlayerMP player) {
+		return StarcraftConfig.INT_DIMENSION_KORHAL;
 	}
 }

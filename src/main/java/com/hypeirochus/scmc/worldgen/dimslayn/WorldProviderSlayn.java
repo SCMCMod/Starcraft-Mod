@@ -6,7 +6,6 @@ import com.hypeirochus.api.client.render.world.IStormProvider;
 import com.hypeirochus.scmc.config.StarcraftConfig;
 import com.hypeirochus.scmc.handlers.DimensionHandler;
 
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DimensionType;
@@ -76,8 +75,8 @@ public class WorldProviderSlayn extends WorldProvider implements IClimateProvide
 	 * @return The dimension to respawn the player in
 	 */
 	@Override
-	public int getRespawnDimension(EntityPlayerMP player) {
-		return getDimensionType().getId();
+	public int getRespawnDimension(net.minecraft.entity.player.EntityPlayerMP player) {
+		return StarcraftConfig.INT_DIMENSION_SLAYN;
 	}
 
 	@Override
