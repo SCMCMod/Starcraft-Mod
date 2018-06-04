@@ -25,13 +25,13 @@ public class DimensionHandler {
 	public static DimensionType space_dt = DimensionType.register("Space", "_starcraft", StarcraftConfig.INT_DIMENSION_SPACE, WorldProviderSpace.class, false);
 
 	public static void init() {
-		DimensionManager.registerDimension(StarcraftConfig.INT_DIMENSION_CHAR, char_dt);
-		DimensionManager.registerDimension(StarcraftConfig.INT_DIMENSION_SHAKURAS, shakuras_dt);
-		DimensionManager.registerDimension(StarcraftConfig.INT_DIMENSION_KORHAL, korhal_dt);
-		DimensionManager.registerDimension(StarcraftConfig.INT_DIMENSION_KALDIR, kaldir_dt);
-		DimensionManager.registerDimension(StarcraftConfig.INT_DIMENSION_SLAYN, slayn_dt);
-		DimensionManager.registerDimension(StarcraftConfig.INT_DIMENSION_AIUR, aiur_dt);
-		DimensionManager.registerDimension(StarcraftConfig.INT_DIMENSION_ZERUS, zerus_dt);
-		DimensionManager.registerDimension(StarcraftConfig.INT_DIMENSION_SPACE, space_dt);
+		DimensionManager.registerDimension(DimensionManager.getNextFreeDimId(), char_dt);
+		DimensionManager.registerDimension(DimensionManager.getNextFreeDimId(), shakuras_dt);
+		DimensionManager.registerDimension(DimensionManager.getNextFreeDimId(), korhal_dt);
+		DimensionManager.registerDimension(DimensionManager.getNextFreeDimId(), kaldir_dt);
+		DimensionManager.registerDimension(DimensionManager.getNextFreeDimId(), slayn_dt);
+		DimensionManager.registerDimension(DimensionManager.getNextFreeDimId(), aiur_dt);
+		DimensionManager.registerDimension(DimensionManager.getNextFreeDimId(), zerus_dt);
+		DimensionManager.registerDimension(DimensionManager.getNextFreeDimId(), space_dt);
 	}
 }
