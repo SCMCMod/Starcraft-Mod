@@ -68,7 +68,7 @@ public class WorldProviderChar extends WorldProvider implements IClimateProvider
 	 */
 	@Override
 	public int getRespawnDimension(EntityPlayerMP player) {
-		return StarcraftConfig.INT_DIMENSION_CHAR;
+		return getDimensionType().getId();
 	}
 
 	@Override

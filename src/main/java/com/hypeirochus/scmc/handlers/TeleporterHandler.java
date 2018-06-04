@@ -26,7 +26,7 @@ public class TeleporterHandler extends Teleporter {
 	public TeleporterHandler(int lastDim, WorldServer world, double x, double y, double z, boolean hasNoSurface, boolean addObsidian) {
 		super(world);
 		worldServer = world;
-		if (world.provider.getDimension() != StarcraftConfig.INT_DIMENSION_SPACE) {
+		if (world.provider.getDimension() != DimensionHandler.space_dt.getId()) {
 			BlockPos playerSpawn = new BlockPos(x, 100, z);
 			if (hasNoSurface == false) {
 				while (world.isAirBlock(playerSpawn)) {
@@ -55,23 +55,23 @@ public class TeleporterHandler extends Teleporter {
 				this.x = 0;
 				this.y = 180;
 				this.z = 0;
-			} else if (lastDim == StarcraftConfig.INT_DIMENSION_CHAR) {
+			} else if (lastDim == DimensionHandler.char_dt.getId()) {
 				this.x = -1515;
 				this.y = 180;
 				this.z = 17776;
-			} else if (lastDim == StarcraftConfig.INT_DIMENSION_AIUR) {
+			} else if (lastDim == DimensionHandler.aiur_dt.getId()) {
 				this.x = 4444;
 				this.y = 180;
 				this.z = 17365;
-			} else if (lastDim == StarcraftConfig.INT_DIMENSION_SHAKURAS) {
+			} else if (lastDim == DimensionHandler.shakuras_dt.getId()) {
 				this.x = 6666;
 				this.y = 180;
 				this.z = 18180;
-			} else if (lastDim == StarcraftConfig.INT_DIMENSION_KORHAL) {
+			} else if (lastDim == DimensionHandler.korhal_dt.getId()) {
 				this.x = 3290;
 				this.y = 180;
 				this.z = 11000;
-			} else if (lastDim == StarcraftConfig.INT_DIMENSION_SLAYN) {
+			} else if (lastDim == DimensionHandler.slayn_dt.getId()) {
 				this.x = 7000;
 				this.y = 180;
 				this.z = 16666;
