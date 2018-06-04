@@ -27,14 +27,12 @@ public class ItemGasContainer extends StarcraftItem implements IMetaRenderHandle
 				items.add(new ItemStack(this, 1, i));
 			}
 		} else {
-			if (tab == StarcraftCreativeTabs.MISC)
-				items.add(new ItemStack(this, 1, 0));
 			if (tab == StarcraftCreativeTabs.PROTOSS)
-				items.add(new ItemStack(this, 1, 1));
+				items.add(new ItemStack(this, 1, 0));
 			if (tab == StarcraftCreativeTabs.TERRAN)
-				items.add(new ItemStack(this, 1, 2));
+				items.add(new ItemStack(this, 1, 1));
 			if (tab == StarcraftCreativeTabs.ZERG)
-				items.add(new ItemStack(this, 1, 3));
+				items.add(new ItemStack(this, 1, 2));
 		}
 	}
 
