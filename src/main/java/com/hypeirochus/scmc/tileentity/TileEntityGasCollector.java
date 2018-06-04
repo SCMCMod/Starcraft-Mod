@@ -1,15 +1,14 @@
 package com.hypeirochus.scmc.tileentity;
 
 import com.hypeirochus.scmc.api.Utils;
+import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.handlers.SoundHandler;
 import com.hypeirochus.scmc.recipes.gascollector.GasCollectorRecipes;
-import com.mojang.authlib.GameProfile;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDynamicLiquid;
 import net.minecraft.block.BlockStaticLiquid;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -48,10 +47,12 @@ public class TileEntityGasCollector extends TileEntitySidedInventory implements 
 
 	@Override
 	public void update() {
-		if (world != null && !world.isRemote) {
-			/*
-			 * if (!world.isAirBlock(pos) && world.getBlockState(pos).getBlock() == BlockHandler.GAS_COLLECTOR) { // The block is not air and it is a gas collector if (this != null) breakBlock(EnumFacing.DOWN); }
-			 */
+		if (!world.isRemote) {
+			if (!world.isAirBlock(pos) && world.getBlockState(pos).getBlock() == BlockHandler.GAS_COLLECTOR) {
+				if (this != null) {
+					this.breakBlock(EnumFacing.DOWN);
+				}
+			}
 
 			if (Utils.checkSurroundingBlocks(world, Blocks.UNPOWERED_COMPARATOR.getDefaultState()) && Utils.checkSurroundingBlocks(world, Blocks.POWERED_COMPARATOR.getDefaultState())) {
 				this.markDirty();
@@ -72,17 +73,6 @@ public class TileEntityGasCollector extends TileEntitySidedInventory implements 
 		IBlockState state = world.getBlockState(newPos);
 		Block block = state.getBlock();
 		if (!block.isAir(state, world, newPos) && block.getBlockHardness(state, world, newPos) >= 0 && !(block instanceof BlockDynamicLiquid) && !(block instanceof BlockStaticLiquid)) {
-			EntityPlayer player = new EntityPlayer(world, new GameProfile(null, "GasCollector")) {
-				@Override
-				public boolean isSpectator() {
-					return true;
-				}
-
-				@Override
-				public boolean isCreative() {
-					return false;
-				}
-			};
 			if (this.handler.getStackInSlot(9) != null) {
 				if (this.handler.getStackInSlot(9).getCount() >= 4) {
 					if (canBreak(block, getType())) {
@@ -98,10 +88,10 @@ public class TileEntityGasCollector extends TileEntitySidedInventory implements 
 							stack = GasCollectorRecipes.instance().getZergResult(block).copy();
 						}
 
-						if (stack != null) {
-							block.breakBlock(world, newPos, state);
-							Utils.addStackToInventory(handler, 9, stack, false);
+						if (stack != null && !stack.isEmpty()) {
 							if (!Utils.isInventoryFull(this.handler, 9)) {
+								block.breakBlock(world, newPos, state);
+								Utils.addStackToInventory(handler, 9, stack, false);
 								world.playEvent(2001, newPos, Block.getStateId(state));
 								if (getType() == 0)
 									world.playSound(null, pos, SoundHandler.BLOCK_GAS_COLLECTOR_PROTOSS, SoundCategory.BLOCKS, 1, 1);

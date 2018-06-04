@@ -34,7 +34,7 @@ public class ContainerGasCollector extends Container {
 
 		for (int x = 0; x < 3; x++) {
 			for (int y = 0; y < 3; y++) {
-				this.addSlotToContainer(new SlotGasCollectorOutput(handler, x + y * 3, 62 + (18 * x), 17 + (18 * y)));
+				this.addSlotToContainer(new SlotGasCollectorOutput(handler, x + y * 3, 62 + x * 18, 17 + y * 18));
 			}
 		}
 
