@@ -7,7 +7,6 @@ import javax.annotation.Nullable;
 
 import com.hypeirochus.scmc.handlers.BiomeHandler;
 import com.hypeirochus.scmc.handlers.BlockHandler;
-import com.hypeirochus.scmc.worldgen.dimslayn.SlaynGenCustomLakes;
 
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.state.IBlockState;
@@ -330,7 +329,7 @@ public class ChunkGeneratorZerus implements IChunkGenerator {
 				int i1 = this.rand.nextInt(16) + 8;
 				int j1 = this.rand.nextInt(256);
 				int k1 = this.rand.nextInt(16) + 8;
-				(new SlaynGenCustomLakes(Blocks.WATER)).generate(world, this.rand, blockpos.add(i1, j1, k1));
+				(new ZerusGenCustomLakes(Blocks.WATER)).generate(world, this.rand, blockpos.add(i1, j1, k1));
 			}
 
 		if (biome != BiomeHandler.biomeSlaynProtossCity && this.rand.nextInt(this.settings.lavaLakeChance / 20) == 0 && this.settings.useLavaLakes)
@@ -340,7 +339,7 @@ public class ChunkGeneratorZerus implements IChunkGenerator {
 				int k3 = this.rand.nextInt(16) + 8;
 
 				if (l2 < world.getSeaLevel() || this.rand.nextInt(this.settings.lavaLakeChance) == 0) {
-					(new SlaynGenCustomLakes(Blocks.LAVA)).generate(world, this.rand, blockpos.add(i2, l2, k3));
+					(new ZerusGenCustomLakes(Blocks.LAVA)).generate(world, this.rand, blockpos.add(i2, l2, k3));
 				}
 			}
 
