@@ -3,7 +3,6 @@ package com.hypeirochus.scmc.blocks.fluid;
 import com.hypeirochus.scmc.damagesource.StarcraftDamageSources;
 import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.handlers.FluidHandler;
-import com.hypeirochus.scmc.handlers.RenderHandler;
 
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -14,7 +13,6 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.BlockFluidClassic;
-import net.minecraftforge.fluids.FluidRegistry;
 
 /**
  * Acid fluid. Hurts entities that come into contact<br>
