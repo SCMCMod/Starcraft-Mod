@@ -1,7 +1,6 @@
 package com.hypeirochus.scmc.enums;
 
 import com.hypeirochus.scmc.worldgen.structure.IGenericStructure;
-import com.hypeirochus.scmc.worldgen.structure.SCWorldGenerator;
 import com.hypeirochus.scmc.worldgen.structure.StructureTerranBarracksTemplate;
 import com.hypeirochus.scmc.worldgen.structure.StructureTerranBunkerTemplate;
 import com.hypeirochus.scmc.worldgen.structure.StructureTerranCommandCenterTemplate;

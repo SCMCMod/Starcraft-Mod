@@ -3,7 +3,6 @@ package com.hypeirochus.scmc.blocks;
 import java.util.Random;
 
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
-import com.hypeirochus.scmc.handlers.BlockHandler;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTallGrass;

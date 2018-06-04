@@ -12,7 +12,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.structure.WoodlandMansionPieces.MansionTemplate;
 import net.minecraft.world.gen.structure.template.Template;
 
 public class StructureTerranBunkerTemplate extends SCWorldGenerator implements INBTStructure, IObjectParsable {

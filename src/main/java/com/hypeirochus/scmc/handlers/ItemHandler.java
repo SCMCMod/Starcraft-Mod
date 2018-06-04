@@ -29,7 +29,6 @@ import com.hypeirochus.scmc.items.StarcraftItem;
 import com.hypeirochus.scmc.items.structurespawner.ItemProtossStructureSpawner;
 import com.hypeirochus.scmc.items.structurespawner.ItemTerranStructureSpawner;
 import com.hypeirochus.scmc.items.structurespawner.ItemZergStructureSpawner;
-import com.hypeirochus.scmc.registry.StarcraftRegistry;
 
 import net.minecraft.item.Item;
 

@@ -84,6 +84,7 @@ public class OreDictionaryHandler {
 
 		OreDictionary.registerOre("carbon", new ItemStack(Items.COAL, 1, 0));
 		OreDictionary.registerOre("carbon", new ItemStack(Items.COAL, 1, 1));
+		OreDictionary.registerOre("phosphorus", new ItemStack(ItemHandler.PHOSPHORUS, 1, 0));
 
 		OreDictionary.registerOre("dust", new ItemStack(ItemHandler.DUST, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("dustSteel", new ItemStack(ItemHandler.DUST, 1, MetaHandler.DustType.STEEL.getID()));

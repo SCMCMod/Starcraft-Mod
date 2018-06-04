@@ -1,7 +1,6 @@
 package com.hypeirochus.scmc.jei.gascollector;
 
 import com.hypeirochus.scmc.Starcraft;
-import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.jei.StarcraftRecipeCategoryUid;
 
 import mezz.jei.api.IGuiHelper;
@@ -10,10 +9,7 @@ import mezz.jei.api.gui.IGuiItemStackGroup;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.IRecipeCategory;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.resources.I18n;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
 public class GasCollectorCategory implements IRecipeCategory<GasCollectorRecipe> {

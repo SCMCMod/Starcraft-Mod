@@ -1,12 +1,9 @@
 package com.hypeirochus.scmc.items;
 
-import javax.management.RuntimeErrorException;
-
 import com.hypeirochus.scmc.blocks.metablocks.BlockGasCollector.GasCollectorType;
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.enums.MetaHandler.ContainerType;
-import com.hypeirochus.scmc.enums.MetaHandler.VespeneType;
 import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -27,14 +24,12 @@ public class ItemGasContainer extends StarcraftItem implements IMetaRenderHandle
 				items.add(new ItemStack(this, 1, i));
 			}
 		} else {
-			if (tab == StarcraftCreativeTabs.MISC)
-				items.add(new ItemStack(this, 1, 0));
 			if (tab == StarcraftCreativeTabs.PROTOSS)
-				items.add(new ItemStack(this, 1, 1));
+				items.add(new ItemStack(this, 1, 0));
 			if (tab == StarcraftCreativeTabs.TERRAN)
-				items.add(new ItemStack(this, 1, 2));
+				items.add(new ItemStack(this, 1, 1));
 			if (tab == StarcraftCreativeTabs.ZERG)
-				items.add(new ItemStack(this, 1, 3));
+				items.add(new ItemStack(this, 1, 2));
 		}
 	}
 

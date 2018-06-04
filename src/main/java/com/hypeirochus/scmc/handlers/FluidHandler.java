@@ -1,7 +1,5 @@
 package com.hypeirochus.scmc.handlers;
 
-import java.awt.Color;
-
 import com.hypeirochus.scmc.Starcraft;
 
 import net.minecraft.util.ResourceLocation;
