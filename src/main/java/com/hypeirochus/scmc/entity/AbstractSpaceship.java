@@ -730,7 +730,12 @@ public class AbstractSpaceship extends Entity
             }
         }
     }
-    
+
+    @Override
+    public boolean hasNoGravity() {
+        return true;
+    }
+
     @Override
     public void fall(float distance, float damageMultiplier) {
     	
