@@ -1,4 +1,4 @@
-package com.hypeirochus.scmc.entity;
+package com.hypeirochus.scmc.entity.vehicles;
 
 import java.util.List;
 
@@ -681,6 +681,8 @@ public class AbstractSpaceship extends Entity
             float z = 0.0F;
             float x = 0.0F;
             float y = 0.0F;
+            
+            System.out.println(this.getControllingPassenger().rotationPitch);
             
             this.rotationYaw = this.getControllingPassenger().rotationYaw;
             this.rotationPitch = this.getControllingPassenger().rotationPitch;

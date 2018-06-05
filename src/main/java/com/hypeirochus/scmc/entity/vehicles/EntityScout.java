@@ -1,4 +1,4 @@
-package com.hypeirochus.scmc.entity;
+package com.hypeirochus.scmc.entity.vehicles;
 
 import net.minecraft.world.World;
 

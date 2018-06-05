@@ -45,6 +45,7 @@ import com.hypeirochus.scmc.client.model.entity.ModelZerglingPrimalDehakaBoost;
 import com.hypeirochus.scmc.client.model.entity.ModelZerglingRaptor;
 import com.hypeirochus.scmc.client.model.entity.ModelZerglingSwarmling;
 import com.hypeirochus.scmc.client.model.entity.projectile.ModelHydraliskSpike;
+import com.hypeirochus.scmc.client.model.entity.vehicle.ModelWraith;
 import com.hypeirochus.scmc.client.renderer.entity.RenderArtosilope;
 import com.hypeirochus.scmc.client.renderer.entity.RenderBrakk;
 import com.hypeirochus.scmc.client.renderer.entity.RenderBroodling;
@@ -91,6 +92,7 @@ import com.hypeirochus.scmc.client.renderer.entity.RenderZerglingRaptor;
 import com.hypeirochus.scmc.client.renderer.entity.RenderZerglingSwarmling;
 import com.hypeirochus.scmc.client.renderer.entity.projectiles.RenderHydraliskSpike;
 import com.hypeirochus.scmc.client.renderer.entity.projectiles.RenderMutaliskGlaiveWurm;
+import com.hypeirochus.scmc.client.renderer.entity.vehicles.RenderWraith;
 import com.hypeirochus.scmc.client.renderer.tileentity.RendererBrambles;
 import com.hypeirochus.scmc.client.renderer.tileentity.RendererProtossWormhole;
 import com.hypeirochus.scmc.client.renderer.tileentity.RendererStarcraftSkull;
@@ -142,6 +144,7 @@ import com.hypeirochus.scmc.entity.living.EntityZerglingPrimalDehaka;
 import com.hypeirochus.scmc.entity.living.EntityZerglingPrimalDehakaBoost;
 import com.hypeirochus.scmc.entity.living.EntityZerglingRaptor;
 import com.hypeirochus.scmc.entity.living.EntityZerglingSwarmling;
+import com.hypeirochus.scmc.entity.vehicles.EntityWraith;
 import com.hypeirochus.scmc.tileentity.TileEntityBrambles;
 import com.hypeirochus.scmc.tileentity.TileEntityProtossWormhole;
 import com.hypeirochus.scmc.tileentity.TileEntityStarcraftSkull;
@@ -280,6 +283,8 @@ public class RenderHandler {
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityHydraliskSpike.class, new RenderHydraliskSpike(Minecraft.getMinecraft().getRenderManager(), new ModelHydraliskSpike()));
 		RenderingRegistry.registerEntityRenderingHandler(EntityMutaliskGlaiveWurm.class, new RenderMutaliskGlaiveWurm(Minecraft.getMinecraft().getRenderManager(), new ModelMutaliskGlaiveWurm()));
+		
+		RenderingRegistry.registerEntityRenderingHandler(EntityWraith.class, new RenderWraith(Minecraft.getMinecraft().getRenderManager()));
 	}
 
 	@SideOnly(Side.CLIENT)
