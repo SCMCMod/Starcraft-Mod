@@ -4,7 +4,11 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import org.lwjgl.input.Mouse;
+
 import com.google.common.collect.Lists;
+import com.hypeirochus.scmc.config.StarcraftConfig;
+import com.hypeirochus.scmc.handlers.SoundHandler;
 
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.BlockPlanks;
@@ -27,12 +31,14 @@ import net.minecraft.util.EntityDamageSourceIndirect;
 import net.minecraft.util.EntitySelectors;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -56,6 +62,9 @@ public class AbstractSpaceship extends Entity
     private boolean forwardInputDown;
     private boolean backInputDown;
     private double waterLevel;
+    private int cooldownInTicks = 3;
+    private int velX, velY, velZ = 10;
+    
     /**
      * How much the boat should glide given the slippery blocks it's currently gliding over.
      * Halved every tick.
@@ -682,27 +691,33 @@ public class AbstractSpaceship extends Entity
             y = (float) (0.04f*fVec.y);
             z = (float) (0.12f*fVec.z);
             
-            if(Math.signum(fVec.x) == -1) {
-                this.motionX -= (double)(MathHelper.sin(-this.rotationYaw * 0.017453292F) * x);
+            if(FMLClientHandler.instance().getClient().gameSettings.keyBindJump.isKeyDown()) {
+            	this.velX = 20;
+            	this.velY = 20;
+            	this.velZ = 20;
             }else {
-                this.motionX += (double)(MathHelper.sin(-this.rotationYaw * 0.017453292F) * x);
+            	this.velX = 10;
+            	this.velY = 10;
+            	this.velZ = 10;
             }
             
-            this.motionY += y*4;
+            this.setVelocity(x*this.velX, y*this.velY, z*this.velZ);
             
-            if(Math.signum(fVec.z) == -1) {
-                this.motionZ -= (double)(MathHelper.cos(this.rotationYaw * 0.017453292F) * z);
-            }else {
-                this.motionZ += (double)(MathHelper.cos(this.rotationYaw * 0.017453292F) * z);
+            if(Mouse.isButtonDown(0) && this.cooldownInTicks == 0) {
+        		world.playSound((EntityPlayer) this.getControllingPassenger(), this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ(), SoundHandler.FX_C14GAUSSRIFLE_FIRING, SoundCategory.PLAYERS, 3.0F, 1.5F);
+        		this.cooldownInTicks += 3;
             }
         }
     }
-
+    
     @Override
-    public boolean hasNoGravity() {
-        return true;
+    public void onEntityUpdate() {
+    	if(this.ticksExisted % 20 == 0 && cooldownInTicks != 0) {
+        	cooldownInTicks--;
+    	}
+    	super.onEntityUpdate();
     }
-
+    
     @Override
     public void fall(float distance, float damageMultiplier) {
     	
