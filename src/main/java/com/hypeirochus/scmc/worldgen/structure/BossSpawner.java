@@ -32,7 +32,7 @@ public class BossSpawner extends SCWorldGenerator {
 		int z = offsetZ;
 		world.setTileEntity(pos.add(x + 4, y + 0, z + 3), new TileEntityEntitySpawner(range, entityToSpawn, color));
 		world.setBlockState(pos.add(x + 4, y + 0, z + 3), BlockHandler.ENTITY_SPAWNER.getDefaultState(), 2);
-		System.out.println("Nafash spawned at" + pos);
+		System.out.println(entityToSpawn.getName() + " spawned at" + pos);
 		return true;
 	}
 
