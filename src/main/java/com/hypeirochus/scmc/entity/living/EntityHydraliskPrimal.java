@@ -71,12 +71,11 @@ public class EntityHydraliskPrimal extends EntityZergMob implements IMob, IRange
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float p_82196_2_) {
 		EntityHydraliskSpike spike = new EntityHydraliskSpike(this.world, this);
-		double d0 = target.posY + (double) target.getEyeHeight() - 1.800000023841858D - target.getDistanceSq(target.getPosition());
-		double d1 = target.posX - this.posX;
-		double d2 = d0 - spike.posY;
-		double d3 = target.posZ - this.posZ;
-		float f = MathHelper.sqrt(d1 * d1 + d3 * d3) * 0.2F;
-		spike.setPositionAndRotationDirect(d1, d2 + (double) f, d3, 1.6F, .0F, 0, false);
+		double d0 = target.posX - this.posX;
+        double d1 = target.getEntityBoundingBox().minY + (double)(target.height / 4.0F) - spike.posY;
+        double d2 = target.posZ - this.posZ;
+        double d3 = (double)MathHelper.sqrt(d0 * d0 + d2 * d2);
+        spike.shoot(d0, d1 + d3 * 0.20000000298023224D, d2, 1.6F, (float)(14 - this.world.getDifficulty().getDifficultyId() * 4));
 		this.playSound(SoundHandler.FX_HYDRALISK_FIRE, 0.5F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
 		this.world.spawnEntity(spike);
 	}
