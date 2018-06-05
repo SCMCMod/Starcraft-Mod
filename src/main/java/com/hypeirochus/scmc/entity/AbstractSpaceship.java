@@ -707,13 +707,27 @@ public class AbstractSpaceship extends Entity
 
             Vec3d fVec = this.getLookVec();
 
-            x = (float) (0.12f*fVec.xCoord);
-            y = (float) (0.04f*fVec.yCoord);
-            z = (float) (0.12f*fVec.zCoord);
+            x = (float) (0.12f*fVec.x);
+            y = (float) (0.04f*fVec.y);
+            z = (float) (0.12f*fVec.z);
 
-            this.motionX += (double)(MathHelper.sin(-this.rotationYaw * 0.017453292F) * x);
-            this.motionY += y*2;
-            this.motionZ += (double)(MathHelper.cos(this.rotationYaw * 0.017453292F) * z);
+            System.out.println(fVec.x);
+            System.out.println(fVec.y);
+            System.out.println(fVec.z);
+            
+            if(Math.signum(fVec.x) == -1) {
+                this.motionX -= (double)(MathHelper.sin(-this.rotationYaw * 0.017453292F) * x);
+            }else {
+                this.motionX += (double)(MathHelper.sin(-this.rotationYaw * 0.017453292F) * x);
+            }
+            
+            this.motionY += y*4;
+            
+            if(Math.signum(fVec.z) == -1) {
+                this.motionZ -= (double)(MathHelper.cos(this.rotationYaw * 0.017453292F) * z);
+            }else {
+                this.motionZ += (double)(MathHelper.cos(this.rotationYaw * 0.017453292F) * z);
+            }
         }
     }
     
