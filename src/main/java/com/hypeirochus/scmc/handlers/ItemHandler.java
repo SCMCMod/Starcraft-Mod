@@ -23,6 +23,7 @@ import com.hypeirochus.scmc.items.ItemPsiBladeFocuserUncharged;
 import com.hypeirochus.scmc.items.ItemSolariteReaper;
 import com.hypeirochus.scmc.items.ItemStimpack;
 import com.hypeirochus.scmc.items.ItemTerrazine;
+import com.hypeirochus.scmc.items.ItemTest;
 import com.hypeirochus.scmc.items.ItemVespene;
 import com.hypeirochus.scmc.items.ItemZergCarapace;
 import com.hypeirochus.scmc.items.StarcraftItem;
@@ -35,6 +36,8 @@ import net.minecraft.item.Item;
 public class ItemHandler {
 
 	public static List<Item> items;
+	
+	public static Item TEST;
 
 	// Vespene/Terrazine/Gas Container
 	public static Item GAS_CONTAINER;
@@ -92,6 +95,8 @@ public class ItemHandler {
 	}
 
 	private static void instantiate() {
+		TEST = new ItemTest();
+		
 		// Vespene/Terrazine/Gas Container
 		GAS_CONTAINER = new ItemGasContainer();
 		VESPENE = new ItemVespene();
