@@ -6,6 +6,8 @@ import java.util.List;
 import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.entity.EntityHydraliskSpike;
 import com.hypeirochus.scmc.entity.EntityMutaliskGlaiveWurm;
+import com.hypeirochus.scmc.entity.EntityScout;
+import com.hypeirochus.scmc.entity.EntityWraith;
 import com.hypeirochus.scmc.entity.living.EntityArtosilope;
 import com.hypeirochus.scmc.entity.living.EntityBrakk;
 import com.hypeirochus.scmc.entity.living.EntityBroodling;
@@ -178,6 +180,9 @@ public class EntityHandler {
 
 		registerEntity(EntityHydraliskSpike.class, "HydraliskSpike", 64, 1, true);
 		registerEntity(EntityMutaliskGlaiveWurm.class, "MutaliskGlaiveWurm", 64, 1, true);
+
+		registerEntity(EntityWraith.class, "wraith", 64, 1, true);
+		registerEntity(EntityScout.class, "scout", 64, 1, true);
 
 		registerEntity(EntityArtosilope.class, "artosilope", 64, 1, true, 4226620, 12038721);
 		registerEntity(EntityTastelope.class, "tastelope", 64, 1, true, 6847625, 13157029);
