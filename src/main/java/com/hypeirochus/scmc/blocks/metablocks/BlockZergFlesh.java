@@ -6,6 +6,9 @@ import com.hypeirochus.scmc.blocks.RegistryType;
 import com.hypeirochus.scmc.blocks.StarcraftBlock;
 import com.hypeirochus.scmc.blocks.items.IMetaBlockName;
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.entity.living.EntityBroodling;
+import com.hypeirochus.scmc.enums.EnumColors;
+import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
 import com.hypeirochus.scmc.handlers.MaterialHandler;
@@ -112,18 +115,18 @@ public class BlockZergFlesh extends StarcraftBlock implements IMetaBlockName, IM
 		}
 	}
 
-	// @Override
-	// public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
-	// if (!worldIn.isRemote && this.RANDOM.nextInt(100) < 10) {
-	// EntityBroodling broodling = new EntityBroodling(worldIn, EnumColors.getColorStarcraft(this.getMetaFromState(state)));
-	// broodling.setPositionAndRotation(pos.getX(), pos.getY(), pos.getZ(), 0, 0);
-	// worldIn.spawnEntity(broodling);
-	// } else if (this.RANDOM.nextInt(100) > 99) {
-	// BlockPos pos2 = pos;
-	// worldIn.setBlockState(pos2, BlockHandler.FLUID_BLOOD.getDefaultState());
-	// }
-	// super.breakBlock(worldIn, pos, state);
-	// }
+	@Override
+	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
+		if (!worldIn.isRemote && this.RANDOM.nextInt(100) < 10) {
+			EntityBroodling broodling = new EntityBroodling(worldIn, EnumColors.getColorStarcraft(this.getMetaFromState(state)));
+			broodling.setPositionAndRotation(pos.getX(), pos.getY(), pos.getZ(), 0, 0);
+			worldIn.spawnEntity(broodling);
+		} else if (this.RANDOM.nextInt(100) > 99) {
+			BlockPos pos2 = pos;
+			worldIn.setBlockState(pos2, BlockHandler.BLOOD.getDefaultState());
+		}
+		super.breakBlock(worldIn, pos, state);
+	}
 
 	public static enum ZergFleshType implements IStringSerializable {
 		PURPLE("purple", 0, MapColor.PURPLE), BROWN("brown", 1, MapColor.BROWN), PINK("pink", 2, MapColor.PINK), BLUE("blue", 3, MapColor.BLUE), CYAN("cyan", 4, MapColor.CYAN), GRAY("gray", 5, MapColor.GRAY), GREEN("green", 6, MapColor.GREEN), LIGHT_BLUE("lightblue", 7, MapColor.LIGHT_BLUE), LIME("lime", 8, MapColor.LIME), MAGENTA("magenta", 9, MapColor.MAGENTA), ORANGE("orange", 10, MapColor.ADOBE), RED("red", 11, MapColor.RED), SILVER("silver", 12, MapColor.SILVER), WHITE("white", 13, MapColor.SNOW), YELLOW("yellow", 14, MapColor.YELLOW);

@@ -46,6 +46,6 @@ public class WeaponWarpBlade extends ItemSword implements IEntityLightEventConsu
 
 	@Override
 	public void gatherLights(GatherLightsEvent evt, Entity entity) {
-		evt.add(Light.builder().pos(entity).color(0.53F, 0.37F, 0.8F).radius(4).build());
+		evt.add(Light.builder().pos(entity).color(0.53F, 0.37F, 0.8F).intensity(0.5F).radius(6).build());
 	}
 }

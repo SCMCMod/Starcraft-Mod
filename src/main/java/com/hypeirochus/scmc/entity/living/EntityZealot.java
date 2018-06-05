@@ -2,6 +2,9 @@ package com.hypeirochus.scmc.entity.living;
 
 import java.util.Random;
 
+import com.elytradev.mirage.event.GatherLightsEvent;
+import com.elytradev.mirage.lighting.IEntityLightEventConsumer;
+import com.elytradev.mirage.lighting.Light;
 import com.google.common.base.Predicate;
 import com.hypeirochus.api.world.entity.ItemDrop;
 import com.hypeirochus.scmc.enums.EnumColors;
@@ -33,7 +36,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityZealot extends EntityProtossMob implements IMob, Predicate<EntityLivingBase> {
+public class EntityZealot extends EntityProtossMob implements IMob, Predicate<EntityLivingBase>, IEntityLightEventConsumer {
 
 	public float offsetHealth;
 	public int timeSinceHurt;
@@ -165,5 +168,12 @@ public class EntityZealot extends EntityProtossMob implements IMob, Predicate<En
 	public boolean attackEntityAsMob(Entity entityIn) {
 		this.playSound(SoundHandler.FX_PSIBLADE_ATTACK, 1.0F, 1.0F);
 		return super.attackEntityAsMob(entityIn);
+	}
+
+	@Override
+	public void gatherLights(GatherLightsEvent evt, Entity entity) {
+		if(this.canSheathBlades()) {
+			evt.add(Light.builder().pos(entity).color(0.0F, 0.94F, 1.0F).intensity(0.5F).radius(6).build());
+		}
 	}
 }

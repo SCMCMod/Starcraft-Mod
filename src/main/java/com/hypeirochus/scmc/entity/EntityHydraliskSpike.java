@@ -19,15 +19,27 @@ public class EntityHydraliskSpike extends EntityThrowable {
 
 	public EntityHydraliskSpike(World worldIn, EntityLivingBase throwerIn) {
 		super(worldIn, throwerIn);
-		this.setLocationAndAngles(throwerIn.posX, throwerIn.posY + throwerIn.getEyeHeight(), throwerIn.posZ, throwerIn.rotationYaw, throwerIn.rotationPitch);
-		this.posX -= MathHelper.cos((rotationYaw / 180F) * 3.141593F) * 0.16F;
-		this.posY -= 0.1D;
-		this.posZ -= MathHelper.sin((rotationYaw / 180F) * 3.141593F) * 0.16F;
-		this.setPosition(this.posX, this.posY, this.posZ);
-		this.motionX = -MathHelper.sin((rotationYaw / 180F) * 3.141593F) * MathHelper.cos((rotationPitch / 180F) * 3.141593F);
-		this.motionY = -MathHelper.sin((rotationPitch / 180F) * 3.141593F);
-		this.motionZ = MathHelper.cos((rotationYaw / 180F) * 3.141593F) * MathHelper.cos((rotationPitch / 180F) * 3.141593F);
-		this.setPositionAndRotationDirect(motionX, motionY, motionZ, 1.8F, 1.0F, 0, false);
+	}
+	
+	public void shoot(double x, double y, double z, float velocity, float inaccuracy) {
+		float f = MathHelper.sqrt(x * x + y * y + z * z);
+		x = x / (double) f;
+		y = y / (double) f;
+		z = z / (double) f;
+		x = x + this.rand.nextGaussian() * 0.007499999832361937D * (double) inaccuracy;
+		y = y + this.rand.nextGaussian() * 0.007499999832361937D * (double) inaccuracy;
+		z = z + this.rand.nextGaussian() * 0.007499999832361937D * (double) inaccuracy;
+		x = x * (double) velocity;
+		y = y * (double) velocity;
+		z = z * (double) velocity;
+		this.motionX = x;
+		this.motionY = y;
+		this.motionZ = z;
+		float f1 = MathHelper.sqrt(x * x + z * z);
+		this.rotationYaw = (float) (MathHelper.atan2(x, z) * (180D / Math.PI));
+		this.rotationPitch = (float) (MathHelper.atan2(y, (double) f1) * (180D / Math.PI));
+		this.prevRotationYaw = this.rotationYaw;
+		this.prevRotationPitch = this.rotationPitch;
 	}
 
 	public static void registerFixesSnowball(DataFixer fixer) {

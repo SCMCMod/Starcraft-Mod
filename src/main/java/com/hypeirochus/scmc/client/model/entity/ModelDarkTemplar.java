@@ -1,6 +1,7 @@
 package com.hypeirochus.scmc.client.model.entity;
 
 import com.hypeirochus.api.client.render.model.Model;
+import com.hypeirochus.scmc.entity.living.EntityDarkTemplar;
 
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -456,13 +457,13 @@ public class ModelDarkTemplar extends Model {
 		GlStateManager.translate(-this.neck.rotationPointX * f5, -this.neck.rotationPointY * f5, -this.neck.rotationPointZ * f5);
 		this.neck.render(f5);
 		GlStateManager.popMatrix();
-//		if (entity instanceof EntityDarkTemplar) {
-//			if (((EntityDarkTemplar) entity).canSheathBlades()) {
-//				this.bladeLeft3.isHidden = false;
-//			} else {
-//				this.bladeLeft3.isHidden = true;
-//			}
-//		}
+		if (entity instanceof EntityDarkTemplar) {
+			if (((EntityDarkTemplar) entity).canSheathBlades()) {
+				this.bladeLeft3.isHidden = false;
+			} else {
+				this.bladeLeft3.isHidden = true;
+			}
+		}
 	}
 
 	@Override
@@ -476,14 +477,14 @@ public class ModelDarkTemplar extends Model {
 		legRight1.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.8662F) * 1 * swingProgressPrev(obj) - 0.5F;
 		legRight2.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.6662F) * 1 * swingProgressPrev(obj) + 0.5F;
 		armRight1.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.8662F + (float) Math.PI) * 0.5F * swingProgressPrev(obj);
-//		if (obj instanceof EntityDarkTemplar) {
-//			if (((EntityDarkTemplar) obj).canSheathBlades()) {
-//				this.lForearm.rotateAngleX = (float) Math.toRadians(15);
-//				this.rForearm.rotateAngleX = (float) Math.toRadians(15);
-//			} else {
-//				this.lForearm.rotateAngleX = (float) Math.toRadians(65);
-//				this.rForearm.rotateAngleX = (float) Math.toRadians(65);
-//			}
-//		}
+		if (obj instanceof EntityDarkTemplar) {
+			if (((EntityDarkTemplar) obj).canSheathBlades()) {
+				this.lForearm.rotateAngleX = (float) Math.toRadians(15);
+				this.rForearm.rotateAngleX = (float) Math.toRadians(15);
+			} else {
+				this.lForearm.rotateAngleX = (float) Math.toRadians(65);
+				this.rForearm.rotateAngleX = (float) Math.toRadians(65);
+			}
+		}
 	}
 }
