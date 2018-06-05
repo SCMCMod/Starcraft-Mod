@@ -1,15 +1,19 @@
 package com.hypeirochus.scmc.items;
 
+import com.elytradev.mirage.event.GatherLightsEvent;
+import com.elytradev.mirage.lighting.IEntityLightEventConsumer;
+import com.elytradev.mirage.lighting.Light;
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.enums.MetaHandler.EnergyType;
 import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemEnergy extends StarcraftItem implements IMetaRenderHandler {
+public class ItemEnergy extends StarcraftItem implements IMetaRenderHandler, IEntityLightEventConsumer {
 
 	public ItemEnergy() {
 		super("energy");
@@ -46,5 +50,10 @@ public class ItemEnergy extends StarcraftItem implements IMetaRenderHandler {
 	@Override
 	public String getName(int meta) {
 		return "energy." + MetaHandler.EnergyType.values()[meta].getName();
+	}
+
+	@Override
+	public void gatherLights(GatherLightsEvent evt, Entity entity) {
+		evt.add(Light.builder().pos(entity).color(0.0F, 0.94F, 1.0F).radius(3).build());
 	}
 }

@@ -1,7 +1,6 @@
 package com.hypeirochus.scmc.handlers;
 
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
-import com.hypeirochus.scmc.items.weapons.WeaponLightBase;
 import com.hypeirochus.scmc.items.weapons.WeaponMasterPsiBlade;
 import com.hypeirochus.scmc.items.weapons.WeaponPsiBlade;
 import com.hypeirochus.scmc.items.weapons.WeaponSwordBase;
@@ -41,7 +40,7 @@ public class WeaponHandler {
 
 		BALISONG = new WeaponSwordBase(WeaponMaterials.BALISONG_MATERIAL).setUnlocalizedName("balisong").setRegistryName("balisong").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 		MILITARY_KNIFE = new WeaponSwordBase(WeaponMaterials.MILITARYKNIFE_MATERIAL).setUnlocalizedName("terran.knife.military").setRegistryName("terran.knife.military").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		MONOMOLECULAR_BLADE = new WeaponLightBase(WeaponMaterials.MONOMOLECULARBLADE_MATERIAL).setUnlocalizedName("blade.monomolecular").setRegistryName("blade.monomolecular").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		MONOMOLECULAR_BLADE = new WeaponSwordBase(WeaponMaterials.MONOMOLECULARBLADE_MATERIAL).setUnlocalizedName("blade.monomolecular").setRegistryName("blade.monomolecular").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 		COPPER_SWORD = new WeaponSwordBase(WeaponMaterials.COPPER_MATERIAL).setUnlocalizedName("copper.sword").setRegistryName("copper.sword").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 		TITANIUM_SWORD = new WeaponSwordBase(WeaponMaterials.TITANIUM_MATERIAL).setUnlocalizedName("titanium.sword").setRegistryName("titanium.sword").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 		STEEL_SWORD = new WeaponSwordBase(WeaponMaterials.STEEL_MATERIAL).setUnlocalizedName("steel.sword").setRegistryName("steel.sword").setCreativeTab(StarcraftCreativeTabs.TERRAN);

@@ -1,5 +1,8 @@
 package com.hypeirochus.scmc.items.weapons;
 
+import com.elytradev.mirage.event.GatherLightsEvent;
+import com.elytradev.mirage.lighting.IEntityLightEventConsumer;
+import com.elytradev.mirage.lighting.Light;
 import com.hypeirochus.api.world.entity.player.inventory.Inventories;
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler;
@@ -9,10 +12,11 @@ import com.hypeirochus.scmc.handlers.SoundHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
-public class WeaponMasterPsiBlade extends WeaponLightBase {
+public class WeaponMasterPsiBlade extends ItemSword implements IEntityLightEventConsumer {
 
 	public WeaponMasterPsiBlade(ToolMaterial material) {
 		super(material);
@@ -43,5 +47,10 @@ public class WeaponMasterPsiBlade extends WeaponLightBase {
 	@Override
 	public int getMaxDamage() {
 		return 75;
+	}
+
+	@Override
+	public void gatherLights(GatherLightsEvent evt, Entity entity) {
+		evt.add(Light.builder().pos(entity).color(0.08F, 0.85F, 0.0F).radius(4).build());
 	}
 }

@@ -44,6 +44,9 @@ repositories {
     name = "ModMaven"
     url = "modmaven.k-4u.nl"
   }
+  maven {
+        url = 'https://repo.elytradev.com/'
+  }
 }
 
 dependencies {
@@ -51,6 +54,8 @@ dependencies {
   deobfProvided "mezz.jei:jei_1.12.2:4.9.2.196:api"
   // at runtime, use the full JEI jar
   runtime "mezz.jei:jei_1.12.2:4.9.2.196"
+  
+  compile 'com.elytradev:mirage:2.0.3-rc3-SNAPSHOT'
 }
 
 processResources {
