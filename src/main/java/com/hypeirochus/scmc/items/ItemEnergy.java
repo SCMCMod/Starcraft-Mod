@@ -1,15 +1,11 @@
 package com.hypeirochus.scmc.items;
 
-import com.elytradev.mirage.event.GatherLightsEvent;
-import com.elytradev.mirage.lighting.IEntityLightEventConsumer;
-import com.elytradev.mirage.lighting.Light;
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.enums.MetaHandler.EnergyType;
 import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 

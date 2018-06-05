@@ -1,7 +1,6 @@
 package com.hypeirochus.scmc.client.model.entity;
 
 import com.hypeirochus.api.client.render.model.Model;
-import com.hypeirochus.scmc.entity.living.EntityDarkTemplar;
 import com.hypeirochus.scmc.entity.living.EntityZeratul;
 
 import net.minecraft.client.model.ModelRenderer;

@@ -5,7 +5,6 @@ import com.hypeirochus.scmc.handlers.EnchantmentHandler;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraftforge.common.util.EnumHelper;
 
 public class StarcraftEnchantment extends Enchantment {
 	

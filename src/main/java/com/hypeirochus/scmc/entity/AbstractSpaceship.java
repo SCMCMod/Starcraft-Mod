@@ -33,7 +33,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -672,36 +671,8 @@ public class AbstractSpaceship extends Entity
         {
             float z = 0.0F;
             float x = 0.0F;
-            
             float y = 0.0F;
             
-//            if (FMLClientHandler.instance().getClient().gameSettings.keyBindForward.isKeyDown())
-//            {
-//            	switch(this.getControllingPassenger().getHorizontalFacing()) {
-//            	case SOUTH:
-//                    z += 0.12F;
-//            		break;
-//            	case NORTH:
-//                    z += 0.12F;
-//            		break;
-//            	case WEST:
-//                    x += 0.12F;
-//            		break;
-//            	case EAST:
-//                    x += 0.12F;
-//            		break;
-//
-//				default:
-//					break;
-//
-//            	}
-//            }
-//
-//            if (FMLClientHandler.instance().getClient().gameSettings.keyBindJump.isKeyDown())
-//            {
-//                y += 0.04F;
-//            }
-
             this.rotationYaw = this.getControllingPassenger().rotationYaw;
             this.rotationPitch = this.getControllingPassenger().rotationPitch;
 
@@ -710,10 +681,6 @@ public class AbstractSpaceship extends Entity
             x = (float) (0.12f*fVec.x);
             y = (float) (0.04f*fVec.y);
             z = (float) (0.12f*fVec.z);
-
-            System.out.println(fVec.x);
-            System.out.println(fVec.y);
-            System.out.println(fVec.z);
             
             if(Math.signum(fVec.x) == -1) {
                 this.motionX -= (double)(MathHelper.sin(-this.rotationYaw * 0.017453292F) * x);
