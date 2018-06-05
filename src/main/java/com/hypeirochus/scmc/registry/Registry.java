@@ -6,6 +6,7 @@ import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.handlers.AccessHandler;
 import com.hypeirochus.scmc.handlers.BiomeHandler;
 import com.hypeirochus.scmc.handlers.BlockHandler;
+import com.hypeirochus.scmc.handlers.EnchantmentHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
 import com.hypeirochus.scmc.handlers.RenderHandler;
 import com.hypeirochus.scmc.recipes.CustomRecipes;
@@ -15,6 +16,7 @@ import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.client.renderer.color.ItemColors;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.crafting.IRecipe;
@@ -84,6 +86,14 @@ public class Registry {
 		event.getRegistry().registerAll(CustomRecipes.getRecipes());
 		if (AccessHandler.isDeobfuscatedEnvironment()) {
 			Starcraft.logger().info("Registered Recipes");
+		}
+	}
+
+	@SubscribeEvent
+	public void registerEnchantments(RegistryEvent.Register<Enchantment> event) {
+		event.getRegistry().registerAll(EnchantmentHandler.getEnchantments());
+		if (AccessHandler.isDeobfuscatedEnvironment()) {
+			Starcraft.logger().info("Registered Enchantments");
 		}
 	}
 
