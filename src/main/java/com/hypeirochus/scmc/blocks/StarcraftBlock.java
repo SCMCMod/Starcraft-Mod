@@ -127,7 +127,9 @@ public class StarcraftBlock extends Block {
 		this.getCollisionBoxes(this.getActualState(blockState, world, pos), world, pos, boxes);
 
 		for (AxisAlignedBB axisalignedbb : boxes) {
-			list.add(this.rayTrace(pos, start, end, axisalignedbb));
+			if (axisalignedbb != NULL_AABB) {
+				list.add(this.rayTrace(pos, start, end, axisalignedbb));
+			}
 		}
 
 		RayTraceResult raytraceresult1 = null;
@@ -155,7 +157,7 @@ public class StarcraftBlock extends Block {
 		List<AxisAlignedBB> boxes = new ArrayList<AxisAlignedBB>();
 		this.getCollisionBoxes(this.getActualState(state, world, pos), world, pos, boxes);
 		for (AxisAlignedBB box : boxes) {
-			this.addCollisionBoxToList(pos, entityBox, collidingBoxes, box);
+			super.addCollisionBoxToList(pos, entityBox, collidingBoxes, box);
 		}
 	}
 
@@ -172,7 +174,7 @@ public class StarcraftBlock extends Block {
 	 *            The list to add the boxes to
 	 */
 	protected void getCollisionBoxes(IBlockState state, World world, BlockPos pos, List<AxisAlignedBB> boxes) {
-		boxes.add(this.getBoundingBox(state, world, pos));
+		boxes.add(this.getCollisionBoundingBox(state, world, pos));
 	}
 
 	public void setNames(String name) {
