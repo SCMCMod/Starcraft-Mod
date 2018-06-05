@@ -13,7 +13,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemEnergy extends StarcraftItem implements IMetaRenderHandler, IEntityLightEventConsumer {
+public class ItemEnergy extends StarcraftItem implements IMetaRenderHandler {
 
 	public ItemEnergy() {
 		super("energy");
@@ -50,10 +50,5 @@ public class ItemEnergy extends StarcraftItem implements IMetaRenderHandler, IEn
 	@Override
 	public String getName(int meta) {
 		return "energy." + MetaHandler.EnergyType.values()[meta].getName();
-	}
-
-	@Override
-	public void gatherLights(GatherLightsEvent evt, Entity entity) {
-		evt.add(Light.builder().pos(entity).color(0.0F, 0.94F, 1.0F).radius(3).build());
 	}
 }

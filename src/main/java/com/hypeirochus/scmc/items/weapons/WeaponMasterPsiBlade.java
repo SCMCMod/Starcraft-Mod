@@ -51,6 +51,6 @@ public class WeaponMasterPsiBlade extends ItemSword implements IEntityLightEvent
 
 	@Override
 	public void gatherLights(GatherLightsEvent evt, Entity entity) {
-		evt.add(Light.builder().pos(entity).color(0.08F, 0.85F, 0.0F).radius(4).build());
+		evt.add(Light.builder().pos(entity).color(0.08F, 0.85F, 0.0F).intensity(0.5F).radius(6).build());
 	}
 }
