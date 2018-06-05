@@ -34,7 +34,7 @@ public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predica
 
 	public float								offsetHealth;
 	public int									timeSinceHurt;
-	private static final DataParameter<Boolean>	SHEATH	= EntityDataManager.createKey(EntityZealot.class, DataSerializers.BOOLEAN);
+	private static final DataParameter<Boolean>	SHEATH	= EntityDataManager.createKey(EntityDarkTemplar.class, DataSerializers.BOOLEAN);
 
 	public EntityDarkTemplar(World world) {
 		super(world);

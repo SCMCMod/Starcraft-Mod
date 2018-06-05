@@ -22,6 +22,9 @@ import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.BossInfo;
@@ -31,7 +34,8 @@ import net.minecraft.world.World;
 public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<EntityLivingBase> {
 
 	private final BossInfoServer bossInfo = (BossInfoServer) (new BossInfoServer(this.getDisplayName(), BossInfo.Color.BLUE, BossInfo.Overlay.PROGRESS)).setDarkenSky(true);
-
+	private static final DataParameter<Boolean>	SHEATH	= EntityDataManager.createKey(EntityZeratul.class, DataSerializers.BOOLEAN);
+	
 	public EntityZeratul(World world) {
 		super(world);
 		setSize(1.5F, 2.5F);
@@ -52,6 +56,21 @@ public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<E
 	public void addTrackingPlayer(EntityPlayerMP player) {
 		super.addTrackingPlayer(player);
 		this.bossInfo.addPlayer(player);
+	}
+	
+	@Override
+	protected void entityInit() {
+		super.entityInit();
+
+		this.getDataManager().register(SHEATH, false);
+	}
+
+	public boolean canSheathBlades() {
+		return this.getDataManager().get(SHEATH);
+	}
+
+	protected void setSheathed(boolean bool) {
+		this.getDataManager().set(SHEATH, bool);
 	}
 
 	/**
@@ -134,5 +153,17 @@ public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<E
 	@Override
 	public int getTalkInterval() {
 		return 160;
+	}
+	
+	@Override
+	public void onUpdate() {
+		if (!world.isRemote) {
+			if (this.getAttackTarget() != null) {
+				this.setSheathed(true);
+			} else if (this.getAttackTarget() == null) {
+				this.setSheathed(false);
+			}
+		}
+		super.onUpdate();
 	}
 }

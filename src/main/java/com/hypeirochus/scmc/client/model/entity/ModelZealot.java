@@ -1,6 +1,7 @@
 package com.hypeirochus.scmc.client.model.entity;
 
 import com.hypeirochus.api.client.render.model.Model;
+import com.hypeirochus.scmc.entity.living.EntityZealot;
 
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -432,15 +433,15 @@ public class ModelZealot extends Model {
 		GlStateManager.popMatrix();
 		this.chestUpper.render(f5);
 		this.arcRight1_1.render(f5);
-//		if (entity instanceof EntityZealot) {
-//			if (((EntityZealot) entity).canSheathBlades()) {
-//				this.bladeLeft3.isHidden = false;
-//				this.bladeRight3.isHidden = false;
-//			} else {
-//				this.bladeLeft3.isHidden = true;
-//				this.bladeRight3.isHidden = true;
-//			}
-//		}
+		if (entity instanceof EntityZealot) {
+			if (((EntityZealot) entity).canSheathBlades()) {
+				this.bladeLeft3.isHidden = false;
+				this.bladeRight3.isHidden = false;
+			} else {
+				this.bladeLeft3.isHidden = true;
+				this.bladeRight3.isHidden = true;
+			}
+		}
 	}
 
 	@Override
@@ -454,14 +455,14 @@ public class ModelZealot extends Model {
 		legRight1.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.8662F) * 1 * swingProgressPrev(obj) - 0.5F;
 		legRight2.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.6662F) * 1 * swingProgressPrev(obj) + 0.5F;
 		armRight1.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.8662F + (float) Math.PI) * 0.5F * swingProgressPrev(obj);
-//		if (obj instanceof EntityZealot) {
-//			if (((EntityZealot) obj).canSheathBlades()) {
-//				this.lForearm.rotateAngleX = (float) Math.toRadians(15);
-//				this.rForearm.rotateAngleX = (float) Math.toRadians(15);
-//			} else {
-//				this.lForearm.rotateAngleX = (float) Math.toRadians(65);
-//				this.rForearm.rotateAngleX = (float) Math.toRadians(65);
-//			}
-//		}
+		if (obj instanceof EntityZealot) {
+			if (((EntityZealot) obj).canSheathBlades()) {
+				this.lForearm.rotateAngleX = (float) Math.toRadians(15);
+				this.rForearm.rotateAngleX = (float) Math.toRadians(15);
+			} else {
+				this.lForearm.rotateAngleX = (float) Math.toRadians(65);
+				this.rForearm.rotateAngleX = (float) Math.toRadians(65);
+			}
+		}
 	}
 }
