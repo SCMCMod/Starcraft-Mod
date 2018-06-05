@@ -668,43 +668,49 @@ public class AbstractSpaceship extends Entity
 
     private void controlShip()
     {
-        if (this.isBeingRidden())
+        if (this.isBeingRidden() && this.getControllingPassenger() != null)
         {
             float z = 0.0F;
             float x = 0.0F;
             
             float y = 0.0F;
             
-            if (FMLClientHandler.instance().getClient().gameSettings.keyBindForward.isKeyDown())
-            {
-            	switch(this.getControllingPassenger().getHorizontalFacing()) {
-            	case SOUTH:
-                    z += 0.12F;
-            		break;
-            	case NORTH:
-                    z += 0.12F;
-            		break;
-            	case WEST:
-                    x += 0.12F;
-            		break;
-            	case EAST:
-                    x += 0.12F;
-            		break;
-            		
-				default:
-					break;
-            	
-            	}
-            }
-            
-            if (FMLClientHandler.instance().getClient().gameSettings.keyBindJump.isKeyDown())
-            {
-                y += 0.04F;
-            }
+//            if (FMLClientHandler.instance().getClient().gameSettings.keyBindForward.isKeyDown())
+//            {
+//            	switch(this.getControllingPassenger().getHorizontalFacing()) {
+//            	case SOUTH:
+//                    z += 0.12F;
+//            		break;
+//            	case NORTH:
+//                    z += 0.12F;
+//            		break;
+//            	case WEST:
+//                    x += 0.12F;
+//            		break;
+//            	case EAST:
+//                    x += 0.12F;
+//            		break;
+//
+//				default:
+//					break;
+//
+//            	}
+//            }
+//
+//            if (FMLClientHandler.instance().getClient().gameSettings.keyBindJump.isKeyDown())
+//            {
+//                y += 0.04F;
+//            }
 
             this.rotationYaw = this.getControllingPassenger().rotationYaw;
             this.rotationPitch = this.getControllingPassenger().rotationPitch;
-            
+
+            Vec3d fVec = this.getLookVec();
+
+            x = (float) (0.12*fVec.xCoord);
+            y = (float) (0.12*fVec.yCoord);
+            z = (float) (0.12*fVec.zCoord);
+
             this.motionX += (double)(MathHelper.sin(-this.rotationYaw * 0.017453292F) * x);
             this.motionY += y*2;
             this.motionZ += (double)(MathHelper.cos(this.rotationYaw * 0.017453292F) * z);
