@@ -4,6 +4,7 @@ import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.capabilities.ColorProvider;
 import com.hypeirochus.scmc.capabilities.IColor;
 import com.hypeirochus.scmc.config.StarcraftConfig;
+import com.hypeirochus.scmc.entity.vehicles.AbstractSpaceship;
 import com.hypeirochus.scmc.items.ItemGun;
 
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -22,6 +23,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.world.BlockEvent;
@@ -92,5 +94,12 @@ public class StarcraftEventHandler {
 		gasCollectorIngot = map.registerSprite(new ResourceLocation(Starcraft.MOD_ID, "items/gas_collector/ingot"));
 		gasCollectorBlock = map.registerSprite(new ResourceLocation(Starcraft.MOD_ID, "items/gas_collector/block"));
 		gasCollectorFlesh = map.registerSprite(new ResourceLocation(Starcraft.MOD_ID, "items/gas_collector/flesh"));
+	}
+
+	@SubscribeEvent
+	public void onLivingRender(RenderLivingEvent.Pre e) {
+		if (e.getEntity().getRidingEntity() instanceof AbstractSpaceship) {
+			e.setCanceled(true);
+		}
 	}
 }
