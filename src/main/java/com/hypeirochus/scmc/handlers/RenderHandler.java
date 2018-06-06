@@ -45,7 +45,6 @@ import com.hypeirochus.scmc.client.model.entity.ModelZerglingPrimalDehakaBoost;
 import com.hypeirochus.scmc.client.model.entity.ModelZerglingRaptor;
 import com.hypeirochus.scmc.client.model.entity.ModelZerglingSwarmling;
 import com.hypeirochus.scmc.client.model.entity.projectile.ModelHydraliskSpike;
-import com.hypeirochus.scmc.client.model.entity.vehicle.ModelWraith;
 import com.hypeirochus.scmc.client.renderer.entity.RenderArtosilope;
 import com.hypeirochus.scmc.client.renderer.entity.RenderBrakk;
 import com.hypeirochus.scmc.client.renderer.entity.RenderBroodling;

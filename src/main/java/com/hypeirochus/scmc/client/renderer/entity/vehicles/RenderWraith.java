@@ -4,7 +4,6 @@ import com.hypeirochus.api.client.Resources;
 import com.hypeirochus.scmc.client.model.entity.vehicle.ModelWraith;
 import com.hypeirochus.scmc.entity.vehicles.EntityWraith;
 
-import net.minecraft.client.model.IMultipassModel;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;

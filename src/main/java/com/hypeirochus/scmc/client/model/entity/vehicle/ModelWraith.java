@@ -1,6 +1,8 @@
 package com.hypeirochus.scmc.client.model.entity.vehicle;
 
-import net.minecraft.client.model.ModelBase;
+import com.hypeirochus.api.client.render.model.Model;
+import com.hypeirochus.scmc.entity.vehicles.EntityWraith;
+
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
@@ -8,7 +10,7 @@ import net.minecraft.entity.Entity;
  * Wraith_SCMC - Alien
  * Created using Tabula 6.0.0
  */
-public class ModelWraith extends ModelBase {
+public class ModelWraith extends Model {
     public ModelRenderer shape22;
     public ModelRenderer shape22_1;
     public ModelRenderer shape22_2;
@@ -494,6 +496,8 @@ public class ModelWraith extends ModelBase {
 
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) { 
+		super.render(entity, f, f1, f2, f3, f4, f5);
+		this.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
         this.shape22.render(f5);
     }
 
@@ -504,5 +508,12 @@ public class ModelWraith extends ModelBase {
         modelRenderer.rotateAngleX = x;
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;
+    }
+    
+    @Override
+    public void render(Object obj) {
+    	if (obj instanceof EntityWraith) {
+    		this.shape22.rotateAngleX = ((EntityWraith) obj).rotationPitch * 0.01F;
+    	}
     }
 }
