@@ -7,5 +7,10 @@ public class EntityWraith extends AbstractSpaceship
 
 	public EntityWraith(World worldIn) {
 		super(worldIn);
+		
+		this.setBaseVelocity(10);
+		this.setBoostModifier(2);
+		
+		this.setCooldown(3);
 	}
 }

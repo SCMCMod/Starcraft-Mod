@@ -61,14 +61,55 @@ public class AbstractSpaceship extends Entity
     private boolean forwardInputDown;
     private boolean backInputDown;
     private double waterLevel;
-    private int cooldownInTicks = 3;
-    private int velX, velY, velZ = 10;
+    private int cooldownInSeconds = 0;
+    private int velX, velY, velZ = 1;
+    private int boostModifier = 1;
+    
+    public void setCooldown(int seconds) {
+    	this.cooldownInSeconds = seconds;
+    }
+    
+    public void setBaseVelocity(int velocity) {
+    	this.velX = this.velY = this.velZ = velocity;
+    }
+    
+    public void setXVelocity(int x) {
+    	this.velX = x;
+    }
+    
+    public void setYVelocity(int y) {
+    	this.velY = y;
+    }
+    
+    public void setZVelocity(int z) {
+    	this.velZ = z;
+    }
+    
+    public void setBoostModifier(int boostMod) {
+    	this.boostModifier = boostMod;
+    }
+    
+    public int getXVelocity() {
+    	return this.velX;
+    }
+    
+    public int getYVelocity() {
+    	return this.velY;
+    }
+    
+    public int getZVelocity() {
+    	return this.velZ;
+    }
+    
+    public int getBoostModifier() {
+    	return this.boostModifier;
+    }
     
     /**
-     * How much the boat should glide given the slippery blocks it's currently gliding over.
+     * How much the ship should glide given the slippery blocks it's currently gliding over.
      * Halved every tick.
      */
-    private float boatGlide;
+    private float shipGlide;
     private AbstractSpaceship.Status status;
     private AbstractSpaceship.Status previousStatus;
     private double lastYd;
@@ -110,7 +151,7 @@ public class AbstractSpaceship extends Entity
 
     /**
      * Returns a boundingBox used to collide the entity with other entities and blocks. This enables the entity to be
-     * pushable on contact, like boats or minecarts.
+     * pushable on contact, like ships or minecarts.
      */
     @Nullable
     public AxisAlignedBB getCollisionBox(Entity entityIn)
@@ -119,7 +160,7 @@ public class AbstractSpaceship extends Entity
     }
 
     /**
-     * Returns the <b>solid</b> collision bounding box for this entity. Used to make (e.g.) boats solid. Return null if
+     * Returns the <b>solid</b> collision bounding box for this entity. Used to make (e.g.) ships solid. Return null if
      * this entity is not solid.
      *  
      * For general purposes, use {@link #width} and {@link #height}.
@@ -175,7 +216,7 @@ public class AbstractSpaceship extends Entity
                 {
                     if (!flag && this.world.getGameRules().getBoolean("doEntityDrops"))
                     {
-                        //TODO this.dropItemWithOffset(this.getItemBoat(), 1, 0.0F);
+                        //TODO this.dropItemWithOffset(this.getItemShip(), 1, 0.0F);
                     }
 
                     this.setDead();
@@ -256,7 +297,7 @@ public class AbstractSpaceship extends Entity
     public void onUpdate()
     {
         this.previousStatus = this.status;
-        this.status = this.getBoatStatus();
+        this.status = this.getShipStatus();
 
         if (this.status != AbstractSpaceship.Status.UNDER_WATER && this.status != AbstractSpaceship.Status.UNDER_FLOWING_WATER)
         {
@@ -332,24 +373,7 @@ public class AbstractSpaceship extends Entity
             }
         }
     }
-
-    @Nullable
-    protected SoundEvent getPaddleSound()
-    {
-        switch (this.getBoatStatus())
-        {
-            case IN_WATER:
-            case UNDER_WATER:
-            case UNDER_FLOWING_WATER:
-                return SoundEvents.ENTITY_BOAT_PADDLE_WATER;
-            case ON_LAND:
-                return SoundEvents.ENTITY_BOAT_PADDLE_LAND;
-            case IN_AIR:
-            default:
-                return null;
-        }
-    }
-
+    
     private void tickLerp()
     {
         if (this.lerpSteps > 0 && !this.canPassengerSteer())
@@ -367,16 +391,16 @@ public class AbstractSpaceship extends Entity
     }
 
     /**
-     * Determines whether the boat is in water, gliding on land, or in air
+     * Determines whether the ship is in water, gliding on land, or in air
      */
-    private AbstractSpaceship.Status getBoatStatus()
+    private AbstractSpaceship.Status getShipStatus()
     {
-        AbstractSpaceship.Status entityboat$status = this.getUnderwaterStatus();
+        AbstractSpaceship.Status entityship$status = this.getUnderwaterStatus();
 
-        if (entityboat$status != null)
+        if (entityship$status != null)
         {
             this.waterLevel = this.getEntityBoundingBox().maxY;
-            return entityboat$status;
+            return entityship$status;
         }
         else if (this.checkInWater())
         {
@@ -384,11 +408,11 @@ public class AbstractSpaceship extends Entity
         }
         else
         {
-            float f = this.getBoatGlide();
+            float f = this.getShipGlide();
 
             if (f > 0.0F)
             {
-                this.boatGlide = f;
+                this.shipGlide = f;
                 return AbstractSpaceship.Status.ON_LAND;
             }
             else
@@ -461,9 +485,9 @@ public class AbstractSpaceship extends Entity
     }
 
     /**
-     * Decides how much the boat should be gliding on the land (based on any slippery blocks)
+     * Decides how much the ship should be gliding on the land (based on any slippery blocks)
      */
-    public float getBoatGlide()
+    public float getShipGlide()
     {
         AxisAlignedBB axisalignedbb = this.getEntityBoundingBox();
         AxisAlignedBB axisalignedbb1 = new AxisAlignedBB(axisalignedbb.minX, axisalignedbb.minY - 0.001D, axisalignedbb.minZ, axisalignedbb.maxX, axisalignedbb.minY, axisalignedbb.maxZ);
@@ -560,7 +584,7 @@ public class AbstractSpaceship extends Entity
     }
 
     /**
-     * Decides whether the boat is currently underwater.
+     * Decides whether the ship is currently underwater.
      */
     @Nullable
     private AbstractSpaceship.Status getUnderwaterStatus()
@@ -591,8 +615,8 @@ public class AbstractSpaceship extends Entity
                         {
                             if (((Integer)iblockstate.getValue(BlockLiquid.LEVEL)).intValue() != 0)
                             {
-                                AbstractSpaceship.Status entityboat$status = AbstractSpaceship.Status.UNDER_FLOWING_WATER;
-                                return entityboat$status;
+                                AbstractSpaceship.Status entityship$status = AbstractSpaceship.Status.UNDER_FLOWING_WATER;
+                                return entityship$status;
                             }
 
                             flag = true;
@@ -610,7 +634,7 @@ public class AbstractSpaceship extends Entity
     }
 
     /**
-     * Update the boat's speed, based on momentum.
+     * Update the ship's speed, based on momentum.
      */
     private void updateMotion()
     {
@@ -650,11 +674,11 @@ public class AbstractSpaceship extends Entity
             }
             else if (this.status == AbstractSpaceship.Status.ON_LAND)
             {
-                this.momentum = this.boatGlide;
+                this.momentum = this.shipGlide;
 
                 if (this.getControllingPassenger() instanceof EntityPlayer)
                 {
-                    this.boatGlide /= 2.0F;
+                    this.shipGlide /= 2.0F;
                 }
             }
 
@@ -677,49 +701,37 @@ public class AbstractSpaceship extends Entity
     {
         if (this.isBeingRidden() && this.getControllingPassenger() != null)
         {
-            float z = 0.0F;
-            float x = 0.0F;
-            float y = 0.0F;
             
             this.rotationYaw = this.getControllingPassenger().rotationYaw;
             this.rotationPitch = this.getControllingPassenger().rotationPitch;
 
             Vec3d fVec = this.getLookVec();
 
-            x = (float) (0.12f*fVec.x);
-            y = (float) (0.04f*fVec.y);
-            z = (float) (0.12f*fVec.z);
+            float x = (float) (0.12f*fVec.x);
+            float y = (float) (0.04f*fVec.y);
+            float z = (float) (0.12f*fVec.z);
             
             if(FMLClientHandler.instance().getClient().gameSettings.keyBindJump.isKeyDown()) {
-            	this.velX = 20;
-            	this.velY = 20;
-            	this.velZ = 20;
+                this.setVelocity(x*(this.getXVelocity() * this.getBoostModifier()), y*(this.getYVelocity() * this.getBoostModifier()), z*(this.getZVelocity() * this.getBoostModifier()));
+                
             }else {
-            	this.velX = 10;
-            	this.velY = 10;
-            	this.velZ = 10;
+                this.setVelocity(x*(this.getXVelocity()), y*(this.getYVelocity()), z*(this.getZVelocity()));
             }
             
-            this.setVelocity(x*this.velX, y*this.velY, z*this.velZ);
             
-            if(Mouse.isButtonDown(0) && this.cooldownInTicks == 0) {
+            if(Mouse.isButtonDown(0) && this.cooldownInSeconds == 0) {
         		world.playSound((EntityPlayer) this.getControllingPassenger(), this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ(), SoundHandler.FX_C14GAUSSRIFLE_FIRING, SoundCategory.PLAYERS, 3.0F, 1.5F);
-        		this.cooldownInTicks += 3;
+        		this.cooldownInSeconds += 3;
             }
         }
     }
     
     @Override
     public void onEntityUpdate() {
-    	if(this.ticksExisted % 20 == 0 && cooldownInTicks != 0) {
-        	cooldownInTicks--;
+    	if(this.ticksExisted % 20 == 0 && cooldownInSeconds != 0) {
+        	cooldownInSeconds--;
     	}
     	super.onEntityUpdate();
-    }
-    
-    @Override
-    public void fall(float distance, float damageMultiplier) {
-    	
     }
 
     public void updatePassenger(Entity passenger)
@@ -764,7 +776,7 @@ public class AbstractSpaceship extends Entity
     }
 
     /**
-     * Applies this boat's yaw to the given entity. Used to update the orientation of its passenger.
+     * Applies this ship's yaw to the given entity. Used to update the orientation of its passenger.
      */
     protected void applyYawToEntity(Entity entityToUpdate)
     {
@@ -785,21 +797,6 @@ public class AbstractSpaceship extends Entity
         this.applyYawToEntity(entityToUpdate);
     }
 
-    /**
-     * (abstract) Protected helper method to write subclass entity data to NBT.
-     */
-    protected void writeEntityToNBT(NBTTagCompound compound)
-    {
-       
-    }
-
-    /**
-     * (abstract) Protected helper method to read subclass entity data from NBT.
-     */
-    protected void readEntityFromNBT(NBTTagCompound compound)
-    {
-    }
-
     public boolean processInitialInteract(EntityPlayer player, EnumHand hand)
     {
         if (player.isSneaking())
@@ -808,7 +805,7 @@ public class AbstractSpaceship extends Entity
         }
         else
         {
-            if (!this.world.isRemote && this.outOfControlTicks < 60.0F)
+            if (!this.world.isRemote)
             {
                 player.startRiding(this);
             }
@@ -843,7 +840,7 @@ public class AbstractSpaceship extends Entity
                         {
                             for (int i = 0; i < 3; ++i)
                             {
-                               //TODO this.entityDropItem(new ItemStack(Item.getItemFromBlock(Blocks.PLANKS), 1, this.getBoatType().getMetadata()), 0.0F);
+                               //TODO this.entityDropItem(new ItemStack(Item.getItemFromBlock(Blocks.PLANKS), 1, this.getShipType().getMetadata()), 0.0F);
                             }
 
                             for (int j = 0; j < 2; ++j)
@@ -913,27 +910,18 @@ public class AbstractSpaceship extends Entity
 
     protected boolean canFitPassenger(Entity passenger)
     {
-        return this.getPassengers().size() < 2;
+        return this.getPassengers().size() < 1;
     }
 
     /**
      * For vehicles, the first passenger is generally considered the controller and "drives" the vehicle. For example,
-     * Pigs, Horses, and Boats are generally "steered" by the controlling passenger.
+     * Pigs, Horses, and Ships are generally "steered" by the controlling passenger.
      */
     @Nullable
     public Entity getControllingPassenger()
     {
         List<Entity> list = this.getPassengers();
         return list.isEmpty() ? null : (Entity)list.get(0);
-    }
-
-    @SideOnly(Side.CLIENT)
-    public void updateInputs(boolean p_184442_1_, boolean p_184442_2_, boolean p_184442_3_, boolean p_184442_4_)
-    {
-        this.leftInputDown = p_184442_1_;
-        this.rightInputDown = p_184442_2_;
-        this.forwardInputDown = p_184442_3_;
-        this.backInputDown = p_184442_4_;
     }
 
     public static enum Status
@@ -943,66 +931,6 @@ public class AbstractSpaceship extends Entity
         UNDER_FLOWING_WATER,
         ON_LAND,
         IN_AIR;
-    }
-
-    public static enum Type
-    {
-        OAK(BlockPlanks.EnumType.OAK.getMetadata(), "oak"),
-        SPRUCE(BlockPlanks.EnumType.SPRUCE.getMetadata(), "spruce"),
-        BIRCH(BlockPlanks.EnumType.BIRCH.getMetadata(), "birch"),
-        JUNGLE(BlockPlanks.EnumType.JUNGLE.getMetadata(), "jungle"),
-        ACACIA(BlockPlanks.EnumType.ACACIA.getMetadata(), "acacia"),
-        DARK_OAK(BlockPlanks.EnumType.DARK_OAK.getMetadata(), "dark_oak");
-
-        private final String name;
-        private final int metadata;
-
-        private Type(int metadataIn, String nameIn)
-        {
-            this.name = nameIn;
-            this.metadata = metadataIn;
-        }
-
-        public String getName()
-        {
-            return this.name;
-        }
-
-        public int getMetadata()
-        {
-            return this.metadata;
-        }
-
-        public String toString()
-        {
-            return this.name;
-        }
-
-        /**
-         * Get a boat type by it's enum ordinal
-         */
-        public static AbstractSpaceship.Type byId(int id)
-        {
-            if (id < 0 || id >= values().length)
-            {
-                id = 0;
-            }
-
-            return values()[id];
-        }
-
-        public static AbstractSpaceship.Type getTypeFromString(String nameIn)
-        {
-            for (int i = 0; i < values().length; ++i)
-            {
-                if (values()[i].getName().equals(nameIn))
-                {
-                    return values()[i];
-                }
-            }
-
-            return values()[0];
-        }
     }
 
     // Forge: Fix MC-119811 by instantly completing lerp on board
@@ -1020,4 +948,13 @@ public class AbstractSpaceship extends Entity
             this.rotationPitch = (float)this.lerpPitch;
         }
     }
+
+    @Override
+    protected void writeEntityToNBT(NBTTagCompound compound) {}
+
+    @Override
+    protected void readEntityFromNBT(NBTTagCompound compound) {}
+
+    @Override
+    public void fall(float distance, float damageMultiplier) {}
 }
