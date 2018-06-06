@@ -24,8 +24,10 @@ import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.client.event.TextureStitchEvent;
+import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -115,6 +117,13 @@ public class StarcraftEventHandler {
 	public void cameraPosition(EntityViewRenderEvent.FOVModifier e) {
 		if (e.getEntity().getRidingEntity() instanceof AbstractSpaceship) {
 			e.setFOV(90.0F);
+		}
+	}
+	
+	@SubscribeEvent
+	public void onHUDRender(RenderGameOverlayEvent.Pre e) {
+		if(e.getType() == ElementType.HOTBAR || e.getType() == ElementType.EXPERIENCE || e.getType() == ElementType.HEALTH) {
+			e.setCanceled(true);
 		}
 	}
 }
