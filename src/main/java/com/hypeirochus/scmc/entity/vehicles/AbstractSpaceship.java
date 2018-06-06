@@ -62,11 +62,16 @@ public class AbstractSpaceship extends Entity
     private boolean backInputDown;
     private double waterLevel;
     private int cooldownInSeconds = 0;
+    private int maxCooldown = 0;
     private int velX, velY, velZ = 1;
     private int boostModifier = 1;
     
     public void setCooldown(int seconds) {
     	this.cooldownInSeconds = seconds;
+    }
+    
+    public void setCooldownMax(int max) {
+    	this.maxCooldown = max;
     }
     
     public void setBaseVelocity(int velocity) {
@@ -87,6 +92,10 @@ public class AbstractSpaceship extends Entity
     
     public int getCooldown() {
     	return this.cooldownInSeconds;
+    }
+
+    public int getCooldownMax() {
+    	return this.maxCooldown;
     }
     
     public void setBoostModifier(int boostMod) {
@@ -725,16 +734,17 @@ public class AbstractSpaceship extends Entity
             
             if(Mouse.isButtonDown(1) && this.cooldownInSeconds == 0) {
         		world.playSound((EntityPlayer) this.getControllingPassenger(), this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ(), SoundHandler.FX_WRAITH_FIRING, SoundCategory.PLAYERS, 3.0F, 1.0F);
-        		this.cooldownInSeconds += this.getCooldown();
+        		this.cooldownInSeconds += this.getCooldownMax();
             }
         }
     }
     
     @Override
     public void onEntityUpdate() {
-    	if(this.ticksExisted % 20 == 0 && cooldownInSeconds != 0) {
-        	cooldownInSeconds--;
+    	if(this.ticksExisted % 20 == 0 && this.getCooldown() != 0) {
+        	this.setCooldown(this.getCooldown()-1);
     	}
+    	System.out.println(this.getCooldown());
     	super.onEntityUpdate();
     }
 
