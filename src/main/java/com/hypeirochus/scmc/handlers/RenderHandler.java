@@ -91,6 +91,7 @@ import com.hypeirochus.scmc.client.renderer.entity.RenderZerglingRaptor;
 import com.hypeirochus.scmc.client.renderer.entity.RenderZerglingSwarmling;
 import com.hypeirochus.scmc.client.renderer.entity.projectiles.RenderHydraliskSpike;
 import com.hypeirochus.scmc.client.renderer.entity.projectiles.RenderMutaliskGlaiveWurm;
+import com.hypeirochus.scmc.client.renderer.entity.vehicles.RenderScout;
 import com.hypeirochus.scmc.client.renderer.entity.vehicles.RenderWraith;
 import com.hypeirochus.scmc.client.renderer.tileentity.RendererBrambles;
 import com.hypeirochus.scmc.client.renderer.tileentity.RendererProtossWormhole;
@@ -143,6 +144,7 @@ import com.hypeirochus.scmc.entity.living.EntityZerglingPrimalDehaka;
 import com.hypeirochus.scmc.entity.living.EntityZerglingPrimalDehakaBoost;
 import com.hypeirochus.scmc.entity.living.EntityZerglingRaptor;
 import com.hypeirochus.scmc.entity.living.EntityZerglingSwarmling;
+import com.hypeirochus.scmc.entity.vehicles.EntityScout;
 import com.hypeirochus.scmc.entity.vehicles.EntityWraith;
 import com.hypeirochus.scmc.tileentity.TileEntityBrambles;
 import com.hypeirochus.scmc.tileentity.TileEntityProtossWormhole;
@@ -282,6 +284,8 @@ public class RenderHandler {
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityHydraliskSpike.class, new RenderHydraliskSpike(Minecraft.getMinecraft().getRenderManager(), new ModelHydraliskSpike()));
 		RenderingRegistry.registerEntityRenderingHandler(EntityMutaliskGlaiveWurm.class, new RenderMutaliskGlaiveWurm(Minecraft.getMinecraft().getRenderManager(), new ModelMutaliskGlaiveWurm()));
+
+		RenderingRegistry.registerEntityRenderingHandler(EntityScout.class, new RenderScout(Minecraft.getMinecraft().getRenderManager()));
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityWraith.class, new RenderWraith(Minecraft.getMinecraft().getRenderManager()));
 	}

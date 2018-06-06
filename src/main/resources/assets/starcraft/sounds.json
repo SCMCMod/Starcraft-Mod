@@ -621,5 +621,12 @@
 			"name": "starcraft:fx/wraith/wraith-firing",
 			"stream": false
 		}]
+	},
+	"fx.scout.firing": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:fx/scout/scout-firing",
+			"stream": false
+		}]
 	}
 }

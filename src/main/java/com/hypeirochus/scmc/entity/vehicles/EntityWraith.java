@@ -1,5 +1,8 @@
 package com.hypeirochus.scmc.entity.vehicles;
 
+import com.hypeirochus.scmc.handlers.SoundHandler;
+
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
 public class EntityWraith extends AbstractSpaceship
@@ -13,5 +16,10 @@ public class EntityWraith extends AbstractSpaceship
 		
 		this.setCooldown(1);
 		this.setCooldownMax(1);
+	}
+	
+	@Override
+	public SoundEvent getPrimaryFiringSound() {
+		return SoundHandler.FX_WRAITH_FIRING;
 	}
 }

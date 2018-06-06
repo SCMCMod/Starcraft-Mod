@@ -7,10 +7,8 @@ import javax.annotation.Nullable;
 import org.lwjgl.input.Mouse;
 
 import com.google.common.collect.Lists;
-import com.hypeirochus.scmc.handlers.SoundHandler;
 
 import net.minecraft.block.BlockLiquid;
-import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -20,7 +18,6 @@ import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityWaterMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -65,6 +62,7 @@ public class AbstractSpaceship extends Entity
     private int maxCooldown = 0;
     private int velX, velY, velZ = 1;
     private int boostModifier = 1;
+    private SoundEvent primaryFiring;
     
     public void setCooldown(int seconds) {
     	this.cooldownInSeconds = seconds;
@@ -116,6 +114,10 @@ public class AbstractSpaceship extends Entity
     
     public int getBoostModifier() {
     	return this.boostModifier;
+    }
+    
+    public SoundEvent getPrimaryFiringSound() {
+    	return this.primaryFiring;
     }
     
     /**
@@ -732,8 +734,8 @@ public class AbstractSpaceship extends Entity
             }
             
             
-            if(Mouse.isButtonDown(1) && this.cooldownInSeconds == 0) {
-        		world.playSound((EntityPlayer) this.getControllingPassenger(), this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ(), SoundHandler.FX_WRAITH_FIRING, SoundCategory.PLAYERS, 3.0F, 1.0F);
+            if(Mouse.isButtonDown(0) && this.cooldownInSeconds == 0) {
+        		world.playSound((EntityPlayer) this.getControllingPassenger(), this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ(), this.getPrimaryFiringSound(), SoundCategory.PLAYERS, 3.0F, 1.0F);
         		this.cooldownInSeconds += this.getCooldownMax();
             }
         }

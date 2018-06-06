@@ -92,6 +92,8 @@ public class SoundHandler {
 	public static SoundEvent	FX_C14GAUSSRIFLE_FIRING;
 	public static SoundEvent	FX_C14GAUSSRIFLE_OUT;
 
+	public static SoundEvent	FX_SCOUT_FIRING;
+	
 	public static SoundEvent	FX_WRAITH_FIRING;
 
 	public static SoundEvent	ENTITY_KAKARU_LIVE1;
@@ -224,6 +226,8 @@ public class SoundHandler {
 		FX_C14GAUSSRIFLE_FIRING = registerSound("fx.c14gaussrifle.firing");
 		FX_C14GAUSSRIFLE_OUT = registerSound("fx.c14gaussrifle.out");
 
+		FX_SCOUT_FIRING = registerSound("fx.scout.firing");
+		
 		FX_WRAITH_FIRING = registerSound("fx.wraith.firing");
 
 		BLOCK_FLESH_BREAK = registerSound("block.flesh.break");
