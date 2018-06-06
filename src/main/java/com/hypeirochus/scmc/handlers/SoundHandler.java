@@ -92,6 +92,8 @@ public class SoundHandler {
 	public static SoundEvent	FX_C14GAUSSRIFLE_FIRING;
 	public static SoundEvent	FX_C14GAUSSRIFLE_OUT;
 
+	public static SoundEvent	FX_WRAITH_FIRING;
+
 	public static SoundEvent	ENTITY_KAKARU_LIVE1;
 	public static SoundEvent	ENTITY_KAKARU_LIVE2;
 	public static SoundEvent	ENTITY_KAKARU_HURT;
@@ -221,6 +223,8 @@ public class SoundHandler {
 		FX_WARPBLADE_ATTACK = registerSound("fx.warpblade.attack");
 		FX_C14GAUSSRIFLE_FIRING = registerSound("fx.c14gaussrifle.firing");
 		FX_C14GAUSSRIFLE_OUT = registerSound("fx.c14gaussrifle.out");
+
+		FX_WRAITH_FIRING = registerSound("fx.wraith.firing");
 
 		BLOCK_FLESH_BREAK = registerSound("block.flesh.break");
 		BLOCK_FLESH_STEP = registerSound("block.flesh.step");

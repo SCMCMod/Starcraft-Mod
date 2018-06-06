@@ -85,6 +85,10 @@ public class AbstractSpaceship extends Entity
     	this.velZ = z;
     }
     
+    public int getCooldown() {
+    	return this.cooldownInSeconds;
+    }
+    
     public void setBoostModifier(int boostMod) {
     	this.boostModifier = boostMod;
     }
@@ -719,9 +723,9 @@ public class AbstractSpaceship extends Entity
             }
             
             
-            if(Mouse.isButtonDown(0) && this.cooldownInSeconds == 0) {
-        		world.playSound((EntityPlayer) this.getControllingPassenger(), this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ(), SoundHandler.FX_C14GAUSSRIFLE_FIRING, SoundCategory.PLAYERS, 3.0F, 1.5F);
-        		this.cooldownInSeconds += 3;
+            if(Mouse.isButtonDown(1) && this.cooldownInSeconds == 0) {
+        		world.playSound((EntityPlayer) this.getControllingPassenger(), this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ(), SoundHandler.FX_WRAITH_FIRING, SoundCategory.PLAYERS, 3.0F, 1.0F);
+        		this.cooldownInSeconds += this.getCooldown();
             }
         }
     }

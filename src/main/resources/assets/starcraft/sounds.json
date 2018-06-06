@@ -614,5 +614,12 @@
             "name": "starcraft:mob/mutalisk/mutalisk-death",
             "stream": false
         }]
-    }
+    },
+	"fx.wraith.firing": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:fx/wraith/wraith-firing",
+			"stream": false
+		}]
+	}
 }
