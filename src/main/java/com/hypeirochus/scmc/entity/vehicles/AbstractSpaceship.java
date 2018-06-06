@@ -45,7 +45,6 @@ public class AbstractSpaceship extends Entity
     private static final DataParameter<Float> DAMAGE_TAKEN = EntityDataManager.<Float>createKey(AbstractSpaceship.class, DataSerializers.FLOAT);
     /** How much of current speed to retain. Value zero to one. */
     private float momentum;
-    private float outOfControlTicks;
     private float deltaRotation;
     private int lerpSteps;
     private double lerpX;
@@ -53,16 +52,20 @@ public class AbstractSpaceship extends Entity
     private double lerpZ;
     private double lerpYaw;
     private double lerpPitch;
-    private boolean leftInputDown;
-    private boolean rightInputDown;
-    private boolean forwardInputDown;
-    private boolean backInputDown;
     private double waterLevel;
     private int cooldownInSeconds = 0;
     private int maxCooldown = 0;
-    private int velX, velY, velZ = 1;
-    private int boostModifier = 1;
     private SoundEvent primaryFiring;
+    private float speed = 0;
+    private float maxSpeed = 10;
+    
+    public void setMaxSpeed(float max) {
+    	this.maxSpeed = max;
+    }
+    
+    public float getMaxSpeed() {
+    	return this.maxSpeed;
+    }
     
     public void setCooldown(int seconds) {
     	this.cooldownInSeconds = seconds;
@@ -72,48 +75,12 @@ public class AbstractSpaceship extends Entity
     	this.maxCooldown = max;
     }
     
-    public void setBaseVelocity(int velocity) {
-    	this.velX = this.velY = this.velZ = velocity;
-    }
-    
-    public void setXVelocity(int x) {
-    	this.velX = x;
-    }
-    
-    public void setYVelocity(int y) {
-    	this.velY = y;
-    }
-    
-    public void setZVelocity(int z) {
-    	this.velZ = z;
-    }
-    
     public int getCooldown() {
     	return this.cooldownInSeconds;
     }
 
     public int getCooldownMax() {
     	return this.maxCooldown;
-    }
-    
-    public void setBoostModifier(int boostMod) {
-    	this.boostModifier = boostMod;
-    }
-    
-    public int getXVelocity() {
-    	return this.velX;
-    }
-    
-    public int getYVelocity() {
-    	return this.velY;
-    }
-    
-    public int getZVelocity() {
-    	return this.velZ;
-    }
-    
-    public int getBoostModifier() {
-    	return this.boostModifier;
     }
     
     public SoundEvent getPrimaryFiringSound() {
@@ -313,20 +280,6 @@ public class AbstractSpaceship extends Entity
     {
         this.previousStatus = this.status;
         this.status = this.getShipStatus();
-
-        if (this.status != AbstractSpaceship.Status.UNDER_WATER && this.status != AbstractSpaceship.Status.UNDER_FLOWING_WATER)
-        {
-            this.outOfControlTicks = 0.0F;
-        }
-        else
-        {
-            ++this.outOfControlTicks;
-        }
-
-        if (!this.world.isRemote && this.outOfControlTicks >= 60.0F)
-        {
-            this.removePassengers();
-        }
 
         if (this.getTimeSinceHit() > 0)
         {
@@ -723,17 +676,29 @@ public class AbstractSpaceship extends Entity
             Vec3d fVec = this.getLookVec();
 
             float x = (float) (0.12f*fVec.x);
-            float y = (float) (0.04f*fVec.y);
+            float y = (float) (0.12f*fVec.y);
             float z = (float) (0.12f*fVec.z);
             
             if(FMLClientHandler.instance().getClient().gameSettings.keyBindJump.isKeyDown()) {
-                this.setVelocity(x*(this.getXVelocity() * this.getBoostModifier()), y*(this.getYVelocity() * this.getBoostModifier()), z*(this.getZVelocity() * this.getBoostModifier()));
+            	if(speed < this.getMaxSpeed()) {
+            		speed += 0.01F;
+            		speed *= 1.02F;
+            	}else {
+            		speed = this.getMaxSpeed();
+            	}
+                this.setVelocity(x*this.speed, y*this.speed, z*this.speed);
                 
             }else {
-                this.setVelocity(x*(this.getXVelocity()), y*(this.getYVelocity()), z*(this.getZVelocity()));
+            	if(speed > 0) {
+            		speed -= 0.01F;
+            		speed *= 0.999F;
+            	}else {
+            		speed = 0;
+            	}
+            	this.setVelocity(x*this.speed, y*this.speed, z*this.speed);
             }
             
-            
+            System.out.println(this.speed);
             if(Mouse.isButtonDown(0) && this.cooldownInSeconds == 0) {
         		world.playSound((EntityPlayer) this.getControllingPassenger(), this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ(), this.getPrimaryFiringSound(), SoundCategory.PLAYERS, 3.0F, 1.0F);
         		this.cooldownInSeconds += this.getCooldownMax();

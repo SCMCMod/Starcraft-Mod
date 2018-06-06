@@ -23,6 +23,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
@@ -100,6 +101,20 @@ public class StarcraftEventHandler {
 	public void onLivingRender(RenderLivingEvent.Pre e) {
 		if (e.getEntity().getRidingEntity() instanceof AbstractSpaceship) {
 			e.setCanceled(true);
+		}
+	}
+	
+	@SubscribeEvent
+	public void cameraPosition(EntityViewRenderEvent.CameraSetup e) {
+		if (e.getEntity().getRidingEntity() instanceof AbstractSpaceship) {
+			e.setPitch(30.0F);
+		}
+	}
+	
+	@SubscribeEvent
+	public void cameraPosition(EntityViewRenderEvent.FOVModifier e) {
+		if (e.getEntity().getRidingEntity() instanceof AbstractSpaceship) {
+			e.setFOV(90.0F);
 		}
 	}
 }

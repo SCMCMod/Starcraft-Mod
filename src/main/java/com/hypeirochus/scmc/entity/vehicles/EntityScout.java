@@ -10,12 +10,11 @@ public class EntityScout extends AbstractSpaceship
 
 	public EntityScout(World worldIn) {
 		super(worldIn);
-
-		this.setBaseVelocity(6);
-		this.setBoostModifier(2);
 		
-		this.setCooldown(4);
-		this.setCooldownMax(4);
+		this.setCooldown(3);
+		this.setCooldownMax(3);
+		
+		this.setMaxSpeed(7);
 	}
 	
 	@Override
