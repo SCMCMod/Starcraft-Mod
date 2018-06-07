@@ -28,9 +28,6 @@ public class VehiclePrimaryWeapon implements IWeaponSystem {
 	private void damageEntity(World world, Entity entity, EntityLivingBase hitEntity) {
 		if (world.isRemote) {
 			if (hitEntity != null) {
-				System.out.println(entity);
-				System.out.println(hitEntity);
-				System.out.println(this.damage);
 				NetworkHandler.sendToServer(new MessageHurtEntity(hitEntity, this.getWeaponDamage()));
 				hitEntity.hurtResistantTime = 0;
 			}

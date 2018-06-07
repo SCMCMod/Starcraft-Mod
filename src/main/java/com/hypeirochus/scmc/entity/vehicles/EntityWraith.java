@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 public class EntityWraith extends AbstractSpaceship
 {
 	
-	VehiclePrimaryWeapon wraithPrimary = new VehiclePrimaryWeapon(this, "Burst Laser", 8, 100);
+	VehiclePrimaryWeapon wraithPrimary = new VehiclePrimaryWeapon(this, "Burst Laser", 8, 200);
 
 	public EntityWraith(World worldIn) {
 		super(worldIn);
