@@ -2,19 +2,14 @@ package com.ruthless_bug13.rapi.api.energy.base;
 
 import java.util.List;
 
-import javax.annotation.Nullable;
-
 import com.hypeirochus.scmc.items.StarcraftItem;
 import com.ruthless_bug13.rapi.api.ValueStorageHandler;
 import com.ruthless_bug13.rapi.api.energy.IEnergyItem;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 

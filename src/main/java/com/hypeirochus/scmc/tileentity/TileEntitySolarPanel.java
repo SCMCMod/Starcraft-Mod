@@ -2,12 +2,10 @@ package com.hypeirochus.scmc.tileentity;
 
 import java.util.List;
 
-import com.ruthless_bug13.rapi.api.energy.EnergyItemHandler;
 import com.ruthless_bug13.rapi.api.tileentity.TileEntityEnergy;
 import com.ruthless_bug13.rapi.api.util.SolarUtil;
 
 import net.minecraft.util.ITickable;
-import net.minecraft.util.math.MathHelper;
 
 /**
  * @author Ruthless_Bug13

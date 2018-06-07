@@ -1,6 +1,5 @@
 package com.ruthless_bug13.rapi.api;
 
-import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;

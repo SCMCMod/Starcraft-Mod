@@ -1,21 +1,5 @@
 package com.ruthless_bug13.rapi.api.energy.base.examples;
 
-import java.util.List;
-
-import com.ruthless_bug13.rapi.api.energy.EnergyItemHandler;
-import com.ruthless_bug13.rapi.api.energy.IEnergyItem;
-import com.ruthless_bug13.rapi.api.machine.IFuelHolder;
-import com.ruthless_bug13.rapi.api.tileentity.TileEntityEnergy;
-import com.ruthless_bug13.rapi.api.util.ChargeDepot;
-import com.ruthless_bug13.rapi.api.util.ItemStackUtil;
-
-import net.minecraft.block.Block;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntityFurnace;
-import net.minecraft.util.ITickable;
-import net.minecraft.world.World;
-
 /*public class TileEntityCoalGenerator extends TileEntityEnergy implements ITickable, IFuelHolder
 {
 	private int MaxBurnTime;

@@ -5,6 +5,7 @@ import com.hypeirochus.scmc.entity.vehicles.EntityScout;
 
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.math.MathHelper;
 
 /**
  * Scout_SCMC - Alien
@@ -282,11 +283,27 @@ public class ModelScout extends Model {
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;
     }
-
     @Override
     public void render(Object obj) {
     	if (obj instanceof EntityScout) {
     		this.Main.rotateAngleX = ((EntityScout) obj).rotationPitch * 0.01F;
+    		
+    		
+    		if(this.isTurning(obj)) {
+        		this.Main.rotateAngleZ += 0.005F * this.getTurnDirection(obj);
+        		System.out.println(this.Main.rotateAngleZ);
+    		}else {
+        		this.Main.rotateAngleZ *= 0.98F;
+    		}
+    		this.Main.rotateAngleZ = MathHelper.clamp(this.Main.rotateAngleZ, -0.45F, 0.45F);
     	}
+    }
+    
+    public boolean isTurning(Object obj) {
+    	return (int) MathHelper.clamp(((EntityScout) obj).rotationYaw - ((EntityScout) obj).prevRotationYaw, -1, 1) != 0;
+    }
+    
+    public int getTurnDirection(Object obj) {
+    	return (int) -Math.signum(MathHelper.clamp(((EntityScout) obj).rotationYaw - ((EntityScout) obj).prevRotationYaw, -10, 10));
     }
 }

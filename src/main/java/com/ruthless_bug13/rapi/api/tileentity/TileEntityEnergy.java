@@ -1,19 +1,14 @@
 package com.ruthless_bug13.rapi.api.tileentity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.ruthless_bug13.rapi.api.energy.IEnergyBlock;
 
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.Style;
-import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 public abstract class TileEntityEnergy extends TileEntity implements IEnergyBlock, ITickable

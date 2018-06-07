@@ -3,8 +3,6 @@ package com.ruthless_bug13.rapi.api.pipe;
 import com.ruthless_bug13.rapi.api.IOverFlowable;
 import com.ruthless_bug13.rapi.api.machine.IAugmentable;
 
-import net.minecraftforge.fluids.FluidStack;
-
 /**
  * @author Ruthless_Bug13
  * 

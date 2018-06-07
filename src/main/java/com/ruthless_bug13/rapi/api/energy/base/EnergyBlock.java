@@ -2,19 +2,10 @@ package com.ruthless_bug13.rapi.api.energy.base;
 
 import com.hypeirochus.scmc.blocks.RegistryType;
 import com.hypeirochus.scmc.blocks.StarcraftBlock;
-import com.ruthless_bug13.rapi.api.energy.IEnergyBlock;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
