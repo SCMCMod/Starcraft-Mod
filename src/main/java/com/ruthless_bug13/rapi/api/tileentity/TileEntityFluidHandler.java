@@ -28,14 +28,14 @@ public abstract class TileEntityFluidHandler extends TileEntityEnergy implements
 	protected IFluidTankProperties[] properties;
 	private AdvFluidTank handler;
 	
-	public TileEntityFluidHandler(String name, int invSize, int fluidCapacity) 
+	public TileEntityFluidHandler(String name, int fluidCapacity) 
 	{
-		super(name, invSize, 0, 0, 0, 0);
+		this(name, 0, 0, 0, 0, 0, 0);
 	}
 	
 	public TileEntityFluidHandler(String name, int invSize, int fluidCapacity, double maxEnergy, double energyPerTick, double maxInput, double maxOutput) 
 	{
-		super(name, maxEnergy, energyPerTick, invSize, maxInput, maxOutput);
+		super(name, maxEnergy, energyPerTick, maxInput, maxOutput);
 		handler = new AdvFluidTank(fluidCapacity);
 	}
 
