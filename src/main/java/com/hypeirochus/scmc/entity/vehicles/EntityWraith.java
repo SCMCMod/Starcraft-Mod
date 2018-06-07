@@ -13,11 +13,9 @@ public class EntityWraith extends AbstractSpaceship
 
 	public EntityWraith(World worldIn) {
 		super(worldIn);
-		
-		this.setCooldown(1);
-		this.setCooldownMax(1);
-		
-		this.setMaxSpeed(10);
+
+		this.setCooldownMax(34);
+		this.setMaxSpeed(9);
 	}
 	
 	@Override

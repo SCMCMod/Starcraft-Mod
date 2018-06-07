@@ -55,8 +55,8 @@ public class AbstractSpaceship extends Entity
     private double lerpPitch;
     private double waterLevel;
     
-    private int cooldownInSeconds = 0;
-    private int maxCooldown = 0;
+    private boolean isCoolingDown;
+    private float maxCooldown = 0;
     
     private SoundEvent primaryFiring;
     
@@ -71,19 +71,19 @@ public class AbstractSpaceship extends Entity
     	return this.maxSpeed;
     }
     
-    public void setCooldown(int seconds) {
-    	this.cooldownInSeconds = seconds;
+    public void setCoolingDown(boolean flag) {
+    	this.isCoolingDown = flag;
     }
     
-    public void setCooldownMax(int max) {
+    public void setCooldownMax(float max) {
     	this.maxCooldown = max;
     }
     
-    public int getCooldown() {
-    	return this.cooldownInSeconds;
+    public boolean isCoolingDown() {
+    	return this.isCoolingDown;
     }
 
-    public int getCooldownMax() {
+    public float getCooldownMax() {
     	return this.maxCooldown;
     }
     
@@ -706,18 +706,18 @@ public class AbstractSpaceship extends Entity
             	this.setVelocity(x*this.speed, y*this.speed, z*this.speed);
             }
             
-            if(Mouse.isButtonDown(0) && this.cooldownInSeconds == 0) {
+            if(Mouse.isButtonDown(0) && this.isCoolingDown() == false) {
             	this.getPrimaryWeapon().fire();
         		world.playSound((EntityPlayer) this.getControllingPassenger(), this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ(), this.getPrimaryFiringSound(), SoundCategory.PLAYERS, 3.0F, 1.0F);
-        		this.cooldownInSeconds += this.getCooldownMax();
+        		this.setCoolingDown(true);
             }
         }
     }
     
     @Override
     public void onEntityUpdate() {
-    	if(this.ticksExisted % 20 == 0 && this.getCooldown() != 0) {
-        	this.setCooldown(this.getCooldown()-1);
+    	if(this.ticksExisted % this.getCooldownMax() == 0 && this.isCoolingDown()) {
+        	this.setCoolingDown(false);
     	}
     	
     	super.onEntityUpdate();
