@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import org.lwjgl.input.Mouse;
 
 import com.google.common.collect.Lists;
+import com.hypeirochus.scmc.vehciles.weapons.VehiclePrimaryWeapon;
 
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
@@ -53,9 +54,12 @@ public class AbstractSpaceship extends Entity
     private double lerpYaw;
     private double lerpPitch;
     private double waterLevel;
+    
     private int cooldownInSeconds = 0;
     private int maxCooldown = 0;
+    
     private SoundEvent primaryFiring;
+    
     private float speed = 0;
     private float maxSpeed = 10;
     
@@ -81,6 +85,10 @@ public class AbstractSpaceship extends Entity
 
     public int getCooldownMax() {
     	return this.maxCooldown;
+    }
+    
+    public VehiclePrimaryWeapon getPrimaryWeapon() {
+    	return null;
     }
     
     public SoundEvent getPrimaryFiringSound() {
@@ -699,6 +707,7 @@ public class AbstractSpaceship extends Entity
             }
             
             if(Mouse.isButtonDown(0) && this.cooldownInSeconds == 0) {
+            	this.getPrimaryWeapon().fire();
         		world.playSound((EntityPlayer) this.getControllingPassenger(), this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ(), this.getPrimaryFiringSound(), SoundCategory.PLAYERS, 3.0F, 1.0F);
         		this.cooldownInSeconds += this.getCooldownMax();
             }
