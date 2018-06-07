@@ -1,6 +1,7 @@
 package com.hypeirochus.scmc.vehciles.weapons;
 
-import com.hypeirochus.scmc.damagesource.StarcraftDamageSources;
+import com.hypeirochus.scmc.network.NetworkHandler;
+import com.hypeirochus.scmc.network.message.MessageHurtEntity;
 import com.ocelot.api.utils.WorldUtils;
 
 import net.minecraft.entity.Entity;
@@ -14,14 +15,12 @@ public class VehiclePrimaryWeapon implements IWeaponSystem {
 
 	Entity vehicle;
 	private String name;
-	private float speed;
 	private float damage;
 	private int range;
 	
-	public VehiclePrimaryWeapon(Entity vehicle, String name, float speed, float damage, int range) {
+	public VehiclePrimaryWeapon(Entity vehicle, String name, float damage, int range) {
 		this.vehicle = vehicle;
 		this.name = name;
-		this.speed = speed;
 		this.damage = damage;
 		this.range = range;
 	}
@@ -32,7 +31,7 @@ public class VehiclePrimaryWeapon implements IWeaponSystem {
 				System.out.println(entity);
 				System.out.println(hitEntity);
 				System.out.println(this.damage);
-				hitEntity.attackEntityFrom(StarcraftDamageSources.causeBulletDamage(entity), this.getWeaponDamage());
+				NetworkHandler.sendToServer(new MessageHurtEntity(hitEntity, this.getWeaponDamage()));
 				hitEntity.hurtResistantTime = 0;
 			}
 		}
@@ -61,7 +60,6 @@ public class VehiclePrimaryWeapon implements IWeaponSystem {
 
 	@Override
 	public void fire() {
-
 		RayTraceResult ray = WorldUtils.getRay(this.getWeaponRange());
 		Entity entity = ray.entityHit;
 		
@@ -71,7 +69,7 @@ public class VehiclePrimaryWeapon implements IWeaponSystem {
 			this.takeAmmo(this.vehicle.world);
 		}
 		
-		if (entity != null) {
+		if (entity != null && entity instanceof EntityLivingBase) {
 			EntityLivingBase hitEntity = (EntityLivingBase) this.vehicle.getEntityWorld().getEntityByID(entity.getEntityId());
 			
 			this.damageEntity(this.vehicle.world, this.vehicle, hitEntity);

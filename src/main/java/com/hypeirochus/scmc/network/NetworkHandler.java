@@ -2,6 +2,7 @@ package com.hypeirochus.scmc.network;
 
 import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.network.message.MessageGetFurnaceData;
+import com.hypeirochus.scmc.network.message.MessageHurtEntity;
 import com.hypeirochus.scmc.network.message.MessageKillEntity;
 import com.hypeirochus.scmc.network.message.MessageMorphLarva;
 import com.hypeirochus.scmc.network.message.MessageReturnFurnaceData;
@@ -38,6 +39,7 @@ public class NetworkHandler {
 		registerMessage(new MessageSpawnItem(), MessageSpawnItem.class, Side.SERVER);
 		registerMessage(new MessageSetPlayerShieldServer(), MessageSetPlayerShieldServer.class, Side.SERVER);
 		registerMessage(new MessageGetFurnaceData.Handler(), MessageGetFurnaceData.class, Side.SERVER);
+		registerMessage(new MessageHurtEntity(), MessageHurtEntity.class, Side.SERVER);
 		registerMessage(new MessageKillEntity(), MessageKillEntity.class, Side.SERVER);
 	}
 
