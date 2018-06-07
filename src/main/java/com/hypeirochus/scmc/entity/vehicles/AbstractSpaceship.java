@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
 import org.lwjgl.input.Mouse;
 
 import com.google.common.collect.Lists;
-import com.hypeirochus.scmc.vehciles.weapons.VehiclePrimaryWeapon;
+import com.hypeirochus.scmc.vehciles.weapons.VehicleWeapon;
 
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
@@ -87,7 +87,11 @@ public class AbstractSpaceship extends Entity
     	return this.maxCooldown;
     }
     
-    public VehiclePrimaryWeapon getPrimaryWeapon() {
+    public VehicleWeapon getPrimaryWeapon() {
+    	return null;
+    }
+    
+    public VehicleWeapon getSecondaryWeapon() {
     	return null;
     }
     
@@ -717,6 +721,11 @@ public class AbstractSpaceship extends Entity
             
             if(Mouse.isButtonDown(0) && this.isCoolingDown() == false) {
             	this.getPrimaryWeapon().fire();
+        		world.playSound((EntityPlayer) this.getControllingPassenger(), this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ(), this.getPrimaryFiringSound(), SoundCategory.PLAYERS, 3.0F, 1.0F);
+        		this.setCoolingDown(true);
+            }
+            else if(Mouse.isButtonDown(1) && this.isCoolingDown() == false) {
+            	this.getSecondaryWeapon().fire();
         		world.playSound((EntityPlayer) this.getControllingPassenger(), this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ(), this.getPrimaryFiringSound(), SoundCategory.PLAYERS, 3.0F, 1.0F);
         		this.setCoolingDown(true);
             }

@@ -11,14 +11,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class VehiclePrimaryWeapon implements IWeaponSystem {
+public class VehicleWeapon implements IWeaponSystem {
 
 	Entity vehicle;
 	private String name;
 	private float damage;
 	private int range;
 	
-	public VehiclePrimaryWeapon(Entity vehicle, String name, float damage, int range) {
+	public VehicleWeapon(Entity vehicle, String name, float damage, int range) {
 		this.vehicle = vehicle;
 		this.name = name;
 		this.damage = damage;

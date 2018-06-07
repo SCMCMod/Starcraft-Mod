@@ -1,7 +1,7 @@
 package com.hypeirochus.scmc.entity.vehicles;
 
 import com.hypeirochus.scmc.handlers.SoundHandler;
-import com.hypeirochus.scmc.vehciles.weapons.VehiclePrimaryWeapon;
+import com.hypeirochus.scmc.vehciles.weapons.VehicleWeapon;
 
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 public class EntityWraith extends AbstractSpaceship
 {
 	
-	VehiclePrimaryWeapon wraithPrimary = new VehiclePrimaryWeapon(this, "Burst Laser", 8, 200);
+	VehicleWeapon wraithPrimary = new VehicleWeapon(this, "Burst Laser", 8, 200);
 
 	public EntityWraith(World worldIn) {
 		super(worldIn);
@@ -24,7 +24,7 @@ public class EntityWraith extends AbstractSpaceship
 	}
 	
 	@Override
-	public VehiclePrimaryWeapon getPrimaryWeapon() {
+	public VehicleWeapon getPrimaryWeapon() {
 		 return wraithPrimary;
 	}
 }
