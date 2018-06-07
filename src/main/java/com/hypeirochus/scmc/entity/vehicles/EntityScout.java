@@ -11,8 +11,7 @@ public class EntityScout extends AbstractSpaceship
 	public EntityScout(World worldIn) {
 		super(worldIn);
 		
-		this.setCooldownMax(3);
-		this.setCooldownMax(3);
+		this.setCooldownMax(34);
 		
 		this.setMaxSpeed(7);
 	}

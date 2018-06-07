@@ -687,7 +687,7 @@ public class AbstractSpaceship extends Entity
             float y = (float) (0.12f*fVec.y);
             float z = (float) (0.12f*fVec.z);
             
-            if(FMLClientHandler.instance().getClient().gameSettings.keyBindJump.isKeyDown()) {
+            if(FMLClientHandler.instance().getClient().gameSettings.keyBindForward.isKeyDown()) {
             	if(speed < this.getMaxSpeed()) {
             		speed += 0.01F;
             		speed *= 1.02F;
@@ -696,7 +696,16 @@ public class AbstractSpaceship extends Entity
             	}
                 this.setVelocity(x*this.speed, y*this.speed, z*this.speed);
                 
-            }else {
+            }else if(FMLClientHandler.instance().getClient().gameSettings.keyBindBack.isKeyDown()) {
+            	if(speed > 0) {
+            		speed -= 0.01F;
+            		speed *= 0.98F;
+            	}else {
+            		speed = 0;
+            	}
+            	this.setVelocity(x*this.speed, y*this.speed, z*this.speed);
+        	}
+        	else {
             	if(speed > 0) {
             		speed -= 0.01F;
             		speed *= 0.999F;
