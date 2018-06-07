@@ -7,6 +7,7 @@ import com.hypeirochus.scmc.config.StarcraftConfig;
 import com.hypeirochus.scmc.entity.vehicles.AbstractSpaceship;
 import com.hypeirochus.scmc.items.ItemGun;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.monster.EntityCaveSpider;
@@ -25,9 +26,9 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.client.event.TextureStitchEvent;
-import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -121,9 +122,11 @@ public class StarcraftEventHandler {
 	}
 	
 	@SubscribeEvent
-	public void onHUDRender(RenderGameOverlayEvent.Pre e) {
-		if(e.getType() == ElementType.HOTBAR || e.getType() == ElementType.EXPERIENCE || e.getType() == ElementType.HEALTH) {
-			e.setCanceled(true);
+	public void onHUDRender(RenderGameOverlayEvent e) {
+		if(Minecraft.getMinecraft().player.getRidingEntity() instanceof AbstractSpaceship) {
+			if(e.getType() == ElementType.HOTBAR || e.getType() == ElementType.EXPERIENCE || e.getType() == ElementType.HEALTH) {
+				e.setCanceled(true);
+			}
 		}
 	}
 }

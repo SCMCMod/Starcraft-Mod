@@ -698,7 +698,6 @@ public class AbstractSpaceship extends Entity
             	this.setVelocity(x*this.speed, y*this.speed, z*this.speed);
             }
             
-            System.out.println(this.speed);
             if(Mouse.isButtonDown(0) && this.cooldownInSeconds == 0) {
         		world.playSound((EntityPlayer) this.getControllingPassenger(), this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ(), this.getPrimaryFiringSound(), SoundCategory.PLAYERS, 3.0F, 1.0F);
         		this.cooldownInSeconds += this.getCooldownMax();
@@ -711,7 +710,7 @@ public class AbstractSpaceship extends Entity
     	if(this.ticksExisted % 20 == 0 && this.getCooldown() != 0) {
         	this.setCooldown(this.getCooldown()-1);
     	}
-    	System.out.println(this.getCooldown());
+    	
     	super.onEntityUpdate();
     }
 
