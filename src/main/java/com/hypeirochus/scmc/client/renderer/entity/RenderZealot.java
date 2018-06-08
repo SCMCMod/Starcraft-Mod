@@ -43,36 +43,6 @@ public class RenderZealot extends RenderLiving<EntityZealot> implements LayerRen
 		if (!renderOutlines) {
 			renderLeash(entity, x, y, z, entityYaw, partialTicks);
 		}
-		OpenGL.pushMatrix();
-		{
-			GlStateManager.disableCull();
-
-			OpenGL.translate(x, y + 4.5F, z);
-
-			if (entity != null && entity.world.getClosestPlayerToEntity(entity, 8.0D) != null) {
-				float scale = 0.04F;
-				OpenGL.scale(scale, scale, scale);
-				OpenGL.disableLight();
-
-				OpenGL.pushMatrix();
-				{
-					OpenGL.rotate(AccessHandler.getMinecraft().player.rotationYaw + 180, 0F, -1F, 0F);
-					OpenGL.pushMatrix();
-					{
-						OpenGL.rotate(180, -1F, 0F, 0F);
-						Draw.renderItem(icon, -7, 15);
-						Draw.drawString((entity.getFactionAsString().toLowerCase()), -20, 30, 0xFFE5E500, false);
-						scale = 0.5F;
-						OpenGL.scale(scale, scale, scale);
-					}
-					OpenGL.popMatrix();
-				}
-				OpenGL.popMatrix();
-
-				OpenGL.enableLight();
-			}
-		}
-		OpenGL.popMatrix();
 	}
 
 	@Override
