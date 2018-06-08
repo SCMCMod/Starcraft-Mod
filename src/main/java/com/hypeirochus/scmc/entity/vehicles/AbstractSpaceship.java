@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import org.lwjgl.input.Mouse;
 
 import com.google.common.collect.Lists;
+import com.hypeirochus.scmc.config.StarcraftConfig;
 import com.hypeirochus.scmc.vehciles.weapons.VehicleWeapon;
 
 import net.minecraft.block.BlockLiquid;
@@ -717,7 +718,7 @@ public class AbstractSpaceship extends Entity
             	this.setVelocity(x*this.speed, y*this.speed, z*this.speed);
         	}
         	else {
-            	if(speed > 0) {
+            	if(speed > 0 && this.dimension != StarcraftConfig.INT_DIMENSION_SPACE) {
             		speed -= 0.01F;
             		speed *= 0.999F;
             	}else {
