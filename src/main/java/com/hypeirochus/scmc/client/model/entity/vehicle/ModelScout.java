@@ -291,7 +291,6 @@ public class ModelScout extends Model {
     		
     		if(this.isTurning(obj)) {
         		this.Main.rotateAngleZ += 0.005F * this.getTurnDirection(obj);
-        		System.out.println(this.Main.rotateAngleZ);
     		}else {
         		this.Main.rotateAngleZ *= 0.98F;
     		}

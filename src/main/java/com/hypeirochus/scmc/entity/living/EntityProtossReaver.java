@@ -6,6 +6,7 @@ import com.google.common.base.Predicate;
 import com.hypeirochus.api.world.entity.ItemDrop;
 import com.hypeirochus.scmc.capabilities.ColorProvider;
 import com.hypeirochus.scmc.capabilities.IColor;
+import com.hypeirochus.scmc.entity.IShieldEntity;
 import com.hypeirochus.scmc.enums.EnumColors;
 import com.hypeirochus.scmc.enums.EnumFactionTypes;
 import com.hypeirochus.scmc.enums.EnumTypeAttributes;
@@ -32,10 +33,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityProtossReaver extends EntityProtossMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
+public class EntityProtossReaver extends EntityProtossMob implements IMob, IRangedAttackMob, IShieldEntity, Predicate<EntityLivingBase> {
 
-	public float	offsetHealth;
-	public int		timeSinceHurt;
 	public int		ammo	= 4;
 
 	public EntityProtossReaver(World world) {
@@ -112,7 +111,7 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(250.0D);
+		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(133.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(.24000000417232513);
 		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(32);
 		getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
@@ -126,8 +125,6 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 			scarab.setLocationAndAngles(posX, posY, posZ, 0, 0);
 			world.spawnEntity(scarab);
 			ammo--;
-		} else {
-			System.out.println("NO AMMO!");
 		}
 	}
 
@@ -171,24 +168,11 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 	}
 
 	@Override
-	protected void damageEntity(DamageSource damageSrc, float damageAmount) {
-		timeSinceHurt = this.ticksExisted;
-		super.damageEntity(damageSrc, damageAmount);
-	}
-
-	@Override
 	public void onLivingUpdate() {
-		if (ticksExisted % 20 == 0 && this.getHealth() < this.getMaxHealth()) {
-			if (this.getHealth() < 143.0 - offsetHealth) {
-				offsetHealth = 143.0F - getHealth();
-			}
-			if (this.getHealth() < this.getMaxHealth() - offsetHealth && ticksExisted - timeSinceHurt > 200) {
-				this.heal(2.0F);
-			}
-		} else if (ticksExisted % 160 == 0 || ticksExisted % 160 == 1) {
+		
+		if (ticksExisted % 160 == 0 || ticksExisted % 160 == 1) {
 			if (ammo < 4) {
 				ammo++;
-				System.out.println("regenerating ammo!");
 			}
 		}
 		super.onLivingUpdate();
@@ -197,5 +181,10 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 	@Override
 	public void setSwingingArms(boolean swingingArms) {
 		
+	}
+	
+	@Override
+	public float getMaxShields() {
+		return 100.0F;
 	}
 }

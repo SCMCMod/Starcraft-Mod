@@ -519,7 +519,6 @@ public class ModelWraith extends Model {
     		
     		if(this.isTurning(obj)) {
         		this.shape22.rotateAngleZ += 0.005F * this.getTurnDirection(obj);
-        		System.out.println(this.shape22.rotateAngleZ);
     		}else {
         		this.shape22.rotateAngleZ *= 0.98F;
     		}

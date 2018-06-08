@@ -5,6 +5,7 @@ import com.elytradev.mirage.lighting.IEntityLightEventConsumer;
 import com.elytradev.mirage.lighting.Light;
 import com.google.common.base.Predicate;
 import com.hypeirochus.api.world.entity.ItemDrop;
+import com.hypeirochus.scmc.entity.IShieldEntity;
 import com.hypeirochus.scmc.enums.EnumColors;
 import com.hypeirochus.scmc.enums.EnumFactionTypes;
 import com.hypeirochus.scmc.enums.EnumTypeAttributes;
@@ -33,10 +34,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predicate<EntityLivingBase>, IEntityLightEventConsumer {
-
-	public float								offsetHealth;
-	public int									timeSinceHurt;
+public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predicate<EntityLivingBase>, IShieldEntity, IEntityLightEventConsumer {
+	
 	private static final DataParameter<Boolean>	SHEATH	= EntityDataManager.createKey(EntityDarkTemplar.class, DataSerializers.BOOLEAN);
 
 	public EntityDarkTemplar(World world) {
@@ -82,7 +81,7 @@ public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predica
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(80.0D);
+		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(27.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.39000000417232513);
 		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(16.0D);
 		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(25.0D);
@@ -139,28 +138,14 @@ public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predica
 	}
 
 	@Override
-	protected void damageEntity(DamageSource damageSrc, float damageAmount) {
-		timeSinceHurt = this.ticksExisted;
-		super.damageEntity(damageSrc, damageAmount);
-	}
-
-	@Override
-	public void onLivingUpdate() {
-		if (ticksExisted % 20 == 0 && this.getHealth() < this.getMaxHealth()) {
-			if (this.getHealth() < 27.0 - offsetHealth) {
-				offsetHealth = 27 - getHealth();
-			}
-			if (this.getHealth() < this.getMaxHealth() - offsetHealth && ticksExisted - timeSinceHurt > 200) {
-				this.heal(2.0F);
-			}
-		}
-		super.onLivingUpdate();
-	}
-
-	@Override
 	public void gatherLights(GatherLightsEvent evt, Entity entity) {
 		if(this.canSheathBlades()) {
 			evt.add(Light.builder().pos(entity).color(0.0F, 0.94F, 0.4F).intensity(0.5F).radius(6).build());
 		}
+	}
+	
+	@Override
+	public float getMaxShields() {
+		return 53.0F;
 	}
 }
