@@ -719,8 +719,13 @@ public class AbstractSpaceship extends Entity
         	}
         	else {
             	if(speed > 0 && this.dimension != StarcraftConfig.INT_DIMENSION_SPACE) {
-            		speed -= 0.01F;
-            		speed *= 0.999F;
+            		if(this.onGround) {
+                		speed -= 0.01F;
+                		speed *= 0.9F;
+            		}else {
+                		speed -= 0.01F;
+                		speed *= 0.999F;
+            		}
             	}else {
             		speed = 0;
             	}
