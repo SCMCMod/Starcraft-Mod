@@ -141,9 +141,7 @@ public class EntityZealot extends EntityProtossMob implements IMob, Predicate<En
 	@Override
 	public void onUpdate() {
 		if (!world.isRemote) {
-			if (this.getAttackTarget() != null && this.getDistance(this.getAttackTarget()) < 80.0D) {
-				this.setSheathed(true);
-			} else if (this.getAttackTarget() == null) {
+			if (this.getAttackTarget() == null) {
 				this.setSheathed(false);
 			}
 		}
@@ -153,6 +151,20 @@ public class EntityZealot extends EntityProtossMob implements IMob, Predicate<En
 	@Override
 	public float getMaxShields() {
 		return 33.0F;
+	}
+	
+	@Override
+	public void setAttackTarget(EntityLivingBase entitylivingbaseIn) {
+		if(entitylivingbaseIn != null && (int)this.getDistance(entitylivingbaseIn) < 16) {
+			this.setSheathed(true);
+		}
+		super.setAttackTarget(entitylivingbaseIn);
+	}
+	
+	@Override
+	public boolean attackEntityFrom(DamageSource source, float amount) {
+		this.setSheathed(true);
+		return super.attackEntityFrom(source, amount);
 	}
 
 	@Override

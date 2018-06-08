@@ -136,6 +136,20 @@ public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predica
 		}
 		super.onUpdate();
 	}
+	
+	@Override
+	public void setAttackTarget(EntityLivingBase entitylivingbaseIn) {
+		if(entitylivingbaseIn != null && (int)this.getDistance(entitylivingbaseIn) < 16) {
+			this.setSheathed(true);
+		}
+		super.setAttackTarget(entitylivingbaseIn);
+	}
+	
+	@Override
+	public boolean attackEntityFrom(DamageSource source, float amount) {
+		this.setSheathed(true);
+		return super.attackEntityFrom(source, amount);
+	}
 
 	@Override
 	public void gatherLights(GatherLightsEvent evt, Entity entity) {
