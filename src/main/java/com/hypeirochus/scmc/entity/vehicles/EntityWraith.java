@@ -10,6 +10,7 @@ public class EntityWraith extends AbstractSpaceship
 {
 	
 	VehicleWeapon wraithPrimary = new VehicleWeapon(this, "Burst Laser", 8, 200);
+	VehicleWeapon wraithSecondary = new VehicleWeapon(this, "Missiles", 8, 200);
 
 	public EntityWraith(World worldIn) {
 		super(worldIn);
@@ -24,7 +25,17 @@ public class EntityWraith extends AbstractSpaceship
 	}
 	
 	@Override
+	public SoundEvent getSecondaryFiringSound() {
+		return SoundHandler.FX_WRAITH_MISSILE_LAUNCH;
+	}
+	
+	@Override
 	public VehicleWeapon getPrimaryWeapon() {
 		 return wraithPrimary;
+	}
+	
+	@Override
+	public VehicleWeapon getSecondaryWeapon() {
+		 return wraithSecondary;
 	}
 }

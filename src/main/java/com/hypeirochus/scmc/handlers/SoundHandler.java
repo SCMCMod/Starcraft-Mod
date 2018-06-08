@@ -95,6 +95,7 @@ public class SoundHandler {
 	public static SoundEvent	FX_SCOUT_FIRING;
 	
 	public static SoundEvent	FX_WRAITH_FIRING;
+	public static SoundEvent	FX_WRAITH_MISSILE_LAUNCH;
 
 	public static SoundEvent	ENTITY_KAKARU_LIVE1;
 	public static SoundEvent	ENTITY_KAKARU_LIVE2;
@@ -229,6 +230,7 @@ public class SoundHandler {
 		FX_SCOUT_FIRING = registerSound("fx.scout.firing");
 		
 		FX_WRAITH_FIRING = registerSound("fx.wraith.firing");
+		FX_WRAITH_MISSILE_LAUNCH = registerSound("fx.wraith.missile.launch");
 
 		BLOCK_FLESH_BREAK = registerSound("block.flesh.break");
 		BLOCK_FLESH_STEP = registerSound("block.flesh.step");

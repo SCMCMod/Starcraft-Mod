@@ -622,6 +622,13 @@
 			"stream": false
 		}]
 	},
+	"fx.wraith.missile.launch": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:fx/wraith/wraith-missile-launch",
+			"stream": false
+		}]
+	},
 	"fx.scout.firing": {
 		"category": "master",
 		"sounds": [{

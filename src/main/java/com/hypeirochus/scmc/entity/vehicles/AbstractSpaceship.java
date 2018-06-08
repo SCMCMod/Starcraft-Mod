@@ -59,6 +59,7 @@ public class AbstractSpaceship extends Entity
     private float maxCooldown = 0;
     
     private SoundEvent primaryFiring;
+    private SoundEvent secondaryFiring;
     
     private float speed = 0;
     private float maxSpeed = 10;
@@ -87,16 +88,22 @@ public class AbstractSpaceship extends Entity
     	return this.maxCooldown;
     }
     
+    @Nullable
     public VehicleWeapon getPrimaryWeapon() {
     	return null;
     }
     
+    @Nullable
     public VehicleWeapon getSecondaryWeapon() {
     	return null;
     }
     
     public SoundEvent getPrimaryFiringSound() {
     	return this.primaryFiring;
+    }
+
+    public SoundEvent getSecondaryFiringSound() {
+    	return this.secondaryFiring;
     }
     
     /**
@@ -720,13 +727,13 @@ public class AbstractSpaceship extends Entity
             }
             
             if(Mouse.isButtonDown(0) && this.isCoolingDown() == false) {
-            	this.getPrimaryWeapon().fire();
+            	this.getPrimaryWeapon().fire(false);
         		world.playSound((EntityPlayer) this.getControllingPassenger(), this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ(), this.getPrimaryFiringSound(), SoundCategory.PLAYERS, 3.0F, 1.0F);
         		this.setCoolingDown(true);
             }
             else if(Mouse.isButtonDown(1) && this.isCoolingDown() == false) {
-            	this.getSecondaryWeapon().fire();
-        		world.playSound((EntityPlayer) this.getControllingPassenger(), this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ(), this.getPrimaryFiringSound(), SoundCategory.PLAYERS, 3.0F, 1.0F);
+            	this.getSecondaryWeapon().fire(true);
+        		world.playSound((EntityPlayer) this.getControllingPassenger(), this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ(), this.getSecondaryFiringSound(), SoundCategory.PLAYERS, 3.0F, 1.0F);
         		this.setCoolingDown(true);
             }
         }
@@ -815,6 +822,7 @@ public class AbstractSpaceship extends Entity
             if (!this.world.isRemote)
             {
                 player.startRiding(this);
+                this.setCoolingDown(true);
             }
 
             return true;

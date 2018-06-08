@@ -56,7 +56,7 @@ public class VehicleWeapon implements IWeaponSystem {
 	}
 
 	@Override
-	public void fire() {
+	public void fire(boolean shouldCauseExplosion) {
 		RayTraceResult ray = WorldUtils.getRay(this.getWeaponRange());
 		Entity entity = ray.entityHit;
 		
@@ -72,9 +72,17 @@ public class VehicleWeapon implements IWeaponSystem {
 			this.damageEntity(this.vehicle.world, this.vehicle, hitEntity);
 			
 			this.hitEntity(this.vehicle.world, this.vehicle, hitEntity);
+			
+			if(shouldCauseExplosion) {
+				this.vehicle.world.createExplosion(this.vehicle, hitEntity.posX, hitEntity.posY, hitEntity.posZ, 10, true);
+			}
 		} 
 		else if (hitBlock != null) {
 			this.hitBlock(this.vehicle.world, this.vehicle, ray.getBlockPos(), ray.sideHit);
+			
+			if(shouldCauseExplosion) {
+				this.vehicle.world.createExplosion(this.vehicle, hitBlock.getX(), hitBlock.getY(), hitBlock.getZ(), 10, true);
+			}
 		}
 			
 	}
