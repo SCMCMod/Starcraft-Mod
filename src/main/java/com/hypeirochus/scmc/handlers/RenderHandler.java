@@ -27,6 +27,7 @@ import com.hypeirochus.scmc.client.model.entity.ModelMutaliskViper;
 import com.hypeirochus.scmc.client.model.entity.ModelPredator;
 import com.hypeirochus.scmc.client.model.entity.ModelProbe;
 import com.hypeirochus.scmc.client.model.entity.ModelProtossReaver;
+import com.hypeirochus.scmc.client.model.entity.ModelPurifierProbe;
 import com.hypeirochus.scmc.client.model.entity.ModelQueen;
 import com.hypeirochus.scmc.client.model.entity.ModelScarab;
 import com.hypeirochus.scmc.client.model.entity.ModelTyrannozor;
@@ -70,6 +71,7 @@ import com.hypeirochus.scmc.client.renderer.entity.RenderNafash;
 import com.hypeirochus.scmc.client.renderer.entity.RenderPredator;
 import com.hypeirochus.scmc.client.renderer.entity.RenderProbe;
 import com.hypeirochus.scmc.client.renderer.entity.RenderProtossReaver;
+import com.hypeirochus.scmc.client.renderer.entity.RenderPurifierProbe;
 import com.hypeirochus.scmc.client.renderer.entity.RenderQueen;
 import com.hypeirochus.scmc.client.renderer.entity.RenderScarab;
 import com.hypeirochus.scmc.client.renderer.entity.RenderTastelope;
@@ -125,6 +127,7 @@ import com.hypeirochus.scmc.entity.living.EntityNafash;
 import com.hypeirochus.scmc.entity.living.EntityPredator;
 import com.hypeirochus.scmc.entity.living.EntityProbe;
 import com.hypeirochus.scmc.entity.living.EntityProtossReaver;
+import com.hypeirochus.scmc.entity.living.EntityPurifierProbe;
 import com.hypeirochus.scmc.entity.living.EntityQueen;
 import com.hypeirochus.scmc.entity.living.EntityScarab;
 import com.hypeirochus.scmc.entity.living.EntityTastelope;
@@ -240,6 +243,7 @@ public class RenderHandler {
 		RenderingRegistry.registerEntityRenderingHandler(EntityVoidProbe.class, new RenderVoidProbe(Minecraft.getMinecraft().getRenderManager(), new ModelVoidProbe(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityScarab.class, new RenderScarab(Minecraft.getMinecraft().getRenderManager(), new ModelScarab(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityDarkProbe.class, new RenderDarkProbe(Minecraft.getMinecraft().getRenderManager(), new ModelDarkProbe(), 0.4f));
+		RenderingRegistry.registerEntityRenderingHandler(EntityPurifierProbe.class, new RenderPurifierProbe(Minecraft.getMinecraft().getRenderManager(), new ModelPurifierProbe(), 0.4f));
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityZeratul.class, new RenderZeratul(Minecraft.getMinecraft().getRenderManager(), new ModelZeratul(), 0.4f));
 

@@ -1,13 +1,10 @@
 package com.hypeirochus.scmc.client.renderer.entity;
 
-import com.hypeirochus.api.client.render.Draw;
-import com.hypeirochus.api.client.render.OpenGL;
 import com.hypeirochus.scmc.client.model.entity.ModelZealot;
 import com.hypeirochus.scmc.client.renderer.ColoredLayerRender;
 import com.hypeirochus.scmc.client.renderer.Resources;
 import com.hypeirochus.scmc.entity.living.EntityZealot;
 import com.hypeirochus.scmc.enums.MetaHandler;
-import com.hypeirochus.scmc.handlers.AccessHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
 
 import net.minecraft.client.model.ModelBase;
