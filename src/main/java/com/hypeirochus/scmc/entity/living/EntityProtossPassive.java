@@ -3,6 +3,7 @@ package com.hypeirochus.scmc.entity.living;
 import com.hypeirochus.scmc.entity.IShieldEntity;
 
 import net.minecraft.entity.EntityAgeable;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
@@ -20,7 +21,9 @@ public class EntityProtossPassive extends EntityStarcraftPassive implements IShi
 
 	@Override
 	protected void entityInit() {
+		
 		this.getDataManager().register(SHIELDS, this.getMaxShields());
+		
 		super.entityInit();
 	}
 	
@@ -40,6 +43,20 @@ public class EntityProtossPassive extends EntityStarcraftPassive implements IShi
 
 	protected void setShields(float shield) {
 		this.getDataManager().set(SHIELDS, shield);
+	}
+	
+	@Override
+	public void writeEntityToNBT(NBTTagCompound nbt) {
+		super.writeEntityToNBT(nbt);
+
+		nbt.setFloat("Shields", this.getShields());
+	}
+
+	@Override
+	public void readEntityFromNBT(NBTTagCompound nbt) {
+		super.readEntityFromNBT(nbt);
+
+		this.setShields(nbt.getFloat("Shields"));
 	}
 	
 	@Override
