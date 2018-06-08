@@ -59,17 +59,11 @@ public class RenderWraith extends Render<EntityWraith>
     public void setupRotation(EntityWraith p_188311_1_, float p_188311_2_, float p_188311_3_)
     {
         GlStateManager.rotate(180.0F - p_188311_2_, 0.0F, 1.0F, 0.0F);
-        float f = (float)p_188311_1_.getTimeSinceHit() - p_188311_3_;
         float f1 = p_188311_1_.getDamageTaken() - p_188311_3_;
 
         if (f1 < 0.0F)
         {
             f1 = 0.0F;
-        }
-
-        if (f > 0.0F)
-        {
-            GlStateManager.rotate(MathHelper.sin(f) * f * f1 / 10.0F * (float)p_188311_1_.getForwardDirection(), 1.0F, 0.0F, 0.0F);
         }
 
         GlStateManager.scale(-1.0F, -1.0F, 1.0F);

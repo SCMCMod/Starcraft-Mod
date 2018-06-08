@@ -42,8 +42,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class AbstractSpaceship extends Entity
 {
-    private static final DataParameter<Integer> TIME_SINCE_HIT = EntityDataManager.<Integer>createKey(AbstractSpaceship.class, DataSerializers.VARINT);
-    private static final DataParameter<Integer> FORWARD_DIRECTION = EntityDataManager.<Integer>createKey(AbstractSpaceship.class, DataSerializers.VARINT);
     private static final DataParameter<Float> DAMAGE_TAKEN = EntityDataManager.<Float>createKey(AbstractSpaceship.class, DataSerializers.FLOAT);
     /** How much of current speed to retain. Value zero to one. */
     private float momentum;
@@ -146,8 +144,6 @@ public class AbstractSpaceship extends Entity
 
     protected void entityInit()
     {
-        this.dataManager.register(TIME_SINCE_HIT, Integer.valueOf(0));
-        this.dataManager.register(FORWARD_DIRECTION, Integer.valueOf(1));
         this.dataManager.register(DAMAGE_TAKEN, Float.valueOf(0.0F));
     }
 
@@ -208,8 +204,6 @@ public class AbstractSpaceship extends Entity
             }
             else
             {
-                this.setForwardDirection(-this.getForwardDirection());
-                this.setTimeSinceHit(10);
                 this.setDamageTaken(this.getDamageTaken() + amount * 10.0F);
                 this.markVelocityChanged();
                 boolean flag = source.getTrueSource() instanceof EntityPlayer && ((EntityPlayer)source.getTrueSource()).capabilities.isCreativeMode;
@@ -257,8 +251,6 @@ public class AbstractSpaceship extends Entity
     @SideOnly(Side.CLIENT)
     public void performHurtAnimation()
     {
-        this.setForwardDirection(-this.getForwardDirection());
-        this.setTimeSinceHit(10);
         this.setDamageTaken(this.getDamageTaken() * 11.0F);
     }
 
@@ -300,11 +292,6 @@ public class AbstractSpaceship extends Entity
     {
         this.previousStatus = this.status;
         this.status = this.getShipStatus();
-
-        if (this.getTimeSinceHit() > 0)
-        {
-            this.setTimeSinceHit(this.getTimeSinceHit() - 1);
-        }
 
         if (this.getDamageTaken() > 0.0F)
         {
@@ -895,38 +882,6 @@ public class AbstractSpaceship extends Entity
     public float getDamageTaken()
     {
         return ((Float)this.dataManager.get(DAMAGE_TAKEN)).floatValue();
-    }
-
-    /**
-     * Sets the time to count down from since the last time entity was hit.
-     */
-    public void setTimeSinceHit(int timeSinceHit)
-    {
-        this.dataManager.set(TIME_SINCE_HIT, Integer.valueOf(timeSinceHit));
-    }
-
-    /**
-     * Gets the time since the last hit.
-     */
-    public int getTimeSinceHit()
-    {
-        return ((Integer)this.dataManager.get(TIME_SINCE_HIT)).intValue();
-    }
-
-    /**
-     * Sets the forward direction of the entity.
-     */
-    public void setForwardDirection(int forwardDirection)
-    {
-        this.dataManager.set(FORWARD_DIRECTION, Integer.valueOf(forwardDirection));
-    }
-
-    /**
-     * Gets the forward direction of the entity.
-     */
-    public int getForwardDirection()
-    {
-        return ((Integer)this.dataManager.get(FORWARD_DIRECTION)).intValue();
     }
 
     protected boolean canFitPassenger(Entity passenger)
