@@ -18,7 +18,8 @@ import net.minecraft.world.World;
 
 public class EntityZergMob extends EntityStarcraftMob {
 
-	private static final DataParameter<Integer>	BIOMASS	= EntityDataManager.createKey(EntityZergling.class, DataSerializers.VARINT);
+	private static final DataParameter<Integer>	BIOMASS	= EntityDataManager.createKey(EntityZergMob.class, DataSerializers.VARINT);
+	private static final DataParameter<Boolean>	BURROW	= EntityDataManager.createKey(EntityZergMob.class, DataSerializers.BOOLEAN);
 	public int									baseHealth;
 
 	public EntityZergMob(World world) {
@@ -36,8 +37,10 @@ public class EntityZergMob extends EntityStarcraftMob {
 
 	@Override
 	protected void entityInit() {
-		super.entityInit();
 		this.getDataManager().register(BIOMASS, 0);
+		this.getDataManager().register(BURROW, false);
+		
+		super.entityInit();
 	}
 
 	@Override
@@ -45,6 +48,7 @@ public class EntityZergMob extends EntityStarcraftMob {
 		super.writeEntityToNBT(nbt);
 
 		nbt.setInteger("Biomass", this.getBiomass());
+		nbt.setBoolean("Burrow", this.getBurrowState());
 	}
 
 	@Override
@@ -52,6 +56,7 @@ public class EntityZergMob extends EntityStarcraftMob {
 		super.readEntityFromNBT(nbt);
 
 		this.setBiomass(nbt.getInteger("Biomass"));
+		this.isBurrowed(nbt.getBoolean("Burrow"));
 	}
 
 	public int getBiomass() {
@@ -60,6 +65,14 @@ public class EntityZergMob extends EntityStarcraftMob {
 
 	public void setBiomass(int amount) {
 		this.getDataManager().set(BIOMASS, amount);
+	}
+	
+	public boolean getBurrowState() {
+		return this.getDataManager().get(BURROW);
+	}
+
+	public void isBurrowed(boolean isBurrowed) {
+		this.getDataManager().set(BURROW, isBurrowed);
 	}
 
 	protected void findBiomass() {
