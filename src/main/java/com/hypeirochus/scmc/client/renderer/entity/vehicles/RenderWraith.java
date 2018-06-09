@@ -18,6 +18,9 @@ public class RenderWraith extends Render<EntityWraith>
     /** instance of ModelWraith for rendering */
     protected ModelBase modelWraith = new ModelWraith();
     
+    //TODO: make this NBT based for the wraith, to make phases of the cloaking
+    private float mod = 1.0F;
+    
 
     public RenderWraith(RenderManager renderManagerIn)
     {
@@ -42,9 +45,24 @@ public class RenderWraith extends Render<EntityWraith>
             GlStateManager.enableColorMaterial();
             GlStateManager.enableOutlineMode(this.getTeamColor(entity));
         }
+        
+        if(entity.getCloakState()) {
+        	GlStateManager.enableAlpha();
+        	GlStateManager.enableBlend();
+        	if(entity.ticksExisted % 20 == 0 && mod > 0.24F) {
+        		mod -= 0.12F;
+        	}
+        	GlStateManager.color(1.0F, 1.0F, 1.0F, mod);
+        }
 
         this.modelWraith.render(entity, partialTicks, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
 
+        if(entity.getCloakState()) {
+        	GlStateManager.color(1.0F, 1.0F, 1.0F, mod);
+        	GlStateManager.disableAlpha();
+        	GlStateManager.disableBlend();
+        }
+        
         if (this.renderOutlines)
         {
             GlStateManager.disableOutlineMode();

@@ -8,6 +8,7 @@ import com.hypeirochus.scmc.network.message.MessageMorphLarva;
 import com.hypeirochus.scmc.network.message.MessageReturnFurnaceData;
 import com.hypeirochus.scmc.network.message.MessageSetPlayerShieldClient;
 import com.hypeirochus.scmc.network.message.MessageSetPlayerShieldServer;
+import com.hypeirochus.scmc.network.message.MessageShipAbility;
 import com.hypeirochus.scmc.network.message.MessageSpawnItem;
 import com.hypeirochus.scmc.network.message.MessageSyncLarvaCocoonGui;
 import com.hypeirochus.scmc.network.message.MessageSyncLarvaGui;
@@ -41,6 +42,7 @@ public class NetworkHandler {
 		registerMessage(new MessageGetFurnaceData.Handler(), MessageGetFurnaceData.class, Side.SERVER);
 		registerMessage(new MessageHurtEntity(), MessageHurtEntity.class, Side.SERVER);
 		registerMessage(new MessageKillEntity(), MessageKillEntity.class, Side.SERVER);
+		registerMessage(new MessageShipAbility.Handler(), MessageShipAbility.class, Side.SERVER);
 	}
 
 	private static void registerClient() {

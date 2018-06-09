@@ -926,7 +926,12 @@ public class AbstractSpaceship extends Entity
             this.rotationPitch = (float)this.lerpPitch;
         }
     }
-
+    
+    /**
+     * Override to add an ability handler to a ship
+     */
+    public void useAbility(int index) {}
+    
     @Override
     protected void writeEntityToNBT(NBTTagCompound compound) {}
 
@@ -935,4 +940,6 @@ public class AbstractSpaceship extends Entity
 
     @Override
     public void fall(float distance, float damageMultiplier) {}
+    
+    
 }
