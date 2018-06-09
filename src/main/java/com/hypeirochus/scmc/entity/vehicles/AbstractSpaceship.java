@@ -53,6 +53,7 @@ public class AbstractSpaceship extends Entity
     private double lerpYaw;
     private double lerpPitch;
     private double waterLevel;
+    public boolean isAccelerating = false;
     
     private boolean isCoolingDown;
     private float maxCooldown = 0;
@@ -687,6 +688,7 @@ public class AbstractSpaceship extends Entity
             float z = (float) (0.12f*fVec.z);
             
             if(FMLClientHandler.instance().getClient().gameSettings.keyBindForward.isKeyDown()) {
+            	this.isAccelerating = true;
             	if(speed < this.getMaxSpeed()) {
             		speed += 0.01F;
             		speed *= 1.02F;
@@ -696,6 +698,7 @@ public class AbstractSpaceship extends Entity
                 this.setVelocity(x*this.speed, y*this.speed, z*this.speed);
                 
             }else if(FMLClientHandler.instance().getClient().gameSettings.keyBindBack.isKeyDown()) {
+        		this.isAccelerating = false;
             	if(speed > 0) {
             		speed -= 0.01F;
             		speed *= 0.98F;
@@ -705,6 +708,7 @@ public class AbstractSpaceship extends Entity
             	this.setVelocity(x*this.speed, y*this.speed, z*this.speed);
         	}
         	else {
+        		this.isAccelerating = false;
             	if(speed > 0 && this.dimension != StarcraftConfig.INT_DIMENSION_SPACE) {
             		if(this.onGround || this.inWater) {
                 		speed -= 0.01F;
@@ -713,8 +717,6 @@ public class AbstractSpaceship extends Entity
                 		speed -= 0.01F;
                 		speed *= 0.999F;
             		}
-            	}else {
-            		speed = 0;
             	}
             	this.setVelocity(x*this.speed, y*this.speed, z*this.speed);
             }

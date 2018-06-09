@@ -9,7 +9,6 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -60,17 +59,11 @@ public class RenderScout extends Render<EntityScout>
     public void setupRotation(EntityScout p_188311_1_, float p_188311_2_, float p_188311_3_)
     {
         GlStateManager.rotate(180.0F - p_188311_2_, 0.0F, 1.0F, 0.0F);
-        float f = (float)p_188311_1_.getTimeSinceHit() - p_188311_3_;
         float f1 = p_188311_1_.getDamageTaken() - p_188311_3_;
 
         if (f1 < 0.0F)
         {
             f1 = 0.0F;
-        }
-
-        if (f > 0.0F)
-        {
-            GlStateManager.rotate(MathHelper.sin(f) * f * f1 / 10.0F * (float)p_188311_1_.getForwardDirection(), 1.0F, 0.0F, 0.0F);
         }
 
         GlStateManager.scale(-1.0F, -1.0F, 1.0F);

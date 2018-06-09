@@ -53,6 +53,7 @@ public class StarcraftEventHandler {
 	public static TextureAtlasSprite gasCollectorIngot;
 	public static TextureAtlasSprite gasCollectorBlock;
 	public static TextureAtlasSprite gasCollectorFlesh;
+	public static float FOV = 90.0F;
 
 	@SubscribeEvent
 	public static void onEntitySpawn(EntityJoinWorldEvent event) {
@@ -116,8 +117,25 @@ public class StarcraftEventHandler {
 	
 	@SubscribeEvent
 	public void cameraPosition(EntityViewRenderEvent.FOVModifier e) {
-		if (e.getEntity().getRidingEntity() instanceof AbstractSpaceship) {
-			e.setFOV(90.0F);
+		
+		if(e.getEntity().dimension == StarcraftConfig.INT_DIMENSION_SPACE) {
+			if (e.getEntity().getRidingEntity() instanceof AbstractSpaceship) {
+				if (((AbstractSpaceship) e.getEntity().getRidingEntity()).isAccelerating) {
+					if (this.FOV < 120.0F) {
+						e.setFOV(this.FOV += 0.1F);
+					} else {
+						this.FOV = 120.0F;
+						e.setFOV(FOV);
+					}
+				} else {
+					if (this.FOV > 90.0F) {
+						e.setFOV(this.FOV -= 0.1F);
+					} else {
+						this.FOV = 90.0F;
+						e.setFOV(FOV);
+					}
+				}
+			}
 		}
 	}
 	

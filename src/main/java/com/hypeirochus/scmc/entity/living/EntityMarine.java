@@ -153,7 +153,6 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 				this.stimTime = 11;
 				this.setAIMoveSpeed(this.getAIMoveSpeed()*1.5F);
 				flag = true;
-				System.out.println("Stimming...");
 			}
 			if(this.ticksExisted % 20 == 0 && this.stimTime != 0) {
 				this.stimTime--;
