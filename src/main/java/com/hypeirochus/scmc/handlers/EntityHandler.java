@@ -146,7 +146,7 @@ public class EntityHandler {
 		
 		registerEntity(EntityDarkProbe.class, "darkProbe", 64, 1, true, 1447446, 13369344);
 
-		registerEntity(EntityPurifierProbe.class, "purifierProbe", 64, 1, true, 1447446, 13369344);
+		registerEntity(EntityPurifierProbe.class, "purifierProbe", 64, 1, true, 13092807, 16019722);
 		
 		registerEntity(EntityZeratul.class, "zeratul", 64, 1, true, 5066061, 45824);
 

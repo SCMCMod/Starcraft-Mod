@@ -14,9 +14,9 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderPurifierProbe extends RenderLiving<EntityPurifierProbe> implements LayerRenderer<EntityPurifierProbe> {
 
-	private static final ResourceLocation BASE = new ResourceLocation(Resources.PROBE_BASE);
-	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.PROBE_OVERLAY);
-	private static final ResourceLocation DYNAMICGLOW = new ResourceLocation(Resources.PROBE_GLOW_DYNAMIC);
+	private static final ResourceLocation BASE = new ResourceLocation(Resources.PURIFIERPROBE_BASE);
+	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.PURIFIERPROBE_OVERLAY);
+	private static final ResourceLocation DYNAMICGLOW = new ResourceLocation(Resources.PURIFIERPROBE_GLOW_DYNAMIC);
 	private final RenderPurifierProbe RENDERER;
 	protected ModelPurifierProbe model;
 
