@@ -21,6 +21,9 @@ itemGroup.terran.tools=Tools
 #############################################################################################
 key.categories.starcraft=Starcraft
 key.terran.marinevisor.toggle=Toggle Marine Armor Visor
+key.ship.ability.1=Ship Ability 1
+key.ship.ability.2=Ship Ability 2
+key.ship.ability.3=Ship Ability 3
 #############################################################################################
 
 
