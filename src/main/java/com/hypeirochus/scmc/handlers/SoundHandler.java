@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 /**
- * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
+ * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
  * 
  * <br>
  * </br>
@@ -97,6 +97,9 @@ public class SoundHandler {
 	public static SoundEvent	FX_WRAITH_FIRING;
 	public static SoundEvent	FX_WRAITH_MISSILE_LAUNCH;
 
+	public static SoundEvent	FX_ZERG_BURROWUP;
+	public static SoundEvent	FX_ZERG_BURROWDOWN;
+
 	public static SoundEvent	ENTITY_KAKARU_LIVE1;
 	public static SoundEvent	ENTITY_KAKARU_LIVE2;
 	public static SoundEvent	ENTITY_KAKARU_HURT;
@@ -121,6 +124,8 @@ public class SoundHandler {
 	public static SoundEvent	ENTITY_MARINE_LIVE1;
 	public static SoundEvent	ENTITY_MARINE_HURT;
 	public static SoundEvent	ENTITY_MARINE_DEATH;
+	public static SoundEvent	ENTITY_MARINE_STIM1;
+	public static SoundEvent	ENTITY_MARINE_STIM2;
 
 	/** @author Ocelot5836 */
 	public static SoundEvent	BLOCK_FLESH_BREAK;
@@ -232,6 +237,9 @@ public class SoundHandler {
 		FX_WRAITH_FIRING = registerSound("fx.wraith.firing");
 		FX_WRAITH_MISSILE_LAUNCH = registerSound("fx.wraith.missile.launch");
 
+		FX_ZERG_BURROWUP = registerSound("fx.zerg.burrowup");
+		FX_ZERG_BURROWDOWN = registerSound("fx.zerg.burrowdown");
+
 		BLOCK_FLESH_BREAK = registerSound("block.flesh.break");
 		BLOCK_FLESH_STEP = registerSound("block.flesh.step");
 		BLOCK_FLESH_PLACE = registerSound("block.flesh.place");
@@ -262,6 +270,8 @@ public class SoundHandler {
 		ENTITY_MARINE_LIVE1 = registerSound("mob.marine.live1");
 		ENTITY_MARINE_HURT = registerSound("mob.marine.hurt");
 		ENTITY_MARINE_DEATH = registerSound("mob.marine.death");
+		ENTITY_MARINE_STIM1 = registerSound("mob.marine.stim1");
+		ENTITY_MARINE_STIM2 = registerSound("mob.marine.stim2");
 
 		BLOCK_GAS_COLLECTOR_PROTOSS = registerSound("block.gas_collector.protoss");
 		BLOCK_GAS_COLLECTOR_TERRAN = registerSound("block.gas_collector.terran");
