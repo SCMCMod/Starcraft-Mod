@@ -9,6 +9,7 @@ import com.hypeirochus.scmc.enums.EnumColors;
 import com.hypeirochus.scmc.enums.EnumFactionTypes;
 import com.hypeirochus.scmc.enums.EnumTypeAttributes;
 import com.hypeirochus.scmc.enums.MetaHandler;
+import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.handlers.GuiHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
 import com.hypeirochus.scmc.handlers.SoundHandler;
@@ -23,6 +24,7 @@ import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
@@ -113,6 +115,18 @@ public class EntityLarva extends EntityZergPassive {
 		tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8));
 		tasks.addTask(8, new EntityAILookIdle(this));
 		applyEntityAI();
+	}
+	
+
+
+	@Override
+	public void onLivingUpdate() {
+		super.onLivingUpdate();
+		
+		//Larva should die instantly when they are not on creep.
+		if(this.getEntityWorld().getBlockState(this.getPosition().add(0, -1, 0)).getBlock() != BlockHandler.ZERG_CREEP && this.getEntityWorld().getBlockState(this.getPosition().add(0, -1, 0)).getBlock() != Blocks.AIR) {
+			this.attackEntityFrom(DamageSource.OUT_OF_WORLD, this.getMaxHealth());
+		}
 	}
 	
 	@Override
