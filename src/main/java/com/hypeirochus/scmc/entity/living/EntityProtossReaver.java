@@ -4,8 +4,6 @@ import java.util.Random;
 
 import com.google.common.base.Predicate;
 import com.hypeirochus.api.world.entity.ItemDrop;
-import com.hypeirochus.scmc.capabilities.ColorProvider;
-import com.hypeirochus.scmc.capabilities.IColor;
 import com.hypeirochus.scmc.entity.IShieldEntity;
 import com.hypeirochus.scmc.enums.EnumColors;
 import com.hypeirochus.scmc.enums.EnumFactionTypes;
@@ -15,7 +13,6 @@ import com.hypeirochus.scmc.handlers.ItemHandler;
 import com.hypeirochus.scmc.handlers.SoundHandler;
 
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackRanged;
@@ -56,50 +53,7 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 
 	@Override
 	public boolean apply(EntityLivingBase entity) {
-		if (!entity.isInvisible()) {
-			if (entity instanceof EntityStarcraftMob) {
-				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					if (!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.DAELAAM)) {
-						if (((EntityStarcraftMob) entity).getColor() != this.getColor()) {
-							return true;
-						} else {
-							return false;
-						}
-					} else if (((EntityStarcraftMob) entity).getColor() != this.getColor()) {
-						return true;
-					}
-				}
-			} else if (entity instanceof EntityStarcraftPassive) {
-				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					if (!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.DAELAAM)) {
-						if (((EntityStarcraftPassive) entity).getColor() != this.getColor() && !((EntityStarcraftPassive) entity).isType(EnumTypeAttributes.CRITTER)) {
-							return true;
-						} else {
-							return false;
-						}
-					} else if (((EntityStarcraftPassive) entity).getColor() != this.getColor()) {
-						return true;
-					}
-				}
-			} else if (entity instanceof EntityPlayer) {
-				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
-				if (color.getColor() == this.getColor().getId()) {
-					return false;
-				} else {
-					return true;
-				}
-			} else {
-				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					return false;
-				}
-				return true;
-			}
-		} else if (entity.isInvisible() && this.hasAttribute(EnumTypeAttributes.DETECTOR)) {
-			return true;
-		} else {
-			return false;
-		}
-		return false;
+		return checkTarget(entity, EnumFactionTypes.DAELAAM);
 	}
 
 	@Override
@@ -113,14 +67,14 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(133.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(.24000000417232513);
-		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(32);
+		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(24);
 		getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
 		getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(2.0D);
 	}
 
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase entity, float distance) {
-		if (!world.isRemote && this.ammo > 1) {
+		if (!world.isRemote && this.ammo > 1 && this.getAttackTarget() != null) {
 			EntityScarab scarab = new EntityScarab(world, this.getColor(), EnumFactionTypes.DAELAAM);
 			scarab.setLocationAndAngles(posX, posY, posZ, 0, 0);
 			world.spawnEntity(scarab);
