@@ -46,20 +46,4 @@ public class EntityAIScarabExplode extends EntityAIBase {
 		swellingScarab.getNavigator().clearPath();
 		scarabAttackTarget = swellingScarab.getAttackTarget();
 	}
-
-	/**
-	 * Updates the task
-	 */
-	@Override
-	public void updateTask() {
-		if (scarabAttackTarget == null) {
-			swellingScarab.setScarabState(-1);
-		} else if (swellingScarab.getDistanceSq(scarabAttackTarget) > 49) {
-			swellingScarab.setScarabState(-1);
-		} else if (!swellingScarab.getEntitySenses().canSee(scarabAttackTarget)) {
-			swellingScarab.setScarabState(-1);
-		} else {
-			swellingScarab.setScarabState(1);
-		}
-	}
 }
