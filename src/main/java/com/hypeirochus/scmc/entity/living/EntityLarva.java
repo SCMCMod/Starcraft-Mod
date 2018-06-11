@@ -5,6 +5,7 @@ import java.util.Random;
 import com.hypeirochus.api.world.entity.ItemDrop;
 import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.client.gui.GuiLarvaMorph;
+import com.hypeirochus.scmc.entity.ai.pathfinding.PathNavigateCreep;
 import com.hypeirochus.scmc.enums.EnumColors;
 import com.hypeirochus.scmc.enums.EnumFactionTypes;
 import com.hypeirochus.scmc.enums.EnumTypeAttributes;
@@ -22,11 +23,11 @@ import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.pathfinding.PathNavigate;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundEvent;
@@ -44,12 +45,16 @@ public class EntityLarva extends EntityZergPassive {
 		this.setColor(EnumColors.PURPLE);
 		this.setFactions(EnumFactionTypes.SWARM);
 		setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
-	}
-
-	protected void applyEntityAI() {
+		tasks.addTask(0, new EntityAISwimming(this));
+		tasks.addTask(1, new EntityAIMoveTowardsRestriction(this, 1));
+		tasks.addTask(2, new EntityAIWander(this, 1));
+		tasks.addTask(3, new EntityAILookIdle(this));
+		tasks.addTask(4, new EntityAIAvoidEntity<EntityProtossMob>(this, EntityProtossMob.class, 16.0F, 1.0D, 1.0D));
+		tasks.addTask(4, new EntityAIAvoidEntity<EntityTerranMob>(this, EntityTerranMob.class, 16.0F, 1.0D, 1.0D));
+		tasks.addTask(4, new EntityAIAvoidEntity<EntityPlayer>(this, EntityPlayer.class, 16.0F, 1.0D, 1.0D));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
 	}
-
+	
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
@@ -67,6 +72,11 @@ public class EntityLarva extends EntityZergPassive {
 	protected void dropFewItems(boolean recentlyHit, int looting) {
 		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), MetaHandler.CarapaceType.T1.getID()));
 		drop.tryDrop(this);
+	}
+	
+	@Override
+	protected PathNavigate createNavigator(World worldIn) {
+		return new PathNavigateCreep(this, worldIn);
 	}
 
 	@Override
@@ -103,22 +113,7 @@ public class EntityLarva extends EntityZergPassive {
 	public int getTalkInterval() {
 		return 160;
 	}
-
-	@Override
-	protected void initEntityAI() {
-		tasks.addTask(0, new EntityAISwimming(this));
-		tasks.addTask(4, new EntityAIAvoidEntity<EntityProtossMob>(this, EntityProtossMob.class, 16.0F, 1.0D, 1.0D));
-		tasks.addTask(4, new EntityAIAvoidEntity<EntityTerranMob>(this, EntityTerranMob.class, 16.0F, 1.0D, 1.0D));
-		tasks.addTask(4, new EntityAIAvoidEntity<EntityPlayer>(this, EntityPlayer.class, 16.0F, 1.0D, 1.0D));
-		tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1));
-		tasks.addTask(7, new EntityAIWander(this, 1));
-		tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8));
-		tasks.addTask(8, new EntityAILookIdle(this));
-		applyEntityAI();
-	}
 	
-
-
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
