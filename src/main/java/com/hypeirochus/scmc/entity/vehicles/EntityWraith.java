@@ -121,9 +121,6 @@ public class EntityWraith extends AbstractSpaceship implements IEnergyEntity
 			if(this.getEnergy() == 0 && this.getCloakState() == true) {
 				this.setCloakState(false);
 			}
-			if(this.ticksExisted % 20 == 0) {
-				System.out.println("CLOAK STATUS: " + this.getCloakState() + " : ENERGY: " + this.getEnergy());
-			}
 		}
 		super.onEntityUpdate();
 	}

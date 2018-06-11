@@ -134,6 +134,7 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 		for (int x = 0; x < types.length; x++) {
 			this.factions.add(x, types[x]);
 		}
+		this.setStarcraftOwner(types[0].toString());
 		return this;
 	}
 

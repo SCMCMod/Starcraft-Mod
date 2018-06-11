@@ -86,24 +86,4 @@ public class StarcraftUtils {
 		}
 		return Race.UNDEFINED;
 	}
-
-	/**
-	 * Checks whether or not a block of gas should dissipate or not based on chance.
-	 * 
-	 * @param world
-	 *            The world
-	 * @param maxHeight
-	 *            The maximum height gas can float
-	 * @param currentHeight
-	 *            The current height of the gas
-	 * @return Whether or not the gas should be removed
-	 */
-	public static boolean shouldGasDissipate(World world, int maxHeight, int currentHeight) {
-		int lowestHeight = world.getSeaLevel() + 20;
-		float chance = (float) currentHeight / ((float) maxHeight + (float) lowestHeight);
-
-		System.out.println(chance);
-
-		return random.nextFloat() <= chance;
-	}
 }
