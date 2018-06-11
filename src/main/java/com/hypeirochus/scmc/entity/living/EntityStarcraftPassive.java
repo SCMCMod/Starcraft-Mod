@@ -48,6 +48,7 @@ public abstract class EntityStarcraftPassive extends EntityTameable implements I
 		this.getDataManager().register(OWNER, "");
 	}
 
+	//TODO: MOVE TO CORE MOD
 	public int secondsToTicks(int seconds) {
 		return seconds * 20;
 	}

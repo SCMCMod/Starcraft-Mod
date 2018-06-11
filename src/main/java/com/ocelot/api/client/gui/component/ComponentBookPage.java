@@ -17,6 +17,7 @@ import net.minecraft.client.Minecraft;
  * 
  * @author Ocelot5836
  */
+//TODO: MOVE TO CORE MOD
 public class ComponentBookPage extends Component {
 
 	public ComponentText title;

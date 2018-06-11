@@ -22,6 +22,7 @@ import net.minecraftforge.fluids.capability.IFluidTankProperties;
  * 
  * Use for Tile Entites that require fluid handling, which can also be used for machines that need fluid handling.
  */
+//TODO: MOVE TO CORE MOD
 public abstract class TileEntityFluidHandler extends TileEntityEnergy implements IFluidHandler
 {
 	protected IFluidTankProperties[] properties;

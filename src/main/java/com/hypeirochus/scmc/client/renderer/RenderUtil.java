@@ -8,6 +8,7 @@ import net.minecraft.util.ResourceLocation;
 /**
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
  */
+//TODO: MOVE TO CORE MOD
 public class RenderUtil {
 
 	public static final float		DEFAULT_BOX_TRANSLATION	= 0.625F;

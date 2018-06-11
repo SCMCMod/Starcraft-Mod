@@ -37,6 +37,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * EventBusSubscriber annotation must apply to each individual storm provider.
  * Provider will not work without it.
  **/
+//TODO: MOVE TO CORE MOD
 @EventBusSubscriber
 public abstract class StormProvider implements Predicate<Entity>, IStormProvider {
 	protected Random	random			= new Random();

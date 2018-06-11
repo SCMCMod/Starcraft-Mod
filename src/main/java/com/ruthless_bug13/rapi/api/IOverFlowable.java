@@ -6,6 +6,7 @@ package com.ruthless_bug13.rapi.api;
  * If extended by a class/interface that uses a minimum/max value, 
  *  it can be used to check if the minimum value is exceeding the max, which will cause an overflow.
  */
+//TODO: MOVE TO CORE MOD
 public interface IOverFlowable 
 {
 	/**

@@ -10,6 +10,7 @@ import net.minecraftforge.common.util.Constants.NBT;
  * 
  * Used to pull/send data from an ItemStack through NBT data.
  */
+//TODO: MOVE TO CORE MOD
 public class ValueStorageHandler 
 {
 	// Data compound prefix to store data in

@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 
+//TODO: MOVE TO CORE MOD
 public class EnergyItemBlock extends ItemBlock implements IEnergyItem
 {
 	protected String EnergyToShow;

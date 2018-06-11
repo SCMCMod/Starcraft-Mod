@@ -7,6 +7,7 @@ import com.ruthless_bug13.rapi.api.ICustomDurabilityItem;
  * 
  * 
  */
+//TODO: MOVE TO CORE MOD
 public interface IEnergyItem extends ICustomDurabilityItem
 {
 }

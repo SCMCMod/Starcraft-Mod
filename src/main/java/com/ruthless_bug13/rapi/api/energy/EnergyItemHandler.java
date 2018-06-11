@@ -5,6 +5,7 @@ import net.minecraft.item.ItemStack;
 /**
  * @author Ruthless_Bug13
  */
+//TODO: MOVE TO CORE MOD
 public class EnergyItemHandler 
 {
 	/**

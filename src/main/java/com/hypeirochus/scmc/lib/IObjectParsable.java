@@ -10,6 +10,7 @@ package com.hypeirochus.scmc.lib;
  * 
  * @author Ocelot5836
  */
+//TODO: MOVE TO CORE MOD
 public interface IObjectParsable {
 
 	byte BYTE = 0;

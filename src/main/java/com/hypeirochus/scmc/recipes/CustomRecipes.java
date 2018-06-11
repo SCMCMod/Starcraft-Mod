@@ -18,6 +18,7 @@ import net.minecraft.util.ResourceLocation;
  * 
  * @author Ocelot5836
  */
+//TODO: MOVE TO CORE MOD, WARNING, this uses starcraft code.
 public class CustomRecipes {
 
 	private static List<IRecipe> recipes;

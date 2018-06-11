@@ -1,5 +1,6 @@
 package com.hypeirochus.scmc.worldgen;
 
+//TODO: MOVE TO CORE MOD
 public class DimensionUtil {
 
 	public static float calculateCelestialAngle(long worldTime, float renderPartialTicks) {

@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
  *
  * Used for items that use custom durability. Can be implemented into CUSTOM durability bars too.
  */
+//TODO: MOVE TO CORE MOD
 public interface ICustomDurabilityItem 
 {
 	/**

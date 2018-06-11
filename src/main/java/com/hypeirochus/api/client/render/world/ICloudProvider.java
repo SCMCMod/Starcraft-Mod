@@ -9,6 +9,7 @@ import net.minecraft.world.WorldProvider;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+//TODO: MOVE TO CORE MOD
 public interface ICloudProvider {
 	public float getCloudMovementSpeed(World world);
 

@@ -9,6 +9,7 @@ import net.minecraft.util.EnumFacing;
  * 
  * If extended by a block, the block is considered a connection block for other pipe/fluid pipes/item pipes.
  */
+//TODO: MOVE TO CORE MOD
 public interface IPipeConnection extends IOverFlowable
 {
 	/**

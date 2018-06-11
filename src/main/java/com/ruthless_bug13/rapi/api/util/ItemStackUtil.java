@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
  * 
  * Just some special ItemStck utilities I made. They probably already exist, I just couldn't find them.
  */
+//TODO: MOVE TO CORE MOD
 public class ItemStackUtil 
 {
 	/**

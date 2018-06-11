@@ -11,6 +11,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
+//TODO: MOVE TO CORE MOD
 public class VehicleWeapon implements IWeaponSystem {
 
 	Entity vehicle;

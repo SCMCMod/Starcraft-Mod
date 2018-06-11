@@ -32,6 +32,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * 
  * The base for each block that can be layered like snow.
  */
+
+//TODO: MOVE TO CORE MOD, AND make this generically named.
 public abstract class StarcraftBlockLayered extends StarcraftBlock {
 
 	public static final PropertyInteger LAYERS = PropertyInteger.create("layers", 1, 8);

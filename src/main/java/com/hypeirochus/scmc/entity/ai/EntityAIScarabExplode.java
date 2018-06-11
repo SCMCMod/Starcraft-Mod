@@ -5,6 +5,7 @@ import com.hypeirochus.scmc.entity.living.EntityScarab;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 
+//TODO: This code may not be of any use. Consider deleting it.
 public class EntityAIScarabExplode extends EntityAIBase {
 
 	/**

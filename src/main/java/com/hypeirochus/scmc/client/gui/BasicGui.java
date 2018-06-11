@@ -11,6 +11,7 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 
+//TODO: MOVE TO CORE MOD
 public class BasicGui extends GuiScreen {
 
 	protected static final Minecraft MC = Minecraft.getMinecraft();

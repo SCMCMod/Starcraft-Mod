@@ -18,6 +18,7 @@ import net.minecraft.world.World;
  * 
  * If extended by an item, it will be considered a energy item. Which can be drained of power, or charged with power.
  */
+//TODO: MOVE TO CORE MOD
 public class EnergyItem extends StarcraftItem implements IEnergyItem
 {
 	protected String EnergyToShow;

@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
+//TODO: MOVE TO CORE MOD
 public class FluidContainerItem extends Item implements IFluidItem
 {
 	protected AdvFluidTank handler;

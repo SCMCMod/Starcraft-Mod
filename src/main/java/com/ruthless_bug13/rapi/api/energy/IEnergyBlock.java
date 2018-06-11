@@ -10,6 +10,7 @@ import net.minecraft.world.World;
  * 
  * If implemented by a block, it can be considered a energy block. Which will be wrapped by any energy mods that use @IEnergyWrapper.
  */
+//TODO: MOVE TO CORE MOD
 public interface IEnergyBlock extends IEnergyWrapper, IOverFlowable, IAugmentable
 {
 	/**

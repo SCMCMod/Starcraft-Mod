@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
+//TODO: MOVE TO CORE MOD
 public class LogOverride implements IItemPropertyGetter {
 
 	@Override

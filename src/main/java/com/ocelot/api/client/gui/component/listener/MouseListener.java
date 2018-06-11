@@ -12,6 +12,7 @@ import com.ocelot.api.client.gui.component.Component;
  * 
  * @author Ocelot5836
  */
+//TODO: MOVE TO CORE MOD
 public interface MouseListener {
 
 	/**

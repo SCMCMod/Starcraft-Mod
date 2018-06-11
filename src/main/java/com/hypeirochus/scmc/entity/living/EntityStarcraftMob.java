@@ -30,19 +30,11 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	private static final DataParameter<String> OWNER = EntityDataManager.createKey(EntityStarcraftMob.class, DataSerializers.STRING);
 
 	List<EnumTypeAttributes> types = new ArrayList<EnumTypeAttributes>(15);
-	EnumFactionTypes faction;
+	List<EnumFactionTypes> factions = new ArrayList<EnumFactionTypes>(15);
 	EnumColors color;
 
 	public EntityStarcraftMob(World world) {
 		super(world);
-	}
-
-	public String getOwnerFromFaction(EnumFactionTypes faction) {
-		return faction.toString();
-	}
-
-	public String getFactionAsString() {
-		return this.faction.toString();
 	}
 
 	/**
@@ -90,7 +82,12 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	 * @return True if the mob is of the requested faction, false otherwise.
 	 */
 	public boolean isFaction(EnumFactionTypes faction) {
-		return faction == this.faction;
+		for (int x = 0; x < factions.size(); x++) {
+			if (this.factions.get(x) == faction) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -133,11 +130,10 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	 *            Sets the mob to be under the given factions.
 	 * @return The mob.
 	 */
-	public EntityStarcraftMob setFactions(EnumFactionTypes faction) {
-		if (this.getStarcraftOwner().contentEquals("")) {
-			this.setStarcraftOwner(this.getOwnerFromFaction(faction));
+	public EntityStarcraftMob setFactions(EnumFactionTypes... types) {
+		for (int x = 0; x < types.length; x++) {
+			this.factions.add(x, types[x]);
 		}
-		this.faction = faction;
 		return this;
 	}
 

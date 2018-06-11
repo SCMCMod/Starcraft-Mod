@@ -12,6 +12,7 @@ import net.minecraftforge.items.SlotItemHandler;
  * 
  * @author Ocelot5836
  */
+//TODO: MOVE TO CORE MOD
 public class SlotGasCollectorOutput extends SlotItemHandler {
 
 	public SlotGasCollectorOutput(IItemHandler handler, int slotIndex, int xPosition, int yPosition) {

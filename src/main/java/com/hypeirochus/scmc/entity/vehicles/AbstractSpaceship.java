@@ -40,6 +40,7 @@ import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+//TODO: Clean this up a bit.
 public class AbstractSpaceship extends Entity
 {
     private static final DataParameter<Float> DAMAGE_TAKEN = EntityDataManager.<Float>createKey(AbstractSpaceship.class, DataSerializers.FLOAT);

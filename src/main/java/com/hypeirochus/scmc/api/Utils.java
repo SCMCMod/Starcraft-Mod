@@ -40,6 +40,7 @@ import net.minecraftforge.oredict.OreDictionary;
  * 
  * @author CJMinecraft
  */
+//TODO: MOVE TO CORE MOD
 public class Utils {
 
 	public static final FloatBuffer projection = GLAllocation.createDirectFloatBuffer(16);

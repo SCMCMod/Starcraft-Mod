@@ -7,6 +7,7 @@ import java.util.List;
  * 
  * Used to create cables.
  */
+//TODO: MOVE TO CORE MOD
 public abstract class TileEntityEnergyConnector extends TileEntityEnergy
 {
 	public TileEntityEnergyConnector(String name, double maxEnergy, double energyPerTick, double maxInput, double maxOutput) 

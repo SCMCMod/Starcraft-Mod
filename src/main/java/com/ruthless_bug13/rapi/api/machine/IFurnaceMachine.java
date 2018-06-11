@@ -3,6 +3,7 @@ package com.ruthless_bug13.rapi.api.machine;
 /*
  * @author Ruthless_Bug13
  */
+//TODO: MOVE TO CORE MOD
 public interface IFurnaceMachine 
 {
 	/**

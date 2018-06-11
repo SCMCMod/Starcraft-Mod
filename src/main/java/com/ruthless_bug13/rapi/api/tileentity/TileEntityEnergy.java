@@ -11,6 +11,7 @@ import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+//TODO: MOVE TO CORE MOD
 public abstract class TileEntityEnergy extends TileEntity implements IEnergyBlock, ITickable
 {
 	public double EnergyStored;

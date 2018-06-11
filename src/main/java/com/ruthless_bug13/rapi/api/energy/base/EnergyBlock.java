@@ -9,6 +9,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+//TODO: MOVE TO CORE MOD, also, clean this up!
 public class EnergyBlock extends StarcraftBlock
 {
 	//public static final PropertyDirection FACING = BlockHorizontal.FACING;

@@ -7,6 +7,7 @@ import net.minecraft.util.EnumFacing;
  * 
  * @author Ruthless_Bug13
  */
+//TODO: MOVE TO CORE MOD
 public interface IEnergyWrapper extends IEnergyStorage, IEnergyInput, IEnergyOutput
 {
 	/**

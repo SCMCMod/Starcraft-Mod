@@ -14,6 +14,7 @@ import net.minecraftforge.items.ItemStackHandler;
  * 
  * A Tile Entity used for blocks that need inventories/containers.
  */
+//TODO: MOVE TO CORE MOD
 public class TileEntityContainer extends TileEntity
 {
 	public ItemStackHandler inventory;

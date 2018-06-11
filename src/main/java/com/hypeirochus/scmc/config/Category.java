@@ -3,6 +3,7 @@ package com.hypeirochus.scmc.config;
 import net.minecraft.client.resources.I18n;
 import net.minecraftforge.fml.client.config.GuiConfigEntries.CategoryEntry;
 
+//TODO: MOVE TO CORE MOD
 public class Category {
 
 	private String name;

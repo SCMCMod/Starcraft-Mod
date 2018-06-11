@@ -21,6 +21,7 @@ import net.minecraft.util.ResourceLocation;
  * 
  * @author Ocelot5836
  */
+//TODO: MOVE TO CORE MOD
 public class TextureUtils {
 
 	private static Minecraft mc = Minecraft.getMinecraft();

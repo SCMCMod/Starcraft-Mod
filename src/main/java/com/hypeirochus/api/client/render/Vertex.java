@@ -2,6 +2,7 @@ package com.hypeirochus.api.client.render;
 
 import net.minecraft.client.renderer.Tessellator;
 
+//TODO: MOVE TO CORE MOD
 public class Vertex {
 	public static Vertex	unitX		= new Vertex(1, 0, 0);
 	public static Vertex	unitY		= new Vertex(0, 1, 0);

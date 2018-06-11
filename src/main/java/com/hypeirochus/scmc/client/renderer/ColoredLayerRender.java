@@ -15,6 +15,7 @@ import net.minecraft.util.ResourceLocation;
  * 
  * @author CJMinecraft
  */
+//TODO: MOVE TO CORE MOD
 public class ColoredLayerRender {
 
 	public static <T extends EntityLiving> void render(RenderLiving<T> renderer, T entity, ResourceLocation overlayTexture, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {

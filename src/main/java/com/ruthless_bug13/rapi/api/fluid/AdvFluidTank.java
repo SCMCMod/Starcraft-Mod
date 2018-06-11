@@ -11,6 +11,7 @@ import net.minecraftforge.fluids.IFluidTank;
  * 
  * Used for TileEntities or ItemStacks to store fluids.
  */
+//TODO: MOVE TO CORE MOD
 public class AdvFluidTank implements IFluidTankAdapter, IFluidTank
 {
 	private FluidStack FluidType;

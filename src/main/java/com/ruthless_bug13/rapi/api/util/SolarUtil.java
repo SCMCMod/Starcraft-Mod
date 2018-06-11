@@ -7,6 +7,7 @@ import net.minecraft.world.World;
  * 
  * Lightweight solar utility for solar panels.
  */
+//TODO: MOVE TO CORE MOD, to a math utility.
 public class SolarUtil 
 {
 	/**

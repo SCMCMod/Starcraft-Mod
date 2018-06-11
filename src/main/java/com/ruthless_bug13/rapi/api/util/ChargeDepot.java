@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
  * 
  * Used for charging stations, or machines that can charge items.
  */
+//TODO: MOVE TO CORE MOD
 public class ChargeDepot 
 {
 	/**
