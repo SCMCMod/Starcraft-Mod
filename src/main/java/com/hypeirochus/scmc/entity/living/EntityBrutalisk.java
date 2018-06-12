@@ -35,7 +35,6 @@ public class EntityBrutalisk extends EntityZergMob implements IMob, Predicate<En
 		super(world);
 		setSize(4.0F, 6.0F);
 		experienceValue = 750;
-		this.baseHealth = 750;
 		this.setColor(EnumColors.PURPLE);
 		this.setFactions(EnumFactionTypes.SWARM);
 		setAttributes(EnumTypeAttributes.MASSIVE, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND, EnumTypeAttributes.ARMORED, EnumTypeAttributes.HEROIC);

@@ -38,7 +38,6 @@ public class EntityZerglingRaptor extends EntityZergMob implements IMob, Predica
 		super(world);
 		setSize(1.0F, 1.0F);
 		experienceValue = 23;
-		this.baseHealth = 25;
 		stepHeight = 5.0F;
 		this.setColor(EnumColors.PURPLE);
 		this.setFactions(EnumFactionTypes.SWARM);
@@ -117,5 +116,15 @@ public class EntityZerglingRaptor extends EntityZergMob implements IMob, Predica
 	@Override
 	public int getTalkInterval() {
 		return 160;
+	}
+	
+	@Override
+	public void onLivingUpdate() {
+		if(this.getBurrowState() == true) {
+			setSize(1.0F, 0.1F);
+		}else {
+			setSize(1.0F, 1.0F);
+		}
+		super.onLivingUpdate();
 	}
 }

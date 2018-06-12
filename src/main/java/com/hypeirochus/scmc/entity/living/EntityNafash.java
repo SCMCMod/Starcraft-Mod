@@ -57,7 +57,6 @@ public class EntityNafash extends EntityZergMob implements IMob, IRangedAttackMo
 		super(world);
 		setSize(3.0F, 3.0F);
 		experienceValue = 300;
-		this.baseHealth = 300;
 		this.setColor(EnumColors.PURPLE);
 		this.setFactions(EnumFactionTypes.SWARM);
 		setAttributes(EnumTypeAttributes.PSIONIC, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND, EnumTypeAttributes.HEROIC);

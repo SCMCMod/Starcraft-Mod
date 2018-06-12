@@ -46,7 +46,6 @@ public class EntityQueen extends EntityZergMob implements IMob, IRangedAttackMob
 		super(world);
 		setSize(3.0F, 3.0F);
 		experienceValue = 117;
-		this.baseHealth = 117;
 		this.setColor(EnumColors.PURPLE);
 		this.setFactions(EnumFactionTypes.SWARM);
 		setAttributes(EnumTypeAttributes.PSIONIC, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);

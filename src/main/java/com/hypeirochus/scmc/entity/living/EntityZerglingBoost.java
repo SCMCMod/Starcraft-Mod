@@ -36,7 +36,6 @@ public class EntityZerglingBoost extends EntityZergMob implements IMob, Predicat
 		super(world);
 		setSize(1.0F, 1.0F);
 		experienceValue = 23;
-		this.baseHealth = 25;
 		this.setColor(EnumColors.PURPLE);
 		this.setFactions(EnumFactionTypes.SWARM);
 		this.setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
@@ -102,5 +101,15 @@ public class EntityZerglingBoost extends EntityZergMob implements IMob, Predicat
 	@Override
 	public int getTalkInterval() {
 		return 160;
+	}
+	
+	@Override
+	public void onLivingUpdate() {
+		if(this.getBurrowState() == true) {
+			setSize(1.0F, 0.1F);
+		}else {
+			setSize(1.0F, 1.0F);
+		}
+		super.onLivingUpdate();
 	}
 }

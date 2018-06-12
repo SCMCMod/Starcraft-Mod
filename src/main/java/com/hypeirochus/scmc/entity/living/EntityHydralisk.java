@@ -37,7 +37,6 @@ public class EntityHydralisk extends EntityZergMob implements IMob, IRangedAttac
 		super(world);
 		setSize(3.0F, 3.0F);
 		experienceValue = 60;
-		this.baseHealth = 60;
 		this.setColor(EnumColors.PURPLE);
 		this.setFactions(EnumFactionTypes.SWARM);
 		setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
@@ -125,7 +124,15 @@ public class EntityHydralisk extends EntityZergMob implements IMob, IRangedAttac
 	}
 
 	@Override
-	public void setSwingingArms(boolean swingingArms) {
-		
+	public void setSwingingArms(boolean swingingArms) {}
+	
+	@Override
+	public void onLivingUpdate() {
+		if(this.getBurrowState() == true) {
+			setSize(3.0F, 0.1F);
+		}else {
+			setSize(3.0F, 3.0F);
+		}
+		super.onLivingUpdate();
 	}
 }

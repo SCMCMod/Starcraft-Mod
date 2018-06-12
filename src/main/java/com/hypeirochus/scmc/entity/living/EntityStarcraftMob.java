@@ -1,7 +1,7 @@
 package com.hypeirochus.scmc.entity.living;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.hypeirochus.scmc.api.IEntityTeamColorable;
 import com.hypeirochus.scmc.enums.EnumColors;
@@ -29,8 +29,8 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	private static final DataParameter<Integer> COLOR = EntityDataManager.createKey(EntityStarcraftMob.class, DataSerializers.VARINT);
 	private static final DataParameter<String> OWNER = EntityDataManager.createKey(EntityStarcraftMob.class, DataSerializers.STRING);
 
-	List<EnumTypeAttributes> types = new ArrayList<EnumTypeAttributes>(15);
-	List<EnumFactionTypes> factions = new ArrayList<EnumFactionTypes>(15);
+	Map<Integer, EnumTypeAttributes> types = new HashMap<Integer, EnumTypeAttributes>();
+	Map<Integer, EnumFactionTypes> factions = new HashMap<Integer, EnumFactionTypes>();
 	EnumColors color;
 
 	public EntityStarcraftMob(World world) {
@@ -119,7 +119,22 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	 */
 	public EntityStarcraftMob setAttributes(EnumTypeAttributes... types) {
 		for (int x = 0; x < types.length; x++) {
-			this.types.add(x, types[x]);
+			this.types.put(x, types[x]);
+		}
+		return this;
+	}
+	
+	public EntityStarcraftMob amendAttribute(EnumTypeAttributes type) {
+		this.types.put(types.size(), type);
+		return this;
+	}
+	
+	public EntityStarcraftMob removeAttribute(EnumTypeAttributes type) {
+		for (int x = 0; x < types.size(); x++) {
+			if (this.types.get(x) == type) {
+				this.types.remove(x);
+				return this;
+			}
 		}
 		return this;
 	}
@@ -128,11 +143,11 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	 * 
 	 * @param types
 	 *            Sets the mob to be under the given factions.
-	 * @return The mob.
+	 * @return The mob.a
 	 */
 	public EntityStarcraftMob setFactions(EnumFactionTypes... types) {
 		for (int x = 0; x < types.length; x++) {
-			this.factions.add(x, types[x]);
+			this.factions.put(x, types[x]);
 		}
 		this.setStarcraftOwner(types[0].toString());
 		return this;
@@ -238,6 +253,13 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 			if (entity instanceof EntityStarcraftMob) {
 				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
 					if (!((EntityStarcraftMob) entity).getStarcraftOwner().contentEquals(this.getStarcraftOwner())) {
+						if(((EntityStarcraftMob) entity).hasAttribute(EnumTypeAttributes.INVISIBLE)) {
+							if(((EntityStarcraftMob) entity).hasAttribute(EnumTypeAttributes.DETECTED)) {
+								return true;
+							}else {
+								return false;
+							}
+						}
 						return true;
 					} else {
 						return false;

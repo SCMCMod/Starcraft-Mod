@@ -48,6 +48,10 @@ public class RenderZergling extends RenderLiving<EntityZergling> implements Laye
 	@Override
 	protected void preRenderCallback(EntityZergling entitylivingbaseIn, float partialTickTime) {
 		GlStateManager.scale(1.25F + (entitylivingbaseIn.getBiomass() / 60), 1.25F + (entitylivingbaseIn.getBiomass() / 60), 1.25F + (entitylivingbaseIn.getBiomass() / 60));
+		
+		if(entitylivingbaseIn.getBurrowState() == true) {
+			GlStateManager.translate(0, 0.6F, 0);
+		}
 	}
 
 	@Override

@@ -39,7 +39,6 @@ public class EntityZerglingPrimal2 extends EntityZergMob implements IMob, Predic
 		this.setFactions(EnumFactionTypes.PRIMALZERG);
 		this.setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
 		experienceValue = 23;
-		this.baseHealth = 25;
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
 		tasks.addTask(2, new EntityAIWander(this, 1.0D));

@@ -1,6 +1,7 @@
 package com.hypeirochus.scmc.client.model.entity;
 
 import com.hypeirochus.api.client.render.model.Model;
+import com.hypeirochus.scmc.entity.living.EntityZerglingSwarmling;
 
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -703,5 +704,12 @@ public class ModelZerglingSwarmling extends Model {
 		tail2.rotateAngleY = (MathHelper.sin(swingProgress(obj) * -0.5F) / 10.1F) * 2.0F * swingProgressPrev(obj);
 		tail3.rotateAngleY = (MathHelper.sin(swingProgress(obj) * -0.5F) / 10.1F) * 2.0F * swingProgressPrev(obj);
 		tail4.rotateAngleY = (MathHelper.sin(swingProgress(obj) * -0.5F) / 10.1F) * 2.0F * swingProgressPrev(obj);
+
+		if (obj instanceof EntityZerglingSwarmling) {
+			if (((EntityZerglingSwarmling) obj).getBurrowState() == true) {
+				this.lHookArm1.rotateAngleX = (float) Math.toRadians(-120);
+				this.rHookArm1.rotateAngleX = (float) Math.toRadians(-120);
+			}
+		}
 	}
 }

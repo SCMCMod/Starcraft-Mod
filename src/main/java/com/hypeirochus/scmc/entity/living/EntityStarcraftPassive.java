@@ -97,6 +97,7 @@ public abstract class EntityStarcraftPassive extends EntityTameable implements I
 		for (int x = 0; x < types.length; x++) {
 			this.factions.add(x, types[x]);
 		}
+
 		this.setStarcraftOwner(types[0].toString());
 		return this;
 	}

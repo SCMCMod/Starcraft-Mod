@@ -53,7 +53,6 @@ public class EntityBrakk extends EntityZergMob implements IMob, Predicate<Entity
 		super(world);
 		setSize(3.0F, 3.0F);
 		experienceValue = 1000;
-		this.baseHealth = 1000;
 		this.setColor(EnumColors.CYAN);
 		this.setFactions(EnumFactionTypes.PRIMALPACKBRAKK);
 		setAttributes(EnumTypeAttributes.MASSIVE, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND, EnumTypeAttributes.ARMORED, EnumTypeAttributes.HEROIC);

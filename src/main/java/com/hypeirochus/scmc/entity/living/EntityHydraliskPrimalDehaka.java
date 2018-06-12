@@ -37,7 +37,6 @@ public class EntityHydraliskPrimalDehaka extends EntityZergMob implements IMob, 
 		super(world);
 		setSize(3.0F, 3.0F);
 		experienceValue = 60;
-		this.baseHealth = 60;
 		this.setColor(EnumColors.YELLOW);
 		this.setFactions(EnumFactionTypes.PRIMALZERG);
 		setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);

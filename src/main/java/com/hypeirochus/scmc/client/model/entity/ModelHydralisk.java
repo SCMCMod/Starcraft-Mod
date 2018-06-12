@@ -2,6 +2,7 @@ package com.hypeirochus.scmc.client.model.entity;
 
 import com.hypeirochus.api.client.render.model.Model;
 import com.hypeirochus.scmc.client.model.IModelSkull;
+import com.hypeirochus.scmc.entity.living.EntityHydralisk;
 
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -790,6 +791,12 @@ public class ModelHydralisk extends Model implements IModelSkull {
 		lMandible1.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.1F) * 0.667F * swingProgressPrev(obj);
 		rMandible1.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.1F) * 0.667F * swingProgressPrev(obj);
 		lowerJaw1.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.01F) * 0.667F * swingProgressPrev(obj) + 0.4F;
+		
+		if (obj instanceof EntityHydralisk) {
+			if (((EntityHydralisk) obj).getBurrowState() == true) {
+				this.head.rotateAngleX = (float) Math.toRadians(13);
+			}
+		}
 	}
 
 	@Override

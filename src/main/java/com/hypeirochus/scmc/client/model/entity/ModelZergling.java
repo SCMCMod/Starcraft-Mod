@@ -2,6 +2,7 @@ package com.hypeirochus.scmc.client.model.entity;
 
 import com.hypeirochus.api.client.render.model.Model;
 import com.hypeirochus.scmc.client.model.IModelSkull;
+import com.hypeirochus.scmc.entity.living.EntityZergling;
 
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -604,6 +605,13 @@ public class ModelZergling extends Model implements IModelSkull {
 		tail2.rotateAngleY = (MathHelper.sin(swingProgress(obj) * -0.5F) / 10.1F) * 2.0F * swingProgressPrev(obj);
 		tail3.rotateAngleY = (MathHelper.sin(swingProgress(obj) * -0.5F) / 10.1F) * 2.0F * swingProgressPrev(obj);
 		tail4.rotateAngleY = (MathHelper.sin(swingProgress(obj) * -0.5F) / 10.1F) * 2.0F * swingProgressPrev(obj);
+		
+		if (obj instanceof EntityZergling) {
+			if (((EntityZergling) obj).getBurrowState() == true) {
+				this.lHookArm1.rotateAngleX = (float) Math.toRadians(-120);
+				this.rHookArm1.rotateAngleX = (float) Math.toRadians(-120);
+			}
+		}
 	}
 
 	@Override

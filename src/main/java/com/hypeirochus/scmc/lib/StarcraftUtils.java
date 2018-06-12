@@ -7,7 +7,6 @@ import com.hypeirochus.scmc.enums.EnumColors;
 import com.hypeirochus.scmc.handlers.CapabilityHandler;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.world.World;
 
 /**
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
