@@ -102,4 +102,14 @@ public class EntityBrutalisk extends EntityZergMob implements IMob, Predicate<En
 	protected void playStepSound(BlockPos pos, Block blockIn) {
 		playSound(SoundHandler.ENTITY_BRUTALISK_STEP, 1.0F, 1.0F);
 	}
+	
+	@Override
+	public void onLivingUpdate() {
+		if(this.getBurrowState() == true) {
+			setSize(4.0F, 0.1F);
+		}else {
+			setSize(4.0F, 6.0F);
+		}
+		super.onLivingUpdate();
+	}
 }

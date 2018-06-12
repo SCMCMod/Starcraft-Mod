@@ -123,7 +123,15 @@ public class EntityHydraliskPrimal extends EntityZergMob implements IMob, IRange
 	}
 
 	@Override
-	public void setSwingingArms(boolean swingingArms) {
-		
+	public void setSwingingArms(boolean swingingArms) {}
+	
+	@Override
+	public void onLivingUpdate() {
+		if(this.getBurrowState() == true) {
+			setSize(3.0F, 0.1F);
+		}else {
+			setSize(3.0F, 3.0F);
+		}
+		super.onLivingUpdate();
 	}
 }
