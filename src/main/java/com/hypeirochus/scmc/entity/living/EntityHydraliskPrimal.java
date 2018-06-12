@@ -36,10 +36,14 @@ public class EntityHydraliskPrimal extends EntityZergMob implements IMob, IRange
 	public EntityHydraliskPrimal(World world) {
 		super(world);
 		setSize(3.0F, 3.0F);
-		experienceValue = 60;
 		this.setColor(EnumColors.CYAN);
 		this.setFactions(EnumFactionTypes.PRIMALZERG);
 		setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
+		this.initEntityAI();
+	}
+	
+	@Override
+	protected void initEntityAI() {
 		tasks.addTask(1, new EntityAIAttackRanged(this, 0.75D, 17, 16.0F));
 		tasks.addTask(2, new EntityAISwimming(this));
 		tasks.addTask(3, new EntityAIWander(this, 1.0D));
@@ -47,6 +51,7 @@ public class EntityHydraliskPrimal extends EntityZergMob implements IMob, IRange
 		tasks.addTask(5, new EntityAILookIdle(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, true, false, this));
+		super.initEntityAI();
 	}
 
 	/**

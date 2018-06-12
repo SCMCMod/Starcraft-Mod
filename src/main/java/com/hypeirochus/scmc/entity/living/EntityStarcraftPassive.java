@@ -155,6 +155,7 @@ public abstract class EntityStarcraftPassive extends EntityTameable implements I
 		return this;
 	}
 
+	//TODO: Remove this eventually.
 	@Override
 	public boolean processInteract(EntityPlayer player, EnumHand hand) {
 		ItemStack heldItem = player.getHeldItem(hand);
@@ -170,5 +171,10 @@ public abstract class EntityStarcraftPassive extends EntityTameable implements I
 		} else {
 			return super.processInteract(player, hand);
 		}
+	}
+	
+	@Override
+	protected int getExperiencePoints(EntityPlayer player) {
+		return (int) (this.getMaxHealth() * 3/4);
 	}
 }

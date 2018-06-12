@@ -44,7 +44,6 @@ public class EntityZealot extends EntityProtossMob implements IMob, Predicate<En
 	public EntityZealot(World world) {
 		super(world);
 		setSize(1.0F, 2.9F);
-		experienceValue = 100;
 		this.setColor(EnumColors.LIGHT_BLUE);
 		this.setFactions(EnumFactionTypes.DAELAAM);
 		setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);

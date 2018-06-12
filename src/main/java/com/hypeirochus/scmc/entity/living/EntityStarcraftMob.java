@@ -202,6 +202,7 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 		this.getDataManager().set(OWNER, owner);
 	}
 
+	//TODO: Remove this eventually.
 	@Override
 	protected boolean processInteract(EntityPlayer player, EnumHand hand) {
 		ItemStack heldItem = player.getHeldItem(hand);
@@ -295,5 +296,10 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 			return false;
 		}
 		return false;
+	}
+	
+	@Override
+	protected int getExperiencePoints(EntityPlayer player) {
+		return (int) (this.getMaxHealth() * 3/4);
 	}
 }

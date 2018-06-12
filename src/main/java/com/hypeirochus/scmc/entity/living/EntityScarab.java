@@ -29,6 +29,7 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 		setSize(.7F, .7F);
 		this.setColor(EnumColors.LIGHT_BLUE);
 		this.setFactions(EnumFactionTypes.DAELAAM);
+		this.initEntityAI();
 	}
 
 	public EntityScarab(World worldIn, EnumColors color, EnumFactionTypes faction) {
@@ -36,6 +37,7 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 		setSize(.7F, .7F);
 		this.setColor(color);
 		this.setFactions(faction);
+		this.initEntityAI();
 	}
 
 	@Override
@@ -46,6 +48,7 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 		tasks.addTask(4, new EntityAILookIdle(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, false, false, this));
+		super.initEntityAI();
 	}
 
 	/**

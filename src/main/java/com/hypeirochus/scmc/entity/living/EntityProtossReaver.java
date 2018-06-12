@@ -37,10 +37,14 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 	public EntityProtossReaver(World world) {
 		super(world);
 		setSize(5.0F, 5.0F);
-		experienceValue = 133;
 		this.setColor(EnumColors.LIGHT_BLUE);
 		this.setFactions(EnumFactionTypes.DAELAAM);
 		setAttributes(EnumTypeAttributes.MASSIVE, EnumTypeAttributes.MECHANICAL, EnumTypeAttributes.GROUND, EnumTypeAttributes.ARMORED);
+		this.initEntityAI();
+	}
+	
+	@Override
+	protected void initEntityAI() {
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackRanged(this, 0.25F, 85, 30));
 		tasks.addTask(2, new EntityAIMoveTowardsRestriction(this, 1));
@@ -49,6 +53,7 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 		tasks.addTask(5, new EntityAILookIdle(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, false, false, this));
+		super.initEntityAI();
 	}
 
 	@Override

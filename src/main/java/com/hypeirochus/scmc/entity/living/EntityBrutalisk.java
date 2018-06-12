@@ -34,10 +34,14 @@ public class EntityBrutalisk extends EntityZergMob implements IMob, Predicate<En
 	public EntityBrutalisk(World world) {
 		super(world);
 		setSize(4.0F, 6.0F);
-		experienceValue = 750;
 		this.setColor(EnumColors.PURPLE);
 		this.setFactions(EnumFactionTypes.SWARM);
 		setAttributes(EnumTypeAttributes.MASSIVE, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND, EnumTypeAttributes.ARMORED, EnumTypeAttributes.HEROIC);
+		this.initEntityAI();
+	}
+	
+	@Override
+	protected void initEntityAI() {
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
 		tasks.addTask(2, new EntityAIMoveTowardsRestriction(this, 1.0D));
@@ -46,6 +50,7 @@ public class EntityBrutalisk extends EntityZergMob implements IMob, Predicate<En
 		tasks.addTask(5, new EntityAILookIdle(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, false, false, this));
+		super.initEntityAI();
 	}
 
 	/**

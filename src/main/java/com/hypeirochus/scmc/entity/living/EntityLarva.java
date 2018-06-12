@@ -18,7 +18,6 @@ import com.hypeirochus.scmc.handlers.SoundHandler;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAvoidEntity;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAIMoveTowardsRestriction;
 import net.minecraft.entity.ai.EntityAISwimming;
@@ -45,6 +44,11 @@ public class EntityLarva extends EntityZergPassive {
 		this.setColor(EnumColors.PURPLE);
 		this.setFactions(EnumFactionTypes.SWARM);
 		setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
+		this.initEntityAI();
+	}
+	
+	@Override
+	protected void initEntityAI() {
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIMoveTowardsRestriction(this, 1));
 		tasks.addTask(2, new EntityAIWander(this, 1));
@@ -52,7 +56,7 @@ public class EntityLarva extends EntityZergPassive {
 		tasks.addTask(4, new EntityAIAvoidEntity<EntityProtossMob>(this, EntityProtossMob.class, 16.0F, 1.0D, 1.0D));
 		tasks.addTask(4, new EntityAIAvoidEntity<EntityTerranMob>(this, EntityTerranMob.class, 16.0F, 1.0D, 1.0D));
 		tasks.addTask(4, new EntityAIAvoidEntity<EntityPlayer>(this, EntityPlayer.class, 16.0F, 1.0D, 1.0D));
-		targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
+		super.initEntityAI();
 	}
 	
 	@Override

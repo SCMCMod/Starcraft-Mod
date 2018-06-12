@@ -41,10 +41,14 @@ public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predica
 	public EntityDarkTemplar(World world) {
 		super(world);
 		setSize(1.0F, 2.9F);
-		experienceValue = 80;
 		this.setColor(EnumColors.LIGHT_BLUE);
 		this.setFactions(EnumFactionTypes.DAELAAM);
 		setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND, EnumTypeAttributes.PSIONIC);
+		this.initEntityAI();
+	}
+	
+	@Override
+	protected void initEntityAI() {
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
 		tasks.addTask(2, new EntityAIWander(this, 1.0D));
@@ -52,6 +56,7 @@ public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predica
 		tasks.addTask(4, new EntityAILookIdle(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, false, false, this));
+		super.initEntityAI();
 	}
 
 	@Override

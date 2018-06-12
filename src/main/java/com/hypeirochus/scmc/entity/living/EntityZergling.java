@@ -38,7 +38,6 @@ public class EntityZergling extends EntityZergMob implements IMob, Predicate<Ent
 		this.setColor(EnumColors.PURPLE);
 		this.setFactions(EnumFactionTypes.SWARM);
 		this.setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
-		experienceValue = 23;
 		this.initEntityAI();
 	}
 	

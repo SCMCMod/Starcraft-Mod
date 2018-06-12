@@ -12,7 +12,6 @@ import com.hypeirochus.scmc.handlers.SoundHandler;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAvoidEntity;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
@@ -33,13 +32,18 @@ public class EntityDarkProbe extends EntityProtossPassive implements IShieldEnti
 		this.setColor(EnumColors.RED);
 		this.setFactions(EnumFactionTypes.TALDARIM);
 		setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.MECHANICAL, EnumTypeAttributes.GROUND);
+		this.initEntityAI();
+	}
+	
+	@Override
+	protected void initEntityAI() {
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAvoidEntity<EntityZergMob>(this, EntityZergMob.class, 16.0F, 1.0D, 1.0D));
 		tasks.addTask(2, new EntityAIAvoidEntity<EntityTerranMob>(this, EntityTerranMob.class, 16.0F, 1.0D, 1.0D));
 		tasks.addTask(3, new EntityAIWander(this, 1));
 		tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 8));
 		tasks.addTask(5, new EntityAILookIdle(this));
-		targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
+		super.initEntityAI();
 	}
 
 	@Override

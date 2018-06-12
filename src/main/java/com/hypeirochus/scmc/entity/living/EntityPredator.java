@@ -42,10 +42,14 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 	public EntityPredator(World world) {
 		super(world);
 		setSize(1.5F, 1.5F);
-		experienceValue = 93;
 		this.setColor(EnumColors.BLUE);
 		this.setFactions(EnumFactionTypes.RAIDERS);
 		setAttributes(EnumTypeAttributes.ARMORED, EnumTypeAttributes.MECHANICAL, EnumTypeAttributes.GROUND);
+		this.initEntityAI();
+	}
+	
+	@Override
+	protected void initEntityAI() {
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
 		tasks.addTask(2, new EntityAIWander(this, 1.0D));
@@ -53,6 +57,7 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 		tasks.addTask(4, new EntityAILookIdle(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, false, true, this));
+		super.initEntityAI();
 	}
 
 	/**

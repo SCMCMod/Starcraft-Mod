@@ -33,6 +33,11 @@ public class EntityPurifierProbe extends EntityProtossPassive implements IShield
 		this.setColor(EnumColors.ORANGE);
 		this.setFactions(EnumFactionTypes.PURIFIER);
 		setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.MECHANICAL, EnumTypeAttributes.GROUND);
+		this.initEntityAI();
+	}
+	
+	@Override
+	protected void initEntityAI() {
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAvoidEntity<EntityZergMob>(this, EntityZergMob.class, 16.0F, 1.0D, 1.0D));
 		tasks.addTask(2, new EntityAIAvoidEntity<EntityTerranMob>(this, EntityTerranMob.class, 16.0F, 1.0D, 1.0D));
@@ -40,6 +45,7 @@ public class EntityPurifierProbe extends EntityProtossPassive implements IShield
 		tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 8));
 		tasks.addTask(5, new EntityAILookIdle(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
+		super.initEntityAI();
 	}
 
 	@Override

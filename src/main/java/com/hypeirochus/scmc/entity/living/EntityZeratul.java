@@ -42,7 +42,6 @@ public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<E
 	public EntityZeratul(World world) {
 		super(world);
 		setSize(1.5F, 2.5F);
-		experienceValue = 300;
 		this.setColor(EnumColors.LIGHT_BLUE);
 		this.setFactions(EnumFactionTypes.DAELAAM);
 		setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND, EnumTypeAttributes.PSIONIC, EnumTypeAttributes.HEROIC);
