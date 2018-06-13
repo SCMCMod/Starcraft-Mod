@@ -175,7 +175,7 @@ public class EntityZergMob extends EntityStarcraftMob {
 				entityLivingIn.dropItem(ItemHandler.BIOMASS, biomassAmount);
 			}
 		} else if (entityLivingIn instanceof EntityStarcraftPassive) {
-			if (((EntityStarcraftPassive) entityLivingIn).isType(EnumTypeAttributes.MECHANICAL)) {
+			if (((EntityStarcraftPassive) entityLivingIn).hasAttribute(EnumTypeAttributes.MECHANICAL)) {
 				// do nothing
 			} else {
 				entityLivingIn.dropItem(ItemHandler.BIOMASS, biomassAmount);

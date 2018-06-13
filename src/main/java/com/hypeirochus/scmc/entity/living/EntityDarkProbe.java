@@ -31,7 +31,7 @@ public class EntityDarkProbe extends EntityProtossPassive implements IShieldEnti
 		setSize(1.0F, 1.5F);
 		this.setColor(EnumColors.RED);
 		this.setFactions(EnumFactionTypes.TALDARIM);
-		setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.MECHANICAL, EnumTypeAttributes.GROUND);
+		setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.MECHANICAL, EnumTypeAttributes.GROUND);
 		this.initEntityAI();
 	}
 	

@@ -139,7 +139,7 @@ public class EntityPredator extends EntityTerranMob implements IMob, Predicate<E
 						entity.attackEntityFrom(DamageSource.causeIndirectDamage(this, null), 3.5F);
 					}
 				} else if (entity instanceof EntityStarcraftPassive) {
-					if (((EntityStarcraftPassive) entity).teamColor == this.color) {
+					if (((EntityStarcraftPassive) entity).color == this.color) {
 						break;
 					} else {
 						this.spawnElectricArc(entity.posX, entity.posY, entity.posZ);

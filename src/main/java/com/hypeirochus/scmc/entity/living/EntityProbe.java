@@ -32,7 +32,7 @@ public class EntityProbe extends EntityProtossPassive implements IShieldEntity {
 		setSize(1.0F, 1.5F);
 		this.setColor(EnumColors.LIGHT_BLUE);
 		this.setFactions(EnumFactionTypes.DAELAAM);
-		setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.MECHANICAL, EnumTypeAttributes.GROUND);
+		setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.MECHANICAL, EnumTypeAttributes.GROUND);
 		this.initEntityAI();
 	}
 	

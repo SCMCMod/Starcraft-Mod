@@ -32,7 +32,7 @@ public class EntityPurifierProbe extends EntityProtossPassive implements IShield
 		setSize(1.0F, 1.5F);
 		this.setColor(EnumColors.ORANGE);
 		this.setFactions(EnumFactionTypes.PURIFIER);
-		setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.MECHANICAL, EnumTypeAttributes.GROUND);
+		setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.MECHANICAL, EnumTypeAttributes.GROUND);
 		this.initEntityAI();
 	}
 	

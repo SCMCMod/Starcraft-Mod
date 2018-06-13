@@ -38,7 +38,7 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 		this.transformId = id;
 		this.setColor(EnumColors.PURPLE);
 		this.setFactions(EnumFactionTypes.SWARM);
-		this.setTypes(EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
+		this.setAttributes(EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
 	}
 
 	@Override
@@ -84,9 +84,9 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 	protected void updateAITasks() {
 		if (ticksExisted > getTransformTime()) {
 			if (getEntityById(world, transformId) instanceof EntityStarcraftMob) {
-				Library.replaceEntity(true, this, ((EntityStarcraftMob) getEntityById(world, transformId)).setColor(teamColor));
+				Library.replaceEntity(true, this, ((EntityStarcraftMob) getEntityById(world, transformId)).setColor(color));
 			} else if (getEntityById(world, transformId) instanceof EntityStarcraftPassive) {
-				Library.replaceEntity(true, this, ((EntityStarcraftPassive) getEntityById(world, transformId)).setColor(teamColor));
+				Library.replaceEntity(true, this, ((EntityStarcraftPassive) getEntityById(world, transformId)).setColor(color));
 			} else {
 				Library.replaceEntity(true, this, getEntityById(world, transformId));
 			}

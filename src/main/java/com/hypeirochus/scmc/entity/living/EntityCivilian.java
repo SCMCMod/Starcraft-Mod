@@ -34,7 +34,7 @@ public class EntityCivilian extends EntityTerranPassive {
 		setSize(0.6F, 1.8F);
 		this.setColor(EnumColors.BLUE);
 		this.setFactions(EnumFactionTypes.RAIDERS);
-		setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
+		setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
 		this.initEntityAI();
 	}
 	
