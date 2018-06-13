@@ -64,7 +64,7 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	 * 
 	 * @param type
 	 *            The type we are checking the mob for.
-	 * @return True if the mob if is the type requested, false otherwise.
+	 * @return True if the mob is the type requested, false otherwise.
 	 */
 	public boolean hasAttribute(EnumTypeAttributes type) {
 		for (int x = 0; x < types.size(); x++) {
@@ -269,7 +269,7 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 			} else if (entity instanceof EntityStarcraftPassive) {
 				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
 					if (!((EntityStarcraftPassive) entity).isFaction(faction)) {
-						if (!((EntityStarcraftPassive) entity).getUniqueID().toString().contentEquals(this.getStarcraftOwner()) && !((EntityStarcraftPassive) entity).isType(EnumTypeAttributes.CRITTER)) {
+						if (!((EntityStarcraftPassive) entity).getUniqueID().toString().contentEquals(this.getStarcraftOwner()) && !((EntityStarcraftPassive) entity).hasAttribute(EnumTypeAttributes.CRITTER)) {
 							return true;
 						} else {
 							return false;
