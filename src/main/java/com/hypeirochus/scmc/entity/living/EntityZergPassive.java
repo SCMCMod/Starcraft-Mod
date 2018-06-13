@@ -1,10 +1,14 @@
 package com.hypeirochus.scmc.entity.living;
 
+import com.hypeirochus.scmc.enums.EnumTypeAttributes;
+import com.hypeirochus.scmc.handlers.SoundHandler;
+
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
 public class EntityZergPassive extends EntityStarcraftPassive {
@@ -53,5 +57,32 @@ public class EntityZergPassive extends EntityStarcraftPassive {
 
 	public void isBurrowed(boolean isBurrowed) {
 		this.getDataManager().set(BURROW, isBurrowed);
+	}
+
+	protected void clearAITasks() {
+		tasks.taskEntries.clear();
+		targetTasks.taskEntries.clear();
+	}
+	
+	@Override
+	public void onUpdate() {
+		super.onUpdate();
+		if(!this.world.isRemote) {
+			if(this.getHealth() < this.getMaxHealth()/6 && this.getBurrowState() == false && isBurrowingZerg()) {
+				world.playSound(null, this.getPosition(), SoundHandler.FX_ZERG_BURROWDOWN, SoundCategory.NEUTRAL, 7.0F, 1.0F);
+				this.isBurrowed(true);
+				this.clearAITasks();
+				this.amendAttribute(EnumTypeAttributes.INVISIBLE);
+			}else if(this.getHealth() > this.getMaxHealth()/6 && this.getBurrowState() == true) {
+				world.playSound(null, this.getPosition(), SoundHandler.FX_ZERG_BURROWUP, SoundCategory.NEUTRAL, 7.0F, 1.0F);
+				this.isBurrowed(false);
+				this.initEntityAI();
+				this.removeAttribute(EnumTypeAttributes.INVISIBLE);
+			}
+		}
+	}
+	
+	public boolean isBurrowingZerg() {
+		return !(this instanceof EntityLarva) && !(this instanceof EntityLarvaCocoon);
 	}
 }
