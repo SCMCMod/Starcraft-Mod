@@ -31,7 +31,7 @@ import net.minecraft.world.World;
 /**
  * @author Hypeirochus
  */
-public class EntityHydralisk extends EntityZergMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
+public class EntityHydralisk extends EntityZergMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase>, IMorphResult {
 
 	public EntityHydralisk(World world) {
 		super(world);

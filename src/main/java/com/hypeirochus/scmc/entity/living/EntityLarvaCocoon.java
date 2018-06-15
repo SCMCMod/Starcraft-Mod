@@ -9,12 +9,14 @@ import com.hypeirochus.scmc.handlers.GuiHandler;
 import com.hypeirochus.scmc.handlers.SoundHandler;
 import com.hypeirochus.scmc.lib.Library;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
@@ -28,6 +30,8 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 	 */
 	private int transformId;
 
+	protected IMorphResult outEntity;
+
 	public EntityLarvaCocoon(World world) {
 		this(world, 0);
 	}
@@ -39,6 +43,8 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 		this.setColor(EnumColors.PURPLE);
 		this.setFactions(EnumFactionTypes.SWARM);
 		this.setTypes(EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
+
+		outEntity = getEntityById(world, id);
 	}
 
 	@Override
@@ -82,12 +88,12 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 	@Override
 	protected void updateAITasks() {
 		if (ticksExisted > getTransformTime()) {
-			if (getEntityById(world, transformId) instanceof EntityStarcraftMob) {
-				Library.replaceEntity(true, this, ((EntityStarcraftMob) getEntityById(world, transformId)).setColor(teamColor));
-			} else if (getEntityById(world, transformId) instanceof EntityStarcraftPassive) {
-				Library.replaceEntity(true, this, ((EntityStarcraftPassive) getEntityById(world, transformId)).setColor(teamColor));
+			if (outEntity instanceof EntityStarcraftMob) {
+				Library.replaceEntity(true, this, ((EntityStarcraftMob) outEntity).setColor(teamColor));
+			} else if (outEntity instanceof EntityStarcraftPassive) {
+				Library.replaceEntity(true, this, ((EntityStarcraftPassive) outEntity).setColor(teamColor));
 			} else {
-				Library.replaceEntity(true, this, getEntityById(world, transformId));
+				Library.replaceEntity(true, this, (Entity) outEntity);
 			}
 			// TODO add a hatchind sound right here
 		}
@@ -96,7 +102,7 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 	@Override
 	public boolean processInteract(EntityPlayer player, EnumHand hand) {
 		ItemStack stack = player.getHeldItem(hand);
-		boolean flag = stack != null && stack.getItem() == Items.SPAWN_EGG;
+		boolean flag = stack.getItem() == Items.SPAWN_EGG;
 
 		if (!flag && this.isEntityAlive() && !this.isChild() && !player.isSneaking()) {
 			if (this.world.isRemote) {
@@ -308,15 +314,14 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 	}
 
 	public int getTransformTime() {
-		return secondsToTicks(85);
+		return outEntity.getMorphTime();
 	}
 
-	public static EntityLivingBase getEntityById(World world, int id) {
+	public static IMorphResult getEntityById(World world, int id) {
 		switch (id) {
 		default:
-			return new EntityOcelot(world);
 		case 0:
-			return new EntityOcelot(world);
+		//	return new EntityOcelot(world);
 		case 2:
 			return new EntityZergling(world);
 		case 3:
