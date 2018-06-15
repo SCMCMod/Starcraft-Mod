@@ -80,7 +80,7 @@ public class StarcraftEventHandler {
 	@SubscribeEvent
 	public void onPlayerLoggedInEvent(PlayerLoggedInEvent event) {
 		EntityPlayer player = event.player;
-		String message = "Running SCMC version 2.1.805!";
+		String message = "Running SCMC version " + Starcraft.VERSION + "!";
 		player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.BLUE)));
 	}
 	
