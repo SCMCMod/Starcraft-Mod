@@ -13,7 +13,6 @@ import com.hypeirochus.scmc.handlers.LootTableHandler;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAvoidEntity;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
@@ -35,7 +34,12 @@ public class EntityCivilian extends EntityTerranPassive {
 		setSize(0.6F, 1.8F);
 		this.setColor(EnumColors.BLUE);
 		this.setFactions(EnumFactionTypes.RAIDERS);
-		setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
+		setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
+		this.initEntityAI();
+	}
+	
+	@Override
+	protected void initEntityAI() {
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAvoidEntity<EntityZergMob>(this, EntityZergMob.class, 16.0F, 1.0D, 1.0D));
 		tasks.addTask(2, new EntityAIAvoidEntity<EntityProtossMob>(this, EntityProtossMob.class, 16.0F, 1.0D, 1.0D));
@@ -43,7 +47,7 @@ public class EntityCivilian extends EntityTerranPassive {
 		tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 8));
 		tasks.addTask(10, new EntityAITradePlayer(this));
 		tasks.addTask(5, new EntityAILookIdle(this));
-		targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
+		super.initEntityAI();
 	}
 
 	@Override

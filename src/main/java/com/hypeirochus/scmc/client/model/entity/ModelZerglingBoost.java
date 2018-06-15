@@ -1,6 +1,7 @@
 package com.hypeirochus.scmc.client.model.entity;
 
 import com.hypeirochus.api.client.render.model.Model;
+import com.hypeirochus.scmc.entity.living.EntityZerglingBoost;
 
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -655,9 +656,9 @@ public class ModelZerglingBoost extends Model {
 		EntityLivingBase base = (EntityLivingBase) obj;
 		neck.rotateAngleX = headPitch(obj) * 0.017453292F;
 		neck.rotateAngleY = headYaw(obj) * 0.017453292F;
-		lArm1.rotateAngleX = MathHelper.sin(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj);
+		lShoulder.rotateAngleX = MathHelper.sin(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj) - 0.1F;
 		lThigh.rotateAngleX = MathHelper.sin(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj) - 0.5F;
-		rArm1.rotateAngleX = MathHelper.cos(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj);
+		rShoulder.rotateAngleX = MathHelper.cos(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj) - 0.1F;
 		rThigh.rotateAngleX = MathHelper.cos(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj) - 0.5F;
 		lowerJaw.rotateAngleX = (MathHelper.sin(swingProgress(obj) * 0.01F) + 0.3F) * 0.667F * swingProgressPrev(obj);
 		lHookArm1.rotateAngleX = (MathHelper.cos(swingProgress(obj) * 0.5F) + 0.3F) * 0.337F * swingProgressPrev(obj) + 5.7F;
@@ -667,5 +668,12 @@ public class ModelZerglingBoost extends Model {
 		tail2.rotateAngleY = (MathHelper.sin(swingProgress(obj) * -0.5F) / 10.1F) * 2.0F * swingProgressPrev(obj);
 		tail3.rotateAngleY = (MathHelper.sin(swingProgress(obj) * -0.5F) / 10.1F) * 2.0F * swingProgressPrev(obj);
 		tail4.rotateAngleY = (MathHelper.sin(swingProgress(obj) * -0.5F) / 10.1F) * 2.0F * swingProgressPrev(obj);
+
+		if (obj instanceof EntityZerglingBoost) {
+			if (((EntityZerglingBoost) obj).getBurrowState() == true) {
+				this.lHookArm1.rotateAngleX = (float) Math.toRadians(-120);
+				this.rHookArm1.rotateAngleX = (float) Math.toRadians(-120);
+			}
+		}
 	}
 }

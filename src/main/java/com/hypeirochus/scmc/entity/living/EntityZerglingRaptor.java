@@ -37,12 +37,15 @@ public class EntityZerglingRaptor extends EntityZergMob implements IMob, Predica
 	public EntityZerglingRaptor(World world) {
 		super(world);
 		setSize(1.0F, 1.0F);
-		experienceValue = 23;
-		this.baseHealth = 25;
 		stepHeight = 5.0F;
 		this.setColor(EnumColors.PURPLE);
 		this.setFactions(EnumFactionTypes.SWARM);
 		this.setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
+		this.initEntityAI();
+	}
+	
+	@Override
+	protected void initEntityAI() {
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIRaptorLeapAtTarget(this, 0.6F));
 		tasks.addTask(2, new EntityAIAttackMelee(this, 1.0D, false));
@@ -52,6 +55,7 @@ public class EntityZerglingRaptor extends EntityZergMob implements IMob, Predica
 		tasks.addTask(6, new EntityAILookIdle(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, false, false, this));
+		super.initEntityAI();
 	}
 
 	@Override
@@ -117,5 +121,15 @@ public class EntityZerglingRaptor extends EntityZergMob implements IMob, Predica
 	@Override
 	public int getTalkInterval() {
 		return 160;
+	}
+	
+	@Override
+	public void onLivingUpdate() {
+		if(this.getBurrowState() == true) {
+			setSize(1.0F, 0.1F);
+		}else {
+			setSize(1.0F, 1.0F);
+		}
+		super.onLivingUpdate();
 	}
 }

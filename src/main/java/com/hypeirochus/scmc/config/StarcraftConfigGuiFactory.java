@@ -14,6 +14,7 @@ import net.minecraftforge.fml.client.config.DummyConfigElement.DummyCategoryElem
 import net.minecraftforge.fml.client.config.GuiConfig;
 import net.minecraftforge.fml.client.config.IConfigElement;
 
+//TODO: MOVE TO CORE MOD, however, note that there is some starcraft stuff referenced here. Be careful!
 public class StarcraftConfigGuiFactory implements IModGuiFactory {
 
 	@Override

@@ -19,6 +19,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+//TODO: MOVE TO CORE MOD, talk to ocelot about what the hell this is??
 @SideOnly(Side.CLIENT)
 public class CustomTextureDestroyEffect extends Particle {
 

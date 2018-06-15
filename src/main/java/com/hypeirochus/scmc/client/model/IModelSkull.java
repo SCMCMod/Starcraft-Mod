@@ -10,6 +10,7 @@ package com.hypeirochus.scmc.client.model;
  * 
  * @author Ocelot5836
  */
+//TODO: MOVE TO CORE MOD
 public interface IModelSkull {
 
 	/**

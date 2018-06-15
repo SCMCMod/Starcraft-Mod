@@ -5,6 +5,7 @@ import net.minecraft.item.ItemStack;
 /**
  * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
  */
+//TODO: MOVE TO CORE MOD
 public interface IMetaBlockName {
 
 	/**

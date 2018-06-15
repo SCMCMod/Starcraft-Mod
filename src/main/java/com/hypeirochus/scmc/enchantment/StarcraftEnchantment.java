@@ -6,6 +6,7 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.inventory.EntityEquipmentSlot;
 
+//TODO: MOVE TO CORE MOD, rename to be generic.
 public class StarcraftEnchantment extends Enchantment {
 	
 	public StarcraftEnchantment(Rarity rarity, EnumEnchantmentType type, EntityEquipmentSlot... slots) {

@@ -16,6 +16,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * 
  * @author Ocelot5836
  */
+//TODO: CONSIDER if this should be moved to the core mod or not.
 @SideOnly(Side.CLIENT)
 public class WavefrontModelHandler {
 

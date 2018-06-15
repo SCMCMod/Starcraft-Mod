@@ -7,10 +7,10 @@ import javax.annotation.Nullable;
 import org.lwjgl.input.Mouse;
 
 import com.google.common.collect.Lists;
-import com.hypeirochus.scmc.handlers.SoundHandler;
+import com.hypeirochus.scmc.config.StarcraftConfig;
+import com.hypeirochus.scmc.vehciles.weapons.VehicleWeapon;
 
 import net.minecraft.block.BlockLiquid;
-import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -20,7 +20,6 @@ import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityWaterMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -41,14 +40,12 @@ import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+//TODO: Clean this up a bit.
 public class AbstractSpaceship extends Entity
 {
-    private static final DataParameter<Integer> TIME_SINCE_HIT = EntityDataManager.<Integer>createKey(AbstractSpaceship.class, DataSerializers.VARINT);
-    private static final DataParameter<Integer> FORWARD_DIRECTION = EntityDataManager.<Integer>createKey(AbstractSpaceship.class, DataSerializers.VARINT);
     private static final DataParameter<Float> DAMAGE_TAKEN = EntityDataManager.<Float>createKey(AbstractSpaceship.class, DataSerializers.FLOAT);
     /** How much of current speed to retain. Value zero to one. */
     private float momentum;
-    private float outOfControlTicks;
     private float deltaRotation;
     private int lerpSteps;
     private double lerpX;
@@ -56,66 +53,58 @@ public class AbstractSpaceship extends Entity
     private double lerpZ;
     private double lerpYaw;
     private double lerpPitch;
-    private boolean leftInputDown;
-    private boolean rightInputDown;
-    private boolean forwardInputDown;
-    private boolean backInputDown;
     private double waterLevel;
-    private int cooldownInSeconds = 0;
-    private int maxCooldown = 0;
-    private int velX, velY, velZ = 1;
-    private int boostModifier = 1;
+    public boolean isAccelerating = false;
     
-    public void setCooldown(int seconds) {
-    	this.cooldownInSeconds = seconds;
+    private boolean isCoolingDown;
+    private float maxCooldown = 0;
+    
+    private SoundEvent primaryFiring;
+    private SoundEvent secondaryFiring;
+    
+    private float speed = 0;
+    private float maxSpeed = 10;
+    
+    public void setMaxSpeed(float max) {
+    	this.maxSpeed = max;
     }
     
-    public void setCooldownMax(int max) {
+    public float getMaxSpeed() {
+    	return this.maxSpeed;
+    }
+    
+    public void setCoolingDown(boolean flag) {
+    	this.isCoolingDown = flag;
+    }
+    
+    public void setCooldownMax(float max) {
     	this.maxCooldown = max;
     }
     
-    public void setBaseVelocity(int velocity) {
-    	this.velX = this.velY = this.velZ = velocity;
-    }
-    
-    public void setXVelocity(int x) {
-    	this.velX = x;
-    }
-    
-    public void setYVelocity(int y) {
-    	this.velY = y;
-    }
-    
-    public void setZVelocity(int z) {
-    	this.velZ = z;
-    }
-    
-    public int getCooldown() {
-    	return this.cooldownInSeconds;
+    public boolean isCoolingDown() {
+    	return this.isCoolingDown;
     }
 
-    public int getCooldownMax() {
+    public float getCooldownMax() {
     	return this.maxCooldown;
     }
     
-    public void setBoostModifier(int boostMod) {
-    	this.boostModifier = boostMod;
+    @Nullable
+    public VehicleWeapon getPrimaryWeapon() {
+    	return null;
     }
     
-    public int getXVelocity() {
-    	return this.velX;
+    @Nullable
+    public VehicleWeapon getSecondaryWeapon() {
+    	return null;
     }
     
-    public int getYVelocity() {
-    	return this.velY;
+    public SoundEvent getPrimaryFiringSound() {
+    	return this.primaryFiring;
     }
-    
-    public int getZVelocity() {
-    	return this.velZ;
-    }
-    
-    public int getBoostModifier() {
-    	return this.boostModifier;
+
+    public SoundEvent getSecondaryFiringSound() {
+    	return this.secondaryFiring;
     }
     
     /**
@@ -157,8 +146,6 @@ public class AbstractSpaceship extends Entity
 
     protected void entityInit()
     {
-        this.dataManager.register(TIME_SINCE_HIT, Integer.valueOf(0));
-        this.dataManager.register(FORWARD_DIRECTION, Integer.valueOf(1));
         this.dataManager.register(DAMAGE_TAKEN, Float.valueOf(0.0F));
     }
 
@@ -219,8 +206,6 @@ public class AbstractSpaceship extends Entity
             }
             else
             {
-                this.setForwardDirection(-this.getForwardDirection());
-                this.setTimeSinceHit(10);
                 this.setDamageTaken(this.getDamageTaken() + amount * 10.0F);
                 this.markVelocityChanged();
                 boolean flag = source.getTrueSource() instanceof EntityPlayer && ((EntityPlayer)source.getTrueSource()).capabilities.isCreativeMode;
@@ -268,8 +253,6 @@ public class AbstractSpaceship extends Entity
     @SideOnly(Side.CLIENT)
     public void performHurtAnimation()
     {
-        this.setForwardDirection(-this.getForwardDirection());
-        this.setTimeSinceHit(10);
         this.setDamageTaken(this.getDamageTaken() * 11.0F);
     }
 
@@ -311,25 +294,6 @@ public class AbstractSpaceship extends Entity
     {
         this.previousStatus = this.status;
         this.status = this.getShipStatus();
-
-        if (this.status != AbstractSpaceship.Status.UNDER_WATER && this.status != AbstractSpaceship.Status.UNDER_FLOWING_WATER)
-        {
-            this.outOfControlTicks = 0.0F;
-        }
-        else
-        {
-            ++this.outOfControlTicks;
-        }
-
-        if (!this.world.isRemote && this.outOfControlTicks >= 60.0F)
-        {
-            this.removePassengers();
-        }
-
-        if (this.getTimeSinceHit() > 0)
-        {
-            this.setTimeSinceHit(this.getTimeSinceHit() - 1);
-        }
 
         if (this.getDamageTaken() > 0.0F)
         {
@@ -721,30 +685,62 @@ public class AbstractSpaceship extends Entity
             Vec3d fVec = this.getLookVec();
 
             float x = (float) (0.12f*fVec.x);
-            float y = (float) (0.04f*fVec.y);
+            float y = (float) (0.12f*fVec.y);
             float z = (float) (0.12f*fVec.z);
             
-            if(FMLClientHandler.instance().getClient().gameSettings.keyBindJump.isKeyDown()) {
-                this.setVelocity(x*(this.getXVelocity() * this.getBoostModifier()), y*(this.getYVelocity() * this.getBoostModifier()), z*(this.getZVelocity() * this.getBoostModifier()));
+            if(FMLClientHandler.instance().getClient().gameSettings.keyBindForward.isKeyDown()) {
+            	this.isAccelerating = true;
+            	if(speed < this.getMaxSpeed()) {
+            		speed += 0.01F;
+            		speed *= 1.02F;
+            	}else {
+            		speed = this.getMaxSpeed();
+            	}
+                this.setVelocity(x*this.speed, y*this.speed, z*this.speed);
                 
-            }else {
-                this.setVelocity(x*(this.getXVelocity()), y*(this.getYVelocity()), z*(this.getZVelocity()));
+            }else if(FMLClientHandler.instance().getClient().gameSettings.keyBindBack.isKeyDown()) {
+        		this.isAccelerating = false;
+            	if(speed > 0) {
+            		speed -= 0.01F;
+            		speed *= 0.98F;
+            	}else {
+            		speed = 0;
+            	}
+            	this.setVelocity(x*this.speed, y*this.speed, z*this.speed);
+        	}
+        	else {
+        		this.isAccelerating = false;
+            	if(speed > 0 && this.dimension != StarcraftConfig.INT_DIMENSION_SPACE) {
+            		if(this.onGround || this.inWater) {
+                		speed -= 0.01F;
+                		speed *= 0.9F;
+            		}else {
+                		speed -= 0.01F;
+                		speed *= 0.999F;
+            		}
+            	}
+            	this.setVelocity(x*this.speed, y*this.speed, z*this.speed);
             }
             
-            
-            if(Mouse.isButtonDown(1) && this.cooldownInSeconds == 0) {
-        		world.playSound((EntityPlayer) this.getControllingPassenger(), this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ(), SoundHandler.FX_WRAITH_FIRING, SoundCategory.PLAYERS, 3.0F, 1.0F);
-        		this.cooldownInSeconds += this.getCooldownMax();
+            if(Mouse.isButtonDown(0) && this.isCoolingDown() == false) {
+            	this.getPrimaryWeapon().fire(false);
+        		world.playSound((EntityPlayer) this.getControllingPassenger(), this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ(), this.getPrimaryFiringSound(), SoundCategory.PLAYERS, 3.0F, 1.0F);
+        		this.setCoolingDown(true);
+            }
+            else if(Mouse.isButtonDown(1) && this.isCoolingDown() == false) {
+            	this.getSecondaryWeapon().fire(true);
+        		world.playSound((EntityPlayer) this.getControllingPassenger(), this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ(), this.getSecondaryFiringSound(), SoundCategory.PLAYERS, 3.0F, 1.0F);
+        		this.setCoolingDown(true);
             }
         }
     }
     
     @Override
     public void onEntityUpdate() {
-    	if(this.ticksExisted % 20 == 0 && this.getCooldown() != 0) {
-        	this.setCooldown(this.getCooldown()-1);
+    	if(this.ticksExisted % this.getCooldownMax() == 0 && this.isCoolingDown()) {
+        	this.setCoolingDown(false);
     	}
-    	System.out.println(this.getCooldown());
+    	
     	super.onEntityUpdate();
     }
 
@@ -822,6 +818,7 @@ public class AbstractSpaceship extends Entity
             if (!this.world.isRemote)
             {
                 player.startRiding(this);
+                this.setCoolingDown(true);
             }
 
             return true;
@@ -890,38 +887,6 @@ public class AbstractSpaceship extends Entity
         return ((Float)this.dataManager.get(DAMAGE_TAKEN)).floatValue();
     }
 
-    /**
-     * Sets the time to count down from since the last time entity was hit.
-     */
-    public void setTimeSinceHit(int timeSinceHit)
-    {
-        this.dataManager.set(TIME_SINCE_HIT, Integer.valueOf(timeSinceHit));
-    }
-
-    /**
-     * Gets the time since the last hit.
-     */
-    public int getTimeSinceHit()
-    {
-        return ((Integer)this.dataManager.get(TIME_SINCE_HIT)).intValue();
-    }
-
-    /**
-     * Sets the forward direction of the entity.
-     */
-    public void setForwardDirection(int forwardDirection)
-    {
-        this.dataManager.set(FORWARD_DIRECTION, Integer.valueOf(forwardDirection));
-    }
-
-    /**
-     * Gets the forward direction of the entity.
-     */
-    public int getForwardDirection()
-    {
-        return ((Integer)this.dataManager.get(FORWARD_DIRECTION)).intValue();
-    }
-
     protected boolean canFitPassenger(Entity passenger)
     {
         return this.getPassengers().size() < 1;
@@ -962,7 +927,12 @@ public class AbstractSpaceship extends Entity
             this.rotationPitch = (float)this.lerpPitch;
         }
     }
-
+    
+    /**
+     * Override to add an ability handler to a ship
+     */
+    public void useAbility(int index) {}
+    
     @Override
     protected void writeEntityToNBT(NBTTagCompound compound) {}
 
@@ -971,4 +941,6 @@ public class AbstractSpaceship extends Entity
 
     @Override
     public void fall(float distance, float damageMultiplier) {}
+    
+    
 }

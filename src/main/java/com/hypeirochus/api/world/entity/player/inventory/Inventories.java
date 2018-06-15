@@ -12,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+//TODO: MOVE TO CORE MOD
 public class Inventories {
 	public static final int MAX_STACK_SIZE = 64;
 

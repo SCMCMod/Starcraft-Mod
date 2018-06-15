@@ -29,6 +29,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
  * 
  * @author Ocelot5836
  */
+//TODO: Rework this. We shouldn't be setting dimension ID's statically.
 public class StarcraftConfig {
 
 	public static List<Category> categories = new ArrayList<Category>();

@@ -45,6 +45,10 @@ public class RenderHydraliskPrimal extends RenderLiving<EntityHydraliskPrimal> i
 	@Override
 	protected void preRenderCallback(EntityHydraliskPrimal entitylivingbaseIn, float partialTickTime) {
 		GlStateManager.scale(1.5F + (entitylivingbaseIn.getBiomass() / 60), 1.5F + (entitylivingbaseIn.getBiomass() / 60), 1.5F + (entitylivingbaseIn.getBiomass() / 60));
+		
+		if(entitylivingbaseIn.getBurrowState() == true) {
+			GlStateManager.translate(0, 2.0F, 0);
+		}
 	}
 
 	@Override

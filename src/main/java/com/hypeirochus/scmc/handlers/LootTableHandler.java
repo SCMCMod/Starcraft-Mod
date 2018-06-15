@@ -11,6 +11,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTable;
 import net.minecraft.world.storage.loot.LootTableList;
 
+//TODO: Ocelot, was this ever finished?
 public class LootTableHandler {
 
 	public static final ResourceLocation TERRAN_BUNKER = register("chests/terran_bunker");

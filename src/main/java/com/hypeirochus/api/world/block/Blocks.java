@@ -8,6 +8,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+//TODO: MOVE TO CORE MOD
 public class Blocks {
 	public static ArrayList<BlockPos> getCoordDataInRange(int posX, int posY, int posZ, int range) {
 		ArrayList<BlockPos> data = new ArrayList<BlockPos>();

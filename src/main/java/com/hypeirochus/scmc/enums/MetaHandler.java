@@ -19,6 +19,7 @@ import net.minecraft.util.SoundEvent;
  * 
  * Holds the enums for the meta blocks/items in the mod.
  */
+//TODO: Clean this up, Ocelot.
 public class MetaHandler {
 
 	public enum ProtossStructureSpawnerType implements IStringSerializable {
@@ -259,7 +260,12 @@ public class MetaHandler {
 	}
 
 	public static enum CarapaceType implements IStringSerializable {
-		T1("1", 0), T2("2", 1), T3("3", 2);
+		T1("1", 0), 
+		T2("2", 1), 
+		T3("3", 2), 
+		PRIMALT1("primal.1", 3), 
+		PRIMALT2("primal.2", 4), 
+		PRIMALT3("primal.3", 5);
 
 		private int ID;
 		private String name;

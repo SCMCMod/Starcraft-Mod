@@ -17,6 +17,7 @@ import net.minecraft.util.ResourceLocation;
  * 
  * @author Ocelot5836
  */
+//TODO: MOVE TO CORE MOD
 public class ComponentArrow extends Component {
 
 	protected static final ResourceLocation BUTTON_TEXTURES = new ResourceLocation("textures/gui/widgets.png");

@@ -26,6 +26,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
 
+//TODO: MOVE TO CORE MOD, AND make this generic and not SCMC based.
 public class StarcraftBlock extends Block {
 
 	public static final int BIT_NO_METADATA = 0x01;

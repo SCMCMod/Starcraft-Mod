@@ -7,6 +7,7 @@ import com.elytradev.mirage.lighting.IEntityLightEventConsumer;
 import com.elytradev.mirage.lighting.Light;
 import com.google.common.base.Predicate;
 import com.hypeirochus.api.world.entity.ItemDrop;
+import com.hypeirochus.scmc.entity.IShieldEntity;
 import com.hypeirochus.scmc.enums.EnumColors;
 import com.hypeirochus.scmc.enums.EnumFactionTypes;
 import com.hypeirochus.scmc.enums.EnumTypeAttributes;
@@ -36,16 +37,13 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityZealot extends EntityProtossMob implements IMob, Predicate<EntityLivingBase>, IEntityLightEventConsumer {
+public class EntityZealot extends EntityProtossMob implements IMob, Predicate<EntityLivingBase>, IShieldEntity, IEntityLightEventConsumer {
 
-	public float offsetHealth;
-	public int timeSinceHurt;
 	private static final DataParameter<Boolean> SHEATH = EntityDataManager.createKey(EntityZealot.class, DataSerializers.BOOLEAN);
 
 	public EntityZealot(World world) {
 		super(world);
 		setSize(1.0F, 2.9F);
-		experienceValue = 100;
 		this.setColor(EnumColors.LIGHT_BLUE);
 		this.setFactions(EnumFactionTypes.DAELAAM);
 		setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
@@ -85,7 +83,7 @@ public class EntityZealot extends EntityProtossMob implements IMob, Predicate<En
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(100.0D);
+		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(66.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(.39000000417232513);
 		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(16.0D);
 		getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
@@ -142,26 +140,30 @@ public class EntityZealot extends EntityProtossMob implements IMob, Predicate<En
 	@Override
 	public void onUpdate() {
 		if (!world.isRemote) {
-			if (this.getAttackTarget() != null && this.getDistance(this.getAttackTarget()) < 80.0D) {
-				this.setSheathed(true);
-			} else if (this.getAttackTarget() == null) {
+			if (this.getAttackTarget() == null) {
 				this.setSheathed(false);
 			}
 		}
 		super.onUpdate();
 	}
-
+	
 	@Override
-	public void onLivingUpdate() {
-		if (ticksExisted % 20 == 0 && this.getHealth() < this.getMaxHealth()) {
-			if (this.getHealth() < 100.0 - offsetHealth) {
-				offsetHealth = 100 - getHealth();
-			}
-			if (this.getHealth() < this.getMaxHealth() - offsetHealth && ticksExisted - timeSinceHurt > 200) {
-				this.heal(2.0F);
-			}
+	public float getMaxShields() {
+		return 33.0F;
+	}
+	
+	@Override
+	public void setAttackTarget(EntityLivingBase entitylivingbaseIn) {
+		if(entitylivingbaseIn != null && (int)this.getDistance(entitylivingbaseIn) < 16) {
+			this.setSheathed(true);
 		}
-		super.onLivingUpdate();
+		super.setAttackTarget(entitylivingbaseIn);
+	}
+	
+	@Override
+	public boolean attackEntityFrom(DamageSource source, float amount) {
+		this.setSheathed(true);
+		return super.attackEntityFrom(source, amount);
 	}
 
 	@Override

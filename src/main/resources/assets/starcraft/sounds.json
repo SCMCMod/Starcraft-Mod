@@ -559,6 +559,20 @@
             "stream": false
         }]
     },
+    "mob.marine.stim1": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/marine/marine-stim1",
+            "stream": false
+        }]
+    },
+    "mob.marine.stim2": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:mob/marine/marine-stim2",
+            "stream": false
+        }]
+    },
     "mob.queen.live1": {
         "category": "master",
         "sounds": [{
@@ -621,5 +635,33 @@
 			"name": "starcraft:fx/wraith/wraith-firing",
 			"stream": false
 		}]
-	}
+	},
+	"fx.wraith.missile.launch": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:fx/wraith/wraith-missile-launch",
+			"stream": false
+		}]
+	},
+	"fx.scout.firing": {
+		"category": "master",
+		"sounds": [{
+			"name": "starcraft:fx/scout/scout-firing",
+			"stream": false
+		}]
+	},
+    "fx.zerg.burrowup": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:fx/burrowing/zerg-burrowup",
+            "stream": false
+        }]
+    },
+    "fx.zerg.burrowdown": {
+        "category": "master",
+        "sounds": [{
+            "name": "starcraft:fx/burrowing/zerg-burrowdown",
+            "stream": false
+        }]
+    }
 }

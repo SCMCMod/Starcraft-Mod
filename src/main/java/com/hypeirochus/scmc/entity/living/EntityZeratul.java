@@ -1,5 +1,8 @@
 package com.hypeirochus.scmc.entity.living;
 
+import com.elytradev.mirage.event.GatherLightsEvent;
+import com.elytradev.mirage.lighting.IEntityLightEventConsumer;
+import com.elytradev.mirage.lighting.Light;
 import com.google.common.base.Predicate;
 import com.hypeirochus.scmc.enums.EnumColors;
 import com.hypeirochus.scmc.enums.EnumFactionTypes;
@@ -31,7 +34,7 @@ import net.minecraft.world.BossInfo;
 import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
 
-public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<EntityLivingBase> {
+public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<EntityLivingBase>, IEntityLightEventConsumer {
 
 	private final BossInfoServer bossInfo = (BossInfoServer) (new BossInfoServer(this.getDisplayName(), BossInfo.Color.BLUE, BossInfo.Overlay.PROGRESS)).setDarkenSky(true);
 	private static final DataParameter<Boolean>	SHEATH	= EntityDataManager.createKey(EntityZeratul.class, DataSerializers.BOOLEAN);
@@ -39,7 +42,6 @@ public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<E
 	public EntityZeratul(World world) {
 		super(world);
 		setSize(1.5F, 2.5F);
-		experienceValue = 300;
 		this.setColor(EnumColors.LIGHT_BLUE);
 		this.setFactions(EnumFactionTypes.DAELAAM);
 		setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND, EnumTypeAttributes.PSIONIC, EnumTypeAttributes.HEROIC);
@@ -156,6 +158,21 @@ public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<E
 	}
 	
 	@Override
+	public void setAttackTarget(EntityLivingBase entitylivingbaseIn) {
+		if(entitylivingbaseIn != null && (int)this.getDistance(entitylivingbaseIn) < 16) {
+			this.setSheathed(true);
+		}
+		super.setAttackTarget(entitylivingbaseIn);
+	}
+	
+	@Override
+	public boolean attackEntityFrom(DamageSource source, float amount) {
+		
+		this.setSheathed(true);
+		return super.attackEntityFrom(source, amount);
+	}
+	
+	@Override
 	public void onUpdate() {
 		if (!world.isRemote) {
 			if (this.getAttackTarget() != null) {
@@ -165,5 +182,12 @@ public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<E
 			}
 		}
 		super.onUpdate();
+	}
+
+	@Override
+	public void gatherLights(GatherLightsEvent evt, Entity entity) {
+		if(this.canSheathBlades()) {
+			evt.add(Light.builder().pos(entity).color(0.0F, 0.94F, 0.4F).intensity(0.5F).radius(6).build());
+		}
 	}
 }

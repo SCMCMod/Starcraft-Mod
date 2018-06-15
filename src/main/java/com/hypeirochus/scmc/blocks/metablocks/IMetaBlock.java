@@ -13,5 +13,6 @@ import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
  * 
  * @author Ocelot5836
  */
+//TODO: MOVE TO CORE MOD
 public interface IMetaBlock extends IMetaBlockName, IMetaRenderHandler {
 }
