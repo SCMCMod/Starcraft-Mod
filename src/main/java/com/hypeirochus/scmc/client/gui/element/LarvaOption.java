@@ -77,7 +77,7 @@ public class LarvaOption {
 	public void render(boolean renderingOveray, int x, int y) {
 		Minecraft mc = Minecraft.getMinecraft();
 
-		EntityLivingBase entity = hasChildren() ? EntityLarvaCocoon.getEntityById(mc.world, children.get(0).id) : EntityLarvaCocoon.getEntityById(mc.world, id);
+		EntityLivingBase entity = (EntityLivingBase) (hasChildren() ? EntityLarvaCocoon.getEntityById(mc.world, children.get(0).id) : EntityLarvaCocoon.getEntityById(mc.world, id));
 		int xx = x + 8;
 		int yy = y + 12;
 		int scale = 12;
