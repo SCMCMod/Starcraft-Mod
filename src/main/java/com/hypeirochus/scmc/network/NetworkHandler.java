@@ -2,11 +2,13 @@ package com.hypeirochus.scmc.network;
 
 import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.network.message.MessageGetFurnaceData;
+import com.hypeirochus.scmc.network.message.MessageHurtEntity;
 import com.hypeirochus.scmc.network.message.MessageKillEntity;
 import com.hypeirochus.scmc.network.message.MessageMorphLarva;
 import com.hypeirochus.scmc.network.message.MessageReturnFurnaceData;
 import com.hypeirochus.scmc.network.message.MessageSetPlayerShieldClient;
 import com.hypeirochus.scmc.network.message.MessageSetPlayerShieldServer;
+import com.hypeirochus.scmc.network.message.MessageShipAbility;
 import com.hypeirochus.scmc.network.message.MessageSpawnItem;
 import com.hypeirochus.scmc.network.message.MessageSyncLarvaCocoonGui;
 import com.hypeirochus.scmc.network.message.MessageSyncLarvaGui;
@@ -20,6 +22,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 
+//TODO: MOVE TO CORE MOD, there is some useful functionality here.
 public class NetworkHandler {
 
 	public static final SimpleNetworkWrapper INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel(Starcraft.MOD_ID);
@@ -38,7 +41,9 @@ public class NetworkHandler {
 		registerMessage(new MessageSpawnItem(), MessageSpawnItem.class, Side.SERVER);
 		registerMessage(new MessageSetPlayerShieldServer(), MessageSetPlayerShieldServer.class, Side.SERVER);
 		registerMessage(new MessageGetFurnaceData.Handler(), MessageGetFurnaceData.class, Side.SERVER);
+		registerMessage(new MessageHurtEntity(), MessageHurtEntity.class, Side.SERVER);
 		registerMessage(new MessageKillEntity(), MessageKillEntity.class, Side.SERVER);
+		registerMessage(new MessageShipAbility.Handler(), MessageShipAbility.class, Side.SERVER);
 	}
 
 	private static void registerClient() {

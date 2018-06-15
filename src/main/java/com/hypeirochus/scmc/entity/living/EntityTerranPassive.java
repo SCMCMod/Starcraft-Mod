@@ -5,12 +5,12 @@ import net.minecraft.world.World;
 
 public class EntityTerranPassive extends EntityStarcraftPassive {
 
-	public EntityTerranPassive(World p_i1604_1_) {
-		super(p_i1604_1_);
+	public EntityTerranPassive(World world) {
+		super(world);
 	}
-
+	
 	@Override
-	public EntityAgeable createChild(EntityAgeable p_90011_1_) {
+	public EntityAgeable createChild(EntityAgeable ageable) {
 		return null;
 	}
 
@@ -18,5 +18,4 @@ public class EntityTerranPassive extends EntityStarcraftPassive {
 	public boolean getCanSpawnHere() {
 		return true;
 	}
-
 }

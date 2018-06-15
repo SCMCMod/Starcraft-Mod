@@ -30,6 +30,7 @@ import com.hypeirochus.scmc.items.StarcraftItem;
 import com.hypeirochus.scmc.items.structurespawner.ItemProtossStructureSpawner;
 import com.hypeirochus.scmc.items.structurespawner.ItemTerranStructureSpawner;
 import com.hypeirochus.scmc.items.structurespawner.ItemZergStructureSpawner;
+import com.ruthless_bug13.rapi.api.energy.base.EnergyItem;
 
 import net.minecraft.item.Item;
 
@@ -83,6 +84,9 @@ public class ItemHandler {
 
 	// Tab Icons
 	public static Item ICON;
+	
+	// Testing
+	public static Item TERRAN_POWER_CELL;
 
 	private static void init() {
 		items = new ArrayList<Item>();
@@ -141,6 +145,9 @@ public class ItemHandler {
 
 		// Tab Icons
 		ICON = new ItemIcon();
+		
+		// Testing
+		TERRAN_POWER_CELL = new EnergyItem("terran.powercell", 10000).setCreativeTab(StarcraftCreativeTabs.TERRAN);
 	}
 
 	/**

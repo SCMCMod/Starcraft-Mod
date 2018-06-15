@@ -6,6 +6,7 @@ import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 
+//TODO: Unused code.
 public class EntityAITradePlayer extends EntityAIBase {
 
 	private final EntityCivilian person;

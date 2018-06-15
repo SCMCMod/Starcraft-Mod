@@ -37,7 +37,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-//DO NOT WRAP GL11, Instead wrap GlStateManager
+//TODO: MOVE TO CORE MOD
+//TODO: DO NOT WRAP GL11, Instead wrap GlStateManager
 public class OpenGL {
 	public static ArrayList<Framebuffer>	frameBuffers	= new ArrayList<Framebuffer>();
 	public static boolean					lightmapTexUnitTextureEnable;

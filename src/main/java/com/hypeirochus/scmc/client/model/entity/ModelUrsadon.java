@@ -921,8 +921,8 @@ public class ModelUrsadon extends Model {
 		EntityLivingBase base = (EntityLivingBase) obj;
 		head.rotateAngleX = headPitch(obj) * 0.017453292F;
 		head.rotateAngleY = headYaw(obj) * 0.017453292F;
-		lForeArm.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.6F) * 0.667F * swingProgressPrev(obj);
-		rForeArm.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.6F) * 0.667F * swingProgressPrev(obj);
+		lShoulder.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.6F) * 0.667F * swingProgressPrev(obj) - 0.65F;
+		rShoulder.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.6F) * 0.667F * swingProgressPrev(obj) - 0.45F;
 		lShin.rotateAngleX = MathHelper.cos(swingProgress(obj) * 1F) * 0.667F * swingProgressPrev(obj) + 0.6F;
 		rShin.rotateAngleX = MathHelper.sin(swingProgress(obj) * 1F) * 0.667F * swingProgressPrev(obj) + 0.6F;
 		tail01.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.05f) * 0.16675f + swingProgressPrev(obj) * 0.025f;

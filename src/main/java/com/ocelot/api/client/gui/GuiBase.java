@@ -22,6 +22,7 @@ import net.minecraft.client.renderer.RenderHelper;
  * 
  * @author Ocelot5836
  */
+//TODO: MOVE TO CORE MOD
 public abstract class GuiBase extends GuiScreen {
 
 	private List<Component> components = new ArrayList<Component>();

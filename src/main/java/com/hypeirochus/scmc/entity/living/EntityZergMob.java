@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 import com.hypeirochus.scmc.enums.EnumTypeAttributes;
 import com.hypeirochus.scmc.handlers.ItemHandler;
+import com.hypeirochus.scmc.handlers.SoundHandler;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.item.EntityItem;
@@ -13,13 +15,14 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 public class EntityZergMob extends EntityStarcraftMob {
 
-	private static final DataParameter<Integer>	BIOMASS	= EntityDataManager.createKey(EntityZergling.class, DataSerializers.VARINT);
-	public int									baseHealth;
+	private static final DataParameter<Integer>	BIOMASS	= EntityDataManager.createKey(EntityZergMob.class, DataSerializers.VARINT);
+	private static final DataParameter<Boolean>	BURROW	= EntityDataManager.createKey(EntityZergMob.class, DataSerializers.BOOLEAN);
 
 	public EntityZergMob(World world) {
 		super(world);
@@ -36,8 +39,10 @@ public class EntityZergMob extends EntityStarcraftMob {
 
 	@Override
 	protected void entityInit() {
-		super.entityInit();
 		this.getDataManager().register(BIOMASS, 0);
+		this.getDataManager().register(BURROW, false);
+		
+		super.entityInit();
 	}
 
 	@Override
@@ -45,6 +50,7 @@ public class EntityZergMob extends EntityStarcraftMob {
 		super.writeEntityToNBT(nbt);
 
 		nbt.setInteger("Biomass", this.getBiomass());
+		nbt.setBoolean("Burrow", this.getBurrowState());
 	}
 
 	@Override
@@ -52,6 +58,7 @@ public class EntityZergMob extends EntityStarcraftMob {
 		super.readEntityFromNBT(nbt);
 
 		this.setBiomass(nbt.getInteger("Biomass"));
+		this.isBurrowed(nbt.getBoolean("Burrow"));
 	}
 
 	public int getBiomass() {
@@ -92,17 +99,57 @@ public class EntityZergMob extends EntityStarcraftMob {
 		this.setBiomass(this.getBiomass() + (entityItem.getItem().getCount()));
 		entityItem.setDead();
 	}
+	
+	public boolean getBurrowState() {
+		return this.getDataManager().get(BURROW);
+	}
+
+	public void isBurrowed(boolean isBurrowed) {
+		this.getDataManager().set(BURROW, isBurrowed);
+	}
+	
+	protected void clearAITasks() {
+	   tasks.taskEntries.clear();
+	   targetTasks.taskEntries.clear();
+	}
 
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-		if (this.getBiomass() <= 100) {
-			this.findBiomass();
+		if(!this.world.isRemote) {
+			if (this.getBiomass() <= 100) {
+				this.findBiomass();
+			}
+			if (this.getBiomass() > 100) {
+				this.setBiomass(100);
+				this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(this.getMaxHealth() + this.getBiomass());
+			}
+			if(this.getHealth() < this.getMaxHealth()/6 && this.getBurrowState() == false) {
+				world.playSound(null, this.getPosition(), SoundHandler.FX_ZERG_BURROWDOWN, SoundCategory.NEUTRAL, 7.0F, 1.0F);
+				this.isBurrowed(true);
+				this.clearAITasks();
+				this.amendAttribute(EnumTypeAttributes.INVISIBLE);
+			}else if(this.getHealth() > this.getMaxHealth()/6 && this.getBurrowState() == true) {
+				world.playSound(null, this.getPosition(), SoundHandler.FX_ZERG_BURROWUP, SoundCategory.NEUTRAL, 7.0F, 1.0F);
+				this.isBurrowed(false);
+				this.initEntityAI();
+				this.removeAttribute(EnumTypeAttributes.INVISIBLE);
+			}
 		}
-		if (this.getBiomass() > 100) {
-			this.setBiomass(100);
-			this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(this.baseHealth + this.getBiomass());
+	}
+	
+	@Override
+	public void knockBack(Entity entityIn, float strength, double xRatio, double zRatio) {
+		if(this.getBurrowState() == true) {
+			//Do nothing. Burrowed zerg should not have knockback.
+		}else {
+			super.knockBack(entityIn, strength, xRatio, zRatio);
 		}
+	}
+	
+	@Override
+	protected void initEntityAI() {
+		super.initEntityAI();
 	}
 
 	@Override
@@ -128,7 +175,7 @@ public class EntityZergMob extends EntityStarcraftMob {
 				entityLivingIn.dropItem(ItemHandler.BIOMASS, biomassAmount);
 			}
 		} else if (entityLivingIn instanceof EntityStarcraftPassive) {
-			if (((EntityStarcraftPassive) entityLivingIn).isType(EnumTypeAttributes.MECHANICAL)) {
+			if (((EntityStarcraftPassive) entityLivingIn).hasAttribute(EnumTypeAttributes.MECHANICAL)) {
 				// do nothing
 			} else {
 				entityLivingIn.dropItem(ItemHandler.BIOMASS, biomassAmount);

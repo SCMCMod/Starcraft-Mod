@@ -9,7 +9,7 @@ public class EntityCritterPassive extends EntityStarcraftPassive {
 
 	public EntityCritterPassive(World world) {
 		super(world);
-		setTypes(EnumTypeAttributes.CRITTER);
+		setAttributes(EnumTypeAttributes.CRITTER);
 	}
 
 	@Override

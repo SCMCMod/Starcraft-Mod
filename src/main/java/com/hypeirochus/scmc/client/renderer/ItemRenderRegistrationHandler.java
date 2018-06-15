@@ -26,6 +26,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+//TODO: MOVE REGISTER METHOD TO CORE MOD.
 @EventBusSubscriber
 public class ItemRenderRegistrationHandler {
 

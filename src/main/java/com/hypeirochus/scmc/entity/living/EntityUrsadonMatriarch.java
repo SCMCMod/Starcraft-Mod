@@ -31,7 +31,6 @@ public class EntityUrsadonMatriarch extends EntityMob implements IMob, Predicate
 	public EntityUrsadonMatriarch(World world) {
 		super(world);
 		setSize(1.5F, 1.5F);
-		experienceValue = 333;
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
 		tasks.addTask(2, new EntityAIWander(this, 1.0D));

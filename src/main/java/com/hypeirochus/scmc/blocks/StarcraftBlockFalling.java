@@ -11,6 +11,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
+//TODO: MOVE TO CORE MOD, AND make this generically named.
 public class StarcraftBlockFalling extends BlockFalling {
 
 	private ItemBlock item;

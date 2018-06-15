@@ -37,6 +37,7 @@ import net.minecraft.world.World;
  * 
  * @author Ri5ux, creator of the AVP mod
  */
+//TODO: MOVE TO CORE MOD, Stricken Ri5ux's name from the mod. We'll credit him elsewhere.
 public abstract class ItemRenderer implements IBakedModel {
 
 	public static class ItemRenderList extends ItemOverrideList {

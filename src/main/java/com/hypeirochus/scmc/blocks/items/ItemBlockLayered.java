@@ -28,6 +28,7 @@ import net.minecraft.world.World;
  * 
  * @author Ocelot5836
  */
+//TODO: MOVE TO CORE MOD
 public class ItemBlockLayered extends ItemBlock {
 
 	public ItemBlockLayered(StarcraftBlockLayered block) {

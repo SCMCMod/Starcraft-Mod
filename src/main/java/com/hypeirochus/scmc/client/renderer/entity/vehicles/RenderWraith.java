@@ -9,7 +9,6 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -18,6 +17,9 @@ public class RenderWraith extends Render<EntityWraith>
 {
     /** instance of ModelWraith for rendering */
     protected ModelBase modelWraith = new ModelWraith();
+    
+    //TODO: make this NBT based for the wraith, to make phases of the cloaking
+    private float mod = 1.0F;
     
 
     public RenderWraith(RenderManager renderManagerIn)
@@ -43,9 +45,24 @@ public class RenderWraith extends Render<EntityWraith>
             GlStateManager.enableColorMaterial();
             GlStateManager.enableOutlineMode(this.getTeamColor(entity));
         }
+        
+        if(entity.getCloakState()) {
+        	GlStateManager.enableAlpha();
+        	GlStateManager.enableBlend();
+        	if(entity.ticksExisted % 20 == 0 && mod > 0.24F) {
+        		mod -= 0.12F;
+        	}
+        	GlStateManager.color(1.0F, 1.0F, 1.0F, mod);
+        }
 
         this.modelWraith.render(entity, partialTicks, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
 
+        if(entity.getCloakState()) {
+        	GlStateManager.color(1.0F, 1.0F, 1.0F, mod);
+        	GlStateManager.disableAlpha();
+        	GlStateManager.disableBlend();
+        }
+        
         if (this.renderOutlines)
         {
             GlStateManager.disableOutlineMode();
@@ -59,17 +76,11 @@ public class RenderWraith extends Render<EntityWraith>
     public void setupRotation(EntityWraith p_188311_1_, float p_188311_2_, float p_188311_3_)
     {
         GlStateManager.rotate(180.0F - p_188311_2_, 0.0F, 1.0F, 0.0F);
-        float f = (float)p_188311_1_.getTimeSinceHit() - p_188311_3_;
         float f1 = p_188311_1_.getDamageTaken() - p_188311_3_;
 
         if (f1 < 0.0F)
         {
             f1 = 0.0F;
-        }
-
-        if (f > 0.0F)
-        {
-            GlStateManager.rotate(MathHelper.sin(f) * f * f1 / 10.0F * (float)p_188311_1_.getForwardDirection(), 1.0F, 0.0F, 0.0F);
         }
 
         GlStateManager.scale(-1.0F, -1.0F, 1.0F);

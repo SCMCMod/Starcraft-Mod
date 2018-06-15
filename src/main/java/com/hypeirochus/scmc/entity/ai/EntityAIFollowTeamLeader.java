@@ -6,6 +6,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
 
+//TODO: This code may not be used. Consider deleting it.
 public class EntityAIFollowTeamLeader extends EntityAIBase {
 	private final EntityLiving	entity;
 	private EntityPlayer		player;

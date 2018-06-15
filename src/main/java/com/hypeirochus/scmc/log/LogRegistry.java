@@ -290,11 +290,11 @@ public class LogRegistry implements IStarcraftRegistry<Integer, Log> {
 		register("log.science.terran.viking3");
 		register("log.science.terran.viking4");
 		register("log.science.terran.viking5");
-		register("log.science.terran.wowmine0");
-		register("log.science.terran.wowmine1");
-		register("log.science.terran.wowmine2");
-		register("log.science.terran.wowmine3");
-		register("log.science.terran.wowmine4");
+		register("log.science.terran.widowmine0");
+		register("log.science.terran.widowmine1");
+		register("log.science.terran.widowmine2");
+		register("log.science.terran.widowmine3");
+		register("log.science.terran.widowmine4");
 
 		register("log.science.zerg.baneling0");
 		register("log.science.zerg.baneling1");

@@ -22,6 +22,7 @@ import com.hypeirochus.scmc.handlers.AccessHandler;
 
 import net.minecraft.client.Minecraft;
 
+//TODO: MOVE TO CORE MOD
 public class Screen {
 
 	/**

@@ -18,6 +18,7 @@ import net.minecraft.entity.player.EntityPlayer;
  * 
  * @author Ocelot5836
  */
+//TODO: This class' name is misleading. Rename it!
 public class CapabilityUtils {
 
 	/**

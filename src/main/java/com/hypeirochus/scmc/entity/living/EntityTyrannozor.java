@@ -36,8 +36,6 @@ public class EntityTyrannozor extends EntityZergMob implements IMob, Predicate<E
 	public EntityTyrannozor(World world) {
 		super(world);
 		setSize(4.0F, 6.0F);
-		experienceValue = 750;
-		this.baseHealth = 750;
 		this.setColor(EnumColors.ORANGE);
 		this.setFactions(EnumFactionTypes.PRIMALZERG);
 		setAttributes(EnumTypeAttributes.MASSIVE, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND, EnumTypeAttributes.ARMORED, EnumTypeAttributes.HEROIC);

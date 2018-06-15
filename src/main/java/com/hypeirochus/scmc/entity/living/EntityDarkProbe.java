@@ -1,6 +1,7 @@
 package com.hypeirochus.scmc.entity.living;
 
 import com.hypeirochus.api.client.entityfx.EntityFXElectricArc;
+import com.hypeirochus.scmc.entity.IShieldEntity;
 import com.hypeirochus.scmc.enums.EnumColors;
 import com.hypeirochus.scmc.enums.EnumFactionTypes;
 import com.hypeirochus.scmc.enums.EnumTypeAttributes;
@@ -11,7 +12,6 @@ import com.hypeirochus.scmc.handlers.SoundHandler;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAvoidEntity;
-import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
@@ -24,30 +24,32 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class EntityDarkProbe extends EntityProtossPassive {
-
-	public float offsetHealth;
-	public int timeSinceHurt;
+public class EntityDarkProbe extends EntityProtossPassive implements IShieldEntity {
 
 	public EntityDarkProbe(World world) {
 		super(world);
 		setSize(1.0F, 1.5F);
 		this.setColor(EnumColors.RED);
 		this.setFactions(EnumFactionTypes.TALDARIM);
-		setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.MECHANICAL, EnumTypeAttributes.GROUND);
+		setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.MECHANICAL, EnumTypeAttributes.GROUND);
+		this.initEntityAI();
+	}
+	
+	@Override
+	protected void initEntityAI() {
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAvoidEntity<EntityZergMob>(this, EntityZergMob.class, 16.0F, 1.0D, 1.0D));
 		tasks.addTask(2, new EntityAIAvoidEntity<EntityTerranMob>(this, EntityTerranMob.class, 16.0F, 1.0D, 1.0D));
 		tasks.addTask(3, new EntityAIWander(this, 1));
 		tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 8));
 		tasks.addTask(5, new EntityAILookIdle(this));
-		targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
+		super.initEntityAI();
 	}
 
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(27.0D);
+		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(13.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.39000000298023224D);
 	}
 
@@ -94,23 +96,9 @@ public class EntityDarkProbe extends EntityProtossPassive {
 			AccessHandler.getMinecraft().effectRenderer.addEffect(new EntityFXElectricArc(this.world, this.posX, this.posY, this.posZ, posX + this.rand.nextInt(2), posY, posZ + this.rand.nextInt(2), 10, 2.5F, 0.5F, 0.05F, 0xFFFF0000));
 		}
 	}
-
+	
 	@Override
-	protected void damageEntity(DamageSource damageSrc, float damageAmount) {
-		timeSinceHurt = this.ticksExisted;
-		super.damageEntity(damageSrc, damageAmount);
-	}
-
-	@Override
-	public void onLivingUpdate() {
-		if (ticksExisted % 20 == 0 && this.getHealth() < this.getMaxHealth()) {
-			if (this.getHealth() < 13.5 - offsetHealth) {
-				offsetHealth = 13.5F - getHealth();
-			}
-			if (this.getHealth() < this.getMaxHealth() - offsetHealth && ticksExisted - timeSinceHurt > 200) {
-				this.heal(2.0F);
-			}
-		}
-		super.onLivingUpdate();
+	public float getMaxShields() {
+		return 13.0F;
 	}
 }

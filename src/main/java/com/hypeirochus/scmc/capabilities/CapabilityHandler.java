@@ -18,6 +18,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
  * 
  */
 
+//TODO: Why is there a race capability? Shouldn't it be factions? Ocelot :/
 public class CapabilityHandler {
 
 	public static final ResourceLocation COLOR = new ResourceLocation(Starcraft.MOD_ID, "color");
