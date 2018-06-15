@@ -38,16 +38,7 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 		this.transformId = id;
 		this.setColor(EnumColors.PURPLE);
 		this.setFactions(EnumFactionTypes.SWARM);
-<<<<<<< HEAD
-		this.setTypes(EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
-<<<<<<< HEAD
-=======
-
-		outEntity = getEntityById(world, id);
-=======
 		this.setAttributes(EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
->>>>>>> 87f5d91beeffb4c86de526b26263fad5bd86e6dc
->>>>>>> parent of e40e22fc... Revert "Merge branch '1.12' of https://github.com/Hypeirochus/Starcraft-Mod into 1.12"
 	}
 
 	@Override
@@ -92,24 +83,10 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 	@Override
 	protected void updateAITasks() {
 		if (ticksExisted > getTransformTime()) {
-<<<<<<< HEAD
-			if (getEntityById(world, transformId) instanceof EntityStarcraftMob) {
-				Library.replaceEntity(true, this, ((EntityStarcraftMob) getEntityById(world, transformId)).setColor(teamColor));
-			} else if (getEntityById(world, transformId) instanceof EntityStarcraftPassive) {
-				Library.replaceEntity(true, this, ((EntityStarcraftPassive) getEntityById(world, transformId)).setColor(teamColor));
-=======
-<<<<<<< HEAD
-			if (outEntity instanceof EntityStarcraftMob) {
-				Library.replaceEntity(true, this, ((EntityStarcraftMob) outEntity).setColor(teamColor));
-			} else if (outEntity instanceof EntityStarcraftPassive) {
-				Library.replaceEntity(true, this, ((EntityStarcraftPassive) outEntity).setColor(teamColor));
-=======
 			if (getEntityById(world, transformId) instanceof EntityStarcraftMob) {
 				Library.replaceEntity(true, this, ((EntityStarcraftMob) getEntityById(world, transformId)).setColor(color));
 			} else if (getEntityById(world, transformId) instanceof EntityStarcraftPassive) {
 				Library.replaceEntity(true, this, ((EntityStarcraftPassive) getEntityById(world, transformId)).setColor(color));
->>>>>>> 87f5d91beeffb4c86de526b26263fad5bd86e6dc
->>>>>>> parent of e40e22fc... Revert "Merge branch '1.12' of https://github.com/Hypeirochus/Starcraft-Mod into 1.12"
 			} else {
 				Library.replaceEntity(true, this, getEntityById(world, transformId));
 			}
@@ -146,16 +123,8 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 		return secondsToTicks(85);
 	}
 
-<<<<<<< HEAD
-	public static EntityLivingBase getEntityById(World world, int id) {
-=======
-<<<<<<< HEAD
-	public static IMorphResult getEntityById(World world, int id) {
-=======
 	//TODO: Finish this, zerg cocoons morph into Ocelots. Lol.
 	public static EntityLivingBase getEntityById(World world, int id) {
->>>>>>> 87f5d91beeffb4c86de526b26263fad5bd86e6dc
->>>>>>> parent of e40e22fc... Revert "Merge branch '1.12' of https://github.com/Hypeirochus/Starcraft-Mod into 1.12"
 		switch (id) {
 		default:
 			return new EntityOcelot(world);
