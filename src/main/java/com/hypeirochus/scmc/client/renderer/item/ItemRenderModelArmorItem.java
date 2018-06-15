@@ -16,7 +16,6 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
-//TODO: MOVE TO CORE MOD
 public class ItemRenderModelArmorItem extends ItemRenderer {
 
 	private IArmorItem model;

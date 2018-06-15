@@ -3,7 +3,6 @@ package com.hypeirochus.api.client.render;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.Vec3d;
 
-//TODO: MOVE TO CORE MOD
 public class UV {
 	public float u;
 	public float v;

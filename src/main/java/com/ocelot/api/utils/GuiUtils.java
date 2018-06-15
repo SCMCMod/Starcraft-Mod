@@ -27,7 +27,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * 
  * @author Ocelot5836
  */
-//TODO: MOVE TO CORE MOD
 public class GuiUtils {
 
 	/**

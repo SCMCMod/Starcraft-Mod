@@ -5,7 +5,6 @@ import com.hypeirochus.scmc.entity.vehicles.EntityWraith;
 
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.math.MathHelper;
 
 /**
  * Wraith_SCMC - Alien
@@ -515,23 +514,6 @@ public class ModelWraith extends Model {
     public void render(Object obj) {
     	if (obj instanceof EntityWraith) {
     		this.shape22.rotateAngleX = ((EntityWraith) obj).rotationPitch * 0.01F;
-    		
-    		
-    		if(this.isTurning(obj)) {
-        		this.shape22.rotateAngleZ += 0.005F * this.getTurnDirection(obj);
-    		}else {
-        		this.shape22.rotateAngleZ *= 0.98F;
-    		}
-    		this.shape22.rotateAngleZ = MathHelper.clamp(this.shape22.rotateAngleZ, -0.45F, 0.45F);
     	}
     }
-    
-    public boolean isTurning(Object obj) {
-    	return (int) MathHelper.clamp(((EntityWraith) obj).rotationYaw - ((EntityWraith) obj).prevRotationYaw, -1, 1) != 0;
-    }
-    
-    public int getTurnDirection(Object obj) {
-    	return (int) -Math.signum(MathHelper.clamp(((EntityWraith) obj).rotationYaw - ((EntityWraith) obj).prevRotationYaw, -10, 10));
-    }
-    
 }

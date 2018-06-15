@@ -38,11 +38,8 @@ public class EntityZerglingPrimalDehaka extends EntityZergMob implements IMob, P
 		this.setColor(EnumColors.YELLOW);
 		this.setFactions(EnumFactionTypes.PRIMALZERG);
 		this.setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
-		this.initEntityAI();
-	}
-	
-	@Override
-	protected void initEntityAI() {
+		experienceValue = 23;
+		this.baseHealth = 25;
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
 		tasks.addTask(2, new EntityAIWander(this, 1.0D));
@@ -50,7 +47,6 @@ public class EntityZerglingPrimalDehaka extends EntityZergMob implements IMob, P
 		tasks.addTask(4, new EntityAILookIdle(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, false, false, this));
-		super.initEntityAI();
 	}
 
 	/**

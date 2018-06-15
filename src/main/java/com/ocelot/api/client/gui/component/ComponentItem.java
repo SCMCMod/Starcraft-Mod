@@ -14,7 +14,6 @@ import net.minecraft.item.ItemStack;
  * 
  * @author Ocelot5836
  */
-//TODO: MOVE TO CORE MOD
 public class ComponentItem extends Component {
 
 	private ItemStack stack;

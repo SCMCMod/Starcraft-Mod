@@ -1,7 +1,7 @@
 package com.hypeirochus.scmc.entity.living;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.hypeirochus.scmc.api.IEntityTeamColorable;
 import com.hypeirochus.scmc.enums.EnumColors;
@@ -29,12 +29,20 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	private static final DataParameter<Integer> COLOR = EntityDataManager.createKey(EntityStarcraftMob.class, DataSerializers.VARINT);
 	private static final DataParameter<String> OWNER = EntityDataManager.createKey(EntityStarcraftMob.class, DataSerializers.STRING);
 
-	Map<Integer, EnumTypeAttributes> types = new HashMap<Integer, EnumTypeAttributes>();
-	Map<Integer, EnumFactionTypes> factions = new HashMap<Integer, EnumFactionTypes>();
+	List<EnumTypeAttributes> types = new ArrayList<EnumTypeAttributes>(15);
+	EnumFactionTypes faction;
 	EnumColors color;
 
 	public EntityStarcraftMob(World world) {
 		super(world);
+	}
+
+	public String getOwnerFromFaction(EnumFactionTypes faction) {
+		return faction.toString();
+	}
+
+	public String getFactionAsString() {
+		return this.faction.toString();
 	}
 
 	/**
@@ -64,7 +72,7 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	 * 
 	 * @param type
 	 *            The type we are checking the mob for.
-	 * @return True if the mob is the type requested, false otherwise.
+	 * @return True if the mob if is the type requested, false otherwise.
 	 */
 	public boolean hasAttribute(EnumTypeAttributes type) {
 		for (int x = 0; x < types.size(); x++) {
@@ -82,12 +90,7 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	 * @return True if the mob is of the requested faction, false otherwise.
 	 */
 	public boolean isFaction(EnumFactionTypes faction) {
-		for (int x = 0; x < factions.size(); x++) {
-			if (this.factions.get(x) == faction) {
-				return true;
-			}
-		}
-		return false;
+		return faction == this.faction;
 	}
 
 	/**
@@ -119,22 +122,7 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	 */
 	public EntityStarcraftMob setAttributes(EnumTypeAttributes... types) {
 		for (int x = 0; x < types.length; x++) {
-			this.types.put(x, types[x]);
-		}
-		return this;
-	}
-	
-	public EntityStarcraftMob amendAttribute(EnumTypeAttributes type) {
-		this.types.put(types.size(), type);
-		return this;
-	}
-	
-	public EntityStarcraftMob removeAttribute(EnumTypeAttributes type) {
-		for (int x = 0; x < types.size(); x++) {
-			if (this.types.get(x) == type) {
-				this.types.remove(x);
-				return this;
-			}
+			this.types.add(x, types[x]);
 		}
 		return this;
 	}
@@ -143,13 +131,13 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	 * 
 	 * @param types
 	 *            Sets the mob to be under the given factions.
-	 * @return The mob.a
+	 * @return The mob.
 	 */
-	public EntityStarcraftMob setFactions(EnumFactionTypes... types) {
-		for (int x = 0; x < types.length; x++) {
-			this.factions.put(x, types[x]);
+	public EntityStarcraftMob setFactions(EnumFactionTypes faction) {
+		if (this.getStarcraftOwner().contentEquals("")) {
+			this.setStarcraftOwner(this.getOwnerFromFaction(faction));
 		}
-		this.setStarcraftOwner(types[0].toString());
+		this.faction = faction;
 		return this;
 	}
 
@@ -202,7 +190,6 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 		this.getDataManager().set(OWNER, owner);
 	}
 
-	//TODO: Remove this eventually.
 	@Override
 	protected boolean processInteract(EntityPlayer player, EnumHand hand) {
 		ItemStack heldItem = player.getHeldItem(hand);
@@ -254,13 +241,6 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 			if (entity instanceof EntityStarcraftMob) {
 				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
 					if (!((EntityStarcraftMob) entity).getStarcraftOwner().contentEquals(this.getStarcraftOwner())) {
-						if(((EntityStarcraftMob) entity).hasAttribute(EnumTypeAttributes.INVISIBLE)) {
-							if(((EntityStarcraftMob) entity).hasAttribute(EnumTypeAttributes.DETECTED)) {
-								return true;
-							}else {
-								return false;
-							}
-						}
 						return true;
 					} else {
 						return false;
@@ -269,7 +249,7 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 			} else if (entity instanceof EntityStarcraftPassive) {
 				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
 					if (!((EntityStarcraftPassive) entity).isFaction(faction)) {
-						if (!((EntityStarcraftPassive) entity).getUniqueID().toString().contentEquals(this.getStarcraftOwner()) && !((EntityStarcraftPassive) entity).hasAttribute(EnumTypeAttributes.CRITTER)) {
+						if (!((EntityStarcraftPassive) entity).getUniqueID().toString().contentEquals(this.getStarcraftOwner()) && !((EntityStarcraftPassive) entity).isType(EnumTypeAttributes.CRITTER)) {
 							return true;
 						} else {
 							return false;
@@ -296,10 +276,5 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 			return false;
 		}
 		return false;
-	}
-	
-	@Override
-	protected int getExperiencePoints(EntityPlayer player) {
-		return (int) (this.getMaxHealth() * 3/4);
 	}
 }

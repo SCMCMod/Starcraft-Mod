@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 public abstract class EntityCritterFlying extends EntityStarcraftPassive {
 	public EntityCritterFlying(World worldIn) {
 		super(worldIn);
-		setAttributes(EnumTypeAttributes.CRITTER, EnumTypeAttributes.AIR);
+		setTypes(EnumTypeAttributes.CRITTER, EnumTypeAttributes.AIR);
 	}
 
 	public void fall(float distance, float damageMultiplier) {

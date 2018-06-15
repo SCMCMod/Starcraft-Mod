@@ -66,9 +66,6 @@ public class Resources {
 	public static final String PROBE_BASE = Starcraft.RL_BASE + "textures/entity/probe_base.png";
 	public static final String PROBE_GLOW_DYNAMIC = Starcraft.RL_BASE + "textures/entity/probe_glow_dynamic.png";
 	public static final String PROBE_OVERLAY = Starcraft.RL_BASE + "textures/entity/probe_overlay.png";
-	public static final String PURIFIERPROBE_BASE = Starcraft.RL_BASE + "textures/entity/purifierprobe_base.png";
-	public static final String PURIFIERPROBE_GLOW_DYNAMIC = Starcraft.RL_BASE + "textures/entity/purifierprobe_glow_dynamic.png";
-	public static final String PURIFIERPROBE_OVERLAY = Starcraft.RL_BASE + "textures/entity/purifierprobe_overlay.png";
 	public static final String QUEEN_BASE = Starcraft.RL_BASE + "textures/entity/queen_base.png";
 	public static final String QUEEN_GLOW_STATIC = Starcraft.RL_BASE + "textures/entity/queen_glow_static.png";
 	public static final String QUEEN_OVERLAY = Starcraft.RL_BASE + "textures/entity/queen_overlay.png";

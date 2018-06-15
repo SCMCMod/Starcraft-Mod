@@ -13,7 +13,6 @@ import net.minecraft.util.EnumHandSide;
  * 
  * @author Ocelot5836
  */
-//TODO: MOVE TO CORE MOD
 public class ModelUtils {
 
 	/**

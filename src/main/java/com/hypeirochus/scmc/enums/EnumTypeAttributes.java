@@ -16,7 +16,5 @@ public enum EnumTypeAttributes {
 	ROBOTIC,
 	SUMMONED,
 	PROJECTILE,
-	CRITTER,
-	INVISIBLE,
-	DETECTED
+	CRITTER
 }

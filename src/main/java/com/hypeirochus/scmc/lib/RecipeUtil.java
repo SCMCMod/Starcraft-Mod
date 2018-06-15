@@ -25,7 +25,6 @@ import net.minecraftforge.oredict.ShapelessOreRecipe;
  *
  * @author Choonster
  */
-//TODO: MOVE TO CORE MOD
 public class RecipeUtil {
 
 	/**

@@ -30,14 +30,15 @@ public class EntityBroodling extends EntityZergMob implements IMob, Predicate<En
 	public EntityBroodling(World world, EnumColors color) {
 		super(world);
 		setSize(1.0F, 0.5F);
+		experienceValue = 20;
 		this.setColor(color);
 		this.setFactions(EnumFactionTypes.SWARM);
 		setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
-		this.initEntityAI();
 	}
 
 	@Override
 	protected void initEntityAI() {
+		super.initEntityAI();
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
 		tasks.addTask(2, new EntityAIWander(this, 1.0D));
@@ -45,7 +46,6 @@ public class EntityBroodling extends EntityZergMob implements IMob, Predicate<En
 		tasks.addTask(4, new EntityAILookIdle(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, false, false, this));
-		super.initEntityAI();
 	}
 
 	/**

@@ -2,7 +2,6 @@ package com.hypeirochus.api.client.render.model;
 
 import net.minecraft.util.math.MathHelper;
 
-//TODO: MOVE TO CORE MOD
 public class SCMathHelper {
 	public static final double	PHI			= 1.618033988749894D;
 	public static final double	PI			= Math.PI;

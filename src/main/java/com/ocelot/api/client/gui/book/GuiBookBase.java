@@ -20,7 +20,6 @@ import net.minecraft.util.ChatAllowedCharacters;
  * 
  * @author Ocelot5836
  */
-//TODO: MOVE TO CORE MOD
 public abstract class GuiBookBase extends GuiBase {
 
 	/** The pages inside of the book. */

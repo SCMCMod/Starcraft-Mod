@@ -5,7 +5,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-//TODO: MOVE TO CORE MOD
 @SideOnly(Side.CLIENT)
 public class ScaledResolution {
 	private int		scaledWidth;

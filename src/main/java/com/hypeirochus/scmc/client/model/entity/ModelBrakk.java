@@ -1631,13 +1631,13 @@ public class ModelBrakk extends Model {
 		neck.rotateAngleX = headPitch(obj) * 0.017453292F;
 		neck.rotateAngleY = headYaw(obj) * 0.017453292F;
 		lLowerArm.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.6F) * 0.667F * swingProgressPrev(obj) + 0.7F;
-		lShoulder.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.8F) * 0.667F * swingProgressPrev(obj) - 0.1F;
+		lUpperArm.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.8F) * 0.667F * swingProgressPrev(obj) - 0.3F;
 
 		lThigh.rotateAngleX = MathHelper.sin(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj) + 0.1F;
 		lShin.rotateAngleX = MathHelper.sin(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj) + 0.7F;
 
 		rLowerArm.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.6F) * 0.667F * swingProgressPrev(obj) + 0.7F;
-		rShoulder.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.8F) * 0.667F * swingProgressPrev(obj) - 0.1F;
+		rUpperArm.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.8F) * 0.667F * swingProgressPrev(obj) - 0.3F;
 
 		rThigh.rotateAngleX = MathHelper.cos(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj) + 0.1F;
 		rShin.rotateAngleX = MathHelper.cos(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj) + 0.7F;

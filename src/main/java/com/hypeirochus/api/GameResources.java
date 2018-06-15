@@ -2,7 +2,6 @@ package com.hypeirochus.api;
 
 import com.hypeirochus.api.client.render.Texture;
 
-//TODO: MOVE TO CORE MOD
 public class GameResources {
 	public static final Texture	PARTICLES	= new Texture("textures/particle/particles.png");
 	public static final Texture	SKY_SUN		= new Texture("textures/environment/sun.png");

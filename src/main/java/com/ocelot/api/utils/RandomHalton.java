@@ -2,7 +2,6 @@ package com.ocelot.api.utils;
 
 import java.util.BitSet;
 
-//TODO: What the hell is this?
 public class RandomHalton {
 
 	BitSet haltonGrid = new BitSet();

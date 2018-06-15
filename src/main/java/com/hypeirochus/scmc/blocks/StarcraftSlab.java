@@ -20,7 +20,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-//TODO: MOVE TO CORE MOD, AND make this generically named.
 public class StarcraftSlab extends StarcraftBlock {
 
 	public static final PropertyEnum<StarcraftSlab.Part> PART = PropertyEnum.<Part>create("part", Part.class);

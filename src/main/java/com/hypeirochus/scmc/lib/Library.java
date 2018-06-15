@@ -20,8 +20,10 @@ import net.minecraftforge.fml.common.Loader;
  * </br>
  * 
  * A set of utilities that simplify code in other areas<br>
+ * 
+ * @author wundrweapon
+ * @author He who is nameless
  */
-//TODO: MOVE TO CORE MOD
 public class Library {
 	
 	private static boolean isJeiInstalled;

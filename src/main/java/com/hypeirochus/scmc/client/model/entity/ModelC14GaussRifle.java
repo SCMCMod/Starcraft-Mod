@@ -1,4 +1,4 @@
-package com.hypeirochus.scmc.client.renderer.item;
+package com.hypeirochus.scmc.client.model.entity;
 
 import com.hypeirochus.api.client.render.model.Model;
 import com.hypeirochus.scmc.Starcraft;

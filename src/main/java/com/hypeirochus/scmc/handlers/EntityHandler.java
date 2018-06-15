@@ -31,7 +31,6 @@ import com.hypeirochus.scmc.entity.living.EntityNafash;
 import com.hypeirochus.scmc.entity.living.EntityPredator;
 import com.hypeirochus.scmc.entity.living.EntityProbe;
 import com.hypeirochus.scmc.entity.living.EntityProtossReaver;
-import com.hypeirochus.scmc.entity.living.EntityPurifierProbe;
 import com.hypeirochus.scmc.entity.living.EntityQueen;
 import com.hypeirochus.scmc.entity.living.EntityScarab;
 import com.hypeirochus.scmc.entity.living.EntityTastelope;
@@ -143,11 +142,7 @@ public class EntityHandler {
 		registerEntity(EntityProbe.class, "probe", 64, 1, true, 13022529, 2412228);
 		registerEntity(EntityDarkTemplar.class, "darkTemplar", 64, 1, true, 5066061, 45824);
 		registerEntity(EntityVoidProbe.class, "voidProbe", 64, 1, true, 1447446, 45824);
-		
 		registerEntity(EntityDarkProbe.class, "darkProbe", 64, 1, true, 1447446, 13369344);
-
-		registerEntity(EntityPurifierProbe.class, "purifierProbe", 64, 1, true, 13092807, 16019722);
-		
 		registerEntity(EntityZeratul.class, "zeratul", 64, 1, true, 5066061, 45824);
 
 		registerEntity(EntityBrutalisk.class, "brutalisk", 64, 1, true, 11403519, 7684608);

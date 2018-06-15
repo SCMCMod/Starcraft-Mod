@@ -614,16 +614,16 @@ public class ModelLarva extends Model {
 		EntityLivingBase base = (EntityLivingBase) obj;
 		head.rotateAngleX = headPitch(obj) * 0.017453292F;
 		head.rotateAngleY = headYaw(obj) * 0.017453292F;
-		lSpike0a.rotateAngleY = MathHelper.sin(swingProgress(obj) * 1.1F) * swingProgressPrev(obj);
-		lSpike1a.rotateAngleY = MathHelper.sin(swingProgress(obj) * 1.2F) * swingProgressPrev(obj);
-		lSpike2a.rotateAngleY = MathHelper.sin(swingProgress(obj) * 1.3F) * swingProgressPrev(obj);
-		lSpike3a.rotateAngleY = MathHelper.sin(swingProgress(obj) * 1.4F) * swingProgressPrev(obj);
-		lSpike4a.rotateAngleY = MathHelper.sin(swingProgress(obj) * 1.5F) * swingProgressPrev(obj);
-		rSpike0a.rotateAngleY = MathHelper.cos(swingProgress(obj) * 1.5F) * swingProgressPrev(obj);
-		rSpike1a.rotateAngleY = MathHelper.cos(swingProgress(obj) * 1.4F) * swingProgressPrev(obj);
-		rSpike2a.rotateAngleY = MathHelper.cos(swingProgress(obj) * 1.3F) * swingProgressPrev(obj);
-		rSpike3a.rotateAngleY = MathHelper.cos(swingProgress(obj) * 1.2F) * swingProgressPrev(obj);
-		rSpike4a.rotateAngleY = MathHelper.cos(swingProgress(obj) * 1.1F) * swingProgressPrev(obj);
+		lSpike0a.rotateAngleY = MathHelper.sin(swingProgress(obj) * 1.1F) * 1 * swingProgressPrev(obj);
+		lSpike1a.rotateAngleY = MathHelper.sin(swingProgress(obj) * 1.2F) * 1 * swingProgressPrev(obj);
+		lSpike2a.rotateAngleY = MathHelper.sin(swingProgress(obj) * 1.3F) * 1 * swingProgressPrev(obj);
+		lSpike3a.rotateAngleY = MathHelper.sin(swingProgress(obj) * 1.4F) * 1 * swingProgressPrev(obj);
+		lSpike4a.rotateAngleY = MathHelper.sin(swingProgress(obj) * 1.5F) * 1 * swingProgressPrev(obj);
+		rSpike0a.rotateAngleY = MathHelper.cos(swingProgress(obj) * 1.5F) * 1 * swingProgressPrev(obj);
+		rSpike1a.rotateAngleY = MathHelper.cos(swingProgress(obj) * 1.4F) * 1 * swingProgressPrev(obj);
+		rSpike2a.rotateAngleY = MathHelper.cos(swingProgress(obj) * 1.3F) * 1 * swingProgressPrev(obj);
+		rSpike3a.rotateAngleY = MathHelper.cos(swingProgress(obj) * 1.2F) * 1 * swingProgressPrev(obj);
+		rSpike4a.rotateAngleY = MathHelper.cos(swingProgress(obj) * 1.1F) * 1 * swingProgressPrev(obj);
 		lMandible.rotateAngleY = (MathHelper.sin(swingProgress(obj) * 0.5F) / 4.1F) * 2.0F * swingProgressPrev(obj);
 		rMandible.rotateAngleY = (MathHelper.sin(swingProgress(obj) * -0.5F) / 4.1F) * 2.0F * swingProgressPrev(obj);
 	}

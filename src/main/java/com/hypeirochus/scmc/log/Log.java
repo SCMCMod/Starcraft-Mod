@@ -21,7 +21,6 @@ import net.minecraft.util.ResourceLocation;
  * 
  * @author Ocelot5836
  */
-//TODO: MOVE TO CORE MOD, WARNING, this uses some starcraft code.
 public class Log implements IResourceManagerReloadListener {
 
 	/** The default containing folder of the logs */

@@ -9,7 +9,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
-//TODO: MOVE TO CORE MOD
 public class Players {
 	/**
 	 * @param player

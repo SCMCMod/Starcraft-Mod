@@ -13,16 +13,10 @@ public class EntityArtosilope extends EntityCritterPassive {
 	public EntityArtosilope(World world) {
 		super(world);
 		setSize(1.0F, 1.5F);
-		this.initEntityAI();
-	}
-	
-	@Override
-	protected void initEntityAI() {
 		tasks.addTask(0, new EntityAISwimming(this));
-		tasks.addTask(1, new EntityAIWander(this, 1));
-		tasks.addTask(2, new EntityAIWatchClosest(this, EntityPlayer.class, 8));
-		tasks.addTask(3, new EntityAILookIdle(this));
-		super.initEntityAI();
+		tasks.addTask(3, new EntityAIWander(this, 1));
+		tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 8));
+		tasks.addTask(5, new EntityAILookIdle(this));
 	}
 
 	@Override

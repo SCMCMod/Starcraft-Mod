@@ -5,7 +5,6 @@ import com.hypeirochus.scmc.entity.living.EntityScarab;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 
-//TODO: This code may not be of any use. Consider deleting it.
 public class EntityAIScarabExplode extends EntityAIBase {
 
 	/**
@@ -46,5 +45,21 @@ public class EntityAIScarabExplode extends EntityAIBase {
 	public void startExecuting() {
 		swellingScarab.getNavigator().clearPath();
 		scarabAttackTarget = swellingScarab.getAttackTarget();
+	}
+
+	/**
+	 * Updates the task
+	 */
+	@Override
+	public void updateTask() {
+		if (scarabAttackTarget == null) {
+			swellingScarab.setScarabState(-1);
+		} else if (swellingScarab.getDistanceSq(scarabAttackTarget) > 49) {
+			swellingScarab.setScarabState(-1);
+		} else if (!swellingScarab.getEntitySenses().canSee(scarabAttackTarget)) {
+			swellingScarab.setScarabState(-1);
+		} else {
+			swellingScarab.setScarabState(1);
+		}
 	}
 }

@@ -37,22 +37,14 @@ import net.minecraft.world.World;
 public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
 
 	private static final DataParameter<Boolean> AIM = EntityDataManager.createKey(EntityMarine.class, DataSerializers.BOOLEAN);
-	private static final DataParameter<Byte> STIMPACKS = EntityDataManager.createKey(EntityMarine.class, DataSerializers.BYTE);
-	private int stimTime = 0;
-	private boolean flag = false;
-	
-	//TODO: Make the marine fire 50% faster when using stimpacks.
+
 	public EntityMarine(World world) {
 		super(world);
 		setSize(0.8F, 2.2F);
+		experienceValue = 30;
 		this.setColor(EnumColors.BLUE);
 		this.setFactions(EnumFactionTypes.RAIDERS);
 		setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
-		this.initEntityAI();
-	}
-	
-	@Override
-	protected void initEntityAI() {
 		tasks.addTask(1, new EntityAIAttackRanged(this, 1.0D, 17, 16.0F));
 		tasks.addTask(2, new EntityAISwimming(this));
 		tasks.addTask(3, new EntityAIWander(this, 1.0D));
@@ -60,7 +52,6 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 		tasks.addTask(5, new EntityAILookIdle(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, true, false, this));
-		super.initEntityAI();
 	}
 
 	@Override
@@ -68,7 +59,6 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 		super.entityInit();
 
 		this.getDataManager().register(AIM, false);
-		this.getDataManager().register(STIMPACKS, (byte) 3);
 	}
 
 	public boolean canAim() {
@@ -77,14 +67,6 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 
 	protected void setAiming(boolean bool) {
 		this.getDataManager().set(AIM, bool);
-	}
-	
-	public byte getStimpack() {
-		return this.getDataManager().get(STIMPACKS);
-	}
-
-	protected void setStimpacks(byte stimpack) {
-		this.getDataManager().set(STIMPACKS, stimpack);
 	}
 
 	@Override
@@ -139,28 +121,10 @@ public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttack
 	@Override
 	public void onUpdate() {
 		if (!world.isRemote) {
-			if(stimTime == 0 && flag == true) {
-				this.setAIMoveSpeed(this.getAIMoveSpeed() * 0.66666F);
-				flag = false;
-			}
-			if(this.getHealth() > this.getMaxHealth()/3 && this.getAttackTarget() != null && this.getStimpack() > 0 && this.stimTime == 0) {
-				this.setHealth(this.getHealth() - 6.0F);
-				this.setStimpacks((byte) (this.getStimpack() - 1));
-				int rand = this.rand.nextInt(1);
-				switch(rand) {
-					case 0:
-						this.playSound(SoundHandler.ENTITY_MARINE_STIM1, 1.0F, 1.0F);
-						break;
-					case 1:
-						this.playSound(SoundHandler.ENTITY_MARINE_STIM2, 1.0F, 1.0F);
-						break;
-				}
-				this.stimTime = 11;
-				this.setAIMoveSpeed(this.getAIMoveSpeed()*1.5F);
-				flag = true;
-			}
-			if(this.ticksExisted % 20 == 0 && this.stimTime != 0) {
-				this.stimTime--;
+			if (this.getAttackTarget() != null && this.getDistance(this.getAttackTarget()) < 64.0D) {
+				this.setAiming(true);
+			} else if (this.getAttackTarget() == null) {
+				this.setAiming(false);
 			}
 		}
 		super.onUpdate();

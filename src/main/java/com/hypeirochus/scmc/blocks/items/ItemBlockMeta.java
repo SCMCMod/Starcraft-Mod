@@ -15,7 +15,6 @@ import net.minecraft.item.ItemStack;
  * @see ItemBlock
  *
  */
-//TODO: MOVE TO CORE MOD
 public class ItemBlockMeta extends ItemBlock {
 
 	/**

@@ -1,7 +1,6 @@
 package com.hypeirochus.scmc.entity.living;
 
 import com.hypeirochus.api.client.entityfx.EntityFXElectricArc;
-import com.hypeirochus.scmc.entity.IShieldEntity;
 import com.hypeirochus.scmc.enums.EnumColors;
 import com.hypeirochus.scmc.enums.EnumFactionTypes;
 import com.hypeirochus.scmc.enums.EnumTypeAttributes;
@@ -25,19 +24,17 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class EntityProbe extends EntityProtossPassive implements IShieldEntity {
+public class EntityProbe extends EntityProtossPassive {
+
+	public float offsetHealth;
+	public int timeSinceHurt;
 
 	public EntityProbe(World world) {
 		super(world);
 		setSize(1.0F, 1.5F);
 		this.setColor(EnumColors.LIGHT_BLUE);
 		this.setFactions(EnumFactionTypes.DAELAAM);
-		setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.MECHANICAL, EnumTypeAttributes.GROUND);
-		this.initEntityAI();
-	}
-	
-	@Override
-	protected void initEntityAI() {
+		setTypes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.MECHANICAL, EnumTypeAttributes.GROUND);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAvoidEntity<EntityZergMob>(this, EntityZergMob.class, 16.0F, 1.0D, 1.0D));
 		tasks.addTask(2, new EntityAIAvoidEntity<EntityTerranMob>(this, EntityTerranMob.class, 16.0F, 1.0D, 1.0D));
@@ -45,13 +42,12 @@ public class EntityProbe extends EntityProtossPassive implements IShieldEntity {
 		tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 8));
 		tasks.addTask(5, new EntityAILookIdle(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
-		super.initEntityAI();
 	}
 
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(13.0D);
+		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(27.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.39000000298023224D);
 	}
 
@@ -98,9 +94,23 @@ public class EntityProbe extends EntityProtossPassive implements IShieldEntity {
 			AccessHandler.getMinecraft().effectRenderer.addEffect(new EntityFXElectricArc(this.world, this.posX, this.posY, this.posZ, posX + this.rand.nextInt(2), posY, posZ + this.rand.nextInt(2), 10, 2.5F, 0.5F, 0.05F, 0xFF0000FF));
 		}
 	}
-	
+
 	@Override
-	public float getMaxShields() {
-		return 13.0F;
+	protected void damageEntity(DamageSource damageSrc, float damageAmount) {
+		timeSinceHurt = this.ticksExisted;
+		super.damageEntity(damageSrc, damageAmount);
+	}
+
+	@Override
+	public void onUpdate() {
+		if (ticksExisted % 20 == 0 && this.getHealth() < this.getMaxHealth()) {
+			if (this.getHealth() < 13.5 - offsetHealth) {
+				offsetHealth = 13.5F - getHealth();
+			}
+			if (this.getHealth() < this.getMaxHealth() - offsetHealth && ticksExisted - timeSinceHurt > 200) {
+				this.heal(2.0F);
+			}
+		}
+		super.onUpdate();
 	}
 }

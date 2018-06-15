@@ -29,7 +29,6 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @EventBusSubscriber(modid = Starcraft.MOD_ID)
-//TODO: MOVE TO CORE MOD, WARNING, there is some starcraft code used here. ALSO, note this class uses AccessHandler.class
 public class Registry {
 
 	public Registry() {

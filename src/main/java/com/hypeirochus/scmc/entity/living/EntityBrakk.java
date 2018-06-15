@@ -52,14 +52,11 @@ public class EntityBrakk extends EntityZergMob implements IMob, Predicate<Entity
 	public EntityBrakk(World world) {
 		super(world);
 		setSize(3.0F, 3.0F);
+		experienceValue = 1000;
+		this.baseHealth = 1000;
 		this.setColor(EnumColors.CYAN);
 		this.setFactions(EnumFactionTypes.PRIMALPACKBRAKK);
 		setAttributes(EnumTypeAttributes.MASSIVE, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND, EnumTypeAttributes.ARMORED, EnumTypeAttributes.HEROIC);
-		this.initEntityAI();
-	}
-	
-	@Override
-	protected void initEntityAI() {
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
 		tasks.addTask(2, new EntityAIMoveTowardsRestriction(this, 1.0D));
@@ -68,7 +65,6 @@ public class EntityBrakk extends EntityZergMob implements IMob, Predicate<Entity
 		tasks.addTask(5, new EntityAILookIdle(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, false, false, this));
-		super.initEntityAI();
 	}
 
 	@Override

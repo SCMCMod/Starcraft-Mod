@@ -5,7 +5,6 @@ import com.ocelot.api.client.gui.book.GuiBookBase;
 import com.ocelot.api.utils.GuiUtils;
 import com.ocelot.api.utils.GuiUtils.GuiType;
 
-//TODO: MOVE TO CORE MOD
 public class GuiLog extends GuiBookBase {
 
 	private Log log;

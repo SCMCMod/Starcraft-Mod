@@ -33,7 +33,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
 
-//TODO: MOVE TO CORE MOD
 public class Draw {
 
 	public static BufferBuilder buffer() {

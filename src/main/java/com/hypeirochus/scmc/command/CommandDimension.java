@@ -20,8 +20,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DimensionType;
 import net.minecraftforge.common.DimensionManager;
 
-//TODO: Ocelot... you have to specify @Override for methods that override, please.
-//TODO: MOVE TO CORE MOD, there's potential functionality we could use here. If you don't see it, don't move it.
 public class CommandDimension extends CommandBase {
 
 	/**

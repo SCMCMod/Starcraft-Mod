@@ -13,7 +13,6 @@ import net.minecraft.util.math.MathHelper;
  * 
  * @author Ocelot5836
  */
-//TODO: MOVE TO CORE MOD
 public abstract class ModelArmorBase extends ModelBiped {
 
 	/** The right arm of the biped. */

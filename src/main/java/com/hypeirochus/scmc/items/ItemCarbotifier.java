@@ -21,7 +21,6 @@ public class ItemCarbotifier extends Item {
 	// Ocelot 86dc8a9f238e450280211d488095fd8a
 	// Hype dc544f46721645cfa7b0aa65fec17f38
 	// Cyber 403f2fd4f8a24608a0b8534da4184735
-	//TODO: Was this ever finished, ocelot?
 	public static final String USABLE_USER = GuiUtils.getPlayerName("09cccfe400064879b3a99e2209dfab6e");
 	public static final String[] DEVS = new String[] { GuiUtils.getPlayerName("86dc8a9f238e450280211d488095fd8a"), GuiUtils.getPlayerName("dc544f46721645cfa7b0aa65fec17f38"), GuiUtils.getPlayerName("403f2fd4f8a24608a0b8534da4184735") };
 

@@ -730,10 +730,10 @@ public class ModelLope extends Model {
 		EntityLivingBase base = (EntityLivingBase) obj;
 		head.rotateAngleX = headPitch(obj) * 0.017453292F;
 		head.rotateAngleY = headYaw(obj) * 0.017453292F;
-		lThigh.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.7F) * 0.667F * swingProgressPrev(obj) + 0.5F;
-		rThigh.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.7F) * 0.667F * swingProgressPrev(obj) + 0.5F;
-		lForeleg01.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.7F) * 0.667F * swingProgressPrev(obj) - 0.1F;
-		rForeleg01.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.7F) * 0.667F * swingProgressPrev(obj) - 0.1F;
+		lThigh.rotateAngleX = MathHelper.cos(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj) + 0.5F;
+		rThigh.rotateAngleX = MathHelper.sin(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj) + 0.5F;
+		lForeleg01.rotateAngleX = MathHelper.cos(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj) - 0.1F;
+		rForeleg01.rotateAngleX = MathHelper.sin(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj) - 0.1F;
 		lowerJaw.rotateAngleX = (MathHelper.sin(swingProgress(obj) * 0.01F) + 0.3F) * 0.667F * swingProgressPrev(obj);
 	}
 }

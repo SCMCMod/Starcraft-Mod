@@ -11,7 +11,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-//TODO: MOVE TO CORE MOD
 public class ItemCustomArmor extends ItemArmor {
 
 	protected ModelArmorBase armorModel = null;

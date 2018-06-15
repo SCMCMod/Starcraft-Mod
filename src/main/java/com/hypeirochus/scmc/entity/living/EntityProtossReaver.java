@@ -4,7 +4,8 @@ import java.util.Random;
 
 import com.google.common.base.Predicate;
 import com.hypeirochus.api.world.entity.ItemDrop;
-import com.hypeirochus.scmc.entity.IShieldEntity;
+import com.hypeirochus.scmc.capabilities.ColorProvider;
+import com.hypeirochus.scmc.capabilities.IColor;
 import com.hypeirochus.scmc.enums.EnumColors;
 import com.hypeirochus.scmc.enums.EnumFactionTypes;
 import com.hypeirochus.scmc.enums.EnumTypeAttributes;
@@ -13,6 +14,7 @@ import com.hypeirochus.scmc.handlers.ItemHandler;
 import com.hypeirochus.scmc.handlers.SoundHandler;
 
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackRanged;
@@ -30,21 +32,19 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityProtossReaver extends EntityProtossMob implements IMob, IRangedAttackMob, IShieldEntity, Predicate<EntityLivingBase> {
+public class EntityProtossReaver extends EntityProtossMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
 
+	public float	offsetHealth;
+	public int		timeSinceHurt;
 	public int		ammo	= 4;
 
 	public EntityProtossReaver(World world) {
 		super(world);
 		setSize(5.0F, 5.0F);
+		experienceValue = 133;
 		this.setColor(EnumColors.LIGHT_BLUE);
 		this.setFactions(EnumFactionTypes.DAELAAM);
 		setAttributes(EnumTypeAttributes.MASSIVE, EnumTypeAttributes.MECHANICAL, EnumTypeAttributes.GROUND, EnumTypeAttributes.ARMORED);
-		this.initEntityAI();
-	}
-	
-	@Override
-	protected void initEntityAI() {
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackRanged(this, 0.25F, 85, 30));
 		tasks.addTask(2, new EntityAIMoveTowardsRestriction(this, 1));
@@ -53,12 +53,54 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 		tasks.addTask(5, new EntityAILookIdle(this));
 		targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
 		targetTasks.addTask(2, new EntityAINearestAttackableTarget<EntityLivingBase>(this, EntityLivingBase.class, 0, false, false, this));
-		super.initEntityAI();
 	}
 
 	@Override
 	public boolean apply(EntityLivingBase entity) {
-		return checkTarget(entity, EnumFactionTypes.DAELAAM);
+		if (!entity.isInvisible()) {
+			if (entity instanceof EntityStarcraftMob) {
+				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
+					if (!((EntityStarcraftMob) entity).isFaction(EnumFactionTypes.DAELAAM)) {
+						if (((EntityStarcraftMob) entity).getColor() != this.getColor()) {
+							return true;
+						} else {
+							return false;
+						}
+					} else if (((EntityStarcraftMob) entity).getColor() != this.getColor()) {
+						return true;
+					}
+				}
+			} else if (entity instanceof EntityStarcraftPassive) {
+				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
+					if (!((EntityStarcraftPassive) entity).isFaction(EnumFactionTypes.DAELAAM)) {
+						if (((EntityStarcraftPassive) entity).getColor() != this.getColor() && !((EntityStarcraftPassive) entity).isType(EnumTypeAttributes.CRITTER)) {
+							return true;
+						} else {
+							return false;
+						}
+					} else if (((EntityStarcraftPassive) entity).getColor() != this.getColor()) {
+						return true;
+					}
+				}
+			} else if (entity instanceof EntityPlayer) {
+				IColor color = ((EntityPlayer) entity).getCapability(ColorProvider.COLOR, null);
+				if (color.getColor() == this.getColor().getId()) {
+					return false;
+				} else {
+					return true;
+				}
+			} else {
+				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
+					return false;
+				}
+				return true;
+			}
+		} else if (entity.isInvisible() && this.hasAttribute(EnumTypeAttributes.DETECTOR)) {
+			return true;
+		} else {
+			return false;
+		}
+		return false;
 	}
 
 	@Override
@@ -70,20 +112,22 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(133.0D);
+		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(250.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(.24000000417232513);
-		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(24);
+		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(32);
 		getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
 		getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(2.0D);
 	}
 
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase entity, float distance) {
-		if (!world.isRemote && this.ammo > 1 && this.getAttackTarget() != null) {
+		if (!world.isRemote && this.ammo > 1) {
 			EntityScarab scarab = new EntityScarab(world, this.getColor(), EnumFactionTypes.DAELAAM);
 			scarab.setLocationAndAngles(posX, posY, posZ, 0, 0);
 			world.spawnEntity(scarab);
 			ammo--;
+		} else {
+			System.out.println("NO AMMO!");
 		}
 	}
 
@@ -127,11 +171,24 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 	}
 
 	@Override
+	protected void damageEntity(DamageSource damageSrc, float damageAmount) {
+		timeSinceHurt = this.ticksExisted;
+		super.damageEntity(damageSrc, damageAmount);
+	}
+
+	@Override
 	public void onLivingUpdate() {
-		
-		if (ticksExisted % 160 == 0 || ticksExisted % 160 == 1) {
+		if (ticksExisted % 20 == 0 && this.getHealth() < this.getMaxHealth()) {
+			if (this.getHealth() < 143.0 - offsetHealth) {
+				offsetHealth = 143.0F - getHealth();
+			}
+			if (this.getHealth() < this.getMaxHealth() - offsetHealth && ticksExisted - timeSinceHurt > 200) {
+				this.heal(2.0F);
+			}
+		} else if (ticksExisted % 160 == 0 || ticksExisted % 160 == 1) {
 			if (ammo < 4) {
 				ammo++;
+				System.out.println("regenerating ammo!");
 			}
 		}
 		super.onLivingUpdate();
@@ -140,10 +197,5 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 	@Override
 	public void setSwingingArms(boolean swingingArms) {
 		
-	}
-	
-	@Override
-	public float getMaxShields() {
-		return 100.0F;
 	}
 }

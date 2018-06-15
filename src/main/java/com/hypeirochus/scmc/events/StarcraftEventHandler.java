@@ -7,7 +7,6 @@ import com.hypeirochus.scmc.config.StarcraftConfig;
 import com.hypeirochus.scmc.entity.vehicles.AbstractSpaceship;
 import com.hypeirochus.scmc.items.ItemGun;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.monster.EntityCaveSpider;
@@ -24,9 +23,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraftforge.client.event.EntityViewRenderEvent;
-import net.minecraftforge.client.event.RenderGameOverlayEvent;
-import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
@@ -53,7 +49,6 @@ public class StarcraftEventHandler {
 	public static TextureAtlasSprite gasCollectorIngot;
 	public static TextureAtlasSprite gasCollectorBlock;
 	public static TextureAtlasSprite gasCollectorFlesh;
-	public static float FOV = 90.0F;
 
 	@SubscribeEvent
 	public static void onEntitySpawn(EntityJoinWorldEvent event) {
@@ -80,7 +75,7 @@ public class StarcraftEventHandler {
 	@SubscribeEvent
 	public void onPlayerLoggedInEvent(PlayerLoggedInEvent event) {
 		EntityPlayer player = event.player;
-		String message = "Running SCMC version " + Starcraft.VERSION + "!";
+		String message = "Running SCMC version 2.1.691!";
 		player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.BLUE)));
 	}
 	
@@ -105,46 +100,6 @@ public class StarcraftEventHandler {
 	public void onLivingRender(RenderLivingEvent.Pre e) {
 		if (e.getEntity().getRidingEntity() instanceof AbstractSpaceship) {
 			e.setCanceled(true);
-		}
-	}
-	
-	@SubscribeEvent
-	public void cameraPosition(EntityViewRenderEvent.CameraSetup e) {
-		if (e.getEntity().getRidingEntity() instanceof AbstractSpaceship) {
-			e.setPitch(30.0F);
-		}
-	}
-	
-	@SubscribeEvent
-	public void cameraPosition(EntityViewRenderEvent.FOVModifier e) {
-		
-		if(e.getEntity().dimension == StarcraftConfig.INT_DIMENSION_SPACE) {
-			if (e.getEntity().getRidingEntity() instanceof AbstractSpaceship) {
-				if (((AbstractSpaceship) e.getEntity().getRidingEntity()).isAccelerating) {
-					if (this.FOV < 120.0F) {
-						e.setFOV(this.FOV += 0.1F);
-					} else {
-						this.FOV = 120.0F;
-						e.setFOV(FOV);
-					}
-				} else {
-					if (this.FOV > 90.0F) {
-						e.setFOV(this.FOV -= 0.1F);
-					} else {
-						this.FOV = 90.0F;
-						e.setFOV(FOV);
-					}
-				}
-			}
-		}
-	}
-	
-	@SubscribeEvent
-	public void onHUDRender(RenderGameOverlayEvent e) {
-		if(Minecraft.getMinecraft().player.getRidingEntity() instanceof AbstractSpaceship) {
-			if(e.getType() == ElementType.HOTBAR || e.getType() == ElementType.EXPERIENCE || e.getType() == ElementType.HEALTH) {
-				e.setCanceled(true);
-			}
 		}
 	}
 }

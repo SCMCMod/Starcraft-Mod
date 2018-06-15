@@ -13,7 +13,6 @@ import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-//TODO: MOVE TO CORE MOD
 public interface IStormProvider {
 	public boolean isStormApplicableTo(WorldProvider provider);
 

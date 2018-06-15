@@ -13,7 +13,6 @@ import net.minecraft.entity.Entity;
  * 
  * @author Ocelot5836
  */
-//TODO: MOVE TO CORE MOD
 public interface IArmorItem {
 
 	/**

@@ -52,9 +52,5 @@ public class RenderBrutalisk extends RenderLiving<EntityBrutalisk> implements La
 	@Override
 	protected void preRenderCallback(EntityBrutalisk entitylivingbaseIn, float partialTickTime) {
 		GlStateManager.scale(3.0F + (entitylivingbaseIn.getBiomass() / 60), 3.0F + (entitylivingbaseIn.getBiomass() / 60), 3.0F + (entitylivingbaseIn.getBiomass() / 60));
-		
-		if(entitylivingbaseIn.getBurrowState() == true) {
-			GlStateManager.translate(0, 2.55F, 0);
-		}
 	}
 }

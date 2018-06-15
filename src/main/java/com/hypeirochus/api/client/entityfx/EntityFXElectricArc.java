@@ -6,6 +6,7 @@ import org.lwjgl.opengl.GL11;
 
 import com.hypeirochus.api.client.Resources;
 import com.hypeirochus.api.client.render.OpenGL;
+import com.hypeirochus.scmc.annotation.GLDependent;
 
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -17,7 +18,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-//TODO: MOVE TO CORE MOD
+@GLDependent
 public class EntityFXElectricArc extends Particle {
 	private static final ResourceLocation PARTICLES = new ResourceLocation("textures/particle/particles.png");
 

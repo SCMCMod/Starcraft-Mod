@@ -36,6 +36,8 @@ public class EntityTyrannozorDehaka extends EntityZergMob implements IMob, Predi
 	public EntityTyrannozorDehaka(World world) {
 		super(world);
 		setSize(4.0F, 6.0F);
+		experienceValue = 750;
+		this.baseHealth = 750;
 		this.setColor(EnumColors.YELLOW);
 		this.setFactions(EnumFactionTypes.PRIMALPACKDEHAKA);
 		setAttributes(EnumTypeAttributes.MASSIVE, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND, EnumTypeAttributes.ARMORED, EnumTypeAttributes.HEROIC);

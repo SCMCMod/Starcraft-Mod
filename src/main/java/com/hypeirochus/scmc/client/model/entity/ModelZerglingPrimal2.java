@@ -1235,9 +1235,9 @@ public class ModelZerglingPrimal2 extends Model {
 		EntityLivingBase base = (EntityLivingBase) obj;
 		neck.rotateAngleX = headPitch(obj) * 0.017453292F;
 		neck.rotateAngleY = headYaw(obj) * 0.017453292F;
-		lShoulder.rotateAngleX = MathHelper.sin(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj) + 0.3F;
+		lLowerArm.rotateAngleX = MathHelper.sin(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj) + 0.7F;
 		lThigh.rotateAngleX = MathHelper.sin(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj);
-		rShoulder.rotateAngleX = MathHelper.cos(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj) + 0.3F;
+		rLowerArm.rotateAngleX = MathHelper.cos(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj) + 0.7F;
 		rThigh.rotateAngleX = MathHelper.cos(swingProgress(obj) * 1.1F) * 0.667F * swingProgressPrev(obj);
 		lowerJaw01.rotateAngleX = (MathHelper.sin(swingProgress(obj) * 0.01F) + 0.3F) * 0.667F * swingProgressPrev(obj) + 0.4F;
 		tail02.rotateAngleX = (MathHelper.sin(swingProgress(obj) * -0.5F) / 10.1F) * 2.0F * swingProgressPrev(obj);

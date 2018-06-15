@@ -15,7 +15,6 @@ import net.minecraft.client.Minecraft;
  * 
  * @author Ocelot5836
  */
-//TODO: MOVE TO CORE MOD
 public class ComponentTextArea extends Component {
 
 	private List<ComponentText> text;

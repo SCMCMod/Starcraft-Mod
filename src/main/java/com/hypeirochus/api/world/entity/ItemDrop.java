@@ -9,7 +9,6 @@ import net.minecraft.item.ItemStack;
  * Created to better manage drop rates of itemstacks from entities. Drops can be
  * managed in a single location versus per entity.
  **/
-//TODO: MOVE TO CORE MOD
 public class ItemDrop {
 	private ItemStack[]	itemstacks;
 	private int			rate;

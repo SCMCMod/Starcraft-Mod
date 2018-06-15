@@ -10,7 +10,6 @@ package com.hypeirochus.scmc.config;
  * 
  * @author Hypeirochus
  */
-//TODO: PHASE THIS OUT. We need to move away from this, this isn't good code.
 public class FactorySettings {
 
 	// Dimension Ids

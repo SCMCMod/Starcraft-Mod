@@ -53,8 +53,6 @@ import com.hypeirochus.scmc.blocks.fluid.BlockTerrazine;
 import com.hypeirochus.scmc.blocks.fluid.BlockVespene;
 import com.hypeirochus.scmc.blocks.items.ItemBlockBrambles;
 import com.hypeirochus.scmc.blocks.items.ItemBlockStarcraftSkull;
-import com.hypeirochus.scmc.blocks.machines.BlockEnergyConduit;
-import com.hypeirochus.scmc.blocks.machines.BlockSolarPanel;
 import com.hypeirochus.scmc.blocks.metablocks.BlockEnergy;
 import com.hypeirochus.scmc.blocks.metablocks.BlockGasCollector;
 import com.hypeirochus.scmc.blocks.metablocks.BlockKhaydarinCrystal;
@@ -72,7 +70,6 @@ import com.hypeirochus.scmc.blocks.metablocks.BlockZergFlesh;
 import com.hypeirochus.scmc.config.StarcraftConfig;
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
 import com.hypeirochus.scmc.enums.EnumWorldType;
-import com.ruthless_bug13.rapi.api.energy.base.EnergyBlock;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -280,10 +277,6 @@ public class BlockHandler {
 	// Stairs
 
 	// Slabs
-	
-	// Testing
-	public static EnergyBlock MACHINE_SOLAR_PANEL;
-	public static EnergyBlock ENERGY_CONDUIT_T1;
 
 	private static void init() {
 		blocks = new ArrayList<Block>();
@@ -487,10 +480,6 @@ public class BlockHandler {
 		FLORA_BRAMBLES = new BlockBrambles();
 		registerBlockWithItemBlock(FLORA_BRAMBLES, new ItemBlockBrambles());
 		FLORA_ZERUS_LIGHTCAP = new BlockZerusLightcap();
-		
-		// Testing
-		MACHINE_SOLAR_PANEL = new BlockSolarPanel("terran.machine.solarpanel").SetCreativeTab(StarcraftCreativeTabs.TERRAN);
-		ENERGY_CONDUIT_T1 = new BlockEnergyConduit("terrain.connectors.energyconduit").SetCreativeTab(StarcraftCreativeTabs.TERRAN);
 	}
 
 	/**

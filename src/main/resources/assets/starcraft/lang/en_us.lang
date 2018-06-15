@@ -21,9 +21,6 @@ itemGroup.terran.tools=Tools
 #############################################################################################
 key.categories.starcraft=Starcraft
 key.terran.marinevisor.toggle=Toggle Marine Armor Visor
-key.ship.ability.1=Ship Ability 1
-key.ship.ability.2=Ship Ability 2
-key.ship.ability.3=Ship Ability 3
 #############################################################################################
 
 
@@ -629,9 +626,6 @@ item.terran.marine.helmet.visor.name=Marine Visor
 item.zerg.icarapace.1.name=T1 Zerg Carapace
 item.zerg.icarapace.2.name=T2 Zerg Carapace
 item.zerg.icarapace.3.name=T3 Zerg Carapace
-item.zerg.icarapace.primal.1.name=T1 Primal Zerg Carapace
-item.zerg.icarapace.primal.2.name=T2 Primal Zerg Carapace
-item.zerg.icarapace.primal.3.name=T3 Primal Zerg Carapace
 
 item.zerg.creepresin.name=Creep Resin
 item.zerg.tissue.name=Zerg Tissue

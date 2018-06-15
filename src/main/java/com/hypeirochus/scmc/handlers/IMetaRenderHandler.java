@@ -10,7 +10,6 @@ package com.hypeirochus.scmc.handlers;
  * 
  * @author Ocelot5836
  */
-//TODO: MOVE TO CORE MOD
 public interface IMetaRenderHandler {
 
 	/**

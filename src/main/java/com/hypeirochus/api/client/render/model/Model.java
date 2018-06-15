@@ -9,7 +9,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-//TODO: MOVE TO CORE MOD
 @SideOnly(Side.CLIENT)
 public abstract class Model extends ModelBase {
 	public static final float DEFAULT_SCALE = 1F / 16F;

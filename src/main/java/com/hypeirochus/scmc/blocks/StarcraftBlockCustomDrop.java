@@ -10,7 +10,6 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
-//TODO: MOVE TO CORE MOD, AND make this generically named.
 public class StarcraftBlockCustomDrop extends StarcraftBlock {
 
 	private final ItemStack[] droppedItems;

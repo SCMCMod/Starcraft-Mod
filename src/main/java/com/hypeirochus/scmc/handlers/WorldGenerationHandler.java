@@ -19,7 +19,6 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  * 
  * The base for all world generation in SCMC.
  */
-//TODO: Fix this, ocelot.
 public class WorldGenerationHandler extends StarcraftGenerator implements IWorldGenerator {
 
 	public static final WorldGenerationHandler INSTANCE = new WorldGenerationHandler();

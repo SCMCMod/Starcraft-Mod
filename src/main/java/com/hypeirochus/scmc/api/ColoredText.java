@@ -2,7 +2,6 @@ package com.hypeirochus.scmc.api;
 
 import com.google.gson.annotations.SerializedName;
 
-//TODO: MOVE TO CORE MOD
 public class ColoredText {
 
 	@SerializedName("text")

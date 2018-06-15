@@ -7,7 +7,6 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
 
-//TODO: MOVE TO CORE MOD, AND make this generically named.
 public class StarcraftStairs extends BlockStairs {
 
 	private RegistryType type;

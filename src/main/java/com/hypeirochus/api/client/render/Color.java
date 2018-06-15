@@ -2,7 +2,6 @@ package com.hypeirochus.api.client.render;
 
 import java.nio.ByteBuffer;
 
-//TODO: MOVE TO CORE MOD
 public class Color {
 	public float r, g, b, a;
 

@@ -17,8 +17,6 @@ import net.minecraft.client.gui.Gui;
  * 
  * @author Ocelot5836
  */
-
-//TODO: MOVE TO CORE MOD
 public abstract class Component extends Gui {
 
 	protected static Minecraft mc = Minecraft.getMinecraft();

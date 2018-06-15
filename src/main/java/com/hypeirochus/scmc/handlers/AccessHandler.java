@@ -16,8 +16,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * 
  * @author CJMinecraft
  */
-//TODO: MOVE TO CORE MOD. WARNING, this class relies on reflections via Access Transformer. Make sure the core mod has an Access Transformer! (For reference, SCMC's access transformer can be found
-// in the META-INF folder under src
 public class AccessHandler {
 
 	/**

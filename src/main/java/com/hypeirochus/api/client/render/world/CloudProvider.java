@@ -20,7 +20,6 @@ import net.minecraftforge.fml.common.gameevent.TickEvent.ClientTickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-//TODO: MOVE TO CORE MOD
 //@EventBusSubscriber
 public abstract class CloudProvider extends IRenderHandler implements ICloudProvider {
 	protected float cloudSpeed = getMaxNormalCloudSpeed();

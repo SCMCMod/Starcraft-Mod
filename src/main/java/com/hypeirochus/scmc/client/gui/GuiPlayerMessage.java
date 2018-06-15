@@ -15,7 +15,6 @@ import com.ocelot.api.utils.GuiUtils.GuiType;
 
 import net.minecraft.util.text.TextFormatting;
 
-//TODO: MOVE TO CORE MOD, if possible. Also, NO PROFANITY IN THE CODE BASE, OCELOT!
 public class GuiPlayerMessage extends GuiBase {
 
 	private EnumPlayerMessageType	message;
