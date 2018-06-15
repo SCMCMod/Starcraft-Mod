@@ -9,6 +9,7 @@ import com.hypeirochus.scmc.handlers.GuiHandler;
 import com.hypeirochus.scmc.handlers.SoundHandler;
 import com.hypeirochus.scmc.lib.Library;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -28,6 +29,8 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 	 */
 	private int transformId;
 
+	protected IMorphResult outEntity;
+
 	public EntityLarvaCocoon(World world) {
 		this(world, 0);
 	}
@@ -39,6 +42,8 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 		this.setColor(EnumColors.PURPLE);
 		this.setFactions(EnumFactionTypes.SWARM);
 		this.setAttributes(EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
+
+		outEntity = getEntityById(world, id);
 	}
 
 	@Override
@@ -83,12 +88,12 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 	@Override
 	protected void updateAITasks() {
 		if (ticksExisted > getTransformTime()) {
-			if (getEntityById(world, transformId) instanceof EntityStarcraftMob) {
-				Library.replaceEntity(true, this, ((EntityStarcraftMob) getEntityById(world, transformId)).setColor(color));
-			} else if (getEntityById(world, transformId) instanceof EntityStarcraftPassive) {
-				Library.replaceEntity(true, this, ((EntityStarcraftPassive) getEntityById(world, transformId)).setColor(color));
+			if (outEntity instanceof EntityStarcraftMob) {
+				Library.replaceEntity(true, this, ((EntityStarcraftMob) outEntity).setColor(color));
+			} else if (outEntity instanceof EntityStarcraftPassive) {
+				Library.replaceEntity(true, this, ((EntityStarcraftPassive) outEntity).setColor(color));
 			} else {
-				Library.replaceEntity(true, this, getEntityById(world, transformId));
+				Library.replaceEntity(true, this, (Entity) outEntity);
 			}
 			// TODO add a hatching sound right here
 		}
@@ -124,12 +129,11 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 	}
 
 	//TODO: Finish this, zerg cocoons morph into Ocelots. Lol.
-	public static EntityLivingBase getEntityById(World world, int id) {
+	public static IMorphResult getEntityById(World world, int id) {
 		switch (id) {
 		default:
-			return new EntityOcelot(world);
 		case 0:
-			return new EntityOcelot(world);
+		//	return new EntityOcelot(world);
 		case 2:
 			return new EntityZergling(world);
 		case 3:
