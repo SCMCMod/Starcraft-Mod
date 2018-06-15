@@ -30,7 +30,7 @@ import net.minecraft.world.World;
 /**
  * @author Hypeirochus
  */
-public class EntityZerglingSwarmling extends EntityZergMob implements IMob, Predicate<EntityLivingBase>, IMorphResult {
+public class EntityZerglingSwarmling extends EntityZergMob implements IMob, Predicate<EntityLivingBase> {
 
 	public EntityZerglingSwarmling(World world) {
 		super(world);

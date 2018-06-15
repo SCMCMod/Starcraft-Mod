@@ -30,10 +30,9 @@ import net.minecraft.world.World;
 /**
  * @author Hypeirochus
  */
-public class EntityZergling extends EntityZergMob implements IMob, Predicate<EntityLivingBase>, IMorphResult {
+public class EntityZergling extends EntityZergMob implements IMob, Predicate<EntityLivingBase> {
 
-	public
-	EntityZergling(World world) {
+	public EntityZergling(World world) {
 		super(world);
 		setSize(1.0F, 1.0F);
 		this.setColor(EnumColors.PURPLE);
