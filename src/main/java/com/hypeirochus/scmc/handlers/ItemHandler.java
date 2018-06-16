@@ -27,9 +27,6 @@ import com.hypeirochus.scmc.items.ItemTest;
 import com.hypeirochus.scmc.items.ItemVespene;
 import com.hypeirochus.scmc.items.ItemZergCarapace;
 import com.hypeirochus.scmc.items.StarcraftItem;
-import com.hypeirochus.scmc.items.structurespawner.ItemProtossStructureSpawner;
-import com.hypeirochus.scmc.items.structurespawner.ItemTerranStructureSpawner;
-import com.hypeirochus.scmc.items.structurespawner.ItemZergStructureSpawner;
 import com.ruthless_bug13.rapi.api.energy.base.EnergyItem;
 
 import net.minecraft.item.Item;
@@ -121,13 +118,11 @@ public class ItemHandler {
 		PSI_BLADE_FOCUSER_UNCHARGED = new ItemPsiBladeFocuserUncharged();
 		PROTOSS_UPGRADE = new ItemProtossUpgrade();
 		KHAYDARIN_CRYSTAL = new ItemKhaydarinCrystal();
-		PROTOSS_STRUCTURE_SPAWNER = new ItemProtossStructureSpawner();
-
+		
 		// Terran
 		STIMPACK = new ItemStimpack();
 		MARINE_HELMET_VISOR = new StarcraftItem("terran.marine.helmet.visor").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		TERRAN_STRUCTURE_SPAWNER = new ItemTerranStructureSpawner();
-
+		
 		// Terran Weapons
 		C14_GAUSS_RIFLE = new ItemC14GaussRifle();
 		C14_GAUSS_RIFLE_PARTS = new ItemGunParts("terran.riflec14.part", 3).setCreativeTab(StarcraftCreativeTabs.TERRAN);
@@ -141,8 +136,7 @@ public class ItemHandler {
 		CREEP_RESIN = new StarcraftItem("zerg.creepresin").setCreativeTab(StarcraftCreativeTabs.ZERG);
 		ORGANIC_TISSUE = new StarcraftItem("zerg.tissue").setCreativeTab(StarcraftCreativeTabs.ZERG);
 		BIOMASS = new StarcraftItem("biomass").setCreativeTab(StarcraftCreativeTabs.ZERG);
-		ZERG_STRUCTURE_SPAWNER = new ItemZergStructureSpawner();
-
+		
 		// Tab Icons
 		ICON = new ItemIcon();
 		

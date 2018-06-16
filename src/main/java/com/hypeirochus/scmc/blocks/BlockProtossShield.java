@@ -1,7 +1,5 @@
 package com.hypeirochus.scmc.blocks;
 
-import java.util.List;
-
 import com.hypeirochus.scmc.handlers.BlockHandler;
 
 import net.minecraft.block.Block;

@@ -173,7 +173,7 @@ public class BiomeHandler extends Biome {
 		register(biomeSpace);
 
 		DimensionHandler.init();
-		WorldGenerationHandler.init();
+		//TODO: WorldGenerationHandler.init();
 	}
 
 	public static void registerBiomes() {
