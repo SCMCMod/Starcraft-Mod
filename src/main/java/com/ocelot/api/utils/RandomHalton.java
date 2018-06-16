@@ -2,17 +2,16 @@ package com.ocelot.api.utils;
 
 import java.util.BitSet;
 
-//TODO: What the hell is this?
 public class RandomHalton {
 
 	BitSet haltonGrid = new BitSet();
-	private int base1 = 2;
-	private int base2 = 7;
-	private int haltonGridSideLength = 1000;
+	private int base1;
+	private int base2;
+	private int haltonGridSideLength;
 	private double spawnChance;
 
 	public RandomHalton() {
-		this(2, 7, 1000, 0.05f);
+		this(2);
 	}
 
 	public RandomHalton(float spawnChance) {
@@ -24,6 +23,7 @@ public class RandomHalton {
 		this.base2 = base2;
 		this.haltonGridSideLength = haltonGridSideLength;
 		this.spawnChance = spawnChance;
+		this.populateHalton();
 	}
 
 	private float halton(int index, int base) {
@@ -45,5 +45,28 @@ public class RandomHalton {
 			int xCoord = (int) (haltonGridSideLength * halton(z, base1));
 			haltonGrid.set(zCoord * haltonGridSideLength + xCoord);
 		}
+	}
+
+	public boolean get(int x, int z) {
+		int indexX = Math.abs(x);
+		int indexZ = Math.abs(z);
+
+		if (x < 0) {
+			indexX--;
+		}
+		if (z < 0) {
+			indexZ--;
+		}
+
+		indexX = indexX % haltonGridSideLength;
+		indexZ = indexZ % haltonGridSideLength;
+
+		if (x < 0) {
+			indexX = haltonGridSideLength - 1 - indexX;
+		}
+		if (z < 0) {
+			indexZ = haltonGridSideLength - 1 - indexZ;
+		}
+		return haltonGrid.get(indexZ * haltonGridSideLength + indexX);
 	}
 }
