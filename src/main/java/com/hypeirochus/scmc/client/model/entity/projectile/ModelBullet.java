@@ -1,7 +1,6 @@
 package com.hypeirochus.scmc.client.model.entity.projectile;
 
 import com.hypeirochus.api.client.render.model.Model;
-import com.hypeirochus.scmc.annotation.Unused;
 
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -13,7 +12,6 @@ import net.minecraft.util.math.RayTraceResult;
  * 
  * @deprecated Unused now that bullets use {@link RayTraceResult}s instead of an actual entity.
  */
-@Unused
 public class ModelBullet extends Model {
 	public ModelRenderer body;
 	public ModelRenderer point01;

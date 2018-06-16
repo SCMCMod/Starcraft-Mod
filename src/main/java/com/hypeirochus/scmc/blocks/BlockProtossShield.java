@@ -32,7 +32,7 @@ import net.minecraft.world.World;
 public class BlockProtossShield extends StarcraftBlock {
 
 	public BlockProtossShield() {
-		super("protoss.shield", RegistryType.FULL, Material.AIR, MapColor.LIGHT_BLUE);
+		super("protoss.shield", RegistryType.FULL, Material.BARRIER, MapColor.LIGHT_BLUE);
 	}
 
 	@Override
