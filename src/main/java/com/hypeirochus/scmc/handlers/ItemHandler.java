@@ -27,7 +27,6 @@ import com.hypeirochus.scmc.items.ItemTest;
 import com.hypeirochus.scmc.items.ItemVespene;
 import com.hypeirochus.scmc.items.ItemZergCarapace;
 import com.hypeirochus.scmc.items.StarcraftItem;
-import com.ruthless_bug13.rapi.api.energy.base.EnergyItem;
 
 import net.minecraft.item.Item;
 
@@ -140,8 +139,6 @@ public class ItemHandler {
 		// Tab Icons
 		ICON = new ItemIcon();
 		
-		// Testing
-		TERRAN_POWER_CELL = new EnergyItem("terran.powercell", 10000).setCreativeTab(StarcraftCreativeTabs.TERRAN);
 	}
 
 	/**
