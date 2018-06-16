@@ -1,5 +1,7 @@
 package com.hypeirochus.api.client.render;
 
+import com.ocelot.api.utils.TextureUtils;
+
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -20,6 +22,6 @@ public class Texture extends ResourceLocation {
 
 	@SideOnly(Side.CLIENT)
 	public void bind() {
-		Draw.bindTexture(this);
+		TextureUtils.bindTexture(this);
 	}
 }

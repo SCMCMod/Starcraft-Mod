@@ -12,6 +12,7 @@ import org.lwjgl.opengl.GL11;
 import com.hypeirochus.api.GameResources;
 import com.hypeirochus.api.world.Worlds;
 import com.hypeirochus.scmc.handlers.AccessHandler;
+import com.ocelot.api.utils.TextureUtils;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
@@ -693,7 +694,7 @@ public class Draw {
 		OpenGL.blendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		OpenGL.color(r, g, b, a);
 		OpenGL.disableAlphaTest();
-		Draw.bindTexture(resource);
+		TextureUtils.bindTexture(resource);
 		drawQuad(0, 0, Screen.scaledDisplayResolution().getScaledWidth(), Screen.scaledDisplayResolution().getScaledHeight());
 		OpenGL.depthMask(true);
 		OpenGL.enableDepthTest();
@@ -764,7 +765,7 @@ public class Draw {
 	 */
 	public static void drawModel(Entity entity, ModelBase model, ResourceLocation resource, double posX, double posY, double posZ) {
 		OpenGL.disableCullFace();
-		Draw.bindTexture(resource);
+		TextureUtils.bindTexture(resource);
 		OpenGL.translate(posX, posY, posZ);
 		model.render(entity, 0, 0, 0, 0, 0, 0.625F);
 	}
@@ -792,7 +793,7 @@ public class Draw {
 		OpenGL.rotate(205, 0, 1, 0);
 		OpenGL.disableCullFace();
 		OpenGL.enableDepthTest();
-		Draw.bindTexture(resource);
+		TextureUtils.bindTexture(resource);
 		model.render(null, 0F, 0F, 0F, 0F, 0F, 0.0625F);
 		OpenGL.enableCullFace();
 		OpenGL.disableDepthTest();
@@ -849,7 +850,7 @@ public class Draw {
 	public static void drawPlayerFace(EntityPlayer player, int x, int y, int width, int height) {
 		if (player instanceof AbstractClientPlayer) {
 			AbstractClientPlayer clientPlayer = (AbstractClientPlayer) player;
-			Draw.bindTexture(clientPlayer.getLocationSkin());
+			TextureUtils.bindTexture(clientPlayer.getLocationSkin());
 			drawQuad(x, y, width, height, 90, 0.125F, 0.25F, 0.125F, 0.25F);
 			drawQuad(x, y, width, height, 90, 0.625F, 0.75F, 0.125F, 0.25F);
 		}
@@ -928,7 +929,7 @@ public class Draw {
 	public static void drawResource(ResourceLocation resource, int posX, int posY, int width, int height, float r, float g, float b, float a, float u, float v) {
 		OpenGL.disableLighting();
 		OpenGL.disableFog();
-		Draw.bindTexture(resource);
+		TextureUtils.bindTexture(resource);
 		OpenGL.color(r, g, b, a);
 		drawQuad(posX, posY, width, height, 0, 0, u, 0, v);
 	}
@@ -1006,7 +1007,7 @@ public class Draw {
 	public static void drawResourceCentered(ResourceLocation resource, int posX, int posY, int width, int height, float r, float g, float b, float a, float u, float v) {
 		OpenGL.disableLighting();
 		OpenGL.disableFog();
-		Draw.bindTexture(resource);
+		TextureUtils.bindTexture(resource);
 		OpenGL.color(r, g, b, a);
 		drawQuad(posX - (width / 2), posY, width, height, 0, 0, u, 0, v);
 	}
@@ -1032,7 +1033,7 @@ public class Draw {
 		float v = (float) (index / 16) / 16.0F;
 		float mV = v + tS;
 
-		Draw.bindTexture(GameResources.PARTICLES);
+		TextureUtils.bindTexture(GameResources.PARTICLES);
 		drawQuad(x, y, width, height, 0, u, mU, v, mV);
 	}
 
@@ -1100,7 +1101,7 @@ public class Draw {
 		GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 		GlStateManager.disableLighting();
-		Draw.bindTexture(getResourceLocationFullPath(ibakedmodel.getParticleTexture()));
+		TextureUtils.bindTexture(getResourceLocationFullPath(ibakedmodel.getParticleTexture()));
 		Draw.drawQuad(x, y, width, height);
 		GlStateManager.disableAlpha();
 		GlStateManager.disableRescaleNormal();
@@ -1108,15 +1109,15 @@ public class Draw {
 		GlStateManager.popMatrix();
 	}
 
-	/**
-	 * Binds a texture to OpenGL using Minecraft's render engine.
-	 * 
-	 * @param resource
-	 *            - The ResourceLocation of the resource to bind.
-	 */
-	public static void bindTexture(ResourceLocation resource) {
-		AccessHandler.getMinecraft().renderEngine.bindTexture(resource);
-	}
+//	/**
+//	 * Binds a texture to OpenGL using Minecraft's render engine.
+//	 * 
+//	 * @param resource
+//	 *            - The ResourceLocation of the resource to bind.
+//	 */
+//	public static void bindTexture(ResourceLocation resource) {
+//		AccessHandler.getMinecraft().renderEngine.bindTexture(resource);
+//	}
 
 	/**
 	 * Get the full path of the specified ResourceLocation. Format: domain:path/to/resource.png

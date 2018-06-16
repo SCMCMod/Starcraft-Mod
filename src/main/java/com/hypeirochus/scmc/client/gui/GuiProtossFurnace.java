@@ -24,6 +24,7 @@ import net.minecraftforge.items.IItemHandler;
 public class GuiProtossFurnace extends GuiContainer {
 
 	public static final ResourceLocation TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/gui/container/protoss_furnace.png");
+	
 	private BlockPos pos;
 	private EntityPlayer player;
 

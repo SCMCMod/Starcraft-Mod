@@ -63,7 +63,7 @@ public class GuiGasCollector extends GuiContainer {
 		GlStateManager.color(1F, 1F, 1F, 1F);
 		drawTexturedModalRect((width - xSize) / 2, (height - ySize) / 2, 0, 0, this.xSize, this.ySize);
 		if (Library.isJeiInstalled()) {
-			TextureUtils.bindTexture("textures/gui/container/gas_collector_base.png");
+			TextureUtils.bindTexture(Starcraft.MOD_ID, "textures/gui/container/gas_collector_base.png");
 			drawTexturedModalRect(guiLeft + 35, guiTop + 35, 63, 0, 16, 16);
 		}
 	}

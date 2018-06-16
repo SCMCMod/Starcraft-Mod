@@ -8,6 +8,7 @@ import com.hypeirochus.api.GameResources;
 import com.hypeirochus.api.client.render.Color;
 import com.hypeirochus.api.client.render.Draw;
 import com.hypeirochus.api.client.render.OpenGL;
+import com.ocelot.api.utils.TextureUtils;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
@@ -21,9 +22,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class RenderSkyZerus extends IRenderHandler {
-	private Color	skyColor		= new Color(0.11F, 0.225F, 0.265F, 1F);
-	protected Color	cloudColor		= new Color(0.075F, 0.1F, 0.15F, 0.75F);
-	public int		starGLCallList	= GLAllocation.generateDisplayLists(3);
+	private Color skyColor = new Color(0.11F, 0.225F, 0.265F, 1F);
+	protected Color cloudColor = new Color(0.075F, 0.1F, 0.15F, 0.75F);
+	public int starGLCallList = GLAllocation.generateDisplayLists(3);
 
 	public RenderSkyZerus() {
 		this.generateStars();
@@ -124,7 +125,7 @@ public class RenderSkyZerus extends IRenderHandler {
 				OpenGL.rotate(-90.0F, 0.0F, 1.0F, 0.0F);
 				OpenGL.color(1.0F, 1.0F, 1.0F, 1.0F);
 				OpenGL.rotate(world.getCelestialAngle(partialTicks) * 360.0F, 1.0F, 0.0F, 0.0F);
-				Draw.bindTexture(GameResources.SKY_SUN);
+				TextureUtils.bindTexture(GameResources.SKY_SUN);
 				Draw.startQuads();
 				Draw.vertex(-scale, 150.0D, -scale, 0.0D, 0.0D).endVertex();
 				Draw.vertex(scale, 150.0D, -scale, 1.0D, 0.0D).endVertex();

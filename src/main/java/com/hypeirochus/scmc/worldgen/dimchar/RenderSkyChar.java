@@ -7,6 +7,7 @@ import org.lwjgl.opengl.GL11;
 import com.hypeirochus.api.client.render.Color;
 import com.hypeirochus.api.client.render.Draw;
 import com.hypeirochus.api.client.render.OpenGL;
+import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.worldgen.DimensionUtil;
 import com.ocelot.api.utils.TextureUtils;
 
@@ -124,7 +125,7 @@ public class RenderSkyChar extends IRenderHandler {
 				OpenGL.rotate(-90.0F, 0.0F, 1.0F, 0.0F);
 				OpenGL.color(1.0F, 0.2F, 0.0F, 1.0F);
 				OpenGL.rotate(world.getCelestialAngle(partialTicks) * 360.0F, 1.0F, 0.0F, 0.0F);
-				TextureUtils.bindTexture("textures/world/sun.png");
+				TextureUtils.bindTexture(Starcraft.MOD_ID, "textures/world/sun.png");
 				Draw.startQuads();
 				Draw.vertex(-scale, 150.0D, -scale, 0.0D, 0.0D).endVertex();
 				Draw.vertex(scale, 150.0D, -scale, 1.0D, 0.0D).endVertex();
@@ -140,7 +141,7 @@ public class RenderSkyChar extends IRenderHandler {
 				OpenGL.rotate(90.0F, 0.9F, 1.0F, 0.0F);
 				OpenGL.color(1.0F, 0.1F, 0.0F, 1.0F);
 				OpenGL.rotate(world.getCelestialAngle(partialTicks) * 360.0F, 1.0F, 0.0F, 0.0F);
-				TextureUtils.bindTexture("textures/world/sun.png");
+				TextureUtils.bindTexture(Starcraft.MOD_ID, "textures/world/sun.png");
 				Draw.startQuads();
 				Draw.vertex(-scale, 150.0D, -scale, 0.0D, 0.0D).endVertex();
 				Draw.vertex(scale, 150.0D, -scale, 1.0D, 0.0D).endVertex();
@@ -158,7 +159,7 @@ public class RenderSkyChar extends IRenderHandler {
 				OpenGL.color(1.0F, 1.0F, 1.0F, 1.0F);
 				OpenGL.rotate(DimensionUtil.calculateCelestialAngle(world.getWorldTime(), partialTicks) * 360.0F, 10.0F, -6.0F, -20.0F);
 				OpenGL.rotate(135F, 0.0F, 1.0F, 0.0F);
-				TextureUtils.bindTexture("textures/world/eris.png");
+				TextureUtils.bindTexture(Starcraft.MOD_ID, "textures/world/eris.png");
 				Draw.startQuads();
 				Draw.vertex(-scale, 150.0D, -scale, 0.0D, 0.0D).endVertex();
 				Draw.vertex(scale, 150.0D, -scale, 1.0D, 0.0D).endVertex();

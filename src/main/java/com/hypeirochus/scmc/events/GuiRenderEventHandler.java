@@ -1,17 +1,19 @@
 package com.hypeirochus.scmc.events;
 
+import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
 import com.hypeirochus.scmc.items.ItemGun;
+import com.ocelot.api.utils.TextureUtils;
 import com.ocelot.api.utils.WorldUtils;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.GlStateManager.CullFace;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
@@ -51,13 +53,16 @@ public class GuiRenderEventHandler {
 		if (event.getTarget() != null && event.getTarget().sideHit != null) {
 			BlockPos position = event.getTarget().getBlockPos().offset(event.getTarget().sideHit);
 			ItemStack stack = player.getHeldItemMainhand();
-			IBlockState stateToRender = Blocks.DIAMOND_BLOCK.getDefaultState();
+			IBlockState stateToRender = BlockHandler.PROTOSS_SHIELD.getDefaultState();
 
-			if (stack.getItem() instanceof ItemGun && !player.world.isAirBlock(event.getTarget().getBlockPos()) && stack == null) {
-				Minecraft.getMinecraft().renderEngine.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
+			if (stack.getItem() instanceof ItemGun && !player.world.isAirBlock(event.getTarget().getBlockPos()) && false) {
+				TextureUtils.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
 
 				GlStateManager.pushMatrix();
+				GlStateManager.enableCull();
+				GlStateManager.cullFace(CullFace.BACK);
 				GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
+				GlStateManager.color(1, 1, 1, 0.1f);
 				int sX = position.getX();
 				int sY = position.getY();
 				int sZ = position.getZ();

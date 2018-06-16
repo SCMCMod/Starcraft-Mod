@@ -33,7 +33,8 @@ public class GuiLarvaMorph extends BasicGui {
 
 	public static final GuiLarvaMorph INSTANCE = new GuiLarvaMorph();
 
-	public final ResourceLocation LARVA_GUI = new ResourceLocation(Starcraft.RL_BASE + "textures/gui/larva.png");
+	public static final ResourceLocation LARVA_GUI = new ResourceLocation(Starcraft.RL_BASE + "textures/gui/larva.png");
+	
 	private EntityLarva larva;
 	private List<LarvaOption> subOptions = new ArrayList<LarvaOption>();
 	private int subOptionsX, subOptionsY;

@@ -39,7 +39,7 @@ public class GuiLarvaProgress extends BasicGui {
 
 	@Override
 	protected void drawGuiBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
-		TextureUtils.bindTexture("textures/gui/larva_progress.png");
+		TextureUtils.bindTexture(Starcraft.MOD_ID, "textures/gui/larva_progress.png");
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		if (cocoon != null) {
 			float percentage = (cocoon.ticksExisted / 20f) / (float) (cocoon.getTransformTime() / 20);

@@ -1,12 +1,14 @@
 package com.hypeirochus.scmc.client.renderer.item;
 
 import com.hypeirochus.scmc.client.model.item.ModelC14GaussRifle;
+import com.ocelot.api.utils.TextureUtils;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumHandSide;
 
 public class ItemRenderC14GaussRifle extends ItemRenderer {
@@ -21,6 +23,7 @@ public class ItemRenderC14GaussRifle extends ItemRenderer {
 	public void renderPre(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
 		if (this.mc.gameSettings.keyBindAttack.isKeyDown() && cameraTransformType == TransformType.FIRST_PERSON_RIGHT_HAND) {
 			aiming = true;
+			Minecraft.getMinecraft().player.isSwingInProgress = false;
 		} else {
 			aiming = false;
 		}
@@ -55,7 +58,7 @@ public class ItemRenderC14GaussRifle extends ItemRenderer {
 		GlStateManager.rotate(-20, 0, 1, 0);
 		GlStateManager.rotate(180, .13f, .04f, .8200002f);
 		GlStateManager.translate(x, y, z);
-		Minecraft.getMinecraft().renderEngine.bindTexture(getResourceLocation());
+		TextureUtils.bindTexture(this.getResourceLocation());
 		getModel().render(null, 0, 0, 0, 0, 0, 1);
 		GlStateManager.popMatrix();
 	}
@@ -71,7 +74,7 @@ public class ItemRenderC14GaussRifle extends ItemRenderer {
 		GlStateManager.rotate(-90, .1999999999999993f, -.19000000000000006f * 6, -2.209999999999997f);
 		GlStateManager.translate(-1.0, -15, -30.379999999999875);
 		GlStateManager.color(1, 1, 1);
-		Minecraft.getMinecraft().renderEngine.bindTexture(getResourceLocation());
+		TextureUtils.bindTexture(this.getResourceLocation());
 		getModel().render(null, 0, 0, 0, 0, 0, 1);
 		GlStateManager.popMatrix();
 	}
@@ -87,7 +90,7 @@ public class ItemRenderC14GaussRifle extends ItemRenderer {
 		GlStateManager.rotate(-90, .1999999999999993f, -.19000000000000006f, -2.209999999999997f);
 		GlStateManager.translate(1.0, -15, -30.379999999999875);
 		GlStateManager.color(1, 1, 1);
-		Minecraft.getMinecraft().renderEngine.bindTexture(getResourceLocation());
+		TextureUtils.bindTexture(this.getResourceLocation());
 		getModel().render(null, 0, 0, 0, 0, 0, 1);
 		GlStateManager.popMatrix();
 	}
@@ -102,7 +105,7 @@ public class ItemRenderC14GaussRifle extends ItemRenderer {
 		GlStateManager.rotate(190, 1.1799998f, -0.69999963f, 3.1599975f);
 		GlStateManager.translate(1, -6.090000042691827, -16.57999962940812);
 		GlStateManager.disableLighting();
-		Minecraft.getMinecraft().renderEngine.bindTexture(getResourceLocation());
+		TextureUtils.bindTexture(this.getResourceLocation());
 		getModel().render(null, 0, 0, 0, 0, 0, 1);
 		GlStateManager.enableLighting();
 		GlStateManager.popMatrix();
@@ -119,7 +122,7 @@ public class ItemRenderC14GaussRifle extends ItemRenderer {
 		GlStateManager.rotate(-90, 1, 0, 0);
 		GlStateManager.translate(.7300000462681062, -11.259999882429838, -19.649999560788274);
 		GlStateManager.color(1, 1, 1);
-		Minecraft.getMinecraft().renderEngine.bindTexture(getResourceLocation());
+		TextureUtils.bindTexture(this.getResourceLocation());
 		getModel().render(null, 0, 0, 0, 0, 0, 1);
 		GlStateManager.popMatrix();
 	}
@@ -136,7 +139,7 @@ public class ItemRenderC14GaussRifle extends ItemRenderer {
 		GlStateManager.rotate(0, 0, 1, 0);
 		GlStateManager.translate(0, -8.259999882429838, -20);
 		GlStateManager.color(1, 1, 1);
-		Minecraft.getMinecraft().renderEngine.bindTexture(getResourceLocation());
+		TextureUtils.bindTexture(this.getResourceLocation());
 		getModel().render(null, 0, 0, 0, 0, 0, 1);
 		GlStateManager.popMatrix();
 	}
