@@ -5,11 +5,14 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import com.hypeirochus.scmc.api.Utils;
+import com.ocelot.OcelotUtils;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -19,16 +22,29 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.SoundEvents;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * <em><b>Copyright (c) 2018 Ocelot5836.</b></em>
  * 
+ * <br>
+ * </br>
+ * 
+ * This class contains some utility methods that would be most useful when rendering a GUI.
+ * 
  * @author Ocelot5836
  */
 //TODO: MOVE TO CORE MOD
 public class GuiUtils {
+	
+	/**
+	 * Plays the default minecraft button click sound.
+	 */
+	public static void playButtonClick() {
+		Minecraft.getMinecraft().getSoundHandler().playSound(PositionedSoundRecord.getMasterRecord(SoundEvents.UI_BUTTON_CLICK, 1.0F));
+	}
 
 	/**
 	 * Draws an array of lines to a gui.
@@ -187,7 +203,7 @@ public class GuiUtils {
 			GlStateManager.disableTexture2D();
 			GlStateManager.setActiveTexture(OpenGlHelper.defaultTexUnit);
 		} else {
-			Utils.getLogger().warn("Trying to render an entity that is null!");
+			OcelotUtils.UTIL_LOG.warn("Trying to render an entity that is null!");
 		}
 	}
 

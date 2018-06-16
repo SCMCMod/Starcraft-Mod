@@ -30,12 +30,4 @@ public class TimeUtils {
 		Calendar calendar = Calendar.getInstance();
 		return calendar.get(2) + 1 == 10 && calendar.get(5) == 31;
 	}
-
-	/**
-	 * @return If the current time is February
-	 */
-	public static boolean isFebruary() {
-		Calendar calendar = Calendar.getInstance();
-		return calendar.get(2) + 1 == 2;
-	}
 }

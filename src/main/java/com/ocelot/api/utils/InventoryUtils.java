@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
  * <br>
  * </br>
  * 
- * Has some useful methods for getting, removing, and dealing with itemStacks.
+ * Has some useful methods for getting, removing, and dealing with item stacks.
  * 
  * @author Ocelot5836
  */

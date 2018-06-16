@@ -4,8 +4,6 @@ import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.hypeirochus.scmc.Starcraft;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -21,7 +19,7 @@ import net.minecraft.util.ResourceLocation;
  * 
  * @author Ocelot5836
  */
-//TODO: MOVE TO CORE MOD
+// TODO: MOVE TO CORE MOD
 public class TextureUtils {
 
 	private static Minecraft mc = Minecraft.getMinecraft();
@@ -37,6 +35,19 @@ public class TextureUtils {
 	 */
 	public static ResourceLocation createBufferedImageTexture(BufferedImage image) {
 		return mc.getTextureManager().getDynamicTextureLocation(" ", new DynamicTexture(image));
+	}
+
+	/**
+	 * Creates a texture from a buffered image.
+	 * 
+	 * @param name
+	 *            The name of this texture
+	 * @param image
+	 *            The image to become a texture
+	 * @return The {@link ResourceLocation} to that texture using the specified name
+	 */
+	public static ResourceLocation createBufferedImageTexture(String name, BufferedImage image) {
+		return mc.getTextureManager().getDynamicTextureLocation(name, new DynamicTexture(image));
 	}
 
 	/**
@@ -79,13 +90,13 @@ public class TextureUtils {
 	}
 
 	/**
-	 * Binds a texture using the specified path.
+	 * Binds a texture using the specified path. This does not support a custom id so use either {@link TextureUtils#bindTexture(String, String)} or {@link TextureUtils#bindTexture(ResourceLocation)} if you want to use a different id than minecraft.
 	 * 
 	 * @param path
 	 *            The path to the texture
 	 */
 	public static void bindTexture(String path) {
-		String locationString = Starcraft.RL_BASE + path;
+		String locationString = "minecraft:" + path;
 		if (textures.containsKey(locationString)) {
 			mc.getTextureManager().bindTexture(textures.get(locationString));
 		} else {
