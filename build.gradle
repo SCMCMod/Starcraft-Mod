@@ -10,6 +10,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
+def currentJvm = org.gradle.internal.jvm.Jvm.current()
 
 version = "2.1.810"
 group = "com.hypeirochus.scmc" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
@@ -56,6 +57,15 @@ dependencies {
   runtime "mezz.jei:jei_1.12.2:4.9.2.196"
   
   compile 'com.elytradev:mirage:2.0.3-rc3-SNAPSHOT'
+}
+
+jar {
+     manifest.mainAttributes(
+            "Built-By": System.getProperty('user.name'),
+            "Created-By": currentJvm,
+            "Implementation-Title": archivesBaseName,
+            "Implementation-Version": project.version,
+            "FMLAT": "SCMC_at.cfg")
 }
 
 processResources {
