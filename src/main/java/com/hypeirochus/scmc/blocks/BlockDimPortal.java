@@ -1,5 +1,6 @@
 package com.hypeirochus.scmc.blocks;
 
+import java.util.List;
 import java.util.Random;
 
 import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
@@ -50,7 +51,12 @@ public class BlockDimPortal extends StarcraftBlock {
 
 	@Override
 	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
-		return NULL_AABB;
+		return FULL_BLOCK_AABB;
+	}
+
+	@Override
+	public void addCollisionBoxToList(IBlockState state, World world, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, Entity entity, boolean isActualState) {
+		super.addCollisionBoxToList(pos, entityBox, collidingBoxes, NULL_AABB);
 	}
 
 	@Override

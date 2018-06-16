@@ -1,5 +1,6 @@
 package com.hypeirochus.scmc.blocks;
 
+import java.util.List;
 import java.util.Random;
 
 import com.hypeirochus.api.client.entityfx.EntityFXElectricArc;
@@ -12,6 +13,7 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -35,7 +37,7 @@ public class BlockProtossWormhole extends StarcraftBlock implements ITileEntityP
 
 	@Override
 	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
-		return null;
+		return ItemStack.EMPTY;
 	}
 
 	@Override
@@ -70,7 +72,12 @@ public class BlockProtossWormhole extends StarcraftBlock implements ITileEntityP
 
 	@Override
 	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
-		return NULL_AABB;
+		return FULL_BLOCK_AABB;
+	}
+
+	@Override
+	public void addCollisionBoxToList(IBlockState state, World world, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, Entity entity, boolean isActualState) {
+		super.addCollisionBoxToList(pos, entityBox, collidingBoxes, NULL_AABB);
 	}
 
 	@Override

@@ -1,5 +1,7 @@
 package com.hypeirochus.scmc.blocks;
 
+import java.util.List;
+
 import com.hypeirochus.scmc.handlers.BlockHandler;
 
 import net.minecraft.block.Block;
@@ -7,13 +9,10 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.projectile.EntityFireball;
 import net.minecraft.entity.projectile.EntityLargeFireball;
-import net.minecraft.entity.projectile.EntityPotion;
 import net.minecraft.entity.projectile.EntitySmallFireball;
-import net.minecraft.entity.projectile.EntitySnowball;
-import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -62,20 +61,10 @@ public class BlockProtossShield extends StarcraftBlock {
 
 	@Override
 	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
-		if (entityIn instanceof EntityArrow || entityIn instanceof EntityFireball || entityIn instanceof EntitySmallFireball || entityIn instanceof EntityLargeFireball || entityIn instanceof EntitySnowball || entityIn instanceof EntityPotion || entityIn instanceof EntityThrowable) {
-
+		if (entityIn instanceof IProjectile || entityIn instanceof EntityFireball || entityIn instanceof EntitySmallFireball || entityIn instanceof EntityLargeFireball) {
 			entityIn.setDead();
 		}
 		super.onEntityCollidedWithBlock(worldIn, pos, state, entityIn);
-	}
-
-	@Override
-	public Boolean isEntityInsideMaterial(IBlockAccess world, BlockPos blockpos, IBlockState iblockstate, Entity entityIn, double yToTest, Material materialIn, boolean testingHead) {
-		if (entityIn instanceof EntityArrow || entityIn instanceof EntityFireball || entityIn instanceof EntitySmallFireball || entityIn instanceof EntityLargeFireball || entityIn instanceof EntitySnowball || entityIn instanceof EntityPotion || entityIn instanceof EntityThrowable) {
-
-			entityIn.setDead();
-		}
-		return super.isEntityInsideMaterial(world, blockpos, iblockstate, entityIn, yToTest, materialIn, testingHead);
 	}
 
 	@Override
