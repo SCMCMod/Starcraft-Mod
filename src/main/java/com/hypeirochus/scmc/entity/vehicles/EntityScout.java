@@ -1,7 +1,7 @@
 package com.hypeirochus.scmc.entity.vehicles;
 
 import com.hypeirochus.scmc.handlers.SoundHandler;
-import com.hypeirochus.scmc.vehciles.weapons.VehicleWeapon;
+import com.hypeirochus.scmc.vehicles.weapons.VehicleWeapon;
 
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;

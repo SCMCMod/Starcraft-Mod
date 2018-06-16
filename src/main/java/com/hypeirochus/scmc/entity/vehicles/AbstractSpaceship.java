@@ -8,7 +8,7 @@ import org.lwjgl.input.Mouse;
 
 import com.google.common.collect.Lists;
 import com.hypeirochus.scmc.config.StarcraftConfig;
-import com.hypeirochus.scmc.vehciles.weapons.VehicleWeapon;
+import com.hypeirochus.scmc.vehicles.weapons.VehicleWeapon;
 
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
