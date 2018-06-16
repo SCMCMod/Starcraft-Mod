@@ -84,7 +84,6 @@ public class VehicleWeapon implements IWeaponSystem {
 			if(shouldCauseExplosion) {
 				this.vehicle.world.createExplosion(this.vehicle, hitBlock.getX(), hitBlock.getY(), hitBlock.getZ(), 10, true);
 			}
-		}
-			
+		}	
 	}
 }
