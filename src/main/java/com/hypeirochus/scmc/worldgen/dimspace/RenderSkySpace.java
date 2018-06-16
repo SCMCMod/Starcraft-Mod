@@ -6,6 +6,7 @@ import org.lwjgl.opengl.GL11;
 
 import com.hypeirochus.api.client.render.Draw;
 import com.hypeirochus.api.client.render.OpenGL;
+import com.hypeirochus.scmc.Starcraft;
 import com.ocelot.api.utils.TextureUtils;
 
 import net.minecraft.client.Minecraft;
@@ -121,7 +122,7 @@ public class RenderSkySpace extends IRenderHandler {
 				OpenGL.rotate(90.0F, 0.2F, 0.5F, 0.0F);
 				OpenGL.color(1.0F, 1.0F, 1.0F, 0.8F);
 				OpenGL.rotate(world.getCelestialAngle(partialTicks) * 360.0F, 1.0F, 0.0F, 0.0F);
-				TextureUtils.bindTexture("textures/world/galaxy.png");
+				TextureUtils.bindTexture(Starcraft.MOD_ID, "textures/world/galaxy.png");
 				Draw.startQuads();
 				Draw.vertex(-scale, 150.0D, -scale, 0.0D, 0.0D).endVertex();
 				Draw.vertex(scale, 150.0D, -scale, 1.0D, 0.0D).endVertex();
@@ -137,7 +138,7 @@ public class RenderSkySpace extends IRenderHandler {
 				OpenGL.rotate(90.0F, 0.5F, 0.5F, 0.7F);
 				OpenGL.color(1.0F, 1.0F, 1.0F, 0.8F);
 				OpenGL.rotate(world.getCelestialAngle(partialTicks) * 360.0F, 1.0F, 0.0F, 0.0F);
-				TextureUtils.bindTexture("textures/world/nebula.png");
+				TextureUtils.bindTexture(Starcraft.MOD_ID, "textures/world/nebula.png");
 				Draw.startQuads();
 				Draw.vertex(-scale, 150.0D, -scale, 0.0D, 0.0D).endVertex();
 				Draw.vertex(scale, 150.0D, -scale, 1.0D, 0.0D).endVertex();
@@ -153,7 +154,7 @@ public class RenderSkySpace extends IRenderHandler {
 				OpenGL.rotate(90.0F, -0.7F, -0.2F, 0.1F);
 				OpenGL.color(1.0F, 1.0F, 1.0F, 1.0F);
 				OpenGL.rotate(world.getCelestialAngle(partialTicks) * 360.0F, 1.0F, 0.3F, 0.0F);
-				TextureUtils.bindTexture("textures/world/cluster.png");
+				TextureUtils.bindTexture(Starcraft.MOD_ID, "textures/world/cluster.png");
 				Draw.startQuads();
 				Draw.vertex(-scale, 150.0D, -scale, 0.0D, 0.0D).endVertex();
 				Draw.vertex(scale, 150.0D, -scale, 1.0D, 0.0D).endVertex();
