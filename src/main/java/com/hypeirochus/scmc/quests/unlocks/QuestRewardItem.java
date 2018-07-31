@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 
 public class QuestRewardItem extends QuestReward {
 
-    private ItemStack[] items;
+    protected ItemStack[] items;
 
     public QuestRewardItem(ItemStack... items) {
         this.items = items;

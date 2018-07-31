@@ -24,6 +24,7 @@ public class CapabilityHandler {
 	public static final ResourceLocation COLOR = new ResourceLocation(Starcraft.MOD_ID, "color");
 	public static final ResourceLocation SHIELD = new ResourceLocation(Starcraft.MOD_ID, "shield");
 	public static final ResourceLocation RACE = new ResourceLocation(Starcraft.MOD_ID, "race");
+	public static final ResourceLocation LOCKED_ITEMS = new ResourceLocation(Starcraft.MOD_ID, "locked_items");
 
 	@SubscribeEvent
 	public void attachCapability(AttachCapabilitiesEvent<Entity> event) {
@@ -33,5 +34,6 @@ public class CapabilityHandler {
 		event.addCapability(SHIELD, new ShieldProvider());
 		event.addCapability(COLOR, new ColorProvider());
 		event.addCapability(RACE, new RaceProvider());
+		event.addCapability(LOCKED_ITEMS, new LockedItemsProvider());
 	}
 }

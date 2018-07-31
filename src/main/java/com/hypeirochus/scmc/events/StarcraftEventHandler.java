@@ -3,6 +3,7 @@ package com.hypeirochus.scmc.events;
 import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.capabilities.ColorProvider;
 import com.hypeirochus.scmc.capabilities.IColor;
+import com.hypeirochus.scmc.capabilities.LockedItemsProvider;
 import com.hypeirochus.scmc.config.StarcraftConfig;
 import com.hypeirochus.scmc.entity.vehicles.AbstractSpaceship;
 import com.hypeirochus.scmc.items.ItemGun;
@@ -24,12 +25,14 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.GameType;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -82,6 +85,10 @@ public class StarcraftEventHandler {
 		EntityPlayer player = event.player;
 		String message = "Running SCMC version " + Starcraft.VERSION + "!";
 		player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.BLUE)));
+
+		if (player.getEntityWorld().getMinecraftServer() != null)
+			if (player.getEntityWorld().getMinecraftServer().getGameType() == GameType.CREATIVE)
+				player.getCapability(LockedItemsProvider.LOCKED_ITEMS, null).getLockedItems().clear();
 	}
 	
 	@SubscribeEvent

@@ -1,13 +1,8 @@
 package com.hypeirochus.scmc;
 
+import com.hypeirochus.scmc.capabilities.*;
 import org.apache.logging.log4j.Logger;
 
-import com.hypeirochus.scmc.capabilities.Color;
-import com.hypeirochus.scmc.capabilities.ColorStorage;
-import com.hypeirochus.scmc.capabilities.IColor;
-import com.hypeirochus.scmc.capabilities.IShield;
-import com.hypeirochus.scmc.capabilities.Shield;
-import com.hypeirochus.scmc.capabilities.ShieldStorage;
 import com.hypeirochus.scmc.command.CommandDimension;
 import com.hypeirochus.scmc.config.StarcraftConfig;
 import com.hypeirochus.scmc.events.GuiRenderEventHandler;
@@ -114,6 +109,7 @@ public class Starcraft {
 		// TODO move this to a capability handler
 		CapabilityManager.INSTANCE.register(IColor.class, new ColorStorage(), Color::new);
 		CapabilityManager.INSTANCE.register(IShield.class, new ShieldStorage(), Shield::new);
+		CapabilityManager.INSTANCE.register(ILockedItems.class, new LockedItemsStorage(), LockedItems::new);
 
 		MinecraftForge.EVENT_BUS.register(new com.hypeirochus.scmc.capabilities.CapabilityHandler());
 		MinecraftForge.EVENT_BUS.register(new StarcraftEventHandler());
