@@ -10,7 +10,7 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.util.ResourceLocation;
 
 /**
- * <em><b>Copyright (c) 2017 Ocelot5836.</b></em>
+ * <em><b>Copyright (c) 2018 Ocelot5836.</b></em>
  * 
  * <br>
  * </br>
