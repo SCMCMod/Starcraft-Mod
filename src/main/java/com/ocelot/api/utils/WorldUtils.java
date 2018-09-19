@@ -40,15 +40,15 @@ public class WorldUtils {
 
 		Entity pointedEntity;
 		double d0 = distance;
-		RayTraceResult omo = mc.renderViewEntity.rayTrace(d0, partialTicks);
+		RayTraceResult omo = mc.getRenderViewEntity().rayTrace(d0, partialTicks);
 		double d1 = d0;
-		Vec3d vec3 = mc.renderViewEntity.getPositionEyes(partialTicks);
-		Vec3d vec31 = mc.renderViewEntity.getLook(partialTicks);
+		Vec3d vec3 = mc.getRenderViewEntity().getPositionEyes(partialTicks);
+		Vec3d vec31 = mc.getRenderViewEntity().getLook(partialTicks);
 		Vec3d vec32 = vec3.addVector(vec31.x * d0, vec31.y * d0, vec31.z * d0);
 		pointedEntity = null;
 		Vec3d vec33 = null;
 		float f1 = 1.0F;
-		List list = mc.world.getEntitiesWithinAABBExcludingEntity(mc.renderViewEntity, mc.renderViewEntity.getEntityBoundingBox().grow(vec31.x * d0, vec31.y * d0, vec31.z * d0).expand((double) f1, (double) f1, (double) f1));
+		List list = mc.world.getEntitiesWithinAABBExcludingEntity(mc.getRenderViewEntity(), mc.getRenderViewEntity().getEntityBoundingBox().grow(vec31.x * d0, vec31.y * d0, vec31.z * d0).expand((double) f1, (double) f1, (double) f1));
 		double d2 = d1;
 
 		for (int i = 0; i < list.size(); ++i) {
@@ -69,7 +69,7 @@ public class WorldUtils {
 					double d3 = vec3.distanceTo(movingobjectposition.hitVec);
 
 					if (d3 < d2 || d2 == 0.0D) {
-						if (entity == mc.renderViewEntity.getRidingEntity() && !entity.canRiderInteract()) {
+						if (entity == mc.getRenderViewEntity().getRidingEntity() && !entity.canRiderInteract()) {
 							if (d2 == 0.0D) {
 								pointedEntity = entity;
 								vec33 = movingobjectposition.hitVec;
@@ -114,15 +114,15 @@ public class WorldUtils {
 
 		Entity pointedEntity;
 		double d0 = distance;
-		RayTraceResult omo = mc.renderViewEntity.rayTrace(d0, partialTicks);
+		RayTraceResult omo = mc.getRenderViewEntity().rayTrace(d0, partialTicks);
 		double d1 = d0;
-		Vec3d vec3 = mc.renderViewEntity.getPositionEyes(partialTicks);
-		Vec3d vec31 = mc.renderViewEntity.getLook(partialTicks);
+		Vec3d vec3 = mc.getRenderViewEntity().getPositionEyes(partialTicks);
+		Vec3d vec31 = mc.getRenderViewEntity().getLook(partialTicks);
 		Vec3d vec32 = vec3.addVector(vec31.x * d0, vec31.y * d0, vec31.z * d0);
 		pointedEntity = null;
 		Vec3d vec33 = null;
 		float f1 = 1.0F;
-		List list = mc.world.getEntitiesWithinAABBExcludingEntity(mc.renderViewEntity, mc.renderViewEntity.getEntityBoundingBox().grow(vec31.x * d0, vec31.y * d0, vec31.z * d0).expand((double) f1, (double) f1, (double) f1));
+		List list = mc.world.getEntitiesWithinAABBExcludingEntity(mc.getRenderViewEntity(), mc.getRenderViewEntity().getEntityBoundingBox().grow(vec31.x * d0, vec31.y * d0, vec31.z * d0).expand((double) f1, (double) f1, (double) f1));
 		double d2 = d1;
 
 		for (int i = 0; i < list.size(); ++i) {
@@ -143,7 +143,7 @@ public class WorldUtils {
 					double d3 = vec3.distanceTo(movingobjectposition.hitVec);
 
 					if (d3 < d2 || d2 == 0.0D) {
-						if (entity == mc.renderViewEntity.getRidingEntity() && !entity.canRiderInteract()) {
+						if (entity == mc.getRenderViewEntity().getRidingEntity() && !entity.canRiderInteract()) {
 							if (d2 == 0.0D) {
 								pointedEntity = entity;
 								vec33 = movingobjectposition.hitVec;
