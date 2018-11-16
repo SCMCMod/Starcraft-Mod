@@ -7,7 +7,7 @@ public class SCTab extends CreativeTabs
 {
 
 	public String backgroundName = "";
-	
+
 	public SCTab(String label, String backgroundName)
 	{
 		super(label);
