@@ -1,8 +1,5 @@
 package com.hypeirochus.scmc.entity.living;
 
-import com.elytradev.mirage.event.GatherLightsEvent;
-import com.elytradev.mirage.lighting.IEntityLightEventConsumer;
-import com.elytradev.mirage.lighting.Light;
 import com.google.common.base.Predicate;
 import com.hypeirochus.api.world.entity.ItemDrop;
 import com.hypeirochus.scmc.entity.IShieldEntity;
@@ -34,7 +31,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predicate<EntityLivingBase>, IShieldEntity, IEntityLightEventConsumer {
+public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predicate<EntityLivingBase>, IShieldEntity {
 	
 	private static final DataParameter<Boolean>	SHEATH	= EntityDataManager.createKey(EntityDarkTemplar.class, DataSerializers.BOOLEAN);
 
@@ -154,13 +151,6 @@ public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predica
 	public boolean attackEntityFrom(DamageSource source, float amount) {
 		this.setSheathed(true);
 		return super.attackEntityFrom(source, amount);
-	}
-
-	@Override
-	public void gatherLights(GatherLightsEvent evt, Entity entity) {
-		if(this.canSheathBlades()) {
-			evt.add(Light.builder().pos(entity).color(0.0F, 0.94F, 0.4F).intensity(0.5F).radius(6).build());
-		}
 	}
 	
 	@Override

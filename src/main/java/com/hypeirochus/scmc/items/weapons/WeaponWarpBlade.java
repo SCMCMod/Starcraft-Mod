@@ -1,8 +1,5 @@
 package com.hypeirochus.scmc.items.weapons;
 
-import com.elytradev.mirage.event.GatherLightsEvent;
-import com.elytradev.mirage.lighting.IEntityLightEventConsumer;
-import com.elytradev.mirage.lighting.Light;
 import com.hypeirochus.api.world.entity.player.inventory.Inventories;
 import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
@@ -15,7 +12,7 @@ import net.minecraft.item.ItemSword;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
-public class WeaponWarpBlade extends ItemSword implements IEntityLightEventConsumer {
+public class WeaponWarpBlade extends ItemSword {
 	public WeaponWarpBlade(ToolMaterial material) {
 		super(material);
 	}
@@ -42,10 +39,5 @@ public class WeaponWarpBlade extends ItemSword implements IEntityLightEventConsu
 	@Override
 	public int getMaxDamage() {
 		return 75;
-	}
-
-	@Override
-	public void gatherLights(GatherLightsEvent evt, Entity entity) {
-		evt.add(Light.builder().pos(entity).color(0.53F, 0.37F, 0.8F).intensity(0.5F).radius(6).build());
 	}
 }

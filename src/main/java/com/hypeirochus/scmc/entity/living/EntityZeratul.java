@@ -1,8 +1,5 @@
 package com.hypeirochus.scmc.entity.living;
 
-import com.elytradev.mirage.event.GatherLightsEvent;
-import com.elytradev.mirage.lighting.IEntityLightEventConsumer;
-import com.elytradev.mirage.lighting.Light;
 import com.google.common.base.Predicate;
 import com.hypeirochus.scmc.enums.EnumColors;
 import com.hypeirochus.scmc.enums.EnumFactionTypes;
@@ -34,7 +31,7 @@ import net.minecraft.world.BossInfo;
 import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
 
-public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<EntityLivingBase>, IEntityLightEventConsumer {
+public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<EntityLivingBase> {
 
 	private final BossInfoServer bossInfo = (BossInfoServer) (new BossInfoServer(this.getDisplayName(), BossInfo.Color.BLUE, BossInfo.Overlay.PROGRESS)).setDarkenSky(true);
 	private static final DataParameter<Boolean>	SHEATH	= EntityDataManager.createKey(EntityZeratul.class, DataSerializers.BOOLEAN);
@@ -182,12 +179,5 @@ public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<E
 			}
 		}
 		super.onUpdate();
-	}
-
-	@Override
-	public void gatherLights(GatherLightsEvent evt, Entity entity) {
-		if(this.canSheathBlades()) {
-			evt.add(Light.builder().pos(entity).color(0.0F, 0.94F, 0.4F).intensity(0.5F).radius(6).build());
-		}
 	}
 }
