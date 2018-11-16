@@ -250,38 +250,56 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	}
 
 	public boolean checkTarget(Entity entity, EnumFactionTypes faction) {
+		//Is our target invisible?
 		if (!entity.isInvisible()) {
+			
+			//If not invisible, is our target a starcraft mob?
 			if (entity instanceof EntityStarcraftMob) {
+				
+				//Does it have the monster attribute?
 				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
+					
+					//Does our target have the same owner?
 					if (!((EntityStarcraftMob) entity).getStarcraftOwner().contentEquals(this.getStarcraftOwner())) {
 						if(((EntityStarcraftMob) entity).hasAttribute(EnumTypeAttributes.INVISIBLE)) {
 							if(((EntityStarcraftMob) entity).hasAttribute(EnumTypeAttributes.DETECTED)) {
+								//Our target is detected, attack it!
 								return true;
 							}else {
+								//Our target is not detected, we can't attack it.
 								return false;
 							}
 						}
 						return true;
 					} else {
+						//Our target has the same owner, do not attack.
 						return false;
 					}
 				}
+				//If our target isn't a monster, is it a starcraft passive?
 			} else if (entity instanceof EntityStarcraftPassive) {
+				//Does it have the creature attribute?
 				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
+					//Is the target under the same faction as us?
 					if (!((EntityStarcraftPassive) entity).isFaction(faction)) {
 						if (!((EntityStarcraftPassive) entity).getUniqueID().toString().contentEquals(this.getStarcraftOwner()) && !((EntityStarcraftPassive) entity).hasAttribute(EnumTypeAttributes.CRITTER)) {
+							//The target does not have the same target and is not a critter. Attack it!
 							return true;
 						} else {
+							//The target either has the same owner as us or is a critter, don't attack.
 							return false;
 						}
 					} else if (!((EntityStarcraftPassive) entity).getStarcraftOwner().contentEquals(this.getStarcraftOwner())) {
+						//The target does not have the same owner, attack!
 						return true;
 					}
 				}
 			} else if (entity instanceof EntityPlayer) {
 				if (((EntityPlayer) entity).getUniqueID().toString().contentEquals(this.getStarcraftOwner())) {
+					//This target is our owner, do not attack.
 					return false;
 				} else {
+					//This target is not our owner. Attack!
 					return true;
 				}
 			} else {
@@ -290,10 +308,6 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 				}
 				return true;
 			}
-		} else if (entity.isInvisible() && this.hasAttribute(EnumTypeAttributes.DETECTOR)) {
-			return true;
-		} else {
-			return false;
 		}
 		return false;
 	}
