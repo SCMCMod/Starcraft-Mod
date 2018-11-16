@@ -20,20 +20,24 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityLarvaCocoon extends EntityZergPassive {
+public class EntityLarvaCocoon extends EntityZergPassive
+{
 
 	/**
-	 * This is the entity that this guy will hatch into. It's saved in a byte id because we only need about 15
+	 * This is the entity that this guy will hatch into. It's saved in a byte id
+	 * because we only need about 15
 	 */
 	private int transformId;
 
 	protected IMorphResult outEntity;
 
-	public EntityLarvaCocoon(World world) {
+	public EntityLarvaCocoon(World world)
+	{
 		this(world, 0);
 	}
 
-	public EntityLarvaCocoon(World world, int id) {
+	public EntityLarvaCocoon(World world, int id)
+	{
 		super(world);
 		this.setSize(1.0F, 1.0F);
 		this.transformId = id;
@@ -45,7 +49,8 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 	}
 
 	@Override
-	protected void applyEntityAttributes() {
+	protected void applyEntityAttributes()
+	{
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(133.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0);
@@ -54,43 +59,54 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 	}
 
 	@Override
-	public EntityAgeable createChild(EntityAgeable entity) {
+	public EntityAgeable createChild(EntityAgeable entity)
+	{
 		return null;
 	}
 
 	@Override
-	public SoundEvent getAmbientSound() {
+	public SoundEvent getAmbientSound()
+	{
 		return SoundHandler.ENTITY_ZERGCOCOON_LIVE1;
 	}
 
 	@Override
-	public SoundEvent getDeathSound() {
+	public SoundEvent getDeathSound()
+	{
 		return SoundHandler.ENTITY_ZERGCOCOON_DEATH;
 	}
 
 	@Override
-	public SoundEvent getHurtSound(DamageSource source) {
+	public SoundEvent getHurtSound(DamageSource source)
+	{
 		return SoundHandler.ENTITY_ZERGCOCOON_HURT;
 	}
 
 	@Override
-	public int getTalkInterval() {
+	public int getTalkInterval()
+	{
 		return 160;
 	}
 
 	@Override
-	public boolean isPushedByWater() {
+	public boolean isPushedByWater()
+	{
 		return false;
 	}
 
 	@Override
-	protected void updateAITasks() {
-		if (ticksExisted > getTransformTime()) {
-			if (outEntity instanceof EntityStarcraftMob) {
+	protected void updateAITasks()
+	{
+		if (ticksExisted > getTransformTime())
+		{
+			if (outEntity instanceof EntityStarcraftMob)
+			{
 				Library.replaceEntity(true, this, ((EntityStarcraftMob) outEntity).setColor(color));
-			} else if (outEntity instanceof EntityStarcraftPassive) {
+			} else if (outEntity instanceof EntityStarcraftPassive)
+			{
 				Library.replaceEntity(true, this, ((EntityStarcraftPassive) outEntity).setColor(color));
-			} else {
+			} else
+			{
 				Library.replaceEntity(true, this, (Entity) outEntity);
 			}
 			// TODO add a hatching sound right here
@@ -98,40 +114,49 @@ public class EntityLarvaCocoon extends EntityZergPassive {
 	}
 
 	@Override
-	public boolean processInteract(EntityPlayer player, EnumHand hand) {
+	public boolean processInteract(EntityPlayer player, EnumHand hand)
+	{
 		ItemStack stack = player.getHeldItem(hand);
 		boolean flag = stack != null && stack.getItem() == Items.SPAWN_EGG;
 
-		if (!flag && this.isEntityAlive() && !this.isChild() && !player.isSneaking()) {
-			if (this.world.isRemote) {
+		if (!flag && this.isEntityAlive() && !this.isChild() && !player.isSneaking())
+		{
+			if (this.world.isRemote)
+			{
 				GuiLarvaProgress.INSTANCE.openGUI(player, Starcraft.instance, GuiHandler.LARVA_PROGRESS_ID, world, (int) player.posX, (int) player.posY, (int) player.posZ, this);
 			}
 			return true;
-		} else {
+		} else
+		{
 			return super.processInteract(player, hand);
 		}
 	}
 
 	@Override
-	protected void setRotation(float par1, float par2) {
+	protected void setRotation(float par1, float par2)
+	{
 		rotationYaw = 0;
 		rotationPitch = 0;
 	}
 
-	public int getTransformId() {
+	public int getTransformId()
+	{
 		return transformId;
 	}
 
-	public int getTransformTime() {
+	public int getTransformTime()
+	{
 		return secondsToTicks(85);
 	}
 
-	//TODO: Finish this, zerg cocoons morph into Ocelots. Lol.
-	public static IMorphResult getEntityById(World world, int id) {
-		switch (id) {
+	// TODO: Finish this, zerg cocoons morph into Ocelots. Lol.
+	public static IMorphResult getEntityById(World world, int id)
+	{
+		switch (id)
+		{
 		default:
 		case 0:
-		//	return new EntityOcelot(world);
+			// return new EntityOcelot(world);
 		case 2:
 			return new EntityZergling(world);
 		case 3:

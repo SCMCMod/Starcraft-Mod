@@ -14,53 +14,62 @@ import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class WorldProviderAiur extends WorldProvider implements IClimateProvider {
+public class WorldProviderAiur extends WorldProvider implements IClimateProvider
+{
 
-	private StormProviderAiur	storm	= new StormProviderAiur();
-	private CloudProviderAiur	clouds	= new CloudProviderAiur();
-	private IRenderHandler		skyRenderer;
-	private IRenderHandler		climateProvider;
+	private StormProviderAiur storm = new StormProviderAiur();
+	private CloudProviderAiur clouds = new CloudProviderAiur();
+	private IRenderHandler skyRenderer;
+	private IRenderHandler climateProvider;
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public IRenderHandler getWeatherRenderer() {
+	public IRenderHandler getWeatherRenderer()
+	{
 		return null;
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public IRenderHandler getCloudRenderer() {
+	public IRenderHandler getCloudRenderer()
+	{
 		return climateProvider == null ? climateProvider = new CloudProviderAiur() : climateProvider;
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public IRenderHandler getSkyRenderer() {
+	public IRenderHandler getSkyRenderer()
+	{
 		return skyRenderer == null ? skyRenderer = new RenderSkyAiur() : skyRenderer;
 	}
 
 	@Override
-	public void onWorldUpdateEntities() {
+	public void onWorldUpdateEntities()
+	{
 		super.onWorldUpdateEntities();
 	}
 
 	@Override
-	public void updateWeather() {
+	public void updateWeather()
+	{
 		super.updateWeather();
 	}
-	
+
 	@Override
-	public BiomeProvider getBiomeProvider() {
+	public BiomeProvider getBiomeProvider()
+	{
 		return biomeProvider = new AiurBiomeProvider(world.getWorldInfo());
 	}
 
 	@Override
-	public IChunkGenerator createChunkGenerator() {
+	public IChunkGenerator createChunkGenerator()
+	{
 		return new ChunkGeneratorAiur(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
 	}
 
 	@Override
-	public DimensionType getDimensionType() {
+	public DimensionType getDimensionType()
+	{
 		return DimensionHandler.aiur_dt;
 	}
 
@@ -68,22 +77,24 @@ public class WorldProviderAiur extends WorldProvider implements IClimateProvider
 	 * Determines the dimension the player will be respawned in, typically this
 	 * brings them back to the overworld.
 	 * 
-	 * @param player
-	 *            The player that is respawning
+	 * @param player The player that is respawning
 	 * @return The dimension to respawn the player in
 	 */
 	@Override
-	public int getRespawnDimension(net.minecraft.entity.player.EntityPlayerMP player) {
+	public int getRespawnDimension(net.minecraft.entity.player.EntityPlayerMP player)
+	{
 		return StarcraftConfig.INT_DIMENSION_AIUR;
 	}
-	
+
 	@Override
-	public ICloudProvider getCloudProvider() {
+	public ICloudProvider getCloudProvider()
+	{
 		return clouds;
 	}
 
 	@Override
-	public IStormProvider getStormProvider() {
+	public IStormProvider getStormProvider()
+	{
 		return storm;
 	}
 }

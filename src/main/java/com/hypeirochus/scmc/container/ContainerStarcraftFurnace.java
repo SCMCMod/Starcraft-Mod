@@ -18,11 +18,13 @@ import net.minecraftforge.items.IItemHandler;
  *
  * @author CJMinecraft
  */
-public class ContainerStarcraftFurnace extends Container {
+public class ContainerStarcraftFurnace extends Container
+{
 
 	private IInventory playerInv;
 
-	public ContainerStarcraftFurnace(EntityPlayer player, IItemHandler furnaceInv) {
+	public ContainerStarcraftFurnace(EntityPlayer player, IItemHandler furnaceInv)
+	{
 		this.playerInv = player.inventory;
 
 		this.addSlotToContainer(new SlotStarcraftFurnaceInput(furnaceInv, 0, 56, 17));
@@ -38,35 +40,47 @@ public class ContainerStarcraftFurnace extends Container {
 	}
 
 	@Override
-	public ItemStack transferStackInSlot(EntityPlayer playerIn, int index) {
+	public ItemStack transferStackInSlot(EntityPlayer playerIn, int index)
+	{
 		ItemStack currentStack = ItemStack.EMPTY;
 		Slot slot = this.inventorySlots.get(index);
 
-		if (slot != null && slot.getHasStack()) {
+		if (slot != null && slot.getHasStack())
+		{
 			ItemStack stackInSlot = slot.getStack();
 			currentStack = stackInSlot.copy();
 
-			if (index == 2) {
+			if (index == 2)
+			{
 				if (!this.mergeItemStack(stackInSlot, 8, 39, true))
 					return ItemStack.EMPTY;
 				slot.onSlotChange(stackInSlot, currentStack);
-			} else if (index != 1 && index != 0) {
-				if (!FurnaceRecipes.instance().getSmeltingResult(stackInSlot).isEmpty()) {
-					if (!this.mergeItemStack(stackInSlot, 0, 1, false)) {
+			} else if (index != 1 && index != 0)
+			{
+				if (!FurnaceRecipes.instance().getSmeltingResult(stackInSlot).isEmpty())
+				{
+					if (!this.mergeItemStack(stackInSlot, 0, 1, false))
+					{
 						return ItemStack.EMPTY;
 					}
-				} else if (TileEntityFurnace.isItemFuel(stackInSlot)) {
-					if (!this.mergeItemStack(stackInSlot, 1, 2, false)) {
+				} else if (TileEntityFurnace.isItemFuel(stackInSlot))
+				{
+					if (!this.mergeItemStack(stackInSlot, 1, 2, false))
+					{
 						return ItemStack.EMPTY;
 					}
-				} else if (index >= 3 && index < 30) {
-					if (!this.mergeItemStack(stackInSlot, 30, 39, false)) {
+				} else if (index >= 3 && index < 30)
+				{
+					if (!this.mergeItemStack(stackInSlot, 30, 39, false))
+					{
 						return ItemStack.EMPTY;
 					}
-				} else if (index >= 30 && index < 39 && !this.mergeItemStack(stackInSlot, 3, 30, false)) {
+				} else if (index >= 30 && index < 39 && !this.mergeItemStack(stackInSlot, 3, 30, false))
+				{
 					return ItemStack.EMPTY;
 				}
-			} else if (!this.mergeItemStack(stackInSlot, 3, 39, false)) {
+			} else if (!this.mergeItemStack(stackInSlot, 3, 39, false))
+			{
 				return ItemStack.EMPTY;
 			}
 
@@ -85,7 +99,8 @@ public class ContainerStarcraftFurnace extends Container {
 	}
 
 	@Override
-	public boolean canInteractWith(EntityPlayer entityPlayer) {
+	public boolean canInteractWith(EntityPlayer entityPlayer)
+	{
 		return true;
 	}
 }

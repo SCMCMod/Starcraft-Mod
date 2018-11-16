@@ -18,7 +18,8 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 //TODO: MOVE TO CORE MOD
-public class EntityFXElectricArc extends Particle {
+public class EntityFXElectricArc extends Particle
+{
 	private static final ResourceLocation PARTICLES = new ResourceLocation("textures/particle/particles.png");
 
 	private Random rand;
@@ -33,15 +34,18 @@ public class EntityFXElectricArc extends Particle {
 	private double displacement;
 	private double complexity;
 
-	public EntityFXElectricArc(World world, double x, double y, double z, double targetX, double targetY, double targetZ, int age) {
+	public EntityFXElectricArc(World world, double x, double y, double z, double targetX, double targetY, double targetZ, int age)
+	{
 		this(world, x, y, z, targetX, targetY, targetZ, age, 1.6D, 0.1D, 0.1F, 0xFFAA99FF);
 	}
 
-	public EntityFXElectricArc(World world, double x, double y, double z, double targetX, double targetY, double targetZ, int age, int color) {
+	public EntityFXElectricArc(World world, double x, double y, double z, double targetX, double targetY, double targetZ, int age, int color)
+	{
 		this(world, x, y, z, targetX, targetY, targetZ, age, 1.6D, 0.1D, 0.1F, color);
 	}
 
-	public EntityFXElectricArc(World world, double x, double y, double z, double targetX, double targetY, double targetZ, int age, double displacement, double complexity, float density, int color) {
+	public EntityFXElectricArc(World world, double x, double y, double z, double targetX, double targetY, double targetZ, int age, double displacement, double complexity, float density, int color)
+	{
 		super(world, x, y, z);
 		this.rand = new Random();
 		this.tessellation = 2;
@@ -57,24 +61,29 @@ public class EntityFXElectricArc extends Particle {
 	}
 
 	@Override
-	public void renderParticle(BufferBuilder buffer, Entity entity, float partialTicks, float rX, float rZ, float rYZ, float rXY, float rXZ) {
+	public void renderParticle(BufferBuilder buffer, Entity entity, float partialTicks, float rX, float rZ, float rYZ, float rXY, float rXZ)
+	{
 		Resources.BLANK.bind();
 		this.drawArc(buffer, posX, posY, posZ, targetX, targetY, targetZ, displacement, complexity, density);
 	}
 
-	public EntityFXElectricArc setTessellation(int tessellation) {
+	public EntityFXElectricArc setTessellation(int tessellation)
+	{
 		this.tessellation = tessellation;
 		return this;
 	}
 
-	private void changeDirection(float x, float y, float z) {
+	private void changeDirection(float x, float y, float z)
+	{
 		double variance = MathHelper.sqrt(x * x + z * z);
 		this.rotYaw = ((float) (Math.atan2(x, z) * 180.0D / Math.PI));
 		this.rotPitch = ((float) (Math.atan2(y, variance) * 180.0D / Math.PI));
 	}
 
-	private void drawArc(BufferBuilder buffer, double x, double y, double z, double targetX, double targetY, double targetZ, double displacement, double complexity, float density) {
-		if (displacement < complexity) {
+	private void drawArc(BufferBuilder buffer, double x, double y, double z, double targetX, double targetY, double targetZ, double displacement, double complexity, float density)
+	{
+		if (displacement < complexity)
+		{
 			float rx = (float) (x - targetX);
 			float ry = (float) (y - targetY);
 			float rz = (float) (z - targetZ);
@@ -102,7 +111,8 @@ public class EntityFXElectricArc extends Particle {
 			int g = (color >> 8 & 255);
 			int b = (color & 255);
 
-			for (int i2 = 0; i2 < tessellation; i2++) {
+			for (int i2 = 0; i2 < tessellation; i2++)
+			{
 				GlStateManager.rotate((360F / tessellation) / 2, 0.0F, 1.0F, 0.0F);
 				OpenGL.color(r / 255F, g / 255F, b / 255F, a / 255F);
 				buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
@@ -118,7 +128,8 @@ public class EntityFXElectricArc extends Particle {
 			OpenGL.enableCullFace();
 			OpenGL.disableBlend();
 			OpenGL.popMatrix();
-		} else {
+		} else
+		{
 			double splitX = (targetX + x) / 2;
 			double splitY = (targetY + y) / 2;
 			double splitZ = (targetZ + z) / 2;
@@ -131,14 +142,17 @@ public class EntityFXElectricArc extends Particle {
 	}
 
 	@Override
-	public void onUpdate() {
-		if (this.particleAge++ > this.particleMaxAge) {
+	public void onUpdate()
+	{
+		if (this.particleAge++ > this.particleMaxAge)
+		{
 			this.setExpired();
 		}
 	}
 
 	@Override
-	public int getFXLayer() {
+	public int getFXLayer()
+	{
 		return 3;
 	}
 }

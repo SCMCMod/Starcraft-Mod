@@ -9,63 +9,65 @@ import net.minecraft.entity.Entity;
 /**
  * probe - cybercat5555 Created using Tabula 5.1.0
  */
-public class ModelDarkProbe extends Model {
-	public ModelRenderer	body01;
-	public ModelRenderer	Visor01;
-	public ModelRenderer	horn01A;
-	public ModelRenderer	Visor02;
-	public ModelRenderer	lEye;
-	public ModelRenderer	rEye;
-	public ModelRenderer	lWing11B;
-	public ModelRenderer	rWing11B;
-	public ModelRenderer	curvedHorn01;
-	public ModelRenderer	lWing00;
-	public ModelRenderer	tail01;
-	public ModelRenderer	eyeShield;
-	public ModelRenderer	body02;
-	public ModelRenderer	bHorn01;
-	public ModelRenderer	rWing00;
-	public ModelRenderer	lWing01;
-	public ModelRenderer	lWing05;
-	public ModelRenderer	lWing03;
-	public ModelRenderer	lWing07;
-	public ModelRenderer	lWing02;
-	public ModelRenderer	lWing08;
-	public ModelRenderer	lWing04;
-	public ModelRenderer	lWing06;
-	public ModelRenderer	lWing09;
-	public ModelRenderer	lWing11;
-	public ModelRenderer	lWing10;
-	public ModelRenderer	lWing12;
-	public ModelRenderer	tail02;
-	public ModelRenderer	tail05;
-	public ModelRenderer	tail03;
-	public ModelRenderer	tail04;
-	public ModelRenderer	tail06;
-	public ModelRenderer	eye;
-	public ModelRenderer	rWing01;
-	public ModelRenderer	rWing05;
-	public ModelRenderer	rWing03;
-	public ModelRenderer	rWing07;
-	public ModelRenderer	rWing02;
-	public ModelRenderer	rWing08;
-	public ModelRenderer	rWing04;
-	public ModelRenderer	rWing06;
-	public ModelRenderer	rWing09;
-	public ModelRenderer	rWing11;
-	public ModelRenderer	rWing10;
-	public ModelRenderer	rWing12;
-	public ModelRenderer	horn02A;
-	public ModelRenderer	horn03A;
-	public ModelRenderer	horn01B;
-	public ModelRenderer	horn04;
-	public ModelRenderer	horn02B;
-	public ModelRenderer	horn03B;
-	public ModelRenderer	lWing12B;
-	public ModelRenderer	rWing12B;
-	public ModelRenderer	curvedHorn02;
+public class ModelDarkProbe extends Model
+{
+	public ModelRenderer body01;
+	public ModelRenderer Visor01;
+	public ModelRenderer horn01A;
+	public ModelRenderer Visor02;
+	public ModelRenderer lEye;
+	public ModelRenderer rEye;
+	public ModelRenderer lWing11B;
+	public ModelRenderer rWing11B;
+	public ModelRenderer curvedHorn01;
+	public ModelRenderer lWing00;
+	public ModelRenderer tail01;
+	public ModelRenderer eyeShield;
+	public ModelRenderer body02;
+	public ModelRenderer bHorn01;
+	public ModelRenderer rWing00;
+	public ModelRenderer lWing01;
+	public ModelRenderer lWing05;
+	public ModelRenderer lWing03;
+	public ModelRenderer lWing07;
+	public ModelRenderer lWing02;
+	public ModelRenderer lWing08;
+	public ModelRenderer lWing04;
+	public ModelRenderer lWing06;
+	public ModelRenderer lWing09;
+	public ModelRenderer lWing11;
+	public ModelRenderer lWing10;
+	public ModelRenderer lWing12;
+	public ModelRenderer tail02;
+	public ModelRenderer tail05;
+	public ModelRenderer tail03;
+	public ModelRenderer tail04;
+	public ModelRenderer tail06;
+	public ModelRenderer eye;
+	public ModelRenderer rWing01;
+	public ModelRenderer rWing05;
+	public ModelRenderer rWing03;
+	public ModelRenderer rWing07;
+	public ModelRenderer rWing02;
+	public ModelRenderer rWing08;
+	public ModelRenderer rWing04;
+	public ModelRenderer rWing06;
+	public ModelRenderer rWing09;
+	public ModelRenderer rWing11;
+	public ModelRenderer rWing10;
+	public ModelRenderer rWing12;
+	public ModelRenderer horn02A;
+	public ModelRenderer horn03A;
+	public ModelRenderer horn01B;
+	public ModelRenderer horn04;
+	public ModelRenderer horn02B;
+	public ModelRenderer horn03B;
+	public ModelRenderer lWing12B;
+	public ModelRenderer rWing12B;
+	public ModelRenderer curvedHorn02;
 
-	public ModelDarkProbe() {
+	public ModelDarkProbe()
+	{
 		this.textureWidth = 64;
 		this.textureHeight = 64;
 		this.curvedHorn01 = new ModelRenderer(this, 13, 52);
@@ -331,7 +333,8 @@ public class ModelDarkProbe extends Model {
 	}
 
 	@Override
-	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(this.curvedHorn01.offsetX, this.curvedHorn01.offsetY, this.curvedHorn01.offsetZ);
 		GlStateManager.translate(this.curvedHorn01.rotationPointX * f5, this.curvedHorn01.rotationPointY * f5, this.curvedHorn01.rotationPointZ * f5);

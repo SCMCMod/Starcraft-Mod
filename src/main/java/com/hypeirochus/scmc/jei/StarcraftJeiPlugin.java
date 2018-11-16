@@ -24,21 +24,21 @@ import net.minecraft.item.ItemStack;
 
 /**
  * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
- * 
  * <br>
  * </br>
- * 
- * This class allows for basic JEI support. It adds all the recipes, catalysts, and recipe click areas for JEI.
+ * This class allows for basic JEI support. It adds all the recipes, catalysts,
+ * and recipe click areas for JEI.
  * 
  * @author Ocelot5836
- * 
  * @see IModPlugin
  */
 @JEIPlugin
-public class StarcraftJeiPlugin implements IModPlugin {
+public class StarcraftJeiPlugin implements IModPlugin
+{
 
 	@Override
-	public void register(IModRegistry registry) {
+	public void register(IModRegistry registry)
+	{
 		IIngredientRegistry ingredientRegistry = registry.getIngredientRegistry();
 		IJeiHelpers jeiHelpers = registry.getJeiHelpers();
 		IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
@@ -63,26 +63,36 @@ public class StarcraftJeiPlugin implements IModPlugin {
 		recipeTransferRegistry.addRecipeTransferHandler(ContainerStarcraftFurnace.class, VanillaRecipeCategoryUid.FUEL, 1, 1, 3, 36);
 		recipeTransferRegistry.addRecipeTransferHandler(ContainerProtossFurnace.class, VanillaRecipeCategoryUid.SMELTING, 0, 1, 10, 36);
 
-		for (Item item : Item.REGISTRY) {
-			if (item != null && item instanceof IJeiTooltip) {
+		for (Item item : Item.REGISTRY)
+		{
+			if (item != null && item instanceof IJeiTooltip)
+			{
 				IJeiTooltip tooltip = (IJeiTooltip) item;
-				for (int j = 0; j < 16; j++) {
-					if (tooltip.getTooltip(j) != null) {
+				for (int j = 0; j < 16; j++)
+				{
+					if (tooltip.getTooltip(j) != null)
+					{
 						registry.addIngredientInfo(new ItemStack(item, 1, j), ItemStack.class, tooltip.getTooltip(j));
-					} else {
+					} else
+					{
 						continue;
 					}
 				}
 			}
 		}
 
-		for (Block block : Block.REGISTRY) {
-			if (block != null && block instanceof IJeiTooltip) {
+		for (Block block : Block.REGISTRY)
+		{
+			if (block != null && block instanceof IJeiTooltip)
+			{
 				IJeiTooltip tooltip = (IJeiTooltip) block;
-				for (int j = 0; j < 16; j++) {
-					if (tooltip.getTooltip(j) != null) {
+				for (int j = 0; j < 16; j++)
+				{
+					if (tooltip.getTooltip(j) != null)
+					{
 						registry.addIngredientInfo(new ItemStack(block, 1, j), ItemStack.class, tooltip.getTooltip(j));
-					} else {
+					} else
+					{
 						continue;
 					}
 				}
@@ -91,7 +101,8 @@ public class StarcraftJeiPlugin implements IModPlugin {
 	}
 
 	@Override
-	public void registerCategories(IRecipeCategoryRegistration registry) {
+	public void registerCategories(IRecipeCategoryRegistration registry)
+	{
 		IGuiHelper guiHelper = registry.getJeiHelpers().getGuiHelper();
 		registry.addRecipeCategories(new GasCollectorCategory(guiHelper));
 	}

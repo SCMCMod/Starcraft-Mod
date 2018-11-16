@@ -21,31 +21,39 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 //TODO: MOVE TO CORE MOD
-public class ItemBlockSlab extends ItemBlock {
+public class ItemBlockSlab extends ItemBlock
+{
 
-	public ItemBlockSlab(StarcraftSlab slab) {
+	public ItemBlockSlab(StarcraftSlab slab)
+	{
 		super(slab);
 	}
 
-	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
+	{
 		ItemStack itemstack = player.getHeldItem(hand);
 
-		if (!itemstack.isEmpty() && player.canPlayerEdit(pos.offset(facing), facing, itemstack)) {
+		if (!itemstack.isEmpty() && player.canPlayerEdit(pos.offset(facing), facing, itemstack))
+		{
 			IBlockState iblockstate = worldIn.getBlockState(pos);
 
-			if (iblockstate.getBlock() == this.block) {
+			if (iblockstate.getBlock() == this.block)
+			{
 				StarcraftSlab.Part StarcraftSlab$Part = (StarcraftSlab.Part) iblockstate.getValue(StarcraftSlab.PART);
 
-				if ((facing == EnumFacing.UP && StarcraftSlab$Part == StarcraftSlab.Part.BOTTOM || facing == EnumFacing.DOWN && StarcraftSlab$Part == StarcraftSlab.Part.TOP)) {
+				if ((facing == EnumFacing.UP && StarcraftSlab$Part == StarcraftSlab.Part.BOTTOM || facing == EnumFacing.DOWN && StarcraftSlab$Part == StarcraftSlab.Part.TOP))
+				{
 					IBlockState iblockstate1 = this.block.getDefaultState();
 					AxisAlignedBB axisalignedbb = iblockstate1.getCollisionBoundingBox(worldIn, pos);
 
-					if (axisalignedbb != Block.NULL_AABB && worldIn.checkNoEntityCollision(axisalignedbb.offset(pos)) && worldIn.setBlockState(pos, iblockstate1, 11)) {
+					if (axisalignedbb != Block.NULL_AABB && worldIn.checkNoEntityCollision(axisalignedbb.offset(pos)) && worldIn.setBlockState(pos, iblockstate1, 11))
+					{
 						SoundType soundtype = this.block.getSoundType(iblockstate1, worldIn, pos, player);
 						worldIn.playSound(player, pos, soundtype.getPlaceSound(), SoundCategory.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
 						itemstack.shrink(1);
 
-						if (player instanceof EntityPlayerMP) {
+						if (player instanceof EntityPlayerMP)
+						{
 							CriteriaTriggers.PLACED_BLOCK.trigger((EntityPlayerMP) player, pos, itemstack);
 						}
 					}
@@ -55,19 +63,23 @@ public class ItemBlockSlab extends ItemBlock {
 			}
 
 			return this.tryPlace(player, itemstack, worldIn, pos.offset(facing)) ? EnumActionResult.SUCCESS : super.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);
-		} else {
+		} else
+		{
 			return EnumActionResult.FAIL;
 		}
 	}
 
 	@SideOnly(Side.CLIENT)
-	public boolean canPlaceBlockOnSide(World worldIn, BlockPos pos, EnumFacing side, EntityPlayer player, ItemStack stack) {
+	public boolean canPlaceBlockOnSide(World worldIn, BlockPos pos, EnumFacing side, EntityPlayer player, ItemStack stack)
+	{
 		IBlockState iblockstate = worldIn.getBlockState(pos);
 
-		if (iblockstate.getBlock() == this.block) {
+		if (iblockstate.getBlock() == this.block)
+		{
 			boolean flag = iblockstate.getValue(StarcraftSlab.PART) == StarcraftSlab.Part.TOP;
 
-			if ((side == EnumFacing.UP && !flag || side == EnumFacing.DOWN && flag)) {
+			if ((side == EnumFacing.UP && !flag || side == EnumFacing.DOWN && flag))
+			{
 				return true;
 			}
 		}
@@ -77,14 +89,17 @@ public class ItemBlockSlab extends ItemBlock {
 		return iblockstate1.getBlock() == this.block ? true : super.canPlaceBlockOnSide(worldIn, pos, side, player, stack);
 	}
 
-	private boolean tryPlace(EntityPlayer player, ItemStack stack, World worldIn, BlockPos pos) {
+	private boolean tryPlace(EntityPlayer player, ItemStack stack, World worldIn, BlockPos pos)
+	{
 		IBlockState iblockstate = worldIn.getBlockState(pos);
 
-		if (iblockstate.getBlock() == this.block) {
+		if (iblockstate.getBlock() == this.block)
+		{
 			IBlockState iblockstate1 = this.block.getDefaultState();
 			AxisAlignedBB axisalignedbb = iblockstate1.getCollisionBoundingBox(worldIn, pos);
 
-			if (axisalignedbb != Block.NULL_AABB && worldIn.checkNoEntityCollision(axisalignedbb.offset(pos)) && worldIn.setBlockState(pos, iblockstate1, 11)) {
+			if (axisalignedbb != Block.NULL_AABB && worldIn.checkNoEntityCollision(axisalignedbb.offset(pos)) && worldIn.setBlockState(pos, iblockstate1, 11))
+			{
 				SoundType soundtype = this.block.getSoundType(iblockstate1, worldIn, pos, player);
 				worldIn.playSound(player, pos, soundtype.getPlaceSound(), SoundCategory.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
 				stack.shrink(1);

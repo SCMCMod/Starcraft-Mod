@@ -14,13 +14,15 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * @author Ocelot5836
  */
 @SideOnly(Side.CLIENT)
-public class RendererZerusGlowPod extends TileEntitySpecialRenderer<TileEntityZerusGlowPod> {
+public class RendererZerusGlowPod extends TileEntitySpecialRenderer<TileEntityZerusGlowPod>
+{
 
 	private static final ModelZerusGlowPod MODEL = new ModelZerusGlowPod();
 	private static final ResourceLocation TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/zerus_glow_pod.png");
 
 	@Override
-	public void render(TileEntityZerusGlowPod te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
+	public void render(TileEntityZerusGlowPod te, double x, double y, double z, float partialTicks, int destroyStage, float alpha)
+	{
 		super.render(te, x, y, z, partialTicks, destroyStage, alpha);
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(x + 0.5, y + 1.5, z + 0.5);

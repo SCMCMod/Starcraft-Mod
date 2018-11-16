@@ -11,7 +11,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 /**
  * sc2flora_palm - cybercat5555 Created using Tabula 7.0.0
  */
-public class ModelPalm extends ModelBase {
+public class ModelPalm extends ModelBase
+{
 
 	public ModelRenderer branch01a;
 	public ModelRenderer branch02a;
@@ -46,7 +47,8 @@ public class ModelPalm extends ModelBase {
 	public ModelRenderer branch15b;
 	public ModelRenderer branch16b;
 
-	public ModelPalm() {
+	public ModelPalm()
+	{
 		this.textureWidth = 64;
 		this.textureHeight = 64;
 		this.branch12b = new ModelRenderer(this, 28, 42);
@@ -193,7 +195,8 @@ public class ModelPalm extends ModelBase {
 		this.branch10a.addChild(this.branch10b);
 	}
 
-	public void render(float scale, float age) {
+	public void render(float scale, float age)
+	{
 		GlStateManager.disableCull();
 		this.setRotationAngles(age);
 		this.branch09a.render(scale);
@@ -214,10 +217,12 @@ public class ModelPalm extends ModelBase {
 		this.branch07a.render(scale);
 		GlStateManager.enableCull();
 	}
-	
+
 	@SideOnly(Side.CLIENT)
-	public void setRotationAngles(float ageIn) {
-		if (ageIn != 0) {
+	public void setRotationAngles(float ageIn)
+	{
+		if (ageIn != 0)
+		{
 			float age = ageIn + AccessHandler.getPartialTicks();
 		}
 	}
@@ -225,7 +230,8 @@ public class ModelPalm extends ModelBase {
 	/**
 	 * This is a helper function from Tabula to set the rotation of model parts
 	 */
-	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z)
+	{
 		modelRenderer.rotateAngleX = x;
 		modelRenderer.rotateAngleY = y;
 		modelRenderer.rotateAngleZ = z;

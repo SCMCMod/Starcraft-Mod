@@ -13,17 +13,21 @@ import net.minecraft.item.Item;
 /**
  * @author Ocelot5836
  */
-public class StarcraftGravel extends StarcraftBlockFalling {
+public class StarcraftGravel extends StarcraftBlockFalling
+{
 
-	public StarcraftGravel(String name, RegistryType type, Material material, MapColor color, int dustcolor) {
+	public StarcraftGravel(String name, RegistryType type, Material material, MapColor color, int dustcolor)
+	{
 		super(name, type, material, color, dustcolor);
 		setHarvestLevel("shovel", -1);
 	}
 
 	@Nullable
 	@Override
-	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		if (fortune > 3) {
+	public Item getItemDropped(IBlockState state, Random rand, int fortune)
+	{
+		if (fortune > 3)
+		{
 			fortune = 3;
 		}
 

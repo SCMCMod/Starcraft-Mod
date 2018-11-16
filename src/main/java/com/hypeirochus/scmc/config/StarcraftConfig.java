@@ -21,16 +21,16 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 /**
  * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
- * 
  * <br>
  * </br>
- * 
- * The new and improved class to handle all the config. Has a gui factory to set the configuration options with.
+ * The new and improved class to handle all the config. Has a gui factory to set
+ * the configuration options with.
  * 
  * @author Ocelot5836
  */
 //TODO: Rework this. We shouldn't be setting dimension ID's statically.
-public class StarcraftConfig {
+public class StarcraftConfig
+{
 
 	public static List<Category> categories = new ArrayList<Category>();
 
@@ -55,30 +55,37 @@ public class StarcraftConfig {
 
 	public static int INT_CREEP_SPREAD_BASE_VALUE = 1;
 
-	public static void pre(FMLPreInitializationEvent event) {
+	public static void pre(FMLPreInitializationEvent event)
+	{
 		File configFile = new File(Loader.instance().getConfigDir(), "Starcraft.cfg");
 		config = new Configuration(configFile);
 		syncFromFiles();
 	}
 
-	public static void clientPre(FMLPreInitializationEvent event) {
+	public static void clientPre(FMLPreInitializationEvent event)
+	{
 		MinecraftForge.EVENT_BUS.register(new ConfigEventHandler());
 	}
 
-	public static void syncFromFiles() {
+	public static void syncFromFiles()
+	{
 		syncConfig(true, true);
 	}
 
-	public static void syncFromGui() {
+	public static void syncFromGui()
+	{
 		syncConfig(false, true);
 	}
 
-	public static void syncFromGuiFields() {
+	public static void syncFromGuiFields()
+	{
 		syncConfig(false, false);
 	}
 
-	private static void syncConfig(boolean loadFromConfigFile, boolean readFieldsFromConfig) {
-		if (loadFromConfigFile) {
+	private static void syncConfig(boolean loadFromConfigFile, boolean readFieldsFromConfig)
+	{
+		if (loadFromConfigFile)
+		{
 			config.load();
 		}
 
@@ -153,7 +160,8 @@ public class StarcraftConfig {
 		propertyOrderMobOptions.add(propertyDarkTeplarVisible.getName());
 		config.setCategoryPropertyOrder(CATEGORY_NAME_MOB_OPTIONS, propertyOrderMobOptions);
 
-		if (readFieldsFromConfig) {
+		if (readFieldsFromConfig)
+		{
 			BOOL_CREEP_CAN_SPREAD = propertyCreepCanSpread.getBoolean();
 			INT_CREEP_SPREAD_BASE_VALUE = propertyCreepSpreadBaseValue.getInt();
 			INT_DIMENSION_CHAR = propertyDimIdChar.getInt();
@@ -181,26 +189,32 @@ public class StarcraftConfig {
 		propertyDisableVanillaMobSpawning.set(BOOL_VANILLA_MOB_SPAWNING_DISABLED);
 		propertyDarkTeplarVisible.set(BOOL_IS_DARK_TEMPLAR_VISIBLE);
 
-		if (config.hasChanged()) {
+		if (config.hasChanged())
+		{
 			config.save();
 		}
 	}
 
-	private static class ConfigEventHandler {
+	private static class ConfigEventHandler
+	{
 		@SubscribeEvent(priority = EventPriority.LOWEST)
-		public void onEvent(ConfigChangedEvent.OnConfigChangedEvent event) {
-			if (event.getModID().equals(Starcraft.MOD_ID)) {
+		public void onEvent(ConfigChangedEvent.OnConfigChangedEvent event)
+		{
+			if (event.getModID().equals(Starcraft.MOD_ID))
+			{
 				syncFromGui();
 			}
 		}
 	}
 
-	private static String registerCategory(Category category) {
+	private static String registerCategory(Category category)
+	{
 		categories.add(category);
 		return category.getName();
 	}
 
-	public static Configuration getConfig() {
+	public static Configuration getConfig()
+	{
 		return config;
 	}
 }

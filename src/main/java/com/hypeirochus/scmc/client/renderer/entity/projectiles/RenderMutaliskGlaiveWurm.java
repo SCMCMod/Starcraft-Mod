@@ -10,16 +10,19 @@ import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderMutaliskGlaiveWurm extends Render<EntityMutaliskGlaiveWurm> {
+public class RenderMutaliskGlaiveWurm extends Render<EntityMutaliskGlaiveWurm>
+{
 
 	private ModelBase model = new ModelMutaliskGlaiveWurm();
 	int x = 0;
 
-	public RenderMutaliskGlaiveWurm(RenderManager renderManager) {
+	public RenderMutaliskGlaiveWurm(RenderManager renderManager)
+	{
 		super(renderManager);
 	}
 
-	public RenderMutaliskGlaiveWurm(RenderManager renderManager, ModelBase model) {
+	public RenderMutaliskGlaiveWurm(RenderManager renderManager, ModelBase model)
+	{
 		this(renderManager);
 		this.model = model;
 	}
@@ -28,7 +31,8 @@ public class RenderMutaliskGlaiveWurm extends Render<EntityMutaliskGlaiveWurm> {
 	 * Renders the desired {@code T} type Entity.
 	 */
 	@Override
-	public void doRender(EntityMutaliskGlaiveWurm entity, double x, double y, double z, float entityYaw, float partialTicks) {
+	public void doRender(EntityMutaliskGlaiveWurm entity, double x, double y, double z, float entityYaw, float partialTicks)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.translate((float) x, (float) y, (float) z);
 		GlStateManager.enableRescaleNormal();
@@ -45,7 +49,8 @@ public class RenderMutaliskGlaiveWurm extends Render<EntityMutaliskGlaiveWurm> {
 	 * you call Render.bindEntityTexture.
 	 */
 	@Override
-	protected ResourceLocation getEntityTexture(EntityMutaliskGlaiveWurm entity) {
+	protected ResourceLocation getEntityTexture(EntityMutaliskGlaiveWurm entity)
+	{
 		return new ResourceLocation(Starcraft.RL_BASE + "textures/entity/mutaliskglaivewurm.png");
 	}
 }

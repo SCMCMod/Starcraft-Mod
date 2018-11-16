@@ -8,24 +8,31 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemIcon extends StarcraftItem implements IMetaRenderHandler {
+public class ItemIcon extends StarcraftItem implements IMetaRenderHandler
+{
 
-	public ItemIcon() {
+	public ItemIcon()
+	{
 		super("icon");
 		setHasSubtypes(true);
 		setCreativeTab(null);
 	}
 
 	@Override
-	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items)
+	{
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
-		for (int i = 0; i < IconType.values().length; i++) {
-			if (stack.getItemDamage() == i) {
+	public String getUnlocalizedName(ItemStack stack)
+	{
+		for (int i = 0; i < IconType.values().length; i++)
+		{
+			if (stack.getItemDamage() == i)
+			{
 				return getUnlocalizedName() + "." + IconType.values()[i].getName();
-			} else {
+			} else
+			{
 				continue;
 			}
 		}
@@ -33,12 +40,14 @@ public class ItemIcon extends StarcraftItem implements IMetaRenderHandler {
 	}
 
 	@Override
-	public int getItemCount() {
+	public int getItemCount()
+	{
 		return IconType.values().length;
 	}
 
 	@Override
-	public String getName(int meta) {
+	public String getName(int meta)
+	{
 		return "icon." + MetaHandler.IconType.values()[meta].getName();
 	}
 }

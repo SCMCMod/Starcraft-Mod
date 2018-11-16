@@ -11,27 +11,32 @@ import net.minecraft.util.ITickable;
 /**
  * @author Ocelot5836
  */
-public class TileEntityZerusGlowPod extends TileEntity implements ITickable {
+public class TileEntityZerusGlowPod extends TileEntity implements ITickable
+{
 
-	private float	pulsingProgress;
-	private float	pulsingSpeed;
+	private float pulsingProgress;
+	private float pulsingSpeed;
 
-	public TileEntityZerusGlowPod() {
+	public TileEntityZerusGlowPod()
+	{
 		pulsingProgress = 1;
 		pulsingSpeed = 0.005f;
 	}
 
 	@Override
-	public void update() {
+	public void update()
+	{
 		pulsingProgress += pulsingSpeed;
 
-		if (pulsingProgress >= 1.1f || pulsingProgress < 1) {
+		if (pulsingProgress >= 1.1f || pulsingProgress < 1)
+		{
 			pulsingSpeed *= -1;
 		}
 	}
 
 	@Override
-	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt)
+	{
 		super.writeToNBT(nbt);
 		nbt.setFloat("pulsingProgress", this.pulsingProgress);
 		nbt.setBoolean("direction", this.pulsingSpeed < 0);
@@ -39,32 +44,37 @@ public class TileEntityZerusGlowPod extends TileEntity implements ITickable {
 	}
 
 	@Override
-	public void readFromNBT(NBTTagCompound nbt) {
+	public void readFromNBT(NBTTagCompound nbt)
+	{
 		super.readFromNBT(nbt);
 		this.pulsingProgress = nbt.getFloat("pulsingProgress");
 		this.pulsingSpeed = nbt.getBoolean("direction") ? -0.005f : 0.005f;
 	}
 
 	@Override
-	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
+	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt)
+	{
 		NBTTagCompound nbt = pkt.getNbtCompound();
 		readFromNBT(nbt);
 	}
 
 	@Nullable
-	public SPacketUpdateTileEntity getUpdatePacket() {
+	public SPacketUpdateTileEntity getUpdatePacket()
+	{
 		NBTTagCompound nbt = new NBTTagCompound();
 		writeToNBT(nbt);
 		return new SPacketUpdateTileEntity(this.pos, 1, nbt);
 	}
 
-	public NBTTagCompound getUpdateTag() {
+	public NBTTagCompound getUpdateTag()
+	{
 		NBTTagCompound nbt = super.getUpdateTag();
 		writeToNBT(nbt);
 		return nbt;
 	}
 
-	public float getPulsingProgress() {
+	public float getPulsingProgress()
+	{
 		return pulsingProgress;
 	}
 }

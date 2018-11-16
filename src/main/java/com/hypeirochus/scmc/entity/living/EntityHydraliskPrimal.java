@@ -31,9 +31,11 @@ import net.minecraft.world.World;
 /**
  * @author Hypeirochus
  */
-public class EntityHydraliskPrimal extends EntityZergMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
+public class EntityHydraliskPrimal extends EntityZergMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase>
+{
 
-	public EntityHydraliskPrimal(World world) {
+	public EntityHydraliskPrimal(World world)
+	{
 		super(world);
 		setSize(3.0F, 3.0F);
 		this.setColor(EnumColors.CYAN);
@@ -41,9 +43,10 @@ public class EntityHydraliskPrimal extends EntityZergMob implements IMob, IRange
 		setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
 		this.initEntityAI();
 	}
-	
+
 	@Override
-	protected void initEntityAI() {
+	protected void initEntityAI()
+	{
 		tasks.addTask(1, new EntityAIAttackRanged(this, 0.75D, 17, 16.0F));
 		tasks.addTask(2, new EntityAISwimming(this));
 		tasks.addTask(3, new EntityAIWander(this, 1.0D));
@@ -59,12 +62,14 @@ public class EntityHydraliskPrimal extends EntityZergMob implements IMob, IRange
 	 * target.
 	 */
 	@Override
-	public boolean apply(EntityLivingBase entity) {
+	public boolean apply(EntityLivingBase entity)
+	{
 		return checkTarget(entity, EnumFactionTypes.PRIMALZERG);
 	}
 
 	@Override
-	protected void applyEntityAttributes() {
+	protected void applyEntityAttributes()
+	{
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(60.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.39000000417232513D);
@@ -73,13 +78,14 @@ public class EntityHydraliskPrimal extends EntityZergMob implements IMob, IRange
 	}
 
 	@Override
-	public void attackEntityWithRangedAttack(EntityLivingBase target, float p_82196_2_) {
+	public void attackEntityWithRangedAttack(EntityLivingBase target, float p_82196_2_)
+	{
 		EntityHydraliskSpike spike = new EntityHydraliskSpike(this.world, this);
 		double d0 = target.posX - this.posX;
-        double d1 = target.getEntityBoundingBox().minY + (double)(target.height / 4.0F) - spike.posY;
-        double d2 = target.posZ - this.posZ;
-        double d3 = (double)MathHelper.sqrt(d0 * d0 + d2 * d2);
-        spike.shoot(d0, d1 + d3 * 0.20000000298023224D, d2, 1.6F, (float)(14 - this.world.getDifficulty().getDifficultyId() * 4));
+		double d1 = target.getEntityBoundingBox().minY + (double) (target.height / 4.0F) - spike.posY;
+		double d2 = target.posZ - this.posZ;
+		double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
+		spike.shoot(d0, d1 + d3 * 0.20000000298023224D, d2, 1.6F, (float) (14 - this.world.getDifficulty().getDifficultyId() * 4));
 		this.playSound(SoundHandler.FX_HYDRALISK_FIRE, 0.5F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
 		this.world.spawnEntity(spike);
 	}
@@ -87,20 +93,21 @@ public class EntityHydraliskPrimal extends EntityZergMob implements IMob, IRange
 	/**
 	 * Drop up to 2 items when killed
 	 * 
-	 * @param damagedByPlayer
-	 *            true if the most recent damage was dealt by a player
-	 * @param lootingLevel
-	 *            level of Looting on kill weapon
+	 * @param damagedByPlayer true if the most recent damage was dealt by a player
+	 * @param lootingLevel level of Looting on kill weapon
 	 */
 	@Override
-	protected void dropFewItems(boolean recentlyHit, int looting) {
+	protected void dropFewItems(boolean recentlyHit, int looting)
+	{
 		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), MetaHandler.CarapaceType.T2.getID()));
 		drop.tryDrop(this);
 	}
 
 	@Override
-	public SoundEvent getAmbientSound() {
-		switch (rand.nextInt(3)) {
+	public SoundEvent getAmbientSound()
+	{
+		switch (rand.nextInt(3))
+		{
 		case 0:
 			return SoundHandler.ENTITY_HYDRALISK_LIVE1;
 		case 1:
@@ -113,28 +120,36 @@ public class EntityHydraliskPrimal extends EntityZergMob implements IMob, IRange
 	}
 
 	@Override
-	public SoundEvent getDeathSound() {
+	public SoundEvent getDeathSound()
+	{
 		return SoundHandler.ENTITY_HYDRALISK_DEATH;
 	}
 
 	@Override
-	public SoundEvent getHurtSound(DamageSource source) {
+	public SoundEvent getHurtSound(DamageSource source)
+	{
 		return SoundHandler.ENTITY_HYDRALISK_HURT;
 	}
 
 	@Override
-	public int getTalkInterval() {
+	public int getTalkInterval()
+	{
 		return 160;
 	}
 
 	@Override
-	public void setSwingingArms(boolean swingingArms) {}
-	
+	public void setSwingingArms(boolean swingingArms)
+	{
+	}
+
 	@Override
-	public void onLivingUpdate() {
-		if(this.getBurrowState() == true) {
+	public void onLivingUpdate()
+	{
+		if (this.getBurrowState() == true)
+		{
 			setSize(3.0F, 0.1F);
-		}else {
+		} else
+		{
 			setSize(3.0F, 3.0F);
 		}
 		super.onLivingUpdate();

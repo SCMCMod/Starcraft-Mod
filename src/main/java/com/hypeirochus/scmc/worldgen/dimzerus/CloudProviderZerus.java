@@ -8,33 +8,39 @@ import com.hypeirochus.scmc.Starcraft;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 
-public class CloudProviderZerus extends CloudProvider {
+public class CloudProviderZerus extends CloudProvider
+{
 	private static final Texture CLOUDS = new Texture(Starcraft.MOD_ID, "textures/world/varda-clouds.png");
 
 	private IStormProvider stormProvider;
 
 	@Override
-	public float getMaxCloudSpeedDuringStorm() {
+	public float getMaxCloudSpeedDuringStorm()
+	{
 		return 24;
 	}
 
 	@Override
-	public float getMaxNormalCloudSpeed() {
+	public float getMaxNormalCloudSpeed()
+	{
 		return 8;
 	}
 
 	@Override
-	public Texture getCloudTexture() {
+	public Texture getCloudTexture()
+	{
 		return CLOUDS;
 	}
 
 	@Override
-	public boolean areCloudsApplicableTo(WorldProvider provider) {
+	public boolean areCloudsApplicableTo(WorldProvider provider)
+	{
 		return provider instanceof WorldProviderZerus;
 	}
 
 	@Override
-	public double getCloudMovementX(World world, float cloudTicksPrev, float cloudTicks) {
+	public double getCloudMovementX(World world, float cloudTicksPrev, float cloudTicks)
+	{
 		return -super.getCloudMovementX(world, cloudTicksPrev, cloudTicks);
 	}
 

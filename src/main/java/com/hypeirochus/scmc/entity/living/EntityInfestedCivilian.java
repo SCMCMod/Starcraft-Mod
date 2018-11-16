@@ -25,9 +25,11 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityInfestedCivilian extends EntityZergMob implements IMob, Predicate<EntityLivingBase> {
+public class EntityInfestedCivilian extends EntityZergMob implements IMob, Predicate<EntityLivingBase>
+{
 
-	public EntityInfestedCivilian(World world) {
+	public EntityInfestedCivilian(World world)
+	{
 		super(world);
 		setSize(1, 2.0F);
 		this.setColor(EnumColors.PURPLE);
@@ -35,9 +37,10 @@ public class EntityInfestedCivilian extends EntityZergMob implements IMob, Predi
 		setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
 		this.initEntityAI();
 	}
-	
+
 	@Override
-	protected void initEntityAI() {
+	protected void initEntityAI()
+	{
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
 		tasks.addTask(3, new EntityAIWander(this, 1.0D));
@@ -53,12 +56,14 @@ public class EntityInfestedCivilian extends EntityZergMob implements IMob, Predi
 	 * target.
 	 */
 	@Override
-	public boolean apply(EntityLivingBase entity) {
+	public boolean apply(EntityLivingBase entity)
+	{
 		return checkTarget(entity, EnumFactionTypes.SWARM);
 	}
 
 	@Override
-	protected void applyEntityAttributes() {
+	protected void applyEntityAttributes()
+	{
 		super.applyEntityAttributes();
 
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(25.0D);
@@ -68,33 +73,39 @@ public class EntityInfestedCivilian extends EntityZergMob implements IMob, Predi
 	}
 
 	@Override
-	protected void dropFewItems(boolean recentlyHit, int looting) {
+	protected void dropFewItems(boolean recentlyHit, int looting)
+	{
 		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), MetaHandler.CarapaceType.T1.getID()));
 		drop.tryDrop(this);
 	}
 
 	@Override
-	public int getTalkInterval() {
+	public int getTalkInterval()
+	{
 		return 160;
 	}
 
 	@Override
-	protected SoundEvent getAmbientSound() {
+	protected SoundEvent getAmbientSound()
+	{
 		return SoundHandler.ENTITY_INFESTEDCIVILIAN_LIVE1;
 	}
 
 	@Override
-	protected SoundEvent getHurtSound(DamageSource source) {
+	protected SoundEvent getHurtSound(DamageSource source)
+	{
 		return SoundHandler.ENTITY_INFESTEDCIVILIAN_HURT;
 	}
 
 	@Override
-	protected SoundEvent getDeathSound() {
+	protected SoundEvent getDeathSound()
+	{
 		return SoundHandler.ENTITY_INFESTEDCIVILIAN_DEATH;
 	}
 
 	@Override
-	protected void findBiomass() {
-		
+	protected void findBiomass()
+	{
+
 	}
 }

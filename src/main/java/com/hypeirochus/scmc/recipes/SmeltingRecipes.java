@@ -12,15 +12,15 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /**
  * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
- * 
  * <br>
  * </br>
- * 
  * Deals with smelting recipes in the mod.
  */
-public class SmeltingRecipes {
+public class SmeltingRecipes
+{
 
-	public static void init(FMLInitializationEvent event) {
+	public static void init(FMLInitializationEvent event)
+	{
 
 		/** Steel Ingot from Steel Dust */
 		GameRegistry.addSmelting(new ItemStack(ItemHandler.DUST, 1, MetaHandler.DustType.STEEL.getID()), new ItemStack(ItemHandler.INGOT, 1, MetaHandler.IngotType.STEEL.getID()), 0);

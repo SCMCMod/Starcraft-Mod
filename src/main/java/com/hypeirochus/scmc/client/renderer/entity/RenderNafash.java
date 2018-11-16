@@ -12,7 +12,8 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderNafash extends RenderLiving<EntityNafash> implements LayerRenderer<EntityNafash> {
+public class RenderNafash extends RenderLiving<EntityNafash> implements LayerRenderer<EntityNafash>
+{
 
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.BROODMOTHER_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.BROODMOTHER_OVERLAY);
@@ -21,7 +22,8 @@ public class RenderNafash extends RenderLiving<EntityNafash> implements LayerRen
 	private final RenderNafash RENDERER;
 	protected ModelBroodmother model;
 
-	public RenderNafash(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
+	public RenderNafash(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
+	{
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelBroodmother) mainModel);
 		this.addLayer(this);
@@ -29,33 +31,39 @@ public class RenderNafash extends RenderLiving<EntityNafash> implements LayerRen
 	}
 
 	@Override
-	public void doRender(EntityNafash entity, double x, double y, double z, float entityYaw, float partialTicks) {
+	public void doRender(EntityNafash entity, double x, double y, double z, float entityYaw, float partialTicks)
+	{
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 
-		if (!renderOutlines) {
+		if (!renderOutlines)
+		{
 			renderLeash(entity, x, y, z, entityYaw, partialTicks);
 		}
 	}
 
 	@Override
-	protected ResourceLocation getEntityTexture(EntityNafash entity) {
+	protected ResourceLocation getEntityTexture(EntityNafash entity)
+	{
 		return BASE;
 	}
 
 	@Override
-	protected void preRenderCallback(EntityNafash entitylivingbaseIn, float partialTickTime) {
+	protected void preRenderCallback(EntityNafash entitylivingbaseIn, float partialTickTime)
+	{
 		GlStateManager.scale(1.5F, 1.5F, 1.5F);
 	}
 
 	@Override
-	public void doRenderLayer(EntityNafash entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+	public void doRenderLayer(EntityNafash entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
+	{
 		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
 		ColoredLayerRender.renderDynamicGlow(this.RENDERER, entitylivingbaseIn, DYNAMICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
 	}
 
 	@Override
-	public boolean shouldCombineTextures() {
+	public boolean shouldCombineTextures()
+	{
 		return true;
 	}
 }

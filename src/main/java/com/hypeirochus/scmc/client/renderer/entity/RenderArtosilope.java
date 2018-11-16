@@ -11,14 +11,16 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderArtosilope extends RenderLiving<EntityArtosilope> implements LayerRenderer<EntityArtosilope> {
+public class RenderArtosilope extends RenderLiving<EntityArtosilope> implements LayerRenderer<EntityArtosilope>
+{
 
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.ARTOSILOPE_BASE);
 	private static final ResourceLocation STATICGLOW = new ResourceLocation(Resources.TASTELOPE_GLOW_STATIC);
 	private final RenderArtosilope RENDERER;
 	protected ModelLope model;
 
-	public RenderArtosilope(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
+	public RenderArtosilope(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
+	{
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelLope) mainModel);
 		this.RENDERER = this;
@@ -26,17 +28,20 @@ public class RenderArtosilope extends RenderLiving<EntityArtosilope> implements 
 	}
 
 	@Override
-	protected ResourceLocation getEntityTexture(EntityArtosilope entity) {
+	protected ResourceLocation getEntityTexture(EntityArtosilope entity)
+	{
 		return BASE;
 	}
 
 	@Override
-	public void doRenderLayer(EntityArtosilope entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+	public void doRenderLayer(EntityArtosilope entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
+	{
 		ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
 	}
 
 	@Override
-	public boolean shouldCombineTextures() {
+	public boolean shouldCombineTextures()
+	{
 		return true;
 	}
 }

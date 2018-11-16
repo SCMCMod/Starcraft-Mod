@@ -20,9 +20,11 @@ import net.minecraftforge.fluids.BlockFluidClassic;
  * 
  * @author Hypeirochus
  */
-public class BlockAcid extends BlockFluidClassic {
+public class BlockAcid extends BlockFluidClassic
+{
 
-	public BlockAcid() {
+	public BlockAcid()
+	{
 		super(FluidHandler.ACID, Material.WATER);
 		setUnlocalizedName("fluid.acid");
 		setRegistryName("fluid.acid");
@@ -30,30 +32,29 @@ public class BlockAcid extends BlockFluidClassic {
 	}
 
 	@Override
-	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
+	{
 		return MapColor.GREEN;
 	}
-	
+
 	@Override
-	public Vec3d getFogColor(World world, BlockPos pos, IBlockState state, Entity entity, Vec3d originalColor, float partialTicks) {
-        int color = 0xff407A19;
-        return new Vec3d((color >> 16 & 0xFF) / 255.0F, (color >> 8 & 0xFF) / 255.0F, (color & 0xFF) / 255.0F);
+	public Vec3d getFogColor(World world, BlockPos pos, IBlockState state, Entity entity, Vec3d originalColor, float partialTicks)
+	{
+		int color = 0xff407A19;
+		return new Vec3d((color >> 16 & 0xFF) / 255.0F, (color >> 8 & 0xFF) / 255.0F, (color & 0xFF) / 255.0F);
 	}
-	 
+
 	/**
 	 * Executes code when an entity collides with this block's bounds
 	 * 
-	 * @param world
-	 *            the world
-	 * @param pos
-	 *            position of the block
-	 * @param state
-	 *            state of the block
-	 * @param entity
-	 *            that collides with the block
+	 * @param world the world
+	 * @param pos position of the block
+	 * @param state state of the block
+	 * @param entity that collides with the block
 	 */
 	@Override
-	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
+	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
+	{
 		entity.attackEntityFrom(StarcraftDamageSources.acid, world.getDifficulty().getDifficultyId() + 1 + RANDOM.nextInt(2));
 	}
 }

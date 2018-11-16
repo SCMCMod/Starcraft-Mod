@@ -11,14 +11,16 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderMutaliskPrimal extends RenderLiving<EntityMutaliskPrimal> implements LayerRenderer<EntityMutaliskPrimal> {
+public class RenderMutaliskPrimal extends RenderLiving<EntityMutaliskPrimal> implements LayerRenderer<EntityMutaliskPrimal>
+{
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.MUTALISKPRIMAL_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.MUTALISKPRIMAL_OVERLAY);
 	private static final ResourceLocation STATICGLOW = new ResourceLocation(Resources.MUTALISK_GLOW_STATIC);
 	private final RenderMutaliskPrimal RENDERER;
 	protected ModelMutaliskPrimal model;
 
-	public RenderMutaliskPrimal(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
+	public RenderMutaliskPrimal(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
+	{
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelMutaliskPrimal) mainModel);
 		this.RENDERER = this;
@@ -26,31 +28,37 @@ public class RenderMutaliskPrimal extends RenderLiving<EntityMutaliskPrimal> imp
 	}
 
 	@Override
-	public void doRender(EntityMutaliskPrimal entity, double x, double y, double z, float entityYaw, float partialTicks) {
+	public void doRender(EntityMutaliskPrimal entity, double x, double y, double z, float entityYaw, float partialTicks)
+	{
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 
-		if (!renderOutlines) {
+		if (!renderOutlines)
+		{
 			renderLeash(entity, x, y, z, entityYaw, partialTicks);
 		}
 	}
 
 	@Override
-	protected ResourceLocation getEntityTexture(EntityMutaliskPrimal entity) {
+	protected ResourceLocation getEntityTexture(EntityMutaliskPrimal entity)
+	{
 		return BASE;
 	}
 
 	@Override
-	protected void preRenderCallback(EntityMutaliskPrimal entitylivingbaseIn, float partialTickTime) {
+	protected void preRenderCallback(EntityMutaliskPrimal entitylivingbaseIn, float partialTickTime)
+	{
 	}
 
 	@Override
-	public void doRenderLayer(EntityMutaliskPrimal entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+	public void doRenderLayer(EntityMutaliskPrimal entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
+	{
 		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
 	}
 
 	@Override
-	public boolean shouldCombineTextures() {
+	public boolean shouldCombineTextures()
+	{
 		return true;
 	}
 }

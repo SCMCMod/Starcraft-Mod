@@ -29,9 +29,11 @@ import net.minecraft.world.World;
  * 
  * @author Hypeirochus
  */
-public class EntityJimRaynor extends EntityTerranMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
+public class EntityJimRaynor extends EntityTerranMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase>
+{
 
-	public EntityJimRaynor(World world) {
+	public EntityJimRaynor(World world)
+	{
 		super(world);
 		setSize(0.8F, 2.2F);
 		this.setColor(EnumColors.BLUE);
@@ -39,9 +41,10 @@ public class EntityJimRaynor extends EntityTerranMob implements IMob, IRangedAtt
 		setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
 		this.initEntityAI();
 	}
-	
+
 	@Override
-	protected void initEntityAI() {
+	protected void initEntityAI()
+	{
 		tasks.addTask(1, new EntityAIAttackRanged(this, 0.75D, 17, 16.0F));
 		tasks.addTask(2, new EntityAISwimming(this));
 		tasks.addTask(3, new EntityAIWander(this, 1.0D));
@@ -53,7 +56,8 @@ public class EntityJimRaynor extends EntityTerranMob implements IMob, IRangedAtt
 	}
 
 	@Override
-	protected void dropFewItems(boolean recentlyHit, int looting) {
+	protected void dropFewItems(boolean recentlyHit, int looting)
+	{
 		ItemDrop drop = new ItemDrop(1, new ItemStack(ItemHandler.C14_GAUSS_RIFLE, 0));
 		ItemDrop drop2 = new ItemDrop(10, new ItemStack(ItemHandler.STIMPACK, 0));
 		ItemDrop drop3 = new ItemDrop(30, new ItemStack(ItemHandler.BULLET_MAGAZINE, 1 + this.rand.nextInt(1), 0));
@@ -63,7 +67,8 @@ public class EntityJimRaynor extends EntityTerranMob implements IMob, IRangedAtt
 	}
 
 	@Override
-	protected void applyEntityAttributes() {
+	protected void applyEntityAttributes()
+	{
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.32000000417232513D);
@@ -72,31 +77,39 @@ public class EntityJimRaynor extends EntityTerranMob implements IMob, IRangedAtt
 	}
 
 	/**
-	 * The method where this entity handles checks to make sure it can attack the target.
+	 * The method where this entity handles checks to make sure it can attack the
+	 * target.
 	 */
 	@Override
-	public boolean apply(EntityLivingBase entity) {
+	public boolean apply(EntityLivingBase entity)
+	{
 		return checkTarget(entity, EnumFactionTypes.RAIDERS);
 	}
 
 	@Override
-	public void attackEntityWithRangedAttack(EntityLivingBase target, float p_82196_2_) {
-		// ItemHandler.C14_GAUSS_RIFLE.onItemRightClick(world, this, EntityEquipmentSlot.MAINHAND);
+	public void attackEntityWithRangedAttack(EntityLivingBase target, float p_82196_2_)
+	{
+		// ItemHandler.C14_GAUSS_RIFLE.onItemRightClick(world, this,
+		// EntityEquipmentSlot.MAINHAND);
 	}
 
 	@Override
-	public int getTalkInterval() {
+	public int getTalkInterval()
+	{
 		return 160;
 	}
 
 	@Override
-	public SoundEvent getAmbientSound() {
+	public SoundEvent getAmbientSound()
+	{
 		return SoundHandler.ENTITY_MARINE_LIVE1;
 	}
 
 	@Override
-	public SoundEvent getDeathSound() {
-		switch (rand.nextInt(1)) {
+	public SoundEvent getDeathSound()
+	{
+		switch (rand.nextInt(1))
+		{
 		case 0:
 			return SoundHandler.ENTITY_MARINE_HURT;
 		default:
@@ -106,7 +119,8 @@ public class EntityJimRaynor extends EntityTerranMob implements IMob, IRangedAtt
 	}
 
 	@Override
-	public void setSwingingArms(boolean swingingArms) {
+	public void setSwingingArms(boolean swingingArms)
+	{
 
 	}
 }

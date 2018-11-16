@@ -9,13 +9,12 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 /**
  * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
- * 
  * <br>
  * </br>
- * 
  * Holds all the mod's fluids.
  */
-public class FluidHandler {
+public class FluidHandler
+{
 
 	public static final Fluid ACID = new Fluid("fluid.acid", new ResourceLocation(Starcraft.RL_BASE + "blocks/fluid.acid.still"), new ResourceLocation(Starcraft.RL_BASE + "blocks/fluid.acid.flowing")).setBlock(BlockHandler.ACID);
 	public static final Fluid BLOOD = new Fluid("fluid.blood", new ResourceLocation(Starcraft.RL_BASE + "blocks/fluid.blood.still"), new ResourceLocation(Starcraft.RL_BASE + "blocks/fluid.blood.flowing")).setBlock(BlockHandler.BLOOD);
@@ -26,11 +25,13 @@ public class FluidHandler {
 	/**
 	 * Registers the fluids.
 	 */
-	public static void pre(FMLPreInitializationEvent event) {
+	public static void pre(FMLPreInitializationEvent event)
+	{
 		register();
 	}
 
-	private static void register() {
+	private static void register()
+	{
 		registerFluid("fluid.acid", ACID);
 		registerFluid("fluid.blood", BLOOD);
 		registerFluid("fluid.vespene", VESPENE);
@@ -38,7 +39,8 @@ public class FluidHandler {
 		registerFluid("fluid.tar", TAR);
 	}
 
-	private static void registerFluid(String id, Fluid fluid) {
+	private static void registerFluid(String id, Fluid fluid)
+	{
 		fluid.setUnlocalizedName(id);
 		FluidRegistry.registerFluid(fluid);
 		FluidRegistry.addBucketForFluid(fluid);

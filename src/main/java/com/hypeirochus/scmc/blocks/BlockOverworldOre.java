@@ -17,13 +17,16 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class BlockOverworldOre extends StarcraftBlock {
-	
-	public BlockOverworldOre(String name, RegistryType type, Material material, int harvestLevel) {
+public class BlockOverworldOre extends StarcraftBlock
+{
+
+	public BlockOverworldOre(String name, RegistryType type, Material material, int harvestLevel)
+	{
 		this(name, type, material, material.getMaterialMapColor(), harvestLevel);
 	}
-	
-	public BlockOverworldOre(String name, RegistryType type, Material material, MapColor color, int level) {
+
+	public BlockOverworldOre(String name, RegistryType type, Material material, MapColor color, int level)
+	{
 		super(name, type, material, color);
 		setHardness(3.0F);
 		setResistance(5.0F);
@@ -33,17 +36,21 @@ public class BlockOverworldOre extends StarcraftBlock {
 	}
 
 	@Nullable
-	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+	public Item getItemDropped(IBlockState state, Random rand, int fortune)
+	{
 		return this == BlockHandler.ORE_PHOSPHORUS_OW ? ItemHandler.PHOSPHORUS : (this == BlockHandler.ORE_RICHMINERAL_OW || this == BlockHandler.ORE_MINERAL_OW ? ItemHandler.MINERAL_SHARD : Item.getItemFromBlock(this));
 	}
 
 	/**
 	 * Returns the quantity of items to drop on block destruction.
 	 */
-	public int quantityDropped(Random random) {
-		if (this == BlockHandler.ORE_RICHMINERAL_OW || this == BlockHandler.ORE_MINERAL_OW) {
+	public int quantityDropped(Random random)
+	{
+		if (this == BlockHandler.ORE_RICHMINERAL_OW || this == BlockHandler.ORE_MINERAL_OW)
+		{
 			return 4 + random.nextInt(4);
-		} else {
+		} else
+		{
 			return 1;
 		}
 	}
@@ -51,16 +58,20 @@ public class BlockOverworldOre extends StarcraftBlock {
 	/**
 	 * Get the quantity dropped based on the given fortune level
 	 */
-	public int quantityDroppedWithBonus(int fortune, Random random) {
-		if (fortune > 0 && Item.getItemFromBlock(this) != getItemDropped((IBlockState) getBlockState().getValidStates().iterator().next(), random, fortune)) {
+	public int quantityDroppedWithBonus(int fortune, Random random)
+	{
+		if (fortune > 0 && Item.getItemFromBlock(this) != getItemDropped((IBlockState) getBlockState().getValidStates().iterator().next(), random, fortune))
+		{
 			int i = random.nextInt(fortune + 2) - 1;
 
-			if (i < 0) {
+			if (i < 0)
+			{
 				i = 0;
 			}
 
 			return quantityDropped(random) * (i + 1);
-		} else {
+		} else
+		{
 			return quantityDropped(random);
 		}
 	}
@@ -68,16 +79,20 @@ public class BlockOverworldOre extends StarcraftBlock {
 	/**
 	 * Spawns this Block's drops into the World as EntityItems.
 	 */
-	public void dropBlockAsItemWithChance(World worldIn, BlockPos pos, IBlockState state, float chance, int fortune) {
+	public void dropBlockAsItemWithChance(World worldIn, BlockPos pos, IBlockState state, float chance, int fortune)
+	{
 		super.dropBlockAsItemWithChance(worldIn, pos, state, chance, fortune);
 	}
 
 	@Override
-	public int getExpDrop(IBlockState state, net.minecraft.world.IBlockAccess world, BlockPos pos, int fortune) {
+	public int getExpDrop(IBlockState state, net.minecraft.world.IBlockAccess world, BlockPos pos, int fortune)
+	{
 		Random rand = world instanceof World ? ((World) world).rand : new Random();
-		if (getItemDropped(state, rand, fortune) != Item.getItemFromBlock(this)) {
+		if (getItemDropped(state, rand, fortune) != Item.getItemFromBlock(this))
+		{
 			int i = 0;
-			if (this == BlockHandler.ORE_RICHMINERAL_OW || this == BlockHandler.ORE_MINERAL_OW) {
+			if (this == BlockHandler.ORE_RICHMINERAL_OW || this == BlockHandler.ORE_MINERAL_OW)
+			{
 				i = MathHelper.getInt(rand, 0, 2);
 			}
 			return i;
@@ -90,7 +105,8 @@ public class BlockOverworldOre extends StarcraftBlock {
 	 * the block gets destroyed. It returns the metadata of the dropped item based
 	 * on the old metadata of the block.
 	 */
-	public int damageDropped(IBlockState state) {
+	public int damageDropped(IBlockState state)
+	{
 		return this == BlockHandler.ORE_RICHMINERAL_OW ? 1 : 0;
 	}
 }

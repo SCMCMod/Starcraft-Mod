@@ -33,7 +33,8 @@ import net.minecraft.world.World;
 /**
  * This block has three variants. Refer to {@link ZergFleshType}
  */
-public class BlockZergFlesh extends StarcraftBlock implements IMetaBlockName, IMetaRenderHandler {
+public class BlockZergFlesh extends StarcraftBlock implements IMetaBlockName, IMetaRenderHandler
+{
 
 	/** The type property */
 	public static final PropertyEnum<ZergFleshType> TYPE = PropertyEnum.create("type", ZergFleshType.class);
@@ -42,12 +43,12 @@ public class BlockZergFlesh extends StarcraftBlock implements IMetaBlockName, IM
 	/**
 	 * Default constructor
 	 * 
-	 * @param unlocalizedName
-	 *            The block's unlocalized name
-	 * @param registryName
-	 *            The block's registry name - defaultly the unlocalized name
+	 * @param unlocalizedName The block's unlocalized name
+	 * @param registryName The block's registry name - defaultly the unlocalized
+	 *        name
 	 */
-	public BlockZergFlesh() {
+	public BlockZergFlesh()
+	{
 		super("zerg.flesh", RegistryType.META, MaterialHandler.FLESH);
 		setSoundType(SoundTypes.FLESH);
 		setResistance(5.0F);
@@ -58,12 +59,14 @@ public class BlockZergFlesh extends StarcraftBlock implements IMetaBlockName, IM
 	}
 
 	@Override
-	public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos) {
+	public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos)
+	{
 		return state.getValue(TYPE).getMapColor();
 	}
 
 	@Override
-	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+	public Item getItemDropped(IBlockState state, Random rand, int fortune)
+	{
 		return ItemHandler.ORGANIC_TISSUE;
 	}
 
@@ -71,15 +74,18 @@ public class BlockZergFlesh extends StarcraftBlock implements IMetaBlockName, IM
 	 * Adds the properties to the block
 	 */
 	@Override
-	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] { TYPE });
+	protected BlockStateContainer createBlockState()
+	{
+		return new BlockStateContainer(this, new IProperty[]
+		{ TYPE });
 	}
 
 	/**
 	 * Gets the right meta data from the {@link IBlockState}
 	 */
 	@Override
-	public int getMetaFromState(IBlockState state) {
+	public int getMetaFromState(IBlockState state)
+	{
 		ZergFleshType type = state.getValue(TYPE);
 		return type.getID();
 	}
@@ -88,7 +94,8 @@ public class BlockZergFlesh extends StarcraftBlock implements IMetaBlockName, IM
 	 * Makes sure when you pick block it will work correctly
 	 */
 	@Override
-	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
+	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
+	{
 		return new ItemStack(Item.getItemFromBlock(this), 1, getMetaFromState(state));
 	}
 
@@ -96,7 +103,8 @@ public class BlockZergFlesh extends StarcraftBlock implements IMetaBlockName, IM
 	 * Inherited from the {@link IMetaBlockName}
 	 */
 	@Override
-	public String getSpecialName(ItemStack stack) {
+	public String getSpecialName(ItemStack stack)
+	{
 		return ZergFleshType.values()[stack.getItemDamage()].getName();
 	}
 
@@ -104,69 +112,84 @@ public class BlockZergFlesh extends StarcraftBlock implements IMetaBlockName, IM
 	 * Gets the correct {@link IBlockState} from the meta data
 	 */
 	@Override
-	public IBlockState getStateFromMeta(int meta) {
+	public IBlockState getStateFromMeta(int meta)
+	{
 		return getDefaultState().withProperty(TYPE, ZergFleshType.values()[meta]);
 	}
 
 	@Override
-	public void getSubBlocks(CreativeTabs item, NonNullList<ItemStack> items) {
-		for (int i = 0; i < ZergFleshType.values().length; i++) {
+	public void getSubBlocks(CreativeTabs item, NonNullList<ItemStack> items)
+	{
+		for (int i = 0; i < ZergFleshType.values().length; i++)
+		{
 			items.add(new ItemStack(this, 1, i));
 		}
 	}
 
 	@Override
-	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
-		if (!worldIn.isRemote && this.RANDOM.nextInt(100) < 10) {
+	public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
+	{
+		if (!worldIn.isRemote && this.RANDOM.nextInt(100) < 10)
+		{
 			EntityBroodling broodling = new EntityBroodling(worldIn, EnumColors.getColorStarcraft(this.getMetaFromState(state)));
 			broodling.setPositionAndRotation(pos.getX(), pos.getY(), pos.getZ(), 0, 0);
 			worldIn.spawnEntity(broodling);
-		} else if (this.RANDOM.nextInt(100) > 99) {
+		} else if (this.RANDOM.nextInt(100) > 99)
+		{
 			BlockPos pos2 = pos;
 			worldIn.setBlockState(pos2, BlockHandler.BLOOD.getDefaultState());
 		}
 		super.breakBlock(worldIn, pos, state);
 	}
 
-	public static enum ZergFleshType implements IStringSerializable {
-		PURPLE("purple", 0, MapColor.PURPLE), BROWN("brown", 1, MapColor.BROWN), PINK("pink", 2, MapColor.PINK), BLUE("blue", 3, MapColor.BLUE), CYAN("cyan", 4, MapColor.CYAN), GRAY("gray", 5, MapColor.GRAY), GREEN("green", 6, MapColor.GREEN), LIGHT_BLUE("lightblue", 7, MapColor.LIGHT_BLUE), LIME("lime", 8, MapColor.LIME), MAGENTA("magenta", 9, MapColor.MAGENTA), ORANGE("orange", 10, MapColor.ADOBE), RED("red", 11, MapColor.RED), SILVER("silver", 12, MapColor.SILVER), WHITE("white", 13, MapColor.SNOW), YELLOW("yellow", 14, MapColor.YELLOW);
+	public static enum ZergFleshType implements IStringSerializable
+	{
+		PURPLE("purple", 0, MapColor.PURPLE), BROWN("brown", 1, MapColor.BROWN), PINK("pink", 2, MapColor.PINK), BLUE("blue", 3, MapColor.BLUE), CYAN("cyan", 4, MapColor.CYAN), GRAY("gray", 5, MapColor.GRAY), GREEN("green", 6, MapColor.GREEN), LIGHT_BLUE("lightblue", 7, MapColor.LIGHT_BLUE),
+		LIME("lime", 8, MapColor.LIME), MAGENTA("magenta", 9, MapColor.MAGENTA), ORANGE("orange", 10, MapColor.ADOBE), RED("red", 11, MapColor.RED), SILVER("silver", 12, MapColor.SILVER), WHITE("white", 13, MapColor.SNOW), YELLOW("yellow", 14, MapColor.YELLOW);
 
 		private int ID;
 		private String name;
 		private MapColor color;
 
-		private ZergFleshType(String name, int ID, MapColor color) {
+		private ZergFleshType(String name, int ID, MapColor color)
+		{
 			this.ID = ID;
 			this.name = name;
 			this.color = color;
 		}
 
-		public int getID() {
+		public int getID()
+		{
 			return ID;
 		}
 
 		@Override
-		public String getName() {
+		public String getName()
+		{
 			return name;
 		}
 
-		public MapColor getMapColor() {
+		public MapColor getMapColor()
+		{
 			return color;
 		}
 
 		@Override
-		public String toString() {
+		public String toString()
+		{
 			return getName();
 		}
 	}
 
 	@Override
-	public int getItemCount() {
+	public int getItemCount()
+	{
 		return ZergFleshType.values().length;
 	}
 
 	@Override
-	public String getName(int meta) {
+	public String getName(int meta)
+	{
 		return "zerg.flesh." + ZergFleshType.values()[meta].getName();
 	}
 }

@@ -19,17 +19,18 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
- * 
  * <br>
  * </br>
- * 
- * Allows for gas blocks to extend a class that will handle all the default behaviors.
+ * Allows for gas blocks to extend a class that will handle all the default
+ * behaviors.
  * 
  * @author Ocelot5836
  */
-public abstract class BlockGas extends BlockGlass {
+public abstract class BlockGas extends BlockGlass
+{
 
-	public BlockGas(Material material, String name) {
+	public BlockGas(Material material, String name)
+	{
 		super(material, false);
 		setRegistryName(name);
 		setUnlocalizedName(name);
@@ -40,12 +41,14 @@ public abstract class BlockGas extends BlockGlass {
 	}
 
 	@Override
-	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
+	{
 		return MapColor.AIR;
 	}
 
 	@Override
-	public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
+	public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand)
+	{
 		displayParticles(state, world, pos, rand);
 	}
 
@@ -53,25 +56,26 @@ public abstract class BlockGas extends BlockGlass {
 	/**
 	 * Used to render particles around the gas if need be.
 	 * 
-	 * @param state
-	 *            The current state
-	 * @param world
-	 *            The world to display in
-	 * @param pos
-	 *            The position of the block
-	 * @param rand
-	 *            A random instance
+	 * @param state The current state
+	 * @param world The world to display in
+	 * @param pos The position of the block
+	 * @param rand A random instance
 	 */
-	public void displayParticles(IBlockState state, World world, BlockPos pos, Random rand) {
+	public void displayParticles(IBlockState state, World world, BlockPos pos, Random rand)
+	{
 	}
 
 	@Override
-	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
-		if (world.getBlockState(pos.up()) == Blocks.AIR.getDefaultState()) {
-			if (pos.getY() <= 150) {
+	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand)
+	{
+		if (world.getBlockState(pos.up()) == Blocks.AIR.getDefaultState())
+		{
+			if (pos.getY() <= 150)
+			{
 				world.setBlockState(pos.up(), getDefaultState());
 				world.setBlockState(pos, Blocks.AIR.getDefaultState());
-			} else {
+			} else
+			{
 				world.setBlockState(pos, Blocks.AIR.getDefaultState());
 			}
 			super.updateTick(world, pos, state, rand);
@@ -79,7 +83,8 @@ public abstract class BlockGas extends BlockGlass {
 	}
 
 	@Override
-	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
+	{
 		return NULL_AABB;
 	}
 }

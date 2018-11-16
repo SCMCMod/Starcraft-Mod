@@ -23,20 +23,24 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 
 //TODO: MOVE TO CORE MOD, there is some useful functionality here.
-public class NetworkHandler {
+public class NetworkHandler
+{
 
 	public static final SimpleNetworkWrapper INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel(Starcraft.MOD_ID);
 
 	private static int nextId = 0;
 
-	public static void pre(FMLPreInitializationEvent event) {
+	public static void pre(FMLPreInitializationEvent event)
+	{
 		registerServer();
-		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+		if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
+		{
 			registerClient();
 		}
 	}
 
-	private static void registerServer() {
+	private static void registerServer()
+	{
 		registerMessage(new MessageMorphLarva(), MessageMorphLarva.class, Side.SERVER);
 		registerMessage(new MessageSpawnItem(), MessageSpawnItem.class, Side.SERVER);
 		registerMessage(new MessageSetPlayerShieldServer(), MessageSetPlayerShieldServer.class, Side.SERVER);
@@ -46,34 +50,41 @@ public class NetworkHandler {
 		registerMessage(new MessageShipAbility.Handler(), MessageShipAbility.class, Side.SERVER);
 	}
 
-	private static void registerClient() {
+	private static void registerClient()
+	{
 		registerMessage(new MessageSyncLarvaGui(), MessageSyncLarvaGui.class, Side.CLIENT);
 		registerMessage(new MessageSyncLarvaCocoonGui(), MessageSyncLarvaCocoonGui.class, Side.CLIENT);
 		registerMessage(new MessageSetPlayerShieldClient(), MessageSetPlayerShieldClient.class, Side.CLIENT);
 		registerMessage(new MessageReturnFurnaceData.Handler(), MessageReturnFurnaceData.class, Side.CLIENT);
 	}
 
-	private static void registerMessage(IMessageHandler messageHandler, Class requestMessageType, Side side) {
+	private static void registerMessage(IMessageHandler messageHandler, Class requestMessageType, Side side)
+	{
 		INSTANCE.registerMessage(messageHandler, requestMessageType, nextId++, side);
 	}
 
-	private static void registerMessage(Class messageHandler, Class requestMessageType, Side side) {
+	private static void registerMessage(Class messageHandler, Class requestMessageType, Side side)
+	{
 		INSTANCE.registerMessage(messageHandler, requestMessageType, nextId++, side);
 	}
 
-	public static void sendToServer(IMessage message) {
+	public static void sendToServer(IMessage message)
+	{
 		INSTANCE.sendToServer(message);
 	}
 
-	public static void sendToAllClients(IMessage message) {
+	public static void sendToAllClients(IMessage message)
+	{
 		INSTANCE.sendToAll(message);
 	}
 
-	public static void sendToClient(IMessage message, EntityPlayerMP player) {
+	public static void sendToClient(IMessage message, EntityPlayerMP player)
+	{
 		INSTANCE.sendTo(message, player);
 	}
 
-	public static void getPacketFrom(IMessage message) {
+	public static void getPacketFrom(IMessage message)
+	{
 		INSTANCE.getPacketFrom(message);
 	}
 }

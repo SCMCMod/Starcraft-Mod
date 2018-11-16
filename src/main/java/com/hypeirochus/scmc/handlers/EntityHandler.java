@@ -77,26 +77,27 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /**
  * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
- * 
  * <br>
  * </br>
- * 
  * Handles all the entities and tile entities in Starcraft.
  * 
  * @author Ocelot5836
  */
-public class EntityHandler {
+public class EntityHandler
+{
 
 	private static List<Class<? extends TileEntity>> tileEntities;
 
 	/** The current entity id */
 	private static int entityID = 0;
 
-	public static void pre(FMLPreInitializationEvent event) {
+	public static void pre(FMLPreInitializationEvent event)
+	{
 		registerEntities();
 	}
 
-	public static void init(FMLInitializationEvent event) {
+	public static void init(FMLInitializationEvent event)
+	{
 		registerTileEntities();
 		registerSpawns();
 	}
@@ -104,20 +105,24 @@ public class EntityHandler {
 	/**
 	 * A temporary method until an event for registering tile entities is added.
 	 */
-	private static void registerTileEntities() {
+	private static void registerTileEntities()
+	{
 		Class[] tileEntities = getTileEntities();
-		for (int i = 0; i < tileEntities.length; i++) {
+		for (int i = 0; i < tileEntities.length; i++)
+		{
 			GameRegistry.registerTileEntity(tileEntities[i], Starcraft.RL_BASE + tileEntities[i].getSimpleName());
 		}
 	}
 
-	private static void init() {
+	private static void init()
+	{
 		tileEntities = new ArrayList<Class<? extends TileEntity>>();
 
 		instantiateTileEntities();
 	}
 
-	private static void instantiateTileEntities() {
+	private static void instantiateTileEntities()
+	{
 		registerTileEntity(TileEntityBrambles.class);
 		registerTileEntity(TileEntityEntitySpawner.class);
 		registerTileEntity(TileEntityGasCollector.class);
@@ -136,18 +141,19 @@ public class EntityHandler {
 	/**
 	 * Registers the specified entities.
 	 */
-	private static void registerEntities() {
+	private static void registerEntities()
+	{
 		registerEntity(EntityZealot.class, "zealot", 64, 1, true, 13022529, 2412228);
 		registerEntity(EntityProtossReaver.class, "protossReaver", 64, 1, true, 13022529, 2412228);
 		registerEntity(EntityScarab.class, "scarab", 64, 1, true);
 		registerEntity(EntityProbe.class, "probe", 64, 1, true, 13022529, 2412228);
 		registerEntity(EntityDarkTemplar.class, "darkTemplar", 64, 1, true, 5066061, 45824);
 		registerEntity(EntityVoidProbe.class, "voidProbe", 64, 1, true, 1447446, 45824);
-		
+
 		registerEntity(EntityDarkProbe.class, "darkProbe", 64, 1, true, 1447446, 13369344);
 
 		registerEntity(EntityPurifierProbe.class, "purifierProbe", 64, 1, true, 13092807, 16019722);
-		
+
 		registerEntity(EntityZeratul.class, "zeratul", 64, 1, true, 5066061, 45824);
 
 		registerEntity(EntityBrutalisk.class, "brutalisk", 64, 1, true, 11403519, 7684608);
@@ -199,7 +205,8 @@ public class EntityHandler {
 	/**
 	 * Adds the entity's spawn location.
 	 */
-	public static void registerSpawns() {
+	public static void registerSpawns()
+	{
 		EntityRegistry.addSpawn(EntityZealot.class, 25, 1, 2, EnumCreatureType.MONSTER, BiomeHandler.biomeShakurasProtossCity, BiomeHandler.biomeKaldirProtossCity);
 		EntityRegistry.addSpawn(EntityProbe.class, 7, 1, 3, EnumCreatureType.CREATURE, BiomeHandler.biomeShakurasProtossCity, BiomeHandler.biomeKaldirProtossCity);
 		EntityRegistry.addSpawn(EntityProtossReaver.class, 1, 1, 1, EnumCreatureType.MONSTER, BiomeHandler.biomeShakurasProtossCity, BiomeHandler.biomeKaldirProtossCity);
@@ -239,7 +246,7 @@ public class EntityHandler {
 		EntityRegistry.addSpawn(EntityMutaliskPrimal.class, 20, 1, 1, EnumCreatureType.MONSTER, BiomeHandler.biomeZerusJungle);
 		EntityRegistry.addSpawn(EntityHydraliskPrimal.class, 20, 1, 1, EnumCreatureType.MONSTER, BiomeHandler.biomeZerusJungle);
 		EntityRegistry.addSpawn(EntityArtosilope.class, 7, 1, 1, EnumCreatureType.CREATURE, BiomeHandler.biomeZerusJungle);
-		
+
 		EntityRegistry.addSpawn(EntityKakaru.class, 7, 1, 1, EnumCreatureType.CREATURE, BiomeHandler.biomeShakurasHills, BiomeHandler.biomeShakurasMountains);
 
 		EntityRegistry.addSpawn(EntityTastelope.class, 7, 1, 1, EnumCreatureType.CREATURE, BiomeHandler.biomeKaldirIcePlains, BiomeHandler.biomeKaldirSnowPlains);
@@ -251,40 +258,32 @@ public class EntityHandler {
 	/**
 	 * Registers an entity.
 	 * 
-	 * @param entityClass
-	 *            The entity class
-	 * @param entityName
-	 *            A unique name for the entity
-	 * @param trackingRange
-	 *            The range at which MC will send tracking updates
-	 * @param updateFrequency
-	 *            The frequency of tracking updates
-	 * @param sendsVelocityUpdates
-	 *            Whether to send velocity information packets as well
+	 * @param entityClass The entity class
+	 * @param entityName A unique name for the entity
+	 * @param trackingRange The range at which MC will send tracking updates
+	 * @param updateFrequency The frequency of tracking updates
+	 * @param sendsVelocityUpdates Whether to send velocity information packets as
+	 *        well
 	 */
-	private static void registerEntity(Class<? extends Entity> entityClass, String entityName, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates) {
+	private static void registerEntity(Class<? extends Entity> entityClass, String entityName, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates)
+	{
 		EntityRegistry.registerModEntity(new ResourceLocation(Starcraft.RL_BASE + entityName), entityClass, entityName, entityID++, Starcraft.instance, trackingRange, updateFrequency, sendsVelocityUpdates);
 	}
 
 	/**
 	 * Registers an entity and an egg.
 	 * 
-	 * @param entityClass
-	 *            The entity class
-	 * @param entityName
-	 *            A unique name for the entity
-	 * @param trackingRange
-	 *            The range at which MC will send tracking updates
-	 * @param updateFrequency
-	 *            The frequency of tracking updates
-	 * @param sendsVelocityUpdates
-	 *            Whether to send velocity information packets as well
-	 * @param primaryColor
-	 *            The primary color for the egg
-	 * @param secondaryColor
-	 *            The secondary color for the egg
+	 * @param entityClass The entity class
+	 * @param entityName A unique name for the entity
+	 * @param trackingRange The range at which MC will send tracking updates
+	 * @param updateFrequency The frequency of tracking updates
+	 * @param sendsVelocityUpdates Whether to send velocity information packets as
+	 *        well
+	 * @param primaryColor The primary color for the egg
+	 * @param secondaryColor The secondary color for the egg
 	 */
-	private static void registerEntity(Class<? extends Entity> entityClass, String entityName, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates, int primaryColor, int secondaryColor) {
+	private static void registerEntity(Class<? extends Entity> entityClass, String entityName, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates, int primaryColor, int secondaryColor)
+	{
 		ResourceLocation name = new ResourceLocation(Starcraft.RL_BASE + entityName);
 		EntityRegistry.registerModEntity(name, entityClass, entityName, entityID++, Starcraft.instance, trackingRange, updateFrequency, sendsVelocityUpdates);
 		EntityRegistry.registerEgg(name, primaryColor, secondaryColor);
@@ -293,10 +292,10 @@ public class EntityHandler {
 	/**
 	 * Registers a tile entity.
 	 * 
-	 * @param te
-	 *            The tile entity to register
+	 * @param te The tile entity to register
 	 */
-	public static void registerTileEntity(Class te) {
+	public static void registerTileEntity(Class te)
+	{
 		tileEntities.add(te);
 	}
 
@@ -305,7 +304,8 @@ public class EntityHandler {
 	 * 
 	 * @return The list of registered tile entities
 	 */
-	public static Class<? extends TileEntity>[] getTileEntities() {
+	public static Class<? extends TileEntity>[] getTileEntities()
+	{
 		if (tileEntities == null)
 			init();
 		return tileEntities.toArray(new Class[tileEntities.size()]);

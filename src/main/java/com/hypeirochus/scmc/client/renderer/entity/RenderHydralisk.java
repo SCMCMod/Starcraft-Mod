@@ -12,7 +12,8 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderHydralisk extends RenderLiving<EntityHydralisk> implements LayerRenderer<EntityHydralisk> {
+public class RenderHydralisk extends RenderLiving<EntityHydralisk> implements LayerRenderer<EntityHydralisk>
+{
 
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.HYDRALISK_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.HYDRALISK_OVERLAY);
@@ -21,7 +22,8 @@ public class RenderHydralisk extends RenderLiving<EntityHydralisk> implements La
 
 	protected ModelHydralisk model;
 
-	public RenderHydralisk(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
+	public RenderHydralisk(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
+	{
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelHydralisk) mainModel);
 		this.RENDERER = this;
@@ -29,36 +31,43 @@ public class RenderHydralisk extends RenderLiving<EntityHydralisk> implements La
 	}
 
 	@Override
-	public void doRender(EntityHydralisk entity, double x, double y, double z, float entityYaw, float partialTicks) {
+	public void doRender(EntityHydralisk entity, double x, double y, double z, float entityYaw, float partialTicks)
+	{
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 
-		if (!renderOutlines) {
+		if (!renderOutlines)
+		{
 			renderLeash(entity, x, y, z, entityYaw, partialTicks);
 		}
 	}
 
 	@Override
-	protected ResourceLocation getEntityTexture(EntityHydralisk entity) {
+	protected ResourceLocation getEntityTexture(EntityHydralisk entity)
+	{
 		return BASE;
 	}
 
 	@Override
-	protected void preRenderCallback(EntityHydralisk entitylivingbaseIn, float partialTickTime) {
+	protected void preRenderCallback(EntityHydralisk entitylivingbaseIn, float partialTickTime)
+	{
 		GlStateManager.scale(1.3F + (entitylivingbaseIn.getBiomass() / 60), 1.3F + (entitylivingbaseIn.getBiomass() / 60), 1.3F + (entitylivingbaseIn.getBiomass() / 60));
-	
-		if(entitylivingbaseIn.getBurrowState() == true) {
+
+		if (entitylivingbaseIn.getBurrowState() == true)
+		{
 			GlStateManager.translate(0, 2.0F, 0);
 		}
 	}
 
 	@Override
-	public void doRenderLayer(EntityHydralisk entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+	public void doRenderLayer(EntityHydralisk entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
+	{
 		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
 	}
 
 	@Override
-	public boolean shouldCombineTextures() {
+	public boolean shouldCombineTextures()
+	{
 		return true;
 	}
 }

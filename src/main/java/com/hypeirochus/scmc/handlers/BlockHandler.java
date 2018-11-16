@@ -80,7 +80,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
 
-public class BlockHandler {
+public class BlockHandler
+{
 
 	public static List<Block> blocks;
 	public static List<ItemBlock> items;
@@ -278,19 +279,22 @@ public class BlockHandler {
 
 	// Slabs
 
-	private static void init() {
+	private static void init()
+	{
 		blocks = new ArrayList<Block>();
 		items = new ArrayList<ItemBlock>();
 		MaterialHandler.init();
 
 		instantiate();
 
-		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+		if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
+		{
 			RenderHandler.createStateMappers();
 		}
 	}
 
-	private static void instantiate() {
+	private static void instantiate()
+	{
 
 		// Fluids
 		ACID = new BlockAcid().setCreativeTab(null);
@@ -480,38 +484,39 @@ public class BlockHandler {
 		FLORA_BRAMBLES = new BlockBrambles();
 		registerBlockWithItemBlock(FLORA_BRAMBLES, new ItemBlockBrambles());
 		FLORA_ZERUS_LIGHTCAP = new BlockZerusLightcap();
-		
+
 		// Testing
-		
+
 	}
 
 	/**
 	 * Registers a block.
 	 * 
-	 * @param block
-	 *            The block to register
+	 * @param block The block to register
 	 */
-	public static void register(Block block) {
+	public static void register(Block block)
+	{
 		blocks.add(block);
 	}
 
 	/**
 	 * Registers an item block.
 	 * 
-	 * @param item
-	 *            The item block to register
+	 * @param item The item block to register
 	 */
-	public static void register(ItemBlock item) {
+	public static void register(ItemBlock item)
+	{
 		items.add(item);
 	}
 
 	/**
-	 * Registers the block specified as well as an item block that represents the block.
+	 * Registers the block specified as well as an item block that represents the
+	 * block.
 	 * 
-	 * @param block
-	 *            The block to register
+	 * @param block The block to register
 	 */
-	public static void registerFullBlock(Block block) {
+	public static void registerFullBlock(Block block)
+	{
 		register(block);
 		ItemBlock item = new ItemBlock(block);
 		item.setRegistryName(block.getRegistryName());
@@ -519,14 +524,14 @@ public class BlockHandler {
 	}
 
 	/**
-	 * Registers the block specified as well as a custom specified item block that represents the block.
+	 * Registers the block specified as well as a custom specified item block that
+	 * represents the block.
 	 * 
-	 * @param block
-	 *            The block to register
-	 * @param item
-	 *            The item block to link to this block
+	 * @param block The block to register
+	 * @param item The item block to link to this block
 	 */
-	public static void registerBlockWithItemBlock(Block block, ItemBlock item) {
+	public static void registerBlockWithItemBlock(Block block, ItemBlock item)
+	{
 		register(block);
 		item.setRegistryName(block.getRegistryName());
 		register(item);
@@ -537,7 +542,8 @@ public class BlockHandler {
 	 * 
 	 * @return The list of blocks to be registered
 	 */
-	public static Block[] getBlocks() {
+	public static Block[] getBlocks()
+	{
 		if (blocks == null)
 			init();
 		return blocks.toArray(new Block[blocks.size()]);
@@ -548,7 +554,8 @@ public class BlockHandler {
 	 * 
 	 * @return The list of item blocks to be registered
 	 */
-	public static ItemBlock[] getItems() {
+	public static ItemBlock[] getItems()
+	{
 		if (items == null)
 			init();
 		return items.toArray(new ItemBlock[items.size()]);

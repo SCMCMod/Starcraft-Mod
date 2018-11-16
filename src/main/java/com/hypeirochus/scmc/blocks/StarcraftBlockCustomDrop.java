@@ -11,28 +11,34 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
 //TODO: MOVE TO CORE MOD, AND make this generically named.
-public class StarcraftBlockCustomDrop extends StarcraftBlock {
+public class StarcraftBlockCustomDrop extends StarcraftBlock
+{
 
 	private final ItemStack[] droppedItems;
 
-	public StarcraftBlockCustomDrop(Material material, ItemStack... drops) {
+	public StarcraftBlockCustomDrop(Material material, ItemStack... drops)
+	{
 		super(material);
 		this.droppedItems = drops;
 	}
 
-	public StarcraftBlockCustomDrop(String name, RegistryType type, Material material, MapColor color, ItemStack... drops) {
+	public StarcraftBlockCustomDrop(String name, RegistryType type, Material material, MapColor color, ItemStack... drops)
+	{
 		super(name, type, material, color);
 		this.droppedItems = drops;
 	}
 
-	public StarcraftBlockCustomDrop(RegistryType type, Material material, MapColor color, ItemStack... drops) {
+	public StarcraftBlockCustomDrop(RegistryType type, Material material, MapColor color, ItemStack... drops)
+	{
 		super(type, material, color);
 		this.droppedItems = drops;
 	}
 
 	@Override
-	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
-		if (droppedItems != null) {
+	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
+	{
+		if (droppedItems != null)
+		{
 			drops.addAll(Arrays.asList(droppedItems));
 		}
 	}

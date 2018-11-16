@@ -23,9 +23,11 @@ import net.minecraftforge.fluids.BlockFluidClassic;
  * 
  * @author Hypeirochus
  */
-public class BlockVespene extends BlockFluidClassic {
+public class BlockVespene extends BlockFluidClassic
+{
 
-	public BlockVespene() {
+	public BlockVespene()
+	{
 		super(FluidHandler.VESPENE, Material.WATER);
 		setUnlocalizedName("fluid.vespene");
 		setRegistryName("fluid.vespene");
@@ -33,25 +35,31 @@ public class BlockVespene extends BlockFluidClassic {
 	}
 
 	@Override
-	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
+	{
 		return MapColor.GREEN;
 	}
 
 	@Override
-	public Vec3d getFogColor(World world, BlockPos pos, IBlockState state, Entity entity, Vec3d originalColor, float partialTicks) {
+	public Vec3d getFogColor(World world, BlockPos pos, IBlockState state, Entity entity, Vec3d originalColor, float partialTicks)
+	{
 		int color = 0xff55B43D;
 		return new Vec3d((color >> 16 & 0xFF) / 255.0F, (color >> 8 & 0xFF) / 255.0F, (color & 0xFF) / 255.0F);
 	}
 
 	@Override
-	public int tickRate(World world) {
+	public int tickRate(World world)
+	{
 		return 120;
 	}
 
 	@Override
-	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
-		if (world.getBlockState(pos.up()) == Blocks.AIR.getDefaultState()) {
-			if (rand.nextInt(100) < 25) {
+	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand)
+	{
+		if (world.getBlockState(pos.up()) == Blocks.AIR.getDefaultState())
+		{
+			if (rand.nextInt(100) < 25)
+			{
 				world.setBlockState(pos.up(), BlockHandler.GAS_VESPENE.getDefaultState());
 			}
 		}
@@ -59,7 +67,8 @@ public class BlockVespene extends BlockFluidClassic {
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
+	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
+	{
 		entity.attackEntityFrom(StarcraftDamageSources.poisonFluid, 4);
 	}
 }

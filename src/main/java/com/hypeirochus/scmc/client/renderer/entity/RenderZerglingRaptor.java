@@ -12,7 +12,8 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderZerglingRaptor extends RenderLiving<EntityZerglingRaptor> implements LayerRenderer<EntityZerglingRaptor> {
+public class RenderZerglingRaptor extends RenderLiving<EntityZerglingRaptor> implements LayerRenderer<EntityZerglingRaptor>
+{
 
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.ZERGLINGRAPTOR_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.ZERGLING_OVERLAY);
@@ -20,7 +21,8 @@ public class RenderZerglingRaptor extends RenderLiving<EntityZerglingRaptor> imp
 	private final RenderZerglingRaptor RENDERER;
 	protected ModelZerglingRaptor model;
 
-	public RenderZerglingRaptor(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
+	public RenderZerglingRaptor(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
+	{
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelZerglingRaptor) mainModel);
 		this.RENDERER = this;
@@ -28,36 +30,43 @@ public class RenderZerglingRaptor extends RenderLiving<EntityZerglingRaptor> imp
 	}
 
 	@Override
-	public void doRender(EntityZerglingRaptor entity, double x, double y, double z, float entityYaw, float partialTicks) {
+	public void doRender(EntityZerglingRaptor entity, double x, double y, double z, float entityYaw, float partialTicks)
+	{
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 
-		if (!renderOutlines) {
+		if (!renderOutlines)
+		{
 			renderLeash(entity, x, y, z, entityYaw, partialTicks);
 		}
 	}
 
 	@Override
-	protected ResourceLocation getEntityTexture(EntityZerglingRaptor entity) {
+	protected ResourceLocation getEntityTexture(EntityZerglingRaptor entity)
+	{
 		return BASE;
 	}
 
 	@Override
-	protected void preRenderCallback(EntityZerglingRaptor entitylivingbaseIn, float partialTickTime) {
+	protected void preRenderCallback(EntityZerglingRaptor entitylivingbaseIn, float partialTickTime)
+	{
 		GlStateManager.scale(1.25F + (entitylivingbaseIn.getBiomass() / 60), 1.25F + (entitylivingbaseIn.getBiomass() / 60), 1.25F + (entitylivingbaseIn.getBiomass() / 60));
-	
-		if(entitylivingbaseIn.getBurrowState() == true) {
+
+		if (entitylivingbaseIn.getBurrowState() == true)
+		{
 			GlStateManager.translate(0, 0.6F, 0);
 		}
 	}
 
 	@Override
-	public void doRenderLayer(EntityZerglingRaptor entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+	public void doRenderLayer(EntityZerglingRaptor entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
+	{
 		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
 	}
 
 	@Override
-	public boolean shouldCombineTextures() {
+	public boolean shouldCombineTextures()
+	{
 		return true;
 	}
 }

@@ -12,120 +12,122 @@ import net.minecraft.util.math.MathHelper;
 /**
  * zerglingSC2Raptor - cybercat5555 Created using Tabula 5.1.0
  */
-public class ModelZerglingRaptor extends Model {
+public class ModelZerglingRaptor extends Model
+{
 
-	public ModelRenderer	chest;
-	public ModelRenderer	head1;
-	public ModelRenderer	head2;
-	public ModelRenderer	jawUpper;
-	public ModelRenderer	lArm1;
-	public ModelRenderer	lArm2;
-	public ModelRenderer	lArmClaw1a;
-	public ModelRenderer	lArmClaw1b;
-	public ModelRenderer	lArmClaw1b_1;
-	public ModelRenderer	lArmClaw1c;
-	public ModelRenderer	lArmClaw2;
-	public ModelRenderer	lArmClaw3a;
-	public ModelRenderer	lArmClaw3b;
-	public ModelRenderer	lArmClaw3b_1;
-	public ModelRenderer	lArmClaw3c;
-	public ModelRenderer	lArmClaw4;
-	public ModelRenderer	lbWing1;
-	public ModelRenderer	lbWing2;
-	public ModelRenderer	lbWing3;
-	public ModelRenderer	lbWing4;
-	public ModelRenderer	lFoot;
-	public ModelRenderer	lHoof1a;
-	public ModelRenderer	lHoof1b;
-	public ModelRenderer	lHoof1c;
-	public ModelRenderer	lHoof1d;
-	public ModelRenderer	lHoof2;
-	public ModelRenderer	lHookArm1;
-	public ModelRenderer	lHookArm3;
-	public ModelRenderer	lHookArmClaw0;
-	public ModelRenderer	lHookArmClaw1a;
-	public ModelRenderer	lHookArmClaw1b;
-	public ModelRenderer	lHookArmClaw1b_1;
-	public ModelRenderer	lHookArmClaw1b_2;
-	public ModelRenderer	lHookArmClaw1c;
-	public ModelRenderer	lHookArmClaw2;
-	public ModelRenderer	lHookArmClaw3;
-	public ModelRenderer	lHookArmClaw4a;
-	public ModelRenderer	lHookArmClaw4b;
-	public ModelRenderer	lHookArmClaw4b_1;
-	public ModelRenderer	lHookArmClaw4c;
-	public ModelRenderer	lHookArmClaw5;
-	public ModelRenderer	lLeg1;
-	public ModelRenderer	lLeg2;
-	public ModelRenderer	lLegPlate;
-	public ModelRenderer	lLegPlate_1;
-	public ModelRenderer	lowerbody;
-	public ModelRenderer	lowerJaw;
-	public ModelRenderer	lShoulder;
-	public ModelRenderer	lShoulderPlate;
-	public ModelRenderer	lThigh;
-	public ModelRenderer	lTusk1;
-	public ModelRenderer	lTusk2;
-	public ModelRenderer	lWing1;
-	public ModelRenderer	lWing2;
-	public ModelRenderer	lWing3;
-	public ModelRenderer	lWing4;
-	public ModelRenderer	neck;
-	public ModelRenderer	rArm1;
-	public ModelRenderer	rArm2;
-	public ModelRenderer	rArmClaw1a;
-	public ModelRenderer	rArmClaw1b;
-	public ModelRenderer	rArmClaw1b_1;
-	public ModelRenderer	rArmClaw1c;
-	public ModelRenderer	rArmClaw2;
-	public ModelRenderer	rArmClaw3a;
-	public ModelRenderer	rArmClaw3b;
-	public ModelRenderer	rArmClaw3b_1;
-	public ModelRenderer	rArmClaw3c;
-	public ModelRenderer	rArmClaw4;
-	public ModelRenderer	rbWing1;
-	public ModelRenderer	rbWing2;
-	public ModelRenderer	rbWing3;
-	public ModelRenderer	rbWing4;
-	public ModelRenderer	rFoot;
-	public ModelRenderer	rHoof1a;
-	public ModelRenderer	rHoof1b;
-	public ModelRenderer	rHoof1c;
-	public ModelRenderer	rHoof1d;
-	public ModelRenderer	rHoof2;
-	public ModelRenderer	rHookArm1;
-	public ModelRenderer	rHookArm2;
-	public ModelRenderer	rHookArm2_1;
-	public ModelRenderer	rHookArm3;
-	public ModelRenderer	rHookArmClaw0;
-	public ModelRenderer	rHookArmClaw1a;
-	public ModelRenderer	rHookArmClaw1b;
-	public ModelRenderer	rHookArmClaw1c;
-	public ModelRenderer	rHookArmClaw2;
-	public ModelRenderer	rHookArmClaw3;
-	public ModelRenderer	rHookArmClaw4a;
-	public ModelRenderer	rHookArmClaw4b;
-	public ModelRenderer	rHookArmClaw4b_1;
-	public ModelRenderer	rHookArmClaw4c;
-	public ModelRenderer	rHookArmClaw5;
-	public ModelRenderer	rLeg1;
-	public ModelRenderer	rLeg2;
-	public ModelRenderer	rShoulder;
-	public ModelRenderer	rShoulderPlate;
-	public ModelRenderer	rThigh;
-	public ModelRenderer	rTusk1;
-	public ModelRenderer	rTusk2;
-	public ModelRenderer	rWing1;
-	public ModelRenderer	rWing2;
-	public ModelRenderer	rWing3;
-	public ModelRenderer	rWing4;
-	public ModelRenderer	tail1;
-	public ModelRenderer	tail2;
-	public ModelRenderer	tail3;
-	public ModelRenderer	tail4;
-	public ModelRenderer	teethLower;
+	public ModelRenderer chest;
+	public ModelRenderer head1;
+	public ModelRenderer head2;
+	public ModelRenderer jawUpper;
+	public ModelRenderer lArm1;
+	public ModelRenderer lArm2;
+	public ModelRenderer lArmClaw1a;
+	public ModelRenderer lArmClaw1b;
+	public ModelRenderer lArmClaw1b_1;
+	public ModelRenderer lArmClaw1c;
+	public ModelRenderer lArmClaw2;
+	public ModelRenderer lArmClaw3a;
+	public ModelRenderer lArmClaw3b;
+	public ModelRenderer lArmClaw3b_1;
+	public ModelRenderer lArmClaw3c;
+	public ModelRenderer lArmClaw4;
+	public ModelRenderer lbWing1;
+	public ModelRenderer lbWing2;
+	public ModelRenderer lbWing3;
+	public ModelRenderer lbWing4;
+	public ModelRenderer lFoot;
+	public ModelRenderer lHoof1a;
+	public ModelRenderer lHoof1b;
+	public ModelRenderer lHoof1c;
+	public ModelRenderer lHoof1d;
+	public ModelRenderer lHoof2;
+	public ModelRenderer lHookArm1;
+	public ModelRenderer lHookArm3;
+	public ModelRenderer lHookArmClaw0;
+	public ModelRenderer lHookArmClaw1a;
+	public ModelRenderer lHookArmClaw1b;
+	public ModelRenderer lHookArmClaw1b_1;
+	public ModelRenderer lHookArmClaw1b_2;
+	public ModelRenderer lHookArmClaw1c;
+	public ModelRenderer lHookArmClaw2;
+	public ModelRenderer lHookArmClaw3;
+	public ModelRenderer lHookArmClaw4a;
+	public ModelRenderer lHookArmClaw4b;
+	public ModelRenderer lHookArmClaw4b_1;
+	public ModelRenderer lHookArmClaw4c;
+	public ModelRenderer lHookArmClaw5;
+	public ModelRenderer lLeg1;
+	public ModelRenderer lLeg2;
+	public ModelRenderer lLegPlate;
+	public ModelRenderer lLegPlate_1;
+	public ModelRenderer lowerbody;
+	public ModelRenderer lowerJaw;
+	public ModelRenderer lShoulder;
+	public ModelRenderer lShoulderPlate;
+	public ModelRenderer lThigh;
+	public ModelRenderer lTusk1;
+	public ModelRenderer lTusk2;
+	public ModelRenderer lWing1;
+	public ModelRenderer lWing2;
+	public ModelRenderer lWing3;
+	public ModelRenderer lWing4;
+	public ModelRenderer neck;
+	public ModelRenderer rArm1;
+	public ModelRenderer rArm2;
+	public ModelRenderer rArmClaw1a;
+	public ModelRenderer rArmClaw1b;
+	public ModelRenderer rArmClaw1b_1;
+	public ModelRenderer rArmClaw1c;
+	public ModelRenderer rArmClaw2;
+	public ModelRenderer rArmClaw3a;
+	public ModelRenderer rArmClaw3b;
+	public ModelRenderer rArmClaw3b_1;
+	public ModelRenderer rArmClaw3c;
+	public ModelRenderer rArmClaw4;
+	public ModelRenderer rbWing1;
+	public ModelRenderer rbWing2;
+	public ModelRenderer rbWing3;
+	public ModelRenderer rbWing4;
+	public ModelRenderer rFoot;
+	public ModelRenderer rHoof1a;
+	public ModelRenderer rHoof1b;
+	public ModelRenderer rHoof1c;
+	public ModelRenderer rHoof1d;
+	public ModelRenderer rHoof2;
+	public ModelRenderer rHookArm1;
+	public ModelRenderer rHookArm2;
+	public ModelRenderer rHookArm2_1;
+	public ModelRenderer rHookArm3;
+	public ModelRenderer rHookArmClaw0;
+	public ModelRenderer rHookArmClaw1a;
+	public ModelRenderer rHookArmClaw1b;
+	public ModelRenderer rHookArmClaw1c;
+	public ModelRenderer rHookArmClaw2;
+	public ModelRenderer rHookArmClaw3;
+	public ModelRenderer rHookArmClaw4a;
+	public ModelRenderer rHookArmClaw4b;
+	public ModelRenderer rHookArmClaw4b_1;
+	public ModelRenderer rHookArmClaw4c;
+	public ModelRenderer rHookArmClaw5;
+	public ModelRenderer rLeg1;
+	public ModelRenderer rLeg2;
+	public ModelRenderer rShoulder;
+	public ModelRenderer rShoulderPlate;
+	public ModelRenderer rThigh;
+	public ModelRenderer rTusk1;
+	public ModelRenderer rTusk2;
+	public ModelRenderer rWing1;
+	public ModelRenderer rWing2;
+	public ModelRenderer rWing3;
+	public ModelRenderer rWing4;
+	public ModelRenderer tail1;
+	public ModelRenderer tail2;
+	public ModelRenderer tail3;
+	public ModelRenderer tail4;
+	public ModelRenderer teethLower;
 
-	public ModelZerglingRaptor() {
+	public ModelZerglingRaptor()
+	{
 		textureWidth = 128;
 		textureHeight = 64;
 		lbWing3 = new ModelRenderer(this, 25, 25);
@@ -679,7 +681,8 @@ public class ModelZerglingRaptor extends Model {
 	}
 
 	@Override
-	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
+	{
 		super.render(entity, f, f1, f2, f3, f4, f5);
 		setRotationAngles(f, f1, f2, f3, f4, f4, entity);
 		GlStateManager.pushMatrix();
@@ -704,7 +707,8 @@ public class ModelZerglingRaptor extends Model {
 	}
 
 	@Override
-	public void render(Object obj) {
+	public void render(Object obj)
+	{
 		EntityLivingBase base = (EntityLivingBase) obj;
 		neck.rotateAngleX = headPitch(obj) * 0.017453292F;
 		neck.rotateAngleY = headYaw(obj) * 0.017453292F;
@@ -723,8 +727,10 @@ public class ModelZerglingRaptor extends Model {
 		tail3.rotateAngleY = (MathHelper.sin(swingProgress(obj) * -0.5F) / 10.1F) * 2.0F * swingProgressPrev(obj);
 		tail4.rotateAngleY = (MathHelper.sin(swingProgress(obj) * -0.5F) / 10.1F) * 2.0F * swingProgressPrev(obj);
 
-		if (obj instanceof EntityZerglingRaptor) {
-			if (((EntityZerglingRaptor) obj).getBurrowState() == true) {
+		if (obj instanceof EntityZerglingRaptor)
+		{
+			if (((EntityZerglingRaptor) obj).getBurrowState() == true)
+			{
 				this.lHookArm1.rotateAngleX = (float) Math.toRadians(-120);
 				this.rHookArm1.rotateAngleX = (float) Math.toRadians(-120);
 			}

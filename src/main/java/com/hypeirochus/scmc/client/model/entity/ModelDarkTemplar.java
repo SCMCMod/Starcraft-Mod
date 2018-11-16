@@ -12,79 +12,81 @@ import net.minecraft.util.math.MathHelper;
 /**
  * darktemplar - TechneToTabulaImporter Created using Tabula 5.1.0
  */
-public class ModelDarkTemplar extends Model {
-	public ModelRenderer	chestUpper;
-	public ModelRenderer	neck;
-	public ModelRenderer	abdomen;
-	public ModelRenderer	shoulders;
-	public ModelRenderer	cape;
-	public ModelRenderer	waist;
-	public ModelRenderer	waistPlate1;
-	public ModelRenderer	loincloth;
-	public ModelRenderer	loinclothBack;
-	public ModelRenderer	legLeft1;
-	public ModelRenderer	legRight1;
-	public ModelRenderer	legLeft2;
-	public ModelRenderer	legLeft3;
-	public ModelRenderer	legLeft4;
-	public ModelRenderer	legLeft5;
-	public ModelRenderer	footLeft;
-	public ModelRenderer	footLeftUpper;
-	public ModelRenderer	toeLeftLeft;
-	public ModelRenderer	toeLeftRight;
-	public ModelRenderer	toeLeftLeftClaw;
-	public ModelRenderer	toeLeftRightClaw;
-	public ModelRenderer	legRight2;
-	public ModelRenderer	legRight3;
-	public ModelRenderer	legRight4;
-	public ModelRenderer	legRight5;
-	public ModelRenderer	footRight;
-	public ModelRenderer	footRightUpper;
-	public ModelRenderer	toeRightRight;
-	public ModelRenderer	toeRightLeft;
-	public ModelRenderer	toeRightRightClaw;
-	public ModelRenderer	toeRightLeftClaw;
-	public ModelRenderer	shoulderGuardLeft1;
-	public ModelRenderer	shoulderGuardRight1;
-	public ModelRenderer	armLeft1;
-	public ModelRenderer	armRight1;
-	public ModelRenderer	shoulderGuardLeft2;
-	public ModelRenderer	shoulderGuardRight2;
-	public ModelRenderer	lForearm;
-	public ModelRenderer	lFist;
-	public ModelRenderer	armLeft2;
-	public ModelRenderer	bladeLeft1;
-	public ModelRenderer	bladeLeft2;
-	public ModelRenderer	bladeLeft3;
-	public ModelRenderer	rForearm;
-	public ModelRenderer	rFist;
-	public ModelRenderer	cape2;
-	public ModelRenderer	cape3;
-	public ModelRenderer	head;
-	public ModelRenderer	headBack;
-	public ModelRenderer	headBack2;
-	public ModelRenderer	eyes;
-	public ModelRenderer	lSkullSlant;
-	public ModelRenderer	rSkullSlant;
-	public ModelRenderer	lSkullSlant2;
-	public ModelRenderer	rSkullSlant2;
-	public ModelRenderer	faceMask1;
-	public ModelRenderer	nerveCord1;
-	public ModelRenderer	faceMask2;
-	public ModelRenderer	khalaBand;
-	public ModelRenderer	shape55;
-	public ModelRenderer	khalaStrand1;
-	public ModelRenderer	khalaStrand2;
-	public ModelRenderer	khalaStrand3;
-	public ModelRenderer	khalaStrand4;
-	public ModelRenderer	khalaStrand10;
-	public ModelRenderer	khalaStrand6;
-	public ModelRenderer	khalaStrand7;
-	public ModelRenderer	khalaStrand8;
-	public ModelRenderer	khalaStrand9;
-	public ModelRenderer	khalaStrand5;
+public class ModelDarkTemplar extends Model
+{
+	public ModelRenderer chestUpper;
+	public ModelRenderer neck;
+	public ModelRenderer abdomen;
+	public ModelRenderer shoulders;
+	public ModelRenderer cape;
+	public ModelRenderer waist;
+	public ModelRenderer waistPlate1;
+	public ModelRenderer loincloth;
+	public ModelRenderer loinclothBack;
+	public ModelRenderer legLeft1;
+	public ModelRenderer legRight1;
+	public ModelRenderer legLeft2;
+	public ModelRenderer legLeft3;
+	public ModelRenderer legLeft4;
+	public ModelRenderer legLeft5;
+	public ModelRenderer footLeft;
+	public ModelRenderer footLeftUpper;
+	public ModelRenderer toeLeftLeft;
+	public ModelRenderer toeLeftRight;
+	public ModelRenderer toeLeftLeftClaw;
+	public ModelRenderer toeLeftRightClaw;
+	public ModelRenderer legRight2;
+	public ModelRenderer legRight3;
+	public ModelRenderer legRight4;
+	public ModelRenderer legRight5;
+	public ModelRenderer footRight;
+	public ModelRenderer footRightUpper;
+	public ModelRenderer toeRightRight;
+	public ModelRenderer toeRightLeft;
+	public ModelRenderer toeRightRightClaw;
+	public ModelRenderer toeRightLeftClaw;
+	public ModelRenderer shoulderGuardLeft1;
+	public ModelRenderer shoulderGuardRight1;
+	public ModelRenderer armLeft1;
+	public ModelRenderer armRight1;
+	public ModelRenderer shoulderGuardLeft2;
+	public ModelRenderer shoulderGuardRight2;
+	public ModelRenderer lForearm;
+	public ModelRenderer lFist;
+	public ModelRenderer armLeft2;
+	public ModelRenderer bladeLeft1;
+	public ModelRenderer bladeLeft2;
+	public ModelRenderer bladeLeft3;
+	public ModelRenderer rForearm;
+	public ModelRenderer rFist;
+	public ModelRenderer cape2;
+	public ModelRenderer cape3;
+	public ModelRenderer head;
+	public ModelRenderer headBack;
+	public ModelRenderer headBack2;
+	public ModelRenderer eyes;
+	public ModelRenderer lSkullSlant;
+	public ModelRenderer rSkullSlant;
+	public ModelRenderer lSkullSlant2;
+	public ModelRenderer rSkullSlant2;
+	public ModelRenderer faceMask1;
+	public ModelRenderer nerveCord1;
+	public ModelRenderer faceMask2;
+	public ModelRenderer khalaBand;
+	public ModelRenderer shape55;
+	public ModelRenderer khalaStrand1;
+	public ModelRenderer khalaStrand2;
+	public ModelRenderer khalaStrand3;
+	public ModelRenderer khalaStrand4;
+	public ModelRenderer khalaStrand10;
+	public ModelRenderer khalaStrand6;
+	public ModelRenderer khalaStrand7;
+	public ModelRenderer khalaStrand8;
+	public ModelRenderer khalaStrand9;
+	public ModelRenderer khalaStrand5;
 
-	public ModelDarkTemplar() {
+	public ModelDarkTemplar()
+	{
 		this.textureWidth = 256;
 		this.textureHeight = 128;
 		this.footLeft = new ModelRenderer(this, 92, 86);
@@ -445,7 +447,8 @@ public class ModelDarkTemplar extends Model {
 	}
 
 	@Override
-	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
+	{
 		super.render(entity, f, f1, f2, f3, f4, f5);
 		this.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 		this.chestUpper.render(f5);
@@ -457,17 +460,21 @@ public class ModelDarkTemplar extends Model {
 		GlStateManager.translate(-this.neck.rotationPointX * f5, -this.neck.rotationPointY * f5, -this.neck.rotationPointZ * f5);
 		this.neck.render(f5);
 		GlStateManager.popMatrix();
-		if (entity instanceof EntityDarkTemplar) {
-			if (((EntityDarkTemplar) entity).canSheathBlades()) {
+		if (entity instanceof EntityDarkTemplar)
+		{
+			if (((EntityDarkTemplar) entity).canSheathBlades())
+			{
 				this.bladeLeft3.isHidden = false;
-			} else {
+			} else
+			{
 				this.bladeLeft3.isHidden = true;
 			}
 		}
 	}
 
 	@Override
-	public void render(Object obj) {
+	public void render(Object obj)
+	{
 		EntityLivingBase base = (EntityLivingBase) obj;
 		head.rotateAngleX = headPitch(obj) * 0.017453292F + 5.5F;
 		head.rotateAngleY = headYaw(obj) * 0.0017453292F;
@@ -477,11 +484,14 @@ public class ModelDarkTemplar extends Model {
 		legRight1.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.8662F) * 1 * swingProgressPrev(obj) - 0.5F;
 		legRight2.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.6662F) * 1 * swingProgressPrev(obj) + 0.5F;
 		armRight1.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.8662F + (float) Math.PI) * 0.5F * swingProgressPrev(obj);
-		if (obj instanceof EntityDarkTemplar) {
-			if (((EntityDarkTemplar) obj).canSheathBlades()) {
+		if (obj instanceof EntityDarkTemplar)
+		{
+			if (((EntityDarkTemplar) obj).canSheathBlades())
+			{
 				this.lForearm.rotateAngleX = (float) Math.toRadians(15);
 				this.rForearm.rotateAngleX = (float) Math.toRadians(15);
-			} else {
+			} else
+			{
 				this.lForearm.rotateAngleX = (float) Math.toRadians(65);
 				this.rForearm.rotateAngleX = (float) Math.toRadians(65);
 			}

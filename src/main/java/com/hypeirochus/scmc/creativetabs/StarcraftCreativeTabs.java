@@ -4,13 +4,12 @@ import net.minecraft.creativetab.CreativeTabs;
 
 /**
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
- * 
  * <br>
  * </br>
- * 
  * Holds all the classes creative tabs.
  */
-public class StarcraftCreativeTabs {
+public class StarcraftCreativeTabs
+{
 
 	public static final CreativeTabs PROTOSS = new StarcraftCreativeTabProtoss();
 	public static final CreativeTabs TERRAN = new StarcraftCreativeTabTerran();

@@ -10,32 +10,39 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-public class MessageSpawnItem implements IMessage, IMessageHandler<MessageSpawnItem, IMessage> {
+public class MessageSpawnItem implements IMessage, IMessageHandler<MessageSpawnItem, IMessage>
+{
 
 	private ItemStack stack;
 
-	public MessageSpawnItem() {
+	public MessageSpawnItem()
+	{
 	}
 
-	public MessageSpawnItem(ItemStack stack) {
+	public MessageSpawnItem(ItemStack stack)
+	{
 		this.stack = stack;
 	}
 
 	@Override
-	public void toBytes(ByteBuf buf) {
+	public void toBytes(ByteBuf buf)
+	{
 		buf.writeInt(Item.getIdFromItem(stack.getItem()));
 		buf.writeInt(stack.getCount());
 		buf.writeInt(stack.getMetadata());
 	}
 
 	@Override
-	public void fromBytes(ByteBuf buf) {
+	public void fromBytes(ByteBuf buf)
+	{
 		stack = new ItemStack(Item.getItemById(buf.readInt()), buf.readInt(), buf.readInt());
 	}
 
 	@Override
-	public IMessage onMessage(MessageSpawnItem message, MessageContext ctx) {
-		if (message.stack != null && message.stack.getCount() > 0 && message.stack.getMetadata() >= 0) {
+	public IMessage onMessage(MessageSpawnItem message, MessageContext ctx)
+	{
+		if (message.stack != null && message.stack.getCount() > 0 && message.stack.getMetadata() >= 0)
+		{
 			EntityPlayer player = ctx.getServerHandler().player;
 			World world = player.world;
 			EntityItem item = new EntityItem(world, player.posX, player.posY, player.posZ, message.stack);

@@ -27,7 +27,8 @@ import net.minecraft.world.World;
 /**
  * This block has sixteen variants. Refer to {@link ParisteelMetalType}
  */
-public class BlockParisteel extends StarcraftBlock implements IMetaBlockName, IMetaRenderHandler {
+public class BlockParisteel extends StarcraftBlock implements IMetaBlockName, IMetaRenderHandler
+{
 
 	/** The type property */
 	public static final PropertyEnum<ParisteelMetalType> TYPE = PropertyEnum.create("type", ParisteelMetalType.class);
@@ -35,12 +36,12 @@ public class BlockParisteel extends StarcraftBlock implements IMetaBlockName, IM
 	/**
 	 * Default constructor
 	 * 
-	 * @param unlocalizedName
-	 *            The block's unlocalized name
-	 * @param registryName
-	 *            The block's registry name - defaultly the unlocalized name
+	 * @param unlocalizedName The block's unlocalized name
+	 * @param registryName The block's registry name - defaultly the unlocalized
+	 *        name
 	 */
-	public BlockParisteel() {
+	public BlockParisteel()
+	{
 		super("terran.paristeel", RegistryType.META, Material.IRON);
 		setSoundType(SoundType.METAL);
 		setHardness(10.0F);
@@ -50,7 +51,8 @@ public class BlockParisteel extends StarcraftBlock implements IMetaBlockName, IM
 	}
 
 	@Override
-	public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos) {
+	public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos)
+	{
 		return state.getValue(TYPE).getMapColor();
 	}
 
@@ -58,15 +60,18 @@ public class BlockParisteel extends StarcraftBlock implements IMetaBlockName, IM
 	 * Adds the properties to the block
 	 */
 	@Override
-	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] { TYPE });
+	protected BlockStateContainer createBlockState()
+	{
+		return new BlockStateContainer(this, new IProperty[]
+		{ TYPE });
 	}
 
 	/**
 	 * Makes sure the block drops the correct version of itself
 	 */
 	@Override
-	public int damageDropped(IBlockState state) {
+	public int damageDropped(IBlockState state)
+	{
 		return getMetaFromState(state);
 	}
 
@@ -74,7 +79,8 @@ public class BlockParisteel extends StarcraftBlock implements IMetaBlockName, IM
 	 * Gets the right meta data from the {@link IBlockState}
 	 */
 	@Override
-	public int getMetaFromState(IBlockState state) {
+	public int getMetaFromState(IBlockState state)
+	{
 		ParisteelMetalType type = state.getValue(TYPE);
 		return type.getID();
 	}
@@ -83,7 +89,8 @@ public class BlockParisteel extends StarcraftBlock implements IMetaBlockName, IM
 	 * Makes sure when you pick block it will work correctly
 	 */
 	@Override
-	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
+	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
+	{
 		return new ItemStack(Item.getItemFromBlock(this), 1, getMetaFromState(state));
 	}
 
@@ -91,7 +98,8 @@ public class BlockParisteel extends StarcraftBlock implements IMetaBlockName, IM
 	 * Inherited from the {@link IMetaBlockName}
 	 */
 	@Override
-	public String getSpecialName(ItemStack stack) {
+	public String getSpecialName(ItemStack stack)
+	{
 		return ParisteelMetalType.values()[stack.getItemDamage()].getName();
 	}
 
@@ -99,56 +107,68 @@ public class BlockParisteel extends StarcraftBlock implements IMetaBlockName, IM
 	 * Gets the correct {@link IBlockState} from the meta data
 	 */
 	@Override
-	public IBlockState getStateFromMeta(int meta) {
+	public IBlockState getStateFromMeta(int meta)
+	{
 		return getDefaultState().withProperty(TYPE, ParisteelMetalType.values()[meta]);
 	}
 
 	@Override
-	public void getSubBlocks(CreativeTabs item, NonNullList<ItemStack> items) {
-		for (int i = 0; i < ParisteelMetalType.values().length; i++) {
+	public void getSubBlocks(CreativeTabs item, NonNullList<ItemStack> items)
+	{
+		for (int i = 0; i < ParisteelMetalType.values().length; i++)
+		{
 			items.add(new ItemStack(this, 1, i));
 		}
 	}
 
-	public static enum ParisteelMetalType implements IStringSerializable {
-		PURPLE("purple", 0, MapColor.PURPLE), BROWN("brown", 1, MapColor.BROWN), PINK("pink", 2, MapColor.PINK), BLUE("blue", 3, MapColor.BLUE), CYAN("cyan", 4, MapColor.CYAN), GRAY("gray", 5, MapColor.GRAY), GREEN("green", 6, MapColor.GREEN), LIGHT_BLUE("lightblue", 7, MapColor.LIGHT_BLUE), LIME("lime", 8, MapColor.LIME), MAGENTA("magenta", 9, MapColor.MAGENTA), ORANGE("orange", 10, MapColor.ADOBE), RED("red", 11, MapColor.RED), SILVER("silver", 12, MapColor.SILVER), WHITE("white", 13, MapColor.SNOW), YELLOW("yellow", 14, MapColor.YELLOW), BLACK("black", 15, MapColor.BLACK);
+	public static enum ParisteelMetalType implements IStringSerializable
+	{
+		PURPLE("purple", 0, MapColor.PURPLE), BROWN("brown", 1, MapColor.BROWN), PINK("pink", 2, MapColor.PINK), BLUE("blue", 3, MapColor.BLUE), CYAN("cyan", 4, MapColor.CYAN), GRAY("gray", 5, MapColor.GRAY), GREEN("green", 6, MapColor.GREEN), LIGHT_BLUE("lightblue", 7, MapColor.LIGHT_BLUE),
+		LIME("lime", 8, MapColor.LIME), MAGENTA("magenta", 9, MapColor.MAGENTA), ORANGE("orange", 10, MapColor.ADOBE), RED("red", 11, MapColor.RED), SILVER("silver", 12, MapColor.SILVER), WHITE("white", 13, MapColor.SNOW), YELLOW("yellow", 14, MapColor.YELLOW), BLACK("black", 15, MapColor.BLACK);
 
 		private int ID;
 		private String name;
 		private MapColor color;
 
-		private ParisteelMetalType(String name, int ID, MapColor color) {
+		private ParisteelMetalType(String name, int ID, MapColor color)
+		{
 			this.ID = ID;
 			this.name = name;
 			this.color = color;
 		}
 
-		public int getID() {
+		public int getID()
+		{
 			return ID;
 		}
 
 		@Override
-		public String getName() {
+		public String getName()
+		{
 			return name;
 		}
 
-		public MapColor getMapColor() {
+		public MapColor getMapColor()
+		{
 			return color;
 		}
 
 		@Override
-		public String toString() {
+		public String toString()
+		{
 			return getName();
 		}
 	}
 
 	@Override
-	public int getItemCount() {
+	public int getItemCount()
+	{
 		return ParisteelMetalType.values().length;
 	}
 
 	@Override
-	public String getName(int meta) {
+	public String getName(int meta)
+	{
 		return "terran.paristeel." + ParisteelMetalType.values()[meta].getName();
 	}
 }

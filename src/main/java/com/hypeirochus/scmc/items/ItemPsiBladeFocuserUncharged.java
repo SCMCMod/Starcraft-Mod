@@ -9,29 +9,38 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemPsiBladeFocuserUncharged extends StarcraftItem implements IMetaRenderHandler {
+public class ItemPsiBladeFocuserUncharged extends StarcraftItem implements IMetaRenderHandler
+{
 
-	public ItemPsiBladeFocuserUncharged() {
+	public ItemPsiBladeFocuserUncharged()
+	{
 		super("protoss.focuser");
 		setHasSubtypes(true);
 		setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 	}
 
 	@Override
-	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-		if (isInCreativeTab(tab)) {
-			for (int i = 0; i < FocuserType.values().length; i++) {
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items)
+	{
+		if (isInCreativeTab(tab))
+		{
+			for (int i = 0; i < FocuserType.values().length; i++)
+			{
 				items.add(new ItemStack(this, 1, i));
 			}
 		}
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
-		for (int i = 0; i < FocuserType.values().length; i++) {
-			if (stack.getItemDamage() == i) {
+	public String getUnlocalizedName(ItemStack stack)
+	{
+		for (int i = 0; i < FocuserType.values().length; i++)
+		{
+			if (stack.getItemDamage() == i)
+			{
 				return getUnlocalizedName() + "." + FocuserType.values()[i].getName();
-			} else {
+			} else
+			{
 				continue;
 			}
 		}
@@ -39,12 +48,14 @@ public class ItemPsiBladeFocuserUncharged extends StarcraftItem implements IMeta
 	}
 
 	@Override
-	public int getItemCount() {
+	public int getItemCount()
+	{
 		return FocuserType.values().length;
 	}
 
 	@Override
-	public String getName(int meta) {
+	public String getName(int meta)
+	{
 		return "protoss.focuser." + MetaHandler.FocuserType.values()[meta].getName();
 	}
 }

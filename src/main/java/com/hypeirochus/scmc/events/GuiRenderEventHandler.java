@@ -26,21 +26,24 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
- * 
  * <br>
  * </br>
- * 
- * This class handles all of the events that have to do with client sided rendering.
+ * This class handles all of the events that have to do with client sided
+ * rendering.
  * 
  * @author Ocelot5836
  */
 @SideOnly(Side.CLIENT)
-public class GuiRenderEventHandler {
+public class GuiRenderEventHandler
+{
 
 	@SubscribeEvent
-	public void onCrosshairRenderEvent(RenderGameOverlayEvent event) {
-		if (event.getType() == ElementType.CROSSHAIRS) {
-			if (Minecraft.getMinecraft().player.getHeldItem(EnumHand.MAIN_HAND).getItem() == ItemHandler.C14_GAUSS_RIFLE) {
+	public void onCrosshairRenderEvent(RenderGameOverlayEvent event)
+	{
+		if (event.getType() == ElementType.CROSSHAIRS)
+		{
+			if (Minecraft.getMinecraft().player.getHeldItem(EnumHand.MAIN_HAND).getItem() == ItemHandler.C14_GAUSS_RIFLE)
+			{
 				event.setCanceled(true);
 			}
 		}
@@ -48,14 +51,17 @@ public class GuiRenderEventHandler {
 
 	@SuppressWarnings("unused")
 	@SubscribeEvent
-	public void drawSelectionBox(DrawBlockHighlightEvent event) {
+	public void drawSelectionBox(DrawBlockHighlightEvent event)
+	{
 		EntityPlayer player = event.getPlayer();
-		if (event.getTarget() != null && event.getTarget().sideHit != null) {
+		if (event.getTarget() != null && event.getTarget().sideHit != null)
+		{
 			BlockPos position = event.getTarget().getBlockPos().offset(event.getTarget().sideHit);
 			ItemStack stack = player.getHeldItemMainhand();
 			IBlockState stateToRender = BlockHandler.PROTOSS_SHIELD.getDefaultState();
 
-			if (stack.getItem() instanceof ItemGun && !player.world.isAirBlock(event.getTarget().getBlockPos()) && false) {
+			if (stack.getItem() instanceof ItemGun && !player.world.isAirBlock(event.getTarget().getBlockPos()) && false)
+			{
 				TextureUtils.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
 
 				GlStateManager.pushMatrix();

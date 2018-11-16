@@ -5,7 +5,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.util.math.MathHelper;
 
-public class EntityAIRaptorLeapAtTarget extends EntityAIBase {
+public class EntityAIRaptorLeapAtTarget extends EntityAIBase
+{
 	/** The entity that is leaping. */
 	EntityLiving leaper;
 	/** The entity that the leaper is leaping towards. */
@@ -13,7 +14,8 @@ public class EntityAIRaptorLeapAtTarget extends EntityAIBase {
 	/** The entity's motionY after leaping. */
 	float leapMotionY;
 
-	public EntityAIRaptorLeapAtTarget(EntityLiving leapingEntity, float leapMotionYIn) {
+	public EntityAIRaptorLeapAtTarget(EntityLiving leapingEntity, float leapMotionYIn)
+	{
 		this.leaper = leapingEntity;
 		this.leapMotionY = leapMotionYIn;
 		this.setMutexBits(5);
@@ -23,19 +25,23 @@ public class EntityAIRaptorLeapAtTarget extends EntityAIBase {
 	 * Returns whether the EntityAIBase should begin execution.
 	 */
 	@Override
-	public boolean shouldExecute() {
+	public boolean shouldExecute()
+	{
 		this.leapTarget = this.leaper.getAttackTarget();
 
-		if (this.leapTarget == null) {
+		if (this.leapTarget == null)
+		{
 			return false;
-		} else {
+		} else
+		{
 			double d0 = this.leaper.getDistanceSq(this.leapTarget);
 			return d0 >= 0.0D && d0 <= 16.0D ? (!this.leaper.onGround ? false : this.leaper.getRNG().nextInt(5) > 3) : false;
 		}
 	}
 
 	@Override
-	public boolean shouldContinueExecuting() {
+	public boolean shouldContinueExecuting()
+	{
 		return !this.leaper.onGround;
 	}
 
@@ -43,7 +49,8 @@ public class EntityAIRaptorLeapAtTarget extends EntityAIBase {
 	 * Execute a one shot task or start executing a continuous task
 	 */
 	@Override
-	public void startExecuting() {
+	public void startExecuting()
+	{
 		double d0 = this.leapTarget.posX - this.leaper.posX;
 		double d1 = this.leapTarget.posZ - this.leaper.posZ;
 		float f = MathHelper.sqrt(d0 * d0 + d1 * d1);

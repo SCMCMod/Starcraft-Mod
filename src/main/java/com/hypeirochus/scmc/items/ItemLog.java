@@ -19,24 +19,31 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
 
-public class ItemLog extends StarcraftItem {
+public class ItemLog extends StarcraftItem
+{
 
-	public ItemLog() {
+	public ItemLog()
+	{
 		super("log");
 		setMaxStackSize(1);
 		setCreativeTab(StarcraftCreativeTabs.BOOKS);
-		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+		if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
+		{
 			this.addPropertyOverride(new ResourceLocation("skin"), new LogOverride());
 		}
 	}
 
 	@Override
-	public String getItemStackDisplayName(ItemStack stack) {
-		if (stack.hasTagCompound()) {
+	public String getItemStackDisplayName(ItemStack stack)
+	{
+		if (stack.hasTagCompound())
+		{
 			NBTTagCompound nbt = stack.getTagCompound();
-			if (nbt.hasKey("type")) {
+			if (nbt.hasKey("type"))
+			{
 				Log log = Starcraft.logs().get(nbt.getInteger("type"));
-				if (log != null) {
+				if (log != null)
+				{
 					return log.getTitle();
 				}
 			}
@@ -45,11 +52,14 @@ public class ItemLog extends StarcraftItem {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
+	{
 		ItemStack stack = player.getHeldItem(hand);
-		if (stack.hasTagCompound()) {
+		if (stack.hasTagCompound())
+		{
 			NBTTagCompound nbt = stack.getTagCompound();
-			if (nbt.hasKey("type")) {
+			if (nbt.hasKey("type"))
+			{
 				player.openGui(Starcraft.instance, GuiHandler.LOG, world, Starcraft.logs().get(nbt.getInteger("type")).getId(), -1, -1);
 			}
 		}
@@ -57,15 +67,19 @@ public class ItemLog extends StarcraftItem {
 	}
 
 	@Override
-	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-		if (isInCreativeTab(tab)) {
-			for (int i : Starcraft.logs().getLogs().keySet()) {
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items)
+	{
+		if (isInCreativeTab(tab))
+		{
+			for (int i : Starcraft.logs().getLogs().keySet())
+			{
 				items.add(getBook(Starcraft.logs().getLogs().get(i)));
 			}
 		}
 	}
 
-	public static ItemStack getBook(Log log) {
+	public static ItemStack getBook(Log log)
+	{
 		ItemStack stack = new ItemStack(ItemHandler.LOG, 1, 0);
 		NBTTagCompound nbt = new NBTTagCompound();
 		nbt.setInteger("type", log.getId());

@@ -27,7 +27,8 @@ import net.minecraft.world.World;
 /**
  * This block has sixteen variants. Refer to {@link NeosteelMetalType}
  */
-public class BlockNeosteel extends StarcraftBlock implements IMetaBlockName, IMetaRenderHandler {
+public class BlockNeosteel extends StarcraftBlock implements IMetaBlockName, IMetaRenderHandler
+{
 
 	/** The type property */
 	public static final PropertyEnum<NeosteelMetalType> TYPE = PropertyEnum.create("type", NeosteelMetalType.class);
@@ -35,12 +36,12 @@ public class BlockNeosteel extends StarcraftBlock implements IMetaBlockName, IMe
 	/**
 	 * Default constructor
 	 * 
-	 * @param unlocalizedName
-	 *            The block's unlocalized name
-	 * @param registryName
-	 *            The block's registry name - defaultly the unlocalized name
+	 * @param unlocalizedName The block's unlocalized name
+	 * @param registryName The block's registry name - defaultly the unlocalized
+	 *        name
 	 */
-	public BlockNeosteel() {
+	public BlockNeosteel()
+	{
 		super("terran.neosteel", RegistryType.META, Material.IRON);
 		setSoundType(SoundType.METAL);
 		setHardness(10.0F);
@@ -50,7 +51,8 @@ public class BlockNeosteel extends StarcraftBlock implements IMetaBlockName, IMe
 	}
 
 	@Override
-	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
+	{
 		return state.getValue(TYPE).getMapColor();
 	}
 
@@ -58,15 +60,18 @@ public class BlockNeosteel extends StarcraftBlock implements IMetaBlockName, IMe
 	 * Adds the properties to the block
 	 */
 	@Override
-	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] { TYPE });
+	protected BlockStateContainer createBlockState()
+	{
+		return new BlockStateContainer(this, new IProperty[]
+		{ TYPE });
 	}
 
 	/**
 	 * Makes sure the block drops the correct version of itself
 	 */
 	@Override
-	public int damageDropped(IBlockState state) {
+	public int damageDropped(IBlockState state)
+	{
 		return getMetaFromState(state);
 	}
 
@@ -74,7 +79,8 @@ public class BlockNeosteel extends StarcraftBlock implements IMetaBlockName, IMe
 	 * Gets the right meta data from the {@link IBlockState}
 	 */
 	@Override
-	public int getMetaFromState(IBlockState state) {
+	public int getMetaFromState(IBlockState state)
+	{
 		NeosteelMetalType type = state.getValue(TYPE);
 		return type.getID();
 	}
@@ -83,7 +89,8 @@ public class BlockNeosteel extends StarcraftBlock implements IMetaBlockName, IMe
 	 * Makes sure when you pick block it will work correctly
 	 */
 	@Override
-	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
+	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
+	{
 		return new ItemStack(Item.getItemFromBlock(this), 1, getMetaFromState(state));
 	}
 
@@ -91,7 +98,8 @@ public class BlockNeosteel extends StarcraftBlock implements IMetaBlockName, IMe
 	 * Inherited from the {@link IMetaBlockName}
 	 */
 	@Override
-	public String getSpecialName(ItemStack stack) {
+	public String getSpecialName(ItemStack stack)
+	{
 		return NeosteelMetalType.values()[stack.getItemDamage()].getName();
 	}
 
@@ -99,56 +107,67 @@ public class BlockNeosteel extends StarcraftBlock implements IMetaBlockName, IMe
 	 * Gets the correct {@link IBlockState} from the meta data
 	 */
 	@Override
-	public IBlockState getStateFromMeta(int meta) {
+	public IBlockState getStateFromMeta(int meta)
+	{
 		return getDefaultState().withProperty(TYPE, NeosteelMetalType.values()[meta]);
 	}
 
 	@Override
-	public void getSubBlocks(CreativeTabs item, NonNullList<ItemStack> items) {
-		for (int i = 0; i < NeosteelMetalType.values().length; i++) {
+	public void getSubBlocks(CreativeTabs item, NonNullList<ItemStack> items)
+	{
+		for (int i = 0; i < NeosteelMetalType.values().length; i++)
+		{
 			items.add(new ItemStack(this, 1, i));
 		}
 	}
 
-	public static enum NeosteelMetalType implements IStringSerializable {
+	public static enum NeosteelMetalType implements IStringSerializable
+	{
 		BASE("base", 0, MapColor.IRON), FRAME("frame", 1, MapColor.IRON);
 
 		private int ID;
 		private String name;
 		private MapColor color;
 
-		private NeosteelMetalType(String name, int ID, MapColor color) {
+		private NeosteelMetalType(String name, int ID, MapColor color)
+		{
 			this.ID = ID;
 			this.name = name;
 			this.color = color;
 		}
 
-		public int getID() {
+		public int getID()
+		{
 			return ID;
 		}
 
 		@Override
-		public String getName() {
+		public String getName()
+		{
 			return name;
 		}
 
-		public MapColor getMapColor() {
+		public MapColor getMapColor()
+		{
 			return color;
 		}
 
 		@Override
-		public String toString() {
+		public String toString()
+		{
 			return getName();
 		}
 	}
 
 	@Override
-	public int getItemCount() {
+	public int getItemCount()
+	{
 		return NeosteelMetalType.values().length;
 	}
 
 	@Override
-	public String getName(int meta) {
+	public String getName(int meta)
+	{
 		return "terran.neosteel." + NeosteelMetalType.values()[meta].getName();
 	}
 }

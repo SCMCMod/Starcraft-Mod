@@ -7,16 +7,18 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.MathHelper;
 
-public class ModelCivilian extends Model {
+public class ModelCivilian extends Model
+{
 
-	ModelRenderer	body;
-	ModelRenderer	head;
-	ModelRenderer	leftarm;
-	ModelRenderer	leftleg;
-	ModelRenderer	rightarm;
-	ModelRenderer	rightleg;
+	ModelRenderer body;
+	ModelRenderer head;
+	ModelRenderer leftarm;
+	ModelRenderer leftleg;
+	ModelRenderer rightarm;
+	ModelRenderer rightleg;
 
-	public ModelCivilian() {
+	public ModelCivilian()
+	{
 		textureWidth = 64;
 		textureHeight = 64;
 
@@ -59,7 +61,8 @@ public class ModelCivilian extends Model {
 	}
 
 	@Override
-	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
+	{
 		super.render(entity, f, f1, f2, f3, f4, f5);
 		setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 		head.render(f5);
@@ -71,7 +74,8 @@ public class ModelCivilian extends Model {
 	}
 
 	@Override
-	public void render(Object obj) {
+	public void render(Object obj)
+	{
 		EntityLivingBase base = (EntityLivingBase) obj;
 		head.rotateAngleY = headYaw(obj) / (180F / (float) Math.PI);
 		head.rotateAngleX = headPitch(obj) / (180F / (float) Math.PI);

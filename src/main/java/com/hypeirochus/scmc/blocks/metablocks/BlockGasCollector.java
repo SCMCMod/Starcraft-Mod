@@ -43,7 +43,8 @@ import net.minecraftforge.items.ItemStackHandler;
  * 
  * @author Ocelot5836
  */
-public class BlockGasCollector extends StarcraftBlock implements IMetaBlockName, ITileEntityProvider, IMetaRenderHandler {
+public class BlockGasCollector extends StarcraftBlock implements IMetaBlockName, ITileEntityProvider, IMetaRenderHandler
+{
 
 	/** The type property */
 	public static final PropertyEnum<GasCollectorType> TYPE = PropertyEnum.create("type", GasCollectorType.class);
@@ -51,12 +52,12 @@ public class BlockGasCollector extends StarcraftBlock implements IMetaBlockName,
 	/**
 	 * Default constructor
 	 * 
-	 * @param unlocalizedName
-	 *            The block's unlocalized name
-	 * @param registryName
-	 *            The block's registry name - defaultly the unlocalized name
+	 * @param unlocalizedName The block's unlocalized name
+	 * @param registryName The block's registry name - defaultly the unlocalized
+	 *        name
 	 */
-	public BlockGasCollector() {
+	public BlockGasCollector()
+	{
 		super("gas.collector", RegistryType.META, Material.IRON);
 		setHardness(5.0f);
 		setResistance(15.0f);
@@ -68,15 +69,19 @@ public class BlockGasCollector extends StarcraftBlock implements IMetaBlockName,
 	}
 
 	@Override
-	public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos) {
+	public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos)
+	{
 		return state.getValue(TYPE).getMapColor();
 	}
 
 	@Override
-	public SoundType getSoundType(IBlockState state, World world, BlockPos pos, Entity entity) {
-		if (world.getBlockState(pos) == this.getDefaultState().withProperty(TYPE, GasCollectorType.ZERG)) {
+	public SoundType getSoundType(IBlockState state, World world, BlockPos pos, Entity entity)
+	{
+		if (world.getBlockState(pos) == this.getDefaultState().withProperty(TYPE, GasCollectorType.ZERG))
+		{
 			return SoundTypes.FLESH;
-		} else {
+		} else
+		{
 			return SoundType.METAL;
 		}
 	}
@@ -85,15 +90,18 @@ public class BlockGasCollector extends StarcraftBlock implements IMetaBlockName,
 	 * Adds the properties to the block
 	 */
 	@Override
-	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] { TYPE });
+	protected BlockStateContainer createBlockState()
+	{
+		return new BlockStateContainer(this, new IProperty[]
+		{ TYPE });
 	}
 
 	/**
 	 * Makes sure the block drops the correct version of itself
 	 */
 	@Override
-	public int damageDropped(IBlockState state) {
+	public int damageDropped(IBlockState state)
+	{
 		return getMetaFromState(state);
 	}
 
@@ -101,7 +109,8 @@ public class BlockGasCollector extends StarcraftBlock implements IMetaBlockName,
 	 * Gets the right meta data from the {@link IBlockState}
 	 */
 	@Override
-	public int getMetaFromState(IBlockState state) {
+	public int getMetaFromState(IBlockState state)
+	{
 		GasCollectorType type = state.getValue(TYPE);
 		return type.getID();
 	}
@@ -110,7 +119,8 @@ public class BlockGasCollector extends StarcraftBlock implements IMetaBlockName,
 	 * Makes sure when you pick block it will work correctly
 	 */
 	@Override
-	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
+	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
+	{
 		return new ItemStack(Item.getItemFromBlock(this), 1, getMetaFromState(state));
 	}
 
@@ -118,7 +128,8 @@ public class BlockGasCollector extends StarcraftBlock implements IMetaBlockName,
 	 * Inherited from the {@link IMetaBlockName}
 	 */
 	@Override
-	public String getSpecialName(ItemStack stack) {
+	public String getSpecialName(ItemStack stack)
+	{
 		return GasCollectorType.values()[stack.getItemDamage()].getName();
 	}
 
@@ -126,27 +137,33 @@ public class BlockGasCollector extends StarcraftBlock implements IMetaBlockName,
 	 * Gets the correct {@link IBlockState} from the meta data
 	 */
 	@Override
-	public IBlockState getStateFromMeta(int meta) {
+	public IBlockState getStateFromMeta(int meta)
+	{
 		return getDefaultState().withProperty(TYPE, GasCollectorType.values()[meta]);
 	}
 
 	@Override
-	public void getSubBlocks(CreativeTabs item, NonNullList<ItemStack> items) {
-		for (int i = 0; i < GasCollectorType.values().length; i++) {
+	public void getSubBlocks(CreativeTabs item, NonNullList<ItemStack> items)
+	{
+		for (int i = 0; i < GasCollectorType.values().length; i++)
+		{
 			items.add(new ItemStack(this, 1, i));
 		}
 	}
 
 	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta) {
+	public TileEntity createNewTileEntity(World worldIn, int meta)
+	{
 		return new TileEntityGasCollector(meta);
 	}
 
 	@Override
-	public void breakBlock(World world, BlockPos pos, IBlockState state) {
+	public void breakBlock(World world, BlockPos pos, IBlockState state)
+	{
 		TileEntityGasCollector te = (TileEntityGasCollector) world.getTileEntity(pos);
 		IItemHandler handler = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
-		for (int slot = 0; slot < handler.getSlots(); slot++) {
+		for (int slot = 0; slot < handler.getSlots(); slot++)
+		{
 			ItemStack stack = handler.getStackInSlot(slot);
 			if (stack != null)
 				InventoryHelper.spawnItemStack(world, pos.getX(), pos.getY(), pos.getZ(), stack);
@@ -155,63 +172,74 @@ public class BlockGasCollector extends StarcraftBlock implements IMetaBlockName,
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
+	{
 		if (!world.isRemote)
 			player.openGui(Starcraft.instance, GuiHandler.GAS_COLLECTOR_ID, world, pos.getX(), pos.getY(), pos.getZ());
 		return true;
 	}
 
 	@Override
-	public boolean hasComparatorInputOverride(IBlockState state) {
+	public boolean hasComparatorInputOverride(IBlockState state)
+	{
 		return true;
 	}
 
 	@Override
-	public int getComparatorInputOverride(IBlockState blockState, World world, BlockPos pos) {
+	public int getComparatorInputOverride(IBlockState blockState, World world, BlockPos pos)
+	{
 		TileEntityGasCollector te = (TileEntityGasCollector) world.getTileEntity(pos);
 		ItemStackHandler handler = (ItemStackHandler) te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
 		return Utils.calculateRedstone(handler);
 	}
 
-	public static enum GasCollectorType implements IStringSerializable {
+	public static enum GasCollectorType implements IStringSerializable
+	{
 		PROTOSS("protoss", 0, MapColor.YELLOW), TERRAN("terran", 1, MapColor.IRON), ZERG("zerg", 2, MapColor.BROWN);
 
 		private int ID;
 		private String name;
 		private MapColor color;
 
-		private GasCollectorType(String name, int ID, MapColor color) {
+		private GasCollectorType(String name, int ID, MapColor color)
+		{
 			this.ID = ID;
 			this.name = name;
 			this.color = color;
 		}
 
-		public int getID() {
+		public int getID()
+		{
 			return ID;
 		}
 
 		@Override
-		public String getName() {
+		public String getName()
+		{
 			return name;
 		}
 
-		public MapColor getMapColor() {
+		public MapColor getMapColor()
+		{
 			return color;
 		}
 
 		@Override
-		public String toString() {
+		public String toString()
+		{
 			return getName();
 		}
 	}
 
 	@Override
-	public int getItemCount() {
+	public int getItemCount()
+	{
 		return GasCollectorType.values().length;
 	}
 
 	@Override
-	public String getName(int meta) {
+	public String getName(int meta)
+	{
 		return "gas.collector." + GasCollectorType.values()[meta].getName();
 	}
 }

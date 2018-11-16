@@ -11,7 +11,8 @@ import net.minecraft.util.ResourceLocation;
 /**
  * Gauss Rifle Bayonet - SCMCDevTeam Created using Tabula 5.1.0
  */
-public class ModelC14GaussRifle extends Model {
+public class ModelC14GaussRifle extends Model
+{
 	public static final ResourceLocation TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/c14GaussRifle.png");
 
 	public ModelRenderer main2;
@@ -63,7 +64,8 @@ public class ModelC14GaussRifle extends Model {
 	public ModelRenderer main24_2;
 	public ModelRenderer main3;
 
-	public ModelC14GaussRifle() {
+	public ModelC14GaussRifle()
+	{
 		this.textureWidth = 400;
 		this.textureHeight = 200;
 		this.main42 = new ModelRenderer(this, 21, 13);
@@ -243,7 +245,8 @@ public class ModelC14GaussRifle extends Model {
 	}
 
 	@Override
-	public void render(Entity entity, float swing, float swingPrev, float idle, float headYaw, float headPitch, float scale) {
+	public void render(Entity entity, float swing, float swingPrev, float idle, float headYaw, float headPitch, float scale)
+	{
 		ModelUtils.enableBackCull();
 		this.main42.render(scale);
 		this.main45.render(scale);

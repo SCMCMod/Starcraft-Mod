@@ -28,13 +28,15 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 //TODO: MOVE REGISTER METHOD TO CORE MOD.
 @EventBusSubscriber
-public class ItemRenderRegistrationHandler {
+public class ItemRenderRegistrationHandler
+{
 
 	private static ModelBakeEvent eventObj;
 
 	@SubscribeEvent
 	@SideOnly(Side.CLIENT)
-	public static void onModelBake(ModelBakeEvent event) {
+	public static void onModelBake(ModelBakeEvent event)
+	{
 		eventObj = event;
 
 		register(ItemHandler.C14_GAUSS_RIFLE, new ItemRenderC14GaussRifle());
@@ -118,34 +120,37 @@ public class ItemRenderRegistrationHandler {
 	}
 
 	/**
-	 * Registers a custom item renderer for an item or block.
-	 * 
-	 * <br>
+	 * Registers a custom item renderer for an item or block. <br>
 	 * </br>
+	 * <b><i>Note: this does take in an object parameter, but it will throw an
+	 * {@link IllegalArgumentException} if the object is not an item or a
+	 * block.</b></i>
 	 * 
-	 * <b><i>Note: this does take in an object parameter, but it will throw an {@link IllegalArgumentException} if the object is not an item or a block.</b></i>
-	 * 
-	 * @param obj
-	 *            The item or block to register.
-	 * @param model
-	 *            The baked model to register to the specified item or block
+	 * @param obj The item or block to register.
+	 * @param model The baked model to register to the specified item or block
 	 */
-	private static void register(Object obj, IBakedModel model) {
+	private static void register(Object obj, IBakedModel model)
+	{
 		Item item = null;
 		Block block = null;
-		if (obj instanceof Item) {
+		if (obj instanceof Item)
+		{
 			block = null;
 			item = (Item) obj;
-		} else if (obj instanceof Block) {
+		} else if (obj instanceof Block)
+		{
 			block = (Block) obj;
 			item = Item.getItemFromBlock(block);
-		} else {
+		} else
+		{
 			throw new IllegalArgumentException("You can only register custom item renders for items or blocks. Any other object is not allowed");
 		}
 
-		if (item != null) {
+		if (item != null)
+		{
 			eventObj.getModelRegistry().putObject(new ModelResourceLocation(item.getRegistryName(), "inventory"), model);
-		} else {
+		} else
+		{
 			Utils.getLogger().warn(String.format("Item for block %s was null. Cannot register an item render for a block that does nto have an item block attached.", block));
 		}
 	}

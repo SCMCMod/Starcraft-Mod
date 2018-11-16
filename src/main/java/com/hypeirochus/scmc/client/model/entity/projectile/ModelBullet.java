@@ -10,9 +10,11 @@ import net.minecraft.util.math.RayTraceResult;
 /**
  * bullet - cybercat5555 Created using Tabula 5.1.0
  * 
- * @deprecated Unused now that bullets use {@link RayTraceResult}s instead of an actual entity.
+ * @deprecated Unused now that bullets use {@link RayTraceResult}s instead of an
+ *             actual entity.
  */
-public class ModelBullet extends Model {
+public class ModelBullet extends Model
+{
 	public ModelRenderer body;
 	public ModelRenderer point01;
 	public ModelRenderer point02;
@@ -21,7 +23,8 @@ public class ModelBullet extends Model {
 	public ModelRenderer back01;
 	public ModelRenderer back02;
 
-	public ModelBullet() {
+	public ModelBullet()
+	{
 		this.textureWidth = 64;
 		this.textureHeight = 32;
 		this.back02 = new ModelRenderer(this, 20, 5);
@@ -48,7 +51,8 @@ public class ModelBullet extends Model {
 	}
 
 	@Override
-	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
+	{
 		this.back02.render(f5);
 		this.body.render(f5);
 		GlStateManager.pushMatrix();

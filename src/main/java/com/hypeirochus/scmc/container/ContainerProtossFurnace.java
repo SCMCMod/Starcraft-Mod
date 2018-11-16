@@ -18,18 +18,22 @@ import net.minecraftforge.items.SlotItemHandler;
  *
  * @author CJMinecraft
  */
-public class ContainerProtossFurnace extends Container {
+public class ContainerProtossFurnace extends Container
+{
 
 	private IInventory playerInv;
 
-	public ContainerProtossFurnace(EntityPlayer player, IItemHandler furnaceInv) {
+	public ContainerProtossFurnace(EntityPlayer player, IItemHandler furnaceInv)
+	{
 		this.playerInv = player.inventory;
 
 		this.addSlotToContainer(new SlotItemHandler(furnaceInv, 0, 56, 35));
 		this.addSlotToContainer(new SlotStarcraftFurnaceOutput(player, furnaceInv, 1, 116, 35));
 
-		for (int x = 0; x < 2; x++) {
-			for (int y = 0; y < 4; y++) {
+		for (int x = 0; x < 2; x++)
+		{
+			for (int y = 0; y < 4; y++)
+			{
 				this.addSlotToContainer(new SlotProtossUpgrade(furnaceInv, x * 4 + y + 2, 8 + x * 144, 8 + y * 18));
 			}
 		}
@@ -43,47 +47,66 @@ public class ContainerProtossFurnace extends Container {
 	}
 
 	@Override
-	public ItemStack transferStackInSlot(EntityPlayer player, int index) {
+	public ItemStack transferStackInSlot(EntityPlayer player, int index)
+	{
 		ItemStack currentStack = ItemStack.EMPTY;
 		Slot slot = this.inventorySlots.get(index);
 
-		if (slot != null && slot.getHasStack()) {
+		if (slot != null && slot.getHasStack())
+		{
 			ItemStack stackInSlot = slot.getStack();
 			currentStack = stackInSlot.copy();
 
-			if (index != 1 && index != 0) {
-				if (!FurnaceRecipes.instance().getSmeltingResult(stackInSlot).isEmpty()) {
-					if (!this.mergeItemStack(stackInSlot, 0, 1, false)) {
+			if (index != 1 && index != 0)
+			{
+				if (!FurnaceRecipes.instance().getSmeltingResult(stackInSlot).isEmpty())
+				{
+					if (!this.mergeItemStack(stackInSlot, 0, 1, false))
+					{
 						return ItemStack.EMPTY;
 					}
-				} else if (index >= 2 && index < 10) {
-					if (!this.mergeItemStack(stackInSlot, 37, 46, false)) {
-						if (!this.mergeItemStack(stackInSlot, 10, 46, false)) {
+				} else if (index >= 2 && index < 10)
+				{
+					if (!this.mergeItemStack(stackInSlot, 37, 46, false))
+					{
+						if (!this.mergeItemStack(stackInSlot, 10, 46, false))
+						{
 							return ItemStack.EMPTY;
 						}
 					}
-				} else if (stackInSlot.getItem() == ItemHandler.PROTOSS_UPGRADE && index >= 10 && index <= 45) {
-					if (!this.mergeItemStack(stackInSlot, 2, 10, false)) {
-						if (index >= 37 && index < 46) {
-							if (!this.mergeItemStack(stackInSlot, 10, 37, false)) {
+				} else if (stackInSlot.getItem() == ItemHandler.PROTOSS_UPGRADE && index >= 10 && index <= 45)
+				{
+					if (!this.mergeItemStack(stackInSlot, 2, 10, false))
+					{
+						if (index >= 37 && index < 46)
+						{
+							if (!this.mergeItemStack(stackInSlot, 10, 37, false))
+							{
 								return ItemStack.EMPTY;
 							}
-						} else if (index >= 10 && index < 36) {
-							if (!this.mergeItemStack(stackInSlot, 37, 46, false)) {
+						} else if (index >= 10 && index < 36)
+						{
+							if (!this.mergeItemStack(stackInSlot, 37, 46, false))
+							{
 								return ItemStack.EMPTY;
 							}
 						}
 					}
-				} else if (index >= 37 && index < 46) {
-					if (!this.mergeItemStack(stackInSlot, 10, 37, false)) {
+				} else if (index >= 37 && index < 46)
+				{
+					if (!this.mergeItemStack(stackInSlot, 10, 37, false))
+					{
 						return ItemStack.EMPTY;
 					}
-				} else if (index >= 10 && index < 36) {
-					if (!this.mergeItemStack(stackInSlot, 37, 46, false)) {
+				} else if (index >= 10 && index < 36)
+				{
+					if (!this.mergeItemStack(stackInSlot, 37, 46, false))
+					{
 						return ItemStack.EMPTY;
 					}
 				}
-			} else if (!this.mergeItemStack(stackInSlot, 3, 39, false)) {
+			} else if (!this.mergeItemStack(stackInSlot, 3, 39, false))
+			{
 				return ItemStack.EMPTY;
 			}
 
@@ -102,7 +125,8 @@ public class ContainerProtossFurnace extends Container {
 	}
 
 	@Override
-	public boolean canInteractWith(EntityPlayer player) {
+	public boolean canInteractWith(EntityPlayer player)
+	{
 		return true;
 	}
 }

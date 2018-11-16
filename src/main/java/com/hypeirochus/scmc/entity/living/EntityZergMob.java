@@ -19,34 +19,41 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-public class EntityZergMob extends EntityStarcraftMob {
+public class EntityZergMob extends EntityStarcraftMob
+{
 
-	private static final DataParameter<Integer>	BIOMASS	= EntityDataManager.createKey(EntityZergMob.class, DataSerializers.VARINT);
-	private static final DataParameter<Boolean>	BURROW	= EntityDataManager.createKey(EntityZergMob.class, DataSerializers.BOOLEAN);
+	private static final DataParameter<Integer> BIOMASS = EntityDataManager.createKey(EntityZergMob.class, DataSerializers.VARINT);
+	private static final DataParameter<Boolean> BURROW = EntityDataManager.createKey(EntityZergMob.class, DataSerializers.BOOLEAN);
 
-	public EntityZergMob(World world) {
+	public EntityZergMob(World world)
+	{
 		super(world);
 	}
 
 	@Override
-	public boolean getCanSpawnHere() {
-		if (this.world.getDifficulty() != EnumDifficulty.PEACEFUL) {
+	public boolean getCanSpawnHere()
+	{
+		if (this.world.getDifficulty() != EnumDifficulty.PEACEFUL)
+		{
 			return true;
-		} else {
+		} else
+		{
 			return false;
 		}
 	}
 
 	@Override
-	protected void entityInit() {
+	protected void entityInit()
+	{
 		this.getDataManager().register(BIOMASS, 0);
 		this.getDataManager().register(BURROW, false);
-		
+
 		super.entityInit();
 	}
 
 	@Override
-	public void writeEntityToNBT(NBTTagCompound nbt) {
+	public void writeEntityToNBT(NBTTagCompound nbt)
+	{
 		super.writeEntityToNBT(nbt);
 
 		nbt.setInteger("Biomass", this.getBiomass());
@@ -54,34 +61,43 @@ public class EntityZergMob extends EntityStarcraftMob {
 	}
 
 	@Override
-	public void readEntityFromNBT(NBTTagCompound nbt) {
+	public void readEntityFromNBT(NBTTagCompound nbt)
+	{
 		super.readEntityFromNBT(nbt);
 
 		this.setBiomass(nbt.getInteger("Biomass"));
 		this.isBurrowed(nbt.getBoolean("Burrow"));
 	}
 
-	public int getBiomass() {
+	public int getBiomass()
+	{
 		return this.getDataManager().get(BIOMASS);
 	}
 
-	public void setBiomass(int amount) {
+	public void setBiomass(int amount)
+	{
 		this.getDataManager().set(BIOMASS, amount);
 	}
 
-	protected void findBiomass() {
-		if (!this.world.isRemote && this.world.getWorldTime() % 40 == 0 && this.getAttackTarget() == null) {
+	protected void findBiomass()
+	{
+		if (!this.world.isRemote && this.world.getWorldTime() % 40 == 0 && this.getAttackTarget() == null)
+		{
 			ArrayList<EntityItem> entityItemList = (ArrayList<EntityItem>) world.getEntitiesWithinAABB(EntityItem.class, this.getEntityBoundingBox().expand(8, 8, 8));
 
-			for (EntityItem entityItem : entityItemList) {
-				if (!entityItem.cannotPickup()) {
+			for (EntityItem entityItem : entityItemList)
+			{
+				if (!entityItem.cannotPickup())
+				{
 					ItemStack stack = entityItem.getItem();
 
-					if (stack.getItem() == ItemHandler.BIOMASS) {
+					if (stack.getItem() == ItemHandler.BIOMASS)
+					{
 						this.getNavigator().setPath(this.getNavigator().getPathToEntityLiving(entityItem), 1);
 					}
 
-					if (this.getDistance(entityItem) <= 2) {
+					if (this.getDistance(entityItem) <= 2)
+					{
 						this.onPickupBiomass(entityItem);
 					}
 					break;
@@ -93,43 +109,53 @@ public class EntityZergMob extends EntityStarcraftMob {
 		}
 	}
 
-	protected void onPickupBiomass(EntityItem entityItem) {
+	protected void onPickupBiomass(EntityItem entityItem)
+	{
 		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(this.getMaxHealth() + (entityItem.getItem().getCount()));
 		this.setHealth(this.getHealth() + (entityItem.getItem().getCount()));
 		this.setBiomass(this.getBiomass() + (entityItem.getItem().getCount()));
 		entityItem.setDead();
 	}
-	
-	public boolean getBurrowState() {
+
+	public boolean getBurrowState()
+	{
 		return this.getDataManager().get(BURROW);
 	}
 
-	public void isBurrowed(boolean isBurrowed) {
+	public void isBurrowed(boolean isBurrowed)
+	{
 		this.getDataManager().set(BURROW, isBurrowed);
 	}
-	
-	protected void clearAITasks() {
-	   tasks.taskEntries.clear();
-	   targetTasks.taskEntries.clear();
+
+	protected void clearAITasks()
+	{
+		tasks.taskEntries.clear();
+		targetTasks.taskEntries.clear();
 	}
 
 	@Override
-	public void onUpdate() {
+	public void onUpdate()
+	{
 		super.onUpdate();
-		if(!this.world.isRemote) {
-			if (this.getBiomass() <= 100) {
+		if (!this.world.isRemote)
+		{
+			if (this.getBiomass() <= 100)
+			{
 				this.findBiomass();
 			}
-			if (this.getBiomass() > 100) {
+			if (this.getBiomass() > 100)
+			{
 				this.setBiomass(100);
 				this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(this.getMaxHealth() + this.getBiomass());
 			}
-			if(this.getHealth() < this.getMaxHealth()/6 && this.getBurrowState() == false) {
+			if (this.getHealth() < this.getMaxHealth() / 6 && this.getBurrowState() == false)
+			{
 				world.playSound(null, this.getPosition(), SoundHandler.FX_ZERG_BURROWDOWN, SoundCategory.NEUTRAL, 7.0F, 1.0F);
 				this.isBurrowed(true);
 				this.clearAITasks();
 				this.amendAttribute(EnumTypeAttributes.INVISIBLE);
-			}else if(this.getHealth() > this.getMaxHealth()/6 && this.getBurrowState() == true) {
+			} else if (this.getHealth() > this.getMaxHealth() / 6 && this.getBurrowState() == true)
+			{
 				world.playSound(null, this.getPosition(), SoundHandler.FX_ZERG_BURROWUP, SoundCategory.NEUTRAL, 7.0F, 1.0F);
 				this.isBurrowed(false);
 				this.initEntityAI();
@@ -137,50 +163,66 @@ public class EntityZergMob extends EntityStarcraftMob {
 			}
 		}
 	}
-	
+
 	@Override
-	public void knockBack(Entity entityIn, float strength, double xRatio, double zRatio) {
-		if(this.getBurrowState() == true) {
-			//Do nothing. Burrowed zerg should not have knockback.
-		}else {
+	public void knockBack(Entity entityIn, float strength, double xRatio, double zRatio)
+	{
+		if (this.getBurrowState() == true)
+		{
+			// Do nothing. Burrowed zerg should not have knockback.
+		} else
+		{
 			super.knockBack(entityIn, strength, xRatio, zRatio);
 		}
 	}
-	
+
 	@Override
-	protected void initEntityAI() {
+	protected void initEntityAI()
+	{
 		super.initEntityAI();
 	}
 
 	@Override
-	public void onLivingUpdate() {
+	public void onLivingUpdate()
+	{
 		super.onLivingUpdate();
-		if (ticksExisted % 20 == 0 && !(this.getHealth() == this.getMaxHealth() + this.getBiomass()) && !this.isDead) {
+		if (ticksExisted % 20 == 0 && !(this.getHealth() == this.getMaxHealth() + this.getBiomass()) && !this.isDead)
+		{
 			this.heal(0.27F);
 		}
 	}
 
 	@Override
-	public void onKillEntity(EntityLivingBase entityLivingIn) {
+	public void onKillEntity(EntityLivingBase entityLivingIn)
+	{
 		int biomassAmount;
-		if (entityLivingIn.getMaxHealth() <= 256) {
+		if (entityLivingIn.getMaxHealth() <= 256)
+		{
 			biomassAmount = (int) entityLivingIn.getMaxHealth() / 4;
-		} else {
+		} else
+		{
 			biomassAmount = 64;
 		}
-		if (entityLivingIn instanceof EntityStarcraftMob) {
-			if (((EntityStarcraftMob) entityLivingIn).hasAttribute(EnumTypeAttributes.MECHANICAL)) {
+		if (entityLivingIn instanceof EntityStarcraftMob)
+		{
+			if (((EntityStarcraftMob) entityLivingIn).hasAttribute(EnumTypeAttributes.MECHANICAL))
+			{
 				// do nothing
-			} else {
+			} else
+			{
 				entityLivingIn.dropItem(ItemHandler.BIOMASS, biomassAmount);
 			}
-		} else if (entityLivingIn instanceof EntityStarcraftPassive) {
-			if (((EntityStarcraftPassive) entityLivingIn).hasAttribute(EnumTypeAttributes.MECHANICAL)) {
+		} else if (entityLivingIn instanceof EntityStarcraftPassive)
+		{
+			if (((EntityStarcraftPassive) entityLivingIn).hasAttribute(EnumTypeAttributes.MECHANICAL))
+			{
 				// do nothing
-			} else {
+			} else
+			{
 				entityLivingIn.dropItem(ItemHandler.BIOMASS, biomassAmount);
 			}
-		} else {
+		} else
+		{
 			entityLivingIn.dropItem(ItemHandler.BIOMASS, biomassAmount);
 		}
 		super.onKillEntity(entityLivingIn);

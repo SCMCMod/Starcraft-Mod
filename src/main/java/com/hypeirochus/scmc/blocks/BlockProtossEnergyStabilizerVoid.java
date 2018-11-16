@@ -12,9 +12,11 @@ import net.minecraft.block.material.Material;
  * 
  * @author Hypeirochus
  */
-public class BlockProtossEnergyStabilizerVoid extends StarcraftBlock {
+public class BlockProtossEnergyStabilizerVoid extends StarcraftBlock
+{
 
-	public BlockProtossEnergyStabilizerVoid() {
+	public BlockProtossEnergyStabilizerVoid()
+	{
 		super("protoss.stabilizer.void", RegistryType.FULL, Material.IRON, MapColor.LIME);
 		setSoundType(SoundType.METAL);
 		setHardness(15.0F);

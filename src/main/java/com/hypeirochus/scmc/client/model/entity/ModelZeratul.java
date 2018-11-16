@@ -12,108 +12,110 @@ import net.minecraft.util.math.MathHelper;
 /**
  * zeratul - cybercat5555 Created using Tabula 5.1.0
  */
-public class ModelZeratul extends Model {
-	public ModelRenderer	chestUpper;
-	public ModelRenderer	neck;
-	public ModelRenderer	abdomen;
-	public ModelRenderer	shoulders;
-	public ModelRenderer	harness01;
-	public ModelRenderer	cape;
-	public ModelRenderer	waist;
-	public ModelRenderer	loincloth;
-	public ModelRenderer	loinclothBack;
-	public ModelRenderer	legLeft1;
-	public ModelRenderer	legRight1;
-	public ModelRenderer	legLeft2;
-	public ModelRenderer	legLeft3;
-	public ModelRenderer	legLeft4;
-	public ModelRenderer	legLeft5;
-	public ModelRenderer	footLeft;
-	public ModelRenderer	footLeftUpper;
-	public ModelRenderer	toeLeftLeft;
-	public ModelRenderer	toeLeftRight;
-	public ModelRenderer	footLeftUpper02;
-	public ModelRenderer	toeLeftLeftClaw;
-	public ModelRenderer	toeLeftRightClaw;
-	public ModelRenderer	legRight2;
-	public ModelRenderer	legRight3;
-	public ModelRenderer	legRight4;
-	public ModelRenderer	legRight5;
-	public ModelRenderer	footRight;
-	public ModelRenderer	footRightUpper02;
-	public ModelRenderer	toeRightRight;
-	public ModelRenderer	toeRightLeft;
-	public ModelRenderer	footRightUpper;
-	public ModelRenderer	toeRightRightClaw;
-	public ModelRenderer	toeRightLeftClaw;
-	public ModelRenderer	shoulderGuardLeft1;
-	public ModelRenderer	shoulderGuardRight1;
-	public ModelRenderer	armLeft1;
-	public ModelRenderer	armRight1;
-	public ModelRenderer	shoulderGuardLeft2;
-	public ModelRenderer	shoulderGuardRight2;
-	public ModelRenderer	shoulderPadGem01;
-	public ModelRenderer	shoulderPadGem02;
-	public ModelRenderer	shoulderPadSpike01;
-	public ModelRenderer	shoulderPadSpike02;
-	public ModelRenderer	lForearm;
-	public ModelRenderer	lFist;
-	public ModelRenderer	rForearm;
-	public ModelRenderer	rFist;
-	public ModelRenderer	rGauntlet;
-	public ModelRenderer	bladeRight1;
-	public ModelRenderer	bladeRight3;
-	public ModelRenderer	harness02;
-	public ModelRenderer	lHarness01;
-	public ModelRenderer	rHarness01;
-	public ModelRenderer	lHarnessLower01;
-	public ModelRenderer	rHarnessLower01;
-	public ModelRenderer	harnessBack;
-	public ModelRenderer	harnessBack02;
-	public ModelRenderer	harnessBack03;
-	public ModelRenderer	lHarnessLower04;
-	public ModelRenderer	rHarnessLower04;
-	public ModelRenderer	lHarness04;
-	public ModelRenderer	rHarness04;
-	public ModelRenderer	lHarness02;
-	public ModelRenderer	lHarness03;
-	public ModelRenderer	rHarness02;
-	public ModelRenderer	rHarness03;
-	public ModelRenderer	lHarnessLower02;
-	public ModelRenderer	lHarnessLower03;
-	public ModelRenderer	rHarnessLower02;
-	public ModelRenderer	rHarnessLower03;
-	public ModelRenderer	cape2;
-	public ModelRenderer	cape3;
-	public ModelRenderer	head;
-	public ModelRenderer	headBack;
-	public ModelRenderer	headBack2;
-	public ModelRenderer	eyes;
-	public ModelRenderer	lSkullSlant;
-	public ModelRenderer	rSkullSlant;
-	public ModelRenderer	lSkullSlant2;
-	public ModelRenderer	rSkullSlant2;
-	public ModelRenderer	faceMask1;
-	public ModelRenderer	nerveCord1;
-	public ModelRenderer	faceMask2;
-	public ModelRenderer	khalaBand;
-	public ModelRenderer	shape55;
-	public ModelRenderer	lKhalaStrand01;
-	public ModelRenderer	rKhalaStrand01;
-	public ModelRenderer	khalaStrand1;
-	public ModelRenderer	khalaStrand2;
-	public ModelRenderer	khalaStrand3;
-	public ModelRenderer	khalaStrand4;
-	public ModelRenderer	khalaStrand10;
-	public ModelRenderer	khalaStrand6;
-	public ModelRenderer	khalaStrand7;
-	public ModelRenderer	khalaStrand8;
-	public ModelRenderer	khalaStrand9;
-	public ModelRenderer	khalaStrand5;
-	public ModelRenderer	lKhalaStrand02;
-	public ModelRenderer	rKhalaStrand02;
+public class ModelZeratul extends Model
+{
+	public ModelRenderer chestUpper;
+	public ModelRenderer neck;
+	public ModelRenderer abdomen;
+	public ModelRenderer shoulders;
+	public ModelRenderer harness01;
+	public ModelRenderer cape;
+	public ModelRenderer waist;
+	public ModelRenderer loincloth;
+	public ModelRenderer loinclothBack;
+	public ModelRenderer legLeft1;
+	public ModelRenderer legRight1;
+	public ModelRenderer legLeft2;
+	public ModelRenderer legLeft3;
+	public ModelRenderer legLeft4;
+	public ModelRenderer legLeft5;
+	public ModelRenderer footLeft;
+	public ModelRenderer footLeftUpper;
+	public ModelRenderer toeLeftLeft;
+	public ModelRenderer toeLeftRight;
+	public ModelRenderer footLeftUpper02;
+	public ModelRenderer toeLeftLeftClaw;
+	public ModelRenderer toeLeftRightClaw;
+	public ModelRenderer legRight2;
+	public ModelRenderer legRight3;
+	public ModelRenderer legRight4;
+	public ModelRenderer legRight5;
+	public ModelRenderer footRight;
+	public ModelRenderer footRightUpper02;
+	public ModelRenderer toeRightRight;
+	public ModelRenderer toeRightLeft;
+	public ModelRenderer footRightUpper;
+	public ModelRenderer toeRightRightClaw;
+	public ModelRenderer toeRightLeftClaw;
+	public ModelRenderer shoulderGuardLeft1;
+	public ModelRenderer shoulderGuardRight1;
+	public ModelRenderer armLeft1;
+	public ModelRenderer armRight1;
+	public ModelRenderer shoulderGuardLeft2;
+	public ModelRenderer shoulderGuardRight2;
+	public ModelRenderer shoulderPadGem01;
+	public ModelRenderer shoulderPadGem02;
+	public ModelRenderer shoulderPadSpike01;
+	public ModelRenderer shoulderPadSpike02;
+	public ModelRenderer lForearm;
+	public ModelRenderer lFist;
+	public ModelRenderer rForearm;
+	public ModelRenderer rFist;
+	public ModelRenderer rGauntlet;
+	public ModelRenderer bladeRight1;
+	public ModelRenderer bladeRight3;
+	public ModelRenderer harness02;
+	public ModelRenderer lHarness01;
+	public ModelRenderer rHarness01;
+	public ModelRenderer lHarnessLower01;
+	public ModelRenderer rHarnessLower01;
+	public ModelRenderer harnessBack;
+	public ModelRenderer harnessBack02;
+	public ModelRenderer harnessBack03;
+	public ModelRenderer lHarnessLower04;
+	public ModelRenderer rHarnessLower04;
+	public ModelRenderer lHarness04;
+	public ModelRenderer rHarness04;
+	public ModelRenderer lHarness02;
+	public ModelRenderer lHarness03;
+	public ModelRenderer rHarness02;
+	public ModelRenderer rHarness03;
+	public ModelRenderer lHarnessLower02;
+	public ModelRenderer lHarnessLower03;
+	public ModelRenderer rHarnessLower02;
+	public ModelRenderer rHarnessLower03;
+	public ModelRenderer cape2;
+	public ModelRenderer cape3;
+	public ModelRenderer head;
+	public ModelRenderer headBack;
+	public ModelRenderer headBack2;
+	public ModelRenderer eyes;
+	public ModelRenderer lSkullSlant;
+	public ModelRenderer rSkullSlant;
+	public ModelRenderer lSkullSlant2;
+	public ModelRenderer rSkullSlant2;
+	public ModelRenderer faceMask1;
+	public ModelRenderer nerveCord1;
+	public ModelRenderer faceMask2;
+	public ModelRenderer khalaBand;
+	public ModelRenderer shape55;
+	public ModelRenderer lKhalaStrand01;
+	public ModelRenderer rKhalaStrand01;
+	public ModelRenderer khalaStrand1;
+	public ModelRenderer khalaStrand2;
+	public ModelRenderer khalaStrand3;
+	public ModelRenderer khalaStrand4;
+	public ModelRenderer khalaStrand10;
+	public ModelRenderer khalaStrand6;
+	public ModelRenderer khalaStrand7;
+	public ModelRenderer khalaStrand8;
+	public ModelRenderer khalaStrand9;
+	public ModelRenderer khalaStrand5;
+	public ModelRenderer lKhalaStrand02;
+	public ModelRenderer rKhalaStrand02;
 
-	public ModelZeratul() {
+	public ModelZeratul()
+	{
 		this.textureWidth = 256;
 		this.textureHeight = 128;
 		this.lKhalaStrand02 = new ModelRenderer(this, 153, 48);
@@ -625,7 +627,8 @@ public class ModelZeratul extends Model {
 	}
 
 	@Override
-	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
+	{
 		super.render(entity, f, f1, f2, f3, f4, f5);
 		this.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 		GlStateManager.pushMatrix();
@@ -637,17 +640,21 @@ public class ModelZeratul extends Model {
 		this.neck.render(f5);
 		GlStateManager.popMatrix();
 		this.chestUpper.render(f5);
-		if (entity instanceof EntityZeratul) {
-			if (((EntityZeratul) entity).canSheathBlades()) {
+		if (entity instanceof EntityZeratul)
+		{
+			if (((EntityZeratul) entity).canSheathBlades())
+			{
 				this.bladeRight1.isHidden = false;
-			} else {
+			} else
+			{
 				this.bladeRight1.isHidden = true;
 			}
 		}
 	}
 
 	@Override
-	public void render(Object obj) {
+	public void render(Object obj)
+	{
 		EntityLivingBase base = (EntityLivingBase) obj;
 		head.rotateAngleX = headPitch(obj) * 0.017453292F + 5.5F;
 		head.rotateAngleY = headYaw(obj) * 0.0017453292F;
@@ -657,11 +664,14 @@ public class ModelZeratul extends Model {
 		legRight1.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.8662F) * 1 * swingProgressPrev(obj) - 0.5F;
 		legRight2.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.6662F) * 1 * swingProgressPrev(obj) + 0.5F;
 		armRight1.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.8662F + (float) Math.PI) * 0.5F * swingProgressPrev(obj);
-		if (obj instanceof EntityZeratul) {
-			if (((EntityZeratul) obj).canSheathBlades()) {
+		if (obj instanceof EntityZeratul)
+		{
+			if (((EntityZeratul) obj).canSheathBlades())
+			{
 				this.lForearm.rotateAngleX = (float) Math.toRadians(15);
 				this.rForearm.rotateAngleX = (float) Math.toRadians(15);
-			} else {
+			} else
+			{
 				this.lForearm.rotateAngleX = (float) Math.toRadians(65);
 				this.rForearm.rotateAngleX = (float) Math.toRadians(65);
 			}

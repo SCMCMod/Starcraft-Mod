@@ -12,70 +12,72 @@ import net.minecraft.util.math.MathHelper;
 /**
  * sc2Marine NEW - cybercat5555 Created using Tabula 5.1.0
  */
-public class ModelMarine extends ModelBiped {
+public class ModelMarine extends ModelBiped
+{
 
-	public ModelRenderer	lInsignia;
-	public ModelRenderer	rInsignia;
-	public ModelRenderer	lInsignia2;
-	public ModelRenderer	rInsignia2;
-	public ModelRenderer	chestplate_rShoulderPad;
-	public ModelRenderer	chestplate_rArmGuard01;
-	public ModelRenderer	chestplate_rGloves01;
-	public ModelRenderer	chestplate_rGloves02;
-	public ModelRenderer	rHandGuard;
-	public ModelRenderer	chestplate_rArm;
-	public ModelRenderer	chestplate_rShoulderFlange;
-	public ModelRenderer	chestplate_rArmGuard02;
-	public ModelRenderer	chestplate_rArmGuard03;
-	public ModelRenderer	chestplate_rArmGuard04;
-	public ModelRenderer	boots_rBoot01;
-	public ModelRenderer	leggings_rLegGuard01;
-	public ModelRenderer	leggings_rThighGuard;
-	public ModelRenderer	leggings_rLeg;
-	public ModelRenderer	boots_rBoot02;
-	public ModelRenderer	boots_rBoot03;
-	public ModelRenderer	boots_rBoot04;
-	public ModelRenderer	boots_rBoot05;
-	public ModelRenderer	boots_rBoot06;
-	public ModelRenderer	leggings_rLegGuard02;
-	public ModelRenderer	leggings_rLegGuard03;
-	public ModelRenderer	helmet_casing;
-	public ModelRenderer	helmet_visor01;
-	public ModelRenderer	helmet_visor02;
-	public ModelRenderer	leggings_codpiece;
-	public ModelRenderer	chestplate_chest01;
-	public ModelRenderer	chestplate_chest02;
-	public ModelRenderer	leggings_buttGuard;
-	public ModelRenderer	chestplate_stomach;
-	public ModelRenderer	chestplate_chest03;
-	public ModelRenderer	chestplate_chest04;
-	public ModelRenderer	chestplate_neckGuard;
-	public ModelRenderer	chestplate_lVent02;
-	public ModelRenderer	chestplate_rVent02;
-	public ModelRenderer	chestplate_headGuard;
-	public ModelRenderer	chestplate_lShoulderPad;
-	public ModelRenderer	chestplate_lArmGuard01;
-	public ModelRenderer	chestplate_lGloves01;
-	public ModelRenderer	chestplate_lGloves02;
-	public ModelRenderer	lHandGuard;
-	public ModelRenderer	chestplate_lArm;
-	public ModelRenderer	chestplate_lShoulderFlange;
-	public ModelRenderer	chestplate_lArmGuard02;
-	public ModelRenderer	chestplate_lArmGuard03;
-	public ModelRenderer	chestplate_lArmGuard04;
-	public ModelRenderer	boots_lBoot01;
-	public ModelRenderer	leggings_lLegGuard01;
-	public ModelRenderer	leggings_lThighGuard;
-	public ModelRenderer	leggings_lLeg;
-	public ModelRenderer	boots_lBoot02;
-	public ModelRenderer	boots_lBoot03;
-	public ModelRenderer	boots_lBoot04;
-	public ModelRenderer	boots_lBoot05;
-	public ModelRenderer	boots_lBoot06;
-	public ModelRenderer	leggings_lLegGuard02;
-	public ModelRenderer	leggings_lLegGuard03;
+	public ModelRenderer lInsignia;
+	public ModelRenderer rInsignia;
+	public ModelRenderer lInsignia2;
+	public ModelRenderer rInsignia2;
+	public ModelRenderer chestplate_rShoulderPad;
+	public ModelRenderer chestplate_rArmGuard01;
+	public ModelRenderer chestplate_rGloves01;
+	public ModelRenderer chestplate_rGloves02;
+	public ModelRenderer rHandGuard;
+	public ModelRenderer chestplate_rArm;
+	public ModelRenderer chestplate_rShoulderFlange;
+	public ModelRenderer chestplate_rArmGuard02;
+	public ModelRenderer chestplate_rArmGuard03;
+	public ModelRenderer chestplate_rArmGuard04;
+	public ModelRenderer boots_rBoot01;
+	public ModelRenderer leggings_rLegGuard01;
+	public ModelRenderer leggings_rThighGuard;
+	public ModelRenderer leggings_rLeg;
+	public ModelRenderer boots_rBoot02;
+	public ModelRenderer boots_rBoot03;
+	public ModelRenderer boots_rBoot04;
+	public ModelRenderer boots_rBoot05;
+	public ModelRenderer boots_rBoot06;
+	public ModelRenderer leggings_rLegGuard02;
+	public ModelRenderer leggings_rLegGuard03;
+	public ModelRenderer helmet_casing;
+	public ModelRenderer helmet_visor01;
+	public ModelRenderer helmet_visor02;
+	public ModelRenderer leggings_codpiece;
+	public ModelRenderer chestplate_chest01;
+	public ModelRenderer chestplate_chest02;
+	public ModelRenderer leggings_buttGuard;
+	public ModelRenderer chestplate_stomach;
+	public ModelRenderer chestplate_chest03;
+	public ModelRenderer chestplate_chest04;
+	public ModelRenderer chestplate_neckGuard;
+	public ModelRenderer chestplate_lVent02;
+	public ModelRenderer chestplate_rVent02;
+	public ModelRenderer chestplate_headGuard;
+	public ModelRenderer chestplate_lShoulderPad;
+	public ModelRenderer chestplate_lArmGuard01;
+	public ModelRenderer chestplate_lGloves01;
+	public ModelRenderer chestplate_lGloves02;
+	public ModelRenderer lHandGuard;
+	public ModelRenderer chestplate_lArm;
+	public ModelRenderer chestplate_lShoulderFlange;
+	public ModelRenderer chestplate_lArmGuard02;
+	public ModelRenderer chestplate_lArmGuard03;
+	public ModelRenderer chestplate_lArmGuard04;
+	public ModelRenderer boots_lBoot01;
+	public ModelRenderer leggings_lLegGuard01;
+	public ModelRenderer leggings_lThighGuard;
+	public ModelRenderer leggings_lLeg;
+	public ModelRenderer boots_lBoot02;
+	public ModelRenderer boots_lBoot03;
+	public ModelRenderer boots_lBoot04;
+	public ModelRenderer boots_lBoot05;
+	public ModelRenderer boots_lBoot06;
+	public ModelRenderer leggings_lLegGuard02;
+	public ModelRenderer leggings_lLegGuard03;
 
-	public ModelMarine() {
+	public ModelMarine()
+	{
 		this.textureWidth = 128;
 		this.textureHeight = 128;
 		this.chestplate_rGloves01 = new ModelRenderer(this, 64, 12);
@@ -386,7 +388,8 @@ public class ModelMarine extends ModelBiped {
 	}
 
 	@Override
-	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale)
+	{
 		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
 //		if (((EntityMarine) entity).canAim()) {
@@ -437,7 +440,8 @@ public class ModelMarine extends ModelBiped {
 	/**
 	 * This is a helper function from Tabula to set the rotation of model parts
 	 */
-	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z)
+	{
 		modelRenderer.rotateAngleX = x;
 		modelRenderer.rotateAngleY = y;
 		modelRenderer.rotateAngleZ = z;
@@ -445,13 +449,16 @@ public class ModelMarine extends ModelBiped {
 
 	@SuppressWarnings("incomplete-switch")
 	@Override
-	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
+	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn)
+	{
 		boolean flag = entityIn instanceof EntityLivingBase && ((EntityLivingBase) entityIn).getTicksElytraFlying() > 4;
 		this.bipedHead.rotateAngleY = netHeadYaw * 0.017453292F;
 
-		if (flag) {
+		if (flag)
+		{
 			this.bipedHead.rotateAngleX = -((float) Math.PI / 4F);
-		} else {
+		} else
+		{
 			this.bipedHead.rotateAngleX = headPitch * 0.017453292F;
 		}
 
@@ -462,13 +469,15 @@ public class ModelMarine extends ModelBiped {
 		this.bipedLeftArm.rotationPointX = 5.0F;
 		float f = 1.0F;
 
-		if (flag) {
+		if (flag)
+		{
 			f = (float) (entityIn.motionX * entityIn.motionX + entityIn.motionY * entityIn.motionY + entityIn.motionZ * entityIn.motionZ);
 			f = f / 0.2F;
 			f = f * f * f;
 		}
 
-		if (f < 1.0F) {
+		if (f < 1.0F)
+		{
 			f = 1.0F;
 		}
 
@@ -483,7 +492,8 @@ public class ModelMarine extends ModelBiped {
 		this.bipedRightLeg.rotateAngleZ = 0.0F;
 		this.bipedLeftLeg.rotateAngleZ = 0.0F;
 
-		if (this.isRiding) {
+		if (this.isRiding)
+		{
 			this.bipedRightArm.rotateAngleX += -((float) Math.PI / 5F);
 			this.bipedLeftArm.rotateAngleX += -((float) Math.PI / 5F);
 			this.bipedRightLeg.rotateAngleX = -1.4137167F;
@@ -497,7 +507,8 @@ public class ModelMarine extends ModelBiped {
 		this.bipedRightArm.rotateAngleY = 0.0F;
 		this.bipedRightArm.rotateAngleZ = 0.0F;
 
-		switch (this.leftArmPose) {
+		switch (this.leftArmPose)
+		{
 		case EMPTY:
 			this.bipedLeftArm.rotateAngleY = 0.0F;
 			break;
@@ -510,7 +521,8 @@ public class ModelMarine extends ModelBiped {
 			this.bipedLeftArm.rotateAngleY = 0.0F;
 		}
 
-		switch (this.rightArmPose) {
+		switch (this.rightArmPose)
+		{
 		case EMPTY:
 			this.bipedRightArm.rotateAngleY = 0.0F;
 			break;
@@ -523,13 +535,15 @@ public class ModelMarine extends ModelBiped {
 			this.bipedRightArm.rotateAngleY = 0.0F;
 		}
 
-		if (this.swingProgress > 0.0F) {
+		if (this.swingProgress > 0.0F)
+		{
 			EnumHandSide enumhandside = this.getMainHand(entityIn);
 			ModelRenderer modelrenderer = this.getArmForSide(enumhandside);
 			float f1 = this.swingProgress;
 			this.bipedBody.rotateAngleY = MathHelper.sin(MathHelper.sqrt(f1) * ((float) Math.PI * 2F)) * 0.2F;
 
-			if (enumhandside == EnumHandSide.LEFT) {
+			if (enumhandside == EnumHandSide.LEFT)
+			{
 				this.bipedBody.rotateAngleY *= -1.0F;
 			}
 
@@ -551,7 +565,8 @@ public class ModelMarine extends ModelBiped {
 			modelrenderer.rotateAngleZ += MathHelper.sin(this.swingProgress * (float) Math.PI) * -0.4F;
 		}
 
-		if (this.isSneak) {
+		if (this.isSneak)
+		{
 			this.bipedBody.rotateAngleX = 0.5F;
 			this.bipedRightArm.rotateAngleX += 0.4F;
 			this.bipedLeftArm.rotateAngleX += 0.4F;
@@ -560,7 +575,8 @@ public class ModelMarine extends ModelBiped {
 			this.bipedRightLeg.rotationPointY = 9.0F;
 			this.bipedLeftLeg.rotationPointY = 9.0F;
 			this.bipedHead.rotationPointY = 1.0F;
-		} else {
+		} else
+		{
 			this.bipedBody.rotateAngleX = 0.0F;
 			this.bipedRightLeg.rotationPointZ = 0.1F;
 			this.bipedLeftLeg.rotationPointZ = 0.1F;
@@ -574,12 +590,14 @@ public class ModelMarine extends ModelBiped {
 		this.bipedRightArm.rotateAngleX += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
 		this.bipedLeftArm.rotateAngleX -= MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
 
-		if (this.rightArmPose == ModelBiped.ArmPose.BOW_AND_ARROW) {
+		if (this.rightArmPose == ModelBiped.ArmPose.BOW_AND_ARROW)
+		{
 			this.bipedRightArm.rotateAngleY = -0.1F + this.bipedHead.rotateAngleY;
 			this.bipedLeftArm.rotateAngleY = 0.1F + this.bipedHead.rotateAngleY + 0.4F;
 			this.bipedRightArm.rotateAngleX = -((float) Math.PI / 2F) + this.bipedHead.rotateAngleX;
 			this.bipedLeftArm.rotateAngleX = -((float) Math.PI / 2F) + this.bipedHead.rotateAngleX;
-		} else if (this.leftArmPose == ModelBiped.ArmPose.BOW_AND_ARROW) {
+		} else if (this.leftArmPose == ModelBiped.ArmPose.BOW_AND_ARROW)
+		{
 			this.bipedRightArm.rotateAngleY = -0.1F + this.bipedHead.rotateAngleY - 0.4F;
 			this.bipedLeftArm.rotateAngleY = 0.1F + this.bipedHead.rotateAngleY;
 			this.bipedRightArm.rotateAngleX = -((float) Math.PI / 2F) + this.bipedHead.rotateAngleX;
@@ -590,10 +608,12 @@ public class ModelMarine extends ModelBiped {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
 	}
 
-	public void setModelAttributes(ModelBase model) {
+	public void setModelAttributes(ModelBase model)
+	{
 		super.setModelAttributes(model);
 
-		if (model instanceof ModelBiped) {
+		if (model instanceof ModelBiped)
+		{
 			ModelBiped modelbiped = (ModelBiped) model;
 			this.leftArmPose = modelbiped.leftArmPose;
 			this.rightArmPose = modelbiped.rightArmPose;
@@ -601,7 +621,8 @@ public class ModelMarine extends ModelBiped {
 		}
 	}
 
-	public void setInvisible(boolean invisible) {
+	public void setInvisible(boolean invisible)
+	{
 		this.bipedHead.showModel = invisible;
 		this.bipedHeadwear.showModel = invisible;
 		this.bipedBody.showModel = invisible;
@@ -611,15 +632,18 @@ public class ModelMarine extends ModelBiped {
 		this.bipedLeftLeg.showModel = invisible;
 	}
 
-	public void postRenderArm(float scale, EnumHandSide side) {
+	public void postRenderArm(float scale, EnumHandSide side)
+	{
 		this.getArmForSide(side).postRender(scale);
 	}
 
-	protected ModelRenderer getArmForSide(EnumHandSide side) {
+	protected ModelRenderer getArmForSide(EnumHandSide side)
+	{
 		return side == EnumHandSide.LEFT ? this.bipedLeftArm : this.bipedRightArm;
 	}
 
-	protected EnumHandSide getMainHand(Entity entityIn) {
+	protected EnumHandSide getMainHand(Entity entityIn)
+	{
 		return entityIn instanceof EntityLivingBase ? ((EntityLivingBase) entityIn).getPrimaryHand() : EnumHandSide.RIGHT;
 	}
 }

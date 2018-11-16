@@ -39,14 +39,16 @@ import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.IShearable;
 
-public class BlockBrambles extends BlockContainer implements IShearable, IMetaBlockName, IPlantable {
+public class BlockBrambles extends BlockContainer implements IShearable, IMetaBlockName, IPlantable
+{
 
 	public static final PropertyEnum<Part> PART = PropertyEnum.create("part", Part.class);
 
 	public static final AxisAlignedBB TOP = new AxisAlignedBB(0, -1, 0, 1, 1, 1);
 	public static final AxisAlignedBB BOTTOM = new AxisAlignedBB(0, 0, 0, 1, 2, 1);
 
-	public BlockBrambles() {
+	public BlockBrambles()
+	{
 		super(Material.VINE, MapColor.GREEN);
 		setRegistryName("flora.brambles");
 		setUnlocalizedName("flora.brambles");
@@ -56,38 +58,47 @@ public class BlockBrambles extends BlockContainer implements IShearable, IMetaBl
 	}
 
 	@Override
-	public boolean isReplaceable(IBlockAccess world, BlockPos pos) {
+	public boolean isReplaceable(IBlockAccess world, BlockPos pos)
+	{
 		return false;
 	}
 
 	@Override
-	public IBlockState getStateFromMeta(int meta) {
+	public IBlockState getStateFromMeta(int meta)
+	{
 		return this.getDefaultState().withProperty(PART, Part.values()[meta % 2]);
 	}
 
 	@Override
-	public int getMetaFromState(IBlockState state) {
+	public int getMetaFromState(IBlockState state)
+	{
 		return state.getValue(PART).ordinal();
 	}
 
 	@Override
-	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
-		if (world.getTileEntity(pos) instanceof TileEntityBrambles) {
+	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack)
+	{
+		if (world.getTileEntity(pos) instanceof TileEntityBrambles)
+		{
 			world.setBlockState(pos.up(), this.getDefaultState().withProperty(PART, Part.TOP));
 			world.setTileEntity(pos.up(), new TileEntityBrambles(((TileEntityBrambles) world.getTileEntity(pos)).getVariant()));
 		}
 	}
 
 	@Override
-	public boolean canPlaceBlockAt(World world, BlockPos pos) {
+	public boolean canPlaceBlockAt(World world, BlockPos pos)
+	{
 		return super.canPlaceBlockAt(world, pos) && world.getBlockState(pos.up()).getBlock().isReplaceable(world, pos.up()) && world.getBlockState(pos.down()).getBlock().canSustainPlant(this.getDefaultState(), world, pos, EnumFacing.DOWN, this);
 	}
 
 	@Override
-	public boolean addDestroyEffects(World world, BlockPos pos, ParticleManager manager) {
+	public boolean addDestroyEffects(World world, BlockPos pos, ParticleManager manager)
+	{
 		IBlockState state = world.getBlockState(pos);
-		if (state.getBlock() == this) {
-			if (world.isRemote) {
+		if (state.getBlock() == this)
+		{
+			if (world.isRemote)
+			{
 				state = state.getActualState(world, pos);
 				int i = 4;
 
@@ -95,9 +106,11 @@ public class BlockBrambles extends BlockContainer implements IShearable, IMetaBl
 				int u = 0;
 				int v = 0;
 
-				if (world.getTileEntity(pos) instanceof TileEntityBrambles) {
+				if (world.getTileEntity(pos) instanceof TileEntityBrambles)
+				{
 					TileEntityBrambles te = (TileEntityBrambles) world.getTileEntity(pos);
-					switch (te.getVariantEnum()) {
+					switch (te.getVariantEnum())
+					{
 					case KALDIR:
 						location = Resources.KALDIR_BRAMBLES_TEXTURE;
 						u = 112;
@@ -112,9 +125,12 @@ public class BlockBrambles extends BlockContainer implements IShearable, IMetaBl
 					}
 				}
 
-				for (int j = 0; j < 4; ++j) {
-					for (int k = 0; k < 4; ++k) {
-						for (int l = 0; l < 4; ++l) {
+				for (int j = 0; j < 4; ++j)
+				{
+					for (int k = 0; k < 4; ++k)
+					{
+						for (int l = 0; l < 4; ++l)
+						{
 							double d0 = ((double) j + 0.5D) / 4.0D;
 							double d1 = ((double) k + 0.5D) / 4.0D;
 							double d2 = ((double) l + 0.5D) / 4.0D;
@@ -129,24 +145,31 @@ public class BlockBrambles extends BlockContainer implements IShearable, IMetaBl
 	}
 
 	@Override
-	public void breakBlock(World world, BlockPos pos, IBlockState state) {
-		if (state.getValue(PART) == Part.BOTTOM) {
+	public void breakBlock(World world, BlockPos pos, IBlockState state)
+	{
+		if (state.getValue(PART) == Part.BOTTOM)
+		{
 			world.destroyBlock(pos.up(), false);
-		} else {
+		} else
+		{
 			world.destroyBlock(pos.down(), false);
 		}
 	}
 
 	@Override
-	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos) {
-		if (state.getValue(PART) == Part.BOTTOM && !world.getBlockState(pos.down()).getBlock().canSustainPlant(this.getDefaultState(), world, pos.down(), EnumFacing.DOWN, this)) {
+	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos)
+	{
+		if (state.getValue(PART) == Part.BOTTOM && !world.getBlockState(pos.down()).getBlock().canSustainPlant(this.getDefaultState(), world, pos.down(), EnumFacing.DOWN, this))
+		{
 			this.breakBlock(world, fromPos, state);
 		}
 	}
 
 	@Override
-	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
-		if (world.getTileEntity(pos) instanceof TileEntityBrambles) {
+	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
+	{
+		if (world.getTileEntity(pos) instanceof TileEntityBrambles)
+		{
 			TileEntityBrambles te = (TileEntityBrambles) world.getTileEntity(pos);
 			return ItemBlockBrambles.getDefaultStack(te.getVariant());
 		}
@@ -154,22 +177,27 @@ public class BlockBrambles extends BlockContainer implements IShearable, IMetaBl
 	}
 
 	@Override
-	public void getSubBlocks(CreativeTabs item, NonNullList<ItemStack> items) {
-		for (int i = 0; i < ItemBlockBrambles.Type.values().length; i++) {
+	public void getSubBlocks(CreativeTabs item, NonNullList<ItemStack> items)
+	{
+		for (int i = 0; i < ItemBlockBrambles.Type.values().length; i++)
+		{
 			items.add(ItemBlockBrambles.getDefaultStack(i));
 		}
 	}
 
 	@Override
-	public boolean isShearable(ItemStack item, IBlockAccess world, BlockPos pos) {
+	public boolean isShearable(ItemStack item, IBlockAccess world, BlockPos pos)
+	{
 		return true;
 	}
 
 	@Override
-	public List<ItemStack> onSheared(ItemStack item, IBlockAccess world, BlockPos pos, int fortune) {
+	public List<ItemStack> onSheared(ItemStack item, IBlockAccess world, BlockPos pos, int fortune)
+	{
 		List<ItemStack> ret = new java.util.ArrayList<ItemStack>();
 		int variant = 0;
-		if (world.getTileEntity(pos) instanceof TileEntityBrambles) {
+		if (world.getTileEntity(pos) instanceof TileEntityBrambles)
+		{
 			variant = ((TileEntityBrambles) world.getTileEntity(pos)).getVariant();
 		}
 		ret.add(new ItemStack(this, 1, variant));
@@ -177,7 +205,8 @@ public class BlockBrambles extends BlockContainer implements IShearable, IMetaBl
 	}
 
 	@Override
-	public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+	public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
+	{
 		List<ItemStack> ret = new java.util.ArrayList<ItemStack>();
 		if (RANDOM.nextInt(8) != 0)
 			return ret;
@@ -188,54 +217,68 @@ public class BlockBrambles extends BlockContainer implements IShearable, IMetaBl
 	}
 
 	@Override
-	public boolean isOpaqueCube(IBlockState state) {
+	public boolean isOpaqueCube(IBlockState state)
+	{
 		return false;
 	}
 
 	@Override
-	public boolean isFullCube(IBlockState state) {
+	public boolean isFullCube(IBlockState state)
+	{
 		return false;
 	}
 
 	@Override
-	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-		if (state.getValue(PART) == Part.TOP) {
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+	{
+		if (state.getValue(PART) == Part.TOP)
+		{
 			return TOP;
-		} else {
+		} else
+		{
 			return BOTTOM;
 		}
 	}
 
 	@Override
-	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess world, BlockPos pos) {
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess world, BlockPos pos)
+	{
 		return NULL_AABB;
 	}
 
-	public enum Part implements IStringSerializable {
+	public enum Part implements IStringSerializable
+	{
 		BOTTOM, TOP;
 
 		@Override
-		public String getName() {
+		public String getName()
+		{
 			return this.toString().toLowerCase();
 		}
 	}
 
 	@Override
-	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] { PART });
+	protected BlockStateContainer createBlockState()
+	{
+		return new BlockStateContainer(this, new IProperty[]
+		{ PART });
 	}
 
 	@Override
-	public TileEntity createNewTileEntity(World world, int meta) {
+	public TileEntity createNewTileEntity(World world, int meta)
+	{
 		return new TileEntityBrambles(meta / 2);
 	}
 
 	@Override
-	public String getSpecialName(ItemStack stack) {
-		if (stack.hasTagCompound()) {
+	public String getSpecialName(ItemStack stack)
+	{
+		if (stack.hasTagCompound())
+		{
 			NBTTagCompound nbt = stack.getTagCompound();
 			NBTTagCompound blockTag = (NBTTagCompound) nbt.getTag("BlockEntityTag");
-			if (blockTag.hasKey("variant")) {
+			if (blockTag.hasKey("variant"))
+			{
 				return ItemBlockBrambles.Type.values()[blockTag.getInteger("variant")].getName();
 			}
 		}
@@ -243,12 +286,14 @@ public class BlockBrambles extends BlockContainer implements IShearable, IMetaBl
 	}
 
 	@Override
-	public EnumPlantType getPlantType(IBlockAccess world, BlockPos pos) {
+	public EnumPlantType getPlantType(IBlockAccess world, BlockPos pos)
+	{
 		return EnumPlantType.Plains;
 	}
 
 	@Override
-	public IBlockState getPlant(IBlockAccess world, BlockPos pos) {
+	public IBlockState getPlant(IBlockAccess world, BlockPos pos)
+	{
 		return this.getDefaultState();
 	}
 }

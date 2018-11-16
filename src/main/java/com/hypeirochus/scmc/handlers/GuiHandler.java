@@ -28,15 +28,15 @@ import net.minecraftforge.items.CapabilityItemHandler;
 
 /**
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
- * 
  * <br>
  * </br>
- * 
- * Creates a container and a GUI if a block has one when the player opens a GUI/Container.
+ * Creates a container and a GUI if a block has one when the player opens a
+ * GUI/Container.
  * 
  * @author Ocelot5836
  */
-public class GuiHandler implements IGuiHandler {
+public class GuiHandler implements IGuiHandler
+{
 
 	/** The instance of Starcraft's GUI handler class */
 	public static final GuiHandler INSTANCE = new GuiHandler();
@@ -58,12 +58,14 @@ public class GuiHandler implements IGuiHandler {
 	/**
 	 * Registers the GUI handler to the network using {@link NetworkRegistry}.
 	 */
-	public static void init(FMLInitializationEvent event) {
+	public static void init(FMLInitializationEvent event)
+	{
 		NetworkRegistry.INSTANCE.registerGuiHandler(Starcraft.instance, GuiHandler.INSTANCE);
 	}
 
 	@Override
-	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
+	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
+	{
 		TileEntity te = world.getTileEntity(new BlockPos(x, y, z));
 		if (ID == GAS_COLLECTOR_ID)
 			return new ContainerGasCollector(player, (TileEntityGasCollector) te);
@@ -75,7 +77,8 @@ public class GuiHandler implements IGuiHandler {
 	}
 
 	@Override
-	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
+	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
+	{
 		BlockPos pos = new BlockPos(x, y, z);
 		TileEntity te = world.getTileEntity(pos);
 		if (ID == TEST_ID)

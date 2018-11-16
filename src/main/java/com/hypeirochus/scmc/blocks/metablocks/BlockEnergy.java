@@ -31,7 +31,8 @@ import net.minecraft.world.World;
 /**
  * This block has three variants. Refer to {@link CompressedMineralType}
  */
-public class BlockEnergy extends StarcraftBlock implements IMetaBlockName, IMetaRenderHandler {
+public class BlockEnergy extends StarcraftBlock implements IMetaBlockName, IMetaRenderHandler
+{
 
 	/** The type property */
 	public static final PropertyEnum<EnergyType> TYPE = PropertyEnum.create("type", EnergyType.class);
@@ -39,12 +40,12 @@ public class BlockEnergy extends StarcraftBlock implements IMetaBlockName, IMeta
 	/**
 	 * Default constructor
 	 * 
-	 * @param unlocalizedName
-	 *            The block's unlocalized name
-	 * @param registryName
-	 *            The block's registry name - defaultly the unlocalized name
+	 * @param unlocalizedName The block's unlocalized name
+	 * @param registryName The block's registry name - defaultly the unlocalized
+	 *        name
 	 */
-	public BlockEnergy() {
+	public BlockEnergy()
+	{
 		super("block.energy", RegistryType.META, Material.REDSTONE_LIGHT, MapColor.LIGHT_BLUE);
 		setSoundType(SoundType.STONE);
 		setHardness(0.5f);
@@ -56,9 +57,11 @@ public class BlockEnergy extends StarcraftBlock implements IMetaBlockName, IMeta
 	}
 
 	@Override
-	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
+	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos)
+	{
 		EnergyType type = state.getValue(TYPE);
-		switch (type) {
+		switch (type)
+		{
 		case CORRUPTED:
 			return 12;
 		case PURE:
@@ -71,9 +74,11 @@ public class BlockEnergy extends StarcraftBlock implements IMetaBlockName, IMeta
 	}
 
 	@Override
-	public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos) {
+	public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos)
+	{
 		EnergyType type = state.getValue(TYPE);
-		switch (type) {
+		switch (type)
+		{
 		case CORRUPTED:
 			return MapColor.PURPLE;
 		case PURE:
@@ -89,25 +94,30 @@ public class BlockEnergy extends StarcraftBlock implements IMetaBlockName, IMeta
 	 * Adds the properties to the block
 	 */
 	@Override
-	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] { TYPE });
+	protected BlockStateContainer createBlockState()
+	{
+		return new BlockStateContainer(this, new IProperty[]
+		{ TYPE });
 	}
 
 	/**
 	 * Makes sure the block drops the correct version of itself
 	 */
 	@Override
-	public int damageDropped(IBlockState state) {
+	public int damageDropped(IBlockState state)
+	{
 		return getMetaFromState(state);
 	}
 
 	@Override
-	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+	public Item getItemDropped(IBlockState state, Random rand, int fortune)
+	{
 		return ItemHandler.ENERGY;
 	}
 
 	@Override
-	public int quantityDropped(Random rand) {
+	public int quantityDropped(Random rand)
+	{
 		return 9;
 	}
 
@@ -115,7 +125,8 @@ public class BlockEnergy extends StarcraftBlock implements IMetaBlockName, IMeta
 	 * Gets the right meta data from the {@link IBlockState}
 	 */
 	@Override
-	public int getMetaFromState(IBlockState state) {
+	public int getMetaFromState(IBlockState state)
+	{
 		return state.getValue(TYPE).getID();
 	}
 
@@ -123,7 +134,8 @@ public class BlockEnergy extends StarcraftBlock implements IMetaBlockName, IMeta
 	 * Makes sure when you pick block it will work correctly
 	 */
 	@Override
-	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
+	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
+	{
 		return new ItemStack(Item.getItemFromBlock(this), 1, getMetaFromState(state));
 	}
 
@@ -131,7 +143,8 @@ public class BlockEnergy extends StarcraftBlock implements IMetaBlockName, IMeta
 	 * Inherited from the {@link IMetaBlockName}
 	 */
 	@Override
-	public String getSpecialName(ItemStack stack) {
+	public String getSpecialName(ItemStack stack)
+	{
 		return EnergyType.values()[stack.getItemDamage()].getName();
 	}
 
@@ -139,24 +152,29 @@ public class BlockEnergy extends StarcraftBlock implements IMetaBlockName, IMeta
 	 * Gets the correct {@link IBlockState} from the meta data
 	 */
 	@Override
-	public IBlockState getStateFromMeta(int meta) {
+	public IBlockState getStateFromMeta(int meta)
+	{
 		return getDefaultState().withProperty(TYPE, EnergyType.values()[meta]);
 	}
 
 	@Override
-	public void getSubBlocks(CreativeTabs item, NonNullList<ItemStack> items) {
-		for (int i = 0; i < EnergyType.values().length; i++) {
+	public void getSubBlocks(CreativeTabs item, NonNullList<ItemStack> items)
+	{
+		for (int i = 0; i < EnergyType.values().length; i++)
+		{
 			items.add(new ItemStack(this, 1, i));
 		}
 	}
 
 	@Override
-	public int getItemCount() {
+	public int getItemCount()
+	{
 		return EnergyType.values().length;
 	}
 
 	@Override
-	public String getName(int meta) {
+	public String getName(int meta)
+	{
 		return "block.energy." + EnergyType.values()[meta].getName();
 	}
 }

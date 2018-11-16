@@ -14,9 +14,11 @@ import mezz.jei.api.recipe.IStackHelper;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
 
-public class RecipeMaker {
+public class RecipeMaker
+{
 
-	public static List<GasCollectorRecipe> getGasCollectorRecipes(IJeiHelpers helpers) {
+	public static List<GasCollectorRecipe> getGasCollectorRecipes(IJeiHelpers helpers)
+	{
 		IStackHelper stackHelper = helpers.getStackHelper();
 		GasCollectorRecipes recipeHandler = GasCollectorRecipes.instance();
 		Map<IBlockState, ItemStack> protossMap = recipeHandler.getProtossList();
@@ -25,7 +27,8 @@ public class RecipeMaker {
 
 		List<GasCollectorRecipe> recipes = new ArrayList<GasCollectorRecipe>();
 
-		for (Map.Entry<IBlockState, ItemStack> itemStackItemStackEntry : protossMap.entrySet()) {
+		for (Map.Entry<IBlockState, ItemStack> itemStackItemStackEntry : protossMap.entrySet())
+		{
 			IBlockState input = itemStackItemStackEntry.getKey();
 			ItemStack output = itemStackItemStackEntry.getValue();
 
@@ -33,7 +36,8 @@ public class RecipeMaker {
 			recipes.add(recipe);
 		}
 
-		for (Map.Entry<IBlockState, ItemStack> itemStackItemStackEntry : terranMap.entrySet()) {
+		for (Map.Entry<IBlockState, ItemStack> itemStackItemStackEntry : terranMap.entrySet())
+		{
 			IBlockState input = itemStackItemStackEntry.getKey();
 			ItemStack output = itemStackItemStackEntry.getValue();
 
@@ -41,7 +45,8 @@ public class RecipeMaker {
 			recipes.add(recipe);
 		}
 
-		for (Map.Entry<IBlockState, ItemStack> itemStackItemStackEntry : zergMap.entrySet()) {
+		for (Map.Entry<IBlockState, ItemStack> itemStackItemStackEntry : zergMap.entrySet())
+		{
 			IBlockState input = itemStackItemStackEntry.getKey();
 			ItemStack output = itemStackItemStackEntry.getValue();
 
@@ -49,7 +54,8 @@ public class RecipeMaker {
 			recipes.add(recipe);
 		}
 
-		if (AccessHandler.isDeobfuscatedEnvironment()) {
+		if (AccessHandler.isDeobfuscatedEnvironment())
+		{
 			Starcraft.logger().info("Constructed Gas Collector Recipes: " + recipes);
 		}
 

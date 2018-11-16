@@ -15,7 +15,8 @@ import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderZealot extends RenderLiving<EntityZealot> implements LayerRenderer<EntityZealot> {
+public class RenderZealot extends RenderLiving<EntityZealot> implements LayerRenderer<EntityZealot>
+{
 
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.ZEALOT_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.ZEALOT_OVERLAY);
@@ -26,7 +27,8 @@ public class RenderZealot extends RenderLiving<EntityZealot> implements LayerRen
 
 	protected ItemStack icon = new ItemStack(ItemHandler.ICON, 1, MetaHandler.IconType.PROTOSS.getID());
 
-	public RenderZealot(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
+	public RenderZealot(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
+	{
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelZealot) mainModel);
 		this.addLayer(this);
@@ -34,33 +36,39 @@ public class RenderZealot extends RenderLiving<EntityZealot> implements LayerRen
 	}
 
 	@Override
-	public void doRender(EntityZealot entity, double x, double y, double z, float entityYaw, float partialTicks) {
+	public void doRender(EntityZealot entity, double x, double y, double z, float entityYaw, float partialTicks)
+	{
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 
-		if (!renderOutlines) {
+		if (!renderOutlines)
+		{
 			renderLeash(entity, x, y, z, entityYaw, partialTicks);
 		}
 	}
 
 	@Override
-	protected ResourceLocation getEntityTexture(EntityZealot entity) {
+	protected ResourceLocation getEntityTexture(EntityZealot entity)
+	{
 		return BASE;
 	}
 
 	@Override
-	protected void preRenderCallback(EntityZealot entitylivingbaseIn, float partialTickTime) {
+	protected void preRenderCallback(EntityZealot entitylivingbaseIn, float partialTickTime)
+	{
 		GlStateManager.scale(0.7F, 0.7F, 0.7F);
 	}
 
 	@Override
-	public void doRenderLayer(EntityZealot entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+	public void doRenderLayer(EntityZealot entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
+	{
 		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
 		ColoredLayerRender.renderDynamicGlow(this.RENDERER, entitylivingbaseIn, DYNAMICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
 	}
 
 	@Override
-	public boolean shouldCombineTextures() {
+	public boolean shouldCombineTextures()
+	{
 		return false;
 	}
 }

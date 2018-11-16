@@ -9,15 +9,18 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class EntityMutaliskGlaiveWurm extends EntityThrowable {
+public class EntityMutaliskGlaiveWurm extends EntityThrowable
+{
 
-	public EntityMutaliskGlaiveWurm(World worldIn) {
+	public EntityMutaliskGlaiveWurm(World worldIn)
+	{
 		super(worldIn);
 		float size = 0.05f;
 		this.setSize(size, size);
 	}
 
-	public EntityMutaliskGlaiveWurm(World worldIn, EntityLivingBase throwerIn) {
+	public EntityMutaliskGlaiveWurm(World worldIn, EntityLivingBase throwerIn)
+	{
 		super(worldIn, throwerIn);
 		this.setLocationAndAngles(throwerIn.posX, throwerIn.posY + throwerIn.getEyeHeight(), throwerIn.posZ, throwerIn.rotationYaw, throwerIn.rotationPitch);
 		this.posX -= MathHelper.cos((rotationYaw / 180F) * 3.141593F) * 0.16F;
@@ -30,12 +33,14 @@ public class EntityMutaliskGlaiveWurm extends EntityThrowable {
 		this.setPositionAndRotationDirect(motionX, motionY, motionZ, 1.8F, 1.0F, 0, false);
 	}
 
-	public static void registerFixesSnowball(DataFixer fixer) {
+	public static void registerFixesSnowball(DataFixer fixer)
+	{
 		EntityThrowable.registerFixesThrowable(fixer, "MutaliskGlaiveWurm");
 	}
 
 	@Override
-	protected float getGravityVelocity() {
+	protected float getGravityVelocity()
+	{
 		return 0;
 	}
 
@@ -43,8 +48,10 @@ public class EntityMutaliskGlaiveWurm extends EntityThrowable {
 	 * Called when this EntityThrowable hits a block or entity.
 	 */
 	@Override
-	protected void onImpact(RayTraceResult result) {
-		if (result.entityHit != null) {
+	protected void onImpact(RayTraceResult result)
+	{
+		if (result.entityHit != null)
+		{
 			float i = 6.0F;
 			result.entityHit.attackEntityFrom(StarcraftDamageSources.causeMutaliskGlaiveWormDamage(this, this.getThrower()), i);
 			this.setDead();

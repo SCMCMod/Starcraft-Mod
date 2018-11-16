@@ -14,7 +14,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 //TODO: MOVE TO CORE MOD
-public interface IStormProvider {
+public interface IStormProvider
+{
 	public boolean isStormApplicableTo(WorldProvider provider);
 
 	public boolean isStormActive(World world);
@@ -38,15 +39,18 @@ public interface IStormProvider {
 	@SideOnly(Side.CLIENT)
 	public Texture getStormTexture(World world, Biome biome);
 
-	public default void spawnParticleOnGround(World world, double pX, double pY, double pZ) {
+	public default void spawnParticleOnGround(World world, double pX, double pY, double pZ)
+	{
 		world.spawnParticle(EnumParticleTypes.DRIP_LAVA, pX, pY, pZ, 0.0D, 0.0D, 0.0D, new int[0]);
 	}
 
-	public default void playStormSoundAbove(World world, double x, double y, double z) {
+	public default void playStormSoundAbove(World world, double x, double y, double z)
+	{
 		world.playSound(x, y, z, SoundEvents.WEATHER_RAIN_ABOVE, SoundCategory.WEATHER, 0.1F, 0.5F, false);
 	}
 
-	public default void playStormSound(World world, double x, double y, double z) {
+	public default void playStormSound(World world, double x, double y, double z)
+	{
 		world.playSound(x, y, z, SoundEvents.WEATHER_RAIN, SoundCategory.WEATHER, 0.2F, 1.0F, false);
 	}
 

@@ -5,9 +5,11 @@ import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerVoronoiZoom;
 import net.minecraft.world.gen.layer.GenLayerZoom;
 
-public class GenLayerKorhal extends GenLayer {
+public class GenLayerKorhal extends GenLayer
+{
 
-	public static GenLayer[] initializeAllBiomeGenerators(long seed, WorldType type, String str) {
+	public static GenLayer[] initializeAllBiomeGenerators(long seed, WorldType type, String str)
+	{
 		GenLayer biomes = new GenLayerKorhalBiomes(1L);
 		biomes = new GenLayerZoom(1000L, biomes);
 		biomes = new GenLayerZoom(1001L, biomes);
@@ -18,15 +20,18 @@ public class GenLayerKorhal extends GenLayer {
 		GenLayer genlayervoronoizoom = new GenLayerVoronoiZoom(10L, biomes);
 		biomes.initWorldGenSeed(seed);
 		genlayervoronoizoom.initWorldGenSeed(seed);
-		return new GenLayer[] { biomes, genlayervoronoizoom };
+		return new GenLayer[]
+		{ biomes, genlayervoronoizoom };
 	}
 
-	public GenLayerKorhal(long par1) {
+	public GenLayerKorhal(long par1)
+	{
 		super(par1);
 	}
 
 	@Override
-	public int[] getInts(int areaX, int areaY, int areaWidth, int areaHeight) {
+	public int[] getInts(int areaX, int areaY, int areaWidth, int areaHeight)
+	{
 		return null;
 	}
 }

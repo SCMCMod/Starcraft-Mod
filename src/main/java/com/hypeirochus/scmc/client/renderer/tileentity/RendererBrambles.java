@@ -15,7 +15,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * @author Ocelot5836
  */
 @SideOnly(Side.CLIENT)
-public class RendererBrambles extends TileEntitySpecialRenderer<TileEntityBrambles> {
+public class RendererBrambles extends TileEntitySpecialRenderer<TileEntityBrambles>
+{
 
 	private static final ModelBrambles BRAMBLES = new ModelBrambles();
 	private static final ModelPalm PALM = new ModelPalm();
@@ -25,14 +26,17 @@ public class RendererBrambles extends TileEntitySpecialRenderer<TileEntityBrambl
 	public static final ResourceLocation ZERUS_BRAMBLES_TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/zerus_brambles.png");
 
 	@Override
-	public void render(TileEntityBrambles te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
+	public void render(TileEntityBrambles te, double x, double y, double z, float partialTicks, int destroyStage, float alpha)
+	{
 		super.render(te, x, y, z, partialTicks, destroyStage, alpha);
 
-		if (te.getBlockMetadata() == 0) {
+		if (te.getBlockMetadata() == 0)
+		{
 			GlStateManager.pushMatrix();
 			GlStateManager.translate(x + 0.5, y + 1.5, z + 0.5);
 			GlStateManager.rotate(180, 0, 0, 1);
-			switch (te.getVariant()) {
+			switch (te.getVariant())
+			{
 			case 0:
 				bindTexture(KALDIR_BRAMBLES_TEXTURE);
 				BRAMBLES.render(0.0625f, te.getAge());

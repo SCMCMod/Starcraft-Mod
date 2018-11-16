@@ -12,20 +12,23 @@ import net.minecraft.util.ResourceLocation;
 /**
  * @author Ocelot5836
  */
-public class RenderJimRaynor extends RenderLiving<EntityJimRaynor> {
+public class RenderJimRaynor extends RenderLiving<EntityJimRaynor>
+{
 
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.JIMRAYNOR_BASE);
 	private final RenderJimRaynor RENDERER;
 	protected ModelMarine model;
 
-	public RenderJimRaynor(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
+	public RenderJimRaynor(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
+	{
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelMarine) mainModel);
 		this.RENDERER = this;
 	}
 
 	@Override
-	protected ResourceLocation getEntityTexture(EntityJimRaynor entity) {
+	protected ResourceLocation getEntityTexture(EntityJimRaynor entity)
+	{
 		return BASE;
 	}
 }

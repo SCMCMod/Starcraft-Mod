@@ -19,7 +19,8 @@ import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class WorldProviderChar extends WorldProvider implements IClimateProvider {
+public class WorldProviderChar extends WorldProvider implements IClimateProvider
+{
 	private StormProviderChar storm = new StormProviderChar();
 	private CloudProviderChar clouds = new CloudProviderChar();
 	private IRenderHandler skyRenderer;
@@ -28,65 +29,76 @@ public class WorldProviderChar extends WorldProvider implements IClimateProvider
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public IRenderHandler getWeatherRenderer() {
+	public IRenderHandler getWeatherRenderer()
+	{
 		return null;
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public IRenderHandler getCloudRenderer() {
+	public IRenderHandler getCloudRenderer()
+	{
 		return climateProvider == null ? climateProvider = new CloudProviderChar() : climateProvider;
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public IRenderHandler getSkyRenderer() {
+	public IRenderHandler getSkyRenderer()
+	{
 		return skyRenderer == null ? skyRenderer = new RenderSkyChar() : skyRenderer;
 	}
 
 	@Override
-	public BiomeProvider getBiomeProvider() {
+	public BiomeProvider getBiomeProvider()
+	{
 		return biomeProvider = new CharBiomeProvider(world.getWorldInfo());
 	}
 
 	@Override
-	public IChunkGenerator createChunkGenerator() {
+	public IChunkGenerator createChunkGenerator()
+	{
 		return new ChunkGeneratorChar(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
 	}
 
 	@Override
-	public DimensionType getDimensionType() {
+	public DimensionType getDimensionType()
+	{
 		return DimensionHandler.char_dt;
 	}
 
 	/**
-	 * Determines the dimension the player will be respawned in, typically this brings them back to the overworld.
+	 * Determines the dimension the player will be respawned in, typically this
+	 * brings them back to the overworld.
 	 * 
-	 * @param player
-	 *            The player that is respawning
+	 * @param player The player that is respawning
 	 * @return The dimension to respawn the player in
 	 */
 	@Override
-	public int getRespawnDimension(EntityPlayerMP player) {
+	public int getRespawnDimension(EntityPlayerMP player)
+	{
 		return StarcraftConfig.INT_DIMENSION_CHAR;
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public Vec3d getFogColor(float var1, float var2) {
+	public Vec3d getFogColor(float var1, float var2)
+	{
 		return new Vec3d(0.9D - this.getWorldTime() / 18000D, MathHelper.clamp(1D - this.getWorldTime() / 18000D, 0.0D, 0.055D), 0.0D);
 	}
 
 	@Override
-	public float getSunBrightness(float angle) {
+	public float getSunBrightness(float angle)
+	{
 		float celestialAngle = this.world.getCelestialAngle(angle);
 		float brightness = 1.0F - (MathHelper.cos(celestialAngle * (float) Math.PI * 2.0F) * 2.0F + 0.2F);
 
-		if (brightness < 0.0F) {
+		if (brightness < 0.0F)
+		{
 			brightness = 0.0F;
 		}
 
-		if (brightness > 1.0F) {
+		if (brightness > 1.0F)
+		{
 			brightness = 1.0F;
 		}
 
@@ -97,27 +109,32 @@ public class WorldProviderChar extends WorldProvider implements IClimateProvider
 	}
 
 	@Override
-	public Vec3d getCloudColor(float partialTicks) {
+	public Vec3d getCloudColor(float partialTicks)
+	{
 		return vec;
 	}
 
 	@Override
-	public boolean canSnowAt(BlockPos pos, boolean checkLight) {
+	public boolean canSnowAt(BlockPos pos, boolean checkLight)
+	{
 		return false;
 	}
 
 	@Override
-	public boolean canDoRainSnowIce(Chunk chunk) {
+	public boolean canDoRainSnowIce(Chunk chunk)
+	{
 		return false;
 	}
 
 	@Override
-	public ICloudProvider getCloudProvider() {
+	public ICloudProvider getCloudProvider()
+	{
 		return clouds;
 	}
 
 	@Override
-	public IStormProvider getStormProvider() {
+	public IStormProvider getStormProvider()
+	{
 		return storm;
 	}
 }

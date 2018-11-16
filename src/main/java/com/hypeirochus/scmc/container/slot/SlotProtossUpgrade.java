@@ -9,19 +9,24 @@ import net.minecraftforge.items.SlotItemHandler;
 /**
  * @author Ocelot5836
  */
-public class SlotProtossUpgrade extends SlotItemHandler {
+public class SlotProtossUpgrade extends SlotItemHandler
+{
 
 	private ItemStack[] validUpgrades;
 
-	public SlotProtossUpgrade(IItemHandler itemHandler, int index, int xPosition, int yPosition, ItemStack... validUpgrades) {
+	public SlotProtossUpgrade(IItemHandler itemHandler, int index, int xPosition, int yPosition, ItemStack... validUpgrades)
+	{
 		super(itemHandler, index, xPosition, yPosition);
 		this.validUpgrades = validUpgrades;
 	}
 
 	@Override
-	public boolean isItemValid(ItemStack stack) {
-		for (int i = 0; i < validUpgrades.length; i++) {
-			if (stack.getItem() == validUpgrades[i].getItem() && stack.getMetadata() == validUpgrades[i].getMetadata()) {
+	public boolean isItemValid(ItemStack stack)
+	{
+		for (int i = 0; i < validUpgrades.length; i++)
+		{
+			if (stack.getItem() == validUpgrades[i].getItem() && stack.getMetadata() == validUpgrades[i].getMetadata())
+			{
 				return true;
 			}
 		}

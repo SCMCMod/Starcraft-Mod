@@ -15,36 +15,45 @@ import net.minecraftforge.fml.client.config.GuiConfig;
 import net.minecraftforge.fml.client.config.IConfigElement;
 
 //TODO: MOVE TO CORE MOD, however, note that there is some starcraft stuff referenced here. Be careful!
-public class StarcraftConfigGuiFactory implements IModGuiFactory {
+public class StarcraftConfigGuiFactory implements IModGuiFactory
+{
 
 	@Override
-	public void initialize(Minecraft minecraftInstance) {
+	public void initialize(Minecraft minecraftInstance)
+	{
 	}
 
 	@Override
-	public boolean hasConfigGui() {
+	public boolean hasConfigGui()
+	{
 		return true;
 	}
 
 	@Override
-	public GuiScreen createConfigGui(GuiScreen parentScreen) {
+	public GuiScreen createConfigGui(GuiScreen parentScreen)
+	{
 		return new StarcraftConfigGui(parentScreen);
 	}
 
 	@Override
-	public Set<RuntimeOptionCategoryElement> runtimeGuiCategories() {
+	public Set<RuntimeOptionCategoryElement> runtimeGuiCategories()
+	{
 		return null;
 	}
 
-	public static class StarcraftConfigGui extends GuiConfig {
+	public static class StarcraftConfigGui extends GuiConfig
+	{
 
-		public StarcraftConfigGui(GuiScreen parentScreen) {
+		public StarcraftConfigGui(GuiScreen parentScreen)
+		{
 			super(parentScreen, getConfigElements(), Starcraft.MOD_ID, false, false, I18n.format("gui.starcraft.config.main_title"));
 		}
 
-		private static List<IConfigElement> getConfigElements() {
+		private static List<IConfigElement> getConfigElements()
+		{
 			List<IConfigElement> list = new ArrayList<IConfigElement>();
-			for(int i = 0; i < StarcraftConfig.categories.size(); i++) {
+			for (int i = 0; i < StarcraftConfig.categories.size(); i++)
+			{
 				Category category = StarcraftConfig.categories.get(i);
 				list.add(new DummyCategoryElement(category.getTranslatedName(), category.getFormattedName(), category.getEntryClass()));
 			}

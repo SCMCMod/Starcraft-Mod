@@ -9,24 +9,26 @@ import net.minecraft.entity.Entity;
 /**
  * hydraliskSpike - cybercat5555 Created using Tabula 5.1.0
  */
-public class ModelHydraliskSpike extends Model {
-	public ModelRenderer	spike01;
-	public ModelRenderer	spike02;
-	public ModelRenderer	flange01;
-	public ModelRenderer	spike03;
-	public ModelRenderer	flange02;
-	public ModelRenderer	flange09;
-	public ModelRenderer	flange03;
-	public ModelRenderer	flange05;
-	public ModelRenderer	flange06;
-	public ModelRenderer	flange07;
-	public ModelRenderer	flange08;
-	public ModelRenderer	flange04;
-	public ModelRenderer	flange10;
-	public ModelRenderer	flange11;
-	public ModelRenderer	flange12;
+public class ModelHydraliskSpike extends Model
+{
+	public ModelRenderer spike01;
+	public ModelRenderer spike02;
+	public ModelRenderer flange01;
+	public ModelRenderer spike03;
+	public ModelRenderer flange02;
+	public ModelRenderer flange09;
+	public ModelRenderer flange03;
+	public ModelRenderer flange05;
+	public ModelRenderer flange06;
+	public ModelRenderer flange07;
+	public ModelRenderer flange08;
+	public ModelRenderer flange04;
+	public ModelRenderer flange10;
+	public ModelRenderer flange11;
+	public ModelRenderer flange12;
 
-	public ModelHydraliskSpike() {
+	public ModelHydraliskSpike()
+	{
 		this.textureWidth = 64;
 		this.textureHeight = 32;
 		this.flange05 = new ModelRenderer(this, 0, 5);
@@ -89,7 +91,8 @@ public class ModelHydraliskSpike extends Model {
 	}
 
 	@Override
-	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(this.flange05.offsetX, this.flange05.offsetY, this.flange05.offsetZ);
 		GlStateManager.translate(this.flange05.rotationPointX * f5, this.flange05.rotationPointY * f5, this.flange05.rotationPointZ * f5);

@@ -12,9 +12,11 @@ import net.minecraft.block.material.Material;
  * 
  * @author Hypeirochus
  */
-public class BlockAsh extends StarcraftBlockLayered {
+public class BlockAsh extends StarcraftBlockLayered
+{
 
-	public BlockAsh() {
+	public BlockAsh()
+	{
 		super("char.ash", Material.CARPET, MapColor.BLACK);
 		setSoundType(SoundType.SAND);
 		setHardness(0.2F);

@@ -8,16 +8,19 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class EntityArtosilope extends EntityCritterPassive {
+public class EntityArtosilope extends EntityCritterPassive
+{
 
-	public EntityArtosilope(World world) {
+	public EntityArtosilope(World world)
+	{
 		super(world);
 		setSize(1.0F, 1.5F);
 		this.initEntityAI();
 	}
-	
+
 	@Override
-	protected void initEntityAI() {
+	protected void initEntityAI()
+	{
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIWander(this, 1));
 		tasks.addTask(2, new EntityAIWatchClosest(this, EntityPlayer.class, 8));
@@ -26,7 +29,8 @@ public class EntityArtosilope extends EntityCritterPassive {
 	}
 
 	@Override
-	protected void applyEntityAttributes() {
+	protected void applyEntityAttributes()
+	{
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(7.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.39000000298023224D);

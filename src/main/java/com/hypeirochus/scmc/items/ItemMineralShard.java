@@ -8,29 +8,38 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemMineralShard extends StarcraftItem implements IMetaRenderHandler {
+public class ItemMineralShard extends StarcraftItem implements IMetaRenderHandler
+{
 
-	public ItemMineralShard() {
+	public ItemMineralShard()
+	{
 		super("mineral");
 		setCreativeTab(StarcraftCreativeTabs.MISC);
 		setHasSubtypes(true);
 	}
 
 	@Override
-	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-		if (this.isInCreativeTab(tab)) {
-			for (int i = 0; i < MineralType.values().length; i++) {
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items)
+	{
+		if (this.isInCreativeTab(tab))
+		{
+			for (int i = 0; i < MineralType.values().length; i++)
+			{
 				items.add(new ItemStack(this, 1, i));
 			}
 		}
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
-		for (int i = 0; i < MineralType.values().length; i++) {
-			if (stack.getItemDamage() == i) {
+	public String getUnlocalizedName(ItemStack stack)
+	{
+		for (int i = 0; i < MineralType.values().length; i++)
+		{
+			if (stack.getItemDamage() == i)
+			{
 				return getUnlocalizedName() + "." + MineralType.values()[i].getName();
-			} else {
+			} else
+			{
 				continue;
 			}
 		}
@@ -38,12 +47,14 @@ public class ItemMineralShard extends StarcraftItem implements IMetaRenderHandle
 	}
 
 	@Override
-	public int getItemCount() {
+	public int getItemCount()
+	{
 		return MineralType.values().length;
 	}
 
 	@Override
-	public String getName(int meta) {
+	public String getName(int meta)
+	{
 		return "mineral." + MineralType.values()[meta].getName();
 	}
 }

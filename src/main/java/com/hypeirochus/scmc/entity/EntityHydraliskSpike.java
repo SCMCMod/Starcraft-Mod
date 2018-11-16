@@ -9,19 +9,23 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class EntityHydraliskSpike extends EntityThrowable {
+public class EntityHydraliskSpike extends EntityThrowable
+{
 
-	public EntityHydraliskSpike(World worldIn) {
+	public EntityHydraliskSpike(World worldIn)
+	{
 		super(worldIn);
 		float size = 0.05f;
 		this.setSize(size, size);
 	}
 
-	public EntityHydraliskSpike(World worldIn, EntityLivingBase throwerIn) {
+	public EntityHydraliskSpike(World worldIn, EntityLivingBase throwerIn)
+	{
 		super(worldIn, throwerIn);
 	}
-	
-	public void shoot(double x, double y, double z, float velocity, float inaccuracy) {
+
+	public void shoot(double x, double y, double z, float velocity, float inaccuracy)
+	{
 		float f = MathHelper.sqrt(x * x + y * y + z * z);
 		x = x / (double) f;
 		y = y / (double) f;
@@ -42,12 +46,14 @@ public class EntityHydraliskSpike extends EntityThrowable {
 		this.prevRotationPitch = this.rotationPitch;
 	}
 
-	public static void registerFixesSnowball(DataFixer fixer) {
+	public static void registerFixesSnowball(DataFixer fixer)
+	{
 		EntityThrowable.registerFixesThrowable(fixer, "HydraliskSpike");
 	}
 
 	@Override
-	protected float getGravityVelocity() {
+	protected float getGravityVelocity()
+	{
 		return 0;
 	}
 
@@ -55,8 +61,10 @@ public class EntityHydraliskSpike extends EntityThrowable {
 	 * Called when this EntityThrowable hits a block or entity.
 	 */
 	@Override
-	protected void onImpact(RayTraceResult result) {
-		if (result.entityHit != null) {
+	protected void onImpact(RayTraceResult result)
+	{
+		if (result.entityHit != null)
+		{
 			float i = 6.0F;
 			result.entityHit.attackEntityFrom(StarcraftDamageSources.causeHydraliskNeedleDamage(this, this.getThrower()), i);
 			this.setDead();

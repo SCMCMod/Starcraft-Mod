@@ -47,13 +47,15 @@ import net.minecraft.world.World;
  * 
  * @author Hypeirochus
  */
-public class EntityNafash extends EntityZergMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
+public class EntityNafash extends EntityZergMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase>
+{
 
 	private static final DataParameter<Float> ENERGY = EntityDataManager.createKey(EntityNafash.class, DataSerializers.FLOAT);
 	private final BossInfoServer bossInfo = (BossInfoServer) (new BossInfoServer(this.getDisplayName(), BossInfo.Color.PURPLE, BossInfo.Overlay.PROGRESS)).setDarkenSky(true);
 	public int tracker = 0;
 
-	public EntityNafash(World world) {
+	public EntityNafash(World world)
+	{
 		super(world);
 		setSize(3.0F, 3.0F);
 		this.setColor(EnumColors.PURPLE);
@@ -61,9 +63,10 @@ public class EntityNafash extends EntityZergMob implements IMob, IRangedAttackMo
 		setAttributes(EnumTypeAttributes.PSIONIC, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND, EnumTypeAttributes.HEROIC);
 		this.initEntityAI();
 	}
-	
+
 	@Override
-	protected void initEntityAI() {
+	protected void initEntityAI()
+	{
 		tasks.addTask(1, new EntityAIAttackRanged(this, 1.0D, 17, 16.0F));
 		tasks.addTask(2, new EntityAISwimming(this));
 		tasks.addTask(3, new EntityAIWander(this, 1.0D));
@@ -75,40 +78,48 @@ public class EntityNafash extends EntityZergMob implements IMob, IRangedAttackMo
 	}
 
 	@Override
-	public void addTrackingPlayer(EntityPlayerMP player) {
+	public void addTrackingPlayer(EntityPlayerMP player)
+	{
 		super.addTrackingPlayer(player);
 		this.bossInfo.addPlayer(player);
 	}
 
 	/**
-	 * Removes the given player from the list of players tracking this entity. See {@link Entity#addTrackingPlayer} for more information on tracking.
+	 * Removes the given player from the list of players tracking this entity. See
+	 * {@link Entity#addTrackingPlayer} for more information on tracking.
 	 */
 	@Override
-	public void removeTrackingPlayer(EntityPlayerMP player) {
+	public void removeTrackingPlayer(EntityPlayerMP player)
+	{
 		super.removeTrackingPlayer(player);
 		this.bossInfo.removePlayer(player);
 	}
 
 	@Override
-	public boolean isNonBoss() {
+	public boolean isNonBoss()
+	{
 		return false;
 	}
 
 	@Override
-	protected void updateAITasks() {
+	protected void updateAITasks()
+	{
 		this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
 	}
 
 	/**
-	 * The method where this entity handles checks to make sure it can attack the target.
+	 * The method where this entity handles checks to make sure it can attack the
+	 * target.
 	 */
 	@Override
-	public boolean apply(EntityLivingBase entity) {
+	public boolean apply(EntityLivingBase entity)
+	{
 		return checkTarget(entity, EnumFactionTypes.SWARM);
 	}
 
 	@Override
-	protected void applyEntityAttributes() {
+	protected void applyEntityAttributes()
+	{
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(300.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.17000000417232513D);
@@ -117,7 +128,8 @@ public class EntityNafash extends EntityZergMob implements IMob, IRangedAttackMo
 	}
 
 	@Override
-	public void attackEntityWithRangedAttack(EntityLivingBase target, float p_82196_2_) {
+	public void attackEntityWithRangedAttack(EntityLivingBase target, float p_82196_2_)
+	{
 		EntityHydraliskSpike spike = new EntityHydraliskSpike(this.world, this);
 		double d0 = target.posY + (double) target.getEyeHeight() - 2.800000023841858D - target.getDistanceSq(target.getPosition());
 		double d1 = target.posX - this.posX;
@@ -132,22 +144,23 @@ public class EntityNafash extends EntityZergMob implements IMob, IRangedAttackMo
 	/**
 	 * Drop up to 2 items when killed
 	 * 
-	 * @param damagedByPlayer
-	 *            true if the most recent damage was dealt by a player
-	 * @param lootingLevel
-	 *            level of Looting on kill weapon
+	 * @param damagedByPlayer true if the most recent damage was dealt by a player
+	 * @param lootingLevel level of Looting on kill weapon
 	 */
 	@Override
-	protected void dropFewItems(boolean recentlyHit, int looting) {
+	protected void dropFewItems(boolean recentlyHit, int looting)
+	{
 		ItemDrop drop = new ItemDrop(100, new ItemStack(ItemHandler.ZERG_CARAPACE, 3 + this.rand.nextInt(3), MetaHandler.CarapaceType.T2.getID()));
 		drop.tryDrop(this);
 	}
 
 	@Override
-	public SoundEvent getAmbientSound() {
+	public SoundEvent getAmbientSound()
+	{
 		Random rand = new Random();
 
-		switch (rand.nextInt(1)) {
+		switch (rand.nextInt(1))
+		{
 		case 0:
 			return SoundHandler.ENTITY_QUEEN_LIVE1;
 		default:
@@ -156,25 +169,31 @@ public class EntityNafash extends EntityZergMob implements IMob, IRangedAttackMo
 	}
 
 	@Override
-	public SoundEvent getDeathSound() {
+	public SoundEvent getDeathSound()
+	{
 		return SoundHandler.ENTITY_QUEEN_DEATH;
 	}
 
 	@Override
-	public SoundEvent getHurtSound(DamageSource source) {
+	public SoundEvent getHurtSound(DamageSource source)
+	{
 		return SoundHandler.ENTITY_QUEEN_HURT;
 	}
 
 	@Override
-	public int getTalkInterval() {
+	public int getTalkInterval()
+	{
 		return 160;
 	}
 
 	@Override
-	public void onDeath(DamageSource cause) {
-		if (world.isRemote) {
+	public void onDeath(DamageSource cause)
+	{
+		if (world.isRemote)
+		{
 			PlayerList list = AccessHandler.getMinecraft().getIntegratedServer().getPlayerList();
-			for (int i = 0; i < list.getCurrentPlayerCount(); i++) {
+			for (int i = 0; i < list.getCurrentPlayerCount(); i++)
+			{
 				EntityPlayer thePlayer = list.getPlayers().get(i);
 				thePlayer.sendMessage(new TextComponentString("Nafash has been slain!").setStyle(new Style().setColor(TextFormatting.DARK_RED)));
 			}
@@ -183,26 +202,33 @@ public class EntityNafash extends EntityZergMob implements IMob, IRangedAttackMo
 	}
 
 	@Override
-	public void onLivingUpdate() {
-		if (this.world.isRemote) {
-			if (this.world.getClosestPlayerToEntity(this, 32.0D) != null) {
+	public void onLivingUpdate()
+	{
+		if (this.world.isRemote)
+		{
+			if (this.world.getClosestPlayerToEntity(this, 32.0D) != null)
+			{
 				EntityPlayer player = this.world.getClosestPlayerToEntity(this, 32.0D);
-				if (this.tracker == 0 && this.getHealth() == this.getMaxHealth()) {
+				if (this.tracker == 0 && this.getHealth() == this.getMaxHealth())
+				{
 					tracker++;
 					String message = "<Nafash> Who are you to challenge the true queen of the swarm?!";
 					player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
 				}
-				if (this.tracker == 1 && this.getHealth() <= this.getMaxHealth() * .75) {
+				if (this.tracker == 1 && this.getHealth() <= this.getMaxHealth() * .75)
+				{
 					tracker++;
 					String message = "<Nafash> Agh! I will snap your bones between my claws!";
 					player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
 				}
-				if (this.tracker == 2 && this.getHealth() <= this.getMaxHealth() * .50) {
+				if (this.tracker == 2 && this.getHealth() <= this.getMaxHealth() * .50)
+				{
 					tracker++;
 					String message = "<Nafash> I underestimated you. It will not happen again!";
 					player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
 				}
-				if (this.tracker == 3 && this.getHealth() <= this.getMaxHealth() * .25) {
+				if (this.tracker == 3 && this.getHealth() <= this.getMaxHealth() * .25)
+				{
 					tracker++;
 					String message = "<Nafash> No, this can not be... the swarm will triumph!";
 					player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.DARK_PURPLE)));
@@ -213,7 +239,8 @@ public class EntityNafash extends EntityZergMob implements IMob, IRangedAttackMo
 	}
 
 	@Override
-	public void setSwingingArms(boolean swingingArms) {
+	public void setSwingingArms(boolean swingingArms)
+	{
 		// TODO Auto-generated method stub
 
 	}

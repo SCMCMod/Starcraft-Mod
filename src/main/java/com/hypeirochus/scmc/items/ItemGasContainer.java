@@ -10,20 +10,26 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemGasContainer extends StarcraftItem implements IMetaRenderHandler {
+public class ItemGasContainer extends StarcraftItem implements IMetaRenderHandler
+{
 
-	public ItemGasContainer() {
+	public ItemGasContainer()
+	{
 		super("container");
 		setHasSubtypes(true);
 	}
 
 	@Override
-	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-		if (tab == CreativeTabs.SEARCH) {
-			for (int i = 0; i < GasCollectorType.values().length; i++) {
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items)
+	{
+		if (tab == CreativeTabs.SEARCH)
+		{
+			for (int i = 0; i < GasCollectorType.values().length; i++)
+			{
 				items.add(new ItemStack(this, 1, i));
 			}
-		} else {
+		} else
+		{
 			if (tab == StarcraftCreativeTabs.PROTOSS)
 				items.add(new ItemStack(this, 1, 0));
 			if (tab == StarcraftCreativeTabs.TERRAN)
@@ -34,11 +40,15 @@ public class ItemGasContainer extends StarcraftItem implements IMetaRenderHandle
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
-		for (int i = 0; i < ContainerType.values().length; i++) {
-			if (stack.getItemDamage() == i) {
+	public String getUnlocalizedName(ItemStack stack)
+	{
+		for (int i = 0; i < ContainerType.values().length; i++)
+		{
+			if (stack.getItemDamage() == i)
+			{
 				return getUnlocalizedName() + "." + ContainerType.values()[i].getName();
-			} else {
+			} else
+			{
 				continue;
 			}
 		}
@@ -46,12 +56,14 @@ public class ItemGasContainer extends StarcraftItem implements IMetaRenderHandle
 	}
 
 	@Override
-	public int getItemCount() {
+	public int getItemCount()
+	{
 		return ContainerType.values().length;
 	}
 
 	@Override
-	public String getName(int meta) {
+	public String getName(int meta)
+	{
 		return "container." + MetaHandler.ContainerType.values()[meta].getName();
 	}
 }

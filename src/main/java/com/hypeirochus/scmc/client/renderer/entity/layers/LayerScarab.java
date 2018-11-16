@@ -12,24 +12,29 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class LayerScarab<T extends EntityScarab> implements LayerRenderer<T> {
-	
-	private static final ResourceLocation	TEXTURE	= new ResourceLocation(Resources.SCARAB);
-	private final RenderScarab				RENDERER;
+public class LayerScarab<T extends EntityScarab> implements LayerRenderer<T>
+{
 
-	public LayerScarab(RenderScarab scarabRenderer) {
+	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.SCARAB);
+	private final RenderScarab RENDERER;
+
+	public LayerScarab(RenderScarab scarabRenderer)
+	{
 		this.RENDERER = scarabRenderer;
 	}
 
-	public void doRenderLayer(EntityScarab entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+	public void doRenderLayer(EntityScarab entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
+	{
 		this.RENDERER.bindTexture(TEXTURE);
 		GlStateManager.enableBlend();
 		GlStateManager.enableAlpha();
 		GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
 
-		if (entitylivingbaseIn.isInvisible()) {
+		if (entitylivingbaseIn.isInvisible())
+		{
 			GlStateManager.depthMask(false);
-		} else {
+		} else
+		{
 			GlStateManager.depthMask(true);
 		}
 
@@ -49,7 +54,8 @@ public class LayerScarab<T extends EntityScarab> implements LayerRenderer<T> {
 	}
 
 	@Override
-	public boolean shouldCombineTextures() {
+	public boolean shouldCombineTextures()
+	{
 		return false;
 	}
 }

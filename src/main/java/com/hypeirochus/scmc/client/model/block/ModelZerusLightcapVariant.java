@@ -7,22 +7,24 @@ import net.minecraft.client.renderer.GlStateManager;
 /**
  * zeruslightcap - cybercat5555 Created using Tabula 6.0.0
  */
-public class ModelZerusLightcapVariant extends ModelBase {
+public class ModelZerusLightcapVariant extends ModelBase
+{
 
-	public ModelRenderer	stem01a;
-	public ModelRenderer	stem02a;
-	public ModelRenderer	stem03a;
-	public ModelRenderer	stem01b;
-	public ModelRenderer	cap01a;
-	public ModelRenderer	cap01b;
-	public ModelRenderer	stem01b_1;
-	public ModelRenderer	cap01a_1;
-	public ModelRenderer	cap01b_1;
-	public ModelRenderer	stem03b;
-	public ModelRenderer	cap03a;
-	public ModelRenderer	cap03b;
+	public ModelRenderer stem01a;
+	public ModelRenderer stem02a;
+	public ModelRenderer stem03a;
+	public ModelRenderer stem01b;
+	public ModelRenderer cap01a;
+	public ModelRenderer cap01b;
+	public ModelRenderer stem01b_1;
+	public ModelRenderer cap01a_1;
+	public ModelRenderer cap01b_1;
+	public ModelRenderer stem03b;
+	public ModelRenderer cap03a;
+	public ModelRenderer cap03b;
 
-	public ModelZerusLightcapVariant() {
+	public ModelZerusLightcapVariant()
+	{
 		this.textureWidth = 64;
 		this.textureHeight = 32;
 		this.stem01a = new ModelRenderer(this, 0, 0);
@@ -80,7 +82,8 @@ public class ModelZerusLightcapVariant extends ModelBase {
 		this.cap03a.addChild(this.cap03b);
 	}
 
-	public void render(float scale) {
+	public void render(float scale)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(this.stem01a.offsetX, this.stem01a.offsetY, this.stem01a.offsetZ);
 		GlStateManager.translate(this.stem01a.rotationPointX * scale, this.stem01a.rotationPointY * scale, this.stem01a.rotationPointZ * scale);
@@ -103,7 +106,8 @@ public class ModelZerusLightcapVariant extends ModelBase {
 	/**
 	 * This is a helper function from Tabula to set the rotation of model parts
 	 */
-	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z)
+	{
 		modelRenderer.rotateAngleX = x;
 		modelRenderer.rotateAngleY = y;
 		modelRenderer.rotateAngleZ = z;

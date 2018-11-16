@@ -49,17 +49,17 @@ import net.minecraftforge.fml.relauncher.Side;
 
 /**
  * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
- * 
  * <br>
  * </br>
- * 
- * The main Starcraft Mod class. Registers and sets everything into motion when the game starts up.
+ * The main Starcraft Mod class. Registers and sets everything into motion when
+ * the game starts up.
  * 
  * @author Hypeirochus
  * @author Ocelot
  */
 @Mod(modid = Starcraft.MOD_ID, acceptedMinecraftVersions = "[1.12,1.12.2]", useMetadata = true, guiFactory = "com.hypeirochus.scmc.config.StarcraftConfigGuiFactory")
-public class Starcraft {
+public class Starcraft
+{
 
 	public static final String MOD_ID = "starcraft";
 	public static final String RL_BASE = MOD_ID + ":";
@@ -77,13 +77,15 @@ public class Starcraft {
 	private static Logger logger;
 	private static LogRegistry logRegistry = new LogRegistry();
 
-	static {
+	static
+	{
 		FluidRegistry.enableUniversalBucket();
 	}
 
 	/** Pre Initialization **/
 	@EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
+	public void preInit(FMLPreInitializationEvent event)
+	{
 		logger = event.getModLog();
 
 		MinecraftForge.EVENT_BUS.register(new Registry());
@@ -94,20 +96,23 @@ public class Starcraft {
 		SoundHandler.pre(event);
 		EntityHandler.pre(event);
 
-		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+		if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
+		{
 			StarcraftConfig.clientPre(event);
 			WavefrontModelHandler.pre(event);
 			KeybindingHandler.pre(event);
 		}
 
-		if (AccessHandler.isDeobfuscatedEnvironment()) {
+		if (AccessHandler.isDeobfuscatedEnvironment())
+		{
 			logger.info("Pre Initialized");
 		}
 	}
 
 	/** Initialization **/
 	@EventHandler
-	public void init(FMLInitializationEvent event) {
+	public void init(FMLInitializationEvent event)
+	{
 		EntityHandler.init(event);
 		OreDictionaryHandler.init(event);
 		SmeltingRecipes.init(event);
@@ -122,41 +127,49 @@ public class Starcraft {
 		MinecraftForge.EVENT_BUS.register(new com.hypeirochus.scmc.capabilities.CapabilityHandler());
 		MinecraftForge.EVENT_BUS.register(new StarcraftEventHandler());
 
-		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+		if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
+		{
 			RenderHandler.init(event);
 			MinecraftForge.EVENT_BUS.register(new GuiRenderEventHandler());
 			logs().init();
 		}
 
-		if (AccessHandler.isDeobfuscatedEnvironment()) {
+		if (AccessHandler.isDeobfuscatedEnvironment())
+		{
 			logger.info("Initialized");
 		}
 	}
 
 	/** Post Initialization **/
 	@EventHandler
-	public void postInit(FMLPostInitializationEvent event) {
+	public void postInit(FMLPostInitializationEvent event)
+	{
 		Library.checkMods();
 
-		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+		if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
+		{
 			Registry.registerColors(Minecraft.getMinecraft().getItemColors(), Minecraft.getMinecraft().getBlockColors());
 		}
 
-		if (AccessHandler.isDeobfuscatedEnvironment()) {
+		if (AccessHandler.isDeobfuscatedEnvironment())
+		{
 			logger.info("Post Initialized");
 		}
 	}
 
 	@EventHandler
-	public static void onServerStartingEvent(FMLServerStartingEvent event) {
+	public static void onServerStartingEvent(FMLServerStartingEvent event)
+	{
 		event.registerServerCommand(new CommandDimension());
 	}
 
-	public static Logger logger() {
+	public static Logger logger()
+	{
 		return logger;
 	}
 
-	public static LogRegistry logs() {
+	public static LogRegistry logs()
+	{
 		if (logRegistry == null)
 			logRegistry = new LogRegistry();
 		return logRegistry;

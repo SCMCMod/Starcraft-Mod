@@ -10,38 +10,45 @@ import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 
-public class CloudProviderChar extends CloudProvider {
+public class CloudProviderChar extends CloudProvider
+{
 	private static final Texture CLOUDS = new Texture(Starcraft.MOD_ID, "textures/world/varda-clouds.png");
 
 	private IStormProvider stormProvider;
 
 	@Override
-	public float getMaxCloudSpeedDuringStorm() {
+	public float getMaxCloudSpeedDuringStorm()
+	{
 		return 32;
 	}
 
 	@Override
-	public float getMaxNormalCloudSpeed() {
+	public float getMaxNormalCloudSpeed()
+	{
 		return 12;
 	}
 
 	@Override
-	public Texture getCloudTexture() {
+	public Texture getCloudTexture()
+	{
 		return CLOUDS;
 	}
 
 	@Override
-	public boolean areCloudsApplicableTo(WorldProvider provider) {
+	public boolean areCloudsApplicableTo(WorldProvider provider)
+	{
 		return provider instanceof WorldProviderChar;
 	}
 
 	@Override
-	public double getCloudMovementX(World world, float cloudTicksPrev, float cloudTicks) {
+	public double getCloudMovementX(World world, float cloudTicksPrev, float cloudTicks)
+	{
 		return -super.getCloudMovementX(world, cloudTicksPrev, cloudTicks);
 	}
 
 	@Override
-	public void render(float partialTicks, WorldClient world, Minecraft mc) {
+	public void render(float partialTicks, WorldClient world, Minecraft mc)
+	{
 		super.render(partialTicks, world, mc);
 	}
 }

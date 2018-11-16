@@ -23,9 +23,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-public class ItemFlamethrower extends ItemGun {
+public class ItemFlamethrower extends ItemGun
+{
 
-	public ItemFlamethrower() {
+	public ItemFlamethrower()
+	{
 		super("terran.flamethrower", 8, 15);
 		setFull3D();
 		setMaxStackSize(1);
@@ -33,13 +35,17 @@ public class ItemFlamethrower extends ItemGun {
 	}
 
 	@Override
-	public void onFire(World world, EntityLivingBase entity, ItemStack heldItem) {
+	public void onFire(World world, EntityLivingBase entity, ItemStack heldItem)
+	{
 		world.playSound(null, entity.getPosition().getX(), entity.getPosition().getY(), entity.getPosition().getZ(), SoundEvents.BLOCK_LAVA_EXTINGUISH, SoundCategory.PLAYERS, 0.25f, 1f);
 		Vec3d look = entity.getLook(AccessHandler.getPartialTicks());
 
-		if (world.isRemote) {
-			Minecraft.getMinecraft().addScheduledTask(() -> {
-				for (int i = 0; i < this.getGunRange(heldItem); i++) {
+		if (world.isRemote)
+		{
+			Minecraft.getMinecraft().addScheduledTask(() ->
+			{
+				for (int i = 0; i < this.getGunRange(heldItem); i++)
+				{
 					world.spawnParticle(EnumParticleTypes.FLAME, entity.posX + i * look.x, entity.posY + entity.getEyeHeight() + i * look.y, entity.posZ + i * look.z, 0, 0, 0, new int[0]);
 				}
 			});
@@ -47,16 +53,21 @@ public class ItemFlamethrower extends ItemGun {
 	}
 
 	@Override
-	public void hitEntity(World world, EntityLivingBase entity, Entity hitEntity, ItemStack heldItem) {
+	public void hitEntity(World world, EntityLivingBase entity, Entity hitEntity, ItemStack heldItem)
+	{
 		hitEntity.setFire(5);
 	}
 
 	@Override
-	public void hitBlock(World world, EntityLivingBase entity, BlockPos pos, EnumFacing facing, ItemStack heldItem) {
-		if (!world.isRemote) {
+	public void hitBlock(World world, EntityLivingBase entity, BlockPos pos, EnumFacing facing, ItemStack heldItem)
+	{
+		if (!world.isRemote)
+		{
 			pos = pos.offset(facing);
-			if (!(entity instanceof EntityPlayer) || entity instanceof EntityPlayer && ((EntityPlayer) entity).canPlayerEdit(pos, facing, heldItem)) {
-				if (world.isAirBlock(pos)) {
+			if (!(entity instanceof EntityPlayer) || entity instanceof EntityPlayer && ((EntityPlayer) entity).canPlayerEdit(pos, facing, heldItem))
+			{
+				if (world.isAirBlock(pos))
+				{
 					world.setBlockState(pos, Blocks.FIRE.getDefaultState(), 11);
 				}
 			}
@@ -64,11 +75,14 @@ public class ItemFlamethrower extends ItemGun {
 	}
 
 	@Override
-	public boolean hasAmmo(World world, EntityPlayer player, ItemStack stack) {
-		if (Inventories.playerHas(getAmmo(), player)) {
+	public boolean hasAmmo(World world, EntityPlayer player, ItemStack stack)
+	{
+		if (Inventories.playerHas(getAmmo(), player))
+		{
 			ItemStack ammoStack = player.inventory.mainInventory.get(InventoryUtils.getItemSlot(player, getAmmo(), MetaHandler.BulletMagazineType.FLAMETHROWER.getID()));
 
-			if (ammoStack != null && ammoStack.getItem() != null && ammoStack.getMetadata() == MetaHandler.BulletMagazineType.FLAMETHROWER.getID() && ammoStack.hasTagCompound()) {
+			if (ammoStack != null && ammoStack.getItem() != null && ammoStack.getMetadata() == MetaHandler.BulletMagazineType.FLAMETHROWER.getID() && ammoStack.hasTagCompound())
+			{
 				NBTTagCompound nbt = ammoStack.getTagCompound();
 				return nbt.getInteger("BulletCount") >= 1;
 			}
@@ -77,18 +91,22 @@ public class ItemFlamethrower extends ItemGun {
 	}
 
 	@Override
-	public void takeAmmo(World world, EntityPlayer player, ItemStack stack) {
+	public void takeAmmo(World world, EntityPlayer player, ItemStack stack)
+	{
 		ItemStack ammoStack = player.inventory.mainInventory.get(InventoryUtils.getItemSlot(player, getAmmo(), MetaHandler.BulletMagazineType.FLAMETHROWER.getID()));
 
-		if (ammoStack != null && ammoStack.getItem() != null && ammoStack.getMetadata() == MetaHandler.BulletMagazineType.FLAMETHROWER.getID() && ammoStack.hasTagCompound()) {
+		if (ammoStack != null && ammoStack.getItem() != null && ammoStack.getMetadata() == MetaHandler.BulletMagazineType.FLAMETHROWER.getID() && ammoStack.hasTagCompound())
+		{
 			NBTTagCompound nbt = ammoStack.getTagCompound();
-			if (nbt.getInteger("BulletCount") >= 1) {
+			if (nbt.getInteger("BulletCount") >= 1)
+			{
 				nbt.setInteger("BulletCount", nbt.getInteger("BulletCount") - 1);
 			}
 		}
 	}
 
-	public Item getAmmo() {
+	public Item getAmmo()
+	{
 		return ItemHandler.BULLET_MAGAZINE;
 	}
 }

@@ -15,17 +15,20 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * 
  * @author Ocelot5836
  */
-public class LogRegistry implements IStarcraftRegistry<Integer, Log> {
+public class LogRegistry implements IStarcraftRegistry<Integer, Log>
+{
 
 	int id = 0;
 	private Map<Integer, Log> logs;
 
-	public LogRegistry() {
+	public LogRegistry()
+	{
 		logs = new HashMap<Integer, Log>();
 	}
 
 	@SideOnly(Side.CLIENT)
-	public void init() {
+	public void init()
+	{
 		register("test");
 		register("log.egonstetmann.protoss1");
 		register("log.egonstetmann.protoss2");
@@ -393,35 +396,43 @@ public class LogRegistry implements IStarcraftRegistry<Integer, Log> {
 		register("log.science.zerg.zergling5");
 		register("log.science.zerg.zergling6");
 
-		if (AccessHandler.isDeobfuscatedEnvironment()) {
+		if (AccessHandler.isDeobfuscatedEnvironment())
+		{
 			Starcraft.logger().info("Logs Registered");
 		}
 	}
 
-	private void register(String log) {
+	private void register(String log)
+	{
 		this.register(id++, new Log(log));
 	}
 
 	@Override
-	public void register(Integer id, Log log) {
-		if (!this.logs.containsKey(id)) {
+	public void register(Integer id, Log log)
+	{
+		if (!this.logs.containsKey(id))
+		{
 			this.logs.put(id, log);
 			log.setId(id);
-		} else {
+		} else
+		{
 			throw new RuntimeException("Log \'" + log.getFileName() + "\' attempted to override existing log with id \'" + id + "\'");
 		}
 	}
 
 	@Override
-	public Log get(Integer id) {
+	public Log get(Integer id)
+	{
 		return this.logs.get(id);
 	}
 
-	public String getRegistryName(Log log) {
+	public String getRegistryName(Log log)
+	{
 		return log.getRegistryName();
 	}
 
-	public Map<Integer, Log> getLogs() {
+	public Map<Integer, Log> getLogs()
+	{
 		return new HashMap<Integer, Log>(logs);
 	}
 }

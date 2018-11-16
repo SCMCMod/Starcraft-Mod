@@ -12,7 +12,8 @@ import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 
 //TODO: MOVE TO CORE MOD
-public class BasicGui extends GuiScreen {
+public class BasicGui extends GuiScreen
+{
 
 	protected static final Minecraft MC = Minecraft.getMinecraft();
 
@@ -20,13 +21,15 @@ public class BasicGui extends GuiScreen {
 	protected int guiLeft, guiTop;
 
 	@Override
-	public void initGui() {
+	public void initGui()
+	{
 		this.guiLeft = (width - xSize) / 2;
 		this.guiTop = (height - ySize) / 2;
 	}
 
 	@Override
-	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+	public void drawScreen(int mouseX, int mouseY, float partialTicks)
+	{
 		this.drawDefaultBackground();
 		int i = this.guiLeft;
 		int j = this.guiTop;
@@ -59,45 +62,58 @@ public class BasicGui extends GuiScreen {
 		drawTooltips(mouseX, mouseY);
 	}
 
-	protected void drawGuiBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
+	protected void drawGuiBackgroundLayer(float partialTicks, int mouseX, int mouseY)
+	{
 	}
 
-	protected void drawCenterLayer(int mouseX, int mouseY) {
+	protected void drawCenterLayer(int mouseX, int mouseY)
+	{
 	}
 
-	protected void drawGuiForegroundLayer(int mouseX, int mouseY) {
+	protected void drawGuiForegroundLayer(int mouseX, int mouseY)
+	{
 	}
 
-	protected void drawTooltips(int mouseX, int mouseY) {
+	protected void drawTooltips(int mouseX, int mouseY)
+	{
 	}
 
 	@Override
-	protected void keyTyped(char typedChar, int keyCode) throws IOException {
+	protected void keyTyped(char typedChar, int keyCode) throws IOException
+	{
 		super.keyTyped(typedChar, keyCode);
-		if (keyCode == 1 || this.mc.gameSettings.keyBindInventory.isActiveAndMatches(keyCode)) {
+		if (keyCode == 1 || this.mc.gameSettings.keyBindInventory.isActiveAndMatches(keyCode))
+		{
 			this.mc.player.closeScreen();
 		}
 	}
 
-	public void drawTooltip(List<String> lines, int posX, int posY, int width, int height, int mouseX, int mouseY) {
-		if (lines == null) {
+	public void drawTooltip(List<String> lines, int posX, int posY, int width, int height, int mouseX, int mouseY)
+	{
+		if (lines == null)
+		{
 			drawHoveringText(new ArrayList<String>(), mouseX, mouseY);
 			return;
 		}
 
-		if (mouseX >= posX && mouseX < (posX + width) && mouseY >= posY && mouseY < (posY + height)) {
+		if (mouseX >= posX && mouseX < (posX + width) && mouseY >= posY && mouseY < (posY + height))
+		{
 			drawHoveringText(lines, mouseX, mouseY);
 		}
 	}
 
-	public void drawTooltip(String line, float posX, float posY, float width, float height, int mouseX, int mouseY) {
-		if (line == null) {
+	public void drawTooltip(String line, float posX, float posY, float width, float height, int mouseX, int mouseY)
+	{
+		if (line == null)
+		{
 			drawHoveringText(Arrays.asList(new String[] {}), mouseX, mouseY);
 			return;
 		}
 
-		if (mouseX >= posX && mouseX < (posX + width) && mouseY >= posY && mouseY < (posY + height)) {
-			drawHoveringText(Arrays.asList(new String[] { line }), mouseX, mouseY);
+		if (mouseX >= posX && mouseX < (posX + width) && mouseY >= posY && mouseY < (posY + height))
+		{
+			drawHoveringText(Arrays.asList(new String[]
+			{ line }), mouseX, mouseY);
 		}
 	}
 }

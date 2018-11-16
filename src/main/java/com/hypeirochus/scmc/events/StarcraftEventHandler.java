@@ -41,16 +41,15 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
- * 
  * <br>
  * </br>
- * 
  * This class handles all of the events that do not have to do with the client.
  * 
  * @author Ocelot5836
  */
 @EventBusSubscriber
-public class StarcraftEventHandler {
+public class StarcraftEventHandler
+{
 
 	public static TextureAtlasSprite gasCollectorIngot;
 	public static TextureAtlasSprite gasCollectorBlock;
@@ -58,9 +57,13 @@ public class StarcraftEventHandler {
 	public static float FOV = 90.0F;
 
 	@SubscribeEvent
-	public static void onEntitySpawn(EntityJoinWorldEvent event) {
-		if (StarcraftConfig.BOOL_VANILLA_MOB_SPAWNING_DISABLED) {
-			if (event.getEntity() instanceof EntityCaveSpider || event.getEntity() instanceof EntitySilverfish || event.getEntity() instanceof EntityWitch || event.getEntity() instanceof EntitySlime || event.getEntity() instanceof EntityEnderman || event.getEntity() instanceof EntityCreeper || event.getEntity() instanceof EntitySkeleton || event.getEntity() instanceof EntityZombie || event.getEntity() instanceof EntitySpider) {
+	public static void onEntitySpawn(EntityJoinWorldEvent event)
+	{
+		if (StarcraftConfig.BOOL_VANILLA_MOB_SPAWNING_DISABLED)
+		{
+			if (event.getEntity() instanceof EntityCaveSpider || event.getEntity() instanceof EntitySilverfish || event.getEntity() instanceof EntityWitch || event.getEntity() instanceof EntitySlime || event.getEntity() instanceof EntityEnderman || event.getEntity() instanceof EntityCreeper
+					|| event.getEntity() instanceof EntitySkeleton || event.getEntity() instanceof EntityZombie || event.getEntity() instanceof EntitySpider)
+			{
 				event.getEntity().setDropItemsWhenDead(false);
 				event.getEntity().setSilent(true);
 				event.getEntity().setInvisible(true);
@@ -71,7 +74,8 @@ public class StarcraftEventHandler {
 	}
 
 	@SubscribeEvent
-	public void onPlayerCloneEvent(net.minecraftforge.event.entity.player.PlayerEvent.Clone event) {
+	public void onPlayerCloneEvent(net.minecraftforge.event.entity.player.PlayerEvent.Clone event)
+	{
 		EntityPlayer player = event.getEntityPlayer();
 		IColor color = player.getCapability(ColorProvider.COLOR, null);
 		IColor oldColor = event.getOriginal().getCapability(ColorProvider.COLOR, null);
@@ -80,7 +84,8 @@ public class StarcraftEventHandler {
 	}
 
 	@SubscribeEvent
-	public void onPlayerLoggedInEvent(PlayerLoggedInEvent event) {
+	public void onPlayerLoggedInEvent(PlayerLoggedInEvent event)
+	{
 		EntityPlayer player = event.player;
 		String message = "Running SCMC version " + Starcraft.VERSION + "!";
 		player.sendMessage(new TextComponentString(message).setStyle(new Style().setColor(TextFormatting.BLUE)));
@@ -89,18 +94,21 @@ public class StarcraftEventHandler {
 			if (player.getEntityWorld().getMinecraftServer().getGameType() == GameType.CREATIVE)
 				player.getCapability(LockedItemsProvider.LOCKED_ITEMS, null).getLockedItems().clear();
 	}
-	
+
 	@SubscribeEvent
-	public void onBlockPunchEvent(BlockEvent.BreakEvent event) {
+	public void onBlockPunchEvent(BlockEvent.BreakEvent event)
+	{
 		EntityPlayer player = event.getPlayer();
-		if(player.getHeldItemMainhand().getItem() instanceof ItemGun || player.getHeldItemOffhand().getItem() instanceof ItemGun) {
+		if (player.getHeldItemMainhand().getItem() instanceof ItemGun || player.getHeldItemOffhand().getItem() instanceof ItemGun)
+		{
 			event.setCanceled(true);
 		}
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
-	public void onTextureStitchEvent(TextureStitchEvent.Pre event) {
+	public void onTextureStitchEvent(TextureStitchEvent.Pre event)
+	{
 		TextureMap map = event.getMap();
 		gasCollectorIngot = map.registerSprite(new ResourceLocation(Starcraft.MOD_ID, "items/gas_collector/ingot"));
 		gasCollectorBlock = map.registerSprite(new ResourceLocation(Starcraft.MOD_ID, "items/gas_collector/block"));
@@ -108,35 +116,48 @@ public class StarcraftEventHandler {
 	}
 
 	@SubscribeEvent
-	public void onLivingRender(RenderLivingEvent.Pre e) {
-		if (e.getEntity().getRidingEntity() instanceof AbstractSpaceship) {
+	public void onLivingRender(RenderLivingEvent.Pre e)
+	{
+		if (e.getEntity().getRidingEntity() instanceof AbstractSpaceship)
+		{
 			e.setCanceled(true);
 		}
 	}
-	
+
 	@SubscribeEvent
-	public void cameraPosition(EntityViewRenderEvent.CameraSetup e) {
-		if (e.getEntity().getRidingEntity() instanceof AbstractSpaceship) {
+	public void cameraPosition(EntityViewRenderEvent.CameraSetup e)
+	{
+		if (e.getEntity().getRidingEntity() instanceof AbstractSpaceship)
+		{
 			e.setPitch(30.0F);
 		}
 	}
-	
+
 	@SubscribeEvent
-	public void cameraPosition(EntityViewRenderEvent.FOVModifier e) {
-		
-		if(e.getEntity().dimension == StarcraftConfig.INT_DIMENSION_SPACE) {
-			if (e.getEntity().getRidingEntity() instanceof AbstractSpaceship) {
-				if (((AbstractSpaceship) e.getEntity().getRidingEntity()).isAccelerating) {
-					if (this.FOV < 120.0F) {
+	public void cameraPosition(EntityViewRenderEvent.FOVModifier e)
+	{
+
+		if (e.getEntity().dimension == StarcraftConfig.INT_DIMENSION_SPACE)
+		{
+			if (e.getEntity().getRidingEntity() instanceof AbstractSpaceship)
+			{
+				if (((AbstractSpaceship) e.getEntity().getRidingEntity()).isAccelerating)
+				{
+					if (this.FOV < 120.0F)
+					{
 						e.setFOV(this.FOV += 0.1F);
-					} else {
+					} else
+					{
 						this.FOV = 120.0F;
 						e.setFOV(FOV);
 					}
-				} else {
-					if (this.FOV > 90.0F) {
+				} else
+				{
+					if (this.FOV > 90.0F)
+					{
 						e.setFOV(this.FOV -= 0.1F);
-					} else {
+					} else
+					{
 						this.FOV = 90.0F;
 						e.setFOV(FOV);
 					}
@@ -144,11 +165,14 @@ public class StarcraftEventHandler {
 			}
 		}
 	}
-	
+
 	@SubscribeEvent
-	public void onHUDRender(RenderGameOverlayEvent e) {
-		if(Minecraft.getMinecraft().player.getRidingEntity() instanceof AbstractSpaceship) {
-			if(e.getType() == ElementType.HOTBAR || e.getType() == ElementType.EXPERIENCE || e.getType() == ElementType.HEALTH) {
+	public void onHUDRender(RenderGameOverlayEvent e)
+	{
+		if (Minecraft.getMinecraft().player.getRidingEntity() instanceof AbstractSpaceship)
+		{
+			if (e.getType() == ElementType.HOTBAR || e.getType() == ElementType.EXPERIENCE || e.getType() == ElementType.HEALTH)
+			{
 				e.setCanceled(true);
 			}
 		}

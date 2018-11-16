@@ -29,9 +29,11 @@ import net.minecraft.world.World;
 /**
  * @author Hypeirochus
  */
-public class EntityBrutalisk extends EntityZergMob implements IMob, Predicate<EntityLivingBase> {
+public class EntityBrutalisk extends EntityZergMob implements IMob, Predicate<EntityLivingBase>
+{
 
-	public EntityBrutalisk(World world) {
+	public EntityBrutalisk(World world)
+	{
 		super(world);
 		setSize(4.0F, 6.0F);
 		this.setColor(EnumColors.PURPLE);
@@ -39,9 +41,10 @@ public class EntityBrutalisk extends EntityZergMob implements IMob, Predicate<En
 		setAttributes(EnumTypeAttributes.MASSIVE, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND, EnumTypeAttributes.ARMORED, EnumTypeAttributes.HEROIC);
 		this.initEntityAI();
 	}
-	
+
 	@Override
-	protected void initEntityAI() {
+	protected void initEntityAI()
+	{
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
 		tasks.addTask(2, new EntityAIMoveTowardsRestriction(this, 1.0D));
@@ -54,15 +57,18 @@ public class EntityBrutalisk extends EntityZergMob implements IMob, Predicate<En
 	}
 
 	/**
-	 * The method where this entity handles checks to make sure it can attack the target.
+	 * The method where this entity handles checks to make sure it can attack the
+	 * target.
 	 */
 	@Override
-	public boolean apply(EntityLivingBase entity) {
+	public boolean apply(EntityLivingBase entity)
+	{
 		return checkTarget(entity, EnumFactionTypes.SWARM);
 	}
 
 	@Override
-	protected void applyEntityAttributes() {
+	protected void applyEntityAttributes()
+	{
 		super.applyEntityAttributes();
 
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(750.0D);
@@ -74,45 +80,55 @@ public class EntityBrutalisk extends EntityZergMob implements IMob, Predicate<En
 	}
 
 	@Override
-	public boolean canBePushed() {
+	public boolean canBePushed()
+	{
 		return false;
 	}
 
 	@Override
-	protected ResourceLocation getLootTable() {
+	protected ResourceLocation getLootTable()
+	{
 		return LootTableHandler.ENTITY_BRUTALISK;
 	}
 
 	@Override
-	public SoundEvent getAmbientSound() {
+	public SoundEvent getAmbientSound()
+	{
 		return SoundHandler.ENTITY_BRUTALISK_LIVE1;
 	}
 
 	@Override
-	public SoundEvent getDeathSound() {
+	public SoundEvent getDeathSound()
+	{
 		return SoundHandler.ENTITY_BRUTALISK_DEATH;
 	}
 
 	@Override
-	public SoundEvent getHurtSound(DamageSource source) {
+	public SoundEvent getHurtSound(DamageSource source)
+	{
 		return SoundHandler.ENTITY_BRUTALISK_HURT;
 	}
 
 	@Override
-	public int getTalkInterval() {
+	public int getTalkInterval()
+	{
 		return 160;
 	}
 
 	@Override
-	protected void playStepSound(BlockPos pos, Block blockIn) {
+	protected void playStepSound(BlockPos pos, Block blockIn)
+	{
 		playSound(SoundHandler.ENTITY_BRUTALISK_STEP, 1.0F, 1.0F);
 	}
-	
+
 	@Override
-	public void onLivingUpdate() {
-		if(this.getBurrowState() == true) {
+	public void onLivingUpdate()
+	{
+		if (this.getBurrowState() == true)
+		{
 			setSize(4.0F, 0.1F);
-		}else {
+		} else
+		{
 			setSize(4.0F, 6.0F);
 		}
 		super.onLivingUpdate();

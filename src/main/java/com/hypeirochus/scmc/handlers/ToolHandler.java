@@ -11,13 +11,12 @@ import net.minecraft.item.Item;
 
 /**
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
- * 
  * <br>
  * </br>
- * 
  * Handles the tool registration and renders.
  */
-public class ToolHandler {
+public class ToolHandler
+{
 
 	public static Item COPPER_AXE;
 	public static Item COPPER_HOE;
@@ -34,12 +33,14 @@ public class ToolHandler {
 	public static Item TITANIUM_PICKAXE;
 	public static Item TITANIUM_SHOVEL;
 
-	public static void init() {
+	public static void init()
+	{
 		instantiate();
 		register();
 	}
 
-	private static void instantiate() {
+	private static void instantiate()
+	{
 		COPPER_PICKAXE = new ToolPickaxe(ToolMaterials.COPPER).setUnlocalizedName("copper.pickaxe").setRegistryName("copper.pickaxe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 		COPPER_AXE = new ToolAxe(ToolMaterials.COPPER, 8, -3.2f).setUnlocalizedName("copper.axe").setRegistryName("copper.axe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 		COPPER_SHOVEL = new ToolShovel(ToolMaterials.COPPER).setUnlocalizedName("copper.shovel").setRegistryName("copper.shovel").setCreativeTab(StarcraftCreativeTabs.TERRAN);
@@ -56,7 +57,8 @@ public class ToolHandler {
 		STEEL_HOE = new ToolHoe(ToolMaterials.STEEL).setUnlocalizedName("steel.hoe").setRegistryName("steel.hoe").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 	}
 
-	public static void register() {
+	public static void register()
+	{
 		registerItem(COPPER_PICKAXE);
 		registerItem(COPPER_AXE);
 		registerItem(COPPER_SHOVEL);
@@ -73,7 +75,8 @@ public class ToolHandler {
 		registerItem(STEEL_HOE);
 	}
 
-	public static void registerItem(Item item) {
+	public static void registerItem(Item item)
+	{
 		ItemHandler.register(item);
 	}
 }

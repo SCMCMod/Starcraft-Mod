@@ -20,7 +20,8 @@ import net.minecraft.item.ItemStack;
 /**
  * @author Ocelot5836
  */
-public class GasCollectorRecipes {
+public class GasCollectorRecipes
+{
 
 	private static final GasCollectorRecipes INSTANCE = new GasCollectorRecipes();
 	private final Map<IBlockState, ItemStack> protossList = Maps.<IBlockState, ItemStack>newHashMap();
@@ -30,11 +31,13 @@ public class GasCollectorRecipes {
 	/**
 	 * Returns an instance of FurnaceRecipes.
 	 */
-	public static GasCollectorRecipes instance() {
+	public static GasCollectorRecipes instance()
+	{
 		return INSTANCE;
 	}
 
-	private GasCollectorRecipes() {
+	private GasCollectorRecipes()
+	{
 		this.addProtossRecipe(BlockHandler.GAS_VESPENE, new ItemStack(ItemHandler.VESPENE, 1, VespeneType.PROTOSS.getID()));
 		this.addTerranRecipe(BlockHandler.GAS_VESPENE, new ItemStack(ItemHandler.VESPENE, 1, VespeneType.TERRAN.getID()));
 		this.addZergRecipe(BlockHandler.GAS_VESPENE, new ItemStack(ItemHandler.VESPENE, 1, VespeneType.ZERG.getID()));
@@ -43,36 +46,45 @@ public class GasCollectorRecipes {
 		this.addZergRecipe(BlockHandler.GAS_TERRAZINE, new ItemStack(ItemHandler.TERRAZINE, 1, TerrazineType.ZERG.getID()));
 	}
 
-	public void addProtossRecipe(Block input, ItemStack stack) {
+	public void addProtossRecipe(Block input, ItemStack stack)
+	{
 		addProtossRecipe(input.getDefaultState(), stack);
 	}
 
-	public void addProtossRecipe(IBlockState input, ItemStack stack) {
-		if (getProtossResult(input) != null) {
+	public void addProtossRecipe(IBlockState input, ItemStack stack)
+	{
+		if (getProtossResult(input) != null)
+		{
 			Utils.getLogger().info("Ignored protoss gas collector recipe recipe with conflicting input: " + input + " = " + stack);
 			return;
 		}
 		this.protossList.put(input, stack);
 	}
 
-	public void addTerranRecipe(Block input, ItemStack stack) {
+	public void addTerranRecipe(Block input, ItemStack stack)
+	{
 		addTerranRecipe(input.getDefaultState(), stack);
 	}
 
-	public void addTerranRecipe(IBlockState input, ItemStack stack) {
-		if (getTerranResult(input) != null) {
+	public void addTerranRecipe(IBlockState input, ItemStack stack)
+	{
+		if (getTerranResult(input) != null)
+		{
 			Utils.getLogger().info("Ignored terran gas collector recipe recipe with conflicting input: " + input + " = " + stack);
 			return;
 		}
 		this.terranList.put(input, stack);
 	}
 
-	public void addZergRecipe(Block input, ItemStack stack) {
+	public void addZergRecipe(Block input, ItemStack stack)
+	{
 		addZergRecipe(input.getDefaultState(), stack);
 	}
 
-	public void addZergRecipe(IBlockState input, ItemStack stack) {
-		if (getZergResult(input) != null) {
+	public void addZergRecipe(IBlockState input, ItemStack stack)
+	{
+		if (getZergResult(input) != null)
+		{
 			Utils.getLogger().info("Ignored zerg gas collector recipe recipe with conflicting input: " + input + " = " + stack);
 			return;
 		}
@@ -80,14 +92,18 @@ public class GasCollectorRecipes {
 	}
 
 	@Nullable
-	public ItemStack getProtossResult(Block block) {
+	public ItemStack getProtossResult(Block block)
+	{
 		return getProtossResult(block.getDefaultState());
 	}
 
 	@Nullable
-	public ItemStack getProtossResult(IBlockState state) {
-		for (Entry<IBlockState, ItemStack> entry : this.protossList.entrySet()) {
-			if (entry.getKey().getBlock().getUnlocalizedName().equalsIgnoreCase(state.getBlock().getUnlocalizedName())) {
+	public ItemStack getProtossResult(IBlockState state)
+	{
+		for (Entry<IBlockState, ItemStack> entry : this.protossList.entrySet())
+		{
+			if (entry.getKey().getBlock().getUnlocalizedName().equalsIgnoreCase(state.getBlock().getUnlocalizedName()))
+			{
 				return entry.getValue();
 			}
 		}
@@ -95,14 +111,18 @@ public class GasCollectorRecipes {
 	}
 
 	@Nullable
-	public ItemStack getTerranResult(Block block) {
+	public ItemStack getTerranResult(Block block)
+	{
 		return getTerranResult(block.getDefaultState());
 	}
 
 	@Nullable
-	public ItemStack getTerranResult(IBlockState state) {
-		for (Entry<IBlockState, ItemStack> entry : this.terranList.entrySet()) {
-			if (entry.getKey().getBlock().getUnlocalizedName().equalsIgnoreCase(state.getBlock().getUnlocalizedName())) {
+	public ItemStack getTerranResult(IBlockState state)
+	{
+		for (Entry<IBlockState, ItemStack> entry : this.terranList.entrySet())
+		{
+			if (entry.getKey().getBlock().getUnlocalizedName().equalsIgnoreCase(state.getBlock().getUnlocalizedName()))
+			{
 				return entry.getValue();
 			}
 		}
@@ -110,29 +130,36 @@ public class GasCollectorRecipes {
 	}
 
 	@Nullable
-	public ItemStack getZergResult(Block block) {
+	public ItemStack getZergResult(Block block)
+	{
 		return getZergResult(block.getDefaultState());
 	}
 
 	@Nullable
-	public ItemStack getZergResult(IBlockState state) {
-		for (Entry<IBlockState, ItemStack> entry : this.zergList.entrySet()) {
-			if (entry.getKey().getBlock().getUnlocalizedName().equalsIgnoreCase(state.getBlock().getUnlocalizedName())) {
+	public ItemStack getZergResult(IBlockState state)
+	{
+		for (Entry<IBlockState, ItemStack> entry : this.zergList.entrySet())
+		{
+			if (entry.getKey().getBlock().getUnlocalizedName().equalsIgnoreCase(state.getBlock().getUnlocalizedName()))
+			{
 				return entry.getValue();
 			}
 		}
 		return null;
 	}
 
-	public Map<IBlockState, ItemStack> getProtossList() {
+	public Map<IBlockState, ItemStack> getProtossList()
+	{
 		return new HashMap<IBlockState, ItemStack>(this.protossList);
 	}
 
-	public Map<IBlockState, ItemStack> getTerranList() {
+	public Map<IBlockState, ItemStack> getTerranList()
+	{
 		return new HashMap<IBlockState, ItemStack>(this.terranList);
 	}
 
-	public Map<IBlockState, ItemStack> getZergList() {
+	public Map<IBlockState, ItemStack> getZergList()
+	{
 		return new HashMap<IBlockState, ItemStack>(this.zergList);
 	}
 }

@@ -38,11 +38,13 @@ import net.minecraft.world.World;
  * 
  * @author Hypeirochus
  */
-public class EntityQueen extends EntityZergMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase> {
+public class EntityQueen extends EntityZergMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase>
+{
 
 	private static final DataParameter<Float> ENERGY = EntityDataManager.createKey(EntityQueen.class, DataSerializers.FLOAT);
 
-	public EntityQueen(World world) {
+	public EntityQueen(World world)
+	{
 		super(world);
 		setSize(3.0F, 3.0F);
 		this.setColor(EnumColors.PURPLE);
@@ -58,15 +60,18 @@ public class EntityQueen extends EntityZergMob implements IMob, IRangedAttackMob
 	}
 
 	/**
-	 * The method where this entity handles checks to make sure it can attack the target.
+	 * The method where this entity handles checks to make sure it can attack the
+	 * target.
 	 */
 	@Override
-	public boolean apply(EntityLivingBase entity) {
+	public boolean apply(EntityLivingBase entity)
+	{
 		return checkTarget(entity, EnumFactionTypes.SWARM);
 	}
 
 	@Override
-	protected void applyEntityAttributes() {
+	protected void applyEntityAttributes()
+	{
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(117.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.17000000417232513D);
@@ -75,7 +80,8 @@ public class EntityQueen extends EntityZergMob implements IMob, IRangedAttackMob
 	}
 
 	@Override
-	public void attackEntityWithRangedAttack(EntityLivingBase target, float p_82196_2_) {
+	public void attackEntityWithRangedAttack(EntityLivingBase target, float p_82196_2_)
+	{
 		EntityHydraliskSpike spike = new EntityHydraliskSpike(this.world, this);
 		double d0 = target.posY + (double) target.getEyeHeight() - 1.800000023841858D - target.getDistanceSq(target.getPosition());
 		double d1 = target.posX - this.posX;
@@ -90,22 +96,23 @@ public class EntityQueen extends EntityZergMob implements IMob, IRangedAttackMob
 	/**
 	 * Drop up to 2 items when killed
 	 * 
-	 * @param damagedByPlayer
-	 *            true if the most recent damage was dealt by a player
-	 * @param lootingLevel
-	 *            level of Looting on kill weapon
+	 * @param damagedByPlayer true if the most recent damage was dealt by a player
+	 * @param lootingLevel level of Looting on kill weapon
 	 */
 	@Override
-	protected void dropFewItems(boolean recentlyHit, int looting) {
+	protected void dropFewItems(boolean recentlyHit, int looting)
+	{
 		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), MetaHandler.CarapaceType.T2.getID()));
 		drop.tryDrop(this);
 	}
 
 	@Override
-	public SoundEvent getAmbientSound() {
+	public SoundEvent getAmbientSound()
+	{
 		Random rand = new Random();
 
-		switch (rand.nextInt(1)) {
+		switch (rand.nextInt(1))
+		{
 		case 0:
 			return SoundHandler.ENTITY_QUEEN_LIVE1;
 		default:
@@ -114,22 +121,26 @@ public class EntityQueen extends EntityZergMob implements IMob, IRangedAttackMob
 	}
 
 	@Override
-	public SoundEvent getDeathSound() {
+	public SoundEvent getDeathSound()
+	{
 		return SoundHandler.ENTITY_QUEEN_DEATH;
 	}
 
 	@Override
-	public SoundEvent getHurtSound(DamageSource source) {
+	public SoundEvent getHurtSound(DamageSource source)
+	{
 		return SoundHandler.ENTITY_QUEEN_HURT;
 	}
 
 	@Override
-	public int getTalkInterval() {
+	public int getTalkInterval()
+	{
 		return 160;
 	}
 
 	@Override
-	public void setSwingingArms(boolean swingingArms) {
-		
+	public void setSwingingArms(boolean swingingArms)
+	{
+
 	}
 }

@@ -12,7 +12,8 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderHydraliskPrimalDehaka extends RenderLiving<EntityHydraliskPrimalDehaka> implements LayerRenderer<EntityHydraliskPrimalDehaka> {
+public class RenderHydraliskPrimalDehaka extends RenderLiving<EntityHydraliskPrimalDehaka> implements LayerRenderer<EntityHydraliskPrimalDehaka>
+{
 
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.HYDRALISKPRIMALDEHAKA_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.HYDRALISK_OVERLAY);
@@ -21,7 +22,8 @@ public class RenderHydraliskPrimalDehaka extends RenderLiving<EntityHydraliskPri
 
 	protected ModelHydraliskPrimalDehaka model;
 
-	public RenderHydraliskPrimalDehaka(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
+	public RenderHydraliskPrimalDehaka(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
+	{
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelHydraliskPrimalDehaka) mainModel);
 		this.RENDERER = this;
@@ -29,32 +31,38 @@ public class RenderHydraliskPrimalDehaka extends RenderLiving<EntityHydraliskPri
 	}
 
 	@Override
-	public void doRender(EntityHydraliskPrimalDehaka entity, double x, double y, double z, float entityYaw, float partialTicks) {
+	public void doRender(EntityHydraliskPrimalDehaka entity, double x, double y, double z, float entityYaw, float partialTicks)
+	{
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 
-		if (!renderOutlines) {
+		if (!renderOutlines)
+		{
 			renderLeash(entity, x, y, z, entityYaw, partialTicks);
 		}
 	}
 
 	@Override
-	protected ResourceLocation getEntityTexture(EntityHydraliskPrimalDehaka entity) {
+	protected ResourceLocation getEntityTexture(EntityHydraliskPrimalDehaka entity)
+	{
 		return BASE;
 	}
 
 	@Override
-	protected void preRenderCallback(EntityHydraliskPrimalDehaka entitylivingbaseIn, float partialTickTime) {
+	protected void preRenderCallback(EntityHydraliskPrimalDehaka entitylivingbaseIn, float partialTickTime)
+	{
 		GlStateManager.scale(1.5F + (entitylivingbaseIn.getBiomass() / 60), 1.5F + (entitylivingbaseIn.getBiomass() / 60), 1.5F + (entitylivingbaseIn.getBiomass() / 60));
 	}
 
 	@Override
-	public void doRenderLayer(EntityHydraliskPrimalDehaka entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+	public void doRenderLayer(EntityHydraliskPrimalDehaka entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
+	{
 		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
 	}
 
 	@Override
-	public boolean shouldCombineTextures() {
+	public boolean shouldCombineTextures()
+	{
 		return true;
 	}
 }

@@ -12,7 +12,8 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderPredator extends RenderLiving<EntityPredator> implements LayerRenderer<EntityPredator> {
+public class RenderPredator extends RenderLiving<EntityPredator> implements LayerRenderer<EntityPredator>
+{
 
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.PREDATOR_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.PREDATOR_OVERLAY);
@@ -21,7 +22,8 @@ public class RenderPredator extends RenderLiving<EntityPredator> implements Laye
 	private final RenderPredator RENDERER;
 	protected ModelPredator model;
 
-	public RenderPredator(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
+	public RenderPredator(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
+	{
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelPredator) mainModel);
 		this.addLayer(this);
@@ -29,33 +31,39 @@ public class RenderPredator extends RenderLiving<EntityPredator> implements Laye
 	}
 
 	@Override
-	public void doRender(EntityPredator entity, double x, double y, double z, float entityYaw, float partialTicks) {
+	public void doRender(EntityPredator entity, double x, double y, double z, float entityYaw, float partialTicks)
+	{
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 
-		if (!renderOutlines) {
+		if (!renderOutlines)
+		{
 			renderLeash(entity, x, y, z, entityYaw, partialTicks);
 		}
 	}
 
 	@Override
-	protected ResourceLocation getEntityTexture(EntityPredator entity) {
+	protected ResourceLocation getEntityTexture(EntityPredator entity)
+	{
 		return BASE;
 	}
 
 	@Override
-	protected void preRenderCallback(EntityPredator entitylivingbaseIn, float partialTickTime) {
+	protected void preRenderCallback(EntityPredator entitylivingbaseIn, float partialTickTime)
+	{
 		GlStateManager.scale(1.2F, 1.2F, 1.2F);
 	}
 
 	@Override
-	public void doRenderLayer(EntityPredator entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+	public void doRenderLayer(EntityPredator entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
+	{
 		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
 		ColoredLayerRender.renderDynamicGlow(this.RENDERER, entitylivingbaseIn, DYNAMICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
 	}
 
 	@Override
-	public boolean shouldCombineTextures() {
+	public boolean shouldCombineTextures()
+	{
 		return true;
 	}
 }

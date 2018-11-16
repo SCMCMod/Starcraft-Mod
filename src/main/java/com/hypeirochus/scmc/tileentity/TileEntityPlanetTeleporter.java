@@ -12,32 +12,39 @@ import net.minecraft.util.ITickable;
 /**
  * @author Hypeirochus
  */
-public class TileEntityPlanetTeleporter extends TileEntity implements ITickable {
+public class TileEntityPlanetTeleporter extends TileEntity implements ITickable
+{
 
-	private int	range	= 50;
-	private int	dim		= 0;
+	private int range = 50;
+	private int dim = 0;
 
-	public TileEntityPlanetTeleporter(int dim, int range) {
+	public TileEntityPlanetTeleporter(int dim, int range)
+	{
 		this.range = range;
 		this.dim = dim;
 	}
 
-	public TileEntityPlanetTeleporter() {
+	public TileEntityPlanetTeleporter()
+	{
 		this(0, 0);
 	}
 
 	@Override
-	public void update() {
-		if (world != null && !world.isRemote) {
+	public void update()
+	{
+		if (world != null && !world.isRemote)
+		{
 			EntityPlayerMP player = (EntityPlayerMP) world.getClosestPlayer(pos.getX(), pos.getY(), pos.getZ(), range, false);
-			if (player != null) {
+			if (player != null)
+			{
 				player.getServer().getPlayerList().transferPlayerToDimension(player, dim, new TeleporterHandler(player.world.provider.getDimension(), player.mcServer.getWorld(dim), player.posX, player.posY, player.posZ, false));
 			}
 		}
 	}
 
 	@Override
-	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt)
+	{
 		super.writeToNBT(nbt);
 		nbt.setInteger("range", this.range);
 		nbt.setInteger("dim", this.dim);
@@ -45,14 +52,16 @@ public class TileEntityPlanetTeleporter extends TileEntity implements ITickable 
 	}
 
 	@Override
-	public void readFromNBT(NBTTagCompound nbt) {
+	public void readFromNBT(NBTTagCompound nbt)
+	{
 		super.readFromNBT(nbt);
 		this.range = nbt.getInteger("range");
 		this.dim = nbt.getInteger("dim");
 	}
 
 	@Override
-	public SPacketUpdateTileEntity getUpdatePacket() {
+	public SPacketUpdateTileEntity getUpdatePacket()
+	{
 		NBTTagCompound nbt = new NBTTagCompound();
 		this.writeToNBT(nbt);
 		int metadata = getBlockMetadata();
@@ -60,24 +69,28 @@ public class TileEntityPlanetTeleporter extends TileEntity implements ITickable 
 	}
 
 	@Override
-	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
+	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt)
+	{
 		this.readFromNBT(pkt.getNbtCompound());
 	}
 
 	@Override
-	public NBTTagCompound getUpdateTag() {
+	public NBTTagCompound getUpdateTag()
+	{
 		NBTTagCompound nbt = new NBTTagCompound();
 		this.writeToNBT(nbt);
 		return nbt;
 	}
 
 	@Override
-	public void handleUpdateTag(NBTTagCompound tag) {
+	public void handleUpdateTag(NBTTagCompound tag)
+	{
 		this.readFromNBT(tag);
 	}
 
 	@Override
-	public NBTTagCompound getTileData() {
+	public NBTTagCompound getTileData()
+	{
 		NBTTagCompound nbt = new NBTTagCompound();
 		this.writeToNBT(nbt);
 		return nbt;

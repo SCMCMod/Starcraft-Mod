@@ -26,15 +26,18 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 /**
  * @author Ocelot5836
  */
-public class BlockVespeneGas extends BlockGas {
+public class BlockVespeneGas extends BlockGas
+{
 
-	public BlockVespeneGas() {
+	public BlockVespeneGas()
+	{
 		super(MaterialHandler.VESPENE_GAS, "gas.vespene");
 		setCreativeTab(StarcraftCreativeTabs.MISC);
 	}
 
 	@Override
-	public void displayParticles(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
+	public void displayParticles(IBlockState stateIn, World worldIn, BlockPos pos, Random rand)
+	{
 		double x = (double) pos.getX() + 0.5D;
 		double y = (double) pos.getY() + rand.nextDouble() * 9.0D / 16.0D;
 		double z = (double) pos.getZ() + 0.5D;
@@ -45,35 +48,44 @@ public class BlockVespeneGas extends BlockGas {
 	}
 
 	@Override
-	public boolean isOpaqueCube(IBlockState state) {
+	public boolean isOpaqueCube(IBlockState state)
+	{
 		return false;
 	}
 
 	@Override
-	public boolean isFullCube(IBlockState state) {
+	public boolean isFullCube(IBlockState state)
+	{
 		return false;
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public BlockRenderLayer getBlockLayer() {
+	public BlockRenderLayer getBlockLayer()
+	{
 		return BlockRenderLayer.TRANSLUCENT;
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
+	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
+	{
 		if (world.getBlockState(new BlockPos(pos.getX(), pos.getY() + entity.getEyeHeight(), pos.getZ())).getBlock() == this)
 			entity.attackEntityFrom(StarcraftDamageSources.poison_gas, 4);
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ)
+	{
 		ItemStack heldItem = player.getHeldItem(hand);
-		if (!heldItem.isEmpty() && heldItem.getItem() == ItemHandler.GAS_CONTAINER) {
+		if (!heldItem.isEmpty() && heldItem.getItem() == ItemHandler.GAS_CONTAINER)
+		{
 			int meta = heldItem.getMetadata();
-			for (int i = 0; i < MetaHandler.ContainerType.values().length; i++) {
-				if (meta == i) {
-					if (!player.isCreative()) {
+			for (int i = 0; i < MetaHandler.ContainerType.values().length; i++)
+			{
+				if (meta == i)
+				{
+					if (!player.isCreative())
+					{
 						world.destroyBlock(pos, false);
 						player.inventory.decrStackSize(player.inventory.getSlotFor(player.getHeldItemMainhand()), 1);
 					}

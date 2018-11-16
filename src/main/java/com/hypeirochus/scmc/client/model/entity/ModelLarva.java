@@ -10,114 +10,116 @@ import net.minecraft.util.math.MathHelper;
 /**
  * zerglarva - cybercat5555 Created using Tabula 5.1.0
  */
-public class ModelLarva extends Model {
+public class ModelLarva extends Model
+{
 
-	public ModelRenderer	bSpike1a;
-	public ModelRenderer	bSpike1b;
-	public ModelRenderer	bSpike1c;
-	public ModelRenderer	bSpike1d;
-	public ModelRenderer	bSpike1e;
-	public ModelRenderer	bSpike2a;
-	public ModelRenderer	bSpike2b;
-	public ModelRenderer	bSpike2c;
-	public ModelRenderer	bSpike2d;
-	public ModelRenderer	bSpike2e;
-	public ModelRenderer	bSpike3a;
-	public ModelRenderer	bSpike3b;
-	public ModelRenderer	bSpike3c;
-	public ModelRenderer	bSpike3d;
-	public ModelRenderer	bSpike3e;
-	public ModelRenderer	bSpike4a;
-	public ModelRenderer	bSpike4a_1;
-	public ModelRenderer	bSpike4a_2;
-	public ModelRenderer	bSpike4b;
-	public ModelRenderer	bSpike4b_1;
-	public ModelRenderer	bSpike4b_2;
-	public ModelRenderer	bSpike4c;
-	public ModelRenderer	bSpike4c_1;
-	public ModelRenderer	bSpike4d;
-	public ModelRenderer	bSpike4d_1;
-	public ModelRenderer	bSpike4e;
-	public ModelRenderer	bSpike4e_1;
-	public ModelRenderer	bSpike5c;
-	public ModelRenderer	bSpike5d;
-	public ModelRenderer	bSpike5e;
-	public ModelRenderer	bSpike6a;
-	public ModelRenderer	bSpike6b;
-	public ModelRenderer	bSpike6c;
-	public ModelRenderer	bSpike6d;
-	public ModelRenderer	bSpike6e;
-	public ModelRenderer	bSpike7a;
-	public ModelRenderer	bSpike7b;
-	public ModelRenderer	bSpike7c;
-	public ModelRenderer	bSpike7d;
-	public ModelRenderer	bSpike7e;
-	public ModelRenderer	head;
-	public ModelRenderer	lMandible;
-	public ModelRenderer	lMandible2;
-	public ModelRenderer	lMandibleSpikes;
-	public ModelRenderer	lSpike0a;
-	public ModelRenderer	lSpike0b;
-	public ModelRenderer	lSpike0c;
-	public ModelRenderer	lSpike0d;
-	public ModelRenderer	lSpike0e;
-	public ModelRenderer	lSpike1a;
-	public ModelRenderer	lSpike1aa;
-	public ModelRenderer	lSpike1b;
-	public ModelRenderer	lSpike1c;
-	public ModelRenderer	lSpike2a;
-	public ModelRenderer	lSpike2b;
-	public ModelRenderer	lSpike2c;
-	public ModelRenderer	lSpike2d;
-	public ModelRenderer	lSpike2e;
-	public ModelRenderer	lSpike3a;
-	public ModelRenderer	lSpike3b;
-	public ModelRenderer	lSpike3c;
-	public ModelRenderer	lSpike3d;
-	public ModelRenderer	lSpike3e;
-	public ModelRenderer	lSpike4a;
-	public ModelRenderer	lSpike4b;
-	public ModelRenderer	lSpike4c;
-	public ModelRenderer	lSpike4d;
-	public ModelRenderer	lSpike4e;
-	public ModelRenderer	rMandible;
-	public ModelRenderer	rMandible2;
-	public ModelRenderer	rMandibleSpikes;
-	public ModelRenderer	rSpike0a;
-	public ModelRenderer	rSpike0b;
-	public ModelRenderer	rSpike0c;
-	public ModelRenderer	rSpike0d;
-	public ModelRenderer	rSpike0e;
-	public ModelRenderer	rSpike1a;
-	public ModelRenderer	rSpike1aa;
-	public ModelRenderer	rSpike1b;
-	public ModelRenderer	rSpike1c;
-	public ModelRenderer	rSpike2a;
-	public ModelRenderer	rSpike2b;
-	public ModelRenderer	rSpike2c;
-	public ModelRenderer	rSpike2d;
-	public ModelRenderer	rSpike2e;
-	public ModelRenderer	rSpike3a;
-	public ModelRenderer	rSpike3b;
-	public ModelRenderer	rSpike3c;
-	public ModelRenderer	rSpike3d;
-	public ModelRenderer	rSpike3e;
-	public ModelRenderer	rSpike4a;
-	public ModelRenderer	rSpike4b;
-	public ModelRenderer	rSpike4c;
-	public ModelRenderer	rSpike4d;
-	public ModelRenderer	rSpike4e;
-	public ModelRenderer	segment1;
-	public ModelRenderer	segment2;
-	public ModelRenderer	segment3;
-	public ModelRenderer	segment4;
-	public ModelRenderer	shell1;
-	public ModelRenderer	shell2;
-	public ModelRenderer	shell3;
-	public ModelRenderer	shell4;
-	public ModelRenderer	tail;
+	public ModelRenderer bSpike1a;
+	public ModelRenderer bSpike1b;
+	public ModelRenderer bSpike1c;
+	public ModelRenderer bSpike1d;
+	public ModelRenderer bSpike1e;
+	public ModelRenderer bSpike2a;
+	public ModelRenderer bSpike2b;
+	public ModelRenderer bSpike2c;
+	public ModelRenderer bSpike2d;
+	public ModelRenderer bSpike2e;
+	public ModelRenderer bSpike3a;
+	public ModelRenderer bSpike3b;
+	public ModelRenderer bSpike3c;
+	public ModelRenderer bSpike3d;
+	public ModelRenderer bSpike3e;
+	public ModelRenderer bSpike4a;
+	public ModelRenderer bSpike4a_1;
+	public ModelRenderer bSpike4a_2;
+	public ModelRenderer bSpike4b;
+	public ModelRenderer bSpike4b_1;
+	public ModelRenderer bSpike4b_2;
+	public ModelRenderer bSpike4c;
+	public ModelRenderer bSpike4c_1;
+	public ModelRenderer bSpike4d;
+	public ModelRenderer bSpike4d_1;
+	public ModelRenderer bSpike4e;
+	public ModelRenderer bSpike4e_1;
+	public ModelRenderer bSpike5c;
+	public ModelRenderer bSpike5d;
+	public ModelRenderer bSpike5e;
+	public ModelRenderer bSpike6a;
+	public ModelRenderer bSpike6b;
+	public ModelRenderer bSpike6c;
+	public ModelRenderer bSpike6d;
+	public ModelRenderer bSpike6e;
+	public ModelRenderer bSpike7a;
+	public ModelRenderer bSpike7b;
+	public ModelRenderer bSpike7c;
+	public ModelRenderer bSpike7d;
+	public ModelRenderer bSpike7e;
+	public ModelRenderer head;
+	public ModelRenderer lMandible;
+	public ModelRenderer lMandible2;
+	public ModelRenderer lMandibleSpikes;
+	public ModelRenderer lSpike0a;
+	public ModelRenderer lSpike0b;
+	public ModelRenderer lSpike0c;
+	public ModelRenderer lSpike0d;
+	public ModelRenderer lSpike0e;
+	public ModelRenderer lSpike1a;
+	public ModelRenderer lSpike1aa;
+	public ModelRenderer lSpike1b;
+	public ModelRenderer lSpike1c;
+	public ModelRenderer lSpike2a;
+	public ModelRenderer lSpike2b;
+	public ModelRenderer lSpike2c;
+	public ModelRenderer lSpike2d;
+	public ModelRenderer lSpike2e;
+	public ModelRenderer lSpike3a;
+	public ModelRenderer lSpike3b;
+	public ModelRenderer lSpike3c;
+	public ModelRenderer lSpike3d;
+	public ModelRenderer lSpike3e;
+	public ModelRenderer lSpike4a;
+	public ModelRenderer lSpike4b;
+	public ModelRenderer lSpike4c;
+	public ModelRenderer lSpike4d;
+	public ModelRenderer lSpike4e;
+	public ModelRenderer rMandible;
+	public ModelRenderer rMandible2;
+	public ModelRenderer rMandibleSpikes;
+	public ModelRenderer rSpike0a;
+	public ModelRenderer rSpike0b;
+	public ModelRenderer rSpike0c;
+	public ModelRenderer rSpike0d;
+	public ModelRenderer rSpike0e;
+	public ModelRenderer rSpike1a;
+	public ModelRenderer rSpike1aa;
+	public ModelRenderer rSpike1b;
+	public ModelRenderer rSpike1c;
+	public ModelRenderer rSpike2a;
+	public ModelRenderer rSpike2b;
+	public ModelRenderer rSpike2c;
+	public ModelRenderer rSpike2d;
+	public ModelRenderer rSpike2e;
+	public ModelRenderer rSpike3a;
+	public ModelRenderer rSpike3b;
+	public ModelRenderer rSpike3c;
+	public ModelRenderer rSpike3d;
+	public ModelRenderer rSpike3e;
+	public ModelRenderer rSpike4a;
+	public ModelRenderer rSpike4b;
+	public ModelRenderer rSpike4c;
+	public ModelRenderer rSpike4d;
+	public ModelRenderer rSpike4e;
+	public ModelRenderer segment1;
+	public ModelRenderer segment2;
+	public ModelRenderer segment3;
+	public ModelRenderer segment4;
+	public ModelRenderer shell1;
+	public ModelRenderer shell2;
+	public ModelRenderer shell3;
+	public ModelRenderer shell4;
+	public ModelRenderer tail;
 
-	public ModelLarva() {
+	public ModelLarva()
+	{
 		textureWidth = 64;
 		textureHeight = 32;
 		rSpike0e = new ModelRenderer(this, 39, 0);
@@ -603,14 +605,16 @@ public class ModelLarva extends Model {
 	}
 
 	@Override
-	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
+	{
 		super.render(entity, f, f1, f2, f3, f4, f5);
 		setRotationAngles(f, f1, f2, f3, f4, f4, entity);
 		segment1.render(f5);
 	}
 
 	@Override
-	public void render(Object obj) {
+	public void render(Object obj)
+	{
 		EntityLivingBase base = (EntityLivingBase) obj;
 		head.rotateAngleX = headPitch(obj) * 0.017453292F;
 		head.rotateAngleY = headYaw(obj) * 0.017453292F;

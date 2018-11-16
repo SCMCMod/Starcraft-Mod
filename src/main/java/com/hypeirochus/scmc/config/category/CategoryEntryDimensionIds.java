@@ -14,14 +14,17 @@ import net.minecraftforge.fml.client.config.GuiConfigEntries.CategoryEntry;
 import net.minecraftforge.fml.client.config.IConfigElement;
 
 //TODO: MOVE TO CORE MOD
-public class CategoryEntryDimensionIds extends CategoryEntry {
+public class CategoryEntryDimensionIds extends CategoryEntry
+{
 
-	public CategoryEntryDimensionIds(GuiConfig owningScreen, GuiConfigEntries owningEntryList, IConfigElement configElement) {
+	public CategoryEntryDimensionIds(GuiConfig owningScreen, GuiConfigEntries owningEntryList, IConfigElement configElement)
+	{
 		super(owningScreen, owningEntryList, configElement);
 	}
 
 	@Override
-	protected GuiScreen buildChildScreen() {
+	protected GuiScreen buildChildScreen()
+	{
 		Configuration config = StarcraftConfig.getConfig();
 		ConfigElement categoryDimensionIds = new ConfigElement(config.getCategory(StarcraftConfig.CATEGORY_NAME_DIMENSION_IDS));
 		List<IConfigElement> propertiesOnScreen = categoryDimensionIds.getChildElements();

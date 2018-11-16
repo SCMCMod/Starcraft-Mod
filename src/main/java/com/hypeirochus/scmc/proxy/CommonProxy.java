@@ -8,26 +8,29 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 /**
  * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
- * 
  * <br>
  * </br>
- *
  * This class is a template for a basic proxy class.
  *
  * @author Ocelot536
  */
-public abstract class CommonProxy {
+public abstract class CommonProxy
+{
 
-	public void preInit(FMLPreInitializationEvent event) {
+	public void preInit(FMLPreInitializationEvent event)
+	{
 	}
 
-	public void init(FMLInitializationEvent event) {
+	public void init(FMLInitializationEvent event)
+	{
 	}
 
-	public void postInit(FMLPostInitializationEvent event) {
+	public void postInit(FMLPostInitializationEvent event)
+	{
 	}
 
-	public ModelArmorBase getArmorModel(int id) {
+	public ModelArmorBase getArmorModel(int id)
+	{
 		return null;
 	}
 }

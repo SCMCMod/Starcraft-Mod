@@ -11,13 +11,13 @@ import com.hypeirochus.scmc.client.model.armor.ModelZergArmorT3;
 
 /**
  * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
- * 
  * <br>
  * </br>
  *
  * @author Ocelot536
  */
-public class ClientProxy extends CommonProxy {
+public class ClientProxy extends CommonProxy
+{
 
 	private static final ModelArmorBase M0 = new ModelZergArmorT1(1.0f);
 	private static final ModelArmorBase M1 = new ModelZergArmorT1(0.5f);
@@ -35,8 +35,10 @@ public class ClientProxy extends CommonProxy {
 	private static final ModelArmorBase M13 = new ModelProtossNerazimArmor(0.5f);
 
 	@Override
-	public ModelArmorBase getArmorModel(int id) {
-		switch (id) {
+	public ModelArmorBase getArmorModel(int id)
+	{
+		switch (id)
+		{
 		default:
 			return M0;
 		case 0:

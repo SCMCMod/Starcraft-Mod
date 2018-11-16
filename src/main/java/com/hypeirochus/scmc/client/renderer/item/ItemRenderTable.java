@@ -9,22 +9,26 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
-public class ItemRenderTable extends ItemRenderer {
+public class ItemRenderTable extends ItemRenderer
+{
 
 	private static final ModelTable MODEL = new ModelTable();
 	private static final ResourceLocation TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/table.png");
 
-	public ItemRenderTable() {
+	public ItemRenderTable()
+	{
 		super(null, TEXTURE);
 	}
 
 	@Override
-	public void renderFirstPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderFirstPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		renderFirstPersonRight(itemstack, entity, cameraTransformType);
 	}
 
 	@Override
-	public void renderFirstPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderFirstPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.rotate(45, 0, 1, 0);
 		GlStateManager.translate(-0.5, -1.1, -0.5);
@@ -33,7 +37,8 @@ public class ItemRenderTable extends ItemRenderer {
 	}
 
 	@Override
-	public void renderInInventory(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderInInventory(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.rotate(30, 1, 0, 0);
 		GlStateManager.rotate(225, 0, 1, 0);
@@ -43,7 +48,8 @@ public class ItemRenderTable extends ItemRenderer {
 	}
 
 	@Override
-	public void renderInWorld(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderInWorld(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.rotate(45, 0, 1, 0);
 		GlStateManager.translate(-0.5, -1.3, -0.5);
@@ -52,7 +58,8 @@ public class ItemRenderTable extends ItemRenderer {
 	}
 
 	@Override
-	public void renderFixed(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderFixed(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(-0.5, -1, -0.5);
 		renderModel(0, 0, 0, 0.0625 * 0.5);
@@ -60,17 +67,20 @@ public class ItemRenderTable extends ItemRenderer {
 	}
 
 	@Override
-	public void renderHead(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderHead(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 
 	}
 
 	@Override
-	public void renderThirdPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderThirdPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		renderThirdPersonRight(itemstack, entity, cameraTransformType);
 	}
 
 	@Override
-	public void renderThirdPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderThirdPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.rotate(75, 1, 0, 0);
 		GlStateManager.rotate(45, 0, 1, 0);
@@ -79,7 +89,8 @@ public class ItemRenderTable extends ItemRenderer {
 		GlStateManager.popMatrix();
 	}
 
-	public void renderModel(double x, double y, double z, double scale) {
+	public void renderModel(double x, double y, double z, double scale)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(x + 0.5, y + 1.5, z + 0.5);
 		GlStateManager.rotate(180, 0, 0, 1);

@@ -7,18 +7,20 @@ import net.minecraft.client.renderer.GlStateManager;
 /**
  * zeruslightcap - cybercat5555 Created using Tabula 6.0.0
  */
-public class ModelZerusLightcap extends ModelBase {
+public class ModelZerusLightcap extends ModelBase
+{
 
-	public ModelRenderer	stem01a;
-	public ModelRenderer	stem02a;
-	public ModelRenderer	stem01b;
-	public ModelRenderer	cap01a;
-	public ModelRenderer	cap01b;
-	public ModelRenderer	stem01b_1;
-	public ModelRenderer	cap01a_1;
-	public ModelRenderer	cap01b_1;
+	public ModelRenderer stem01a;
+	public ModelRenderer stem02a;
+	public ModelRenderer stem01b;
+	public ModelRenderer cap01a;
+	public ModelRenderer cap01b;
+	public ModelRenderer stem01b_1;
+	public ModelRenderer cap01a_1;
+	public ModelRenderer cap01b_1;
 
-	public ModelZerusLightcap() {
+	public ModelZerusLightcap()
+	{
 		this.textureWidth = 64;
 		this.textureHeight = 32;
 		this.cap01b_1 = new ModelRenderer(this, 20, 14);
@@ -58,7 +60,8 @@ public class ModelZerusLightcap extends ModelBase {
 		this.stem02a.addChild(this.stem01b_1);
 	}
 
-	public void render(float scale) {
+	public void render(float scale)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(this.stem02a.offsetX, this.stem02a.offsetY, this.stem02a.offsetZ);
 		GlStateManager.translate(this.stem02a.rotationPointX * scale, this.stem02a.rotationPointY * scale, this.stem02a.rotationPointZ * scale);
@@ -73,7 +76,8 @@ public class ModelZerusLightcap extends ModelBase {
 	/**
 	 * This is a helper function from Tabula to set the rotation of model parts
 	 */
-	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z)
+	{
 		modelRenderer.rotateAngleX = x;
 		modelRenderer.rotateAngleY = y;
 		modelRenderer.rotateAngleZ = z;

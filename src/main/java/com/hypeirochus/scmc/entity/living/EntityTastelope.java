@@ -8,9 +8,11 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class EntityTastelope extends EntityCritterPassive {
+public class EntityTastelope extends EntityCritterPassive
+{
 
-	public EntityTastelope(World world) {
+	public EntityTastelope(World world)
+	{
 		super(world);
 		setSize(1.0F, 1.5F);
 		tasks.addTask(0, new EntityAISwimming(this));
@@ -20,7 +22,8 @@ public class EntityTastelope extends EntityCritterPassive {
 	}
 
 	@Override
-	protected void applyEntityAttributes() {
+	protected void applyEntityAttributes()
+	{
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(7.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.39000000298023224D);

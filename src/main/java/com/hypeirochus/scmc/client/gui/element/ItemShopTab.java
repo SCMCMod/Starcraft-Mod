@@ -19,7 +19,8 @@ import net.minecraft.util.ResourceLocation;
 /**
  * @author Ocelot5836
  */
-public class ItemShopTab extends GuiScreen {
+public class ItemShopTab extends GuiScreen
+{
 
 	private static final Minecraft MC = Minecraft.getMinecraft();
 	private ResourceLocation texture;
@@ -35,19 +36,23 @@ public class ItemShopTab extends GuiScreen {
 
 	private int xOffset = 14;
 
-	public ItemShopTab(ItemStack icon, String name, int x, int y, ImmutableList<Product> items) {
+	public ItemShopTab(ItemStack icon, String name, int x, int y, ImmutableList<Product> items)
+	{
 		this(icon, name, x, y, 32, 28, TimeUtils.isChristmas() ? new ResourceLocation(Starcraft.RL_BASE + "textures/gui/item_shop/item_shop_christmas.png") : new ResourceLocation(Starcraft.RL_BASE + "textures/gui/item_shop/item_shop.png"), items);
 	}
 
-	public ItemShopTab(ItemStack icon, String name, int x, int y, ResourceLocation texture, ImmutableList<Product> items) {
+	public ItemShopTab(ItemStack icon, String name, int x, int y, ResourceLocation texture, ImmutableList<Product> items)
+	{
 		this(icon, name, x, y, 32, 28, texture, items);
 	}
 
-	public ItemShopTab(ItemStack icon, String name, int x, int y, int width, int height, ImmutableList<Product> items) {
+	public ItemShopTab(ItemStack icon, String name, int x, int y, int width, int height, ImmutableList<Product> items)
+	{
 		this(icon, name, x, y, width, height, TimeUtils.isChristmas() ? new ResourceLocation(Starcraft.RL_BASE + "textures/gui/item_shop/item_shop_christmas.png") : new ResourceLocation(Starcraft.RL_BASE + "textures/gui/item_shop/item_shop.png"), items);
 	}
 
-	public ItemShopTab(ItemStack icon, String name, int x, int y, int width, int height, ResourceLocation texture, ImmutableList<Product> items) {
+	public ItemShopTab(ItemStack icon, String name, int x, int y, int width, int height, ResourceLocation texture, ImmutableList<Product> items)
+	{
 		this.icon = icon;
 		this.name = name;
 		this.x = x;
@@ -58,75 +63,93 @@ public class ItemShopTab extends GuiScreen {
 		this.texture = texture;
 	}
 
-	public void renderBackground(int x, int y, int width, int height) {
+	public void renderBackground(int x, int y, int width, int height)
+	{
 		bindTexture();
 		GlStateManager.color(1, 1, 1, 1);
 		drawTexturedModalRect(x, y, 0, 0, width, height);
 	}
 
-	public void renderUnlit(int mouseX, int mouseY) {
-		if (!selected) {
+	public void renderUnlit(int mouseX, int mouseY)
+	{
+		if (!selected)
+		{
 			bindTexture();
 			GlStateManager.color(1, 1, 1, 1);
 			this.drawTexturedModalRect(x, y, 152, 16, width, height);
 		}
 	}
 
-	public void renderLit(int mouseX, int mouseY) {
-		if (selected) {
+	public void renderLit(int mouseX, int mouseY)
+	{
+		if (selected)
+		{
 			bindTexture();
 			GlStateManager.color(1, 1, 1, 1);
 			this.drawTexturedModalRect(x, y, 152, 44, width, height);
 		}
 	}
 
-	public void renderIcon() {
+	public void renderIcon()
+	{
 		MC.getRenderItem().renderItemAndEffectIntoGUI(icon, x + 9, y + 7);
 	}
 
-	public void onMouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
-		if (GuiUtils.isMouseInside(x, y, width, height, mouseX, mouseY)) {
+	public void onMouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException
+	{
+		if (GuiUtils.isMouseInside(x, y, width, height, mouseX, mouseY))
+		{
 			SoundUtils.playButtonClick();
 		}
 	}
 
-	public void bindTexture() {
+	public void bindTexture()
+	{
 		TextureUtils.bindTexture(texture);
 	}
 
-	public String getName() {
+	public String getName()
+	{
 		return name;
 	}
 
-	public float getX() {
+	public float getX()
+	{
 		return x;
 	}
 
-	public float getY() {
+	public float getY()
+	{
 		return y;
 	}
 
-	public int getWidth() {
+	public int getWidth()
+	{
 		return width;
 	}
 
-	public int getHeight() {
+	public int getHeight()
+	{
 		return height;
 	}
 
-	public boolean isSelected() {
+	public boolean isSelected()
+	{
 		return selected;
 	}
 
-	public void select() {
+	public void select()
+	{
 		this.selected = true;
 	}
 
-	public void deselect() {
+	public void deselect()
+	{
 		this.selected = false;
 	}
 
-	public ImmutableList<Product> getItems() {
+	public ImmutableList<Product> getItems()
+	{
 		return items;
 	}
 }

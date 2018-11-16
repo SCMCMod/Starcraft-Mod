@@ -11,34 +11,36 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 /**
  * kaldirbrambles - cybercat5555 Created using Tabula 6.0.0
  */
-public class ModelBrambles extends ModelBase {
+public class ModelBrambles extends ModelBase
+{
 
-	public ModelRenderer	branch01;
-	public ModelRenderer	branch02;
-	public ModelRenderer	branch03;
-	public ModelRenderer	branch04;
-	public ModelRenderer	branch05;
-	public ModelRenderer	branch06;
-	public ModelRenderer	branch07;
-	public ModelRenderer	branch08;
-	public ModelRenderer	branch09;
-	public ModelRenderer	branch10;
-	public ModelRenderer	branch11;
-	public ModelRenderer	branch12;
-	public ModelRenderer	branch01b;
-	public ModelRenderer	branch02b;
-	public ModelRenderer	branch03b;
-	public ModelRenderer	branch04b;
-	public ModelRenderer	branch05b;
-	public ModelRenderer	branch06b;
-	public ModelRenderer	branch07b;
-	public ModelRenderer	branch08b;
-	public ModelRenderer	branch09b;
-	public ModelRenderer	branch10b;
-	public ModelRenderer	branch11b;
-	public ModelRenderer	branch12b;
+	public ModelRenderer branch01;
+	public ModelRenderer branch02;
+	public ModelRenderer branch03;
+	public ModelRenderer branch04;
+	public ModelRenderer branch05;
+	public ModelRenderer branch06;
+	public ModelRenderer branch07;
+	public ModelRenderer branch08;
+	public ModelRenderer branch09;
+	public ModelRenderer branch10;
+	public ModelRenderer branch11;
+	public ModelRenderer branch12;
+	public ModelRenderer branch01b;
+	public ModelRenderer branch02b;
+	public ModelRenderer branch03b;
+	public ModelRenderer branch04b;
+	public ModelRenderer branch05b;
+	public ModelRenderer branch06b;
+	public ModelRenderer branch07b;
+	public ModelRenderer branch08b;
+	public ModelRenderer branch09b;
+	public ModelRenderer branch10b;
+	public ModelRenderer branch11b;
+	public ModelRenderer branch12b;
 
-	public ModelBrambles() {
+	public ModelBrambles()
+	{
 		this.textureWidth = 64;
 		this.textureHeight = 64;
 		this.branch01 = new ModelRenderer(this, 0, 0);
@@ -158,7 +160,8 @@ public class ModelBrambles extends ModelBase {
 		this.branch06.addChild(this.branch06b);
 	}
 
-	public void render(float scale, int age) {
+	public void render(float scale, int age)
+	{
 		this.setRotationAngles(age);
 		this.branch01.render(scale);
 		this.branch10.render(scale);
@@ -175,8 +178,10 @@ public class ModelBrambles extends ModelBase {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public void setRotationAngles(float ageIn) {
-		if (ageIn != 0) {
+	public void setRotationAngles(float ageIn)
+	{
+		if (ageIn != 0)
+		{
 			float age = ageIn + AccessHandler.getPartialTicks();
 			this.branch11.rotateAngleX = MathHelper.sin(age * 0.1f) * 0.1f;
 			this.branch09.rotateAngleX = MathHelper.sin(age * 0.05f) * 0.1f;
@@ -196,7 +201,8 @@ public class ModelBrambles extends ModelBase {
 	/**
 	 * This is a helper function from Tabula to set the rotation of model parts
 	 */
-	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z)
+	{
 		modelRenderer.rotateAngleX = x;
 		modelRenderer.rotateAngleY = y;
 		modelRenderer.rotateAngleZ = z;

@@ -27,9 +27,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class EntityVoidProbe extends EntityProtossPassive implements IShieldEntity {
+public class EntityVoidProbe extends EntityProtossPassive implements IShieldEntity
+{
 
-	public EntityVoidProbe(World world) {
+	public EntityVoidProbe(World world)
+	{
 		super(world);
 		setSize(1.0F, 1.5F);
 		this.setColor(EnumColors.LIGHT_BLUE);
@@ -45,59 +47,70 @@ public class EntityVoidProbe extends EntityProtossPassive implements IShieldEnti
 	}
 
 	@Override
-	protected void applyEntityAttributes() {
+	protected void applyEntityAttributes()
+	{
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(13.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.39000000298023224D);
 	}
 
 	@Override
-	public EntityAgeable createChild(EntityAgeable p_90011_1_) {
+	public EntityAgeable createChild(EntityAgeable p_90011_1_)
+	{
 		return null;
 	}
 
 	@Override
-	public SoundEvent getAmbientSound() {
+	public SoundEvent getAmbientSound()
+	{
 		return SoundHandler.ENTITY_PROBE_LIVE1;
 	}
 
 	@Override
-	public SoundEvent getDeathSound() {
+	public SoundEvent getDeathSound()
+	{
 		return SoundHandler.ENTITY_PROBE_DEATH;
 	}
 
 	@Override
-	public SoundEvent getHurtSound(DamageSource source) {
+	public SoundEvent getHurtSound(DamageSource source)
+	{
 		return SoundHandler.ENTITY_PROBE_HURT;
 	}
 
 	@Override
-	public int getTalkInterval() {
+	public int getTalkInterval()
+	{
 		return 160;
 	}
 
 	@Override
-	protected void dropFewItems(boolean recentlyHit, int looting) {
+	protected void dropFewItems(boolean recentlyHit, int looting)
+	{
 		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.PROTOSS_INGOT, 1 + this.rand.nextInt(2), MetaHandler.ProtossIngotType.DARK.getID()));
 		drop.tryDrop(this);
 	}
 
 	@Override
-	public void onDeath(DamageSource cause) {
+	public void onDeath(DamageSource cause)
+	{
 		this.spawnElectricArc(this.posX + this.rand.nextDouble(), this.posY + this.rand.nextDouble(), this.posZ + this.rand.nextDouble());
 		this.world.createExplosion(this, this.posX, this.posY + 0.35, this.posZ, 1.2F, false);
 		super.onDeath(cause);
 	}
 
 	@SideOnly(Side.CLIENT)
-	private void spawnElectricArc(double posX, double posY, double posZ) {
-		for (int x = 0; x < 5; x++) {
+	private void spawnElectricArc(double posX, double posY, double posZ)
+	{
+		for (int x = 0; x < 5; x++)
+		{
 			AccessHandler.getMinecraft().effectRenderer.addEffect(new EntityFXElectricArc(this.world, this.posX, this.posY, this.posZ, posX + this.rand.nextInt(2), posY, posZ + this.rand.nextInt(2), 10, 2.5F, 0.5F, 0.05F, 0xFF00FF00));
 		}
 	}
 
 	@Override
-	public float getMaxShields() {
+	public float getMaxShields()
+	{
 		return 13.0F;
 	}
 }

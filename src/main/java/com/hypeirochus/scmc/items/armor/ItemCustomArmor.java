@@ -12,13 +12,15 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 //TODO: MOVE TO CORE MOD
-public class ItemCustomArmor extends ItemArmor {
+public class ItemCustomArmor extends ItemArmor
+{
 
 	protected ModelArmorBase armorModel = null;
 	protected int layer1;
 	protected int layer2;
 
-	public ItemCustomArmor(ArmorMaterial material, int renderIndex, EntityEquipmentSlot equipmentSlot, int layer1, int layer2) {
+	public ItemCustomArmor(ArmorMaterial material, int renderIndex, EntityEquipmentSlot equipmentSlot, int layer1, int layer2)
+	{
 		super(material, renderIndex, equipmentSlot);
 		this.layer1 = layer1;
 		this.layer2 = layer2;
@@ -26,13 +28,17 @@ public class ItemCustomArmor extends ItemArmor {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped defaultModel)
+	{
 
-		if (itemStack != null) {
-			if (this instanceof ItemArmor) {
+		if (itemStack != null)
+		{
+			if (this instanceof ItemArmor)
+			{
 
 				EntityEquipmentSlot type = armorType;
-				switch (type) {
+				switch (type)
+				{
 				case HEAD:
 				case LEGS:
 					armorModel = Starcraft.proxy.getArmorModel(layer1);

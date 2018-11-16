@@ -14,7 +14,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
 
 //TODO: Ocelot, why is the marine visor disabled??
-public class KeybindingHandler {
+public class KeybindingHandler
+{
 
 	public static final String STARCRAFT_CATEGORY = "key.categories." + Starcraft.MOD_ID;
 
@@ -23,7 +24,8 @@ public class KeybindingHandler {
 	public static KeyBinding shipAbilityTwo;
 	public static KeyBinding shipAbilityThree;
 
-	public static void pre(FMLPreInitializationEvent event) {
+	public static void pre(FMLPreInitializationEvent event)
+	{
 		MinecraftForge.EVENT_BUS.register(new KeyEventHandler());
 
 		toggleMarineVisor = new KeyBinding("key.terran.marinevisor.toggle", Keyboard.KEY_V, STARCRAFT_CATEGORY);
@@ -37,23 +39,30 @@ public class KeybindingHandler {
 		ClientRegistry.registerKeyBinding(shipAbilityThree);
 	}
 
-	private static class KeyEventHandler {
+	private static class KeyEventHandler
+	{
 
 		@SubscribeEvent
-		public void onKeyInput(InputEvent.KeyInputEvent event) {
-			if (KeybindingHandler.toggleMarineVisor.isPressed()) {
-				// GuiRenderEventHandler.renderHelmetOverlay = !GuiRenderEventHandler.renderHelmetOverlay;
+		public void onKeyInput(InputEvent.KeyInputEvent event)
+		{
+			if (KeybindingHandler.toggleMarineVisor.isPressed())
+			{
+				// GuiRenderEventHandler.renderHelmetOverlay =
+				// !GuiRenderEventHandler.renderHelmetOverlay;
 			}
 
-			if (KeybindingHandler.shipAbilityOne.isPressed()) {
+			if (KeybindingHandler.shipAbilityOne.isPressed())
+			{
 				NetworkHandler.sendToServer(new MessageShipAbility(0));
 			}
 
-			if (KeybindingHandler.shipAbilityTwo.isPressed()) {
+			if (KeybindingHandler.shipAbilityTwo.isPressed())
+			{
 				NetworkHandler.sendToServer(new MessageShipAbility(1));
 			}
 
-			if (KeybindingHandler.shipAbilityThree.isPressed()) {
+			if (KeybindingHandler.shipAbilityThree.isPressed())
+			{
 				NetworkHandler.sendToServer(new MessageShipAbility(2));
 			}
 		}

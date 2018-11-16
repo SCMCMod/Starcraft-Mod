@@ -175,18 +175,25 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class RenderHandler {
+public class RenderHandler
+{
 
-	public static void registerItemMetaRenders() {
-		for (Item item : Item.REGISTRY) {
-			if (item != null && item instanceof IMetaRenderHandler) {
+	public static void registerItemMetaRenders()
+	{
+		for (Item item : Item.REGISTRY)
+		{
+			if (item != null && item instanceof IMetaRenderHandler)
+			{
 				IMetaRenderHandler handler = (IMetaRenderHandler) item;
 				if (!item.getHasSubtypes())
 					throw new IllegalArgumentException(String.format("Item %s attempted to register as a meta item but does not have subtypes!", item.getRegistryName()));
-				for (int j = 0; j < handler.getItemCount(); j++) {
-					if (handler.getName(j) != null) {
+				for (int j = 0; j < handler.getItemCount(); j++)
+				{
+					if (handler.getName(j) != null)
+					{
 						registerItemRender(item, j, handler.getName(j));
-					} else {
+					} else
+					{
 						continue;
 					}
 				}
@@ -194,16 +201,22 @@ public class RenderHandler {
 		}
 	}
 
-	public static void registerBlockMetaRenders() {
-		for (Block block : Block.REGISTRY) {
-			if (block != null && block instanceof IMetaRenderHandler) {
+	public static void registerBlockMetaRenders()
+	{
+		for (Block block : Block.REGISTRY)
+		{
+			if (block != null && block instanceof IMetaRenderHandler)
+			{
 				IMetaRenderHandler handler = (IMetaRenderHandler) block;
 				if (!Item.getItemFromBlock(block).getHasSubtypes())
 					throw new IllegalArgumentException(String.format("Block %s attempted to register as a meta item but does not have subtypes!", block.getRegistryName()));
-				for (int j = 0; j < handler.getItemCount(); j++) {
-					if (handler.getName(j) != null) {
+				for (int j = 0; j < handler.getItemCount(); j++)
+				{
+					if (handler.getName(j) != null)
+					{
 						registerBlockRender(block, j, handler.getName(j));
-					} else {
+					} else
+					{
 						continue;
 					}
 				}
@@ -211,7 +224,8 @@ public class RenderHandler {
 		}
 	}
 
-	public static void registerFluidRenders() {
+	public static void registerFluidRenders()
+	{
 		registerFluid(BlockHandler.ACID);
 		registerFluid(BlockHandler.BLOOD);
 		registerFluid(BlockHandler.VESPENE);
@@ -219,14 +233,17 @@ public class RenderHandler {
 		registerFluid(BlockHandler.TAR);
 	}
 
-	public static void init(FMLInitializationEvent event) {
-		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+	public static void init(FMLInitializationEvent event)
+	{
+		if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
+		{
 			registerTileEntityRenders();
 			registerEntityRenderers();
 		}
 	}
 
-	private static void registerTileEntityRenders() {
+	private static void registerTileEntityRenders()
+	{
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStarcraftSkull.class, new RendererStarcraftSkull());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityZerusGlowPod.class, new RendererZerusGlowPod());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityBrambles.class, new RendererBrambles());
@@ -234,7 +251,8 @@ public class RenderHandler {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityProtossWormhole.class, new RendererProtossWormhole());
 	}
 
-	private static void registerEntityRenderers() {
+	private static void registerEntityRenderers()
+	{
 		RenderingRegistry.registerEntityRenderingHandler(EntityZealot.class, new RenderZealot(Minecraft.getMinecraft().getRenderManager(), new ModelZealot(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityProbe.class, new RenderProbe(Minecraft.getMinecraft().getRenderManager(), new ModelProbe(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityProtossReaver.class, new RenderProtossReaver(Minecraft.getMinecraft().getRenderManager(), new ModelProtossReaver(), 0.4f));
@@ -290,79 +308,100 @@ public class RenderHandler {
 		RenderingRegistry.registerEntityRenderingHandler(EntityMutaliskGlaiveWurm.class, new RenderMutaliskGlaiveWurm(Minecraft.getMinecraft().getRenderManager(), new ModelMutaliskGlaiveWurm()));
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityScout.class, new RenderScout(Minecraft.getMinecraft().getRenderManager()));
-		
+
 		RenderingRegistry.registerEntityRenderingHandler(EntityWraith.class, new RenderWraith(Minecraft.getMinecraft().getRenderManager()));
 	}
 
 	@SideOnly(Side.CLIENT)
-	public static void createStateMappers() {
+	public static void createStateMappers()
+	{
 		ModelLoader.setCustomStateMapper(STARCRAFT_SKULL, getNormalVariant(STARCRAFT_SKULL));
 	}
 
-	public static void registerItemRender(Item item) {
+	public static void registerItemRender(Item item)
+	{
 		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
 	}
 
-	public static void registerItemRender(Item item, int meta, String fileName) {
+	public static void registerItemRender(Item item, int meta, String fileName)
+	{
 		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(new ResourceLocation(Starcraft.MOD_ID, fileName), "inventory"));
 	}
 
-	public static void registerBlockRender(Block block) {
+	public static void registerBlockRender(Block block)
+	{
 		registerItemRender(Item.getItemFromBlock(block));
 	}
 
-	public static void registerBlockRender(Block block, int meta, String fileName) {
+	public static void registerBlockRender(Block block, int meta, String fileName)
+	{
 		registerItemRender(Item.getItemFromBlock(block), meta, fileName);
 	}
 
-	public static void registerFluid(final Block block) {
-		ModelLoader.setCustomMeshDefinition(Item.getItemFromBlock(block), new ItemMeshDefinition() {
+	public static void registerFluid(final Block block)
+	{
+		ModelLoader.setCustomMeshDefinition(Item.getItemFromBlock(block), new ItemMeshDefinition()
+		{
 
 			@Override
-			public ModelResourceLocation getModelLocation(ItemStack stack) {
+			public ModelResourceLocation getModelLocation(ItemStack stack)
+			{
 				return new ModelResourceLocation(block.getRegistryName(), "fluid");
 			}
 		});
-		ModelLoader.setCustomStateMapper(block, new StateMapperBase() {
+		ModelLoader.setCustomStateMapper(block, new StateMapperBase()
+		{
 
 			@Override
-			protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
+			protected ModelResourceLocation getModelResourceLocation(IBlockState state)
+			{
 				return new ModelResourceLocation(block.getRegistryName(), "fluid");
 			}
 		});
 	}
 
-	public static void registerLayered(final Block block) {
-		ModelLoader.setCustomMeshDefinition(Item.getItemFromBlock(block), new ItemMeshDefinition() {
+	public static void registerLayered(final Block block)
+	{
+		ModelLoader.setCustomMeshDefinition(Item.getItemFromBlock(block), new ItemMeshDefinition()
+		{
 
 			@Override
-			public ModelResourceLocation getModelLocation(ItemStack stack) {
+			public ModelResourceLocation getModelLocation(ItemStack stack)
+			{
 				return new ModelResourceLocation(block.getRegistryName(), "normal");
 			}
 		});
-		ModelLoader.setCustomStateMapper(block, new StateMapperBase() {
+		ModelLoader.setCustomStateMapper(block, new StateMapperBase()
+		{
 
 			@Override
-			protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
+			protected ModelResourceLocation getModelResourceLocation(IBlockState state)
+			{
 				char num = state.toString().charAt(state.toString().length() - 2);
 				return new ModelResourceLocation(block.getRegistryName(), "layers=" + num);
 			}
 		});
 	}
 
-	public static StateMapperBase getNormalVariant(Block block) {
-		return new StateMapperBase() {
+	public static StateMapperBase getNormalVariant(Block block)
+	{
+		return new StateMapperBase()
+		{
 			@Override
-			protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
+			protected ModelResourceLocation getModelResourceLocation(IBlockState state)
+			{
 				return new ModelResourceLocation(block.getRegistryName(), "normal");
 			}
 		};
 	}
 
-	public static IRenderFactory getRenderFactory(Render renderer) {
-		return new IRenderFactory() {
+	public static IRenderFactory getRenderFactory(Render renderer)
+	{
+		return new IRenderFactory()
+		{
 			@Override
-			public Render createRenderFor(RenderManager manager) {
+			public Render createRenderFor(RenderManager manager)
+			{
 				return renderer;
 			}
 		};

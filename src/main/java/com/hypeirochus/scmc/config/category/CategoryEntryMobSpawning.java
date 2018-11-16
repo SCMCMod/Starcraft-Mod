@@ -14,14 +14,17 @@ import net.minecraftforge.fml.client.config.GuiConfigEntries.CategoryEntry;
 import net.minecraftforge.fml.client.config.IConfigElement;
 
 //TODO: MOVE TO CORE MOD
-public class CategoryEntryMobSpawning extends CategoryEntry {
+public class CategoryEntryMobSpawning extends CategoryEntry
+{
 
-	public CategoryEntryMobSpawning(GuiConfig owningScreen, GuiConfigEntries owningEntryList, IConfigElement configElement) {
+	public CategoryEntryMobSpawning(GuiConfig owningScreen, GuiConfigEntries owningEntryList, IConfigElement configElement)
+	{
 		super(owningScreen, owningEntryList, configElement);
 	}
 
 	@Override
-	protected GuiScreen buildChildScreen() {
+	protected GuiScreen buildChildScreen()
+	{
 		Configuration config = StarcraftConfig.getConfig();
 		ConfigElement categoryMobSpawning = new ConfigElement(config.getCategory(StarcraftConfig.CATEGORY_NAME_MOB_OPTIONS));
 		List<IConfigElement> propertiesOnScreen = categoryMobSpawning.getChildElements();

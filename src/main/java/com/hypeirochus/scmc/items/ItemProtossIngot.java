@@ -9,29 +9,38 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemProtossIngot extends StarcraftItem implements IMetaRenderHandler {
+public class ItemProtossIngot extends StarcraftItem implements IMetaRenderHandler
+{
 
-	public ItemProtossIngot() {
+	public ItemProtossIngot()
+	{
 		super("protoss.ingot");
 		setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 		setHasSubtypes(true);
 	}
 
 	@Override
-	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-		if (this.isInCreativeTab(tab)) {
-			for (int i = 0; i < ProtossIngotType.values().length; i++) {
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items)
+	{
+		if (this.isInCreativeTab(tab))
+		{
+			for (int i = 0; i < ProtossIngotType.values().length; i++)
+			{
 				items.add(new ItemStack(this, 1, i));
 			}
 		}
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
-		for (int i = 0; i < ProtossIngotType.values().length; i++) {
-			if (stack.getItemDamage() == i) {
+	public String getUnlocalizedName(ItemStack stack)
+	{
+		for (int i = 0; i < ProtossIngotType.values().length; i++)
+		{
+			if (stack.getItemDamage() == i)
+			{
 				return getUnlocalizedName() + "." + ProtossIngotType.values()[i].getName();
-			} else {
+			} else
+			{
 				continue;
 			}
 		}
@@ -39,12 +48,14 @@ public class ItemProtossIngot extends StarcraftItem implements IMetaRenderHandle
 	}
 
 	@Override
-	public int getItemCount() {
+	public int getItemCount()
+	{
 		return ProtossIngotType.values().length;
 	}
 
 	@Override
-	public String getName(int meta) {
+	public String getName(int meta)
+	{
 		return "protoss.ingot." + MetaHandler.ProtossIngotType.values()[meta].getName();
 	}
 }

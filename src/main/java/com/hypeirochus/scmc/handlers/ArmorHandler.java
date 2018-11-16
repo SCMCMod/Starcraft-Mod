@@ -13,47 +13,68 @@ import net.minecraftforge.common.util.EnumHelper;
 
 /**
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
- * 
  * <br>
  * </br>
- * 
  * Contains all the armors in the mod.
  */
-public class ArmorHandler {
+public class ArmorHandler
+{
 
 	/**
-	 * CLOTH(5, new int[]{1, 3, 2, 1}, 15), CHAIN(15, new int[]{2, 5, 4, 1}, 12), IRON(15, new int[]{2, 6, 5, 2}, 9), GOLD(7, new int[]{2, 5, 3, 1}, 25), DIAMOND(33, new int[]{3, 8, 6, 3}, 10);
+	 * CLOTH(5, new int[]{1, 3, 2, 1}, 15), CHAIN(15, new int[]{2, 5, 4, 1}, 12),
+	 * IRON(15, new int[]{2, 6, 5, 2}, 9), GOLD(7, new int[]{2, 5, 3, 1}, 25),
+	 * DIAMOND(33, new int[]{3, 8, 6, 3}, 10);
 	 */
 
-	public static final ArmorMaterial COPPER_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("copperArmorMaterial", Starcraft.RL_BASE + "copper", 11, new int[] { 2, 5, 4, 1 }, 12, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0f);
+	public static final ArmorMaterial COPPER_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("copperArmorMaterial", Starcraft.RL_BASE + "copper", 11, new int[]
+	{ 2, 5, 4, 1 }, 12, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0f);
 
-	public static final ArmorMaterial STEEL_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("steelArmorMaterial", Starcraft.RL_BASE + "steel", 29, new int[] { 3, 6, 7, 3 }, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);
+	public static final ArmorMaterial STEEL_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("steelArmorMaterial", Starcraft.RL_BASE + "steel", 29, new int[]
+	{ 3, 6, 7, 3 }, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);
 
-	public static final ArmorMaterial TITANIUM_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("titaniumArmorMaterial", Starcraft.RL_BASE + "titanium", 21, new int[] { 4, 5, 6, 4 }, 30, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 3.0F);
+	public static final ArmorMaterial TITANIUM_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("titaniumArmorMaterial", Starcraft.RL_BASE + "titanium", 21, new int[]
+	{ 4, 5, 6, 4 }, 30, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 3.0F);
 
-	public static final ArmorMaterial MARINE_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("marineArmorMaterial", Starcraft.RL_BASE + "marine", 21, new int[] { 3, 6, 5, 2 }, 30, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0f);
+	public static final ArmorMaterial MARINE_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("marineArmorMaterial", Starcraft.RL_BASE + "marine", 21, new int[]
+	{ 3, 6, 5, 2 }, 30, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0f);
 
-	public static final ArmorMaterial ZERG_ARMOR_MATERIAL_T1 = EnumHelper.addArmorMaterial("zergArmorMaterialT1", Starcraft.RL_BASE + "zerg_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
-	public static final ArmorMaterial ZERG_ARMOR_MATERIAL_T2 = EnumHelper.addArmorMaterial("zergArmorMaterialT2", Starcraft.RL_BASE + "zerg_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
-	public static final ArmorMaterial ZERG_ARMOR_MATERIAL_T3 = EnumHelper.addArmorMaterial("zergArmorMaterialT3", Starcraft.RL_BASE + "zerg_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial ZERG_ARMOR_MATERIAL_T1 = EnumHelper.addArmorMaterial("zergArmorMaterialT1", Starcraft.RL_BASE + "zerg_t1", 33, new int[]
+	{ 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial ZERG_ARMOR_MATERIAL_T2 = EnumHelper.addArmorMaterial("zergArmorMaterialT2", Starcraft.RL_BASE + "zerg_t2", 35, new int[]
+	{ 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial ZERG_ARMOR_MATERIAL_T3 = EnumHelper.addArmorMaterial("zergArmorMaterialT3", Starcraft.RL_BASE + "zerg_t3", 37, new int[]
+	{ 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 
-	public static final ArmorMaterial PROTOSS_ARMOR_MATERIAL_T1 = EnumHelper.addArmorMaterial("protossArmorMaterialT1", Starcraft.RL_BASE + "protoss_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
-	public static final ArmorMaterial PROTOSS_ARMOR_MATERIAL_T2 = EnumHelper.addArmorMaterial("protossArmorMaterialT2", Starcraft.RL_BASE + "protoss_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
-	public static final ArmorMaterial PROTOSS_ARMOR_MATERIAL_T3 = EnumHelper.addArmorMaterial("protossArmorMaterialT3", Starcraft.RL_BASE + "protoss_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial PROTOSS_ARMOR_MATERIAL_T1 = EnumHelper.addArmorMaterial("protossArmorMaterialT1", Starcraft.RL_BASE + "protoss_t1", 33, new int[]
+	{ 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial PROTOSS_ARMOR_MATERIAL_T2 = EnumHelper.addArmorMaterial("protossArmorMaterialT2", Starcraft.RL_BASE + "protoss_t2", 35, new int[]
+	{ 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial PROTOSS_ARMOR_MATERIAL_T3 = EnumHelper.addArmorMaterial("protossArmorMaterialT3", Starcraft.RL_BASE + "protoss_t3", 37, new int[]
+	{ 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 
-	public static final ArmorMaterial PROTOSS_NERAZIM_ARMOR_MATERIAL_T1 = EnumHelper.addArmorMaterial("protossNerazimArmorMaterialT1", Starcraft.RL_BASE + "protoss_nerazim_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
-	public static final ArmorMaterial PROTOSS_NERAZIM_ARMOR_MATERIAL_T2 = EnumHelper.addArmorMaterial("protossNerazimArmorMaterialT2", Starcraft.RL_BASE + "protoss_nerazim_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
-	public static final ArmorMaterial PROTOSS_NERAZIM_ARMOR_MATERIAL_T3 = EnumHelper.addArmorMaterial("protossNerazimArmorMaterialT3", Starcraft.RL_BASE + "protoss_nerazim_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial PROTOSS_NERAZIM_ARMOR_MATERIAL_T1 = EnumHelper.addArmorMaterial("protossNerazimArmorMaterialT1", Starcraft.RL_BASE + "protoss_nerazim_t1", 33, new int[]
+	{ 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial PROTOSS_NERAZIM_ARMOR_MATERIAL_T2 = EnumHelper.addArmorMaterial("protossNerazimArmorMaterialT2", Starcraft.RL_BASE + "protoss_nerazim_t2", 35, new int[]
+	{ 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial PROTOSS_NERAZIM_ARMOR_MATERIAL_T3 = EnumHelper.addArmorMaterial("protossNerazimArmorMaterialT3", Starcraft.RL_BASE + "protoss_nerazim_t3", 37, new int[]
+	{ 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 
-	public static final ArmorMaterial PROTOSS_TALDARIM_ARMOR_MATERIAL_T1 = EnumHelper.addArmorMaterial("protossTaldarimArmorMaterialT1", Starcraft.RL_BASE + "protoss_taldarim_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
-	public static final ArmorMaterial PROTOSS_TALDARIM_ARMOR_MATERIAL_T2 = EnumHelper.addArmorMaterial("protossTaldarimArmorMaterialT2", Starcraft.RL_BASE + "protoss_taldarim_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
-	public static final ArmorMaterial PROTOSS_TALDARIM_ARMOR_MATERIAL_T3 = EnumHelper.addArmorMaterial("protossTaldarimArmorMaterialT3", Starcraft.RL_BASE + "protoss_taldarim_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial PROTOSS_TALDARIM_ARMOR_MATERIAL_T1 = EnumHelper.addArmorMaterial("protossTaldarimArmorMaterialT1", Starcraft.RL_BASE + "protoss_taldarim_t1", 33, new int[]
+	{ 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial PROTOSS_TALDARIM_ARMOR_MATERIAL_T2 = EnumHelper.addArmorMaterial("protossTaldarimArmorMaterialT2", Starcraft.RL_BASE + "protoss_taldarim_t2", 35, new int[]
+	{ 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial PROTOSS_TALDARIM_ARMOR_MATERIAL_T3 = EnumHelper.addArmorMaterial("protossTaldarimArmorMaterialT3", Starcraft.RL_BASE + "protoss_taldarim_t3", 37, new int[]
+	{ 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 
-	public static final ArmorMaterial TERRAN_MARINE_ARMOR_MATERIAL_T1 = EnumHelper.addArmorMaterial("terranArmorMaterialT1", Starcraft.RL_BASE + "terran_t1", 33, new int[] { 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
-	public static final ArmorMaterial TERRAN_MARINE_ARMOR_MATERIAL_T2 = EnumHelper.addArmorMaterial("terranArmorMaterialT2", Starcraft.RL_BASE + "terran_t2", 35, new int[] { 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
-	public static final ArmorMaterial TERRAN_MARINE_ARMOR_MATERIAL_T3 = EnumHelper.addArmorMaterial("terranArmorMaterialT3", Starcraft.RL_BASE + "terran_t3", 37, new int[] { 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial TERRAN_MARINE_ARMOR_MATERIAL_T1 = EnumHelper.addArmorMaterial("terranArmorMaterialT1", Starcraft.RL_BASE + "terran_t1", 33, new int[]
+	{ 3, 8, 6, 3 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial TERRAN_MARINE_ARMOR_MATERIAL_T2 = EnumHelper.addArmorMaterial("terranArmorMaterialT2", Starcraft.RL_BASE + "terran_t2", 35, new int[]
+	{ 4, 9, 7, 4 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial TERRAN_MARINE_ARMOR_MATERIAL_T3 = EnumHelper.addArmorMaterial("terranArmorMaterialT3", Starcraft.RL_BASE + "terran_t3", 37, new int[]
+	{ 5, 10, 8, 5 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 
-	public static final ArmorMaterial TERRAN_RAYNOR_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("terranRaynorMaterialT1", Starcraft.RL_BASE + "terran_raynor_t1", 33, new int[] { 7, 12, 10, 7 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
+	public static final ArmorMaterial TERRAN_RAYNOR_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("terranRaynorMaterialT1", Starcraft.RL_BASE + "terran_raynor_t1", 33, new int[]
+	{ 7, 12, 10, 7 }, 10, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f);
 
 	public static Item COPPER_BOOTS;
 	public static Item COPPER_CHESTPLATE;
@@ -150,12 +171,14 @@ public class ArmorHandler {
 	public static Item TERRAN_RAYNOR_HELMET;
 	public static Item TERRAN_RAYNOR_LEGGINGS;
 
-	public static void init() {
+	public static void init()
+	{
 		instantiate();
 		register();
 	}
 
-	private static void instantiate() {
+	private static void instantiate()
+	{
 		TITANIUM_HELMET = new ItemArmor(TITANIUM_ARMOR_MATERIAL, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("titanium.helmet").setRegistryName("titanium.helmet").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 		TITANIUM_CHESTPLATE = new ItemArmor(TITANIUM_ARMOR_MATERIAL, 0, EntityEquipmentSlot.CHEST).setUnlocalizedName("titanium.chestplate").setRegistryName("titanium.chestplate").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 		TITANIUM_LEGGINGS = new ItemArmor(TITANIUM_ARMOR_MATERIAL, 0, EntityEquipmentSlot.LEGS).setUnlocalizedName("titanium.leggings").setRegistryName("titanium.leggings").setCreativeTab(StarcraftCreativeTabs.TERRAN);
@@ -253,7 +276,8 @@ public class ArmorHandler {
 
 	}
 
-	private static void register() {
+	private static void register()
+	{
 		registerItem(TITANIUM_HELMET);
 		registerItem(TITANIUM_CHESTPLATE);
 		registerItem(TITANIUM_LEGGINGS);
@@ -350,7 +374,8 @@ public class ArmorHandler {
 		registerItem(TERRAN_RAYNOR_BOOTS);
 	}
 
-	private static void registerItem(Item item) {
+	private static void registerItem(Item item)
+	{
 		ItemHandler.register(item);
 	}
 }

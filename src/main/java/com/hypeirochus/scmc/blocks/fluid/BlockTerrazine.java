@@ -25,34 +25,41 @@ import net.minecraftforge.fluids.BlockFluidClassic;
  * 
  * @author Hypeirochus
  */
-public class BlockTerrazine extends BlockFluidClassic {
+public class BlockTerrazine extends BlockFluidClassic
+{
 
-	public BlockTerrazine() {
+	public BlockTerrazine()
+	{
 		super(FluidHandler.TERRAZINE, Material.WATER);
 		setUnlocalizedName("fluid.terrazine");
 		setRegistryName("fluid.terrazine");
 		BlockHandler.registerFullBlock(this);
 	}
-	
+
 	@Override
-	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
+	{
 		return MapColor.PURPLE;
 	}
-	
+
 	@Override
-	public Vec3d getFogColor(World world, BlockPos pos, IBlockState state, Entity entity, Vec3d originalColor, float partialTicks) {
-        int color = 0xff9E58FF;
-        return new Vec3d((color >> 16 & 0xFF) / 255.0F, (color >> 8 & 0xFF) / 255.0F, (color & 0xFF) / 255.0F);
+	public Vec3d getFogColor(World world, BlockPos pos, IBlockState state, Entity entity, Vec3d originalColor, float partialTicks)
+	{
+		int color = 0xff9E58FF;
+		return new Vec3d((color >> 16 & 0xFF) / 255.0F, (color >> 8 & 0xFF) / 255.0F, (color & 0xFF) / 255.0F);
 	}
-	
+
 	@Override
-	public int tickRate(World world) {
+	public int tickRate(World world)
+	{
 		return 120;
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
-		if (entity instanceof EntityPlayer) {
+	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
+	{
+		if (entity instanceof EntityPlayer)
+		{
 			EntityPlayer player = (EntityPlayer) entity;
 			player.addPotionEffect(new PotionEffect(Potion.getPotionById(1), 750));
 			player.addPotionEffect(new PotionEffect(Potion.getPotionById(5), 750));
@@ -61,9 +68,12 @@ public class BlockTerrazine extends BlockFluidClassic {
 	}
 
 	@Override
-	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
-		if (world.getBlockState(pos.up()) == Blocks.AIR.getDefaultState()) {
-			if (rand.nextInt(100) < 25) {
+	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand)
+	{
+		if (world.getBlockState(pos.up()) == Blocks.AIR.getDefaultState())
+		{
+			if (rand.nextInt(100) < 25)
+			{
 				world.setBlockState(pos.up(), BlockHandler.GAS_TERRAZINE.getDefaultState());
 			}
 		}

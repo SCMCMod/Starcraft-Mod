@@ -18,54 +18,54 @@ import net.minecraftforge.items.ItemStackHandler;
  *
  * @author CJMinecraft
  */
-public abstract class TileEntitySidedInventory extends TileEntity {
+public abstract class TileEntitySidedInventory extends TileEntity
+{
 
 	/**
 	 * The holder of all the item stacks
 	 */
-	protected ItemStackHandler		handler;
+	protected ItemStackHandler handler;
 	/**
 	 * All of the handlers for each side
 	 */
-	private SidedItemStackHandler	northHandler, southHandler, eastHandler, westHandler, upHandler, downHandler;
+	private SidedItemStackHandler northHandler, southHandler, eastHandler, westHandler, upHandler, downHandler;
 	/**
 	 * The slots each side will represent
 	 */
-	private int[][]					slotsForFace;
+	private int[][] slotsForFace;
 	/**
 	 * States whether we are currently transferring stacks
 	 */
-	private boolean					transferringStacks;
+	private boolean transferringStacks;
 
 	/**
 	 * Create a sided {@link TileEntity}, like the
 	 * {@link net.minecraft.inventory.ISidedInventory interface}
 	 *
-	 * @param slotsDown
-	 *            The slots which are represented on the down face
-	 * @param slotsUp
-	 *            The slots which are represented on the up face
-	 * @param slotsNorth
-	 *            The slots which are represented on the north face
-	 * @param slotsSouth
-	 *            The slots which are represented on the south face
-	 * @param slotsWest
-	 *            The slots which are represented on the west face
-	 * @param slotsEast
-	 *            The slots which are represented on the east face
+	 * @param slotsDown The slots which are represented on the down face
+	 * @param slotsUp The slots which are represented on the up face
+	 * @param slotsNorth The slots which are represented on the north face
+	 * @param slotsSouth The slots which are represented on the south face
+	 * @param slotsWest The slots which are represented on the west face
+	 * @param slotsEast The slots which are represented on the east face
 	 */
-	public TileEntitySidedInventory(int[] slotsDown, int[] slotsUp, int[] slotsNorth, int[] slotsSouth, int[] slotsWest, int[] slotsEast) {
-		this.slotsForFace = new int[][] { slotsDown, slotsUp, slotsNorth, slotsSouth, slotsWest, slotsEast };
-		this.handler = new ItemStackHandler(calculateSizeOfMainHandler()) {
+	public TileEntitySidedInventory(int[] slotsDown, int[] slotsUp, int[] slotsNorth, int[] slotsSouth, int[] slotsWest, int[] slotsEast)
+	{
+		this.slotsForFace = new int[][]
+		{ slotsDown, slotsUp, slotsNorth, slotsSouth, slotsWest, slotsEast };
+		this.handler = new ItemStackHandler(calculateSizeOfMainHandler())
+		{
 			@Override
-			public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
+			public ItemStack insertItem(int slot, ItemStack stack, boolean simulate)
+			{
 				if (!simulate)
 					insertStack(slot, stack);
 				return super.insertItem(slot, stack, simulate);
 			}
 
 			@Override
-			public ItemStack extractItem(int slot, int amount, boolean simulate) {
+			public ItemStack extractItem(int slot, int amount, boolean simulate)
+			{
 				if (!simulate)
 					extractStack(slot, amount);
 				return super.extractItem(slot, amount, simulate);
@@ -84,10 +84,13 @@ public abstract class TileEntitySidedInventory extends TileEntity {
 	 *
 	 * @return the calculated size
 	 */
-	protected int calculateSizeOfMainHandler() {
+	protected int calculateSizeOfMainHandler()
+	{
 		int lastSlot = 0;
-		for (int[] slots : this.slotsForFace) {
-			for (int slot : slots) {
+		for (int[] slots : this.slotsForFace)
+		{
+			for (int slot : slots)
+			{
 				if (slot > lastSlot)
 					lastSlot = slot;
 			}
@@ -98,14 +101,15 @@ public abstract class TileEntitySidedInventory extends TileEntity {
 	/**
 	 * Get the correct handler for the given face
 	 *
-	 * @param side
-	 *            The side to get the handler of
+	 * @param side The side to get the handler of
 	 * @return the correct handler for the given face
 	 */
-	private ItemStackHandler getHandlerForFace(@Nullable EnumFacing side) {
+	private ItemStackHandler getHandlerForFace(@Nullable EnumFacing side)
+	{
 		if (side == null)
 			return this.handler;
-		switch (side) {
+		switch (side)
+		{
 		case DOWN:
 			return this.downHandler;
 		case UP:
@@ -126,13 +130,12 @@ public abstract class TileEntitySidedInventory extends TileEntity {
 	/**
 	 * Returns whether the stack in the given slot is valid
 	 * 
-	 * @param slot
-	 *            The slot in which the item stack is in
-	 * @param stack
-	 *            The item stack which is in the slot
+	 * @param slot The slot in which the item stack is in
+	 * @param stack The item stack which is in the slot
 	 * @return whether the stack in the given slot is valid
 	 */
-	protected boolean isStackValid(int slot, ItemStack stack) {
+	protected boolean isStackValid(int slot, ItemStack stack)
+	{
 		return true;
 	}
 
@@ -140,18 +143,23 @@ public abstract class TileEntitySidedInventory extends TileEntity {
 	 * Insert an {@link ItemStack} (used by the main handler) into all of the faces
 	 * handlers
 	 *
-	 * @param slot
-	 *            The slot of the main handler that the {@link ItemStack} is in
-	 * @param stack
-	 *            The {@link ItemStack} to insert into all the of the faces handlers
+	 * @param slot The slot of the main handler that the {@link ItemStack} is in
+	 * @param stack The {@link ItemStack} to insert into all the of the faces
+	 *        handlers
 	 */
-	private void insertStack(int slot, ItemStack stack) {
-		if (!world.isRemote) {
+	private void insertStack(int slot, ItemStack stack)
+	{
+		if (!world.isRemote)
+		{
 			this.transferringStacks = true;
-			for (int i = 0; i < this.slotsForFace.length; i++) {
-				for (int j = 0; j < this.slotsForFace[i].length; j++) {
-					if (this.slotsForFace[i][j] == slot) {
-						switch (i) {
+			for (int i = 0; i < this.slotsForFace.length; i++)
+			{
+				for (int j = 0; j < this.slotsForFace[i].length; j++)
+				{
+					if (this.slotsForFace[i][j] == slot)
+					{
+						switch (i)
+						{
 						case 0:
 							this.downHandler.insertItem(j, stack, false);
 							break;
@@ -183,17 +191,20 @@ public abstract class TileEntitySidedInventory extends TileEntity {
 	 * Extract an {@link ItemStack} (used by the main handler) from all of the faces
 	 * handlers
 	 *
-	 * @param slot
-	 *            The slot of the main handler that the {@link ItemStack} is in
-	 * @param amount
-	 *            The amount of items to be extracted
+	 * @param slot The slot of the main handler that the {@link ItemStack} is in
+	 * @param amount The amount of items to be extracted
 	 */
-	private void extractStack(int slot, int amount) {
+	private void extractStack(int slot, int amount)
+	{
 		this.transferringStacks = true;
-		for (int i = 0; i < this.slotsForFace.length; i++) {
-			for (int j = 0; j < this.slotsForFace[i].length; j++) {
-				if (this.slotsForFace[i][j] == slot) {
-					switch (i) {
+		for (int i = 0; i < this.slotsForFace.length; i++)
+		{
+			for (int j = 0; j < this.slotsForFace[i].length; j++)
+			{
+				if (this.slotsForFace[i][j] == slot)
+				{
+					switch (i)
+					{
 					case 0:
 						this.downHandler.extractItem(j, amount, false);
 						break;
@@ -223,12 +234,18 @@ public abstract class TileEntitySidedInventory extends TileEntity {
 	/**
 	 * Update all of the faces handlers (used when loading up the NBT)
 	 */
-	private void updateHandlers() {
-		for (int slot = 0; slot < this.handler.getSlots(); slot++) {
-			for (int i = 0; i < this.slotsForFace.length; i++) {
-				for (int j = 0; j < this.slotsForFace[i].length; j++) {
-					if (slot == this.slotsForFace[i][j]) {
-						switch (i) {
+	private void updateHandlers()
+	{
+		for (int slot = 0; slot < this.handler.getSlots(); slot++)
+		{
+			for (int i = 0; i < this.slotsForFace.length; i++)
+			{
+				for (int j = 0; j < this.slotsForFace[i].length; j++)
+				{
+					if (slot == this.slotsForFace[i][j])
+					{
+						switch (i)
+						{
 						case 0:
 							this.downHandler.setStackInSlot(j, this.handler.getStackInSlot(slot));
 							break;
@@ -255,28 +272,32 @@ public abstract class TileEntitySidedInventory extends TileEntity {
 	}
 
 	@Override
-	public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
+	public boolean hasCapability(Capability<?> capability, EnumFacing facing)
+	{
 		if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY && getHandlerForFace(facing).getSlots() != 0)
 			return true;
 		return super.hasCapability(capability, facing);
 	}
 
 	@Override
-	public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
+	public <T> T getCapability(Capability<T> capability, EnumFacing facing)
+	{
 		if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
 			return (T) getHandlerForFace(facing);
 		return super.getCapability(capability, facing);
 	}
 
 	@Override
-	public void readFromNBT(NBTTagCompound nbt) {
+	public void readFromNBT(NBTTagCompound nbt)
+	{
 		super.readFromNBT(nbt);
 		this.handler.deserializeNBT(nbt.getCompoundTag("Inventory"));
 		updateHandlers();
 	}
 
 	@Override
-	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt)
+	{
 		nbt.setTag("Inventory", this.handler.serializeNBT());
 		return super.writeToNBT(nbt);
 	}
@@ -284,17 +305,20 @@ public abstract class TileEntitySidedInventory extends TileEntity {
 	/**
 	 * The {@link ItemStackHandler} which is used for each face
 	 */
-	private class SidedItemStackHandler extends ItemStackHandler {
+	private class SidedItemStackHandler extends ItemStackHandler
+	{
 
 		private EnumFacing side;
 
-		public SidedItemStackHandler(int size, EnumFacing side) {
+		public SidedItemStackHandler(int size, EnumFacing side)
+		{
 			super(size);
 			this.side = side;
 		}
 
 		@Override
-		public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
+		public ItemStack insertItem(int slot, ItemStack stack, boolean simulate)
+		{
 			// Insert into the main handler
 			if (!isStackValid(slotsForFace[side.getIndex()][slot], stack))
 				return stack;
@@ -302,7 +326,8 @@ public abstract class TileEntitySidedInventory extends TileEntity {
 		}
 
 		@Override
-		public ItemStack extractItem(int slot, int amount, boolean simulate) {
+		public ItemStack extractItem(int slot, int amount, boolean simulate)
+		{
 			// Extract from the main handler
 			return transferringStacks ? super.extractItem(slot, amount, simulate) : handler.extractItem(slotsForFace[side.getIndex()][slot], amount, simulate);
 		}
@@ -312,7 +337,8 @@ public abstract class TileEntitySidedInventory extends TileEntity {
 	 * Makes sure the client has all the data it needs
 	 */
 	@Override
-	public SPacketUpdateTileEntity getUpdatePacket() {
+	public SPacketUpdateTileEntity getUpdatePacket()
+	{
 		NBTTagCompound nbtTag = new NBTTagCompound();
 		writeToNBT(nbtTag);
 		return new SPacketUpdateTileEntity(pos, 1, nbtTag);
@@ -322,7 +348,8 @@ public abstract class TileEntitySidedInventory extends TileEntity {
 	 * Make sure to read the client data when it receives the update packet
 	 */
 	@Override
-	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
+	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt)
+	{
 		readFromNBT(pkt.getNbtCompound());
 	}
 
@@ -330,7 +357,8 @@ public abstract class TileEntitySidedInventory extends TileEntity {
 	 * Returns the tag with all of the client data saved
 	 */
 	@Override
-	public NBTTagCompound getUpdateTag() {
+	public NBTTagCompound getUpdateTag()
+	{
 		NBTTagCompound nbt = super.getUpdateTag();
 		writeToNBT(nbt);
 		return nbt;
@@ -340,7 +368,8 @@ public abstract class TileEntitySidedInventory extends TileEntity {
 	 * Handles when you get an update
 	 */
 	@Override
-	public void handleUpdateTag(NBTTagCompound nbt) {
+	public void handleUpdateTag(NBTTagCompound nbt)
+	{
 		readFromNBT(nbt);
 	}
 
@@ -348,7 +377,8 @@ public abstract class TileEntitySidedInventory extends TileEntity {
 	 * Gets the tile entities nbt with all of the data stored in it
 	 */
 	@Override
-	public NBTTagCompound getTileData() {
+	public NBTTagCompound getTileData()
+	{
 		NBTTagCompound nbt = new NBTTagCompound();
 		this.writeToNBT(nbt);
 		return nbt;

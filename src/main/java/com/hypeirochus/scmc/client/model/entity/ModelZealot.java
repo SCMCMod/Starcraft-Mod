@@ -12,76 +12,78 @@ import net.minecraft.util.math.MathHelper;
 /**
  * zealot - TechneToTabulaImporter Created using Tabula 5.1.0
  */
-public class ModelZealot extends Model {
-	public ModelRenderer	chestUpper;
-	public ModelRenderer	arcRight1;
-	public ModelRenderer	arcRight1_1;
-	public ModelRenderer	neck;
-	public ModelRenderer	chestLower;
-	public ModelRenderer	abdomen;
-	public ModelRenderer	shoulders;
-	public ModelRenderer	chestPlate;
-	public ModelRenderer	waist;
-	public ModelRenderer	waistPlate1;
-	public ModelRenderer	legRight1;
-	public ModelRenderer	legLeft1;
-	public ModelRenderer	waistPlate2;
-	public ModelRenderer	legRight2;
-	public ModelRenderer	legRight3;
-	public ModelRenderer	legRight4;
-	public ModelRenderer	legRight5;
-	public ModelRenderer	footRight;
-	public ModelRenderer	footRightUpper;
-	public ModelRenderer	toeRightRight;
-	public ModelRenderer	toeRightLeft;
-	public ModelRenderer	legLeft2;
-	public ModelRenderer	legLeft3;
-	public ModelRenderer	legLeft4;
-	public ModelRenderer	legLeft5;
-	public ModelRenderer	footLeft;
-	public ModelRenderer	footLeftUpper;
-	public ModelRenderer	toeLeftLeft;
-	public ModelRenderer	toeLeftRight;
-	public ModelRenderer	armLeft1;
-	public ModelRenderer	armRight1;
-	public ModelRenderer	lForearm;
-	public ModelRenderer	lFist;
-	public ModelRenderer	armLeft2;
-	public ModelRenderer	bladeLeft1;
-	public ModelRenderer	bladeLeft2;
-	public ModelRenderer	bladeLeft3;
-	public ModelRenderer	rForearm;
-	public ModelRenderer	rFist;
-	public ModelRenderer	armRight2;
-	public ModelRenderer	bladeRight1;
-	public ModelRenderer	bladeRight2;
-	public ModelRenderer	bladeRight3;
-	public ModelRenderer	arcRight2;
-	public ModelRenderer	arcRight3;
-	public ModelRenderer	arcRight4;
-	public ModelRenderer	arcRight5;
-	public ModelRenderer	arcRight2_1;
-	public ModelRenderer	arcRight3_1;
-	public ModelRenderer	arcRight4_1;
-	public ModelRenderer	arcRight5_1;
-	public ModelRenderer	head;
-	public ModelRenderer	mouthIGuess;
-	public ModelRenderer	headBack;
-	public ModelRenderer	headBack2;
-	public ModelRenderer	headTendrilBundle;
-	public ModelRenderer	eyes;
-	public ModelRenderer	lSkullSlant;
-	public ModelRenderer	rSkullSlant;
-	public ModelRenderer	lSkullSlant2;
-	public ModelRenderer	rSkullSlant2;
-	public ModelRenderer	chin;
-	public ModelRenderer	headTendrilBundle2;
-	public ModelRenderer	headTendrilBundle3;
-	public ModelRenderer	headTendrilBundle4;
-	public ModelRenderer	headTendrilBundle5;
-	public ModelRenderer	headTendrilBundle6;
+public class ModelZealot extends Model
+{
+	public ModelRenderer chestUpper;
+	public ModelRenderer arcRight1;
+	public ModelRenderer arcRight1_1;
+	public ModelRenderer neck;
+	public ModelRenderer chestLower;
+	public ModelRenderer abdomen;
+	public ModelRenderer shoulders;
+	public ModelRenderer chestPlate;
+	public ModelRenderer waist;
+	public ModelRenderer waistPlate1;
+	public ModelRenderer legRight1;
+	public ModelRenderer legLeft1;
+	public ModelRenderer waistPlate2;
+	public ModelRenderer legRight2;
+	public ModelRenderer legRight3;
+	public ModelRenderer legRight4;
+	public ModelRenderer legRight5;
+	public ModelRenderer footRight;
+	public ModelRenderer footRightUpper;
+	public ModelRenderer toeRightRight;
+	public ModelRenderer toeRightLeft;
+	public ModelRenderer legLeft2;
+	public ModelRenderer legLeft3;
+	public ModelRenderer legLeft4;
+	public ModelRenderer legLeft5;
+	public ModelRenderer footLeft;
+	public ModelRenderer footLeftUpper;
+	public ModelRenderer toeLeftLeft;
+	public ModelRenderer toeLeftRight;
+	public ModelRenderer armLeft1;
+	public ModelRenderer armRight1;
+	public ModelRenderer lForearm;
+	public ModelRenderer lFist;
+	public ModelRenderer armLeft2;
+	public ModelRenderer bladeLeft1;
+	public ModelRenderer bladeLeft2;
+	public ModelRenderer bladeLeft3;
+	public ModelRenderer rForearm;
+	public ModelRenderer rFist;
+	public ModelRenderer armRight2;
+	public ModelRenderer bladeRight1;
+	public ModelRenderer bladeRight2;
+	public ModelRenderer bladeRight3;
+	public ModelRenderer arcRight2;
+	public ModelRenderer arcRight3;
+	public ModelRenderer arcRight4;
+	public ModelRenderer arcRight5;
+	public ModelRenderer arcRight2_1;
+	public ModelRenderer arcRight3_1;
+	public ModelRenderer arcRight4_1;
+	public ModelRenderer arcRight5_1;
+	public ModelRenderer head;
+	public ModelRenderer mouthIGuess;
+	public ModelRenderer headBack;
+	public ModelRenderer headBack2;
+	public ModelRenderer headTendrilBundle;
+	public ModelRenderer eyes;
+	public ModelRenderer lSkullSlant;
+	public ModelRenderer rSkullSlant;
+	public ModelRenderer lSkullSlant2;
+	public ModelRenderer rSkullSlant2;
+	public ModelRenderer chin;
+	public ModelRenderer headTendrilBundle2;
+	public ModelRenderer headTendrilBundle3;
+	public ModelRenderer headTendrilBundle4;
+	public ModelRenderer headTendrilBundle5;
+	public ModelRenderer headTendrilBundle6;
 
-	public ModelZealot() {
+	public ModelZealot()
+	{
 		this.textureWidth = 256;
 		this.textureHeight = 128;
 		this.abdomen = new ModelRenderer(this, 0, 59);
@@ -419,7 +421,8 @@ public class ModelZealot extends Model {
 	}
 
 	@Override
-	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
+	{
 		super.render(entity, f, f1, f2, f3, f4, f5);
 		setRotationAngles(f, f1, f2, f3, f4, f4, entity);
 		this.arcRight1.render(f5);
@@ -433,11 +436,14 @@ public class ModelZealot extends Model {
 		GlStateManager.popMatrix();
 		this.chestUpper.render(f5);
 		this.arcRight1_1.render(f5);
-		if (entity instanceof EntityZealot) {
-			if (((EntityZealot) entity).canSheathBlades()) {
+		if (entity instanceof EntityZealot)
+		{
+			if (((EntityZealot) entity).canSheathBlades())
+			{
 				this.bladeLeft3.isHidden = false;
 				this.bladeRight3.isHidden = false;
-			} else {
+			} else
+			{
 				this.bladeLeft3.isHidden = true;
 				this.bladeRight3.isHidden = true;
 			}
@@ -445,7 +451,8 @@ public class ModelZealot extends Model {
 	}
 
 	@Override
-	public void render(Object obj) {
+	public void render(Object obj)
+	{
 		EntityLivingBase base = (EntityLivingBase) obj;
 		head.rotateAngleX = headPitch(obj) * 0.017453292F + 5.5F;
 		head.rotateAngleY = headYaw(obj) * 0.0017453292F;
@@ -455,11 +462,14 @@ public class ModelZealot extends Model {
 		legRight1.rotateAngleX = MathHelper.cos(swingProgress(obj) * 0.8662F) * 1 * swingProgressPrev(obj) - 0.5F;
 		legRight2.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.6662F) * 1 * swingProgressPrev(obj) + 0.5F;
 		armRight1.rotateAngleX = MathHelper.sin(swingProgress(obj) * 0.8662F + (float) Math.PI) * 0.5F * swingProgressPrev(obj);
-		if (obj instanceof EntityZealot) {
-			if (((EntityZealot) obj).canSheathBlades()) {
+		if (obj instanceof EntityZealot)
+		{
+			if (((EntityZealot) obj).canSheathBlades())
+			{
 				this.lForearm.rotateAngleX = (float) Math.toRadians(15);
 				this.rForearm.rotateAngleX = (float) Math.toRadians(15);
-			} else {
+			} else
+			{
 				this.lForearm.rotateAngleX = (float) Math.toRadians(65);
 				this.rForearm.rotateAngleX = (float) Math.toRadians(65);
 			}

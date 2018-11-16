@@ -26,9 +26,11 @@ import net.minecraft.world.World;
 /**
  * @author Hypeirochus
  */
-public class EntityUrsadonMatriarch extends EntityMob implements IMob, Predicate<EntityLivingBase> {
+public class EntityUrsadonMatriarch extends EntityMob implements IMob, Predicate<EntityLivingBase>
+{
 
-	public EntityUrsadonMatriarch(World world) {
+	public EntityUrsadonMatriarch(World world)
+	{
 		super(world);
 		setSize(1.5F, 1.5F);
 		tasks.addTask(0, new EntityAISwimming(this));
@@ -41,19 +43,25 @@ public class EntityUrsadonMatriarch extends EntityMob implements IMob, Predicate
 	}
 
 	@Override
-	public boolean getCanSpawnHere() {
-		if (this.world.provider.getDimension() == StarcraftConfig.INT_DIMENSION_KALDIR && world.getDifficulty() != EnumDifficulty.PEACEFUL) {
+	public boolean getCanSpawnHere()
+	{
+		if (this.world.provider.getDimension() == StarcraftConfig.INT_DIMENSION_KALDIR && world.getDifficulty() != EnumDifficulty.PEACEFUL)
+		{
 			return true;
 		}
 		return false;
 	}
 
 	@Override
-	public boolean apply(EntityLivingBase entity) {
-		if (!entity.isInvisible()) {
-			if (entity instanceof EntityUrsadon) {
+	public boolean apply(EntityLivingBase entity)
+	{
+		if (!entity.isInvisible())
+		{
+			if (entity instanceof EntityUrsadon)
+			{
 				return false;
-			} else {
+			} else
+			{
 				return true;
 			}
 		}
@@ -61,10 +69,12 @@ public class EntityUrsadonMatriarch extends EntityMob implements IMob, Predicate
 	}
 
 	@Override
-	public SoundEvent getAmbientSound() {
+	public SoundEvent getAmbientSound()
+	{
 		Random rand = new Random();
 
-		switch (rand.nextInt(1)) {
+		switch (rand.nextInt(1))
+		{
 		case 0:
 			return SoundHandler.ENTITY_URSADON_LIVE1;
 		default:
@@ -73,22 +83,26 @@ public class EntityUrsadonMatriarch extends EntityMob implements IMob, Predicate
 	}
 
 	@Override
-	public SoundEvent getDeathSound() {
+	public SoundEvent getDeathSound()
+	{
 		return SoundHandler.ENTITY_URSADON_DEATH;
 	}
 
 	@Override
-	public SoundEvent getHurtSound(DamageSource source) {
+	public SoundEvent getHurtSound(DamageSource source)
+	{
 		return SoundHandler.ENTITY_URSADON_HURT;
 	}
 
 	@Override
-	public int getTalkInterval() {
+	public int getTalkInterval()
+	{
 		return 160;
 	}
 
 	@Override
-	protected void applyEntityAttributes() {
+	protected void applyEntityAttributes()
+	{
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(333.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3804D);

@@ -21,13 +21,16 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityBroodling extends EntityZergMob implements IMob, Predicate<EntityLivingBase> {
+public class EntityBroodling extends EntityZergMob implements IMob, Predicate<EntityLivingBase>
+{
 
-	public EntityBroodling(World world) {
+	public EntityBroodling(World world)
+	{
 		this(world, EnumColors.PURPLE);
 	}
 
-	public EntityBroodling(World world, EnumColors color) {
+	public EntityBroodling(World world, EnumColors color)
+	{
 		super(world);
 		setSize(1.0F, 0.5F);
 		this.setColor(color);
@@ -37,7 +40,8 @@ public class EntityBroodling extends EntityZergMob implements IMob, Predicate<En
 	}
 
 	@Override
-	protected void initEntityAI() {
+	protected void initEntityAI()
+	{
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
 		tasks.addTask(2, new EntityAIWander(this, 1.0D));
@@ -53,12 +57,14 @@ public class EntityBroodling extends EntityZergMob implements IMob, Predicate<En
 	 * target.
 	 */
 	@Override
-	public boolean apply(EntityLivingBase entity) {
+	public boolean apply(EntityLivingBase entity)
+	{
 		return checkTarget(entity, EnumFactionTypes.SWARM);
 	}
 
 	@Override
-	protected void applyEntityAttributes() {
+	protected void applyEntityAttributes()
+	{
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.43000000417232513D);
@@ -67,35 +73,42 @@ public class EntityBroodling extends EntityZergMob implements IMob, Predicate<En
 	}
 
 	@Override
-	public SoundEvent getAmbientSound() {
+	public SoundEvent getAmbientSound()
+	{
 		return SoundHandler.ENTITY_BROODLING_LIVE1;
 	}
 
 	@Override
-	public SoundEvent getDeathSound() {
+	public SoundEvent getDeathSound()
+	{
 		return SoundHandler.ENTITY_BROODLING_DEATH;
 	}
 
 	@Override
-	public SoundEvent getHurtSound(DamageSource source) {
+	public SoundEvent getHurtSound(DamageSource source)
+	{
 		return SoundHandler.ENTITY_BROODLING_HURT;
 	}
 
 	@Override
-	public int getTalkInterval() {
+	public int getTalkInterval()
+	{
 		return 160;
 	}
 
 	@Override
-	public void onLivingUpdate() {
-		if (this.ticksExisted > 160) {
+	public void onLivingUpdate()
+	{
+		if (this.ticksExisted > 160)
+		{
 			this.setDead();
 		}
 		super.onLivingUpdate();
 	}
 
 	@Override
-	protected void findBiomass() {
+	protected void findBiomass()
+	{
 		;
 	}
 }

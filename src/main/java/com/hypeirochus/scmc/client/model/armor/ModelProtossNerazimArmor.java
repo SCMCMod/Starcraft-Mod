@@ -12,7 +12,8 @@ import net.minecraft.util.EnumHandSide;
 /**
  * protossarmour_Nerazim - Cybercat5555 Created using Tabula 6.0.0
  */
-public class ModelProtossNerazimArmor extends ModelArmorBase implements IArmorItem {
+public class ModelProtossNerazimArmor extends ModelArmorBase implements IArmorItem
+{
 	public ModelRenderer chestplate_rShoulder01;
 	public ModelRenderer chestplate_rShoulder02;
 	public ModelRenderer chestplate_rShoulder03;
@@ -100,7 +101,8 @@ public class ModelProtossNerazimArmor extends ModelArmorBase implements IArmorIt
 	public ModelRenderer boots_lHeel04;
 	public ModelRenderer leggings_lLegWrap02;
 
-	public ModelProtossNerazimArmor(float modelSize) {
+	public ModelProtossNerazimArmor(float modelSize)
+	{
 		super(modelSize, 128, 128);
 		this.textureWidth = 128;
 		this.textureHeight = 128;
@@ -524,11 +526,13 @@ public class ModelProtossNerazimArmor extends ModelArmorBase implements IArmorIt
 	}
 
 	@Override
-	public void renderHelmet(TransformType type, Entity entity, float scale) {
+	public void renderHelmet(TransformType type, Entity entity, float scale)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0, 1.5, 0);
 		GlStateManager.rotate(180, 1, 0, 0);
-		switch (type) {
+		switch (type)
+		{
 		case FIRST_PERSON_LEFT_HAND:
 			ModelUtils.rotateDefaultBlockFirstperson(EnumHandSide.LEFT);
 			GlStateManager.translate(0, scale * 24, 0);
@@ -583,12 +587,14 @@ public class ModelProtossNerazimArmor extends ModelArmorBase implements IArmorIt
 	}
 
 	@Override
-	public void renderChestplate(TransformType type, Entity entity, float scale) {
+	public void renderChestplate(TransformType type, Entity entity, float scale)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0, 1.5, 0);
 		GlStateManager.rotate(180, 1, 0, 0);
 
-		switch (type) {
+		switch (type)
+		{
 		case FIRST_PERSON_LEFT_HAND:
 			ModelUtils.rotateDefaultBlockFirstperson(EnumHandSide.LEFT);
 			GlStateManager.translate(0, scale * 18, 0);
@@ -638,12 +644,14 @@ public class ModelProtossNerazimArmor extends ModelArmorBase implements IArmorIt
 	}
 
 	@Override
-	public void renderLeggings(TransformType type, Entity entity, float scale) {
+	public void renderLeggings(TransformType type, Entity entity, float scale)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0, 1.5, 0);
 		GlStateManager.rotate(180, 1, 0, 0);
 
-		switch (type) {
+		switch (type)
+		{
 		case FIRST_PERSON_LEFT_HAND:
 			ModelUtils.rotateDefaultBlockFirstperson(EnumHandSide.LEFT);
 			GlStateManager.translate(0, scale * 6, 0);
@@ -694,12 +702,14 @@ public class ModelProtossNerazimArmor extends ModelArmorBase implements IArmorIt
 	}
 
 	@Override
-	public void renderBoots(TransformType type, Entity entity, float scale) {
+	public void renderBoots(TransformType type, Entity entity, float scale)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0, 1.5, 0);
 		GlStateManager.rotate(180, 1, 0, 0);
 
-		switch (type) {
+		switch (type)
+		{
 		case FIRST_PERSON_LEFT_HAND:
 			ModelUtils.rotateDefaultBlockFirstperson(EnumHandSide.LEFT);
 			GlStateManager.translate(scale * -4, scale * 12, 0);

@@ -11,7 +11,8 @@ import net.minecraft.util.ResourceLocation;
 /**
  * Flame Thrower - SCMCDevTeam Created using Tabula 5.1.0
  */
-public class ModelFlamethrower extends Model {
+public class ModelFlamethrower extends Model
+{
 
 	public static final ResourceLocation TEXTURE = new ResourceLocation(Starcraft.MOD_ID, "textures/models/flamethrower.png");
 
@@ -44,7 +45,8 @@ public class ModelFlamethrower extends Model {
 	public ModelRenderer main30;
 	public ModelRenderer main31;
 
-	public ModelFlamethrower() {
+	public ModelFlamethrower()
+	{
 		ModelUtils.enableBackCull();
 		this.textureWidth = 200;
 		this.textureHeight = 200;
@@ -145,7 +147,8 @@ public class ModelFlamethrower extends Model {
 	}
 
 	@Override
-	public void render(Entity entity, float swing, float swingPrev, float idle, float headYaw, float headPitch, float scale) {
+	public void render(Entity entity, float swing, float swingPrev, float idle, float headYaw, float headPitch, float scale)
+	{
 		this.main14.render(scale);
 		this.main19.render(scale);
 		this.main2.render(scale);

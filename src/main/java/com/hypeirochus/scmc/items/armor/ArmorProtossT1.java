@@ -11,23 +11,29 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ArmorProtossT1 extends ItemArmor {
+public class ArmorProtossT1 extends ItemArmor
+{
 
 	ModelArmorBase armorModel = null;
 
-	public ArmorProtossT1(ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
+	public ArmorProtossT1(ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn)
+	{
 		super(materialIn, renderIndexIn, equipmentSlotIn);
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped defaultModel) {
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped defaultModel)
+	{
 
-		if (itemStack != null) {
-			if (this instanceof ItemArmor) {
+		if (itemStack != null)
+		{
+			if (this instanceof ItemArmor)
+			{
 
 				EntityEquipmentSlot type = armorType;
-				switch (type) {
+				switch (type)
+				{
 				case HEAD:
 				case LEGS:
 					armorModel = Starcraft.proxy.getArmorModel(6);

@@ -3,17 +3,22 @@ package com.hypeirochus.scmc.entity.living;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-public class EntityTerranMob extends EntityStarcraftMob {
+public class EntityTerranMob extends EntityStarcraftMob
+{
 
-	public EntityTerranMob(World world) {
+	public EntityTerranMob(World world)
+	{
 		super(world);
 	}
 
 	@Override
-	public boolean getCanSpawnHere() {
-		if (this.world.getDifficulty() != EnumDifficulty.PEACEFUL) {
+	public boolean getCanSpawnHere()
+	{
+		if (this.world.getDifficulty() != EnumDifficulty.PEACEFUL)
+		{
 			return true;
-		} else {
+		} else
+		{
 			return false;
 		}
 	}

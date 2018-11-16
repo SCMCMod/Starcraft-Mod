@@ -9,20 +9,26 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemVespene extends StarcraftItem implements IMetaRenderHandler {
+public class ItemVespene extends StarcraftItem implements IMetaRenderHandler
+{
 
-	public ItemVespene() {
+	public ItemVespene()
+	{
 		super("vespene");
 		setHasSubtypes(true);
 	}
 
 	@Override
-	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-		if (tab == CreativeTabs.SEARCH) {
-			for (int i = 0; i < VespeneType.values().length; i++) {
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items)
+	{
+		if (tab == CreativeTabs.SEARCH)
+		{
+			for (int i = 0; i < VespeneType.values().length; i++)
+			{
 				items.add(new ItemStack(this, 1, i));
 			}
-		} else {
+		} else
+		{
 			if (tab == StarcraftCreativeTabs.MISC)
 				items.add(new ItemStack(this, 1, 0));
 			if (tab == StarcraftCreativeTabs.PROTOSS)
@@ -35,11 +41,15 @@ public class ItemVespene extends StarcraftItem implements IMetaRenderHandler {
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
-		for (int i = 0; i < VespeneType.values().length; i++) {
-			if (stack.getItemDamage() == i) {
+	public String getUnlocalizedName(ItemStack stack)
+	{
+		for (int i = 0; i < VespeneType.values().length; i++)
+		{
+			if (stack.getItemDamage() == i)
+			{
 				return getUnlocalizedName() + "." + VespeneType.values()[i].getName();
-			} else {
+			} else
+			{
 				continue;
 			}
 		}
@@ -47,12 +57,14 @@ public class ItemVespene extends StarcraftItem implements IMetaRenderHandler {
 	}
 
 	@Override
-	public int getItemCount() {
+	public int getItemCount()
+	{
 		return MetaHandler.VespeneType.values().length;
 	}
 
 	@Override
-	public String getName(int meta) {
+	public String getName(int meta)
+	{
 		return "vespene." + MetaHandler.VespeneType.values()[meta].getName();
 	}
 }

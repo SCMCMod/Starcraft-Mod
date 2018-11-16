@@ -1,12 +1,12 @@
 package com.hypeirochus.scmc.jei;
 
-public interface IJeiTooltip {
+public interface IJeiTooltip
+{
 
 	/**
 	 * Adds a tooltip to jei for extra info on something if wanted.
 	 * 
-	 * @param meta
-	 *            The meta of the tooltip trying to be added
+	 * @param meta The meta of the tooltip trying to be added
 	 * @return The tooltip to be added for the specifed metadata value
 	 */
 	String getTooltip(int meta);

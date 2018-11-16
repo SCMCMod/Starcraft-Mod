@@ -4,7 +4,8 @@ import com.hypeirochus.scmc.Starcraft;
 
 import net.minecraft.util.ResourceLocation;
 
-public class Resources {
+public class Resources
+{
 
 	public static final String ARTOSILOPE_BASE = Starcraft.RL_BASE + "textures/entity/artosilope_base.png";
 	public static final String BRAKK_BASE = Starcraft.RL_BASE + "textures/entity/brakk_base.png";

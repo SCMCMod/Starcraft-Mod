@@ -8,19 +8,23 @@ import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformT
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 
-public class ItemRenderFlamethrower extends ItemRenderer {
+public class ItemRenderFlamethrower extends ItemRenderer
+{
 
-	public ItemRenderFlamethrower() {
+	public ItemRenderFlamethrower()
+	{
 		super(new ModelFlamethrower(), ModelFlamethrower.TEXTURE);
 	}
 
 	@Override
-	public void renderFirstPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderFirstPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		renderFirstPersonRight(itemstack, entity, cameraTransformType);
 	}
 
 	@Override
-	public void renderFirstPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderFirstPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		float scale = .03500067f;
 
 		GlStateManager.pushMatrix();
@@ -33,12 +37,14 @@ public class ItemRenderFlamethrower extends ItemRenderer {
 	}
 
 	@Override
-	public void renderThirdPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderThirdPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		renderThirdPersonRight(itemstack, entity, cameraTransformType);
 	}
 
 	@Override
-	public void renderThirdPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderThirdPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		float scale = .0250059f;
 
 		GlStateManager.pushMatrix();
@@ -52,7 +58,8 @@ public class ItemRenderFlamethrower extends ItemRenderer {
 	}
 
 	@Override
-	public void renderInInventory(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderInInventory(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		float scale = .025f;
 
 		GlStateManager.pushMatrix();
@@ -68,7 +75,8 @@ public class ItemRenderFlamethrower extends ItemRenderer {
 	}
 
 	@Override
-	public void renderInWorld(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderInWorld(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		float scale = .02500059f;
 
 		GlStateManager.pushMatrix();
@@ -84,7 +92,8 @@ public class ItemRenderFlamethrower extends ItemRenderer {
 	}
 
 	@Override
-	public void renderFixed(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderFixed(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		float scale = .02500059f;
 
 		GlStateManager.pushMatrix();
@@ -101,7 +110,8 @@ public class ItemRenderFlamethrower extends ItemRenderer {
 	}
 
 	@Override
-	public void renderHead(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderHead(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 
 	}
 }

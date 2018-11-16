@@ -18,12 +18,14 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  */
 //TODO: CONSIDER if this should be moved to the core mod or not.
 @SideOnly(Side.CLIENT)
-public class WavefrontModelHandler {
+public class WavefrontModelHandler
+{
 
 	/**
 	 * Adds a new OBJ loader domain.
 	 */
-	public static void pre(FMLPreInitializationEvent event) {
+	public static void pre(FMLPreInitializationEvent event)
+	{
 		OBJLoader.INSTANCE.addDomain(Starcraft.MOD_ID);
 		register();
 	}
@@ -31,18 +33,19 @@ public class WavefrontModelHandler {
 	/**
 	 * Registers the obj models.
 	 */
-	public static void register() {
+	public static void register()
+	{
 
 	}
 
 	/**
 	 * Registers a model.
 	 * 
-	 * @param object
-	 *            Accepts an item or a block to register. If the object is not
-	 *            either it simply returns.
+	 * @param object Accepts an item or a block to register. If the object is not
+	 *        either it simply returns.
 	 */
-	private static void registerModel(Object object) {
+	private static void registerModel(Object object)
+	{
 		Item item = null;
 		if (object instanceof Block)
 			item = Item.getItemFromBlock((Block) object);

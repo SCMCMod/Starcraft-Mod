@@ -21,9 +21,11 @@ import net.minecraft.world.World;
 /**
  * @author Ocelot5836
  */
-public class BlockZerusGlowPod extends BlockContainer {
+public class BlockZerusGlowPod extends BlockContainer
+{
 
-	public BlockZerusGlowPod() {
+	public BlockZerusGlowPod()
+	{
 		super(Material.GOURD, MapColor.BROWN);
 		setRegistryName("flora.zerus.glowpod");
 		setUnlocalizedName("flora.zerus.glowpod");
@@ -35,27 +37,32 @@ public class BlockZerusGlowPod extends BlockContainer {
 	}
 
 	@Override
-	public boolean isOpaqueCube(IBlockState state) {
+	public boolean isOpaqueCube(IBlockState state)
+	{
 		return false;
 	}
 
 	@Override
-	public boolean isFullCube(IBlockState state) {
+	public boolean isFullCube(IBlockState state)
+	{
 		return false;
 	}
 
 	@Override
-	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+	{
 		return new AxisAlignedBB(0.0625 * 3, 0, 0.0625 * 3, 0.0625 * 13, 0.0625 * 8, 0.0625 * 13);
 	}
 
 	@Override
-	public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, Entity entityIn, boolean isActualState) {
+	public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, Entity entityIn, boolean isActualState)
+	{
 		super.addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0.0625 * 4, 0, 0.0625 * 4, 0.0625 * 12, 0.0625 * 6, 0.0625 * 12));
 	}
 
 	@Override
-	public TileEntity createNewTileEntity(World world, int meta) {
+	public TileEntity createNewTileEntity(World world, int meta)
+	{
 		return new TileEntityZerusGlowPod();
 	}
 }

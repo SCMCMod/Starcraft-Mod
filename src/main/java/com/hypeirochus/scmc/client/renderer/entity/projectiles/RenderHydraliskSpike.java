@@ -10,15 +10,18 @@ import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderHydraliskSpike extends Render<EntityHydraliskSpike> {
+public class RenderHydraliskSpike extends Render<EntityHydraliskSpike>
+{
 
 	private ModelBase model = new ModelHydraliskSpike();
 
-	public RenderHydraliskSpike(RenderManager renderManager) {
+	public RenderHydraliskSpike(RenderManager renderManager)
+	{
 		super(renderManager);
 	}
 
-	public RenderHydraliskSpike(RenderManager renderManager, ModelBase model) {
+	public RenderHydraliskSpike(RenderManager renderManager, ModelBase model)
+	{
 		this(renderManager);
 		this.model = model;
 	}
@@ -27,7 +30,8 @@ public class RenderHydraliskSpike extends Render<EntityHydraliskSpike> {
 	 * Renders the desired {@code T} type Entity.
 	 */
 	@Override
-	public void doRender(EntityHydraliskSpike entity, double x, double y, double z, float entityYaw, float partialTicks) {
+	public void doRender(EntityHydraliskSpike entity, double x, double y, double z, float entityYaw, float partialTicks)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.translate((float) x, (float) y, (float) z);
 		GlStateManager.enableRescaleNormal();
@@ -39,10 +43,12 @@ public class RenderHydraliskSpike extends Render<EntityHydraliskSpike> {
 	}
 
 	/**
-	 * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
+	 * Returns the location of an entity's texture. Doesn't seem to be called unless
+	 * you call Render.bindEntityTexture.
 	 */
 	@Override
-	protected ResourceLocation getEntityTexture(EntityHydraliskSpike entity) {
+	protected ResourceLocation getEntityTexture(EntityHydraliskSpike entity)
+	{
 		return new ResourceLocation(Starcraft.RL_BASE + "textures/entity/hydraliskspike.png");
 	}
 }

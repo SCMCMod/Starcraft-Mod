@@ -5,20 +5,24 @@ import com.hypeirochus.scmc.handlers.ItemHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 
-public class StarcraftCreativeTabMisc extends CreativeTabs {
+public class StarcraftCreativeTabMisc extends CreativeTabs
+{
 
-	public StarcraftCreativeTabMisc() {
+	public StarcraftCreativeTabMisc()
+	{
 		super("misc");
 		setBackgroundImageName("item_search.png");
 	}
 
 	@Override
-	public ItemStack getTabIconItem() {
+	public ItemStack getTabIconItem()
+	{
 		return new ItemStack(ItemHandler.ENERGY, 1, 0);
 	}
 
 	@Override
-	public boolean hasSearchBar() {
+	public boolean hasSearchBar()
+	{
 		return true;
 	}
 }

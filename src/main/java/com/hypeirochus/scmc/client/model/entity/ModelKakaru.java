@@ -11,85 +11,87 @@ import net.minecraft.util.math.MathHelper;
 /**
  * kakaru - cybercat5555 Created using Tabula 6.0.0
  */
-public class ModelKakaru extends Model {
-	public ModelRenderer	chest;
-	public ModelRenderer	spineBone01;
-	public ModelRenderer	stomach;
-	public ModelRenderer	neck01a;
-	public ModelRenderer	lArm01;
-	public ModelRenderer	rArm01;
-	public ModelRenderer	tail01;
-	public ModelRenderer	tail02a;
-	public ModelRenderer	tail02b;
-	public ModelRenderer	tail02c;
-	public ModelRenderer	tail02d;
-	public ModelRenderer	tail03;
-	public ModelRenderer	tail04;
-	public ModelRenderer	tail05;
-	public ModelRenderer	neck01b;
-	public ModelRenderer	neck01c;
-	public ModelRenderer	neck01d;
-	public ModelRenderer	neck02;
-	public ModelRenderer	neck03;
-	public ModelRenderer	head01;
-	public ModelRenderer	UpperBeak01;
-	public ModelRenderer	crest01;
-	public ModelRenderer	crest05;
-	public ModelRenderer	lowerBeak01;
-	public ModelRenderer	UpperBeak02;
-	public ModelRenderer	UpperBeak03;
-	public ModelRenderer	lTeethUpper;
-	public ModelRenderer	rTeethUpper;
-	public ModelRenderer	crest02a;
-	public ModelRenderer	crest02b;
-	public ModelRenderer	crest03;
-	public ModelRenderer	crest04;
-	public ModelRenderer	lowerBeak02;
-	public ModelRenderer	lowerBeak03;
-	public ModelRenderer	lTeethLower;
-	public ModelRenderer	rTeethLower;
-	public ModelRenderer	lArm02a;
-	public ModelRenderer	lLeg01;
-	public ModelRenderer	lArm02b;
-	public ModelRenderer	lArm02c;
-	public ModelRenderer	lArm02d;
-	public ModelRenderer	lArm03;
-	public ModelRenderer	lFinger01;
-	public ModelRenderer	lFinger02;
-	public ModelRenderer	lWing01;
-	public ModelRenderer	lWing02;
-	public ModelRenderer	lArm04;
-	public ModelRenderer	lLeg02a;
-	public ModelRenderer	lLeg02b;
-	public ModelRenderer	lLeg02c;
-	public ModelRenderer	lLeg02d;
-	public ModelRenderer	lLeg03;
-	public ModelRenderer	lWing03;
-	public ModelRenderer	lLeg04;
-	public ModelRenderer	rArm02a;
-	public ModelRenderer	rLeg01;
-	public ModelRenderer	rArm02b;
-	public ModelRenderer	rArm02c;
-	public ModelRenderer	rArm02d;
-	public ModelRenderer	rArm03;
-	public ModelRenderer	rFinger01;
-	public ModelRenderer	rFinger02;
-	public ModelRenderer	rWing01;
-	public ModelRenderer	rWing02;
-	public ModelRenderer	rArm04;
-	public ModelRenderer	rLeg02a;
-	public ModelRenderer	rLeg02b;
-	public ModelRenderer	rLeg02c;
-	public ModelRenderer	rLeg02d;
-	public ModelRenderer	rLeg03;
-	public ModelRenderer	rWing03;
-	public ModelRenderer	rLeg04;
-	public ModelRenderer	spineBone02;
-	public ModelRenderer	spineMembrane;
-	public ModelRenderer	spineBone03;
-	public ModelRenderer	spineBone04;
+public class ModelKakaru extends Model
+{
+	public ModelRenderer chest;
+	public ModelRenderer spineBone01;
+	public ModelRenderer stomach;
+	public ModelRenderer neck01a;
+	public ModelRenderer lArm01;
+	public ModelRenderer rArm01;
+	public ModelRenderer tail01;
+	public ModelRenderer tail02a;
+	public ModelRenderer tail02b;
+	public ModelRenderer tail02c;
+	public ModelRenderer tail02d;
+	public ModelRenderer tail03;
+	public ModelRenderer tail04;
+	public ModelRenderer tail05;
+	public ModelRenderer neck01b;
+	public ModelRenderer neck01c;
+	public ModelRenderer neck01d;
+	public ModelRenderer neck02;
+	public ModelRenderer neck03;
+	public ModelRenderer head01;
+	public ModelRenderer UpperBeak01;
+	public ModelRenderer crest01;
+	public ModelRenderer crest05;
+	public ModelRenderer lowerBeak01;
+	public ModelRenderer UpperBeak02;
+	public ModelRenderer UpperBeak03;
+	public ModelRenderer lTeethUpper;
+	public ModelRenderer rTeethUpper;
+	public ModelRenderer crest02a;
+	public ModelRenderer crest02b;
+	public ModelRenderer crest03;
+	public ModelRenderer crest04;
+	public ModelRenderer lowerBeak02;
+	public ModelRenderer lowerBeak03;
+	public ModelRenderer lTeethLower;
+	public ModelRenderer rTeethLower;
+	public ModelRenderer lArm02a;
+	public ModelRenderer lLeg01;
+	public ModelRenderer lArm02b;
+	public ModelRenderer lArm02c;
+	public ModelRenderer lArm02d;
+	public ModelRenderer lArm03;
+	public ModelRenderer lFinger01;
+	public ModelRenderer lFinger02;
+	public ModelRenderer lWing01;
+	public ModelRenderer lWing02;
+	public ModelRenderer lArm04;
+	public ModelRenderer lLeg02a;
+	public ModelRenderer lLeg02b;
+	public ModelRenderer lLeg02c;
+	public ModelRenderer lLeg02d;
+	public ModelRenderer lLeg03;
+	public ModelRenderer lWing03;
+	public ModelRenderer lLeg04;
+	public ModelRenderer rArm02a;
+	public ModelRenderer rLeg01;
+	public ModelRenderer rArm02b;
+	public ModelRenderer rArm02c;
+	public ModelRenderer rArm02d;
+	public ModelRenderer rArm03;
+	public ModelRenderer rFinger01;
+	public ModelRenderer rFinger02;
+	public ModelRenderer rWing01;
+	public ModelRenderer rWing02;
+	public ModelRenderer rArm04;
+	public ModelRenderer rLeg02a;
+	public ModelRenderer rLeg02b;
+	public ModelRenderer rLeg02c;
+	public ModelRenderer rLeg02d;
+	public ModelRenderer rLeg03;
+	public ModelRenderer rWing03;
+	public ModelRenderer rLeg04;
+	public ModelRenderer spineBone02;
+	public ModelRenderer spineMembrane;
+	public ModelRenderer spineBone03;
+	public ModelRenderer spineBone04;
 
-	public ModelKakaru() {
+	public ModelKakaru()
+	{
 		this.textureWidth = 128;
 		this.textureHeight = 64;
 		this.lArm04 = new ModelRenderer(this, 45, 26);
@@ -467,7 +469,8 @@ public class ModelKakaru extends Model {
 	}
 
 	@Override
-	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale)
+	{
 		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
 		GlStateManager.pushMatrix();
@@ -482,7 +485,8 @@ public class ModelKakaru extends Model {
 	}
 
 	@Override
-	public void render(Object obj) {
+	public void render(Object obj)
+	{
 		EntityLivingBase base = (EntityLivingBase) obj;
 		this.head01.rotateAngleX = headPitch(obj) * 0.017453292F;
 		this.head01.rotateAngleY = headYaw(obj) * 0.017453292F;

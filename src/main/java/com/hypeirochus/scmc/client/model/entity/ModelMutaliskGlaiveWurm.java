@@ -8,26 +8,28 @@ import net.minecraft.entity.Entity;
 /**
  * mutalisk_glaiveworm - cybercat5555 Created using Tabula 6.0.0
  */
-public class ModelMutaliskGlaiveWurm extends Model {
-	public ModelRenderer	base01;
-	public ModelRenderer	base02;
-	public ModelRenderer	spike01a;
-	public ModelRenderer	spike02a;
-	public ModelRenderer	spike03a;
-	public ModelRenderer	spike04;
-	public ModelRenderer	spike05;
-	public ModelRenderer	spike06;
-	public ModelRenderer	spike01b;
-	public ModelRenderer	spike01c;
-	public ModelRenderer	spike01d;
-	public ModelRenderer	spike02b;
-	public ModelRenderer	spike02c;
-	public ModelRenderer	spike02d;
-	public ModelRenderer	spike03b;
-	public ModelRenderer	spike03c;
-	public ModelRenderer	spike03d;
+public class ModelMutaliskGlaiveWurm extends Model
+{
+	public ModelRenderer base01;
+	public ModelRenderer base02;
+	public ModelRenderer spike01a;
+	public ModelRenderer spike02a;
+	public ModelRenderer spike03a;
+	public ModelRenderer spike04;
+	public ModelRenderer spike05;
+	public ModelRenderer spike06;
+	public ModelRenderer spike01b;
+	public ModelRenderer spike01c;
+	public ModelRenderer spike01d;
+	public ModelRenderer spike02b;
+	public ModelRenderer spike02c;
+	public ModelRenderer spike02d;
+	public ModelRenderer spike03b;
+	public ModelRenderer spike03c;
+	public ModelRenderer spike03d;
 
-	public ModelMutaliskGlaiveWurm() {
+	public ModelMutaliskGlaiveWurm()
+	{
 		this.textureWidth = 64;
 		this.textureHeight = 32;
 		this.spike05 = new ModelRenderer(this, 26, 7);
@@ -117,7 +119,8 @@ public class ModelMutaliskGlaiveWurm extends Model {
 	}
 
 	@Override
-	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
+	{
 		this.base01.render(f5);
 	}
 }

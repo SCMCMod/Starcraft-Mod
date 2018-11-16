@@ -15,7 +15,8 @@ import net.minecraft.util.ResourceLocation;
 /**
  * @author Ocelot5836
  */
-public class ItemRenderBrambles extends ItemRenderer {
+public class ItemRenderBrambles extends ItemRenderer
+{
 
 	private static final ModelBrambles BRAMBLES = new ModelBrambles();
 	private static final ModelPalm PALM = new ModelPalm();
@@ -24,17 +25,20 @@ public class ItemRenderBrambles extends ItemRenderer {
 	public static final ResourceLocation SHAKURAS_BRAMBLES_TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/shakuras_brambles.png");
 	public static final ResourceLocation ZERUS_BRAMBLES_TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/zerus_brambles.png");
 
-	public ItemRenderBrambles() {
+	public ItemRenderBrambles()
+	{
 		super(BRAMBLES, null);
 	}
 
 	@Override
-	public void renderFirstPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderFirstPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		renderFirstPersonRight(itemstack, entity, cameraTransformType);
 	}
 
 	@Override
-	public void renderFirstPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderFirstPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.rotate(0, 0, 1, 0);
 		GlStateManager.scale(0.5, 0.5, 0.5);
@@ -44,7 +48,8 @@ public class ItemRenderBrambles extends ItemRenderer {
 	}
 
 	@Override
-	public void renderInInventory(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderInInventory(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.rotate(30, 1, 0, 0);
 		GlStateManager.rotate(225, 0, 1, 0);
@@ -55,7 +60,8 @@ public class ItemRenderBrambles extends ItemRenderer {
 	}
 
 	@Override
-	public void renderInWorld(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderInWorld(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.rotate(45, 0, 1, 0);
 		GlStateManager.scale(0.6, 0.6, 0.6);
@@ -65,7 +71,8 @@ public class ItemRenderBrambles extends ItemRenderer {
 	}
 
 	@Override
-	public void renderFixed(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderFixed(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.scale(0.6, 0.6, 0.6);
 		GlStateManager.translate(-0.5, -1.25, -0.5);
@@ -74,17 +81,20 @@ public class ItemRenderBrambles extends ItemRenderer {
 	}
 
 	@Override
-	public void renderHead(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderHead(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 
 	}
 
 	@Override
-	public void renderThirdPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderThirdPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		renderThirdPersonRight(itemstack, entity, cameraTransformType);
 	}
 
 	@Override
-	public void renderThirdPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderThirdPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.rotate(75, 1, 0, 0);
 		GlStateManager.rotate(45, 0, 1, 0);
@@ -94,17 +104,21 @@ public class ItemRenderBrambles extends ItemRenderer {
 		GlStateManager.popMatrix();
 	}
 
-	public void renderModel(double scale) {
+	public void renderModel(double scale)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0.5, 1.5, 0.5);
 		GlStateManager.rotate(180, 0, 0, 1);
 		int ticksAlive = 0;
 		if (entity != null)
 			ticksAlive = entity.ticksExisted;
-		if (stack.hasTagCompound()) {
+		if (stack.hasTagCompound())
+		{
 			NBTTagCompound nbt = (NBTTagCompound) stack.getTagCompound().getTag("BlockEntityTag");
-			if (nbt.hasKey("variant")) {
-				switch (nbt.getInteger("variant")) {
+			if (nbt.hasKey("variant"))
+			{
+				switch (nbt.getInteger("variant"))
+				{
 				case 0:
 					TextureUtils.bindTexture(KALDIR_BRAMBLES_TEXTURE);
 					BRAMBLES.render((float) scale, ticksAlive);
@@ -118,10 +132,12 @@ public class ItemRenderBrambles extends ItemRenderer {
 					PALM.render((float) scale, ticksAlive);
 					break;
 				}
-			} else {
+			} else
+			{
 				TextureUtils.bindTexture(KALDIR_BRAMBLES_TEXTURE);
 			}
-		} else {
+		} else
+		{
 			TextureUtils.bindTexture(KALDIR_BRAMBLES_TEXTURE);
 			BRAMBLES.render((float) scale, ticksAlive);
 		}

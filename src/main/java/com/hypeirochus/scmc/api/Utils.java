@@ -31,30 +31,30 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.oredict.OreDictionary;
 
 /**
- * <em><b>Edited by Ocelot5836 for the SCMC mod.</b></em>
- * 
- * <br>
+ * <em><b>Edited by Ocelot5836 for the SCMC mod.</b></em> <br>
  * </br>
- * 
  * This is where some useful methods will be.
  * 
  * @author CJMinecraft
  */
 //TODO: MOVE TO CORE MOD
-public class Utils {
+public class Utils
+{
 
 	public static final FloatBuffer projection = GLAllocation.createDirectFloatBuffer(16);
 	public static final FloatBuffer modelview = GLAllocation.createDirectFloatBuffer(16);
 
 	/**
-	 * Makes the variables which will be initialized when there getter method is called
+	 * Makes the variables which will be initialized when there getter method is
+	 * called
 	 */
 	private static Lang lang;
 
 	/**
 	 * @return The player's projection matrix
 	 */
-	public static Matrix4f getProjectionMatrix() {
+	public static Matrix4f getProjectionMatrix()
+	{
 		GlStateManager.getFloat(GL11.GL_PROJECTION_MATRIX, projection);
 		GlStateManager.getFloat(GL11.GL_MODELVIEW_MATRIX, modelview);
 		Matrix4f projectionMatrix = (Matrix4f) new Matrix4f().load(projection.asReadOnlyBuffer());
@@ -68,28 +68,32 @@ public class Utils {
 	 * 
 	 * @return The {@link Logger}
 	 */
-	public static Logger getLogger() {
+	public static Logger getLogger()
+	{
 		return Starcraft.logger();
 	}
 
 	/**
 	 * Gets the text from the path specified.
 	 * 
-	 * @param location
-	 *            The location of the text
+	 * @param location The location of the text
 	 * @return an array holding each line of the text
 	 */
-	public static List<String> loadTextFromFile(ResourceLocation location) {
+	public static List<String> loadTextFromFile(ResourceLocation location)
+	{
 		List<String> output = new ArrayList<String>();
-		try {
+		try
+		{
 			InputStreamReader is = new InputStreamReader(Minecraft.getMinecraft().getResourceManager().getResource(location).getInputStream());
 			BufferedReader reader = new BufferedReader(is);
 			String line = reader.readLine();
-			while (line != null) {
+			while (line != null)
+			{
 				output.add(line);
 				line = reader.readLine();
 			}
-		} catch (IOException e) {
+		} catch (IOException e)
+		{
 			e.printStackTrace();
 		}
 		return output;
@@ -98,16 +102,18 @@ public class Utils {
 	/**
 	 * Gets the text from the path specified.
 	 * 
-	 * @param location
-	 *            The location of the text
+	 * @param location The location of the text
 	 * @return an array holding each line of the text
 	 */
-	public static List<ColoredText> loadTextJsonFromFile(ResourceLocation location) {
+	public static List<ColoredText> loadTextJsonFromFile(ResourceLocation location)
+	{
 		List<ColoredText> output = new ArrayList<ColoredText>();
-		try {
+		try
+		{
 			InputStreamReader is = new InputStreamReader(Minecraft.getMinecraft().getResourceManager().getResource(location).getInputStream());
 			Gson gson = new Gson();
-		} catch (IOException e) {
+		} catch (IOException e)
+		{
 			e.printStackTrace();
 		}
 		return output;
@@ -116,16 +122,18 @@ public class Utils {
 	/**
 	 * Calculate the redstone current from a item stack handler
 	 * 
-	 * @param handler
-	 *            The handler
+	 * @param handler The handler
 	 * @return The redstone power
 	 */
-	public static int calculateRedstone(IItemHandler handler) {
+	public static int calculateRedstone(IItemHandler handler)
+	{
 		int i = 0;
 		float f = 0.0F;
-		for (int j = 0; j < handler.getSlots(); j++) {
+		for (int j = 0; j < handler.getSlots(); j++)
+		{
 			ItemStack stack = handler.getStackInSlot(j);
-			if (!stack.isEmpty()) {
+			if (!stack.isEmpty())
+			{
 				f += (float) stack.getCount() / (float) Math.min(handler.getStackInSlot(j).getMaxStackSize(), stack.getMaxStackSize());
 				i++;
 			}
@@ -137,36 +145,32 @@ public class Utils {
 	/**
 	 * Adds the chosen item stack to the inventory
 	 * 
-	 * @param handler
-	 *            The holder of the items
-	 * @param stack
-	 *            The stack to add
-	 * @param simulate
-	 *            Is the task a simulation?
+	 * @param handler The holder of the items
+	 * @param stack The stack to add
+	 * @param simulate Is the task a simulation?
 	 * @return The remainder left if the slot was full
 	 */
-	public static ItemStack addStackToInventory(IItemHandler handler, ItemStack stack, boolean simulate) {
+	public static ItemStack addStackToInventory(IItemHandler handler, ItemStack stack, boolean simulate)
+	{
 		return addStackToInventory(handler, handler.getSlots(), stack, simulate);
 	}
 
 	/**
 	 * Adds the chosen item stack to the inventory
 	 * 
-	 * @param handler
-	 *            The holder of the items
-	 * @param maxSlot
-	 *            The max slot to add to
-	 * @param stack
-	 *            The stack to add
-	 * @param simulate
-	 *            Is the task a simulation?
+	 * @param handler The holder of the items
+	 * @param maxSlot The max slot to add to
+	 * @param stack The stack to add
+	 * @param simulate Is the task a simulation?
 	 * @return The remainder left if the slot was full
 	 */
-	public static ItemStack addStackToInventory(IItemHandler handler, int maxSlot, ItemStack stack, boolean simulate) {
+	public static ItemStack addStackToInventory(IItemHandler handler, int maxSlot, ItemStack stack, boolean simulate)
+	{
 		ItemStack remainer = stack.copy();
-		for(int slot = 0; slot < maxSlot; slot++) {
+		for (int slot = 0; slot < maxSlot; slot++)
+		{
 			ItemStack tempStack = handler.insertItem(slot, remainer, simulate);
-			if(tempStack.isEmpty())
+			if (tempStack.isEmpty())
 				return ItemStack.EMPTY;
 			remainer = tempStack.copy();
 		}
@@ -176,19 +180,17 @@ public class Utils {
 	/**
 	 * Takes the chosen item stack from a specified slot to the inventory
 	 * 
-	 * @param handler
-	 *            The holder of the items
-	 * @param maxSlot
-	 *            The max slot to take from
-	 * @param amount
-	 *            The amount to take
-	 * @param simulate
-	 *            Is the task a simulation?
+	 * @param handler The holder of the items
+	 * @param maxSlot The max slot to take from
+	 * @param amount The amount to take
+	 * @param simulate Is the task a simulation?
 	 * @return The remainder left if the slot was full
 	 */
-	public static ItemStack removeStackFromInventory(IItemHandler handler, int maxSlot, int amount, boolean simulate) {
+	public static ItemStack removeStackFromInventory(IItemHandler handler, int maxSlot, int amount, boolean simulate)
+	{
 		ItemStack remainder = ItemStack.EMPTY;
-		for (int slot = 0; slot < maxSlot; slot++) {
+		for (int slot = 0; slot < maxSlot; slot++)
+		{
 			remainder = handler.extractItem(slot, amount, simulate);
 			if (remainder.isEmpty())
 				break;
@@ -199,26 +201,27 @@ public class Utils {
 	/**
 	 * Checks if the inventory is full
 	 * 
-	 * @param handler
-	 *            The inventory
+	 * @param handler The inventory
 	 * @return true if it is full
 	 */
-	public static boolean isInventoryFull(IItemHandler handler) {
+	public static boolean isInventoryFull(IItemHandler handler)
+	{
 		return isInventoryFull(handler, handler.getSlots());
 	}
 
 	/**
 	 * Checks if the inventory is full
 	 * 
-	 * @param handler
-	 *            The inventory
-	 * @param maxSlot
-	 *            The number of slots to check
+	 * @param handler The inventory
+	 * @param maxSlot The number of slots to check
 	 * @return true if it is full
 	 */
-	public static boolean isInventoryFull(IItemHandler handler, int maxSlot) {
-		for (int slot = 0; slot < maxSlot; slot++) {
-			if (handler.getStackInSlot(slot).getCount() < handler.getStackInSlot(slot).getMaxStackSize()) {
+	public static boolean isInventoryFull(IItemHandler handler, int maxSlot)
+	{
+		for (int slot = 0; slot < maxSlot; slot++)
+		{
+			if (handler.getStackInSlot(slot).getCount() < handler.getStackInSlot(slot).getMaxStackSize())
+			{
 				return false;
 			}
 		}
@@ -226,14 +229,18 @@ public class Utils {
 	}
 
 	/**
-	 * Gets the correct colour from any item stack using the ore dictionary The item must be registered as a dye
+	 * Gets the correct colour from any item stack using the ore dictionary The item
+	 * must be registered as a dye
 	 * 
-	 * @param stack
-	 *            The {@link ItemStack} to test
-	 * @return The {@link EnumDyeColor} of the {@link ItemStack} to test. If the stack is not registered as a dye, the {@link EnumDyeColor#WHITE} will be used
+	 * @param stack The {@link ItemStack} to test
+	 * @return The {@link EnumDyeColor} of the {@link ItemStack} to test. If the
+	 *         stack is not registered as a dye, the {@link EnumDyeColor#WHITE} will
+	 *         be used
 	 */
-	public static EnumDyeColor getColorFromDye(ItemStack stack) {
-		for (int id : OreDictionary.getOreIDs(stack)) {
+	public static EnumDyeColor getColorFromDye(ItemStack stack)
+	{
+		for (int id : OreDictionary.getOreIDs(stack))
+		{
 			if (id == OreDictionary.getOreID("dyeBlack"))
 				return EnumDyeColor.BLACK;
 			if (id == OreDictionary.getOreID("dyeRed"))
@@ -273,27 +280,33 @@ public class Utils {
 	/**
 	 * Recieves the amount of ammo a player has in the inventory.
 	 * 
-	 * @param player
-	 *            The player to search
-	 * @param ammoStack
-	 *            The stack that has the tag BulletCount
-	 * @return The amount found if the tag was found. If it was not found it returns 0
+	 * @param player The player to search
+	 * @param ammoStack The stack that has the tag BulletCount
+	 * @return The amount found if the tag was found. If it was not found it returns
+	 *         0
 	 */
-	public static int getTotalAmmo(EntityPlayer player, ItemStack ammoStack) {
+	public static int getTotalAmmo(EntityPlayer player, ItemStack ammoStack)
+	{
 		int totalCount = 0;
-		for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
+		for (int i = 0; i < player.inventory.getSizeInventory(); i++)
+		{
 			ItemStack stack = player.inventory.getStackInSlot(i);
-			if (ammoStack.getItem() == stack.getItem() && ammoStack.getMetadata() == stack.getMetadata() && stack.hasTagCompound()) {
+			if (ammoStack.getItem() == stack.getItem() && ammoStack.getMetadata() == stack.getMetadata() && stack.hasTagCompound())
+			{
 				totalCount += ItemMagazine.getBulletCount(stack);
 			}
 		}
 		return totalCount;
 	}
 
-	public static boolean checkSurroundingBlocks(World world, IBlockState state) {
-		for (int x = -1; x < 2; x++) {
-			for (int y = -1; y < 2; y++) {
-				for (int z = -1; z < 2; z++) {
+	public static boolean checkSurroundingBlocks(World world, IBlockState state)
+	{
+		for (int x = -1; x < 2; x++)
+		{
+			for (int y = -1; y < 2; y++)
+			{
+				for (int z = -1; z < 2; z++)
+				{
 					if (world.getBlockState(new BlockPos(x, y, z)) == state)
 						return true;
 				}
@@ -302,10 +315,14 @@ public class Utils {
 		return false;
 	}
 
-	public static boolean checkSurroundingBlocks(World world) {
-		for (int x = -1; x < 2; x++) {
-			for (int y = -1; y < 2; y++) {
-				for (int z = -1; z < 2; z++) {
+	public static boolean checkSurroundingBlocks(World world)
+	{
+		for (int x = -1; x < 2; x++)
+		{
+			for (int y = -1; y < 2; y++)
+			{
+				for (int z = -1; z < 2; z++)
+				{
 					if (world.getBlockState(new BlockPos(x, y, z)) != Blocks.AIR)
 						return true;
 				}

@@ -7,13 +7,17 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 //TODO: MOVE TO CORE MOD
-public class LogOverride implements IItemPropertyGetter {
+public class LogOverride implements IItemPropertyGetter
+{
 
 	@Override
-	public float apply(ItemStack stack, World world, EntityLivingBase entity) {
-		if (stack.hasTagCompound()) {
+	public float apply(ItemStack stack, World world, EntityLivingBase entity)
+	{
+		if (stack.hasTagCompound())
+		{
 			NBTTagCompound nbt = stack.getTagCompound();
-			if (nbt.hasKey("skin")) {
+			if (nbt.hasKey("skin"))
+			{
 				return nbt.getInteger("skin");
 			}
 		}

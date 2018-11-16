@@ -12,7 +12,8 @@ import mezz.jei.api.recipe.IRecipeCategory;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.ResourceLocation;
 
-public class GasCollectorCategory implements IRecipeCategory<GasCollectorRecipe> {
+public class GasCollectorCategory implements IRecipeCategory<GasCollectorRecipe>
+{
 
 	public static final int inputSlot = 0;
 	public static final int machineSlot = 1;
@@ -21,34 +22,40 @@ public class GasCollectorCategory implements IRecipeCategory<GasCollectorRecipe>
 	private final IDrawable background;
 	private final String localizedName;
 
-	public GasCollectorCategory(IGuiHelper guiHelper) {
+	public GasCollectorCategory(IGuiHelper guiHelper)
+	{
 		ResourceLocation location = new ResourceLocation(Starcraft.RL_BASE + "textures/gui/container/gas_collector_base.png");
 		background = guiHelper.createDrawable(location, 0, 0, 63, 50);
 		localizedName = I18n.format("gui." + Starcraft.MOD_ID + ".category.gascollector");
 	}
 
 	@Override
-	public IDrawable getBackground() {
+	public IDrawable getBackground()
+	{
 		return background;
 	}
 
 	@Override
-	public String getTitle() {
+	public String getTitle()
+	{
 		return localizedName;
 	}
 
 	@Override
-	public String getUid() {
+	public String getUid()
+	{
 		return StarcraftRecipeCategoryUid.GAS_COLLECTOR;
 	}
 
 	@Override
-	public String getModName() {
+	public String getModName()
+	{
 		return "Starcraft";
 	}
 
 	@Override
-	public void setRecipe(IRecipeLayout recipeLayout, GasCollectorRecipe recipeWrapper, IIngredients ingredients) {
+	public void setRecipe(IRecipeLayout recipeLayout, GasCollectorRecipe recipeWrapper, IIngredients ingredients)
+	{
 		IGuiItemStackGroup guiItemStacks = recipeLayout.getItemStacks();
 
 		guiItemStacks.init(inputSlot, true, 0, 25);

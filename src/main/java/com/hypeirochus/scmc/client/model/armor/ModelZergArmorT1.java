@@ -12,7 +12,8 @@ import net.minecraft.util.EnumHandSide;
 /**
  * zergArmorT1 v3 - cybercat5555 Created using Tabula 5.1.0
  */
-public class ModelZergArmorT1 extends ModelArmorBase implements IArmorItem {
+public class ModelZergArmorT1 extends ModelArmorBase implements IArmorItem
+{
 
 	public ModelRenderer chestplate_rArmCarapace;
 	public ModelRenderer chestplate_rKnuckle01;
@@ -70,7 +71,8 @@ public class ModelZergArmorT1 extends ModelArmorBase implements IArmorItem {
 	public ModelRenderer boots_lClaw01a_1;
 	public ModelRenderer boots_lClaw02a_1;
 
-	public ModelZergArmorT1(float modelSize) {
+	public ModelZergArmorT1(float modelSize)
+	{
 		super(modelSize, 128, 64);
 		this.chestplate_lBodyCarapace = new ModelRenderer(this, 107, 24);
 		this.chestplate_lBodyCarapace.setRotationPoint(0.0F, 2.4F, 0.0F);
@@ -359,11 +361,13 @@ public class ModelZergArmorT1 extends ModelArmorBase implements IArmorItem {
 	}
 
 	@Override
-	public void renderHelmet(TransformType type, Entity entity, float scale) {
+	public void renderHelmet(TransformType type, Entity entity, float scale)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0, 1.5, 0);
 		GlStateManager.rotate(180, 1, 0, 0);
-		switch (type) {
+		switch (type)
+		{
 		case FIRST_PERSON_LEFT_HAND:
 			ModelUtils.rotateDefaultBlockFirstperson(EnumHandSide.LEFT);
 			GlStateManager.translate(0, scale * 24, 0);
@@ -411,12 +415,14 @@ public class ModelZergArmorT1 extends ModelArmorBase implements IArmorItem {
 	}
 
 	@Override
-	public void renderChestplate(TransformType type, Entity entity, float scale) {
+	public void renderChestplate(TransformType type, Entity entity, float scale)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0, 1.5, 0);
 		GlStateManager.rotate(180, 1, 0, 0);
 
-		switch (type) {
+		switch (type)
+		{
 		case FIRST_PERSON_LEFT_HAND:
 			ModelUtils.rotateDefaultBlockFirstperson(EnumHandSide.LEFT);
 			GlStateManager.translate(0, scale * 18, 0);
@@ -466,12 +472,14 @@ public class ModelZergArmorT1 extends ModelArmorBase implements IArmorItem {
 	}
 
 	@Override
-	public void renderLeggings(TransformType type, Entity entity, float scale) {
+	public void renderLeggings(TransformType type, Entity entity, float scale)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0, 1.5, 0);
 		GlStateManager.rotate(180, 1, 0, 0);
 
-		switch (type) {
+		switch (type)
+		{
 		case FIRST_PERSON_LEFT_HAND:
 			ModelUtils.rotateDefaultBlockFirstperson(EnumHandSide.LEFT);
 			break;
@@ -514,12 +522,14 @@ public class ModelZergArmorT1 extends ModelArmorBase implements IArmorItem {
 	}
 
 	@Override
-	public void renderBoots(TransformType type, Entity entity, float scale) {
+	public void renderBoots(TransformType type, Entity entity, float scale)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0, 1.5, 0);
 		GlStateManager.rotate(180, 1, 0, 0);
 
-		switch (type) {
+		switch (type)
+		{
 		case FIRST_PERSON_LEFT_HAND:
 			ModelUtils.rotateDefaultBlockFirstperson(EnumHandSide.LEFT);
 			break;

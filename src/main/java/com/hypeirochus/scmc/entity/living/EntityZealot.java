@@ -34,11 +34,13 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityZealot extends EntityProtossMob implements IMob, Predicate<EntityLivingBase>, IShieldEntity {
+public class EntityZealot extends EntityProtossMob implements IMob, Predicate<EntityLivingBase>, IShieldEntity
+{
 
 	private static final DataParameter<Boolean> SHEATH = EntityDataManager.createKey(EntityZealot.class, DataSerializers.BOOLEAN);
 
-	public EntityZealot(World world) {
+	public EntityZealot(World world)
+	{
 		super(world);
 		setSize(1.0F, 2.9F);
 		this.setColor(EnumColors.LIGHT_BLUE);
@@ -55,30 +57,36 @@ public class EntityZealot extends EntityProtossMob implements IMob, Predicate<En
 	}
 
 	@Override
-	protected void entityInit() {
+	protected void entityInit()
+	{
 		super.entityInit();
 
 		this.getDataManager().register(SHEATH, false);
 	}
 
-	public boolean canSheathBlades() {
+	public boolean canSheathBlades()
+	{
 		return this.getDataManager().get(SHEATH);
 	}
 
-	protected void setSheathed(boolean bool) {
+	protected void setSheathed(boolean bool)
+	{
 		this.getDataManager().set(SHEATH, bool);
 	}
 
 	/**
-	 * The method where this entity handles checks to make sure it can attack the target.
+	 * The method where this entity handles checks to make sure it can attack the
+	 * target.
 	 */
 	@Override
-	public boolean apply(EntityLivingBase entity) {
+	public boolean apply(EntityLivingBase entity)
+	{
 		return checkTarget(entity, EnumFactionTypes.DAELAAM);
 	}
 
 	@Override
-	protected void applyEntityAttributes() {
+	protected void applyEntityAttributes()
+	{
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(66.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(.39000000417232513);
@@ -90,13 +98,12 @@ public class EntityZealot extends EntityProtossMob implements IMob, Predicate<En
 	/**
 	 * Drop 0-2 items of this living's type.
 	 * 
-	 * @param recentlyHit
-	 *            - Whether this entity has recently been hit by a player.
-	 * @param looting
-	 *            - Level of Looting used to kill this mob.
+	 * @param recentlyHit - Whether this entity has recently been hit by a player.
+	 * @param looting - Level of Looting used to kill this mob.
 	 */
 	@Override
-	protected void dropFewItems(boolean recentlyHit, int looting) {
+	protected void dropFewItems(boolean recentlyHit, int looting)
+	{
 		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.ENERGY, 1 + this.rand.nextInt(2), MetaHandler.EnergyType.PURE.getID()));
 		ItemDrop drop2 = new ItemDrop(1, new ItemStack(WeaponHandler.PSI_BLADE));
 		drop.tryDrop(this);
@@ -104,10 +111,12 @@ public class EntityZealot extends EntityProtossMob implements IMob, Predicate<En
 	}
 
 	@Override
-	public SoundEvent getAmbientSound() {
+	public SoundEvent getAmbientSound()
+	{
 		Random rand = new Random();
 
-		switch (rand.nextInt(3)) {
+		switch (rand.nextInt(3))
+		{
 		case 0:
 			return SoundHandler.ENTITY_ZEALOT_LIVE1;
 		case 1:
@@ -120,51 +129,62 @@ public class EntityZealot extends EntityProtossMob implements IMob, Predicate<En
 	}
 
 	@Override
-	public SoundEvent getDeathSound() {
+	public SoundEvent getDeathSound()
+	{
 		return SoundHandler.ENTITY_ZEALOT_DEATH;
 	}
 
 	@Override
-	public SoundEvent getHurtSound(DamageSource source) {
+	public SoundEvent getHurtSound(DamageSource source)
+	{
 		return SoundHandler.ENTITY_ZEALOT_HURT;
 	}
 
 	@Override
-	public int getTalkInterval() {
+	public int getTalkInterval()
+	{
 		return 160;
 	}
 
 	@Override
-	public void onUpdate() {
-		if (!world.isRemote) {
-			if (this.getAttackTarget() == null) {
+	public void onUpdate()
+	{
+		if (!world.isRemote)
+		{
+			if (this.getAttackTarget() == null)
+			{
 				this.setSheathed(false);
 			}
 		}
 		super.onUpdate();
 	}
-	
+
 	@Override
-	public float getMaxShields() {
+	public float getMaxShields()
+	{
 		return 33.0F;
 	}
-	
+
 	@Override
-	public void setAttackTarget(EntityLivingBase entitylivingbaseIn) {
-		if(entitylivingbaseIn != null && (int)this.getDistance(entitylivingbaseIn) < 16) {
+	public void setAttackTarget(EntityLivingBase entitylivingbaseIn)
+	{
+		if (entitylivingbaseIn != null && (int) this.getDistance(entitylivingbaseIn) < 16)
+		{
 			this.setSheathed(true);
 		}
 		super.setAttackTarget(entitylivingbaseIn);
 	}
-	
+
 	@Override
-	public boolean attackEntityFrom(DamageSource source, float amount) {
+	public boolean attackEntityFrom(DamageSource source, float amount)
+	{
 		this.setSheathed(true);
 		return super.attackEntityFrom(source, amount);
 	}
 
 	@Override
-	public boolean attackEntityAsMob(Entity entityIn) {
+	public boolean attackEntityAsMob(Entity entityIn)
+	{
 		this.playSound(SoundHandler.FX_PSIBLADE_ATTACK, 1.0F, 1.0F);
 		return super.attackEntityAsMob(entityIn);
 	}

@@ -11,27 +11,31 @@ public class ColorProvider implements ICapabilitySerializable<NBTBase>
 {
 
 	@CapabilityInject(IColor.class)
-	public static final Capability<IColor>	COLOR		= null;
+	public static final Capability<IColor> COLOR = null;
 
-	private IColor							instance	= COLOR.getDefaultInstance();
+	private IColor instance = COLOR.getDefaultInstance();
 
 	@Override
-	public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
+	public boolean hasCapability(Capability<?> capability, EnumFacing facing)
+	{
 		return capability == COLOR;
 	}
 
 	@Override
-	public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
+	public <T> T getCapability(Capability<T> capability, EnumFacing facing)
+	{
 		return capability == COLOR ? COLOR.<T>cast(this.instance) : null;
 	}
 
 	@Override
-	public NBTBase serializeNBT() {
+	public NBTBase serializeNBT()
+	{
 		return COLOR.getStorage().writeNBT(COLOR, this.instance, null);
 	}
 
 	@Override
-	public void deserializeNBT(NBTBase nbt) {
+	public void deserializeNBT(NBTBase nbt)
+	{
 		COLOR.getStorage().readNBT(COLOR, this.instance, null, nbt);
 	}
 }

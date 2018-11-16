@@ -13,7 +13,8 @@ import com.hypeirochus.scmc.worldgen.dimzerus.WorldProviderZerus;
 import net.minecraft.world.DimensionType;
 import net.minecraftforge.common.DimensionManager;
 
-public class DimensionHandler {
+public class DimensionHandler
+{
 
 	public static DimensionType char_dt = DimensionType.register("Char", "_starcraft", StarcraftConfig.INT_DIMENSION_CHAR, WorldProviderChar.class, false);
 	public static DimensionType shakuras_dt = DimensionType.register("Shakuras", "_starcraft", StarcraftConfig.INT_DIMENSION_SHAKURAS, WorldProviderShakuras.class, false);
@@ -24,7 +25,8 @@ public class DimensionHandler {
 	public static DimensionType zerus_dt = DimensionType.register("Zerus", "_starcraft", StarcraftConfig.INT_DIMENSION_ZERUS, WorldProviderZerus.class, false);
 	public static DimensionType space_dt = DimensionType.register("Space", "_starcraft", StarcraftConfig.INT_DIMENSION_SPACE, WorldProviderSpace.class, false);
 
-	public static void init() {
+	public static void init()
+	{
 		DimensionManager.registerDimension(StarcraftConfig.INT_DIMENSION_CHAR, char_dt);
 		DimensionManager.registerDimension(StarcraftConfig.INT_DIMENSION_SHAKURAS, shakuras_dt);
 		DimensionManager.registerDimension(StarcraftConfig.INT_DIMENSION_KORHAL, korhal_dt);

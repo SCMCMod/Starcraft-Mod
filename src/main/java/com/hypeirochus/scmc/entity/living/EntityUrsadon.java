@@ -26,9 +26,11 @@ import net.minecraft.world.World;
 /**
  * @author Hypeirochus
  */
-public class EntityUrsadon extends EntityMob implements IMob, Predicate<EntityLivingBase> {
+public class EntityUrsadon extends EntityMob implements IMob, Predicate<EntityLivingBase>
+{
 
-	public EntityUrsadon(World world) {
+	public EntityUrsadon(World world)
+	{
 		super(world);
 		setSize(1.5F, 1.5F);
 		tasks.addTask(0, new EntityAISwimming(this));
@@ -41,11 +43,15 @@ public class EntityUrsadon extends EntityMob implements IMob, Predicate<EntityLi
 	}
 
 	@Override
-	public boolean apply(EntityLivingBase entity) {
-		if (!entity.isInvisible()) {
-			if (entity instanceof EntityUrsadon || entity instanceof EntityUrsadonMatriarch) {
+	public boolean apply(EntityLivingBase entity)
+	{
+		if (!entity.isInvisible())
+		{
+			if (entity instanceof EntityUrsadon || entity instanceof EntityUrsadonMatriarch)
+			{
 				return false;
-			} else {
+			} else
+			{
 				return true;
 			}
 		}
@@ -53,10 +59,12 @@ public class EntityUrsadon extends EntityMob implements IMob, Predicate<EntityLi
 	}
 
 	@Override
-	public SoundEvent getAmbientSound() {
+	public SoundEvent getAmbientSound()
+	{
 		Random rand = new Random();
 
-		switch (rand.nextInt(1)) {
+		switch (rand.nextInt(1))
+		{
 		case 0:
 			return SoundHandler.ENTITY_URSADON_LIVE1;
 		default:
@@ -65,30 +73,36 @@ public class EntityUrsadon extends EntityMob implements IMob, Predicate<EntityLi
 	}
 
 	@Override
-	public SoundEvent getDeathSound() {
+	public SoundEvent getDeathSound()
+	{
 		return SoundHandler.ENTITY_URSADON_DEATH;
 	}
 
 	@Override
-	public SoundEvent getHurtSound(DamageSource source) {
+	public SoundEvent getHurtSound(DamageSource source)
+	{
 		return SoundHandler.ENTITY_URSADON_HURT;
 	}
 
 	@Override
-	public boolean getCanSpawnHere() {
-		if (this.world.provider.getDimension() == StarcraftConfig.INT_DIMENSION_KALDIR && world.getDifficulty() != EnumDifficulty.PEACEFUL) {
+	public boolean getCanSpawnHere()
+	{
+		if (this.world.provider.getDimension() == StarcraftConfig.INT_DIMENSION_KALDIR && world.getDifficulty() != EnumDifficulty.PEACEFUL)
+		{
 			return true;
 		}
 		return false;
 	}
 
 	@Override
-	public int getTalkInterval() {
+	public int getTalkInterval()
+	{
 		return 160;
 	}
 
 	@Override
-	protected void applyEntityAttributes() {
+	protected void applyEntityAttributes()
+	{
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(100.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3804D);

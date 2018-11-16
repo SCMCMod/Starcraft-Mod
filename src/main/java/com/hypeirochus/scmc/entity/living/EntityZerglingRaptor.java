@@ -32,9 +32,11 @@ import net.minecraft.world.World;
 /**
  * @author Hypeirochus
  */
-public class EntityZerglingRaptor extends EntityZergMob implements IMob, Predicate<EntityLivingBase>,IMorphResult {
+public class EntityZerglingRaptor extends EntityZergMob implements IMob, Predicate<EntityLivingBase>, IMorphResult
+{
 
-	public EntityZerglingRaptor(World world) {
+	public EntityZerglingRaptor(World world)
+	{
 		super(world);
 		setSize(1.0F, 1.0F);
 		stepHeight = 5.0F;
@@ -43,9 +45,10 @@ public class EntityZerglingRaptor extends EntityZergMob implements IMob, Predica
 		this.setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
 		this.initEntityAI();
 	}
-	
+
 	@Override
-	protected void initEntityAI() {
+	protected void initEntityAI()
+	{
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIRaptorLeapAtTarget(this, 0.6F));
 		tasks.addTask(2, new EntityAIAttackMelee(this, 1.0D, false));
@@ -59,7 +62,8 @@ public class EntityZerglingRaptor extends EntityZergMob implements IMob, Predica
 	}
 
 	@Override
-	public int getMaxFallHeight() {
+	public int getMaxFallHeight()
+	{
 		return 6;
 	}
 
@@ -68,12 +72,14 @@ public class EntityZerglingRaptor extends EntityZergMob implements IMob, Predica
 	 * target.
 	 */
 	@Override
-	public boolean apply(EntityLivingBase entity) {
+	public boolean apply(EntityLivingBase entity)
+	{
 		return checkTarget(entity, EnumFactionTypes.SWARM);
 	}
 
 	@Override
-	protected void applyEntityAttributes() {
+	protected void applyEntityAttributes()
+	{
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(25.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3304D);
@@ -82,16 +88,19 @@ public class EntityZerglingRaptor extends EntityZergMob implements IMob, Predica
 	}
 
 	@Override
-	protected void dropFewItems(boolean recentlyHit, int looting) {
+	protected void dropFewItems(boolean recentlyHit, int looting)
+	{
 		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), MetaHandler.CarapaceType.T1.getID()));
 		drop.tryDrop(this);
 	}
 
 	@Override
-	public SoundEvent getAmbientSound() {
+	public SoundEvent getAmbientSound()
+	{
 		Random rand = new Random();
 
-		switch (rand.nextInt(3)) {
+		switch (rand.nextInt(3))
+		{
 		case 0:
 			return SoundHandler.ENTITY_ZERGLING_LIVE1;
 		case 1:
@@ -104,30 +113,37 @@ public class EntityZerglingRaptor extends EntityZergMob implements IMob, Predica
 	}
 
 	@Override
-	public SoundEvent getDeathSound() {
+	public SoundEvent getDeathSound()
+	{
 		return SoundHandler.ENTITY_ZERGLING_DEATH;
 	}
 
 	@Override
-	public SoundEvent getHurtSound(DamageSource source) {
+	public SoundEvent getHurtSound(DamageSource source)
+	{
 		return SoundHandler.ENTITY_ZERGLING_HURT;
 	}
 
 	@Override
-	protected float getJumpUpwardsMotion() {
+	protected float getJumpUpwardsMotion()
+	{
 		return 5.0F;
 	}
 
 	@Override
-	public int getTalkInterval() {
+	public int getTalkInterval()
+	{
 		return 160;
 	}
-	
+
 	@Override
-	public void onLivingUpdate() {
-		if(this.getBurrowState() == true) {
+	public void onLivingUpdate()
+	{
+		if (this.getBurrowState() == true)
+		{
 			setSize(1.0F, 0.1F);
-		}else {
+		} else
+		{
 			setSize(1.0F, 1.0F);
 		}
 		super.onLivingUpdate();

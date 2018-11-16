@@ -19,27 +19,32 @@ import net.minecraftforge.fluids.BlockFluidClassic;
  * 
  * @author Hypeirochus
  */
-public class BlockTar extends BlockFluidClassic {
+public class BlockTar extends BlockFluidClassic
+{
 
-	public BlockTar() {
+	public BlockTar()
+	{
 		super(FluidHandler.TAR, Material.WATER);
 		setUnlocalizedName("fluid.tar");
 		setRegistryName("fluid.tar");
 		BlockHandler.registerFullBlock(this);
 	}
-	
+
 	@Override
-	public Vec3d getFogColor(World world, BlockPos pos, IBlockState state, Entity entity, Vec3d originalColor, float partialTicks) {
-        int color = 0xff141E28;
-        return new Vec3d((color >> 16 & 0xFF) / 255.0F, (color >> 8 & 0xFF) / 255.0F, (color & 0xFF) / 255.0F);
+	public Vec3d getFogColor(World world, BlockPos pos, IBlockState state, Entity entity, Vec3d originalColor, float partialTicks)
+	{
+		int color = 0xff141E28;
+		return new Vec3d((color >> 16 & 0xFF) / 255.0F, (color >> 8 & 0xFF) / 255.0F, (color & 0xFF) / 255.0F);
 	}
 
 	@Override
-	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
+	{
 		return MapColor.BLACK;
 	}
 
-	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
+	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
+	{
 		entityIn.setInWeb();
 	}
 }

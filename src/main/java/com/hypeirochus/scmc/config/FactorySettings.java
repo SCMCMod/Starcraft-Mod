@@ -2,16 +2,15 @@ package com.hypeirochus.scmc.config;
 
 /**
  * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
- * 
  * <br>
  * </br>
- * 
  * Holds all the default settings for the config.
  * 
  * @author Hypeirochus
  */
 //TODO: PHASE THIS OUT. We need to move away from this, this isn't good code.
-public class FactorySettings {
+public class FactorySettings
+{
 
 	// Dimension Ids
 	public static final int INT_DIMENSION_CHAR = 2;

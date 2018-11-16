@@ -6,12 +6,14 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
-public class GenLayerCharMix extends GenLayer {
+public class GenLayerCharMix extends GenLayer
+{
 
-	private final GenLayer	biomePatternGeneratorChain;
-	private final GenLayer	riverPatternGeneratorChain;
+	private final GenLayer biomePatternGeneratorChain;
+	private final GenLayer riverPatternGeneratorChain;
 
-	public GenLayerCharMix(long p_i2129_1_, GenLayer p_i2129_3_, GenLayer p_i2129_4_) {
+	public GenLayerCharMix(long p_i2129_1_, GenLayer p_i2129_3_, GenLayer p_i2129_4_)
+	{
 		super(p_i2129_1_);
 		biomePatternGeneratorChain = p_i2129_3_;
 		riverPatternGeneratorChain = p_i2129_4_;
@@ -23,15 +25,19 @@ public class GenLayerCharMix extends GenLayer {
 	 * on the particular GenLayer subclass.
 	 */
 	@Override
-	public int[] getInts(int areaX, int areaY, int areaWidth, int areaHeight) {
+	public int[] getInts(int areaX, int areaY, int areaWidth, int areaHeight)
+	{
 		int[] aint = biomePatternGeneratorChain.getInts(areaX, areaY, areaWidth, areaHeight);
 		int[] aint1 = riverPatternGeneratorChain.getInts(areaX, areaY, areaWidth, areaHeight);
 		int[] aint2 = IntCache.getIntCache(areaWidth * areaHeight);
 
-		for (int i = 0; i < areaWidth * areaHeight; ++i) {
-			if (aint1[i] == Biome.getIdForBiome(BiomeHandler.biomeCharScars)) {
+		for (int i = 0; i < areaWidth * areaHeight; ++i)
+		{
+			if (aint1[i] == Biome.getIdForBiome(BiomeHandler.biomeCharScars))
+			{
 				aint2[i] = aint1[i] & 255;
-			} else {
+			} else
+			{
 				aint2[i] = aint[i];
 			}
 		}
@@ -44,7 +50,8 @@ public class GenLayerCharMix extends GenLayer {
 	 * world's global seed (passed in as an argument).
 	 */
 	@Override
-	public void initWorldGenSeed(long seed) {
+	public void initWorldGenSeed(long seed)
+	{
 		biomePatternGeneratorChain.initWorldGenSeed(seed);
 		riverPatternGeneratorChain.initWorldGenSeed(seed);
 		super.initWorldGenSeed(seed);

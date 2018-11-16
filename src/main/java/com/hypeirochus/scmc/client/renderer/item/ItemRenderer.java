@@ -29,26 +29,29 @@ import net.minecraft.world.World;
 
 /**
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
- * 
  * <br>
  * </br>
- * 
  * A neat class that removes the need for JSON in item rendering.
  * 
  * @author Ri5ux, creator of the AVP mod
  */
 //TODO: MOVE TO CORE MOD, Stricken Ri5ux's name from the mod. We'll credit him elsewhere.
-public abstract class ItemRenderer implements IBakedModel {
+public abstract class ItemRenderer implements IBakedModel
+{
 
-	public static class ItemRenderList extends ItemOverrideList {
+	public static class ItemRenderList extends ItemOverrideList
+	{
 
-		public ItemRenderList() {
+		public ItemRenderList()
+		{
 			super(Lists.<ItemOverride>newArrayList());
 		}
 
 		@Override
-		public IBakedModel handleItemState(IBakedModel originalModel, ItemStack stack, World world, EntityLivingBase entity) {
-			if (originalModel instanceof ItemRenderer) {
+		public IBakedModel handleItemState(IBakedModel originalModel, ItemStack stack, World world, EntityLivingBase entity)
+		{
+			if (originalModel instanceof ItemRenderer)
+			{
 				ItemRenderer model = (ItemRenderer) originalModel;
 				model.setItemstack(stack);
 				model.setEntity(entity);
@@ -68,7 +71,8 @@ public abstract class ItemRenderer implements IBakedModel {
 
 	protected ItemStack stack;
 
-	public ItemRenderer(ModelBase model, ResourceLocation resource) {
+	public ItemRenderer(ModelBase model, ResourceLocation resource)
+	{
 		this.overrides = new ItemRenderList();
 		this.selfPair = Pair.of(this, null);
 		this.model = model;
@@ -76,71 +80,88 @@ public abstract class ItemRenderer implements IBakedModel {
 	}
 
 	@Override
-	public ItemCameraTransforms getItemCameraTransforms() {
+	public ItemCameraTransforms getItemCameraTransforms()
+	{
 		return ItemCameraTransforms.DEFAULT;
 	}
 
-	public ModelBase getModel() {
+	public ModelBase getModel()
+	{
 		return model;
 	}
 
 	@Override
-	public ItemOverrideList getOverrides() {
+	public ItemOverrideList getOverrides()
+	{
 		return overrides;
 	}
 
 	@Override
-	public TextureAtlasSprite getParticleTexture() {
+	public TextureAtlasSprite getParticleTexture()
+	{
 		return null;
 	}
 
 	@Override
-	public List<BakedQuad> getQuads(IBlockState state, EnumFacing side, long rand) {
+	public List<BakedQuad> getQuads(IBlockState state, EnumFacing side, long rand)
+	{
 		return quads;
 	}
 
-	public ResourceLocation getResourceLocation() {
+	public ResourceLocation getResourceLocation()
+	{
 		return resource;
 	}
 
-	protected void bindTexture() {
+	protected void bindTexture()
+	{
 		RenderUtil.bindTexture(resource);
 	}
 
 	@Override
-	public Pair<? extends IBakedModel, Matrix4f> handlePerspective(TransformType type) {
+	public Pair<? extends IBakedModel, Matrix4f> handlePerspective(TransformType type)
+	{
 		renderPre(stack, entity, type);
 
-		switch (type) {
-		case FIRST_PERSON_LEFT_HAND: {
+		switch (type)
+		{
+		case FIRST_PERSON_LEFT_HAND:
+		{
 			renderFirstPersonLeft(stack, entity, type);
 		}
 			break;
-		case FIRST_PERSON_RIGHT_HAND: {
+		case FIRST_PERSON_RIGHT_HAND:
+		{
 			renderFirstPersonRight(stack, entity, type);
 		}
 			break;
-		case GUI: {
+		case GUI:
+		{
 			renderInInventory(stack, entity, type);
 		}
 			break;
-		case THIRD_PERSON_LEFT_HAND: {
+		case THIRD_PERSON_LEFT_HAND:
+		{
 			renderThirdPersonLeft(stack, entity, type);
 		}
 			break;
-		case THIRD_PERSON_RIGHT_HAND: {
+		case THIRD_PERSON_RIGHT_HAND:
+		{
 			renderThirdPersonRight(stack, entity, type);
 		}
 			break;
-		case GROUND: {
+		case GROUND:
+		{
 			renderInWorld(stack, entity, type);
 		}
 			break;
-		case FIXED: {
+		case FIXED:
+		{
 			renderFixed(stack, entity, type);
 		}
 			break;
-		case HEAD: {
+		case HEAD:
+		{
 			renderHead(stack, entity, type);
 		}
 			break;
@@ -157,17 +178,20 @@ public abstract class ItemRenderer implements IBakedModel {
 	}
 
 	@Override
-	public boolean isAmbientOcclusion() {
+	public boolean isAmbientOcclusion()
+	{
 		return true;
 	}
 
 	@Override
-	public boolean isBuiltInRenderer() {
+	public boolean isBuiltInRenderer()
+	{
 		return false;
 	}
 
 	@Override
-	public boolean isGui3d() {
+	public boolean isGui3d()
+	{
 		return true;
 	}
 
@@ -179,10 +203,12 @@ public abstract class ItemRenderer implements IBakedModel {
 
 	public abstract void renderInWorld(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType);
 
-	public void renderPost(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderPost(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 	}
 
-	public void renderPre(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderPre(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 	}
 
 	public abstract void renderThirdPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType);
@@ -193,15 +219,18 @@ public abstract class ItemRenderer implements IBakedModel {
 
 	public abstract void renderHead(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType);
 
-	private void setEntity(EntityLivingBase entity) {
+	private void setEntity(EntityLivingBase entity)
+	{
 		this.entity = entity;
 	}
 
-	private void setItemstack(ItemStack stack) {
+	private void setItemstack(ItemStack stack)
+	{
 		this.stack = stack;
 	}
 
-	public void setResourceLocation(ResourceLocation resource) {
+	public void setResourceLocation(ResourceLocation resource)
+	{
 		this.resource = resource;
 	}
 }

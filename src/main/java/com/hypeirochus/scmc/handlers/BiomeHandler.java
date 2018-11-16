@@ -37,7 +37,8 @@ import com.hypeirochus.scmc.worldgen.dimzerus.BiomeGenZerusMountains;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeManager;
 
-public class BiomeHandler extends Biome {
+public class BiomeHandler extends Biome
+{
 
 	private static List<Biome> biomes;
 
@@ -104,7 +105,8 @@ public class BiomeHandler extends Biome {
 
 	public static Biome biomeSpace;
 
-	private static void init() {
+	private static void init()
+	{
 		biomes = new ArrayList<Biome>();
 
 		registerBiomes();
@@ -173,10 +175,11 @@ public class BiomeHandler extends Biome {
 		register(biomeSpace);
 
 		DimensionHandler.init();
-		//TODO: WorldGenerationHandler.init();
+		// TODO: WorldGenerationHandler.init();
 	}
 
-	public static void registerBiomes() {
+	public static void registerBiomes()
+	{
 
 		/** Char biomes **/
 		biomeCharZergHive = new BiomeGenCharZergHive((new Biome.BiomeProperties("Char Zerg Hive")).setBaseHeight(0.0F).setHeightVariation(0.025F).setTemperature(2.0F).setRainfall(0.3F));
@@ -284,11 +287,13 @@ public class BiomeHandler extends Biome {
 
 	}
 
-	public static void register(Biome biome) {
+	public static void register(Biome biome)
+	{
 		biomes.add(biome);
 	}
 
-	public BiomeHandler(BiomeProperties par1) {
+	public BiomeHandler(BiomeProperties par1)
+	{
 		super(par1);
 	}
 
@@ -297,7 +302,8 @@ public class BiomeHandler extends Biome {
 	 * 
 	 * @return All the registered biomes
 	 */
-	public static Biome[] getBiomes() {
+	public static Biome[] getBiomes()
+	{
 		if (biomes == null)
 			init();
 		return biomes.toArray(new Biome[biomes.size()]);

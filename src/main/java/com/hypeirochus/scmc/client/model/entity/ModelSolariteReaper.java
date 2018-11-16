@@ -10,24 +10,26 @@ import net.minecraft.util.ResourceLocation;
 /**
  * SCMC_axe - XJustaguyX Created using Tabula 5.1.0
  */
-public class ModelSolariteReaper extends Model {
-	public static final ResourceLocation	TEXTURE	= new ResourceLocation(Starcraft.MOD_ID, "textures/models/solaritereaper.png");
-	public ModelRenderer					shape1;
-	public ModelRenderer					shape2;
-	public ModelRenderer					shape3;
-	public ModelRenderer					shape4;
-	public ModelRenderer					shape5;
-	public ModelRenderer					shape6;
-	public ModelRenderer					shape7;
-	public ModelRenderer					shape8;
-	public ModelRenderer					shape9;
-	public ModelRenderer					shape0;
-	public ModelRenderer					shape18;
-	public ModelRenderer					shape19;
-	public ModelRenderer					shape10;
-	public ModelRenderer					shape16;
+public class ModelSolariteReaper extends Model
+{
+	public static final ResourceLocation TEXTURE = new ResourceLocation(Starcraft.MOD_ID, "textures/models/solaritereaper.png");
+	public ModelRenderer shape1;
+	public ModelRenderer shape2;
+	public ModelRenderer shape3;
+	public ModelRenderer shape4;
+	public ModelRenderer shape5;
+	public ModelRenderer shape6;
+	public ModelRenderer shape7;
+	public ModelRenderer shape8;
+	public ModelRenderer shape9;
+	public ModelRenderer shape0;
+	public ModelRenderer shape18;
+	public ModelRenderer shape19;
+	public ModelRenderer shape10;
+	public ModelRenderer shape16;
 
-	public ModelSolariteReaper() {
+	public ModelSolariteReaper()
+	{
 		this.textureWidth = 128;
 		this.textureHeight = 64;
 		this.shape0 = new ModelRenderer(this, 0, 23);
@@ -82,7 +84,8 @@ public class ModelSolariteReaper extends Model {
 	}
 
 	@Override
-	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
+	{
 		this.shape0.render(f5);
 		this.shape2.render(f5);
 		this.shape9.render(f5);

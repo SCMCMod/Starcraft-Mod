@@ -9,20 +9,23 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityZerusLightcap extends TileEntity {
+public class TileEntityZerusLightcap extends TileEntity
+{
 
 	private static Random random = new Random();
 
 	private boolean variant;
 	private int rotation;
 
-	public TileEntityZerusLightcap() {
+	public TileEntityZerusLightcap()
+	{
 		variant = random.nextBoolean();
 		rotation = random.nextInt(360) + 1;
 	}
 
 	@Override
-	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt)
+	{
 		super.writeToNBT(nbt);
 		nbt.setBoolean("variant", this.variant);
 		nbt.setInteger("rotation", this.rotation);
@@ -30,36 +33,42 @@ public class TileEntityZerusLightcap extends TileEntity {
 	}
 
 	@Override
-	public void readFromNBT(NBTTagCompound nbt) {
+	public void readFromNBT(NBTTagCompound nbt)
+	{
 		super.readFromNBT(nbt);
 		this.variant = nbt.getBoolean("variant");
 		this.rotation = nbt.getInteger("rotation");
 	}
 
 	@Override
-	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
+	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt)
+	{
 		NBTTagCompound nbt = pkt.getNbtCompound();
 		readFromNBT(nbt);
 	}
 
 	@Nullable
-	public SPacketUpdateTileEntity getUpdatePacket() {
+	public SPacketUpdateTileEntity getUpdatePacket()
+	{
 		NBTTagCompound nbt = new NBTTagCompound();
 		writeToNBT(nbt);
 		return new SPacketUpdateTileEntity(this.pos, 1, nbt);
 	}
 
-	public NBTTagCompound getUpdateTag() {
+	public NBTTagCompound getUpdateTag()
+	{
 		NBTTagCompound nbt = super.getUpdateTag();
 		writeToNBT(nbt);
 		return nbt;
 	}
 
-	public boolean isVariant() {
+	public boolean isVariant()
+	{
 		return variant;
 	}
 
-	public int getRotation() {
+	public int getRotation()
+	{
 		return rotation;
 	}
 }

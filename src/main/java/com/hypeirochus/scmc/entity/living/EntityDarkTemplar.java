@@ -31,11 +31,13 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predicate<EntityLivingBase>, IShieldEntity {
-	
-	private static final DataParameter<Boolean>	SHEATH	= EntityDataManager.createKey(EntityDarkTemplar.class, DataSerializers.BOOLEAN);
+public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predicate<EntityLivingBase>, IShieldEntity
+{
 
-	public EntityDarkTemplar(World world) {
+	private static final DataParameter<Boolean> SHEATH = EntityDataManager.createKey(EntityDarkTemplar.class, DataSerializers.BOOLEAN);
+
+	public EntityDarkTemplar(World world)
+	{
 		super(world);
 		setSize(1.0F, 2.9F);
 		this.setColor(EnumColors.LIGHT_BLUE);
@@ -43,9 +45,10 @@ public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predica
 		setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND, EnumTypeAttributes.PSIONIC);
 		this.initEntityAI();
 	}
-	
+
 	@Override
-	protected void initEntityAI() {
+	protected void initEntityAI()
+	{
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
 		tasks.addTask(2, new EntityAIWander(this, 1.0D));
@@ -57,17 +60,20 @@ public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predica
 	}
 
 	@Override
-	protected void entityInit() {
+	protected void entityInit()
+	{
 		super.entityInit();
 
 		this.getDataManager().register(SHEATH, false);
 	}
 
-	public boolean canSheathBlades() {
+	public boolean canSheathBlades()
+	{
 		return this.getDataManager().get(SHEATH);
 	}
 
-	protected void setSheathed(boolean bool) {
+	protected void setSheathed(boolean bool)
+	{
 		this.getDataManager().set(SHEATH, bool);
 	}
 
@@ -76,12 +82,14 @@ public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predica
 	 * target.
 	 */
 	@Override
-	public boolean apply(EntityLivingBase entity) {
+	public boolean apply(EntityLivingBase entity)
+	{
 		return checkTarget(entity, EnumFactionTypes.DAELAAM);
 	}
 
 	@Override
-	protected void applyEntityAttributes() {
+	protected void applyEntityAttributes()
+	{
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(27.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.39000000417232513);
@@ -91,13 +99,15 @@ public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predica
 	}
 
 	@Override
-	public boolean attackEntityAsMob(Entity entityIn) {
+	public boolean attackEntityAsMob(Entity entityIn)
+	{
 		this.playSound(SoundHandler.FX_WARPBLADE_ATTACK, 1.0F, 1.0F);
 		return super.attackEntityAsMob(entityIn);
 	}
 
 	@Override
-	protected void dropFewItems(boolean recentlyHit, int looting) {
+	protected void dropFewItems(boolean recentlyHit, int looting)
+	{
 		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.ENERGY, 1 + this.rand.nextInt(2), MetaHandler.EnergyType.CORRUPTED.getID()));
 		ItemDrop drop2 = new ItemDrop(1, new ItemStack(WeaponHandler.DARK_WARP_BLADE));
 		drop.tryDrop(this);
@@ -105,7 +115,8 @@ public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predica
 	}
 
 	@Override
-	public SoundEvent getAmbientSound() {
+	public SoundEvent getAmbientSound()
+	{
 		if (rand.nextInt(1) == 0)
 			return SoundHandler.ENTITY_DARKTEMPLAR_LIVE1;
 
@@ -113,48 +124,59 @@ public class EntityDarkTemplar extends EntityProtossMob implements IMob, Predica
 	}
 
 	@Override
-	public SoundEvent getDeathSound() {
+	public SoundEvent getDeathSound()
+	{
 		return SoundHandler.ENTITY_DARKTEMPLAR_DEATH;
 	}
 
 	@Override
-	public SoundEvent getHurtSound(DamageSource source) {
+	public SoundEvent getHurtSound(DamageSource source)
+	{
 		return SoundHandler.ENTITY_DARKTEMPLAR_HURT;
 	}
 
 	@Override
-	public int getTalkInterval() {
+	public int getTalkInterval()
+	{
 		return 160;
 	}
 
 	@Override
-	public void onUpdate() {
-		if (!world.isRemote) {
-			if (this.getAttackTarget() != null) {
+	public void onUpdate()
+	{
+		if (!world.isRemote)
+		{
+			if (this.getAttackTarget() != null)
+			{
 				this.setSheathed(true);
-			} else if (this.getAttackTarget() == null) {
+			} else if (this.getAttackTarget() == null)
+			{
 				this.setSheathed(false);
 			}
 		}
 		super.onUpdate();
 	}
-	
+
 	@Override
-	public void setAttackTarget(EntityLivingBase entitylivingbaseIn) {
-		if(entitylivingbaseIn != null && (int)this.getDistance(entitylivingbaseIn) < 16) {
+	public void setAttackTarget(EntityLivingBase entitylivingbaseIn)
+	{
+		if (entitylivingbaseIn != null && (int) this.getDistance(entitylivingbaseIn) < 16)
+		{
 			this.setSheathed(true);
 		}
 		super.setAttackTarget(entitylivingbaseIn);
 	}
-	
+
 	@Override
-	public boolean attackEntityFrom(DamageSource source, float amount) {
+	public boolean attackEntityFrom(DamageSource source, float amount)
+	{
 		this.setSheathed(true);
 		return super.attackEntityFrom(source, amount);
 	}
-	
+
 	@Override
-	public float getMaxShields() {
+	public float getMaxShields()
+	{
 		return 53.0F;
 	}
 }

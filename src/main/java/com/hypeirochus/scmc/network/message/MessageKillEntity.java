@@ -9,33 +9,40 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-public class MessageKillEntity implements IMessage, IMessageHandler<MessageKillEntity, IMessage> {
+public class MessageKillEntity implements IMessage, IMessageHandler<MessageKillEntity, IMessage>
+{
 
 	private int entityId;
 
-	public MessageKillEntity() {
+	public MessageKillEntity()
+	{
 	}
 
-	public MessageKillEntity(EntityLivingBase entity) {
+	public MessageKillEntity(EntityLivingBase entity)
+	{
 		this.entityId = entity.getEntityId();
 	}
 
 	@Override
-	public void toBytes(ByteBuf buf) {
+	public void toBytes(ByteBuf buf)
+	{
 		buf.writeInt(entityId);
 	}
 
 	@Override
-	public void fromBytes(ByteBuf buf) {
+	public void fromBytes(ByteBuf buf)
+	{
 		entityId = buf.readInt();
 	}
 
 	@Override
-	public IMessage onMessage(MessageKillEntity message, MessageContext ctx) {
+	public IMessage onMessage(MessageKillEntity message, MessageContext ctx)
+	{
 		EntityPlayer player = ctx.getServerHandler().player;
 		World world = player.world;
 
-		if (!world.isRemote) {
+		if (!world.isRemote)
+		{
 			EntityLivingBase entity = (EntityLivingBase) world.getEntityByID(message.entityId);
 			entity.onDeath(DamageSource.OUT_OF_WORLD);
 			entity.setHealth(0);

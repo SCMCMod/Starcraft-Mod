@@ -15,38 +15,44 @@ import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class WorldProviderSpace extends WorldProvider implements IClimateProvider {
+public class WorldProviderSpace extends WorldProvider implements IClimateProvider
+{
 
-	private CloudProviderSpace	clouds	= new CloudProviderSpace();
-	private StormProviderSpace	storms	= new StormProviderSpace();
-	private IRenderHandler		skyRenderer;
-	private IRenderHandler		climateProvider;
+	private CloudProviderSpace clouds = new CloudProviderSpace();
+	private StormProviderSpace storms = new StormProviderSpace();
+	private IRenderHandler skyRenderer;
+	private IRenderHandler climateProvider;
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public IRenderHandler getWeatherRenderer() {
+	public IRenderHandler getWeatherRenderer()
+	{
 		return null;
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public IRenderHandler getCloudRenderer() {
+	public IRenderHandler getCloudRenderer()
+	{
 		return climateProvider == null ? climateProvider = new CloudProviderSpace() : climateProvider;
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public IRenderHandler getSkyRenderer() {
+	public IRenderHandler getSkyRenderer()
+	{
 		return skyRenderer == null ? skyRenderer = new RenderSkySpace() : skyRenderer;
 	}
-	
+
 	@Override
-	public boolean hasSkyLight() {
+	public boolean hasSkyLight()
+	{
 		return false;
 	}
 
 	@Override
-	public BiomeProvider getBiomeProvider() {
+	public BiomeProvider getBiomeProvider()
+	{
 		return biomeProvider = new SpaceBiomeProvider(world.getWorldInfo());
 	}
 
@@ -54,7 +60,8 @@ public class WorldProviderSpace extends WorldProvider implements IClimateProvide
 	 * Returns array with sunrise/sunset colors
 	 */
 	@SideOnly(Side.CLIENT)
-	public float[] calcSunriseSunsetColors(float celestialAngle, float partialTicks) {
+	public float[] calcSunriseSunsetColors(float celestialAngle, float partialTicks)
+	{
 		return null;
 	}
 
@@ -62,12 +69,14 @@ public class WorldProviderSpace extends WorldProvider implements IClimateProvide
 	 * Return Vec3D with biome specific fog color
 	 */
 	@SideOnly(Side.CLIENT)
-	public Vec3d getFogColor(float p_76562_1_, float p_76562_2_) {
+	public Vec3d getFogColor(float p_76562_1_, float p_76562_2_)
+	{
 		return new Vec3d(0.0D, 0.0D, 0.0D);
 	}
 
 	@SideOnly(Side.CLIENT)
-	public boolean isSkyColored() {
+	public boolean isSkyColored()
+	{
 		return false;
 	}
 
@@ -75,17 +84,20 @@ public class WorldProviderSpace extends WorldProvider implements IClimateProvide
 	 * True if the player can respawn in this dimension (true = overworld, false =
 	 * nether).
 	 */
-	public boolean canRespawnHere() {
+	public boolean canRespawnHere()
+	{
 		return false;
 	}
 
 	@Override
-	public IChunkGenerator createChunkGenerator() {
+	public IChunkGenerator createChunkGenerator()
+	{
 		return new ChunkGeneratorSpace(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled(), world.getWorldInfo().getGeneratorOptions());
 	}
-	
+
 	@Override
-	public DimensionType getDimensionType() {
+	public DimensionType getDimensionType()
+	{
 		return DimensionHandler.space_dt;
 	}
 
@@ -93,32 +105,36 @@ public class WorldProviderSpace extends WorldProvider implements IClimateProvide
 	 * Determines the dimension the player will be respawned in, typically this
 	 * brings them back to the overworld.
 	 * 
-	 * @param player
-	 *            The player that is respawning
+	 * @param player The player that is respawning
 	 * @return The dimension to respawn the player in
 	 */
 	@Override
-	public int getRespawnDimension(net.minecraft.entity.player.EntityPlayerMP player) {
+	public int getRespawnDimension(net.minecraft.entity.player.EntityPlayerMP player)
+	{
 		return 0;
 	}
 
 	@Override
-	public float calculateCelestialAngle(long worldTime, float partialTicks) {
+	public float calculateCelestialAngle(long worldTime, float partialTicks)
+	{
 		return 0.0F;
 	}
 
 	@Override
-	public Vec3d getSkyColor(Entity cameraEntity, float partialTicks) {
+	public Vec3d getSkyColor(Entity cameraEntity, float partialTicks)
+	{
 		return new Vec3d(0.0D, 0.0D, 0.0D);
 	}
 
 	@Override
-	public ICloudProvider getCloudProvider() {
+	public ICloudProvider getCloudProvider()
+	{
 		return clouds;
 	}
 
 	@Override
-	public IStormProvider getStormProvider() {
+	public IStormProvider getStormProvider()
+	{
 		return storms;
 	}
 }

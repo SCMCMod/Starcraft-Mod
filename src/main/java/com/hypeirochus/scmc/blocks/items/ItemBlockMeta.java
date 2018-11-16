@@ -6,28 +6,28 @@ import net.minecraft.item.ItemStack;
 
 /**
  * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
- * 
  * <br>
  * </br>
- * 
- * Creates an ItemBlock for the blocks that have meta data. Must be specified by the block in registry.
+ * Creates an ItemBlock for the blocks that have meta data. Must be specified by
+ * the block in registry.
  * 
  * @see ItemBlock
- *
  */
 //TODO: MOVE TO CORE MOD
-public class ItemBlockMeta extends ItemBlock {
+public class ItemBlockMeta extends ItemBlock
+{
 
 	/**
 	 * Default {@link ItemBlock} constructor
 	 * 
-	 * @param block
-	 *            The original block
+	 * @param block The original block
 	 */
-	public ItemBlockMeta(Block block) {
+	public ItemBlockMeta(Block block)
+	{
 		super(block);
 
-		if (!(block instanceof IMetaBlockName)) {
+		if (!(block instanceof IMetaBlockName))
+		{
 			throw new IllegalArgumentException(String.format("The given Block %s is not an instance of IMetaBlockName!", block.getUnlocalizedName()));
 		}
 
@@ -39,7 +39,8 @@ public class ItemBlockMeta extends ItemBlock {
 	 * Fixes a bug with not placing the correct variant of the block THIS IS NEEDED
 	 */
 	@Override
-	public int getMetadata(int damage) {
+	public int getMetadata(int damage)
+	{
 		return damage;
 	}
 
@@ -47,7 +48,8 @@ public class ItemBlockMeta extends ItemBlock {
 	 * Gets and modifies the unlocalized name
 	 */
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
+	public String getUnlocalizedName(ItemStack stack)
+	{
 		return super.getUnlocalizedName() + "." + ((IMetaBlockName) block).getSpecialName(stack);
 	}
 }

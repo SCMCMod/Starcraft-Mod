@@ -4,14 +4,15 @@ import java.util.List;
 
 import net.minecraft.item.ItemStack;
 
-public interface ILockedItems {
+public interface ILockedItems
+{
 
-    List<ItemStack> getLockedItems();
+	List<ItemStack> getLockedItems();
 
-    void lockItem(ItemStack item);
+	void lockItem(ItemStack item);
 
-    void unlockItem(ItemStack item);
+	void unlockItem(ItemStack item);
 
-    boolean isUnlocked(ItemStack item);
+	boolean isUnlocked(ItemStack item);
 
 }

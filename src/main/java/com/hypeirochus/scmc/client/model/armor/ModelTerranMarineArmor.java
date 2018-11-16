@@ -12,7 +12,8 @@ import net.minecraft.util.EnumHandSide;
 /**
  * sc2Marine - cybercat5555 Created using Tabula 5.1.0
  */
-public class ModelTerranMarineArmor extends ModelArmorBase implements IArmorItem {
+public class ModelTerranMarineArmor extends ModelArmorBase implements IArmorItem
+{
 
 	public ModelRenderer lInsignia;
 	public ModelRenderer rInsignia;
@@ -75,7 +76,8 @@ public class ModelTerranMarineArmor extends ModelArmorBase implements IArmorItem
 	public ModelRenderer leggings_lLegGuard02;
 	public ModelRenderer leggings_lLegGuard03;
 
-	public ModelTerranMarineArmor(float modelSize) {
+	public ModelTerranMarineArmor(float modelSize)
+	{
 		super(modelSize, 128, 128);
 		this.chestplate_rGloves01 = new ModelRenderer(this, 64, 12);
 		this.chestplate_rGloves01.mirror = true;
@@ -365,11 +367,13 @@ public class ModelTerranMarineArmor extends ModelArmorBase implements IArmorItem
 	}
 
 	@Override
-	public void renderHelmet(TransformType type, Entity entity, float scale) {
+	public void renderHelmet(TransformType type, Entity entity, float scale)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0, 1.5, 0);
 		GlStateManager.rotate(180, 1, 0, 0);
-		switch (type) {
+		switch (type)
+		{
 		case FIRST_PERSON_LEFT_HAND:
 			ModelUtils.rotateDefaultBlockFirstperson(EnumHandSide.LEFT);
 			GlStateManager.translate(0, scale * 24, 0);
@@ -417,12 +421,14 @@ public class ModelTerranMarineArmor extends ModelArmorBase implements IArmorItem
 	}
 
 	@Override
-	public void renderChestplate(TransformType type, Entity entity, float scale) {
+	public void renderChestplate(TransformType type, Entity entity, float scale)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0, 1.5, 0);
 		GlStateManager.rotate(180, 1, 0, 0);
 
-		switch (type) {
+		switch (type)
+		{
 		case FIRST_PERSON_LEFT_HAND:
 			ModelUtils.rotateDefaultBlockFirstperson(EnumHandSide.LEFT);
 			GlStateManager.translate(0, scale * 18, 0);
@@ -472,12 +478,14 @@ public class ModelTerranMarineArmor extends ModelArmorBase implements IArmorItem
 	}
 
 	@Override
-	public void renderLeggings(TransformType type, Entity entity, float scale) {
+	public void renderLeggings(TransformType type, Entity entity, float scale)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0, 1.5, 0);
 		GlStateManager.rotate(180, 1, 0, 0);
 
-		switch (type) {
+		switch (type)
+		{
 		case FIRST_PERSON_LEFT_HAND:
 			ModelUtils.rotateDefaultBlockFirstperson(EnumHandSide.LEFT);
 			GlStateManager.translate(0, scale * 6, 0);
@@ -533,12 +541,14 @@ public class ModelTerranMarineArmor extends ModelArmorBase implements IArmorItem
 	}
 
 	@Override
-	public void renderBoots(TransformType type, Entity entity, float scale) {
+	public void renderBoots(TransformType type, Entity entity, float scale)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0, 1.5, 0);
 		GlStateManager.rotate(180, 1, 0, 0);
 
-		switch (type) {
+		switch (type)
+		{
 		case FIRST_PERSON_LEFT_HAND:
 			ModelUtils.rotateDefaultBlockFirstperson(EnumHandSide.LEFT);
 			GlStateManager.translate(scale * -4, scale * 12, 0);

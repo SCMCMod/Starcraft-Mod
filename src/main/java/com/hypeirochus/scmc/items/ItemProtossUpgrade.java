@@ -10,15 +10,16 @@ import net.minecraft.util.NonNullList;
 
 /**
  * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
- * 
  * <br>
  * </br>
  * 
  * @author Ocelot5836
  */
-public class ItemProtossUpgrade extends StarcraftItem implements IMetaRenderHandler {
+public class ItemProtossUpgrade extends StarcraftItem implements IMetaRenderHandler
+{
 
-	public ItemProtossUpgrade() {
+	public ItemProtossUpgrade()
+	{
 		super("protoss.upgrade");
 		setHasSubtypes(true);
 		setMaxStackSize(1);
@@ -26,20 +27,27 @@ public class ItemProtossUpgrade extends StarcraftItem implements IMetaRenderHand
 	}
 
 	@Override
-	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-		if (this.isInCreativeTab(tab)) {
-			for (int i = 0; i < ProtossUpgradeType.values().length; i++) {
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items)
+	{
+		if (this.isInCreativeTab(tab))
+		{
+			for (int i = 0; i < ProtossUpgradeType.values().length; i++)
+			{
 				items.add(new ItemStack(this, 1, i));
 			}
 		}
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
-		for (int i = 0; i < ProtossUpgradeType.values().length; i++) {
-			if (stack.getItemDamage() == i) {
+	public String getUnlocalizedName(ItemStack stack)
+	{
+		for (int i = 0; i < ProtossUpgradeType.values().length; i++)
+		{
+			if (stack.getItemDamage() == i)
+			{
 				return getUnlocalizedName() + "." + ProtossUpgradeType.values()[i].getName();
-			} else {
+			} else
+			{
 				continue;
 			}
 		}
@@ -47,12 +55,14 @@ public class ItemProtossUpgrade extends StarcraftItem implements IMetaRenderHand
 	}
 
 	@Override
-	public int getItemCount() {
+	public int getItemCount()
+	{
 		return ProtossUpgradeType.values().length;
 	}
 
 	@Override
-	public String getName(int meta) {
+	public String getName(int meta)
+	{
 		return "protoss.upgrade." + ProtossUpgradeType.values()[meta].getName();
 	}
 }

@@ -17,9 +17,11 @@ import net.minecraft.item.Item;
  * 
  * @author Hypeirochus
  */
-public class BlockProtossEnergyChannelDark extends StarcraftBlock {
+public class BlockProtossEnergyChannelDark extends StarcraftBlock
+{
 
-	public BlockProtossEnergyChannelDark() {
+	public BlockProtossEnergyChannelDark()
+	{
 		super("protoss.energychannel.dark", RegistryType.FULL, Material.IRON, MapColor.BLACK);
 		setSoundType(SoundType.METAL);
 		setHardness(15.0F);
@@ -33,26 +35,24 @@ public class BlockProtossEnergyChannelDark extends StarcraftBlock {
 	/**
 	 * Gets the state of the block being dropped
 	 * 
-	 * @param state
-	 *            the state of the block
+	 * @param state the state of the block
 	 */
 	@Override
-	public int damageDropped(IBlockState state) {
+	public int damageDropped(IBlockState state)
+	{
 		return 2;
 	}
 
 	/**
 	 * Returns the item dropped by this block
 	 * 
-	 * @param state
-	 *            the state of the block
-	 * @param rand
-	 *            an object of the Random class
-	 * @param fortune
-	 *            the magnitude of the fortune enchantment effect
+	 * @param state the state of the block
+	 * @param rand an object of the Random class
+	 * @param fortune the magnitude of the fortune enchantment effect
 	 */
 	@Override
-	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+	public Item getItemDropped(IBlockState state, Random rand, int fortune)
+	{
 		return ItemHandler.ENERGY;
 	}
 }

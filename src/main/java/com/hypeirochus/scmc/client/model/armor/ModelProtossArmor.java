@@ -12,7 +12,8 @@ import net.minecraft.util.EnumHandSide;
 /**
  * ModelProtossArmor - cybercat5555 Created using Tabula 5.1.0
  */
-public class ModelProtossArmor extends ModelArmorBase implements IArmorItem {
+public class ModelProtossArmor extends ModelArmorBase implements IArmorItem
+{
 
 	public ModelRenderer chestplate_rShoulder01;
 	public ModelRenderer chestplate_rShoulder02;
@@ -122,7 +123,8 @@ public class ModelProtossArmor extends ModelArmorBase implements IArmorItem {
 	public ModelRenderer boots_lToe04;
 	public ModelRenderer boots_lHeel04;
 
-	public ModelProtossArmor(float modelSize) {
+	public ModelProtossArmor(float modelSize)
+	{
 		super(modelSize, 128, 64);
 		this.chestplate_lShoulder02 = new ModelRenderer(this, 63, 54);
 		this.chestplate_lShoulder02.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -644,11 +646,13 @@ public class ModelProtossArmor extends ModelArmorBase implements IArmorItem {
 	}
 
 	@Override
-	public void renderHelmet(TransformType type, Entity entity, float scale) {
+	public void renderHelmet(TransformType type, Entity entity, float scale)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0, 1.5, 0);
 		GlStateManager.rotate(180, 1, 0, 0);
-		switch (type) {
+		switch (type)
+		{
 		case FIRST_PERSON_LEFT_HAND:
 			ModelUtils.rotateDefaultBlockFirstperson(EnumHandSide.LEFT);
 			GlStateManager.translate(0, scale * 24, 0);
@@ -703,12 +707,14 @@ public class ModelProtossArmor extends ModelArmorBase implements IArmorItem {
 	}
 
 	@Override
-	public void renderChestplate(TransformType type, Entity entity, float scale) {
+	public void renderChestplate(TransformType type, Entity entity, float scale)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0, 1.5, 0);
 		GlStateManager.rotate(180, 1, 0, 0);
 
-		switch (type) {
+		switch (type)
+		{
 		case FIRST_PERSON_LEFT_HAND:
 			ModelUtils.rotateDefaultBlockFirstperson(EnumHandSide.LEFT);
 			GlStateManager.translate(0, scale * 18, 0);
@@ -758,12 +764,14 @@ public class ModelProtossArmor extends ModelArmorBase implements IArmorItem {
 	}
 
 	@Override
-	public void renderLeggings(TransformType type, Entity entity, float scale) {
+	public void renderLeggings(TransformType type, Entity entity, float scale)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0, 1.5, 0);
 		GlStateManager.rotate(180, 1, 0, 0);
 
-		switch (type) {
+		switch (type)
+		{
 		case FIRST_PERSON_LEFT_HAND:
 			ModelUtils.rotateDefaultBlockFirstperson(EnumHandSide.LEFT);
 			GlStateManager.translate(0, scale * 6, 0);
@@ -815,12 +823,14 @@ public class ModelProtossArmor extends ModelArmorBase implements IArmorItem {
 	}
 
 	@Override
-	public void renderBoots(TransformType type, Entity entity, float scale) {
+	public void renderBoots(TransformType type, Entity entity, float scale)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0, 1.5, 0);
 		GlStateManager.rotate(180, 1, 0, 0);
 
-		switch (type) {
+		switch (type)
+		{
 		case FIRST_PERSON_LEFT_HAND:
 			ModelUtils.rotateDefaultBlockFirstperson(EnumHandSide.LEFT);
 			GlStateManager.translate(scale * -4, scale * 12, 0);

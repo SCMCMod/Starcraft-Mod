@@ -27,7 +27,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockStarSurface extends StarcraftBlock implements IMetaBlockName,IMetaRenderHandler {
+public class BlockStarSurface extends StarcraftBlock implements IMetaBlockName, IMetaRenderHandler
+{
 
 	/** The type property */
 	public static final PropertyEnum<StarSurfaceType> TYPE = PropertyEnum.create("type", StarSurfaceType.class);
@@ -35,12 +36,12 @@ public class BlockStarSurface extends StarcraftBlock implements IMetaBlockName,I
 	/**
 	 * Default constructor
 	 * 
-	 * @param unlocalizedName
-	 *            The block's unlocalized name
-	 * @param registryName
-	 *            The block's registry name - defaultly the unlocalized name
+	 * @param unlocalizedName The block's unlocalized name
+	 * @param registryName The block's registry name - defaultly the unlocalized
+	 *        name
 	 */
-	public BlockStarSurface() {
+	public BlockStarSurface()
+	{
 		super("block.star", RegistryType.META, Material.IRON);
 		setSoundType(SoundType.METAL);
 		setHardness(10.0F);
@@ -50,13 +51,15 @@ public class BlockStarSurface extends StarcraftBlock implements IMetaBlockName,I
 	}
 
 	@Override
-	public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos) {
+	public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos)
+	{
 		return state.getValue(TYPE).getMapColor();
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public int getPackedLightmapCoords(IBlockState state, IBlockAccess source, BlockPos pos) {
+	public int getPackedLightmapCoords(IBlockState state, IBlockAccess source, BlockPos pos)
+	{
 		return 5864;
 	}
 
@@ -64,15 +67,18 @@ public class BlockStarSurface extends StarcraftBlock implements IMetaBlockName,I
 	 * Adds the properties to the block
 	 */
 	@Override
-	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] { TYPE });
+	protected BlockStateContainer createBlockState()
+	{
+		return new BlockStateContainer(this, new IProperty[]
+		{ TYPE });
 	}
 
 	/**
 	 * Makes sure the block drops the correct version of itself
 	 */
 	@Override
-	public int damageDropped(IBlockState state) {
+	public int damageDropped(IBlockState state)
+	{
 		return getMetaFromState(state);
 	}
 
@@ -80,7 +86,8 @@ public class BlockStarSurface extends StarcraftBlock implements IMetaBlockName,I
 	 * Gets the right meta data from the {@link IBlockState}
 	 */
 	@Override
-	public int getMetaFromState(IBlockState state) {
+	public int getMetaFromState(IBlockState state)
+	{
 		StarSurfaceType type = state.getValue(TYPE);
 		return type.getID();
 	}
@@ -89,7 +96,8 @@ public class BlockStarSurface extends StarcraftBlock implements IMetaBlockName,I
 	 * Makes sure when you pick block it will work correctly
 	 */
 	@Override
-	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
+	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
+	{
 		return new ItemStack(Item.getItemFromBlock(this), 1, getMetaFromState(state));
 	}
 
@@ -97,7 +105,8 @@ public class BlockStarSurface extends StarcraftBlock implements IMetaBlockName,I
 	 * Inherited from the {@link IMetaBlockName}
 	 */
 	@Override
-	public String getSpecialName(ItemStack stack) {
+	public String getSpecialName(ItemStack stack)
+	{
 		return StarSurfaceType.values()[stack.getItemDamage()].getName();
 	}
 
@@ -105,61 +114,73 @@ public class BlockStarSurface extends StarcraftBlock implements IMetaBlockName,I
 	 * Gets the correct {@link IBlockState} from the meta data
 	 */
 	@Override
-	public IBlockState getStateFromMeta(int meta) {
+	public IBlockState getStateFromMeta(int meta)
+	{
 		return getDefaultState().withProperty(TYPE, StarSurfaceType.values()[meta]);
 	}
 
 	@SideOnly(Side.CLIENT)
-	public BlockRenderLayer getBlockLayer() {
+	public BlockRenderLayer getBlockLayer()
+	{
 		return BlockRenderLayer.SOLID;
 	}
 
 	@Override
-	public void getSubBlocks(CreativeTabs item, NonNullList<ItemStack> items) {
-		for (int i = 0; i < StarSurfaceType.values().length; i++) {
+	public void getSubBlocks(CreativeTabs item, NonNullList<ItemStack> items)
+	{
+		for (int i = 0; i < StarSurfaceType.values().length; i++)
+		{
 			items.add(new ItemStack(this, 1, i));
 		}
 	}
 
-	public static enum StarSurfaceType implements IStringSerializable {
+	public static enum StarSurfaceType implements IStringSerializable
+	{
 		BLUE("blue", 0, MapColor.BLUE), LIGHTBLUE("lightblue", 1, MapColor.LIGHT_BLUE), ORANGE("orange", 2, MapColor.ADOBE), YELLOW("yellow", 3, MapColor.GOLD), LIGHTYELLOW("lightyellow", 4, MapColor.YELLOW), RED("red", 5, MapColor.RED);
 
 		private int ID;
 		private String name;
 		private MapColor color;
 
-		private StarSurfaceType(String name, int ID, MapColor color) {
+		private StarSurfaceType(String name, int ID, MapColor color)
+		{
 			this.ID = ID;
 			this.name = name;
 			this.color = color;
 		}
 
-		public int getID() {
+		public int getID()
+		{
 			return ID;
 		}
 
 		@Override
-		public String getName() {
+		public String getName()
+		{
 			return name;
 		}
 
-		public MapColor getMapColor() {
+		public MapColor getMapColor()
+		{
 			return color;
 		}
 
 		@Override
-		public String toString() {
+		public String toString()
+		{
 			return getName();
 		}
 	}
 
 	@Override
-	public int getItemCount() {
+	public int getItemCount()
+	{
 		return StarSurfaceType.values().length;
 	}
 
 	@Override
-	public String getName(int meta) {
+	public String getName(int meta)
+	{
 		return "block.star." + StarSurfaceType.values()[meta].getName();
 	}
 }

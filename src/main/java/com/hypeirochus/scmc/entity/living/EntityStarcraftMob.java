@@ -24,7 +24,8 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-public abstract class EntityStarcraftMob extends EntityMob implements IEntityTeamColorable<EntityStarcraftMob> {
+public abstract class EntityStarcraftMob extends EntityMob implements IEntityTeamColorable<EntityStarcraftMob>
+{
 
 	private static final DataParameter<Integer> COLOR = EntityDataManager.createKey(EntityStarcraftMob.class, DataSerializers.VARINT);
 	private static final DataParameter<String> OWNER = EntityDataManager.createKey(EntityStarcraftMob.class, DataSerializers.STRING);
@@ -33,18 +34,23 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	Map<Integer, EnumFactionTypes> factions = new HashMap<Integer, EnumFactionTypes>();
 	EnumColors color;
 
-	public EntityStarcraftMob(World world) {
+	public EntityStarcraftMob(World world)
+	{
 		super(world);
 	}
 
 	/**
-	 * Makes starcraft mobs spawn anywhere, as long as the difficulty is not peaceful.
+	 * Makes starcraft mobs spawn anywhere, as long as the difficulty is not
+	 * peaceful.
 	 */
 	@Override
-	public boolean getCanSpawnHere() {
-		if (this.world.getDifficulty() != EnumDifficulty.PEACEFUL) {
+	public boolean getCanSpawnHere()
+	{
+		if (this.world.getDifficulty() != EnumDifficulty.PEACEFUL)
+		{
 			return true;
-		} else {
+		} else
+		{
 			return false;
 		}
 	}
@@ -53,7 +59,8 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	 * Initializes the entity NBT values. Owner is set to empty by default.
 	 */
 	@Override
-	protected void entityInit() {
+	protected void entityInit()
+	{
 		super.entityInit();
 
 		this.getDataManager().register(COLOR, 0);
@@ -61,14 +68,15 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	}
 
 	/**
-	 * 
-	 * @param type
-	 *            The type we are checking the mob for.
+	 * @param type The type we are checking the mob for.
 	 * @return True if the mob is the type requested, false otherwise.
 	 */
-	public boolean hasAttribute(EnumTypeAttributes type) {
-		for (int x = 0; x < types.size(); x++) {
-			if (this.types.get(x) == type) {
+	public boolean hasAttribute(EnumTypeAttributes type)
+	{
+		for (int x = 0; x < types.size(); x++)
+		{
+			if (this.types.get(x) == type)
+			{
 				return true;
 			}
 		}
@@ -76,14 +84,15 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	}
 
 	/**
-	 * 
-	 * @param faction
-	 *            The faction we are checking the mob for.
+	 * @param faction The faction we are checking the mob for.
 	 * @return True if the mob is of the requested faction, false otherwise.
 	 */
-	public boolean isFaction(EnumFactionTypes faction) {
-		for (int x = 0; x < factions.size(); x++) {
-			if (this.factions.get(x) == faction) {
+	public boolean isFaction(EnumFactionTypes faction)
+	{
+		for (int x = 0; x < factions.size(); x++)
+		{
+			if (this.factions.get(x) == faction)
+			{
 				return true;
 			}
 		}
@@ -93,9 +102,12 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	/**
 	 * Gets the color of the mob.
 	 */
-	public EnumColors getColor() {
-		for (EnumColors color : EnumColors.values()) {
-			if (color.getId() == this.getColorID()) {
+	public EnumColors getColor()
+	{
+		for (EnumColors color : EnumColors.values())
+		{
+			if (color.getId() == this.getColorID())
+			{
 				return color;
 			}
 		}
@@ -105,33 +117,38 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	/**
 	 * Sets the color of this mob to whatever the color specified is.
 	 */
-	public EntityStarcraftMob setColor(EnumColors color) {
+	public EntityStarcraftMob setColor(EnumColors color)
+	{
 		this.color = color;
 		this.setColorID(color.getId());
 		return this;
 	}
 
 	/**
-	 * 
-	 * @param types
-	 *            The attributes we want our entity to have.
+	 * @param types The attributes we want our entity to have.
 	 * @return The mob.
 	 */
-	public EntityStarcraftMob setAttributes(EnumTypeAttributes... types) {
-		for (int x = 0; x < types.length; x++) {
+	public EntityStarcraftMob setAttributes(EnumTypeAttributes... types)
+	{
+		for (int x = 0; x < types.length; x++)
+		{
 			this.types.put(x, types[x]);
 		}
 		return this;
 	}
-	
-	public EntityStarcraftMob amendAttribute(EnumTypeAttributes type) {
+
+	public EntityStarcraftMob amendAttribute(EnumTypeAttributes type)
+	{
 		this.types.put(types.size(), type);
 		return this;
 	}
-	
-	public EntityStarcraftMob removeAttribute(EnumTypeAttributes type) {
-		for (int x = 0; x < types.size(); x++) {
-			if (this.types.get(x) == type) {
+
+	public EntityStarcraftMob removeAttribute(EnumTypeAttributes type)
+	{
+		for (int x = 0; x < types.size(); x++)
+		{
+			if (this.types.get(x) == type)
+			{
 				this.types.remove(x);
 				return this;
 			}
@@ -140,13 +157,13 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	}
 
 	/**
-	 * 
-	 * @param types
-	 *            Sets the mob to be under the given factions.
+	 * @param types Sets the mob to be under the given factions.
 	 * @return The mob.a
 	 */
-	public EntityStarcraftMob setFactions(EnumFactionTypes... types) {
-		for (int x = 0; x < types.length; x++) {
+	public EntityStarcraftMob setFactions(EnumFactionTypes... types)
+	{
+		for (int x = 0; x < types.length; x++)
+		{
 			this.factions.put(x, types[x]);
 		}
 		this.setStarcraftOwner(types[0].toString());
@@ -157,7 +174,8 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	 * Stores the NBT for the entity.
 	 */
 	@Override
-	public void writeEntityToNBT(NBTTagCompound nbt) {
+	public void writeEntityToNBT(NBTTagCompound nbt)
+	{
 		super.writeEntityToNBT(nbt);
 
 		nbt.setInteger("Color", this.getColorID());
@@ -168,142 +186,184 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	 * Reads the NBT from saved files for this entity.
 	 */
 	@Override
-	public void readEntityFromNBT(NBTTagCompound nbt) {
+	public void readEntityFromNBT(NBTTagCompound nbt)
+	{
 		super.readEntityFromNBT(nbt);
 
 		this.setColorID(nbt.getInteger("Color"));
 		this.setStarcraftOwner(nbt.getString("Owner"));
 	}
 
-	public int getColorID() {
+	public int getColorID()
+	{
 		return this.getDataManager().get(COLOR);
 	}
 
-	public void setColorID(int colornum) {
+	public void setColorID(int colornum)
+	{
 		this.getDataManager().set(COLOR, colornum);
 	}
 
 	/**
-	 * Gets the owner of this mob. Used mostly to determine if two entities should attack, along with the factions.
+	 * Gets the owner of this mob. Used mostly to determine if two entities should
+	 * attack, along with the factions.
 	 * 
 	 * @return
 	 */
-	public String getStarcraftOwner() {
+	public String getStarcraftOwner()
+	{
 		return this.getDataManager().get(OWNER);
 	}
 
 	/**
-	 * Sets the owner of this mob. Set through events such as unit purchase, mind control, and so on.
+	 * Sets the owner of this mob. Set through events such as unit purchase, mind
+	 * control, and so on.
 	 * 
-	 * @param owner
-	 *            The owner this mob will be under.
+	 * @param owner The owner this mob will be under.
 	 */
-	public void setStarcraftOwner(String owner) {
+	public void setStarcraftOwner(String owner)
+	{
 		this.getDataManager().set(OWNER, owner);
 	}
 
-	//TODO: Remove this eventually.
+	// TODO: Remove this eventually.
 	@Override
-	protected boolean processInteract(EntityPlayer player, EnumHand hand) {
+	protected boolean processInteract(EntityPlayer player, EnumHand hand)
+	{
 		ItemStack heldItem = player.getHeldItem(hand);
-		if (heldItem != null && heldItem.getItem() == ItemHandler.PLEDGE) {
+		if (heldItem != null && heldItem.getItem() == ItemHandler.PLEDGE)
+		{
 			this.setStarcraftOwner(player.getUniqueID().toString());
 			heldItem.shrink(1);
 			return true;
-		} else if (heldItem != null && heldItem.getItem() == Items.DYE) {
+		} else if (heldItem != null && heldItem.getItem() == Items.DYE)
+		{
 			int meta = heldItem.getMetadata();
 			setColor(EnumColors.values()[15 - meta]);
 			heldItem.shrink(1);
 			return true;
-		} else {
+		} else
+		{
 			return super.processInteract(player, hand);
 		}
 	}
 
 	/**
-	 * This is for handling how the mob behaves towards players and entities depending on owners
+	 * This is for handling how the mob behaves towards players and entities
+	 * depending on owners
 	 */
 	@Override
-	public void setAttackTarget(EntityLivingBase entitylivingbaseIn) {
-		if (entitylivingbaseIn instanceof EntityPlayer) {
+	public void setAttackTarget(EntityLivingBase entitylivingbaseIn)
+	{
+		if (entitylivingbaseIn instanceof EntityPlayer)
+		{
 			String owner = ((EntityPlayer) entitylivingbaseIn).getUniqueID().toString();
-			if (owner.contentEquals(this.getStarcraftOwner())) {
+			if (owner.contentEquals(this.getStarcraftOwner()))
+			{
 				this.setAttackTarget(null);
-			} else {
+			} else
+			{
 				super.setAttackTarget(entitylivingbaseIn);
 			}
-		} else if (entitylivingbaseIn instanceof EntityStarcraftMob) {
-			if (((EntityStarcraftMob) entitylivingbaseIn).getStarcraftOwner().contentEquals(this.getStarcraftOwner())) {
+		} else if (entitylivingbaseIn instanceof EntityStarcraftMob)
+		{
+			if (((EntityStarcraftMob) entitylivingbaseIn).getStarcraftOwner().contentEquals(this.getStarcraftOwner()))
+			{
 				this.setAttackTarget(null);
-			} else {
+			} else
+			{
 				super.setAttackTarget(entitylivingbaseIn);
 			}
-		} else if (entitylivingbaseIn instanceof EntityStarcraftPassive) {
-			if (((EntityStarcraftPassive) entitylivingbaseIn).getStarcraftOwner().contentEquals(this.getStarcraftOwner())) {
+		} else if (entitylivingbaseIn instanceof EntityStarcraftPassive)
+		{
+			if (((EntityStarcraftPassive) entitylivingbaseIn).getStarcraftOwner().contentEquals(this.getStarcraftOwner()))
+			{
 				this.setAttackTarget(null);
-			} else {
+			} else
+			{
 				super.setAttackTarget(entitylivingbaseIn);
 			}
-		} else {
+		} else
+		{
 			super.setAttackTarget(entitylivingbaseIn);
 		}
 	}
 
-	public boolean checkTarget(Entity entity, EnumFactionTypes faction) {
-		//Is our target invisible?
-		if (!entity.isInvisible()) {
-			
-			//If not invisible, is our target a starcraft mob?
-			if (entity instanceof EntityStarcraftMob) {
-				
-				//Does it have the monster attribute?
-				if (entity.isCreatureType(EnumCreatureType.MONSTER, false)) {
-					
-					//Does our target have the same owner?
-					if (!((EntityStarcraftMob) entity).getStarcraftOwner().contentEquals(this.getStarcraftOwner())) {
-						if(((EntityStarcraftMob) entity).hasAttribute(EnumTypeAttributes.INVISIBLE)) {
-							if(((EntityStarcraftMob) entity).hasAttribute(EnumTypeAttributes.DETECTED)) {
-								//Our target is detected, attack it!
+	public boolean checkTarget(Entity entity, EnumFactionTypes faction)
+	{
+		// Is our target invisible?
+		if (!entity.isInvisible())
+		{
+
+			// If not invisible, is our target a starcraft mob?
+			if (entity instanceof EntityStarcraftMob)
+			{
+
+				// Does it have the monster attribute?
+				if (entity.isCreatureType(EnumCreatureType.MONSTER, false))
+				{
+
+					// Does our target have the same owner?
+					if (!((EntityStarcraftMob) entity).getStarcraftOwner().contentEquals(this.getStarcraftOwner()))
+					{
+						if (((EntityStarcraftMob) entity).hasAttribute(EnumTypeAttributes.INVISIBLE))
+						{
+							if (((EntityStarcraftMob) entity).hasAttribute(EnumTypeAttributes.DETECTED))
+							{
+								// Our target is detected, attack it!
 								return true;
-							}else {
-								//Our target is not detected, we can't attack it.
+							} else
+							{
+								// Our target is not detected, we can't attack it.
 								return false;
 							}
 						}
 						return true;
-					} else {
-						//Our target has the same owner, do not attack.
+					} else
+					{
+						// Our target has the same owner, do not attack.
 						return false;
 					}
 				}
-				//If our target isn't a monster, is it a starcraft passive?
-			} else if (entity instanceof EntityStarcraftPassive) {
-				//Does it have the creature attribute?
-				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
-					//Is the target under the same faction as us?
-					if (!((EntityStarcraftPassive) entity).isFaction(faction)) {
-						if (!((EntityStarcraftPassive) entity).getUniqueID().toString().contentEquals(this.getStarcraftOwner()) && !((EntityStarcraftPassive) entity).hasAttribute(EnumTypeAttributes.CRITTER)) {
-							//The target does not have the same target and is not a critter. Attack it!
+				// If our target isn't a monster, is it a starcraft passive?
+			} else if (entity instanceof EntityStarcraftPassive)
+			{
+				// Does it have the creature attribute?
+				if (entity.isCreatureType(EnumCreatureType.CREATURE, false))
+				{
+					// Is the target under the same faction as us?
+					if (!((EntityStarcraftPassive) entity).isFaction(faction))
+					{
+						if (!((EntityStarcraftPassive) entity).getUniqueID().toString().contentEquals(this.getStarcraftOwner()) && !((EntityStarcraftPassive) entity).hasAttribute(EnumTypeAttributes.CRITTER))
+						{
+							// The target does not have the same target and is not a critter. Attack it!
 							return true;
-						} else {
-							//The target either has the same owner as us or is a critter, don't attack.
+						} else
+						{
+							// The target either has the same owner as us or is a critter, don't attack.
 							return false;
 						}
-					} else if (!((EntityStarcraftPassive) entity).getStarcraftOwner().contentEquals(this.getStarcraftOwner())) {
-						//The target does not have the same owner, attack!
+					} else if (!((EntityStarcraftPassive) entity).getStarcraftOwner().contentEquals(this.getStarcraftOwner()))
+					{
+						// The target does not have the same owner, attack!
 						return true;
 					}
 				}
-			} else if (entity instanceof EntityPlayer) {
-				if (((EntityPlayer) entity).getUniqueID().toString().contentEquals(this.getStarcraftOwner())) {
-					//This target is our owner, do not attack.
+			} else if (entity instanceof EntityPlayer)
+			{
+				if (((EntityPlayer) entity).getUniqueID().toString().contentEquals(this.getStarcraftOwner()))
+				{
+					// This target is our owner, do not attack.
 					return false;
-				} else {
-					//This target is not our owner. Attack!
+				} else
+				{
+					// This target is not our owner. Attack!
 					return true;
 				}
-			} else {
-				if (entity.isCreatureType(EnumCreatureType.CREATURE, false)) {
+			} else
+			{
+				if (entity.isCreatureType(EnumCreatureType.CREATURE, false))
+				{
 					return false;
 				}
 				return true;
@@ -311,9 +371,10 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 		}
 		return false;
 	}
-	
+
 	@Override
-	protected int getExperiencePoints(EntityPlayer player) {
-		return (int) (this.getMaxHealth() * 3/4);
+	protected int getExperiencePoints(EntityPlayer player)
+	{
+		return (int) (this.getMaxHealth() * 3 / 4);
 	}
 }

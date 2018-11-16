@@ -14,32 +14,31 @@ import net.minecraft.util.math.MathHelper;
  * @author Ocelot5836
  */
 //TODO: MOVE TO CORE MOD
-public abstract class ModelArmorBase extends ModelBiped {
+public abstract class ModelArmorBase extends ModelBiped
+{
 
 	/** The right arm of the biped. */
-	public final ModelRenderer	rArm;
+	public final ModelRenderer rArm;
 	/** The right leg of the biped. */
-	public final ModelRenderer	rLeg;
+	public final ModelRenderer rLeg;
 	/** The head of the biped. */
-	public final ModelRenderer	head;
+	public final ModelRenderer head;
 	/** The body of the biped. */
-	public final ModelRenderer	body;
+	public final ModelRenderer body;
 	/** The left arm of the biped. */
-	public final ModelRenderer	lArm;
+	public final ModelRenderer lArm;
 	/** The left leg of the biped. */
-	public final ModelRenderer	lLeg;
+	public final ModelRenderer lLeg;
 
 	/**
 	 * This sets the model scale and texture dimensions.
 	 * 
-	 * @param modelSize
-	 *            The scale of the model
-	 * @param textureWidth
-	 *            The width of the texture image
-	 * @param textureHeight
-	 *            The height of the texture image
+	 * @param modelSize The scale of the model
+	 * @param textureWidth The width of the texture image
+	 * @param textureHeight The height of the texture image
 	 */
-	public ModelArmorBase(float modelSize, int textureWidth, int textureHeight) {
+	public ModelArmorBase(float modelSize, int textureWidth, int textureHeight)
+	{
 		super(modelSize, 0, textureWidth, textureHeight);
 		this.lArm = new ModelRenderer(this, 40, 16);
 		this.lArm.mirror = true;
@@ -67,11 +66,13 @@ public abstract class ModelArmorBase extends ModelBiped {
 	}
 
 	@Override
-	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale)
+	{
 		this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
 		GlStateManager.pushMatrix();
 
-		if (this.isChild) {
+		if (this.isChild)
+		{
 			float f = 2.0F;
 			GlStateManager.scale(0.75F, 0.75F, 0.75F);
 			GlStateManager.translate(0.0F, 16.0F * scale, 0.0F);
@@ -84,8 +85,10 @@ public abstract class ModelArmorBase extends ModelBiped {
 			this.head.showModel = false;
 			renderArmorModel(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 			this.head.showModel = true;
-		} else {
-			if (entity.isSneaking()) {
+		} else
+		{
+			if (entity.isSneaking())
+			{
 				GlStateManager.translate(0.0F, 0.2F, 0.0F);
 			}
 
@@ -96,14 +99,17 @@ public abstract class ModelArmorBase extends ModelBiped {
 	}
 
 	@SuppressWarnings("incomplete-switch")
-	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
+	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity)
+	{
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entity);
 		boolean flag = entity instanceof EntityLivingBase && ((EntityLivingBase) entity).getTicksElytraFlying() > 4;
 		this.head.rotateAngleY = netHeadYaw * 0.017453292F;
 
-		if (flag) {
+		if (flag)
+		{
 			this.head.rotateAngleX = -((float) Math.PI / 4F);
-		} else {
+		} else
+		{
 			this.head.rotateAngleX = headPitch * 0.017453292F;
 		}
 
@@ -114,13 +120,15 @@ public abstract class ModelArmorBase extends ModelBiped {
 		this.lArm.rotationPointX = 5.0F;
 		float f = 1.0F;
 
-		if (flag) {
+		if (flag)
+		{
 			f = (float) (entity.motionX * entity.motionX + entity.motionY * entity.motionY + entity.motionZ * entity.motionZ);
 			f = f / 0.2F;
 			f = f * f * f;
 		}
 
-		if (f < 1.0F) {
+		if (f < 1.0F)
+		{
 			f = 1.0F;
 		}
 
@@ -135,7 +143,8 @@ public abstract class ModelArmorBase extends ModelBiped {
 		this.rLeg.rotateAngleZ = 0.0F;
 		this.lLeg.rotateAngleZ = 0.0F;
 
-		if (this.isRiding) {
+		if (this.isRiding)
+		{
 			this.rArm.rotateAngleX += -((float) Math.PI / 5F);
 			this.lArm.rotateAngleX += -((float) Math.PI / 5F);
 			this.rLeg.rotateAngleX = -1.4137167F;
@@ -149,7 +158,8 @@ public abstract class ModelArmorBase extends ModelBiped {
 		this.rArm.rotateAngleY = 0.0F;
 		this.rArm.rotateAngleZ = 0.0F;
 
-		switch (this.leftArmPose) {
+		switch (this.leftArmPose)
+		{
 		case EMPTY:
 			this.lArm.rotateAngleY = 0.0F;
 			break;
@@ -162,7 +172,8 @@ public abstract class ModelArmorBase extends ModelBiped {
 			this.lArm.rotateAngleY = 0.0F;
 		}
 
-		switch (this.rightArmPose) {
+		switch (this.rightArmPose)
+		{
 		case EMPTY:
 			this.rArm.rotateAngleY = 0.0F;
 			break;
@@ -175,13 +186,15 @@ public abstract class ModelArmorBase extends ModelBiped {
 			this.rArm.rotateAngleY = 0.0F;
 		}
 
-		if (this.swingProgress > 0.0F) {
+		if (this.swingProgress > 0.0F)
+		{
 			EnumHandSide enumhandside = this.getMainHand(entity);
 			ModelRenderer modelrenderer = this.getArmorArmForSide(enumhandside);
 			float f1 = this.swingProgress;
 			this.body.rotateAngleY = MathHelper.sin(MathHelper.sqrt(f1) * ((float) Math.PI * 2F)) * 0.2F;
 
-			if (enumhandside == EnumHandSide.LEFT) {
+			if (enumhandside == EnumHandSide.LEFT)
+			{
 				this.body.rotateAngleY *= -1.0F;
 			}
 
@@ -203,7 +216,8 @@ public abstract class ModelArmorBase extends ModelBiped {
 			modelrenderer.rotateAngleZ += MathHelper.sin(this.swingProgress * (float) Math.PI) * -0.4F;
 		}
 
-		if (this.isSneak) {
+		if (this.isSneak)
+		{
 			this.body.rotateAngleX = 0.5F;
 			this.rArm.rotateAngleX += 0.4F;
 			this.lArm.rotateAngleX += 0.4F;
@@ -212,7 +226,8 @@ public abstract class ModelArmorBase extends ModelBiped {
 			this.rLeg.rotationPointY = 9.0F;
 			this.lLeg.rotationPointY = 9.0F;
 			this.head.rotationPointY = 1.0F;
-		} else {
+		} else
+		{
 			this.body.rotateAngleX = 0.0F;
 			this.rLeg.rotationPointZ = 0.1F;
 			this.lLeg.rotationPointZ = 0.1F;
@@ -226,12 +241,14 @@ public abstract class ModelArmorBase extends ModelBiped {
 		this.rArm.rotateAngleX += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
 		this.lArm.rotateAngleX -= MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
 
-		if (this.rightArmPose == ModelBiped.ArmPose.BOW_AND_ARROW) {
+		if (this.rightArmPose == ModelBiped.ArmPose.BOW_AND_ARROW)
+		{
 			this.rArm.rotateAngleY = -0.1F + this.head.rotateAngleY;
 			this.lArm.rotateAngleY = 0.1F + this.head.rotateAngleY + 0.4F;
 			this.rArm.rotateAngleX = -((float) Math.PI / 2F) + this.head.rotateAngleX;
 			this.lArm.rotateAngleX = -((float) Math.PI / 2F) + this.head.rotateAngleX;
-		} else if (this.leftArmPose == ModelBiped.ArmPose.BOW_AND_ARROW) {
+		} else if (this.leftArmPose == ModelBiped.ArmPose.BOW_AND_ARROW)
+		{
 			this.rArm.rotateAngleY = -0.1F + this.head.rotateAngleY - 0.4F;
 			this.lArm.rotateAngleY = 0.1F + this.head.rotateAngleY;
 			this.rArm.rotateAngleX = -((float) Math.PI / 2F) + this.head.rotateAngleX;
@@ -239,29 +256,24 @@ public abstract class ModelArmorBase extends ModelBiped {
 		}
 	}
 
-	protected ModelRenderer getArmorArmForSide(EnumHandSide side) {
+	protected ModelRenderer getArmorArmForSide(EnumHandSide side)
+	{
 		return side == EnumHandSide.LEFT ? this.lArm : this.rArm;
 	}
 
 	/**
 	 * This method renders the armor model to the biped.
 	 *
-	 * @param entity
-	 *            The entity instance
-	 * @param limbSwing
-	 *            The limb swing of the entity
-	 * @param limbSwingAmount
-	 *            The limb swing amount of the entity
-	 * @param ageInTicks
-	 *            The entity's age in ticks
-	 * @param netHeadYaw
-	 *            The entity's head yaw
-	 * @param headPitch
-	 *            The entity's head pitch
-	 * @param scale
-	 *            The scale of the model
+	 * @param entity The entity instance
+	 * @param limbSwing The limb swing of the entity
+	 * @param limbSwingAmount The limb swing amount of the entity
+	 * @param ageInTicks The entity's age in ticks
+	 * @param netHeadYaw The entity's head yaw
+	 * @param headPitch The entity's head pitch
+	 * @param scale The scale of the model
 	 */
-	protected void renderArmorModel(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+	protected void renderArmorModel(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale)
+	{
 		this.head.render(scale);
 		this.body.render(scale);
 		this.rArm.render(scale);
@@ -273,16 +285,13 @@ public abstract class ModelArmorBase extends ModelBiped {
 	/**
 	 * This is a helper method used by tabula to set model rotation correctly.
 	 * 
-	 * @param modelRenderer
-	 *            The part for rotation
-	 * @param x
-	 *            The x rotation
-	 * @param y
-	 *            The y rotation
-	 * @param z
-	 *            The z rotation
+	 * @param modelRenderer The part for rotation
+	 * @param x The x rotation
+	 * @param y The y rotation
+	 * @param z The z rotation
 	 */
-	protected void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+	protected void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z)
+	{
 		modelRenderer.rotateAngleX = x;
 		modelRenderer.rotateAngleY = y;
 		modelRenderer.rotateAngleZ = z;

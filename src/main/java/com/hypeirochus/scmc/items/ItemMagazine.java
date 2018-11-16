@@ -23,9 +23,11 @@ import net.minecraft.world.World;
  * 
  * @author Ocelot5836
  */
-public class ItemMagazine extends StarcraftItem implements IMetaRenderHandler {
+public class ItemMagazine extends StarcraftItem implements IMetaRenderHandler
+{
 
-	public ItemMagazine() {
+	public ItemMagazine()
+	{
 		super("terran.magazine");
 		setHasSubtypes(true);
 		setMaxStackSize(1);
@@ -34,17 +36,22 @@ public class ItemMagazine extends StarcraftItem implements IMetaRenderHandler {
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag) {
-		if (stack.hasTagCompound()) {
+	public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag)
+	{
+		if (stack.hasTagCompound())
+		{
 			NBTTagCompound nbt = stack.getTagCompound();
 			tooltip.add(nbt.getInteger("BulletCount") + "/" + nbt.getInteger("BulletCapacity") + " Ammo");
 		}
 	}
 
 	@Override
-	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-		if (isInCreativeTab(tab)) {
-			for (int i = 0; i < BulletMagazineType.values().length; i++) {
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items)
+	{
+		if (isInCreativeTab(tab))
+		{
+			for (int i = 0; i < BulletMagazineType.values().length; i++)
+			{
 				ItemStack stack = new ItemStack(this, 1, i);
 				NBTTagCompound nbt = new NBTTagCompound();
 				nbt.setInteger("BulletCount", MetaHandler.BulletMagazineType.values()[i].getBulletCount());
@@ -56,11 +63,15 @@ public class ItemMagazine extends StarcraftItem implements IMetaRenderHandler {
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
-		for (int i = 0; i < BulletMagazineType.values().length; i++) {
-			if (stack.getItemDamage() == i) {
+	public String getUnlocalizedName(ItemStack stack)
+	{
+		for (int i = 0; i < BulletMagazineType.values().length; i++)
+		{
+			if (stack.getItemDamage() == i)
+			{
 				return getUnlocalizedName() + "." + BulletMagazineType.values()[i].getName();
-			} else {
+			} else
+			{
 				continue;
 			}
 		}
@@ -68,8 +79,10 @@ public class ItemMagazine extends StarcraftItem implements IMetaRenderHandler {
 	}
 
 	@Override
-	public double getDurabilityForDisplay(ItemStack stack) {
-		if (stack.hasTagCompound()) {
+	public double getDurabilityForDisplay(ItemStack stack)
+	{
+		if (stack.hasTagCompound())
+		{
 			NBTTagCompound nbt = stack.getTagCompound();
 			return 1 - ((double) nbt.getInteger("BulletCount") / (double) nbt.getInteger("BulletCapacity"));
 		}
@@ -77,25 +90,31 @@ public class ItemMagazine extends StarcraftItem implements IMetaRenderHandler {
 	}
 
 	@Override
-	public boolean showDurabilityBar(ItemStack stack) {
+	public boolean showDurabilityBar(ItemStack stack)
+	{
 		return true;
 	}
 
 	@Override
-	public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
-		if (!stack.hasTagCompound() && !world.isRemote) {
+	public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected)
+	{
+		if (!stack.hasTagCompound() && !world.isRemote)
+		{
 			stack.setTagCompound(getDefaultStack(stack.getMetadata()).getTagCompound());
 		}
 
-		if (entity instanceof EntityPlayer) {
-			if (stack.hasTagCompound() && stack.getTagCompound().hasKey("BulletCount") && stack.getTagCompound().getInteger("BulletCount") <= 0) {
+		if (entity instanceof EntityPlayer)
+		{
+			if (stack.hasTagCompound() && stack.getTagCompound().hasKey("BulletCount") && stack.getTagCompound().getInteger("BulletCount") <= 0)
+			{
 				EntityPlayer player = (EntityPlayer) entity;
 				player.inventory.setInventorySlotContents(InventoryUtils.getItemSlot(player, stack), ItemStack.EMPTY);
 			}
 		}
 	}
 
-	public static ItemStack getDefaultStack(int type) {
+	public static ItemStack getDefaultStack(int type)
+	{
 		ItemStack stack = new ItemStack(ItemHandler.BULLET_MAGAZINE, 1, type);
 		NBTTagCompound nbt = new NBTTagCompound();
 		nbt.setInteger("BulletCount", MetaHandler.BulletMagazineType.values()[type].getBulletCount());
@@ -105,27 +124,32 @@ public class ItemMagazine extends StarcraftItem implements IMetaRenderHandler {
 	}
 
 	/**
-	 * If the specified stack is a bullet magazine, it will return the amount of bullets inside. If the specified stack is not a bullet magazine, it will return 0.
+	 * If the specified stack is a bullet magazine, it will return the amount of
+	 * bullets inside. If the specified stack is not a bullet magazine, it will
+	 * return 0.
 	 * 
-	 * @param stack
-	 *            The stack to get the count from
+	 * @param stack The stack to get the count from
 	 * @return The amount of bullets found in the magazine if the stack is one
 	 */
-	public static int getBulletCount(ItemStack stack) {
+	public static int getBulletCount(ItemStack stack)
+	{
 		int count = 0;
-		if (!stack.isEmpty() && stack.hasTagCompound() && stack.getTagCompound().hasKey("BulletCount")) {
+		if (!stack.isEmpty() && stack.hasTagCompound() && stack.getTagCompound().hasKey("BulletCount"))
+		{
 			count = stack.getTagCompound().getInteger("BulletCount");
 		}
 		return count;
 	}
 
 	@Override
-	public int getItemCount() {
+	public int getItemCount()
+	{
 		return BulletMagazineType.values().length;
 	}
 
 	@Override
-	public String getName(int meta) {
+	public String getName(int meta)
+	{
 		return "terran.magazine." + MetaHandler.BulletMagazineType.values()[meta].getName();
 	}
 }

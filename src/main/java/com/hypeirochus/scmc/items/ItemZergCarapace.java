@@ -8,29 +8,38 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemZergCarapace extends StarcraftItem implements IMetaRenderHandler {
+public class ItemZergCarapace extends StarcraftItem implements IMetaRenderHandler
+{
 
-	public ItemZergCarapace() {
+	public ItemZergCarapace()
+	{
 		super("zerg.icarapace");
 		setHasSubtypes(true);
 		setCreativeTab(StarcraftCreativeTabs.ZERG);
 	}
 
 	@Override
-	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-		if (isInCreativeTab(tab)) {
-			for (int i = 0; i < CarapaceType.values().length; i++) {
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items)
+	{
+		if (isInCreativeTab(tab))
+		{
+			for (int i = 0; i < CarapaceType.values().length; i++)
+			{
 				items.add(new ItemStack(this, 1, i));
 			}
 		}
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
-		for (int i = 0; i < CarapaceType.values().length; i++) {
-			if (stack.getItemDamage() == i) {
+	public String getUnlocalizedName(ItemStack stack)
+	{
+		for (int i = 0; i < CarapaceType.values().length; i++)
+		{
+			if (stack.getItemDamage() == i)
+			{
 				return getUnlocalizedName() + "." + CarapaceType.values()[i].getName();
-			} else {
+			} else
+			{
 				continue;
 			}
 		}
@@ -38,12 +47,14 @@ public class ItemZergCarapace extends StarcraftItem implements IMetaRenderHandle
 	}
 
 	@Override
-	public int getItemCount() {
+	public int getItemCount()
+	{
 		return CarapaceType.values().length;
 	}
 
 	@Override
-	public String getName(int meta) {
+	public String getName(int meta)
+	{
 		return "zerg.icarapace." + CarapaceType.values()[meta].getName();
 	}
 }

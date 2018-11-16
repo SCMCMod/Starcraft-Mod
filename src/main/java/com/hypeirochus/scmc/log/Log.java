@@ -17,12 +17,14 @@ import net.minecraft.client.resources.IResourceManagerReloadListener;
 import net.minecraft.util.ResourceLocation;
 
 /**
- * Contains the basic information for each log in the game. Used in the new registry system.
+ * Contains the basic information for each log in the game. Used in the new
+ * registry system.
  * 
  * @author Ocelot5836
  */
 //TODO: MOVE TO CORE MOD, WARNING, this uses some starcraft code.
-public class Log implements IResourceManagerReloadListener {
+public class Log implements IResourceManagerReloadListener
+{
 
 	/** The default containing folder of the logs */
 	public static final ResourceLocation DEFAULT_LOCATION = new ResourceLocation(Starcraft.RL_BASE + "texts/logs/");
@@ -35,63 +37,79 @@ public class Log implements IResourceManagerReloadListener {
 	private int skinId;
 	private List<String> text;
 
-	public Log(String fileName) {
+	public Log(String fileName)
+	{
 		this.fileName = fileName;
 		this.propertiesFileName = this.getRegistryName() + ".properties";
 		this.loadText();
 		((IReloadableResourceManager) Minecraft.getMinecraft().getResourceManager()).registerReloadListener(this);
 	}
 
-	private void loadProperties() {
-		try {
+	private void loadProperties()
+	{
+		try
+		{
 			InputStream is = Minecraft.getMinecraft().getResourceManager().getResource(this.getPropertiesLocation()).getInputStream();
 			BufferedReader reader = new BufferedReader(new InputStreamReader(is));
 			String next = reader.readLine();
-			while (next != null) {
+			while (next != null)
+			{
 				this.name = next;
 				next = reader.readLine();
 				this.skinId = Integer.parseInt(next);
 				break;
 			}
 			reader.close();
-		} catch (Exception e) {
+		} catch (Exception e)
+		{
 			Utils.getLogger().catching(e);
 			Utils.getLogger().warn("Could not load properties for file " + this.getLocation().toString() + "!");
 		}
 	}
 
-	private List<String> loadTextFromFile(ResourceLocation location) {
+	private List<String> loadTextFromFile(ResourceLocation location)
+	{
 		List<String> output = new ArrayList<String>();
-		try {
+		try
+		{
 			InputStreamReader is = new InputStreamReader(Minecraft.getMinecraft().getResourceManager().getResource(location).getInputStream());
 			BufferedReader reader = new BufferedReader(is);
 			String line = reader.readLine();
-			while (line != null) {
+			while (line != null)
+			{
 				output.add(line);
 				line = reader.readLine();
 			}
-		} catch (IOException e) {
+		} catch (IOException e)
+		{
 			e.printStackTrace();
 		}
 		return output;
 	}
 
-	private void loadText() {
+	private void loadText()
+	{
 		this.name = "Missing Name";
 		this.skinId = 0;
 		this.text = new ArrayList<String>();
-		try {
+		try
+		{
 			InputStreamReader is = new InputStreamReader(Minecraft.getMinecraft().getResourceManager().getResource(this.getLocation()).getInputStream());
 			BufferedReader reader = new BufferedReader(is);
 			String line = reader.readLine();
-			while (line != null) {
-				if (line.startsWith("#")) {
+			while (line != null)
+			{
+				if (line.startsWith("#"))
+				{
 					String[] tokens = line.split(":", 2);
-					if (tokens.length >= 1) {
-						if (line.contains("name")) {
+					if (tokens.length >= 1)
+					{
+						if (line.contains("name"))
+						{
 							this.name = tokens[1].trim();
 						}
-						if (line.contains("skinId")) {
+						if (line.contains("skinId"))
+						{
 							this.skinId = Integer.parseInt(tokens[1].trim());
 						}
 					}
@@ -102,49 +120,60 @@ public class Log implements IResourceManagerReloadListener {
 				text.add(line);
 				line = reader.readLine();
 			}
-		} catch (IOException e) {
+		} catch (IOException e)
+		{
 			Starcraft.logger().catching(e);
 		}
 	}
 
-	public ResourceLocation getLocation() {
+	public ResourceLocation getLocation()
+	{
 		return new ResourceLocation(DEFAULT_LOCATION.toString() + this.getFileName());
 	}
 
-	public ResourceLocation getPropertiesLocation() {
+	public ResourceLocation getPropertiesLocation()
+	{
 		return new ResourceLocation(DEFAULT_LOCATION.toString() + propertiesFileName);
 	}
 
-	public String getFileName() {
+	public String getFileName()
+	{
 		return fileName + ".txt";
 	}
 
-	public String getRegistryName() {
+	public String getRegistryName()
+	{
 		return this.fileName;
 	}
 
-	public int getSkinId() {
+	public int getSkinId()
+	{
 		return skinId;
 	}
 
-	public String getTitle() {
+	public String getTitle()
+	{
 		return name;
 	}
 
-	public List<String> getText() {
+	public List<String> getText()
+	{
 		return text;
 	}
 
-	public int getId() {
+	public int getId()
+	{
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(int id)
+	{
 		this.id = id;
 	}
 
 	@Override
-	public void onResourceManagerReload(IResourceManager resourceManager) {
+	public void onResourceManagerReload(IResourceManager resourceManager)
+	{
 		this.loadText();
 	}
 }

@@ -10,59 +10,61 @@ import net.minecraft.util.ResourceLocation;
 /**
  * Gauss Rifle Bayonet - SCMCDevTeam Created using Tabula 5.1.0
  */
-public class ModelC14GaussRifle extends Model {
-	public static final ResourceLocation	TEXTURE	= new ResourceLocation(Starcraft.MOD_ID, "textures/models/c14GaussRifle.png");
+public class ModelC14GaussRifle extends Model
+{
+	public static final ResourceLocation TEXTURE = new ResourceLocation(Starcraft.MOD_ID, "textures/models/c14GaussRifle.png");
 
-	public ModelRenderer					main2;
-	public ModelRenderer					main4;
-	public ModelRenderer					main5;
-	public ModelRenderer					main6;
-	public ModelRenderer					main7;
-	public ModelRenderer					main8;
-	public ModelRenderer					main11;
-	public ModelRenderer					main12;
-	public ModelRenderer					main13;
-	public ModelRenderer					main14;
-	public ModelRenderer					main15;
-	public ModelRenderer					main16;
-	public ModelRenderer					main17;
-	public ModelRenderer					main18;
-	public ModelRenderer					main19;
-	public ModelRenderer					main20;
-	public ModelRenderer					main21;
-	public ModelRenderer					main22;
-	public ModelRenderer					main23;
-	public ModelRenderer					main24;
-	public ModelRenderer					main25;
-	public ModelRenderer					main26;
-	public ModelRenderer					main27;
-	public ModelRenderer					main28;
-	public ModelRenderer					main33;
-	public ModelRenderer					main34;
-	public ModelRenderer					main35;
-	public ModelRenderer					main36;
-	public ModelRenderer					main37;
-	public ModelRenderer					main39;
-	public ModelRenderer					main40;
-	public ModelRenderer					main41;
-	public ModelRenderer					main42;
-	public ModelRenderer					main43;
-	public ModelRenderer					main44;
-	public ModelRenderer					main45;
-	public ModelRenderer					main46;
-	public ModelRenderer					main48;
-	public ModelRenderer					main49;
-	public ModelRenderer					main50;
-	public ModelRenderer					main51;
-	public ModelRenderer					main52;
-	public ModelRenderer					main53;
-	public ModelRenderer					main54;
-	public ModelRenderer					main1;
-	public ModelRenderer					main24_1;
-	public ModelRenderer					main24_2;
-	public ModelRenderer					main3;
+	public ModelRenderer main2;
+	public ModelRenderer main4;
+	public ModelRenderer main5;
+	public ModelRenderer main6;
+	public ModelRenderer main7;
+	public ModelRenderer main8;
+	public ModelRenderer main11;
+	public ModelRenderer main12;
+	public ModelRenderer main13;
+	public ModelRenderer main14;
+	public ModelRenderer main15;
+	public ModelRenderer main16;
+	public ModelRenderer main17;
+	public ModelRenderer main18;
+	public ModelRenderer main19;
+	public ModelRenderer main20;
+	public ModelRenderer main21;
+	public ModelRenderer main22;
+	public ModelRenderer main23;
+	public ModelRenderer main24;
+	public ModelRenderer main25;
+	public ModelRenderer main26;
+	public ModelRenderer main27;
+	public ModelRenderer main28;
+	public ModelRenderer main33;
+	public ModelRenderer main34;
+	public ModelRenderer main35;
+	public ModelRenderer main36;
+	public ModelRenderer main37;
+	public ModelRenderer main39;
+	public ModelRenderer main40;
+	public ModelRenderer main41;
+	public ModelRenderer main42;
+	public ModelRenderer main43;
+	public ModelRenderer main44;
+	public ModelRenderer main45;
+	public ModelRenderer main46;
+	public ModelRenderer main48;
+	public ModelRenderer main49;
+	public ModelRenderer main50;
+	public ModelRenderer main51;
+	public ModelRenderer main52;
+	public ModelRenderer main53;
+	public ModelRenderer main54;
+	public ModelRenderer main1;
+	public ModelRenderer main24_1;
+	public ModelRenderer main24_2;
+	public ModelRenderer main3;
 
-	public ModelC14GaussRifle() {
+	public ModelC14GaussRifle()
+	{
 		this.textureWidth = 400;
 		this.textureHeight = 200;
 		this.main42 = new ModelRenderer(this, 21, 13);
@@ -242,7 +244,8 @@ public class ModelC14GaussRifle extends Model {
 	}
 
 	@Override
-	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
+	{
 		this.main42.render(f5);
 		this.main45.render(f5);
 		this.main40.render(f5);

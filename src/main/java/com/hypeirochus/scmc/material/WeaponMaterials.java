@@ -3,7 +3,8 @@ package com.hypeirochus.scmc.material;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraftforge.common.util.EnumHelper;
 
-public class WeaponMaterials {
+public class WeaponMaterials
+{
 
 	public static final ToolMaterial GUN_MATERIAL = EnumHelper.addToolMaterial("GUN", 0, 0, 9.5F, -3.0F, 0);
 	public static final ToolMaterial COPPER_MATERIAL = EnumHelper.addToolMaterial("COPPER", 2, 190, 4.5F, 1.0F, 10);

@@ -8,17 +8,15 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
 
 /**
- * <em><b>Copyright (c) 2018 Ocelot5836.</b></em>
- * 
- * <br>
+ * <em><b>Copyright (c) 2018 Ocelot5836.</b></em> <br>
  * </br>
- * 
  * A very simple arrow button.
  * 
  * @author Ocelot5836
  */
 //TODO: MOVE TO CORE MOD
-public class ComponentArrow extends Component {
+public class ComponentArrow extends Component
+{
 
 	protected static final ResourceLocation BUTTON_TEXTURES = new ResourceLocation("textures/gui/widgets.png");
 
@@ -26,16 +24,20 @@ public class ComponentArrow extends Component {
 	public boolean enabled;
 	protected boolean hovered;
 
-	public ComponentArrow(int x, int y, int width, int height) {
+	public ComponentArrow(int x, int y, int width, int height)
+	{
 		super(x, y, width, height);
 	}
 
-	protected int getHoverState(boolean mouseOver) {
+	protected int getHoverState(boolean mouseOver)
+	{
 		int i = 1;
 
-		if (!this.enabled) {
+		if (!this.enabled)
+		{
 			i = 0;
-		} else if (mouseOver) {
+		} else if (mouseOver)
+		{
 			i = 2;
 		}
 
@@ -43,8 +45,10 @@ public class ComponentArrow extends Component {
 	}
 
 	@Override
-	public void renderBackground(Minecraft mc, float partialTicks, int mouseX, int mouseY) {
-		if (this.visible) {
+	public void renderBackground(Minecraft mc, float partialTicks, int mouseX, int mouseY)
+	{
+		if (this.visible)
+		{
 			GlStateManager.pushMatrix();
 			FontRenderer fontrenderer = mc.fontRenderer;
 			mc.getTextureManager().bindTexture(BUTTON_TEXTURES);
@@ -58,9 +62,11 @@ public class ComponentArrow extends Component {
 			this.drawTexturedModalRect(this.x + this.width / 2, this.y, 200 - this.width / 2, 46 + i * 20, this.width / 2, this.height);
 			int j = 14737632;
 
-			if (!this.enabled) {
+			if (!this.enabled)
+			{
 				j = 10526880;
-			} else if (this.hovered) {
+			} else if (this.hovered)
+			{
 				j = 16777120;
 			}
 
@@ -70,19 +76,23 @@ public class ComponentArrow extends Component {
 	}
 
 	@Override
-	public boolean isHovered(int mouseX, int mouseY) {
+	public boolean isHovered(int mouseX, int mouseY)
+	{
 		return this.enabled && super.isHovered(mouseX, mouseY);
 	}
 
 	@Override
-	public void mousePressed(int mouseButton, int mouseX, int mouseY) {
+	public void mousePressed(int mouseButton, int mouseX, int mouseY)
+	{
 		super.mousePressed(mouseButton, mouseX, mouseY);
-		if (mouseButton == 0) {
+		if (mouseButton == 0)
+		{
 			SoundUtils.playButtonClick();
 		}
 	}
 
-	public boolean isMouseOver() {
+	public boolean isMouseOver()
+	{
 		return this.hovered;
 	}
 }

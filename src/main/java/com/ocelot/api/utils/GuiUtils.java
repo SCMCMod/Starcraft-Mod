@@ -25,39 +25,37 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
- * <em><b>Copyright (c) 2018 Ocelot5836.</b></em>
- * 
- * <br>
+ * <em><b>Copyright (c) 2018 Ocelot5836.</b></em> <br>
  * </br>
- * 
- * This class contains some utility methods that would be most useful when rendering a GUI.
+ * This class contains some utility methods that would be most useful when
+ * rendering a GUI.
  * 
  * @author Ocelot5836
  */
 //TODO: MOVE TO CORE MOD
-public class GuiUtils {
-	
+public class GuiUtils
+{
+
 	/**
 	 * Plays the default minecraft button click sound.
 	 */
-	public static void playButtonClick() {
+	public static void playButtonClick()
+	{
 		Minecraft.getMinecraft().getSoundHandler().playSound(PositionedSoundRecord.getMasterRecord(SoundEvents.UI_BUTTON_CLICK, 1.0F));
 	}
 
 	/**
 	 * Draws an array of lines to a gui.
 	 * 
-	 * @param lines
-	 *            The lines to render
-	 * @param x
-	 *            The x position to render at
-	 * @param y
-	 *            The y position to render at
-	 * @param color
-	 *            The color of the text
+	 * @param lines The lines to render
+	 * @param x The x position to render at
+	 * @param y The y position to render at
+	 * @param color The color of the text
 	 */
-	public static void drawLines(List<String> lines, int x, int y, int color) {
-		for (int i = 0; i < lines.size(); i++) {
+	public static void drawLines(List<String> lines, int x, int y, int color)
+	{
+		for (int i = 0; i < lines.size(); i++)
+		{
 			Minecraft.getMinecraft().fontRenderer.drawString(lines.get(i), x, y + (i * 8), color);
 		}
 	}
@@ -65,40 +63,32 @@ public class GuiUtils {
 	/**
 	 * Checks if the mouse is inside of the specified location.
 	 * 
-	 * @param x
-	 *            The x position to check
-	 * @param y
-	 *            The y position to check
-	 * @param width
-	 *            The width of the check area
-	 * @param height
-	 *            The height of the check area
-	 * @param mouseX
-	 *            The x of the mouse
-	 * @param mouseY
-	 *            The y of the mouse
+	 * @param x The x position to check
+	 * @param y The y position to check
+	 * @param width The width of the check area
+	 * @param height The height of the check area
+	 * @param mouseX The x of the mouse
+	 * @param mouseY The y of the mouse
 	 * @return Whether the mouse is inside of that location
 	 */
-	public static boolean isMouseInside(int x, int y, int width, int height, int mouseX, int mouseY) {
+	public static boolean isMouseInside(int x, int y, int width, int height, int mouseX, int mouseY)
+	{
 		return mouseX >= x && mouseX < (x + width) && mouseY >= y && mouseY < (y + height);
 	}
 
 	/**
 	 * Draws a gui with the specified parameters.
 	 * 
-	 * @param x
-	 *            The x to draw the window at
-	 * @param y
-	 *            The y to draw the window at
-	 * @param width
-	 *            The width of the window
-	 * @param height
-	 *            The height of the window
-	 * @param zLevel
-	 *            <em> MAKE SURE NOT TO EDIT THIS VALUE UNLESS YOU KNOW WHAT YOU ARE DOING!!</em>
+	 * @param x The x to draw the window at
+	 * @param y The y to draw the window at
+	 * @param width The width of the window
+	 * @param height The height of the window
+	 * @param zLevel <em> MAKE SURE NOT TO EDIT THIS VALUE UNLESS YOU KNOW WHAT YOU
+	 *        ARE DOING!!</em>
 	 */
 	@SideOnly(Side.CLIENT)
-	public static void drawCustomSizeGui(int x, int y, int width, int height, GuiType type) {
+	public static void drawCustomSizeGui(int x, int y, int width, int height, GuiType type)
+	{
 		TextureUtils.bindTexture("ocelotutil", "textures/gui/util.png");
 		GlStateManager.color(1F, 1F, 1F, 1F);
 
@@ -119,19 +109,17 @@ public class GuiUtils {
 	}
 
 	/**
-	 * Draws a default minecraft slot at the specified position with the specified size.
+	 * Draws a default minecraft slot at the specified position with the specified
+	 * size.
 	 * 
-	 * @param x
-	 *            The x position
-	 * @param y
-	 *            The y position
-	 * @param width
-	 *            The width of the slot
-	 * @param height
-	 *            The height of the slot
+	 * @param x The x position
+	 * @param y The y position
+	 * @param width The width of the slot
+	 * @param height The height of the slot
 	 */
 	@SideOnly(Side.CLIENT)
-	public static void drawSlot(int x, int y, int width, int height) {
+	public static void drawSlot(int x, int y, int width, int height)
+	{
 		TextureUtils.bindTexture("ocelotutil", "textures/gui/util.png");
 		GlStateManager.color(1F, 1F, 1F, 1F);
 		GuiScreen.drawScaledCustomSizeModalRect(x + 1, y + 1, 1, 16, 0, 0, width - 2, height - 2, 256, 256);
@@ -148,22 +136,18 @@ public class GuiUtils {
 	/**
 	 * Renders an entity to the screen.
 	 * 
-	 * @param x
-	 *            The x position
-	 * @param y
-	 *            The y position
-	 * @param scale
-	 *            The scale of the entity
-	 * @param mouseX
-	 *            The mouse x position
-	 * @param mouseY
-	 *            The mouse y position
-	 * @param entity
-	 *            The entity to render
+	 * @param x The x position
+	 * @param y The y position
+	 * @param scale The scale of the entity
+	 * @param mouseX The mouse x position
+	 * @param mouseY The mouse y position
+	 * @param entity The entity to render
 	 */
 	@SideOnly(Side.CLIENT)
-	public static void drawEntityOnScreen(int x, int y, int scale, float mouseX, float mouseY, EntityLivingBase entity) {
-		if (entity != null) {
+	public static void drawEntityOnScreen(int x, int y, int scale, float mouseX, float mouseY, EntityLivingBase entity)
+	{
+		if (entity != null)
+		{
 			GlStateManager.enableColorMaterial();
 			GlStateManager.pushMatrix();
 			GlStateManager.translate((float) x, (float) y, 50.0F);
@@ -200,24 +184,25 @@ public class GuiUtils {
 			GlStateManager.setActiveTexture(OpenGlHelper.lightmapTexUnit);
 			GlStateManager.disableTexture2D();
 			GlStateManager.setActiveTexture(OpenGlHelper.defaultTexUnit);
-		} else {
+		} else
+		{
 			OcelotUtils.UTIL_LOG.warn("Trying to render an entity that is null!");
 		}
 	}
 
 	/**
-	 * A static reference to {@link #drawTexturedModalRect(float, float, int, int, int, int)}.
-	 * 
-	 * <br>
+	 * A static reference to
+	 * {@link #drawTexturedModalRect(float, float, int, int, int, int)}. <br>
 	 * </br>
+	 * <em> Draws a textured rectangle using the texture currently bound to the
+	 * TextureManager </em>
 	 * 
-	 * <em> Draws a textured rectangle using the texture currently bound to the TextureManager </em>
-	 * 
-	 * @param zLevel
-	 *            <em> MAKE SURE NOT TO EDIT THIS VALUE UNLESS YOU KNOW WHAT YOU ARE DOING!!</em>
+	 * @param zLevel <em> MAKE SURE NOT TO EDIT THIS VALUE UNLESS YOU KNOW WHAT YOU
+	 *        ARE DOING!!</em>
 	 */
 	@SideOnly(Side.CLIENT)
-	private static void drawStaticTextureModelRect(float x, float y, int minU, int minV, int maxU, int maxV) {
+	private static void drawStaticTextureModelRect(float x, float y, int minU, int minV, int maxU, int maxV)
+	{
 		float zLevel = 0;
 		float f = 0.00390625F;
 		float f1 = 0.00390625F;
@@ -234,19 +219,21 @@ public class GuiUtils {
 	/**
 	 * Gets the username of a player based on the uuid given.
 	 * 
-	 * @param uuid
-	 *            The uuid of the player.
+	 * @param uuid The uuid of the player.
 	 * @return The name of the player if the uuid is valid
 	 */
-	public static String getPlayerName(String uuid) {
+	public static String getPlayerName(String uuid)
+	{
 		String name = null;
-		try {
+		try
+		{
 			URL url = new URL("https://sessionserver.mojang.com/session/minecraft/profile/" + uuid);
 			BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
 			StringBuilder sb = new StringBuilder();
 			String line;
 
-			while ((line = reader.readLine()) != null) {
+			while ((line = reader.readLine()) != null)
+			{
 				sb.append(line + "\n");
 			}
 
@@ -254,7 +241,8 @@ public class GuiUtils {
 			JsonElement obj = parser.parse(sb.toString().trim());
 			name = obj.getAsJsonObject().get("name").getAsString();
 			reader.close();
-		} catch (Exception ex) {
+		} catch (Exception ex)
+		{
 			ex.printStackTrace();
 			name = "Invalid UUID";
 		}
@@ -264,14 +252,16 @@ public class GuiUtils {
 	/**
 	 * Specifies the type of gui you want to draw.
 	 */
-	public static class GuiType {
+	public static class GuiType
+	{
 
 		public static final GuiType DEFAULT = new GuiType(0, 0, 3, 3, 5);
 		public static final GuiType BOOK = new GuiType(15, 0, 3, 3, 8);
 
 		private int u, v, width, height, cellSize;
 
-		private GuiType(int u, int v, int width, int height, int cellSize) {
+		private GuiType(int u, int v, int width, int height, int cellSize)
+		{
 			this.u = u;
 			this.v = v;
 			this.width = width;
@@ -282,35 +272,40 @@ public class GuiUtils {
 		/**
 		 * @return The x coordinate of the texture
 		 */
-		public int getU() {
+		public int getU()
+		{
 			return u;
 		}
 
 		/**
 		 * @return The y coordinate of the texture
 		 */
-		public int getV() {
+		public int getV()
+		{
 			return v;
 		}
 
 		/**
 		 * @return The width of the texture
 		 */
-		public int getWidth() {
+		public int getWidth()
+		{
 			return width;
 		}
 
 		/**
 		 * @return The height of the texture
 		 */
-		public int getHeight() {
+		public int getHeight()
+		{
 			return height;
 		}
 
 		/**
 		 * @return The size of each cell in the gui
 		 */
-		public int getCellSize() {
+		public int getCellSize()
+		{
 			return cellSize;
 		}
 	}

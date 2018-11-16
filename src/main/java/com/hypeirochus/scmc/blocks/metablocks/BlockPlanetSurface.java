@@ -27,7 +27,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockPlanetSurface extends StarcraftBlock implements IMetaBlockName, IMetaRenderHandler {
+public class BlockPlanetSurface extends StarcraftBlock implements IMetaBlockName, IMetaRenderHandler
+{
 
 	/** The type property */
 	public static final PropertyEnum<PlanetSurfaceType> TYPE = PropertyEnum.create("type", PlanetSurfaceType.class);
@@ -35,12 +36,12 @@ public class BlockPlanetSurface extends StarcraftBlock implements IMetaBlockName
 	/**
 	 * Default constructor
 	 * 
-	 * @param unlocalizedName
-	 *            The block's unlocalized name
-	 * @param registryName
-	 *            The block's registry name - defaultly the unlocalized name
+	 * @param unlocalizedName The block's unlocalized name
+	 * @param registryName The block's registry name - defaultly the unlocalized
+	 *        name
 	 */
-	public BlockPlanetSurface() {
+	public BlockPlanetSurface()
+	{
 		super("block.planet", RegistryType.META, Material.IRON);
 		setSoundType(SoundType.METAL);
 		setHardness(10.0F);
@@ -50,13 +51,15 @@ public class BlockPlanetSurface extends StarcraftBlock implements IMetaBlockName
 	}
 
 	@Override
-	public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos) {
+	public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos)
+	{
 		return state.getValue(TYPE).getMapColor();
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public int getPackedLightmapCoords(IBlockState state, IBlockAccess source, BlockPos pos) {
+	public int getPackedLightmapCoords(IBlockState state, IBlockAccess source, BlockPos pos)
+	{
 		return 5864;
 	}
 
@@ -64,15 +67,18 @@ public class BlockPlanetSurface extends StarcraftBlock implements IMetaBlockName
 	 * Adds the properties to the block
 	 */
 	@Override
-	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] { TYPE });
+	protected BlockStateContainer createBlockState()
+	{
+		return new BlockStateContainer(this, new IProperty[]
+		{ TYPE });
 	}
 
 	/**
 	 * Makes sure the block drops the correct version of itself
 	 */
 	@Override
-	public int damageDropped(IBlockState state) {
+	public int damageDropped(IBlockState state)
+	{
 		return getMetaFromState(state);
 	}
 
@@ -80,7 +86,8 @@ public class BlockPlanetSurface extends StarcraftBlock implements IMetaBlockName
 	 * Gets the right meta data from the {@link IBlockState}
 	 */
 	@Override
-	public int getMetaFromState(IBlockState state) {
+	public int getMetaFromState(IBlockState state)
+	{
 		PlanetSurfaceType type = state.getValue(TYPE);
 		return type.getID();
 	}
@@ -89,7 +96,8 @@ public class BlockPlanetSurface extends StarcraftBlock implements IMetaBlockName
 	 * Makes sure when you pick block it will work correctly
 	 */
 	@Override
-	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
+	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
+	{
 		return new ItemStack(Item.getItemFromBlock(this), 1, getMetaFromState(state));
 	}
 
@@ -97,7 +105,8 @@ public class BlockPlanetSurface extends StarcraftBlock implements IMetaBlockName
 	 * Inherited from the {@link IMetaBlockName}
 	 */
 	@Override
-	public String getSpecialName(ItemStack stack) {
+	public String getSpecialName(ItemStack stack)
+	{
 		return PlanetSurfaceType.values()[stack.getItemDamage()].getName();
 	}
 
@@ -105,61 +114,74 @@ public class BlockPlanetSurface extends StarcraftBlock implements IMetaBlockName
 	 * Gets the correct {@link IBlockState} from the meta data
 	 */
 	@Override
-	public IBlockState getStateFromMeta(int meta) {
+	public IBlockState getStateFromMeta(int meta)
+	{
 		return getDefaultState().withProperty(TYPE, PlanetSurfaceType.values()[meta]);
 	}
 
 	@SideOnly(Side.CLIENT)
-	public BlockRenderLayer getBlockLayer() {
+	public BlockRenderLayer getBlockLayer()
+	{
 		return BlockRenderLayer.SOLID;
 	}
 
 	@Override
-	public void getSubBlocks(CreativeTabs item, NonNullList<ItemStack> items) {
-		for (int i = 0; i < PlanetSurfaceType.values().length; i++) {
+	public void getSubBlocks(CreativeTabs item, NonNullList<ItemStack> items)
+	{
+		for (int i = 0; i < PlanetSurfaceType.values().length; i++)
+		{
 			items.add(new ItemStack(this, 1, i));
 		}
 	}
 
-	public static enum PlanetSurfaceType implements IStringSerializable {
-		BLUE("blue", 0, MapColor.BLUE), BROWN("brown", 1, MapColor.BROWN), CYAN("cyan", 2, MapColor.CYAN), GRAY("gray", 3, MapColor.GRAY), GREEN("green", 4, MapColor.GREEN), LIGHTBLUE("lightblue", 5, MapColor.LIGHT_BLUE), LIME("lime", 6, MapColor.LIME), MAGENTA("magenta", 7, MapColor.MAGENTA), ORANGE("orange", 8, MapColor.ADOBE), PINK("pink", 9, MapColor.PINK), PURPLE("purple", 10, MapColor.PURPLE), RED("red", 11, MapColor.RED), WHITE("white", 12, MapColor.SNOW), SILVER("silver", 13, MapColor.SILVER), BLACK("black", 14, MapColor.BLUE), YELLOW("yellow", 15, MapColor.YELLOW);
+	public static enum PlanetSurfaceType implements IStringSerializable
+	{
+		BLUE("blue", 0, MapColor.BLUE), BROWN("brown", 1, MapColor.BROWN), CYAN("cyan", 2, MapColor.CYAN), GRAY("gray", 3, MapColor.GRAY), GREEN("green", 4, MapColor.GREEN), LIGHTBLUE("lightblue", 5, MapColor.LIGHT_BLUE), LIME("lime", 6, MapColor.LIME), MAGENTA("magenta", 7, MapColor.MAGENTA),
+		ORANGE("orange", 8, MapColor.ADOBE), PINK("pink", 9, MapColor.PINK), PURPLE("purple", 10, MapColor.PURPLE), RED("red", 11, MapColor.RED), WHITE("white", 12, MapColor.SNOW), SILVER("silver", 13, MapColor.SILVER), BLACK("black", 14, MapColor.BLUE), YELLOW("yellow", 15, MapColor.YELLOW);
 
 		private int ID;
 		private String name;
 		private MapColor color;
 
-		private PlanetSurfaceType(String name, int ID, MapColor color) {
+		private PlanetSurfaceType(String name, int ID, MapColor color)
+		{
 			this.ID = ID;
 			this.name = name;
 			this.color = color;
 		}
 
-		public int getID() {
+		public int getID()
+		{
 			return ID;
 		}
 
 		@Override
-		public String getName() {
+		public String getName()
+		{
 			return name;
 		}
 
-		public MapColor getMapColor() {
+		public MapColor getMapColor()
+		{
 			return color;
 		}
 
 		@Override
-		public String toString() {
+		public String toString()
+		{
 			return getName();
 		}
 	}
 
 	@Override
-	public int getItemCount() {
+	public int getItemCount()
+	{
 		return PlanetSurfaceType.values().length;
 	}
 
 	@Override
-	public String getName(int meta) {
+	public String getName(int meta)
+	{
 		return "block.planet." + PlanetSurfaceType.values()[meta].getName();
 	}
 }

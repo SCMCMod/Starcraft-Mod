@@ -15,15 +15,16 @@ import net.minecraftforge.oredict.OreDictionary;
  * 
  * @author Ocelot5836
  */
-public class OreDictionaryHandler {
+public class OreDictionaryHandler
+{
 
 	/**
 	 * Initializes all of the ores.
 	 * 
-	 * @param event
-	 *            The init event
+	 * @param event The init event
 	 */
-	public static void init(FMLInitializationEvent event) {
+	public static void init(FMLInitializationEvent event)
+	{
 		OreDictionary.registerOre("blockSteel", new ItemStack(BlockHandler.TERRAN_METAL, 1, BlockTerranMetal.CompressedMetalType.STEEL.getID()));
 		OreDictionary.registerOre("blockCopper", new ItemStack(BlockHandler.TERRAN_METAL, 1, BlockTerranMetal.CompressedMetalType.COPPER.getID()));
 		OreDictionary.registerOre("blockTitanium", new ItemStack(BlockHandler.TERRAN_METAL, 1, BlockTerranMetal.CompressedMetalType.TITANIUM.getID()));

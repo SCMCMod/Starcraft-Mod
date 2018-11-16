@@ -16,10 +16,13 @@ import net.minecraft.util.ResourceLocation;
  * @author CJMinecraft
  */
 //TODO: MOVE TO CORE MOD
-public class ColoredLayerRender {
+public class ColoredLayerRender
+{
 
-	public static <T extends EntityLiving> void render(RenderLiving<T> renderer, T entity, ResourceLocation overlayTexture, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		if (entity instanceof IEntityTeamColorable) {
+	public static <T extends EntityLiving> void render(RenderLiving<T> renderer, T entity, ResourceLocation overlayTexture, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale)
+	{
+		if (entity instanceof IEntityTeamColorable)
+		{
 			IEntityTeamColorable<T> entityTeam = (IEntityTeamColorable<T>) entity;
 			renderer.bindTexture(overlayTexture);
 
@@ -34,16 +37,20 @@ public class ColoredLayerRender {
 		}
 	}
 
-	public static <T extends EntityLiving> void renderDynamicGlow(RenderLiving<T> renderer, T entity, ResourceLocation overlayTexture, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale, float partialTicks) {
-		if (entity instanceof IEntityTeamColorable) {
+	public static <T extends EntityLiving> void renderDynamicGlow(RenderLiving<T> renderer, T entity, ResourceLocation overlayTexture, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale, float partialTicks)
+	{
+		if (entity instanceof IEntityTeamColorable)
+		{
 			IEntityTeamColorable<T> entityTeam = (IEntityTeamColorable<T>) entity;
 			renderer.bindTexture(overlayTexture);
-	        GlStateManager.enableBlend();
-	        GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
+			GlStateManager.enableBlend();
+			GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
 
-			if (entity.isInvisible()) {
+			if (entity.isInvisible())
+			{
 				GlStateManager.depthMask(false);
-			} else {
+			} else
+			{
 				GlStateManager.depthMask(true);
 			}
 
@@ -59,17 +66,20 @@ public class ColoredLayerRender {
 			k = i / 65536;
 			OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float) j, (float) k);
 			renderer.setLightmap(entity);
-	        GlStateManager.disableBlend();
+			GlStateManager.disableBlend();
 			GlStateManager.resetColor();
 		}
 	}
 
-	public static <T extends EntityLiving> void renderStaticGlow(RenderLiving<T> renderer, T entity, ResourceLocation overlayTexture, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale, float partialTicks) {
-		if (entity instanceof IEntityTeamColorable) {
-			if (!entity.isInvisible()) {
+	public static <T extends EntityLiving> void renderStaticGlow(RenderLiving<T> renderer, T entity, ResourceLocation overlayTexture, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale, float partialTicks)
+	{
+		if (entity instanceof IEntityTeamColorable)
+		{
+			if (!entity.isInvisible())
+			{
 				renderer.bindTexture(overlayTexture);
-		        GlStateManager.enableBlend();
-		        GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
+				GlStateManager.enableBlend();
+				GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
 
 				int i = 61680;
 				int j = i % 65536;
@@ -82,7 +92,7 @@ public class ColoredLayerRender {
 				k = i / 65536;
 				OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float) j, (float) k);
 				renderer.setLightmap(entity);
-		        GlStateManager.disableBlend();
+				GlStateManager.disableBlend();
 				GlStateManager.color(1, 1, 1, 1);
 			}
 		}

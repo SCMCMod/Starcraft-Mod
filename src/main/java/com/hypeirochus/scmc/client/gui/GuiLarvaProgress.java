@@ -16,14 +16,16 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class GuiLarvaProgress extends BasicGui {
+public class GuiLarvaProgress extends BasicGui
+{
 
 	public static final GuiLarvaProgress INSTANCE = new GuiLarvaProgress();
 
 	private EntityLarvaCocoon cocoon;
 
 	@Override
-	public void initGui() {
+	public void initGui()
+	{
 		xSize = 140;
 		ySize = 97;
 		super.initGui();
@@ -31,17 +33,20 @@ public class GuiLarvaProgress extends BasicGui {
 		buttonList.add(new GuiButton(0, guiLeft + (xSize / 2 - 40), guiTop + ySize - 30, 80, 20, I18n.format("gui.larva_progress.cancel")));
 	}
 
-	public void openGUI(EntityPlayer player, Object mod, int guiID, World world, int x, int y, int z, EntityLarvaCocoon cocoon) {
+	public void openGUI(EntityPlayer player, Object mod, int guiID, World world, int x, int y, int z, EntityLarvaCocoon cocoon)
+	{
 		player.openGui(Starcraft.instance, guiID, world, x, y, z);
 		setCocoon(cocoon);
 		NetworkHandler.sendToAllClients(new MessageSyncLarvaCocoonGui(cocoon));
 	}
 
 	@Override
-	protected void drawGuiBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
+	protected void drawGuiBackgroundLayer(float partialTicks, int mouseX, int mouseY)
+	{
 		TextureUtils.bindTexture(Starcraft.MOD_ID, "textures/gui/larva_progress.png");
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
-		if (cocoon != null) {
+		if (cocoon != null)
+		{
 			float percentage = (cocoon.ticksExisted / 20f) / (float) (cocoon.getTransformTime() / 20);
 			drawTexturedModalRect(guiLeft + 6, guiTop + 33, 140, 0, (int) (percentage * 85), 9);
 		}
@@ -51,21 +56,26 @@ public class GuiLarvaProgress extends BasicGui {
 	}
 
 	@Override
-	protected void drawGuiForegroundLayer(int mouseX, int mouseY) {
+	protected void drawGuiForegroundLayer(int mouseX, int mouseY)
+	{
 		this.mc.fontRenderer.drawString(I18n.format("gui.larva_progress"), this.xSize / 2 - this.mc.fontRenderer.getStringWidth(I18n.format("gui.larva_progress")) / 2, 6, 4210752);
 	}
 
 	@Override
-	protected void drawTooltips(int mouseX, int mouseY) {
-		if (cocoon != null) {
+	protected void drawTooltips(int mouseX, int mouseY)
+	{
+		if (cocoon != null)
+		{
 			float percentage = (cocoon.ticksExisted / 20f) / (float) (cocoon.getTransformTime() / 20);
 			drawTooltip(I18n.format("gui.larva_progress.bar_percentage", (int) (percentage * 100), "%"), guiLeft + 5, guiTop + 32, 87, 11, mouseX, mouseY);
 		}
 	}
 
 	@Override
-	protected void actionPerformed(GuiButton button) throws IOException {
-		switch (button.id) {
+	protected void actionPerformed(GuiButton button) throws IOException
+	{
+		switch (button.id)
+		{
 		case 0:
 			Minecraft.getMinecraft().player.closeScreen();
 			Minecraft.getMinecraft().player.playSound(cocoon.getDeathSound(), 1, 1);
@@ -75,18 +85,22 @@ public class GuiLarvaProgress extends BasicGui {
 	}
 
 	@Override
-	public void updateScreen() {
-		if (cocoon == null || cocoon.isDead) {
+	public void updateScreen()
+	{
+		if (cocoon == null || cocoon.isDead)
+		{
 			Minecraft.getMinecraft().player.closeScreen();
 		}
 	}
 
 	@Override
-	public boolean doesGuiPauseGame() {
+	public boolean doesGuiPauseGame()
+	{
 		return false;
 	}
 
-	public void setCocoon(EntityLarvaCocoon larva) {
+	public void setCocoon(EntityLarvaCocoon larva)
+	{
 		this.cocoon = larva;
 	}
 }

@@ -7,7 +7,8 @@ import net.minecraft.client.renderer.GlStateManager;
 /**
  * zerusglowpod - cybercat5555 Created using Tabula 6.0.0
  */
-public class ModelZerusGlowPod extends ModelBase {
+public class ModelZerusGlowPod extends ModelBase
+{
 
 	public ModelRenderer roots01;
 	public ModelRenderer podBase01;
@@ -33,7 +34,8 @@ public class ModelZerusGlowPod extends ModelBase {
 	public ModelRenderer petal07;
 	public ModelRenderer petal08;
 
-	public ModelZerusGlowPod() {
+	public ModelZerusGlowPod()
+	{
 		this.textureWidth = 64;
 		this.textureHeight = 32;
 		this.tendril04 = new ModelRenderer(this, 26, 6);
@@ -152,7 +154,8 @@ public class ModelZerusGlowPod extends ModelBase {
 		this.podBase01.addChild(this.petal05);
 	}
 
-	public void render(float scale, float podScale) {
+	public void render(float scale, float podScale)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.disableCull();
 		GlStateManager.translate(this.roots01.offsetX, this.roots01.offsetY, this.roots01.offsetZ);
@@ -177,7 +180,8 @@ public class ModelZerusGlowPod extends ModelBase {
 	/**
 	 * This is a helper function from Tabula to set the rotation of model parts
 	 */
-	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z)
+	{
 		modelRenderer.rotateAngleX = x;
 		modelRenderer.rotateAngleY = y;
 		modelRenderer.rotateAngleZ = z;

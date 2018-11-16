@@ -23,7 +23,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * @author Ocelot5836
  */
 @SideOnly(Side.CLIENT)
-public class RendererStarcraftSkull extends TileEntitySpecialRenderer<TileEntityStarcraftSkull> {
+public class RendererStarcraftSkull extends TileEntitySpecialRenderer<TileEntityStarcraftSkull>
+{
 
 	public static RendererStarcraftSkull instance;
 
@@ -33,36 +34,42 @@ public class RendererStarcraftSkull extends TileEntitySpecialRenderer<TileEntity
 	private static final ModelHydralisk HYDRALISK = new ModelHydralisk();
 	private static final ModelBrutalisk BRUTALISK = new ModelBrutalisk();
 
-	public static final ResourceLocation ZERGLING_BASE = new ResourceLocation(Starcraft.RL_BASE+ "textures/entity/zergling_base.png");
-	public static final ResourceLocation ZERGLING_OVERLAY = new ResourceLocation(Starcraft.RL_BASE+  "textures/entity/zergling_overlay.png");
-	public static final ResourceLocation HYDRALISK_BASE = new ResourceLocation(Starcraft.RL_BASE+  "textures/entity/hydralisk_base.png");
-	public static final ResourceLocation BRUTALISK_BASE = new ResourceLocation(Starcraft.RL_BASE+  "textures/entity/brutalisk_base.png");
+	public static final ResourceLocation ZERGLING_BASE = new ResourceLocation(Starcraft.RL_BASE + "textures/entity/zergling_base.png");
+	public static final ResourceLocation ZERGLING_OVERLAY = new ResourceLocation(Starcraft.RL_BASE + "textures/entity/zergling_overlay.png");
+	public static final ResourceLocation HYDRALISK_BASE = new ResourceLocation(Starcraft.RL_BASE + "textures/entity/hydralisk_base.png");
+	public static final ResourceLocation BRUTALISK_BASE = new ResourceLocation(Starcraft.RL_BASE + "textures/entity/brutalisk_base.png");
 	public static final ResourceLocation CIVILIAN = new ResourceLocation(Starcraft.RL_BASE + "textures/entity/civilian.png");
 	public static final ResourceLocation SKELETON_TEXTURE = new ResourceLocation("textures/entity/skeleton/skeleton.png");
 
-	public void render(TileEntityStarcraftSkull te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
+	public void render(TileEntityStarcraftSkull te, double x, double y, double z, float partialTicks, int destroyStage, float alpha)
+	{
 		super.render(te, x, y, z, partialTicks, destroyStage, alpha);
 		EnumFacing enumfacing = EnumFacing.getFront(te.getBlockMetadata() & 7);
 		this.renderSkull((float) x, (float) y, (float) z, enumfacing, (float) (te.getSkullRotation() * 360) / 16.0F, te.getSkullType(), destroyStage);
 	}
 
-	public void setRendererDispatcher(TileEntityRendererDispatcher rendererDispatcherIn) {
+	public void setRendererDispatcher(TileEntityRendererDispatcher rendererDispatcherIn)
+	{
 		super.setRendererDispatcher(rendererDispatcherIn);
 		instance = this;
 	}
 
-	public void renderSkull(float x, float y, float z, EnumFacing facing, float rotation, int skullType, int destroyStage) {
+	public void renderSkull(float x, float y, float z, EnumFacing facing, float rotation, int skullType, int destroyStage)
+	{
 		ModelBase skullModel = SKELETON;
 
-		if (destroyStage >= 0) {
+		if (destroyStage >= 0)
+		{
 			this.bindTexture(DESTROY_STAGES[destroyStage]);
 			GlStateManager.matrixMode(5890);
 			GlStateManager.pushMatrix();
 			GlStateManager.scale(4.0F, 2.0F, 1.0F);
 			GlStateManager.translate(0.0625F, 0.0625F, 0.0625F);
 			GlStateManager.matrixMode(5888);
-		} else {
-			switch (skullType) {
+		} else
+		{
+			switch (skullType)
+			{
 			default:
 				skullModel = SKELETON;
 				break;
@@ -84,10 +91,13 @@ public class RendererStarcraftSkull extends TileEntitySpecialRenderer<TileEntity
 		GlStateManager.pushMatrix();
 		GlStateManager.disableCull();
 
-		if (facing == EnumFacing.UP) {
+		if (facing == EnumFacing.UP)
+		{
 			GlStateManager.translate(x + 0.5F, y, z + 0.5F);
-		} else {
-			switch (facing) {
+		} else
+		{
+			switch (facing)
+			{
 			case NORTH:
 				GlStateManager.translate(x + 0.5F, y + 0.25F, z + 0.74F);
 				break;
@@ -111,7 +121,8 @@ public class RendererStarcraftSkull extends TileEntitySpecialRenderer<TileEntity
 		GlStateManager.rotate(rotation, 0, 1, 0);
 		GlStateManager.enableAlpha();
 
-		switch (skullType) {
+		switch (skullType)
+		{
 		default:
 			this.bindTexture(SKELETON_TEXTURE);
 			skullModel.render((Entity) null, 0, 0.0F, 0.0F, 0, 0.0F, 0.0625F);
@@ -120,7 +131,8 @@ public class RendererStarcraftSkull extends TileEntitySpecialRenderer<TileEntity
 			this.bindTexture(CIVILIAN);
 			skullModel.render((Entity) null, 0, 0.0F, 0.0F, 0, 0.0F, 0.0625F);
 		case 1:
-			if (skullModel instanceof IModelSkull) {
+			if (skullModel instanceof IModelSkull)
+			{
 				RenderUtil.bindTexture(ZERGLING_BASE);
 				((IModelSkull) skullModel).renderSkull(0.0625f);
 				GlStateManager.translate(0, 0.2, -0.2);
@@ -129,13 +141,15 @@ public class RendererStarcraftSkull extends TileEntitySpecialRenderer<TileEntity
 			}
 			break;
 		case 2:
-			if (skullModel instanceof IModelSkull) {
+			if (skullModel instanceof IModelSkull)
+			{
 				RenderUtil.bindTexture(HYDRALISK_BASE);
 				((IModelSkull) skullModel).renderSkull(0.0625f);
 			}
 			break;
 		case 3:
-			if (skullModel instanceof IModelSkull) {
+			if (skullModel instanceof IModelSkull)
+			{
 				RenderUtil.bindTexture(BRUTALISK_BASE);
 				((IModelSkull) skullModel).renderSkull(0.0625f);
 			}
@@ -144,7 +158,8 @@ public class RendererStarcraftSkull extends TileEntitySpecialRenderer<TileEntity
 
 		GlStateManager.popMatrix();
 
-		if (destroyStage >= 0) {
+		if (destroyStage >= 0)
+		{
 			GlStateManager.matrixMode(5890);
 			GlStateManager.popMatrix();
 			GlStateManager.matrixMode(5888);

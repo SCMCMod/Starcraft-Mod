@@ -11,19 +11,23 @@ import net.minecraftforge.items.SlotItemHandler;
  * 
  * @author CJMinecraft
  */
-public class SlotStarcraftFurnaceFuel extends SlotItemHandler {
+public class SlotStarcraftFurnaceFuel extends SlotItemHandler
+{
 
-	public SlotStarcraftFurnaceFuel(IItemHandler inv, int slotIndex, int xPosition, int yPosition) {
+	public SlotStarcraftFurnaceFuel(IItemHandler inv, int slotIndex, int xPosition, int yPosition)
+	{
 		super(inv, slotIndex, xPosition, yPosition);
 	}
 
 	@Override
-	public boolean isItemValid(ItemStack stack) {
+	public boolean isItemValid(ItemStack stack)
+	{
 		return TileEntityFurnace.isItemFuel(stack) || SlotFurnaceFuel.isBucket(stack);
 	}
 
 	@Override
-	public int getItemStackLimit(ItemStack stack) {
+	public int getItemStackLimit(ItemStack stack)
+	{
 		return SlotFurnaceFuel.isBucket(stack) ? 1 : super.getItemStackLimit(stack);
 	}
 }

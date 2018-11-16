@@ -27,7 +27,8 @@ import net.minecraft.world.World;
 /**
  * This block has three variants. Refer to {@link ZergStructureCarapaceType}
  */
-public class BlockZergCarapace extends StarcraftBlock implements IMetaBlockName, IMetaRenderHandler {
+public class BlockZergCarapace extends StarcraftBlock implements IMetaBlockName, IMetaRenderHandler
+{
 
 	/**
 	 * The type property
@@ -37,12 +38,12 @@ public class BlockZergCarapace extends StarcraftBlock implements IMetaBlockName,
 	/**
 	 * Default constructor
 	 * 
-	 * @param unlocalizedName
-	 *            The block's unlocalized name
-	 * @param registryName
-	 *            The block's registry name - defaultly the unlocalized name
+	 * @param unlocalizedName The block's unlocalized name
+	 * @param registryName The block's registry name - defaultly the unlocalized
+	 *        name
 	 */
-	public BlockZergCarapace() {
+	public BlockZergCarapace()
+	{
 		super("zerg.carapace", RegistryType.META, Material.ROCK);
 		setSoundType(SoundTypes.FLESH);
 		setHardness(15.0F);
@@ -52,7 +53,8 @@ public class BlockZergCarapace extends StarcraftBlock implements IMetaBlockName,
 	}
 
 	@Override
-	public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos) {
+	public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos)
+	{
 		return state.getValue(TYPE).getMapColor();
 	}
 
@@ -60,15 +62,18 @@ public class BlockZergCarapace extends StarcraftBlock implements IMetaBlockName,
 	 * Adds the properties to the block
 	 */
 	@Override
-	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] { TYPE });
+	protected BlockStateContainer createBlockState()
+	{
+		return new BlockStateContainer(this, new IProperty[]
+		{ TYPE });
 	}
 
 	/**
 	 * Makes sure the block drops the correct version of itself
 	 */
 	@Override
-	public int damageDropped(IBlockState state) {
+	public int damageDropped(IBlockState state)
+	{
 		return getMetaFromState(state);
 	}
 
@@ -76,7 +81,8 @@ public class BlockZergCarapace extends StarcraftBlock implements IMetaBlockName,
 	 * Gets the right meta data from the {@link IBlockState}
 	 */
 	@Override
-	public int getMetaFromState(IBlockState state) {
+	public int getMetaFromState(IBlockState state)
+	{
 		ZergStructureCarapaceType type = state.getValue(TYPE);
 		return type.getID();
 	}
@@ -85,7 +91,8 @@ public class BlockZergCarapace extends StarcraftBlock implements IMetaBlockName,
 	 * Makes sure when you pick block it will work correctly
 	 */
 	@Override
-	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
+	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
+	{
 		return new ItemStack(Item.getItemFromBlock(this), 1, getMetaFromState(state));
 	}
 
@@ -93,7 +100,8 @@ public class BlockZergCarapace extends StarcraftBlock implements IMetaBlockName,
 	 * Inherited from the {@link IMetaBlockName}
 	 */
 	@Override
-	public String getSpecialName(ItemStack stack) {
+	public String getSpecialName(ItemStack stack)
+	{
 		return ZergStructureCarapaceType.values()[stack.getItemDamage()].getName();
 	}
 
@@ -101,56 +109,67 @@ public class BlockZergCarapace extends StarcraftBlock implements IMetaBlockName,
 	 * Gets the correct {@link IBlockState} from the meta data
 	 */
 	@Override
-	public IBlockState getStateFromMeta(int meta) {
+	public IBlockState getStateFromMeta(int meta)
+	{
 		return getDefaultState().withProperty(TYPE, ZergStructureCarapaceType.values()[meta]);
 	}
 
 	@Override
-	public void getSubBlocks(CreativeTabs item, NonNullList<ItemStack> items) {
-		for (int i = 0; i < ZergStructureCarapaceType.values().length; i++) {
+	public void getSubBlocks(CreativeTabs item, NonNullList<ItemStack> items)
+	{
+		for (int i = 0; i < ZergStructureCarapaceType.values().length; i++)
+		{
 			items.add(new ItemStack(this, 1, i));
 		}
 	}
 
-	public static enum ZergStructureCarapaceType implements IStringSerializable {
+	public static enum ZergStructureCarapaceType implements IStringSerializable
+	{
 		T1("1", 0, MapColor.BROWN), T2("2", 1, MapColor.BROWN), T3("3", 2, MapColor.BROWN);
 
 		private int ID;
 		private String name;
 		private MapColor color;
 
-		private ZergStructureCarapaceType(String name, int ID, MapColor color) {
+		private ZergStructureCarapaceType(String name, int ID, MapColor color)
+		{
 			this.ID = ID;
 			this.name = name;
 			this.color = color;
 		}
 
-		public int getID() {
+		public int getID()
+		{
 			return ID;
 		}
 
 		@Override
-		public String getName() {
+		public String getName()
+		{
 			return name;
 		}
 
-		public MapColor getMapColor() {
+		public MapColor getMapColor()
+		{
 			return color;
 		}
 
 		@Override
-		public String toString() {
+		public String toString()
+		{
 			return getName();
 		}
 	}
 
 	@Override
-	public int getItemCount() {
+	public int getItemCount()
+	{
 		return ZergStructureCarapaceType.values().length;
 	}
 
 	@Override
-	public String getName(int meta) {
+	public String getName(int meta)
+	{
 		return "zerg.carapace." + ZergStructureCarapaceType.values()[meta].getName();
 	}
 }

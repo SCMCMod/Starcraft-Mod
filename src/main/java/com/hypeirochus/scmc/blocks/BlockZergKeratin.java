@@ -12,9 +12,11 @@ import net.minecraft.block.material.Material;
  * 
  * @author Hypeirochus
  */
-public class BlockZergKeratin extends StarcraftBlock {
+public class BlockZergKeratin extends StarcraftBlock
+{
 
-	public BlockZergKeratin() {
+	public BlockZergKeratin()
+	{
 		super("zerg.keratin", RegistryType.FULL, Material.GROUND, MapColor.SNOW);
 		setSoundType(SoundType.STONE);
 		setHardness(10.0F);

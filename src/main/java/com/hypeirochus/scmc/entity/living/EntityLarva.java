@@ -32,13 +32,15 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityLarva extends EntityZergPassive {
+public class EntityLarva extends EntityZergPassive
+{
 	private int fire;
 	private int nextStepDistance;
 	private Random random = new Random();
 
 	// Redo entity movement
-	public EntityLarva(World world) {
+	public EntityLarva(World world)
+	{
 		super(world);
 		setSize(1.0F, .5F);
 		this.setColor(EnumColors.PURPLE);
@@ -46,9 +48,10 @@ public class EntityLarva extends EntityZergPassive {
 		setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
 		this.initEntityAI();
 	}
-	
+
 	@Override
-	protected void initEntityAI() {
+	protected void initEntityAI()
+	{
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIMoveTowardsRestriction(this, 1));
 		tasks.addTask(2, new EntityAIWander(this, 1));
@@ -58,9 +61,10 @@ public class EntityLarva extends EntityZergPassive {
 		tasks.addTask(4, new EntityAIAvoidEntity<EntityPlayer>(this, EntityPlayer.class, 16.0F, 1.0D, 1.0D));
 		super.initEntityAI();
 	}
-	
+
 	@Override
-	protected void applyEntityAttributes() {
+	protected void applyEntityAttributes()
+	{
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(15.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(.10241212312);
@@ -68,66 +72,81 @@ public class EntityLarva extends EntityZergPassive {
 	}
 
 	@Override
-	public EntityAgeable createChild(EntityAgeable p_90011_1_) {
+	public EntityAgeable createChild(EntityAgeable p_90011_1_)
+	{
 		return null;
 	}
 
 	@Override
-	protected void dropFewItems(boolean recentlyHit, int looting) {
+	protected void dropFewItems(boolean recentlyHit, int looting)
+	{
 		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), MetaHandler.CarapaceType.T1.getID()));
 		drop.tryDrop(this);
 	}
-	
+
 	@Override
-	protected PathNavigate createNavigator(World worldIn) {
+	protected PathNavigate createNavigator(World worldIn)
+	{
 		return new PathNavigateCreep(this, worldIn);
 	}
 
 	@Override
-	public boolean processInteract(EntityPlayer player, EnumHand hand) {
+	public boolean processInteract(EntityPlayer player, EnumHand hand)
+	{
 		ItemStack stack = player.getHeldItem(hand);
 		boolean flag = !stack.isEmpty() && stack.getItem() != Items.SPAWN_EGG;
 
-		if (!flag && this.isEntityAlive() && !this.isChild() && !player.isSneaking()) {
-			if (this.world.isRemote) {
+		if (!flag && this.isEntityAlive() && !this.isChild() && !player.isSneaking())
+		{
+			if (this.world.isRemote)
+			{
 				GuiLarvaMorph.INSTANCE.openGUI(player, Starcraft.instance, GuiHandler.LARVA_MORPH_ID, world, (int) player.posX, (int) player.posY, (int) player.posZ, this);
 			}
 			return true;
-		} else {
+		} else
+		{
 			return super.processInteract(player, hand);
 		}
 	}
 
 	@Override
-	public SoundEvent getAmbientSound() {
+	public SoundEvent getAmbientSound()
+	{
 		return SoundHandler.ENTITY_LARVA_LIVE1;
 	}
 
 	@Override
-	public SoundEvent getDeathSound() {
+	public SoundEvent getDeathSound()
+	{
 		return SoundHandler.ENTITY_LARVA_DEATH;
 	}
 
 	@Override
-	public SoundEvent getHurtSound(DamageSource source) {
+	public SoundEvent getHurtSound(DamageSource source)
+	{
 		return SoundHandler.ENTITY_LARVA_HURT;
 	}
 
 	@Override
-	public int getTalkInterval() {
+	public int getTalkInterval()
+	{
 		return 160;
 	}
-	
+
 	@Override
-	public void onLivingUpdate() {
+	public void onLivingUpdate()
+	{
 		super.onLivingUpdate();
-		
-		//Larva should die instantly when they are not on creep.
-		if(this.getEntityWorld().getBlockState(this.getPosition().add(0, -1, 0)).getBlock() != BlockHandler.ZERG_CREEP && this.getEntityWorld().getBlockState(this.getPosition().add(0, -1, 0)).getBlock() != Blocks.AIR) {
+
+		// Larva should die instantly when they are not on creep.
+		if (this.getEntityWorld().getBlockState(this.getPosition().add(0, -1, 0)).getBlock() != BlockHandler.ZERG_CREEP && this.getEntityWorld().getBlockState(this.getPosition().add(0, -1, 0)).getBlock() != Blocks.AIR)
+		{
 			this.attackEntityFrom(DamageSource.OUT_OF_WORLD, this.getMaxHealth());
 		}
 	}
-	
+
 	@Override
-	protected void jump() {}
+	protected void jump()
+	{
+	}
 }

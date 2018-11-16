@@ -6,19 +6,23 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
-public class ItemBlockBrambles extends ItemBlockMeta {
+public class ItemBlockBrambles extends ItemBlockMeta
+{
 
-	public ItemBlockBrambles() {
+	public ItemBlockBrambles()
+	{
 		super(BlockHandler.FLORA_BRAMBLES);
 		setHasSubtypes(false);
 	}
 
 	@Override
-	public int getMetadata(int damage) {
+	public int getMetadata(int damage)
+	{
 		return 0;
 	}
 
-	public static ItemStack getDefaultStack(int variant) {
+	public static ItemStack getDefaultStack(int variant)
+	{
 		ItemStack stack = new ItemStack(Item.getItemFromBlock(BlockHandler.FLORA_BRAMBLES), 1, 0);
 		NBTTagCompound nbt = new NBTTagCompound();
 		NBTTagCompound blockData = new NBTTagCompound();
@@ -28,14 +32,17 @@ public class ItemBlockBrambles extends ItemBlockMeta {
 		return stack;
 	}
 
-	public enum Type {
+	public enum Type
+	{
 		KALDIR, SHAKURAS, ZERUS;
 
-		public int getId() {
+		public int getId()
+		{
 			return this.ordinal();
 		}
 
-		public String getName() {
+		public String getName()
+		{
 			return this.name().toLowerCase();
 		}
 	}

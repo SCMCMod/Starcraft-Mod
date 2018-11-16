@@ -10,42 +10,51 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHandSide;
 
-public class ItemRenderC14GaussRifle extends ItemRenderer {
+public class ItemRenderC14GaussRifle extends ItemRenderer
+{
 
 	private static boolean aiming;
 
-	public ItemRenderC14GaussRifle() {
+	public ItemRenderC14GaussRifle()
+	{
 		super(new ModelC14GaussRifle(), ModelC14GaussRifle.TEXTURE);
 	}
 
 	@Override
-	public void renderPre(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
-		if (this.mc.gameSettings.keyBindAttack.isKeyDown() && cameraTransformType == TransformType.FIRST_PERSON_RIGHT_HAND) {
+	public void renderPre(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
+		if (this.mc.gameSettings.keyBindAttack.isKeyDown() && cameraTransformType == TransformType.FIRST_PERSON_RIGHT_HAND)
+		{
 			aiming = true;
 			Minecraft.getMinecraft().player.isSwingInProgress = false;
-		} else {
+		} else
+		{
 			aiming = false;
 		}
 	}
 
 	@Override
-	public void renderFirstPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderFirstPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		renderFirstPerson(itemstack, entity, cameraTransformType, EnumHandSide.LEFT);
 	}
 
 	@Override
-	public void renderFirstPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderFirstPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		renderFirstPerson(itemstack, entity, cameraTransformType, EnumHandSide.RIGHT);
 	}
 
-	private void renderFirstPerson(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType, EnumHandSide hand) {
+	private void renderFirstPerson(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType, EnumHandSide hand)
+	{
 		float scale = .03500067f;
 
 		double x = 1.9199999794363976;
 		double y = -9.480000011622906;
 		double z = 0;
 
-		if (aiming) {
+		if (aiming)
+		{
 			y -= 4.6;
 			GlStateManager.rotate(8, 1, 0, 0);
 			GlStateManager.rotate(1.4f, 0, 1, 0);
@@ -63,7 +72,8 @@ public class ItemRenderC14GaussRifle extends ItemRenderer {
 	}
 
 	@Override
-	public void renderThirdPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderThirdPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		float scale = .01900059f;
 
 		GlStateManager.pushMatrix();
@@ -79,7 +89,8 @@ public class ItemRenderC14GaussRifle extends ItemRenderer {
 	}
 
 	@Override
-	public void renderThirdPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderThirdPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		float scale = .01900059f;
 
 		GlStateManager.pushMatrix();
@@ -95,7 +106,8 @@ public class ItemRenderC14GaussRifle extends ItemRenderer {
 	}
 
 	@Override
-	public void renderInInventory(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderInInventory(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		float scale = .019f;
 
 		GlStateManager.pushMatrix();
@@ -111,7 +123,8 @@ public class ItemRenderC14GaussRifle extends ItemRenderer {
 	}
 
 	@Override
-	public void renderInWorld(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderInWorld(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		float scale = .01700059f;
 
 		GlStateManager.pushMatrix();
@@ -127,7 +140,8 @@ public class ItemRenderC14GaussRifle extends ItemRenderer {
 	}
 
 	@Override
-	public void renderFixed(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderFixed(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		float scale = .01750059f;
 
 		GlStateManager.pushMatrix();
@@ -144,11 +158,13 @@ public class ItemRenderC14GaussRifle extends ItemRenderer {
 	}
 
 	@Override
-	public void renderHead(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderHead(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 
 	}
 
-	public static boolean isAiming() {
+	public static boolean isAiming()
+	{
 		return aiming;
 	}
 }

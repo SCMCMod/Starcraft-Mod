@@ -11,34 +11,42 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-public class MessageSyncLarvaGui implements IMessage, IMessageHandler<MessageSyncLarvaGui, IMessage> {
+public class MessageSyncLarvaGui implements IMessage, IMessageHandler<MessageSyncLarvaGui, IMessage>
+{
 
 	private int id;
 
-	public MessageSyncLarvaGui() {
+	public MessageSyncLarvaGui()
+	{
 	}
 
-	 public MessageSyncLarvaGui(EntityLarva larva) {
-	 this.id = larva.getEntityId();
-	 }
+	public MessageSyncLarvaGui(EntityLarva larva)
+	{
+		this.id = larva.getEntityId();
+	}
 
 	@Override
-	public void toBytes(ByteBuf buf) {
+	public void toBytes(ByteBuf buf)
+	{
 		buf.writeInt(id);
 	}
 
 	@Override
-	public void fromBytes(ByteBuf buf) {
+	public void fromBytes(ByteBuf buf)
+	{
 		id = buf.readInt();
 	}
 
 	@Override
-	public IMessage onMessage(MessageSyncLarvaGui message, MessageContext ctx) {
+	public IMessage onMessage(MessageSyncLarvaGui message, MessageContext ctx)
+	{
 		EntityPlayer player = Minecraft.getMinecraft().player;
 		World world = player.world;
 
-		if (world.isRemote) {
-			if (Minecraft.getMinecraft().currentScreen instanceof GuiLarvaMorph) {
+		if (world.isRemote)
+		{
+			if (Minecraft.getMinecraft().currentScreen instanceof GuiLarvaMorph)
+			{
 				GuiLarvaMorph gui = (GuiLarvaMorph) Minecraft.getMinecraft().currentScreen;
 				gui.setLarva((EntityLarva) world.getEntityByID(message.id));
 			}

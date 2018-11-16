@@ -6,18 +6,20 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 
 //TODO: This code may not be of any use. Consider deleting it.
-public class EntityAIScarabExplode extends EntityAIBase {
+public class EntityAIScarabExplode extends EntityAIBase
+{
 
 	/**
 	 * The scarab's attack target. This is used for the changing of the creeper's
 	 * state
 	 */
-	private EntityLivingBase	scarabAttackTarget;
+	private EntityLivingBase scarabAttackTarget;
 
 	/** The scarab that is swelling */
-	private EntityScarab		swellingScarab;
+	private EntityScarab swellingScarab;
 
-	public EntityAIScarabExplode(EntityScarab entityScarab) {
+	public EntityAIScarabExplode(EntityScarab entityScarab)
+	{
 		swellingScarab = entityScarab;
 		setMutexBits(1);
 	}
@@ -26,7 +28,8 @@ public class EntityAIScarabExplode extends EntityAIBase {
 	 * Resets the task
 	 */
 	@Override
-	public void resetTask() {
+	public void resetTask()
+	{
 		scarabAttackTarget = null;
 	}
 
@@ -34,7 +37,8 @@ public class EntityAIScarabExplode extends EntityAIBase {
 	 * Returns whether the EntityAIBase should begin execution.
 	 */
 	@Override
-	public boolean shouldExecute() {
+	public boolean shouldExecute()
+	{
 		EntityLivingBase entitylivingbase = swellingScarab.getAttackTarget();
 		return entitylivingbase != null && swellingScarab.getDistanceSq(entitylivingbase) < 9;
 	}
@@ -43,7 +47,8 @@ public class EntityAIScarabExplode extends EntityAIBase {
 	 * Execute a one shot task or start executing a continuous task
 	 */
 	@Override
-	public void startExecuting() {
+	public void startExecuting()
+	{
 		swellingScarab.getNavigator().clearPath();
 		scarabAttackTarget = swellingScarab.getAttackTarget();
 	}

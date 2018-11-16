@@ -7,29 +7,34 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 //TODO: MOVE TO CORE MOD
 @SideOnly(Side.CLIENT)
-public class ScaledResolution {
-	private int		scaledWidth;
-	private int		scaledHeight;
-	private double	scaledWidthD;
-	private double	scaledHeightD;
-	private int		scaleFactor;
+public class ScaledResolution
+{
+	private int scaledWidth;
+	private int scaledHeight;
+	private double scaledWidthD;
+	private double scaledHeightD;
+	private int scaleFactor;
 
-	public ScaledResolution(Minecraft mc, int width, int height) {
+	public ScaledResolution(Minecraft mc, int width, int height)
+	{
 		this.scaledWidth = width;
 		this.scaledHeight = height;
 		this.scaleFactor = 1;
 		boolean flag = mc.getLanguageManager().isCurrentLocaleUnicode() || mc.gameSettings.forceUnicodeFont;
 		int scale = mc.gameSettings.guiScale;
 
-		if (scale == 0) {
+		if (scale == 0)
+		{
 			scale = 1000;
 		}
 
-		while (this.scaleFactor < scale && this.scaledWidth / (this.scaleFactor + 1) >= 320 && this.scaledHeight / (this.scaleFactor + 1) >= 240) {
+		while (this.scaleFactor < scale && this.scaledWidth / (this.scaleFactor + 1) >= 320 && this.scaledHeight / (this.scaleFactor + 1) >= 240)
+		{
 			++this.scaleFactor;
 		}
 
-		if (flag && this.scaleFactor % 2 != 0 && this.scaleFactor != 1) {
+		if (flag && this.scaleFactor % 2 != 0 && this.scaleFactor != 1)
+		{
 			--this.scaleFactor;
 		}
 
@@ -39,23 +44,28 @@ public class ScaledResolution {
 		this.scaledHeight = MathHelper.ceil(this.scaledHeightD);
 	}
 
-	public int getScaledWidth() {
+	public int getScaledWidth()
+	{
 		return this.scaledWidth;
 	}
 
-	public int getScaledHeight() {
+	public int getScaledHeight()
+	{
 		return this.scaledHeight;
 	}
 
-	public double getScaledWidth_double() {
+	public double getScaledWidth_double()
+	{
 		return this.scaledWidthD;
 	}
 
-	public double getScaledHeight_double() {
+	public double getScaledHeight_double()
+	{
 		return this.scaledHeightD;
 	}
 
-	public int getScaleFactor() {
+	public int getScaleFactor()
+	{
 		return this.scaleFactor;
 	}
 }

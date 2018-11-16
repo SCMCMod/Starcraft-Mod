@@ -9,29 +9,38 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemEnergy extends StarcraftItem implements IMetaRenderHandler {
+public class ItemEnergy extends StarcraftItem implements IMetaRenderHandler
+{
 
-	public ItemEnergy() {
+	public ItemEnergy()
+	{
 		super("energy");
 		setCreativeTab(StarcraftCreativeTabs.MISC);
 		setHasSubtypes(true);
 	}
 
 	@Override
-	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-		if (this.isInCreativeTab(tab)) {
-			for (int i = 0; i < EnergyType.values().length; i++) {
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items)
+	{
+		if (this.isInCreativeTab(tab))
+		{
+			for (int i = 0; i < EnergyType.values().length; i++)
+			{
 				items.add(new ItemStack(this, 1, i));
 			}
 		}
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
-		for (int i = 0; i < EnergyType.values().length; i++) {
-			if (stack.getItemDamage() == i) {
+	public String getUnlocalizedName(ItemStack stack)
+	{
+		for (int i = 0; i < EnergyType.values().length; i++)
+		{
+			if (stack.getItemDamage() == i)
+			{
 				return getUnlocalizedName() + "." + EnergyType.values()[i].getName();
-			} else {
+			} else
+			{
 				continue;
 			}
 		}
@@ -39,12 +48,14 @@ public class ItemEnergy extends StarcraftItem implements IMetaRenderHandler {
 	}
 
 	@Override
-	public int getItemCount() {
+	public int getItemCount()
+	{
 		return EnergyType.values().length;
 	}
 
 	@Override
-	public String getName(int meta) {
+	public String getName(int meta)
+	{
 		return "energy." + MetaHandler.EnergyType.values()[meta].getName();
 	}
 }

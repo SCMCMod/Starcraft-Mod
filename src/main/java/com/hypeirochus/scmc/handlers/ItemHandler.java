@@ -30,10 +30,11 @@ import com.hypeirochus.scmc.items.StarcraftItem;
 
 import net.minecraft.item.Item;
 
-public class ItemHandler {
+public class ItemHandler
+{
 
 	public static List<Item> items;
-	
+
 	public static Item TEST;
 
 	// Vespene/Terrazine/Gas Container
@@ -80,11 +81,12 @@ public class ItemHandler {
 
 	// Tab Icons
 	public static Item ICON;
-	
+
 	// Testing
 	public static Item TERRAN_POWER_CELL;
 
-	private static void init() {
+	private static void init()
+	{
 		items = new ArrayList<Item>();
 
 		instantiate();
@@ -94,9 +96,10 @@ public class ItemHandler {
 		ArmorHandler.init();
 	}
 
-	private static void instantiate() {
+	private static void instantiate()
+	{
 		TEST = new ItemTest();
-		
+
 		// Vespene/Terrazine/Gas Container
 		GAS_CONTAINER = new ItemGasContainer();
 		VESPENE = new ItemVespene();
@@ -117,11 +120,11 @@ public class ItemHandler {
 		PSI_BLADE_FOCUSER_UNCHARGED = new ItemPsiBladeFocuserUncharged();
 		PROTOSS_UPGRADE = new ItemProtossUpgrade();
 		KHAYDARIN_CRYSTAL = new ItemKhaydarinCrystal();
-		
+
 		// Terran
 		STIMPACK = new ItemStimpack();
 		MARINE_HELMET_VISOR = new StarcraftItem("terran.marine.helmet.visor").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		
+
 		// Terran Weapons
 		C14_GAUSS_RIFLE = new ItemC14GaussRifle();
 		C14_GAUSS_RIFLE_PARTS = new ItemGunParts("terran.riflec14.part", 3).setCreativeTab(StarcraftCreativeTabs.TERRAN);
@@ -135,19 +138,19 @@ public class ItemHandler {
 		CREEP_RESIN = new StarcraftItem("zerg.creepresin").setCreativeTab(StarcraftCreativeTabs.ZERG);
 		ORGANIC_TISSUE = new StarcraftItem("zerg.tissue").setCreativeTab(StarcraftCreativeTabs.ZERG);
 		BIOMASS = new StarcraftItem("biomass").setCreativeTab(StarcraftCreativeTabs.ZERG);
-		
+
 		// Tab Icons
 		ICON = new ItemIcon();
-		
+
 	}
 
 	/**
 	 * Registers an item.
 	 * 
-	 * @param item
-	 *            The item to register
+	 * @param item The item to register
 	 */
-	public static void register(Item item) {
+	public static void register(Item item)
+	{
 		items.add(item);
 	}
 
@@ -156,7 +159,8 @@ public class ItemHandler {
 	 * 
 	 * @return The list of items to be registered
 	 */
-	public static Item[] getItems() {
+	public static Item[] getItems()
+	{
 		if (items == null)
 			init();
 		return items.toArray(new Item[items.size()]);

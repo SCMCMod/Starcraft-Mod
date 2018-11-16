@@ -12,7 +12,8 @@ import net.minecraft.world.storage.loot.LootTable;
 import net.minecraft.world.storage.loot.LootTableList;
 
 //TODO: Ocelot, was this ever finished?
-public class LootTableHandler {
+public class LootTableHandler
+{
 
 	public static final ResourceLocation TERRAN_BUNKER = register("chests/terran_bunker");
 
@@ -26,20 +27,17 @@ public class LootTableHandler {
 	/**
 	 * Sets a block state in the world to contain loot.
 	 * 
-	 * @param world
-	 *            The world to place the block into
-	 * @param state
-	 *            The block
-	 * @param te
-	 *            The tile entity that will contain the loot
-	 * @param pos
-	 *            The position of the block
-	 * @param loot
-	 *            The loot that will be placed inside
+	 * @param world The world to place the block into
+	 * @param state The block
+	 * @param te The tile entity that will contain the loot
+	 * @param pos The position of the block
+	 * @param loot The loot that will be placed inside
 	 */
-	public static void generateLootContainer(World world, IBlockState state, TileEntity te, BlockPos pos, ResourceLocation loot) {
+	public static void generateLootContainer(World world, IBlockState state, TileEntity te, BlockPos pos, ResourceLocation loot)
+	{
 		world.setBlockState(pos, state);
-		if (te instanceof TileEntityLockableLoot) {
+		if (te instanceof TileEntityLockableLoot)
+		{
 			((TileEntityLockableLoot) te).setLootTable(loot, 0);
 			te.validate();
 			world.setTileEntity(pos, te);
@@ -49,11 +47,11 @@ public class LootTableHandler {
 	/**
 	 * Register a {@link LootTable} with the specified ID.
 	 *
-	 * @param id
-	 *            The ID of the LootTable without the testmod3: prefix
+	 * @param id The ID of the LootTable without the testmod3: prefix
 	 * @return The ID of the LootTable
 	 */
-	private static ResourceLocation register(String id) {
+	private static ResourceLocation register(String id)
+	{
 		return LootTableList.register(new ResourceLocation(Starcraft.MOD_ID, id));
 	}
 }

@@ -19,12 +19,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
-public class EntityScarab extends EntityProtossMob implements IMob, Predicate<EntityLivingBase> {
-	
+public class EntityScarab extends EntityProtossMob implements IMob, Predicate<EntityLivingBase>
+{
+
 	private byte explosionRadius = 6;
 	private short fuseTime = 10;
 
-	public EntityScarab(World worldIn) {
+	public EntityScarab(World worldIn)
+	{
 		super(worldIn);
 		setSize(.7F, .7F);
 		this.setColor(EnumColors.LIGHT_BLUE);
@@ -32,7 +34,8 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 		this.initEntityAI();
 	}
 
-	public EntityScarab(World worldIn, EnumColors color, EnumFactionTypes faction) {
+	public EntityScarab(World worldIn, EnumColors color, EnumFactionTypes faction)
+	{
 		super(worldIn);
 		setSize(.7F, .7F);
 		this.setColor(color);
@@ -41,7 +44,8 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 	}
 
 	@Override
-	protected void initEntityAI() {
+	protected void initEntityAI()
+	{
 		tasks.addTask(1, new EntityAISwimming(this));
 		tasks.addTask(2, new EntityAIScarabExplode(this));
 		tasks.addTask(3, new EntityAIAttackMelee(this, 1, false));
@@ -52,15 +56,18 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 	}
 
 	/**
-	 * The method where this entity handles checks to make sure it can attack the target.
+	 * The method where this entity handles checks to make sure it can attack the
+	 * target.
 	 */
 	@Override
-	public boolean apply(EntityLivingBase entity) {
+	public boolean apply(EntityLivingBase entity)
+	{
 		return checkTarget(entity, EnumFactionTypes.DAELAAM);
 	}
 
 	@Override
-	protected void applyEntityAttributes() {
+	protected void applyEntityAttributes()
+	{
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.8);
 		getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(24);
@@ -69,20 +76,25 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 	}
 
 	@Override
-	public boolean attackEntityAsMob(Entity entityIn) {
+	public boolean attackEntityAsMob(Entity entityIn)
+	{
 		return true;
 	}
 
 	@Override
-	public boolean canBeCollidedWith() {
+	public boolean canBeCollidedWith()
+	{
 		return false;
 	}
 
 	/**
-	 * Creates an explosion as determined by this scarab's power and explosion radius.
+	 * Creates an explosion as determined by this scarab's power and explosion
+	 * radius.
 	 */
-	private void explode() {
-		if (!world.isRemote) {
+	private void explode()
+	{
+		if (!world.isRemote)
+		{
 			boolean flag = world.getGameRules().getBoolean("mobGriefing");
 			float f = 1;
 			dead = true;
@@ -92,15 +104,18 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 	}
 
 	@Override
-	public float getExplosionResistance(Explosion explosionIn, World worldIn, BlockPos pos, IBlockState blockStateIn) {
+	public float getExplosionResistance(Explosion explosionIn, World worldIn, BlockPos pos, IBlockState blockStateIn)
+	{
 		return 10000;
 	}
 
 	/**
-	 * The maximum height from where the entity is allowed to jump (used in pathfinder)
+	 * The maximum height from where the entity is allowed to jump (used in
+	 * pathfinder)
 	 */
 	@Override
-	public int getMaxFallHeight() {
+	public int getMaxFallHeight()
+	{
 		return 500;
 	}
 
@@ -108,15 +123,19 @@ public class EntityScarab extends EntityProtossMob implements IMob, Predicate<En
 	 * Called to update the entity's position/logic.
 	 */
 	@Override
-	public void onUpdate() {
-		
-		if (isEntityAlive()) {
-			if(this.getAttackTarget() != null && this.getDistance(this.getAttackTarget()) < 2.0D) {
+	public void onUpdate()
+	{
+
+		if (isEntityAlive())
+		{
+			if (this.getAttackTarget() != null && this.getDistance(this.getAttackTarget()) < 2.0D)
+			{
 				explode();
 			}
 		}
 
-		if (ticksExisted > 500) {
+		if (ticksExisted > 500)
+		{
 			explode();
 		}
 

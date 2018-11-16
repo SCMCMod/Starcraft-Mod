@@ -12,22 +12,26 @@ import net.minecraft.util.ResourceLocation;
 /**
  * @author Ocelot5836
  */
-public class ItemRenderZerusLightcap extends ItemRenderer {
+public class ItemRenderZerusLightcap extends ItemRenderer
+{
 
 	public static final ModelZerusLightcap MODEL = new ModelZerusLightcap();
 	public static final ResourceLocation TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/zerus_lightcap.png");
 
-	public ItemRenderZerusLightcap() {
+	public ItemRenderZerusLightcap()
+	{
 		super(null, TEXTURE);
 	}
 
 	@Override
-	public void renderFirstPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderFirstPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		renderFirstPersonRight(itemstack, entity, cameraTransformType);
 	}
 
 	@Override
-	public void renderFirstPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderFirstPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.rotate(0, 0, 1, 0);
 		GlStateManager.translate(-0.5, -0.9, -0.5);
@@ -37,7 +41,8 @@ public class ItemRenderZerusLightcap extends ItemRenderer {
 	}
 
 	@Override
-	public void renderInInventory(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderInInventory(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.rotate(30, 1, 0, 0);
 		GlStateManager.rotate(225, 0, 1, 0);
@@ -48,7 +53,8 @@ public class ItemRenderZerusLightcap extends ItemRenderer {
 	}
 
 	@Override
-	public void renderInWorld(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderInWorld(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.rotate(45, 0, 1, 0);
 		GlStateManager.translate(-0.5, -1.2, -0.5);
@@ -57,7 +63,8 @@ public class ItemRenderZerusLightcap extends ItemRenderer {
 	}
 
 	@Override
-	public void renderFixed(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderFixed(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.scale(1.8, 1.8, 1.8);
 		GlStateManager.translate(-0.5, -1, -0.5);
@@ -66,16 +73,19 @@ public class ItemRenderZerusLightcap extends ItemRenderer {
 	}
 
 	@Override
-	public void renderHead(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderHead(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 	}
 
 	@Override
-	public void renderThirdPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderThirdPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		renderThirdPersonRight(itemstack, entity, cameraTransformType);
 	}
 
 	@Override
-	public void renderThirdPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderThirdPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.rotate(75, 1, 0, 0);
 		GlStateManager.rotate(45, 0, 1, 0);
@@ -84,7 +94,8 @@ public class ItemRenderZerusLightcap extends ItemRenderer {
 		GlStateManager.popMatrix();
 	}
 
-	public void renderModel(double scale) {
+	public void renderModel(double scale)
+	{
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0.5, 1.5, 0.5);
 		GlStateManager.rotate(180, 0, 0, 1);

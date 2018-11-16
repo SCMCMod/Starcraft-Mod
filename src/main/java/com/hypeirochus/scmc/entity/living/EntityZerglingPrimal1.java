@@ -30,9 +30,11 @@ import net.minecraft.world.World;
 /**
  * @author Hypeirochus
  */
-public class EntityZerglingPrimal1 extends EntityZergMob implements IMob, Predicate<EntityLivingBase> {
+public class EntityZerglingPrimal1 extends EntityZergMob implements IMob, Predicate<EntityLivingBase>
+{
 
-	public EntityZerglingPrimal1(World world) {
+	public EntityZerglingPrimal1(World world)
+	{
 		super(world);
 		setSize(1.0F, 1.0F);
 		this.setColor(EnumColors.CYAN);
@@ -40,9 +42,10 @@ public class EntityZerglingPrimal1 extends EntityZergMob implements IMob, Predic
 		this.setAttributes(EnumTypeAttributes.LIGHT, EnumTypeAttributes.BIOLOGICAL, EnumTypeAttributes.GROUND);
 		this.initEntityAI();
 	}
-	
+
 	@Override
-	protected void initEntityAI() {
+	protected void initEntityAI()
+	{
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
 		tasks.addTask(2, new EntityAIWander(this, 1.0D));
@@ -58,12 +61,14 @@ public class EntityZerglingPrimal1 extends EntityZergMob implements IMob, Predic
 	 * target.
 	 */
 	@Override
-	public boolean apply(EntityLivingBase entity) {
+	public boolean apply(EntityLivingBase entity)
+	{
 		return checkTarget(entity, EnumFactionTypes.PRIMALZERG);
 	}
 
 	@Override
-	protected void applyEntityAttributes() {
+	protected void applyEntityAttributes()
+	{
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(25.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3304D);
@@ -72,16 +77,19 @@ public class EntityZerglingPrimal1 extends EntityZergMob implements IMob, Predic
 	}
 
 	@Override
-	protected void dropFewItems(boolean recentlyHit, int looting) {
+	protected void dropFewItems(boolean recentlyHit, int looting)
+	{
 		ItemDrop drop = new ItemDrop(50, new ItemStack(ItemHandler.ZERG_CARAPACE, 1 + this.rand.nextInt(2), MetaHandler.CarapaceType.T1.getID()));
 		drop.tryDrop(this);
 	}
 
 	@Override
-	public SoundEvent getAmbientSound() {
+	public SoundEvent getAmbientSound()
+	{
 		Random rand = new Random();
 
-		switch (rand.nextInt(3)) {
+		switch (rand.nextInt(3))
+		{
 		case 0:
 			return SoundHandler.ENTITY_ZERGLING_LIVE1;
 		case 1:
@@ -94,17 +102,20 @@ public class EntityZerglingPrimal1 extends EntityZergMob implements IMob, Predic
 	}
 
 	@Override
-	public SoundEvent getDeathSound() {
+	public SoundEvent getDeathSound()
+	{
 		return SoundHandler.ENTITY_ZERGLING_DEATH;
 	}
 
 	@Override
-	public SoundEvent getHurtSound(DamageSource source) {
+	public SoundEvent getHurtSound(DamageSource source)
+	{
 		return SoundHandler.ENTITY_ZERGLING_HURT;
 	}
 
 	@Override
-	public int getTalkInterval() {
+	public int getTalkInterval()
+	{
 		return 160;
 	}
 }

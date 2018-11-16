@@ -6,7 +6,8 @@ import net.minecraft.item.ItemStack;
  * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
  */
 //TODO: MOVE TO CORE MOD
-public interface IMetaBlockName {
+public interface IMetaBlockName
+{
 
 	/**
 	 * Should return the name of the variant i.e. when we have the block breaker we
@@ -14,8 +15,7 @@ public interface IMetaBlockName {
 	 * the correct item damage Refer to {@link ItemStack#getItemDamage()} to get the
 	 * correct damage
 	 * 
-	 * @param stack
-	 *            The stack
+	 * @param stack The stack
 	 * @return The name of the variant that specific item is
 	 */
 	String getSpecialName(ItemStack stack);

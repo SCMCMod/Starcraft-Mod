@@ -29,9 +29,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 /**
  * @author Ocelot5836
  */
-public class BlockCharFarmland extends BlockFarmland {
+public class BlockCharFarmland extends BlockFarmland
+{
 
-	public BlockCharFarmland() {
+	public BlockCharFarmland()
+	{
 		setUnlocalizedName("char.farmland");
 		setRegistryName("char.farmland");
 		setSoundType(SoundType.GROUND);
@@ -42,28 +44,37 @@ public class BlockCharFarmland extends BlockFarmland {
 	}
 
 	@Override
-	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
+	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
+	{
 		int i = ((Integer) state.getValue(MOISTURE)).intValue();
 
-		if (!this.hasWater(worldIn, pos) && !worldIn.isRainingAt(pos.up())) {
-			if (i > 0) {
+		if (!this.hasWater(worldIn, pos) && !worldIn.isRainingAt(pos.up()))
+		{
+			if (i > 0)
+			{
 				worldIn.setBlockState(pos, state.withProperty(MOISTURE, Integer.valueOf(i - 1)), 2);
-			} else if (!this.hasCrops(worldIn, pos)) {
+			} else if (!this.hasCrops(worldIn, pos))
+			{
 				worldIn.setBlockState(pos, BlockHandler.DIRT_CHAR.getDefaultState());
 			}
-		} else if (i < 7) {
+		} else if (i < 7)
+		{
 			worldIn.setBlockState(pos, state.withProperty(MOISTURE, Integer.valueOf(7)), 2);
 		}
 	}
 
-	private boolean hasCrops(World world, BlockPos pos) {
+	private boolean hasCrops(World world, BlockPos pos)
+	{
 		Block block = world.getBlockState(pos.up()).getBlock();
 		return block instanceof net.minecraftforge.common.IPlantable && canSustainPlant(world.getBlockState(pos), world, pos, net.minecraft.util.EnumFacing.UP, (net.minecraftforge.common.IPlantable) block);
 	}
 
-	private boolean hasWater(World world, BlockPos pos) {
-		for (BlockPos.MutableBlockPos blockpos$mutableblockpos : BlockPos.getAllInBoxMutable(pos.add(-4, 0, -4), pos.add(4, 1, 4))) {
-			if (world.getBlockState(blockpos$mutableblockpos).getMaterial() == Material.WATER) {
+	private boolean hasWater(World world, BlockPos pos)
+	{
+		for (BlockPos.MutableBlockPos blockpos$mutableblockpos : BlockPos.getAllInBoxMutable(pos.add(-4, 0, -4), pos.add(4, 1, 4)))
+		{
+			if (world.getBlockState(blockpos$mutableblockpos).getMaterial() == Material.WATER)
+			{
 				return true;
 			}
 		}
@@ -72,23 +83,29 @@ public class BlockCharFarmland extends BlockFarmland {
 	}
 
 	@Override
-	public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance) {
-		if (!worldIn.isRemote && worldIn.rand.nextFloat() < fallDistance - 0.5F && entityIn instanceof EntityLivingBase && (entityIn instanceof EntityPlayer || worldIn.getGameRules().getBoolean("mobGriefing")) && entityIn.width * entityIn.width * entityIn.height > 0.512F) {
+	public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance)
+	{
+		if (!worldIn.isRemote && worldIn.rand.nextFloat() < fallDistance - 0.5F && entityIn instanceof EntityLivingBase && (entityIn instanceof EntityPlayer || worldIn.getGameRules().getBoolean("mobGriefing")) && entityIn.width * entityIn.width * entityIn.height > 0.512F)
+		{
 			worldIn.setBlockState(pos, BlockHandler.DIRT_CHAR.getDefaultState());
 		}
 	}
 
 	@Override
-	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos) {
-		if (world.getBlockState(pos.up()).getMaterial().isSolid()) {
+	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos)
+	{
+		if (world.getBlockState(pos.up()).getMaterial().isSolid())
+		{
 			world.setBlockState(pos, BlockHandler.DIRT_CHAR.getDefaultState());
 		}
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
-		switch (side) {
+	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side)
+	{
+		switch (side)
+		{
 		case UP:
 			return true;
 		case NORTH:
@@ -104,23 +121,27 @@ public class BlockCharFarmland extends BlockFarmland {
 	}
 
 	@Override
-	public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, IPlantable plantable) {
+	public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, IPlantable plantable)
+	{
 		return true;
 	}
 
 	@Nullable
 	@Override
-	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+	public Item getItemDropped(IBlockState state, Random rand, int fortune)
+	{
 		return BlockHandler.DIRT_CHAR.getItemDropped(BlockHandler.DIRT_CHAR.getDefaultState(), rand, fortune);
 	}
 
 	@Override
-	public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
+	public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state)
+	{
 		return new ItemStack(BlockHandler.DIRT_CHAR);
 	}
 
 	@Override
-	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
+	{
 		return MapColor.BLACK;
 	}
 }

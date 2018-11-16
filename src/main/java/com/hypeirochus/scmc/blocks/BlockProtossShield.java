@@ -21,60 +21,72 @@ import net.minecraft.world.World;
 
 /**
  * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
- * 
  * <br>
  * </br>
  * 
  * @author Ocelot5836
  */
-public class BlockProtossShield extends StarcraftBlock {
+public class BlockProtossShield extends StarcraftBlock
+{
 
-	public BlockProtossShield() {
+	public BlockProtossShield()
+	{
 		super("protoss.shield", RegistryType.FULL, Material.BARRIER, MapColor.LIGHT_BLUE);
 	}
 
 	@Override
-	public BlockRenderLayer getBlockLayer() {
+	public BlockRenderLayer getBlockLayer()
+	{
 		return BlockRenderLayer.TRANSLUCENT;
 	}
 
 	@Override
-	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess world, BlockPos pos) {
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess world, BlockPos pos)
+	{
 		return NULL_AABB;
 	}
 
 	@Override
-	public boolean isFullCube(IBlockState state) {
+	public boolean isFullCube(IBlockState state)
+	{
 		return false;
 	}
 
 	@Override
-	public void onBlockDestroyedByExplosion(World world, BlockPos pos, Explosion explosionIn) {
+	public void onBlockDestroyedByExplosion(World world, BlockPos pos, Explosion explosionIn)
+	{
 	}
 
 	@Override
-	public boolean isOpaqueCube(IBlockState state) {
+	public boolean isOpaqueCube(IBlockState state)
+	{
 		return false;
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
-		if (entityIn instanceof IProjectile || entityIn instanceof EntityFireball || entityIn instanceof EntitySmallFireball || entityIn instanceof EntityLargeFireball) {
+	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
+	{
+		if (entityIn instanceof IProjectile || entityIn instanceof EntityFireball || entityIn instanceof EntitySmallFireball || entityIn instanceof EntityLargeFireball)
+		{
 			entityIn.setDead();
 		}
 		super.onEntityCollidedWithBlock(worldIn, pos, state, entityIn);
 	}
 
 	@Override
-	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
+	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side)
+	{
 		IBlockState iblockstate = blockAccess.getBlockState(pos.offset(side));
 		Block block = iblockstate.getBlock();
 
-		if (this == BlockHandler.PROTOSS_SHIELD) {
-			if (blockState != iblockstate) {
+		if (this == BlockHandler.PROTOSS_SHIELD)
+		{
+			if (blockState != iblockstate)
+			{
 				return true;
 			}
-			if (block == this) {
+			if (block == this)
+			{
 				return false;
 			}
 		}

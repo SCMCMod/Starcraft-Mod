@@ -12,26 +12,29 @@ import net.minecraft.item.Item;
 /**
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
  */
-public class WeaponHandler {
+public class WeaponHandler
+{
 
-	public static Item	BALISONG;
-	public static Item	COPPER_SWORD;
-	public static Item	BANE_BLADE;
-	public static Item	MASTER_PSI_BLADE;
-	public static Item	DARK_WARP_BLADE;
-	public static Item	MILITARY_KNIFE;
-	public static Item	MONOMOLECULAR_BLADE;
-	public static Item	PSI_BLADE;
-	public static Item	STEEL_SWORD;
-	public static Item	TITANIUM_SWORD;
-	public static Item	WARP_BLADE;
+	public static Item BALISONG;
+	public static Item COPPER_SWORD;
+	public static Item BANE_BLADE;
+	public static Item MASTER_PSI_BLADE;
+	public static Item DARK_WARP_BLADE;
+	public static Item MILITARY_KNIFE;
+	public static Item MONOMOLECULAR_BLADE;
+	public static Item PSI_BLADE;
+	public static Item STEEL_SWORD;
+	public static Item TITANIUM_SWORD;
+	public static Item WARP_BLADE;
 
-	public static void init() {
+	public static void init()
+	{
 		instantiate();
 		register();
 	}
-	
-	private static void instantiate() {
+
+	private static void instantiate()
+	{
 		PSI_BLADE = new WeaponPsiBlade(WeaponMaterials.PSIBLADE_MATERIAL).setUnlocalizedName("protoss.blade.psi.aiur").setRegistryName("protoss.blade.psi.aiur").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 		BANE_BLADE = new WeaponPsiBlade(WeaponMaterials.PSIBLADE_MATERIAL).setUnlocalizedName("protoss.blade.psi.dark").setRegistryName("protoss.blade.psi.dark").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
 		WARP_BLADE = new WeaponWarpBlade(WeaponMaterials.WARPBLADE_MATERIAL).setUnlocalizedName("protoss.blade.warp.aiur").setRegistryName("protoss.blade.warp.aiur").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
@@ -46,7 +49,8 @@ public class WeaponHandler {
 		STEEL_SWORD = new WeaponSwordBase(WeaponMaterials.STEEL_MATERIAL).setUnlocalizedName("steel.sword").setRegistryName("steel.sword").setCreativeTab(StarcraftCreativeTabs.TERRAN);
 	}
 
-	private static void register() {
+	private static void register()
+	{
 		registerItem(PSI_BLADE);
 		registerItem(BANE_BLADE);
 
@@ -64,7 +68,8 @@ public class WeaponHandler {
 		registerItem(STEEL_SWORD);
 	}
 
-	public static void registerItem(Item item) {
+	public static void registerItem(Item item)
+	{
 		ItemHandler.register(item);
 	}
 }

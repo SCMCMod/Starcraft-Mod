@@ -17,7 +17,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
 //TODO: MOVE TO CORE MOD
-public class ItemRenderModelArmorItem extends ItemRenderer {
+public class ItemRenderModelArmorItem extends ItemRenderer
+{
 
 	private IArmorItem model;
 	private EntityEquipmentSlot type;
@@ -25,13 +26,15 @@ public class ItemRenderModelArmorItem extends ItemRenderer {
 	private ResourceLocation textureLayer1;
 	private ResourceLocation textureLayer2;
 
-	public ItemRenderModelArmorItem(EntityEquipmentSlot type, IArmorItem model, ArmorMaterial material) {
+	public ItemRenderModelArmorItem(EntityEquipmentSlot type, IArmorItem model, ArmorMaterial material)
+	{
 		super(null, null);
 		this.model = model;
 		this.textureLayer1 = new ResourceLocation(Starcraft.RL_BASE + "textures/models/armor/" + material.getName().substring(Starcraft.MOD_ID.length() + 1) + "_layer_1.png");
 		this.textureLayer2 = new ResourceLocation(Starcraft.RL_BASE + "textures/models/armor/" + material.getName().substring(Starcraft.MOD_ID.length() + 1) + "_layer_2.png");
 
-		switch (type) {
+		switch (type)
+		{
 		case CHEST:
 			break;
 		case FEET:
@@ -48,73 +51,86 @@ public class ItemRenderModelArmorItem extends ItemRenderer {
 	}
 
 	@Override
-	public void renderFirstPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderFirstPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		renderFirstPersonRight(itemstack, entity, cameraTransformType);
 	}
 
 	@Override
-	public void renderFirstPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderFirstPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		float scale = 0.0625f;
 		renderArmor(entity, cameraTransformType, scale);
 	}
 
 	@Override
-	public void renderInInventory(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderInInventory(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		float scale = 0.0625f;
 		renderArmor(entity, cameraTransformType, scale);
 	}
 
 	@Override
-	public void renderInWorld(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderInWorld(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		float scale = 0.0625f;
 		renderArmor(entity, cameraTransformType, scale);
 	}
 
 	@Override
-	public void renderThirdPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderThirdPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		renderThirdPersonRight(itemstack, entity, cameraTransformType);
 	}
 
 	@Override
-	public void renderThirdPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderThirdPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		float scale = 0.0625f;
 		renderArmor(entity, cameraTransformType, scale);
 	}
 
 	@Override
-	public void renderFixed(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderFixed(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		float scale = 0.0625f;
 		renderArmor(entity, cameraTransformType, scale);
 	}
 
 	@Override
-	public void renderHead(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderHead(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 
 	}
 
-	public void renderArmor(EntityLivingBase entity, TransformType cameraTransformType, float scale) {
-		if (type == HEAD) {
+	public void renderArmor(EntityLivingBase entity, TransformType cameraTransformType, float scale)
+	{
+		if (type == HEAD)
+		{
 			TextureUtils.bindTexture(textureLayer1);
 			model.renderHelmet(cameraTransformType, entity, scale);
 			TextureUtils.bindTexture(textureLayer2);
 			model.renderHelmet(cameraTransformType, entity, scale);
 		}
 
-		if (type == CHEST) {
+		if (type == CHEST)
+		{
 			TextureUtils.bindTexture(textureLayer1);
 			model.renderChestplate(cameraTransformType, entity, scale);
 			TextureUtils.bindTexture(textureLayer2);
 			model.renderChestplate(cameraTransformType, entity, scale);
 		}
 
-		if (type == LEGS) {
+		if (type == LEGS)
+		{
 			TextureUtils.bindTexture(textureLayer1);
 			model.renderLeggings(cameraTransformType, entity, scale);
 			TextureUtils.bindTexture(textureLayer2);
 			model.renderLeggings(cameraTransformType, entity, scale);
 		}
 
-		if (type == FEET) {
+		if (type == FEET)
+		{
 			TextureUtils.bindTexture(textureLayer1);
 			model.renderBoots(cameraTransformType, entity, scale);
 			TextureUtils.bindTexture(textureLayer2);

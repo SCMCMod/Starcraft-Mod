@@ -12,7 +12,8 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderZerglingPrimalDehaka extends RenderLiving<EntityZerglingPrimalDehaka> implements LayerRenderer<EntityZerglingPrimalDehaka> {
+public class RenderZerglingPrimalDehaka extends RenderLiving<EntityZerglingPrimalDehaka> implements LayerRenderer<EntityZerglingPrimalDehaka>
+{
 
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.ZERGLINGPRIMALDEHAKA_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.ZERGLINGPRIMALDEHAKA_OVERLAY);
@@ -20,7 +21,8 @@ public class RenderZerglingPrimalDehaka extends RenderLiving<EntityZerglingPrima
 	private final RenderZerglingPrimalDehaka RENDERER;
 	protected ModelZerglingPrimalDehaka model;
 
-	public RenderZerglingPrimalDehaka(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn) {
+	public RenderZerglingPrimalDehaka(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
+	{
 		super(renderManagerIn, modelBaseIn, shadowSizeIn);
 		model = ((ModelZerglingPrimalDehaka) mainModel);
 		this.RENDERER = this;
@@ -28,32 +30,38 @@ public class RenderZerglingPrimalDehaka extends RenderLiving<EntityZerglingPrima
 	}
 
 	@Override
-	public void doRender(EntityZerglingPrimalDehaka entity, double x, double y, double z, float entityYaw, float partialTicks) {
+	public void doRender(EntityZerglingPrimalDehaka entity, double x, double y, double z, float entityYaw, float partialTicks)
+	{
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 
-		if (!renderOutlines) {
+		if (!renderOutlines)
+		{
 			renderLeash(entity, x, y, z, entityYaw, partialTicks);
 		}
 	}
 
 	@Override
-	protected ResourceLocation getEntityTexture(EntityZerglingPrimalDehaka entity) {
+	protected ResourceLocation getEntityTexture(EntityZerglingPrimalDehaka entity)
+	{
 		return BASE;
 	}
 
 	@Override
-	protected void preRenderCallback(EntityZerglingPrimalDehaka entitylivingbaseIn, float partialTickTime) {
+	protected void preRenderCallback(EntityZerglingPrimalDehaka entitylivingbaseIn, float partialTickTime)
+	{
 		GlStateManager.scale(1.25F + (entitylivingbaseIn.getBiomass() / 60), 1.25F + (entitylivingbaseIn.getBiomass() / 60), 1.25F + (entitylivingbaseIn.getBiomass() / 60));
 	}
 
 	@Override
-	public void doRenderLayer(EntityZerglingPrimalDehaka entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+	public void doRenderLayer(EntityZerglingPrimalDehaka entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
+	{
 		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
 	}
 
 	@Override
-	public boolean shouldCombineTextures() {
+	public boolean shouldCombineTextures()
+	{
 		return true;
 	}
 }

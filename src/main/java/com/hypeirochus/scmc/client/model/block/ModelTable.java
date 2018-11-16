@@ -8,15 +8,17 @@ import net.minecraft.client.model.ModelRenderer;
  * 
  * @author Ocelot5836 - Table
  */
-public class ModelTable extends ModelBase {
+public class ModelTable extends ModelBase
+{
 
-	public ModelRenderer	top;
-	public ModelRenderer	leg1;
-	public ModelRenderer	leg2;
-	public ModelRenderer	leg3;
-	public ModelRenderer	leg4;
+	public ModelRenderer top;
+	public ModelRenderer leg1;
+	public ModelRenderer leg2;
+	public ModelRenderer leg3;
+	public ModelRenderer leg4;
 
-	public ModelTable() {
+	public ModelTable()
+	{
 		this.textureWidth = 82;
 		this.textureHeight = 80;
 		this.leg2 = new ModelRenderer(this, 72, 0);
@@ -36,7 +38,8 @@ public class ModelTable extends ModelBase {
 		this.top.addBox(-8.0F, 8.0F, -8.0F, 16, 1, 16, 0.0F);
 	}
 
-	public void render(float scale) {
+	public void render(float scale)
+	{
 		this.leg2.render(scale);
 		this.leg3.render(scale);
 		this.leg4.render(scale);
@@ -47,7 +50,8 @@ public class ModelTable extends ModelBase {
 	/**
 	 * This is a helper function from Tabula to set the rotation of model parts
 	 */
-	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z)
+	{
 		modelRenderer.rotateAngleX = x;
 		modelRenderer.rotateAngleY = y;
 		modelRenderer.rotateAngleZ = z;

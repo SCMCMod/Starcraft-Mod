@@ -24,7 +24,8 @@ import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 
-public class ChunkGeneratorKaldir implements IChunkGenerator {
+public class ChunkGeneratorKaldir implements IChunkGenerator
+{
 	protected static final IBlockState STONE = Blocks.STONE.getDefaultState();
 	private final Random rand;
 	private NoiseGeneratorOctaves minLimitPerlinNoise;
@@ -50,7 +51,8 @@ public class ChunkGeneratorKaldir implements IChunkGenerator {
 	double[] maxLimitRegion;
 	double[] depthRegion;
 
-	public ChunkGeneratorKaldir(World worldIn, long seed, boolean mapFeaturesEnabledIn, String generatorOptions) {
+	public ChunkGeneratorKaldir(World worldIn, long seed, boolean mapFeaturesEnabledIn, String generatorOptions)
+	{
 		{
 			caveGenerator = net.minecraftforge.event.terraingen.TerrainGen.getModdedMapGen(caveGenerator, net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.CAVE);
 			ravineGenerator = net.minecraftforge.event.terraingen.TerrainGen.getModdedMapGen(ravineGenerator, net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.RAVINE);
@@ -69,14 +71,17 @@ public class ChunkGeneratorKaldir implements IChunkGenerator {
 		this.heightMap = new double[825];
 		this.biomeWeights = new float[25];
 
-		for (int i = -2; i <= 2; ++i) {
-			for (int j = -2; j <= 2; ++j) {
+		for (int i = -2; i <= 2; ++i)
+		{
+			for (int j = -2; j <= 2; ++j)
+			{
 				float f = 10.0F / MathHelper.sqrt((float) (i * i + j * j) + 0.2F);
 				this.biomeWeights[i + 2 + (j + 2) * 5] = f;
 			}
 		}
 
-		if (generatorOptions != null) {
+		if (generatorOptions != null)
+		{
 			this.settings = ChunkGeneratorSettings.Factory.jsonToFactory(generatorOptions).build();
 			this.oceanBlock = this.settings.useLavaOceans ? Blocks.LAVA.getDefaultState() : Blocks.WATER.getDefaultState();
 			worldIn.setSeaLevel(this.settings.seaLevel);
@@ -93,21 +98,25 @@ public class ChunkGeneratorKaldir implements IChunkGenerator {
 		this.forestNoise = ctx.getForest();
 	}
 
-	public void setBlocksInChunk(int x, int z, ChunkPrimer primer) {
+	public void setBlocksInChunk(int x, int z, ChunkPrimer primer)
+	{
 		this.biomesForGeneration = this.world.getBiomeProvider().getBiomesForGeneration(this.biomesForGeneration, x * 4 - 2, z * 4 - 2, 10, 10);
 		this.generateHeightmap(x * 4, 0, z * 4);
 
-		for (int i = 0; i < 4; ++i) {
+		for (int i = 0; i < 4; ++i)
+		{
 			int j = i * 5;
 			int k = (i + 1) * 5;
 
-			for (int l = 0; l < 4; ++l) {
+			for (int l = 0; l < 4; ++l)
+			{
 				int i1 = (j + l) * 33;
 				int j1 = (j + l + 1) * 33;
 				int k1 = (k + l) * 33;
 				int l1 = (k + l + 1) * 33;
 
-				for (int i2 = 0; i2 < 32; ++i2) {
+				for (int i2 = 0; i2 < 32; ++i2)
+				{
 					double d0 = 0.125D;
 					double d1 = this.heightMap[i1 + i2];
 					double d2 = this.heightMap[j1 + i2];
@@ -118,22 +127,27 @@ public class ChunkGeneratorKaldir implements IChunkGenerator {
 					double d7 = (this.heightMap[k1 + i2 + 1] - d3) * 0.125D;
 					double d8 = (this.heightMap[l1 + i2 + 1] - d4) * 0.125D;
 
-					for (int j2 = 0; j2 < 8; ++j2) {
+					for (int j2 = 0; j2 < 8; ++j2)
+					{
 						double d9 = 0.25D;
 						double d10 = d1;
 						double d11 = d2;
 						double d12 = (d3 - d1) * 0.25D;
 						double d13 = (d4 - d2) * 0.25D;
 
-						for (int k2 = 0; k2 < 4; ++k2) {
+						for (int k2 = 0; k2 < 4; ++k2)
+						{
 							double d14 = 0.25D;
 							double d16 = (d11 - d10) * 0.25D;
 							double lvt_45_1_ = d10 - d16;
 
-							for (int l2 = 0; l2 < 4; ++l2) {
-								if ((lvt_45_1_ += d16) > 0.0D) {
+							for (int l2 = 0; l2 < 4; ++l2)
+							{
+								if ((lvt_45_1_ += d16) > 0.0D)
+								{
 									primer.setBlockState(i * 4 + k2, i2 * 8 + j2, l * 4 + l2, STONE);
-								} else if (i2 * 8 + j2 < this.settings.seaLevel) {
+								} else if (i2 * 8 + j2 < this.settings.seaLevel)
+								{
 									primer.setBlockState(i * 4 + k2, i2 * 8 + j2, l * 4 + l2, this.oceanBlock);
 								}
 							}
@@ -152,14 +166,17 @@ public class ChunkGeneratorKaldir implements IChunkGenerator {
 		}
 	}
 
-	public void replaceBiomeBlocks(int x, int z, ChunkPrimer primer, Biome[] biomesIn) {
+	public void replaceBiomeBlocks(int x, int z, ChunkPrimer primer, Biome[] biomesIn)
+	{
 		if (!net.minecraftforge.event.ForgeEventFactory.onReplaceBiomeBlocks(this, x, z, primer, this.world))
 			return;
 		double d0 = 0.03125D;
 		this.depthBuffer = this.surfaceNoise.getRegion(this.depthBuffer, (double) (x * 16), (double) (z * 16), 16, 16, 0.0625D, 0.0625D, 1.0D);
 
-		for (int i = 0; i < 16; ++i) {
-			for (int j = 0; j < 16; ++j) {
+		for (int i = 0; i < 16; ++i)
+		{
+			for (int j = 0; j < 16; ++j)
+			{
 				Biome biome = biomesIn[j + i * 16];
 				biome.genTerrainBlocks(this.world, this.rand, primer, x * 16 + i, z * 16 + j, this.depthBuffer[j + i * 16]);
 			}
@@ -169,28 +186,33 @@ public class ChunkGeneratorKaldir implements IChunkGenerator {
 	/**
 	 * Generates the chunk at the specified position, from scratch
 	 */
-	public Chunk generateChunk(int x, int z) {
+	public Chunk generateChunk(int x, int z)
+	{
 		this.rand.setSeed((long) x * 341873128712L + (long) z * 132897987541L);
 		ChunkPrimer chunkprimer = new ChunkPrimer();
 		this.setBlocksInChunk(x, z, chunkprimer);
 		this.biomesForGeneration = this.world.getBiomeProvider().getBiomes(this.biomesForGeneration, x * 16, z * 16, 16, 16);
 		this.replaceBiomeBlocks(x, z, chunkprimer, this.biomesForGeneration);
 
-		if (this.settings.useCaves) {
+		if (this.settings.useCaves)
+		{
 			this.caveGenerator.generate(this.world, x, z, chunkprimer);
 		}
 
-		if (this.settings.useRavines) {
+		if (this.settings.useRavines)
+		{
 			this.ravineGenerator.generate(this.world, x, z, chunkprimer);
 		}
 
-		if (this.mapFeaturesEnabled) {
+		if (this.mapFeaturesEnabled)
+		{
 		}
 
 		Chunk chunk = new Chunk(this.world, chunkprimer, x, z);
 		byte[] abyte = chunk.getBiomeArray();
 
-		for (int i = 0; i < abyte.length; ++i) {
+		for (int i = 0; i < abyte.length; ++i)
+		{
 			abyte[i] = (byte) Biome.getIdForBiome(this.biomesForGeneration[i]);
 		}
 
@@ -198,7 +220,8 @@ public class ChunkGeneratorKaldir implements IChunkGenerator {
 		return chunk;
 	}
 
-	private void generateHeightmap(int p_185978_1_, int p_185978_2_, int p_185978_3_) {
+	private void generateHeightmap(int p_185978_1_, int p_185978_2_, int p_185978_3_)
+	{
 		this.depthRegion = this.depthNoise.generateNoiseOctaves(this.depthRegion, p_185978_1_, p_185978_3_, 5, 5, (double) this.settings.depthNoiseScaleX, (double) this.settings.depthNoiseScaleZ, (double) this.settings.depthNoiseScaleExponent);
 		float f = this.settings.coordinateScale;
 		float f1 = this.settings.heightScale;
@@ -208,28 +231,34 @@ public class ChunkGeneratorKaldir implements IChunkGenerator {
 		int i = 0;
 		int j = 0;
 
-		for (int k = 0; k < 5; ++k) {
-			for (int l = 0; l < 5; ++l) {
+		for (int k = 0; k < 5; ++k)
+		{
+			for (int l = 0; l < 5; ++l)
+			{
 				float f2 = 0.0F;
 				float f3 = 0.0F;
 				float f4 = 0.0F;
 				int i1 = 2;
 				Biome biome = this.biomesForGeneration[k + 2 + (l + 2) * 10];
 
-				for (int j1 = -2; j1 <= 2; ++j1) {
-					for (int k1 = -2; k1 <= 2; ++k1) {
+				for (int j1 = -2; j1 <= 2; ++j1)
+				{
+					for (int k1 = -2; k1 <= 2; ++k1)
+					{
 						Biome biome1 = this.biomesForGeneration[k + j1 + 2 + (l + k1 + 2) * 10];
 						float f5 = this.settings.biomeDepthOffSet + biome1.getBaseHeight() * this.settings.biomeDepthWeight;
 						float f6 = this.settings.biomeScaleOffset + biome1.getHeightVariation() * this.settings.biomeScaleWeight;
 
-						if (this.terrainType == WorldType.AMPLIFIED && f5 > 0.0F) {
+						if (this.terrainType == WorldType.AMPLIFIED && f5 > 0.0F)
+						{
 							f5 = 1.0F + f5 * 2.0F;
 							f6 = 1.0F + f6 * 4.0F;
 						}
 
 						float f7 = this.biomeWeights[j1 + 2 + (k1 + 2) * 5] / (f5 + 2.0F);
 
-						if (biome1.getBaseHeight() > biome.getBaseHeight()) {
+						if (biome1.getBaseHeight() > biome.getBaseHeight())
+						{
 							f7 /= 2.0F;
 						}
 
@@ -245,23 +274,28 @@ public class ChunkGeneratorKaldir implements IChunkGenerator {
 				f3 = (f3 * 4.0F - 1.0F) / 8.0F;
 				double d7 = this.depthRegion[j] / 8000.0D;
 
-				if (d7 < 0.0D) {
+				if (d7 < 0.0D)
+				{
 					d7 = -d7 * 0.3D;
 				}
 
 				d7 = d7 * 3.0D - 2.0D;
 
-				if (d7 < 0.0D) {
+				if (d7 < 0.0D)
+				{
 					d7 = d7 / 2.0D;
 
-					if (d7 < -1.0D) {
+					if (d7 < -1.0D)
+					{
 						d7 = -1.0D;
 					}
 
 					d7 = d7 / 1.4D;
 					d7 = d7 / 2.0D;
-				} else {
-					if (d7 > 1.0D) {
+				} else
+				{
+					if (d7 > 1.0D)
+					{
 						d7 = 1.0D;
 					}
 
@@ -275,10 +309,12 @@ public class ChunkGeneratorKaldir implements IChunkGenerator {
 				d8 = d8 * (double) this.settings.baseSize / 8.0D;
 				double d0 = (double) this.settings.baseSize + d8 * 4.0D;
 
-				for (int l1 = 0; l1 < 33; ++l1) {
+				for (int l1 = 0; l1 < 33; ++l1)
+				{
 					double d1 = ((double) l1 - d0) * (double) this.settings.stretchY * 128.0D / 256.0D / d9;
 
-					if (d1 < 0.0D) {
+					if (d1 < 0.0D)
+					{
 						d1 *= 4.0D;
 					}
 
@@ -287,7 +323,8 @@ public class ChunkGeneratorKaldir implements IChunkGenerator {
 					double d4 = (this.mainNoiseRegion[i] / 10.0D + 1.0D) / 2.0D;
 					double d5 = MathHelper.clampedLerp(d2, d3, d4) - d1;
 
-					if (l1 > 29) {
+					if (l1 > 29)
+					{
 						double d6 = (double) ((float) (l1 - 29) / 3.0F);
 						d5 = d5 * (1.0D - d6) + -10.0D * d6;
 					}
@@ -303,7 +340,8 @@ public class ChunkGeneratorKaldir implements IChunkGenerator {
 	 * Generate initial structures in this chunk, e.g. mineshafts, temples, lakes,
 	 * and dungeons
 	 */
-	public void populate(int x, int z) {
+	public void populate(int x, int z)
+	{
 		BlockFalling.fallInstantly = true;
 		int i = x * 16;
 		int j = z * 16;
@@ -323,17 +361,22 @@ public class ChunkGeneratorKaldir implements IChunkGenerator {
 			WorldEntitySpawner.performWorldGenSpawning(this.world, biome, i + 8, j + 8, 16, 16, this.rand);
 		blockpos = blockpos.add(8, 0, 8);
 
-		if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, x, z, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.ICE)) {
-			for (int k2 = 0; k2 < 16; ++k2) {
-				for (int j3 = 0; j3 < 16; ++j3) {
+		if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, x, z, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.ICE))
+		{
+			for (int k2 = 0; k2 < 16; ++k2)
+			{
+				for (int j3 = 0; j3 < 16; ++j3)
+				{
 					BlockPos blockpos1 = this.world.getPrecipitationHeight(blockpos.add(k2, 0, j3));
 					BlockPos blockpos2 = blockpos1.down();
 
-					if (this.world.canBlockFreezeWater(blockpos2)) {
+					if (this.world.canBlockFreezeWater(blockpos2))
+					{
 						this.world.setBlockState(blockpos2, Blocks.ICE.getDefaultState(), 2);
 					}
 
-					if (this.world.canSnowAt(blockpos1, true)) {
+					if (this.world.canSnowAt(blockpos1, true))
+					{
 						this.world.setBlockState(blockpos1, Blocks.SNOW_LAYER.getDefaultState(), 2);
 					}
 				}
@@ -349,21 +392,25 @@ public class ChunkGeneratorKaldir implements IChunkGenerator {
 	 * Called to generate additional structures after initial worldgen, used by
 	 * ocean monuments
 	 */
-	public boolean generateStructures(Chunk chunkIn, int x, int z) {
+	public boolean generateStructures(Chunk chunkIn, int x, int z)
+	{
 		return false;
 	}
 
-	public List<Biome.SpawnListEntry> getPossibleCreatures(EnumCreatureType creatureType, BlockPos pos) {
+	public List<Biome.SpawnListEntry> getPossibleCreatures(EnumCreatureType creatureType, BlockPos pos)
+	{
 		Biome biome = this.world.getBiome(pos);
 		return biome.getSpawnableList(creatureType);
 	}
 
-	public boolean isInsideStructure(World worldIn, String structureName, BlockPos pos) {
+	public boolean isInsideStructure(World worldIn, String structureName, BlockPos pos)
+	{
 		return false;
 	}
 
 	@Nullable
-	public BlockPos getNearestStructurePos(World worldIn, String structureName, BlockPos position, boolean findUnexplored) {
+	public BlockPos getNearestStructurePos(World worldIn, String structureName, BlockPos position, boolean findUnexplored)
+	{
 		return null;
 	}
 
@@ -373,6 +420,7 @@ public class ChunkGeneratorKaldir implements IChunkGenerator {
 	 * time before any chunk is generated - also initializes the internal state
 	 * needed by getPossibleCreatures.
 	 */
-	public void recreateStructures(Chunk chunkIn, int x, int z) {
+	public void recreateStructures(Chunk chunkIn, int x, int z)
+	{
 	}
 }

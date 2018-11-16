@@ -9,13 +9,18 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 //TODO: MOVE TO CORE MOD
-public class Blocks {
-	public static ArrayList<BlockPos> getCoordDataInRange(int posX, int posY, int posZ, int range) {
+public class Blocks
+{
+	public static ArrayList<BlockPos> getCoordDataInRange(int posX, int posY, int posZ, int range)
+	{
 		ArrayList<BlockPos> data = new ArrayList<BlockPos>();
 
-		for (int x = posX - range; x < posX + range * 2; x++) {
-			for (int y = posY - range; y < posY + range * 2; y++) {
-				for (int z = posZ - range; z < posZ + range * 2; z++) {
+		for (int x = posX - range; x < posX + range * 2; x++)
+		{
+			for (int y = posY - range; y < posY + range * 2; y++)
+			{
+				for (int z = posZ - range; z < posZ + range * 2; z++)
+				{
 					data.add(new BlockPos(x, y, z));
 				}
 			}
@@ -24,12 +29,16 @@ public class Blocks {
 		return data;
 	}
 
-	public static ArrayList<BlockPos> getPositionsInRange(int posX, int posY, int posZ, int range) {
+	public static ArrayList<BlockPos> getPositionsInRange(int posX, int posY, int posZ, int range)
+	{
 		ArrayList<BlockPos> data = new ArrayList<BlockPos>();
 
-		for (int x = posX - range; x < posX + range * 2; x++) {
-			for (int y = posY - range; y < posY + range * 2; y++) {
-				for (int z = posZ - range; z < posZ + range * 2; z++) {
+		for (int x = posX - range; x < posX + range * 2; x++)
+		{
+			for (int y = posY - range; y < posY + range * 2; y++)
+			{
+				for (int z = posZ - range; z < posZ + range * 2; z++)
+				{
 					data.add(new BlockPos(x, y, z));
 				}
 			}
@@ -38,16 +47,21 @@ public class Blocks {
 		return data;
 	}
 
-	public static ArrayList<BlockPos> getCoordDataInRangeIncluding(int posX, int posY, int posZ, int range, World world, Block... types) {
+	public static ArrayList<BlockPos> getCoordDataInRangeIncluding(int posX, int posY, int posZ, int range, World world, Block... types)
+	{
 		ArrayList<BlockPos> data = new ArrayList<BlockPos>();
 
-		for (int x = posX - range; x < posX + range * 2; x++) {
-			for (int y = posY - range; y < posY + range * 2; y++) {
-				for (int z = posZ - range; z < posZ + range * 2; z++) {
+		for (int x = posX - range; x < posX + range * 2; x++)
+		{
+			for (int y = posY - range; y < posY + range * 2; y++)
+			{
+				for (int z = posZ - range; z < posZ + range * 2; z++)
+				{
 					BlockPos coordData = new BlockPos(x, y, z);
 					Block block = world.getBlockState(coordData).getBlock();
 
-					if (Arrays.asList(types).contains(block)) {
+					if (Arrays.asList(types).contains(block))
+					{
 						data.add(coordData);
 					}
 				}
@@ -57,15 +71,20 @@ public class Blocks {
 		return data;
 	}
 
-	public static ArrayList<BlockPos> getBlocksInRangeIncluding(int posX, int posY, int posZ, int range, World world, Block... types) {
+	public static ArrayList<BlockPos> getBlocksInRangeIncluding(int posX, int posY, int posZ, int range, World world, Block... types)
+	{
 		ArrayList<BlockPos> data = new ArrayList<BlockPos>();
 
-		for (int x = posX - range; x < posX + range * 2; x++) {
-			for (int y = posY - range; y < posY + range * 2; y++) {
-				for (int z = posZ - range; z < posZ + range * 2; z++) {
+		for (int x = posX - range; x < posX + range * 2; x++)
+		{
+			for (int y = posY - range; y < posY + range * 2; y++)
+			{
+				for (int z = posZ - range; z < posZ + range * 2; z++)
+				{
 					BlockPos position = new BlockPos(x, y, z);
 
-					if (Arrays.asList(types).contains(world.getBlockState(position).getBlock())) {
+					if (Arrays.asList(types).contains(world.getBlockState(position).getBlock()))
+					{
 						data.add(position);
 					}
 				}
@@ -75,16 +94,21 @@ public class Blocks {
 		return data;
 	}
 
-	public static ArrayList<BlockPos> getCoordDataInRangeExcluding(int posX, int posY, int posZ, int range, World world, Block... types) {
+	public static ArrayList<BlockPos> getCoordDataInRangeExcluding(int posX, int posY, int posZ, int range, World world, Block... types)
+	{
 		ArrayList<BlockPos> data = new ArrayList<BlockPos>();
 
-		for (int x = posX - range; x < posX + range * 2; x++) {
-			for (int y = posY - range; y < posY + range * 2; y++) {
-				for (int z = posZ - range; z < posZ + range * 2; z++) {
+		for (int x = posX - range; x < posX + range * 2; x++)
+		{
+			for (int y = posY - range; y < posY + range * 2; y++)
+			{
+				for (int z = posZ - range; z < posZ + range * 2; z++)
+				{
 					BlockPos coordData = new BlockPos(x, y, z);
 					Block block = world.getBlockState(coordData).getBlock();
 
-					if (!Arrays.asList(types).contains(block)) {
+					if (!Arrays.asList(types).contains(block))
+					{
 						data.add(coordData);
 					}
 				}
@@ -94,18 +118,22 @@ public class Blocks {
 		return data;
 	}
 
-	public static String getDomain(Block block) {
+	public static String getDomain(Block block)
+	{
 		String domain = "minecraft:";
 
-		if (block.getUnlocalizedName().contains(":")) {
+		if (block.getUnlocalizedName().contains(":"))
+		{
 			domain = (block.getUnlocalizedName().split(":")[0] + ":").replace("tile.", "");
 		}
 
 		return domain;
 	}
 
-	public static void setCreativeTab(Block block, CreativeTabs tab) {
-		if (tab != null) {
+	public static void setCreativeTab(Block block, CreativeTabs tab)
+	{
+		if (tab != null)
+		{
 			block.setCreativeTab(tab);
 		}
 	}

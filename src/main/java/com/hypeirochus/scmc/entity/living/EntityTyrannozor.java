@@ -31,9 +31,11 @@ import net.minecraft.world.World;
 /**
  * @author Hypeirochus
  */
-public class EntityTyrannozor extends EntityZergMob implements IMob, Predicate<EntityLivingBase> {
+public class EntityTyrannozor extends EntityZergMob implements IMob, Predicate<EntityLivingBase>
+{
 
-	public EntityTyrannozor(World world) {
+	public EntityTyrannozor(World world)
+	{
 		super(world);
 		setSize(4.0F, 6.0F);
 		this.setColor(EnumColors.ORANGE);
@@ -54,12 +56,14 @@ public class EntityTyrannozor extends EntityZergMob implements IMob, Predicate<E
 	 * target.
 	 */
 	@Override
-	public boolean apply(EntityLivingBase entity) {
+	public boolean apply(EntityLivingBase entity)
+	{
 		return checkTarget(entity, EnumFactionTypes.PRIMALZERG);
 	}
 
 	@Override
-	protected void applyEntityAttributes() {
+	protected void applyEntityAttributes()
+	{
 		super.applyEntityAttributes();
 
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(750.0D);
@@ -71,46 +75,51 @@ public class EntityTyrannozor extends EntityZergMob implements IMob, Predicate<E
 	}
 
 	@Override
-	public boolean canBePushed() {
+	public boolean canBePushed()
+	{
 		return false;
 	}
 
 	/**
 	 * Drop up to 2 items when killed
 	 * 
-	 * @param damagedByPlayer
-	 *            true if the most recent damage was dealt by a player
-	 * @param lootingLevel
-	 *            level of Looting on kill weapon
+	 * @param damagedByPlayer true if the most recent damage was dealt by a player
+	 * @param lootingLevel level of Looting on kill weapon
 	 */
 	@Override
-	protected void dropFewItems(boolean recentlyHit, int looting) {
+	protected void dropFewItems(boolean recentlyHit, int looting)
+	{
 		ItemDrop drop = new ItemDrop(100, new ItemStack(ItemHandler.ZERG_CARAPACE, 3 + this.rand.nextInt(3), MetaHandler.CarapaceType.T3.getID()));
 		drop.tryDrop(this);
 	}
 
 	@Override
-	public SoundEvent getAmbientSound() {
+	public SoundEvent getAmbientSound()
+	{
 		return SoundHandler.ENTITY_BRUTALISK_LIVE1;
 	}
 
 	@Override
-	public SoundEvent getDeathSound() {
+	public SoundEvent getDeathSound()
+	{
 		return SoundHandler.ENTITY_BRUTALISK_DEATH;
 	}
 
 	@Override
-	public SoundEvent getHurtSound(DamageSource source) {
+	public SoundEvent getHurtSound(DamageSource source)
+	{
 		return SoundHandler.ENTITY_BRUTALISK_HURT;
 	}
 
 	@Override
-	public int getTalkInterval() {
+	public int getTalkInterval()
+	{
 		return 160;
 	}
 
 	@Override
-	protected void playStepSound(BlockPos pos, Block blockIn) {
+	protected void playStepSound(BlockPos pos, Block blockIn)
+	{
 		playSound(SoundHandler.ENTITY_BRUTALISK_STEP, 1.0F, 1.0F);
 	}
 }

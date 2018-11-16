@@ -5,13 +5,14 @@ import com.hypeirochus.scmc.enums.EnumColors;
 import net.minecraft.entity.EntityLiving;
 
 /**
- * An interface used by the {@link com.hypeirochus.scmc.client.renderer.ColoredLayerRender}
+ * An interface used by the
+ * {@link com.hypeirochus.scmc.client.renderer.ColoredLayerRender}
  * 
  * @author CJMinecraft
- * @param <T>
- *            The entity class
+ * @param <T> The entity class
  */
-public interface IEntityTeamColorable<T extends EntityLiving> {
+public interface IEntityTeamColorable<T extends EntityLiving>
+{
 
 	EnumColors getColor();
 

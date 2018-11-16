@@ -10,23 +10,26 @@ public class EntityScout extends AbstractSpaceship
 {
 
 	VehicleWeapon scoutPrimary = new VehicleWeapon(this, "Photon Blaster", 8, 200);
-	
-	public EntityScout(World worldIn) {
+
+	public EntityScout(World worldIn)
+	{
 		super(worldIn);
-		
+
 		this.setCooldownMax(34);
-		
+
 		this.setMaxSpeed(7);
 	}
-	
+
 	@Override
-	public SoundEvent getPrimaryFiringSound() {
+	public SoundEvent getPrimaryFiringSound()
+	{
 		return SoundHandler.FX_SCOUT_FIRING;
 	}
-	
+
 	@Override
-	public VehicleWeapon getPrimaryWeapon() {
+	public VehicleWeapon getPrimaryWeapon()
+	{
 		return this.scoutPrimary;
 	}
-    
+
 }

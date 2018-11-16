@@ -16,7 +16,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
-public class ItemRenderStarcraftSkull extends ItemRenderer {
+public class ItemRenderStarcraftSkull extends ItemRenderer
+{
 
 	private static final ResourceLocation TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/table.png");
 	public static final ResourceLocation ZERGLING_BASE = new ResourceLocation(Starcraft.RL_BASE + "textures/entity/zergling_base.png");
@@ -27,32 +28,39 @@ public class ItemRenderStarcraftSkull extends ItemRenderer {
 	public static final ResourceLocation CIVILIAN = new ResourceLocation(Starcraft.RL_BASE + "textures/entity/civilian.png");
 	private int type;
 
-	public ItemRenderStarcraftSkull() {
+	public ItemRenderStarcraftSkull()
+	{
 		super(null, TEXTURE);
 	}
 
 	@Override
-	public void renderPre(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderPre(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		if (type != itemstack.getMetadata())
 			type = itemstack.getMetadata();
 	}
 
 	@Override
-	public void renderFirstPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderFirstPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		double scale = 1;
 
 		GlStateManager.pushMatrix();
-		if (type == 0) {
+		if (type == 0)
+		{
 			GlStateManager.translate(0, -0.5, 0);
 		}
-		if (type == 1) {
+		if (type == 1)
+		{
 			GlStateManager.translate(0.1, -0.2, 0);
 		}
-		if (type == 2) {
+		if (type == 2)
+		{
 			GlStateManager.translate(0.2, -0.1, 0);
 			scale = 0.5;
 		}
-		if (type == 3) {
+		if (type == 3)
+		{
 			GlStateManager.translate(0.3, 0.1, -0.3);
 			scale = 0.25;
 		}
@@ -62,21 +70,26 @@ public class ItemRenderStarcraftSkull extends ItemRenderer {
 	}
 
 	@Override
-	public void renderFirstPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderFirstPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		double scale = 1;
 
 		GlStateManager.pushMatrix();
-		if (type == 0) {
+		if (type == 0)
+		{
 			GlStateManager.translate(0, -0.5, 0);
 		}
-		if (type == 1) {
+		if (type == 1)
+		{
 			GlStateManager.translate(-0.1, -0.2, 0);
 		}
-		if (type == 2) {
+		if (type == 2)
+		{
 			GlStateManager.translate(-0.2, -0.1, 0);
 			scale = 0.5;
 		}
-		if (type == 3) {
+		if (type == 3)
+		{
 			GlStateManager.translate(-0.3, 0.1, -0.3);
 			scale = 0.25;
 		}
@@ -86,18 +99,21 @@ public class ItemRenderStarcraftSkull extends ItemRenderer {
 	}
 
 	@Override
-	public void renderInInventory(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderInInventory(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		double scale = 1;
 
 		GlStateManager.pushMatrix();
 		GlStateManager.rotate(30, 1, 0, 0);
 		GlStateManager.rotate(225, 0, 1, 0);
 
-		if (type == 2) {
+		if (type == 2)
+		{
 			scale = 0.55;
 			GlStateManager.translate(-0.2, -0.2, -0.1);
 		}
-		if (type == 3) {
+		if (type == 3)
+		{
 			scale = 0.85;
 		}
 
@@ -107,23 +123,28 @@ public class ItemRenderStarcraftSkull extends ItemRenderer {
 	}
 
 	@Override
-	public void renderInWorld(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderInWorld(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		double scale = 0.5;
 
 		GlStateManager.pushMatrix();
 		GlStateManager.rotate(45, 0, 1, 0);
 		GlStateManager.translate(-0.5, -1.3, -0.5);
 
-		if (type == 0) {
+		if (type == 0)
+		{
 			GlStateManager.translate(0.5, 1.2, 0.5);
 		}
-		if (type == 1) {
+		if (type == 1)
+		{
 			GlStateManager.translate(0.5, 1, 0.5);
 		}
-		if (type == 2) {
+		if (type == 2)
+		{
 			GlStateManager.translate(0.5, 1.15, 0.5);
 		}
-		if (type == 3) {
+		if (type == 3)
+		{
 			GlStateManager.translate(0.5, 1.1, 0);
 		}
 
@@ -132,7 +153,8 @@ public class ItemRenderStarcraftSkull extends ItemRenderer {
 	}
 
 	@Override
-	public void renderFixed(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderFixed(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		double scale = 1;
 
 		GlStateManager.pushMatrix();
@@ -142,15 +164,18 @@ public class ItemRenderStarcraftSkull extends ItemRenderer {
 	}
 
 	@Override
-	public void renderThirdPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderThirdPersonLeft(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		double scale = 0.5;
 
 		GlStateManager.pushMatrix();
 
-		if (type == 1) {
+		if (type == 1)
+		{
 			scale = 0.75;
 		}
-		if (type == 3) {
+		if (type == 3)
+		{
 			scale = 0.5;
 			GlStateManager.translate(0.25, 0.1, -0.2);
 		}
@@ -163,15 +188,18 @@ public class ItemRenderStarcraftSkull extends ItemRenderer {
 	}
 
 	@Override
-	public void renderThirdPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderThirdPersonRight(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		double scale = 0.5;
 
 		GlStateManager.pushMatrix();
 
-		if (type == 1) {
+		if (type == 1)
+		{
 			scale = 0.75;
 		}
-		if (type == 3) {
+		if (type == 3)
+		{
 			scale = 0.5;
 			GlStateManager.translate(-0.25, 0.1, -0.2);
 		}
@@ -184,28 +212,35 @@ public class ItemRenderStarcraftSkull extends ItemRenderer {
 	}
 
 	@Override
-	public void renderHead(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType) {
+	public void renderHead(ItemStack itemstack, EntityLivingBase entity, TransformType cameraTransformType)
+	{
 		double scale = 2;
-		if (type == 0) {
+		if (type == 0)
+		{
 			GlStateManager.translate(0, -0.45, 0);
 		}
-		if (type == 1) {
+		if (type == 1)
+		{
 			GlStateManager.translate(0, 0.45, 0);
 		}
-		if (type == 2) {
+		if (type == 2)
+		{
 			GlStateManager.translate(0, -0.2, 1);
 		}
-		if (type == 3) {
+		if (type == 3)
+		{
 			GlStateManager.translate(0, -0.3, 1);
 		}
 		renderSkull(type, 0.0625 * scale);
 	}
 
-	public void renderSkull(int skullType, double scale) {
+	public void renderSkull(int skullType, double scale)
+	{
 		GlStateManager.pushMatrix();
 		ModelBase skullModel = new ModelSkeletonHead(0, 0, 64, 32);
 
-		switch (skullType) {
+		switch (skullType)
+		{
 		default:
 			RenderUtil.bindTexture(SKELETON);
 			break;
@@ -229,8 +264,10 @@ public class ItemRenderStarcraftSkull extends ItemRenderer {
 		GlStateManager.scale(-1.0F, -1.0F, 1.0F);
 		GlStateManager.enableAlpha();
 
-		if (skullModel instanceof IModelSkull) {
-			switch (skullType) {
+		if (skullModel instanceof IModelSkull)
+		{
+			switch (skullType)
+			{
 			default:
 				RenderUtil.bindTexture(ZERGLING_BASE);
 				skullModel.render((Entity) null, 0, 0, 0, 0, 0, (float) scale);
@@ -251,7 +288,8 @@ public class ItemRenderStarcraftSkull extends ItemRenderer {
 				((IModelSkull) skullModel).renderSkull((float) scale);
 				break;
 			}
-		} else {
+		} else
+		{
 			skullModel.render((Entity) null, 0, 0, 0, 0, 0, (float) scale);
 		}
 

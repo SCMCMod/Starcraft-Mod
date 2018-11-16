@@ -35,59 +35,73 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
 
 //TODO: MOVE TO CORE MOD
-public class Draw {
+public class Draw
+{
 
-	public static BufferBuilder buffer() {
+	public static BufferBuilder buffer()
+	{
 		return Tessellator.getInstance().getBuffer();
 	}
 
-	public static void startQuads() {
+	public static void startQuads()
+	{
 		buffer().begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX);
 	}
 
-	public static void startTriangleFan() {
+	public static void startTriangleFan()
+	{
 		buffer().begin(GL11.GL_TRIANGLE_FAN, DefaultVertexFormats.POSITION);
 	}
 
-	public static void startQuadsColored() {
+	public static void startQuadsColored()
+	{
 		buffer().begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_COLOR);
 	}
 
-	public static void tessellate() {
+	public static void tessellate()
+	{
 		Tessellator.getInstance().draw();
 	}
 
-	public static BufferBuilder vertex(int x, int y, int z) {
+	public static BufferBuilder vertex(int x, int y, int z)
+	{
 		return vertex((double) x, (double) y, (double) z);
 	}
 
-	public static BufferBuilder vertex(double x, double y, double z) {
+	public static BufferBuilder vertex(double x, double y, double z)
+	{
 		return buffer().pos(x, y, z);
 	}
 
-	public static BufferBuilder vertex(int x, int y, int z, float u, float v) {
+	public static BufferBuilder vertex(int x, int y, int z, float u, float v)
+	{
 		return vertex((double) x, (double) y, (double) z, u, v);
 	}
 
-	public static BufferBuilder vertex(double x, double y, double z, float u, float v) {
+	public static BufferBuilder vertex(double x, double y, double z, float u, float v)
+	{
 		return buffer().pos(x, y, z).tex(u, v);
 	}
 
-	public static BufferBuilder vertex(double x, double y, double z, double u, double v) {
+	public static BufferBuilder vertex(double x, double y, double z, double u, double v)
+	{
 		return buffer().pos(x, y, z).tex(u, v);
 	}
 
-	public static void triangle(Vertex vertex1, Vertex vertex2, Vertex vertex3) {
+	public static void triangle(Vertex vertex1, Vertex vertex2, Vertex vertex3)
+	{
 		triangle(vertex1, vertex2, vertex3, false);
 	}
 
-	public static void triangle(Vertex vertex1, Vertex vertex2, Vertex vertex3, boolean cullFace) {
+	public static void triangle(Vertex vertex1, Vertex vertex2, Vertex vertex3, boolean cullFace)
+	{
 		Draw.startTriangleFan();
 		Draw.vertex(vertex1.x, vertex1.y, vertex1.z).endVertex();
 		Draw.vertex(vertex2.x, vertex2.y, vertex2.z).endVertex();
 		Draw.vertex(vertex3.x, vertex3.y, vertex3.z).endVertex();
 
-		if (cullFace) {
+		if (cullFace)
+		{
 			Draw.vertex(vertex3.x, vertex3.y, vertex3.z).endVertex();
 			Draw.vertex(vertex2.x, vertex2.y, vertex2.z).endVertex();
 			Draw.vertex(vertex1.x, vertex1.y, vertex1.z).endVertex();
@@ -95,13 +109,15 @@ public class Draw {
 		Draw.tessellate();
 	}
 
-	public static interface ITooltipLineHandler {
+	public static interface ITooltipLineHandler
+	{
 		public Dimension getSize();
 
 		public void draw(int x, int y);
 	}
 
-	public static void line(int x1, int y1, int x2, int y2, float depth, float width, int color) {
+	public static void line(int x1, int y1, int x2, int y2, float depth, float width, int color)
+	{
 		GL11.glLineWidth(width);
 		OpenGL.color4i(color);
 		OpenGL.translate(0F, 0F, depth);
@@ -117,62 +133,50 @@ public class Draw {
 	}
 
 	/**
-	 * Draws a rectangle at the specified coordinates, with the specified width, height and color.
+	 * Draws a rectangle at the specified coordinates, with the specified width,
+	 * height and color.
 	 * 
-	 * @param x
-	 *            - x coordinate
-	 * @param y
-	 *            - y coordinate
-	 * @param w
-	 *            - Width of this rectangle
-	 * @param h
-	 *            - Height of this rectangle
-	 * @param color
-	 *            - Color of this rectangle
+	 * @param x - x coordinate
+	 * @param y - y coordinate
+	 * @param w - Width of this rectangle
+	 * @param h - Height of this rectangle
+	 * @param color - Color of this rectangle
 	 */
-	public static void drawRect(int x, int y, int w, int h, int color) {
+	public static void drawRect(int x, int y, int w, int h, int color)
+	{
 		Draw.drawGradientRect(x, y, w, h, color, color);
 	}
 
 	/**
-	 * Draws a rectangle at the specified coordinates, with the specified width, height and linear gradient color.
+	 * Draws a rectangle at the specified coordinates, with the specified width,
+	 * height and linear gradient color.
 	 * 
-	 * @param x
-	 *            - x coordinate
-	 * @param y
-	 *            - y coordinate
-	 * @param w
-	 *            - Width of this rectangle
-	 * @param h
-	 *            - Height of this rectangle
-	 * @param color1
-	 *            - First color of the linear gradient
-	 * @param color2
-	 *            - Second color of the linear gradient
+	 * @param x - x coordinate
+	 * @param y - y coordinate
+	 * @param w - Width of this rectangle
+	 * @param h - Height of this rectangle
+	 * @param color1 - First color of the linear gradient
+	 * @param color2 - Second color of the linear gradient
 	 */
-	public static void drawGradientRect(int x, int y, int w, int h, int color1, int color2) {
+	public static void drawGradientRect(int x, int y, int w, int h, int color1, int color2)
+	{
 		Draw.drawGradientRect(x, y, x + w, y + h, 0, color1, color2);
 	}
 
 	/**
-	 * Draws a rectangle at the specified coordinates, with the specified width, height and linear gradient color.
+	 * Draws a rectangle at the specified coordinates, with the specified width,
+	 * height and linear gradient color.
 	 * 
-	 * @param x
-	 *            - x coordinate
-	 * @param y
-	 *            - y coordinate
-	 * @param w
-	 *            - Width of this rectangle
-	 * @param h
-	 *            - Height of this rectangle
-	 * @param zLevel
-	 *            - z level of which to draw the rectangle on.
-	 * @param color1
-	 *            - First color of the linear gradient
-	 * @param color2
-	 *            - Second color of the linear gradient
+	 * @param x - x coordinate
+	 * @param y - y coordinate
+	 * @param w - Width of this rectangle
+	 * @param h - Height of this rectangle
+	 * @param zLevel - z level of which to draw the rectangle on.
+	 * @param color1 - First color of the linear gradient
+	 * @param color2 - Second color of the linear gradient
 	 */
-	public static void drawGradientRect(int x, int y, int w, int h, int zLevel, int color1, int color2) {
+	public static void drawGradientRect(int x, int y, int w, int h, int zLevel, int color1, int color2)
+	{
 		OpenGL.disableTexture2d();
 		OpenGL.shadeSmooth();
 		startQuadsColored();
@@ -186,78 +190,64 @@ public class Draw {
 	}
 
 	/**
-	 * Draws a quad at the specified coordinates, with the specified width and height
+	 * Draws a quad at the specified coordinates, with the specified width and
+	 * height
 	 * 
-	 * @param x
-	 *            - x coordinate
-	 * @param y
-	 *            - y coordinate
-	 * @param w
-	 *            - Width of this quad
-	 * @param h
-	 *            - Height of this quad
+	 * @param x - x coordinate
+	 * @param y - y coordinate
+	 * @param w - Width of this quad
+	 * @param h - Height of this quad
 	 */
-	public static void drawQuad(int x, int y, int w, int h) {
+	public static void drawQuad(int x, int y, int w, int h)
+	{
 		Draw.drawQuad(x, y, w, h, -90);
 	}
 
 	/**
-	 * Draws a quad at the specified coordinates, with the specified width and height on the specified z level.
+	 * Draws a quad at the specified coordinates, with the specified width and
+	 * height on the specified z level.
 	 * 
-	 * @param x
-	 *            - x coordinate
-	 * @param y
-	 *            - y coordinate
-	 * @param w
-	 *            - Width of this quad
-	 * @param h
-	 *            - Height of this quad
-	 * @param z
-	 *            - z level to render this quad on
+	 * @param x - x coordinate
+	 * @param y - y coordinate
+	 * @param w - Width of this quad
+	 * @param h - Height of this quad
+	 * @param z - z level to render this quad on
 	 */
-	public static void drawQuad(int x, int y, int w, int h, int z) {
+	public static void drawQuad(int x, int y, int w, int h, int z)
+	{
 		Draw.drawQuad(x, y, w, h, z, 0, 1, 0, 1);
 	}
 
 	/**
-	 * Draws a quad at the specified coordinates, with the specified width and height and specified texture uv coords.
+	 * Draws a quad at the specified coordinates, with the specified width and
+	 * height and specified texture uv coords.
 	 * 
-	 * @param x
-	 *            - x coordinate
-	 * @param y
-	 *            - y coordinate
-	 * @param w
-	 *            - Width of this quad
-	 * @param h
-	 *            - Height of this quad
-	 * @param u
-	 *            - x coordinate of the texture to draw on the quad.
-	 * @param v
-	 *            - y coordinate of the texture to draw on the quad.
+	 * @param x - x coordinate
+	 * @param y - y coordinate
+	 * @param w - Width of this quad
+	 * @param h - Height of this quad
+	 * @param u - x coordinate of the texture to draw on the quad.
+	 * @param v - y coordinate of the texture to draw on the quad.
 	 */
-	public static void drawQuad(int x, int y, int w, int h, int u, int v) {
+	public static void drawQuad(int x, int y, int w, int h, int u, int v)
+	{
 		Draw.drawQuad(x, y, w, h, -90, u, v);
 	}
 
 	/**
-	 * Draws a quad at the specified coordinates, with the specified width and height and specified texture uv coords.
+	 * Draws a quad at the specified coordinates, with the specified width and
+	 * height and specified texture uv coords.
 	 * 
-	 * @param x
-	 *            - x coordinate
-	 * @param y
-	 *            - y coordinate
-	 * @param w
-	 *            - Width of this quad
-	 * @param h
-	 *            - Height of this quad
-	 * @param z
-	 *            - z level to render this quad on
-	 * @param u
-	 *            - x coordinate of the texture to draw on the quad.
-	 * @param v
-	 *            - y coordinate of the texture to draw on the quad.
+	 * @param x - x coordinate
+	 * @param y - y coordinate
+	 * @param w - Width of this quad
+	 * @param h - Height of this quad
+	 * @param z - z level to render this quad on
+	 * @param u - x coordinate of the texture to draw on the quad.
+	 * @param v - y coordinate of the texture to draw on the quad.
 	 */
-	public static void drawQuad(int x, int y, int w, int h, int z, int u, int v) {
+	public static void drawQuad(int x, int y, int w, int h, int z, int u, int v)
+	{
 		float f = 0.00390625F;
 		float f1 = 0.00390625F;
 		startQuads();
@@ -269,52 +259,39 @@ public class Draw {
 	}
 
 	/**
-	 * Draws a quad at the specified coordinates, with the specified width and height and specified texture uv coords.
+	 * Draws a quad at the specified coordinates, with the specified width and
+	 * height and specified texture uv coords.
 	 * 
-	 * @param x
-	 *            - x coordinate
-	 * @param y
-	 *            - y coordinate
-	 * @param w
-	 *            - Width of this quad
-	 * @param h
-	 *            - Height of this quad
-	 * @param minU
-	 *            - x coordinate of the texture to draw on the quad.
-	 * @param maxU
-	 *            - width of the texture being draw on this quad.
-	 * @param minV
-	 *            - y coordinate of the texture to draw on the quad.
-	 * @param maxV
-	 *            - height of the texture being draw on this quad.
+	 * @param x - x coordinate
+	 * @param y - y coordinate
+	 * @param w - Width of this quad
+	 * @param h - Height of this quad
+	 * @param minU - x coordinate of the texture to draw on the quad.
+	 * @param maxU - width of the texture being draw on this quad.
+	 * @param minV - y coordinate of the texture to draw on the quad.
+	 * @param maxV - height of the texture being draw on this quad.
 	 */
-	public static void drawQuad(int x, int y, int w, int h, float minU, float maxU, float minV, float maxV) {
+	public static void drawQuad(int x, int y, int w, int h, float minU, float maxU, float minV, float maxV)
+	{
 		Draw.drawQuad(x, y, w, h, -90, minU, maxU, minV, maxV);
 	}
 
 	/**
-	 * Draws a quad at the specified coordinates, with the specified width and height and specified texture uv coords.
+	 * Draws a quad at the specified coordinates, with the specified width and
+	 * height and specified texture uv coords.
 	 * 
-	 * @param x
-	 *            - x coordinate
-	 * @param y
-	 *            - y coordinate
-	 * @param w
-	 *            - Width of this quad
-	 * @param h
-	 *            - Height of this quad
-	 * @param z
-	 *            - z level to render this quad on
-	 * @param minU
-	 *            - x coordinate of the texture to draw on the quad.
-	 * @param maxU
-	 *            - width of the texture being draw on this quad.
-	 * @param minV
-	 *            - y coordinate of the texture to draw on the quad.
-	 * @param maxV
-	 *            - height of the texture being draw on this quad.
+	 * @param x - x coordinate
+	 * @param y - y coordinate
+	 * @param w - Width of this quad
+	 * @param h - Height of this quad
+	 * @param z - z level to render this quad on
+	 * @param minU - x coordinate of the texture to draw on the quad.
+	 * @param maxU - width of the texture being draw on this quad.
+	 * @param minV - y coordinate of the texture to draw on the quad.
+	 * @param maxV - height of the texture being draw on this quad.
 	 */
-	public static void drawQuad(int x, int y, int w, int h, int z, float minU, float maxU, float minV, float maxV) {
+	public static void drawQuad(int x, int y, int w, int h, int z, float minU, float maxU, float minV, float maxV)
+	{
 		startQuads();
 		vertex(x + 0, y + h, z, minU, maxV).endVertex();
 		vertex(x + w, y + h, z, maxU, maxV).endVertex();
@@ -324,32 +301,32 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified String at the specified coordinates using the specified color.
+	 * Draw the specified String at the specified coordinates using the specified
+	 * color.
 	 * 
-	 * @param text
-	 *            - String to draw
-	 * @param x
-	 *            - x coordinate to draw at
-	 * @param y
-	 *            - y coordinate to draw at
-	 * @param color
-	 *            - Color to draw using
-	 * @param shadow
-	 *            - Set to true to draw a shadow beneath the rendered string.
+	 * @param text - String to draw
+	 * @param x - x coordinate to draw at
+	 * @param y - y coordinate to draw at
+	 * @param color - Color to draw using
+	 * @param shadow - Set to true to draw a shadow beneath the rendered string.
 	 */
-	public static void drawString(String text, int x, int y, int color, boolean shadow) {
+	public static void drawString(String text, int x, int y, int color, boolean shadow)
+	{
 		String original = text;
 		text = I18n.translateToLocal(text);
 
-		if (text.toLowerCase().contains("error:".toLowerCase())) {
+		if (text.toLowerCase().contains("error:".toLowerCase()))
+		{
 			text = original;
 		}
 
-		if (shadow) {
+		if (shadow)
+		{
 			AccessHandler.getFontRenderer().drawStringWithShadow(text, x, y, color);
 		}
 
-		if (!shadow) {
+		if (!shadow)
+		{
 			AccessHandler.getFontRenderer().drawString(text, x, y, color);
 		}
 
@@ -358,133 +335,114 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified String at the specified coordinates using the specified color.
+	 * Draw the specified String at the specified coordinates using the specified
+	 * color.
 	 * 
-	 * @param text
-	 *            - String to draw
-	 * @param x
-	 *            - x coordinate to draw at
-	 * @param y
-	 *            - y coordinate to draw at
-	 * @param color
-	 *            - Color to draw using
+	 * @param text - String to draw
+	 * @param x - x coordinate to draw at
+	 * @param y - y coordinate to draw at
+	 * @param color - Color to draw using
 	 */
-	public static void drawString(String text, int x, int y, int color) {
+	public static void drawString(String text, int x, int y, int color)
+	{
 		drawString(text, x, y, color, true);
 	}
 
 	/**
-	 * Draw the specified String centered at the specified coordinates using the specified color.
+	 * Draw the specified String centered at the specified coordinates using the
+	 * specified color.
 	 *
-	 * @param text
-	 *            - String to draw
-	 * @param x
-	 *            - x coordinate to draw at
-	 * @param y
-	 *            - y coordinate to draw at
-	 * @param w
-	 *            - width of the string
-	 * @param h
-	 *            - height of the string
-	 * @param color
-	 *            - Color to draw using
-	 * @param shadow
-	 *            - Set to true to draw a shadow beneath the rendered string.
+	 * @param text - String to draw
+	 * @param x - x coordinate to draw at
+	 * @param y - y coordinate to draw at
+	 * @param w - width of the string
+	 * @param h - height of the string
+	 * @param color - Color to draw using
+	 * @param shadow - Set to true to draw a shadow beneath the rendered string.
 	 */
-	public static void drawStringAlignCenter(String text, int x, int y, int w, int h, int color, boolean shadow) {
+	public static void drawStringAlignCenter(String text, int x, int y, int w, int h, int color, boolean shadow)
+	{
 		drawString(text, x + (w - Draw.getStringRenderWidth(I18n.translateToLocal(text))) / 2, y + (h - 8) / 2, color, shadow);
 	}
 
 	/**
-	 * Draw the specified String centered at the specified coordinates using the specified color.
+	 * Draw the specified String centered at the specified coordinates using the
+	 * specified color.
 	 * 
-	 * @param text
-	 *            - String to draw
-	 * @param x
-	 *            - x coordinate to draw at
-	 * @param y
-	 *            - y coordinate to draw at
-	 * @param color
-	 *            - Color to draw using
+	 * @param text - String to draw
+	 * @param x - x coordinate to draw at
+	 * @param y - y coordinate to draw at
+	 * @param color - Color to draw using
 	 */
-	public static void drawStringAlignCenter(String text, int x, int y, int w, int h, int color) {
+	public static void drawStringAlignCenter(String text, int x, int y, int w, int h, int color)
+	{
 		drawStringAlignCenter(text, x, y, w, h, color, true);
 	}
 
 	/**
-	 * Draw the specified String centered at the specified coordinates using the specified color.
+	 * Draw the specified String centered at the specified coordinates using the
+	 * specified color.
 	 * 
-	 * @param text
-	 *            - String to draw
-	 * @param x
-	 *            - x coordinate to draw at
-	 * @param y
-	 *            - y coordinate to draw at
-	 * @param color
-	 *            - Color to draw using
-	 * @param shadow
-	 *            - Set to true to draw a shadow beneath the rendered string.
+	 * @param text - String to draw
+	 * @param x - x coordinate to draw at
+	 * @param y - y coordinate to draw at
+	 * @param color - Color to draw using
+	 * @param shadow - Set to true to draw a shadow beneath the rendered string.
 	 */
-	public static void drawStringAlignCenter(String text, int x, int y, int color, boolean shadow) {
+	public static void drawStringAlignCenter(String text, int x, int y, int color, boolean shadow)
+	{
 		drawString(text, x - Draw.getStringRenderWidth(I18n.translateToLocal(text)) / 2, y, color, shadow);
 	}
 
 	/**
-	 * Draw the specified String centered at the specified coordinates using the specified color.
+	 * Draw the specified String centered at the specified coordinates using the
+	 * specified color.
 	 * 
-	 * @param text
-	 *            - String to draw
-	 * @param x
-	 *            - x coordinate to draw at
-	 * @param y
-	 *            - y coordinate to draw at
-	 * @param color
-	 *            - Color to draw using
+	 * @param text - String to draw
+	 * @param x - x coordinate to draw at
+	 * @param y - y coordinate to draw at
+	 * @param color - Color to draw using
 	 */
-	public static void drawStringAlignCenter(String text, int x, int y, int color) {
+	public static void drawStringAlignCenter(String text, int x, int y, int color)
+	{
 		drawStringAlignCenter(text, x, y, color, true);
 	}
 
 	/**
-	 * Draw the specified String aligned to the right at the specified coordinates using the specified color.
+	 * Draw the specified String aligned to the right at the specified coordinates
+	 * using the specified color.
 	 * 
-	 * @param text
-	 *            - String to draw
-	 * @param x
-	 *            - x coordinate to draw at
-	 * @param y
-	 *            - y coordinate to draw at
-	 * @param color
-	 *            - Color to draw using
-	 * @param shadow
-	 *            - Set to true to draw a shadow beneath the rendered string.
+	 * @param text - String to draw
+	 * @param x - x coordinate to draw at
+	 * @param y - y coordinate to draw at
+	 * @param color - Color to draw using
+	 * @param shadow - Set to true to draw a shadow beneath the rendered string.
 	 */
-	public static void drawStringAlignRight(String text, int x, int y, int color, boolean shadow) {
+	public static void drawStringAlignRight(String text, int x, int y, int color, boolean shadow)
+	{
 		drawString(text, x - Draw.getStringRenderWidth(I18n.translateToLocal(text)), y, color, shadow);
 	}
 
 	/**
-	 * Draw the specified String aligned to the right at the specified coordinates using the specified color.
+	 * Draw the specified String aligned to the right at the specified coordinates
+	 * using the specified color.
 	 * 
-	 * @param text
-	 *            - String to draw
-	 * @param x
-	 *            - x coordinate to draw at
-	 * @param y
-	 *            - y coordinate to draw at
-	 * @param color
-	 *            - Color to draw using
+	 * @param text - String to draw
+	 * @param x - x coordinate to draw at
+	 * @param y - y coordinate to draw at
+	 * @param color - Color to draw using
 	 */
-	public static void drawStringAlignRight(String text, int x, int y, int color) {
+	public static void drawStringAlignRight(String text, int x, int y, int color)
+	{
 		drawStringAlignRight(text, x, y, color, true);
 	}
 
 	/**
-	 * @param s
-	 *            - String to get the render width for.
+	 * @param s - String to get the render width for.
 	 * @return The render width of the specified String.
 	 */
-	public static int getStringRenderWidth(String s) {
+	public static int getStringRenderWidth(String s)
+	{
 		return AccessHandler.getFontRenderer().getStringWidth(TextFormatting.getTextWithoutFormattingCodes(s));
 	}
 
@@ -492,28 +450,28 @@ public class Draw {
 	public static final String TOOLTIP_HANDLER = "\u00A7x";
 	public static List<Draw.ITooltipLineHandler> tipLineHandlers = new ArrayList<Draw.ITooltipLineHandler>();
 
-	public static int getTipLineId(ITooltipLineHandler handler) {
+	public static int getTipLineId(ITooltipLineHandler handler)
+	{
 		tipLineHandlers.add(handler);
 		return tipLineHandlers.size() - 1;
 	}
 
-	public static ITooltipLineHandler getTipLine(String line) {
+	public static ITooltipLineHandler getTipLine(String line)
+	{
 		return !line.startsWith(TOOLTIP_HANDLER) ? null : tipLineHandlers.get(Integer.parseInt(line.substring(2)));
 	}
 
 	/**
-	 * Draws a tooltip box at the specified cordinates, with the specified width and height.
+	 * Draws a tooltip box at the specified cordinates, with the specified width and
+	 * height.
 	 * 
-	 * @param x
-	 *            - x coordinate
-	 * @param y
-	 *            - y coordinate
-	 * @param w
-	 *            - Width of the box
-	 * @param h
-	 *            - Height of the box
+	 * @param x - x coordinate
+	 * @param y - y coordinate
+	 * @param w - Width of the box
+	 * @param h - Height of the box
 	 */
-	public static void drawTooltipBox(int x, int y, int w, int h) {
+	public static void drawTooltipBox(int x, int y, int w, int h)
+	{
 		int bg = 0xf0100010;
 		drawGradientRect(x + 1, y, w - 1, 1, bg, bg);
 		drawGradientRect(x + 1, y + h, w - 1, 1, bg, bg);
@@ -531,41 +489,36 @@ public class Draw {
 	/**
 	 * Draws a progress bar.
 	 * 
-	 * @param label
-	 *            - Label to draw on top of the progress bar.
-	 * @param maxProgress
-	 *            - Maximum progress
-	 * @param curProgress
-	 *            - Current progress
-	 * @param posX
-	 *            - x coordinate to draw the bar at
-	 * @param posY
-	 *            - y coordinate to draw the bar at
-	 * @param barWidth
-	 *            - The width of the progress bar
-	 * @param barHeight
-	 *            - The height of the progress bar
-	 * @param stringPosY
-	 *            - The offset height of the label text (0 is default)
-	 * @param color
-	 *            - The color of the progress bar
-	 * @param barStyle
-	 *            - Set to false for a solid style progress bar. Set to true for a box-style progress bar.
+	 * @param label - Label to draw on top of the progress bar.
+	 * @param maxProgress - Maximum progress
+	 * @param curProgress - Current progress
+	 * @param posX - x coordinate to draw the bar at
+	 * @param posY - y coordinate to draw the bar at
+	 * @param barWidth - The width of the progress bar
+	 * @param barHeight - The height of the progress bar
+	 * @param stringPosY - The offset height of the label text (0 is default)
+	 * @param color - The color of the progress bar
+	 * @param barStyle - Set to false for a solid style progress bar. Set to true
+	 *        for a box-style progress bar.
 	 */
-	public static void drawProgressBar(String label, int maxProgress, int curProgress, int posX, int posY, int barWidth, int barHeight, int stringPosY, int color, boolean barStyle) {
+	public static void drawProgressBar(String label, int maxProgress, int curProgress, int posX, int posY, int barWidth, int barHeight, int stringPosY, int color, boolean barStyle)
+	{
 		OpenGL.pushMatrix();
 		{
 			Gui.drawRect(posX + 0, posY + 0, posX + barWidth, posY + 5 + barHeight, 0x77000000);
 
-			if (!barStyle && curProgress > maxProgress / barWidth) {
+			if (!barStyle && curProgress > maxProgress / barWidth)
+			{
 				Gui.drawRect(posX + 1, posY + 1, posX + ((((curProgress * maxProgress) / maxProgress) * barWidth) / maxProgress) - 1, posY + 4 + barHeight, color);
 				Gui.drawRect(posX + 1, posY + 2 + (barHeight / 2), posX + ((((curProgress * maxProgress) / maxProgress) * barWidth) / maxProgress) - 1, posY + 4 + barHeight, 0x55000000);
-			} else if (curProgress > maxProgress / barWidth) {
+			} else if (curProgress > maxProgress / barWidth)
+			{
 				int spaceBetweenBars = 1;
 				int amountOfBars = 70;
 				int widthOfBar = (barWidth / amountOfBars - spaceBetweenBars);
 
-				for (int x = 1; x <= amountOfBars - ((curProgress * amountOfBars) / maxProgress); x++) {
+				for (int x = 1; x <= amountOfBars - ((curProgress * amountOfBars) / maxProgress); x++)
+				{
 					int barStartX = (posX + widthOfBar) * (x) - widthOfBar;
 
 					Gui.drawRect(barStartX + spaceBetweenBars * x, posY + 1, barStartX + widthOfBar + spaceBetweenBars * x, posY + 4 + barHeight, color);
@@ -579,24 +532,19 @@ public class Draw {
 	}
 
 	/**
-	 * Draws a centered rectangle with an outline at the specified coordinates and the specified width, height, and color.
+	 * Draws a centered rectangle with an outline at the specified coordinates and
+	 * the specified width, height, and color.
 	 * 
-	 * @param x
-	 *            - x coordinate
-	 * @param y
-	 *            - y coordinate
-	 * @param w
-	 *            - Width of this rectangle
-	 * @param h
-	 *            - Height of this rectangle
-	 * @param borderWidth
-	 *            - Width of the rectangle's border
-	 * @param fillColor
-	 *            - Color of the inner portion of this rectangle
-	 * @param borderColor
-	 *            - Color of the border of this rectangle
+	 * @param x - x coordinate
+	 * @param y - y coordinate
+	 * @param w - Width of this rectangle
+	 * @param h - Height of this rectangle
+	 * @param borderWidth - Width of the rectangle's border
+	 * @param fillColor - Color of the inner portion of this rectangle
+	 * @param borderColor - Color of the border of this rectangle
 	 */
-	public static void drawCenteredRectWithOutline(int x, int y, int w, int h, int borderWidth, int fillColor, int borderColor) {
+	public static void drawCenteredRectWithOutline(int x, int y, int w, int h, int borderWidth, int fillColor, int borderColor)
+	{
 		drawRect(x - w / 2 + borderWidth, y - h / 2, w, h, fillColor);
 		drawRect(x - w / 2 + borderWidth, y - h / 2, w, borderWidth, borderColor);
 		drawRect(x - w / 2, y + h / 2, w, borderWidth, borderColor);
@@ -605,24 +553,19 @@ public class Draw {
 	}
 
 	/**
-	 * Draws a rectangle with an outline at the specified coordinates and the specified width, height, and color.
+	 * Draws a rectangle with an outline at the specified coordinates and the
+	 * specified width, height, and color.
 	 * 
-	 * @param x
-	 *            - x coordinate
-	 * @param y
-	 *            - y coordinate
-	 * @param w
-	 *            - Width of this rectangle
-	 * @param h
-	 *            - Height of this rectangle
-	 * @param borderWidth
-	 *            - Width of the rectangle's border
-	 * @param fillColor
-	 *            - Color of the inner portion of this rectangle
-	 * @param borderColor
-	 *            - Color of the border of this rectangle
+	 * @param x - x coordinate
+	 * @param y - y coordinate
+	 * @param w - Width of this rectangle
+	 * @param h - Height of this rectangle
+	 * @param borderWidth - Width of the rectangle's border
+	 * @param fillColor - Color of the inner portion of this rectangle
+	 * @param borderColor - Color of the border of this rectangle
 	 */
-	public static void drawRectWithOutline(int x, int y, int w, int h, int borderWidth, int fillColor, int borderColor) {
+	public static void drawRectWithOutline(int x, int y, int w, int h, int borderWidth, int fillColor, int borderColor)
+	{
 		int x1 = x;
 		int y1 = y;
 		int x2 = x + w;
@@ -636,58 +579,54 @@ public class Draw {
 	}
 
 	/**
-	 * Draws an overlay across the entire screen using the specified ResourceLocation
+	 * Draws an overlay across the entire screen using the specified
+	 * ResourceLocation
 	 * 
-	 * @param resource
-	 *            - The ResourceLocation to draw
+	 * @param resource - The ResourceLocation to draw
 	 */
-	public static void drawOverlay(ResourceLocation resource) {
+	public static void drawOverlay(ResourceLocation resource)
+	{
 		Draw.drawOverlay(resource, 1.0F, 1.0F, 1.0F, 1.0F);
 	}
 
 	/**
-	 * Draws an overlay across the entire screen using the specified ResourceLocation and an alpha value.
+	 * Draws an overlay across the entire screen using the specified
+	 * ResourceLocation and an alpha value.
 	 * 
-	 * @param resource
-	 *            - The ResourceLocation to draw
-	 * @param a
-	 *            - Alpha value to render the overlay at. For transparency.
+	 * @param resource - The ResourceLocation to draw
+	 * @param a - Alpha value to render the overlay at. For transparency.
 	 */
-	public static void drawOverlay(ResourceLocation resource, float a) {
+	public static void drawOverlay(ResourceLocation resource, float a)
+	{
 		Draw.drawOverlay(resource, 1.0F, 1.0F, 1.0F, a);
 	}
 
 	/**
-	 * Draws an overlay across the entire screen using the specified ResourceLocation and 3 RGB color values.
+	 * Draws an overlay across the entire screen using the specified
+	 * ResourceLocation and 3 RGB color values.
 	 * 
-	 * @param resource
-	 *            - The ResourceLocation to draw
-	 * @param r
-	 *            - Red value to render the overlay at.
-	 * @param g
-	 *            - Green value to render the overlay at.
-	 * @param b
-	 *            - Blue value to render the overlay at.
+	 * @param resource - The ResourceLocation to draw
+	 * @param r - Red value to render the overlay at.
+	 * @param g - Green value to render the overlay at.
+	 * @param b - Blue value to render the overlay at.
 	 */
-	public static void drawOverlay(ResourceLocation resource, float r, float g, float b) {
+	public static void drawOverlay(ResourceLocation resource, float r, float g, float b)
+	{
 		Draw.drawOverlay(resource, r, g, b, 1.0F);
 	}
 
 	/**
-	 * Draws an overlay across the entire screen using the specified ResourceLocation and 4 RGBA color values.
+	 * Draws an overlay across the entire screen using the specified
+	 * ResourceLocation and 4 RGBA color values.
 	 * 
-	 * @param resource
-	 *            - The ResourceLocation to draw
-	 * @param r
-	 *            - Red value to render the overlay at.
-	 * @param g
-	 *            - Green value to render the overlay at.
-	 * @param b
-	 *            - Blue value to render the overlay at.
-	 * @param a
-	 *            - Alpha value to render the overlay at. For transparency.
+	 * @param resource - The ResourceLocation to draw
+	 * @param r - Red value to render the overlay at.
+	 * @param g - Green value to render the overlay at.
+	 * @param b - Blue value to render the overlay at.
+	 * @param a - Alpha value to render the overlay at. For transparency.
 	 */
-	public static void drawOverlay(ResourceLocation resource, float r, float g, float b, float a) {
+	public static void drawOverlay(ResourceLocation resource, float r, float g, float b, float a)
+	{
 		OpenGL.enableBlend();
 		OpenGL.disableDepthTest();
 		OpenGL.depthMask(false);
@@ -704,66 +643,58 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified ModelBase instance at 0,0,0 with the specified ResourceLocation.
+	 * Draw the specified ModelBase instance at 0,0,0 with the specified
+	 * ResourceLocation.
 	 * 
-	 * @param model
-	 *            - ModelBase instance to draw.
-	 * @param resource
-	 *            - ResourceLocation to draw on the ModelBase instance.
+	 * @param model - ModelBase instance to draw.
+	 * @param resource - ResourceLocation to draw on the ModelBase instance.
 	 */
-	public static void drawModel(ModelBase model, ResourceLocation resource) {
+	public static void drawModel(ModelBase model, ResourceLocation resource)
+	{
 		Draw.drawModel(null, model, resource, 0, 0, 0);
 	}
 
 	/**
-	 * Draw the specified ModelBase instance at the specified coordinates with the specified ResourceLocation.
+	 * Draw the specified ModelBase instance at the specified coordinates with the
+	 * specified ResourceLocation.
 	 * 
-	 * @param model
-	 *            - ModelBase instance to draw.
-	 * @param resource
-	 *            - ResourceLocation to draw on the ModelBase instance.
-	 * @param posX
-	 *            - x coordinate to draw this model at.
-	 * @param posY
-	 *            - y coordinate to draw this model at.
-	 * @param posZ
-	 *            - z coordinate to draw this model at.
+	 * @param model - ModelBase instance to draw.
+	 * @param resource - ResourceLocation to draw on the ModelBase instance.
+	 * @param posX - x coordinate to draw this model at.
+	 * @param posY - y coordinate to draw this model at.
+	 * @param posZ - z coordinate to draw this model at.
 	 */
-	public static void drawModel(ModelBase model, ResourceLocation resource, double posX, double posY, double posZ) {
+	public static void drawModel(ModelBase model, ResourceLocation resource, double posX, double posY, double posZ)
+	{
 		Draw.drawModel(null, model, resource, posX, posY, posZ);
 	}
 
 	/**
-	 * Draw the specified ModelBase instance at the specified coordinates with the specified ResourceLocation.
+	 * Draw the specified ModelBase instance at the specified coordinates with the
+	 * specified ResourceLocation.
 	 * 
-	 * @param entity
-	 *            - The entity class to provide the ModelBase instance with.
-	 * @param model
-	 *            - ModelBase instance to draw.
-	 * @param resource
-	 *            - ResourceLocation to draw on the ModelBase instance.
+	 * @param entity - The entity class to provide the ModelBase instance with.
+	 * @param model - ModelBase instance to draw.
+	 * @param resource - ResourceLocation to draw on the ModelBase instance.
 	 */
-	public static void drawModel(Entity entity, ModelBase model, ResourceLocation resource) {
+	public static void drawModel(Entity entity, ModelBase model, ResourceLocation resource)
+	{
 		Draw.drawModel(entity, model, resource, 0, 0, 0);
 	}
 
 	/**
-	 * Draw the specified ModelBase instance at the specified coordinates with the specified ResourceLocation.
+	 * Draw the specified ModelBase instance at the specified coordinates with the
+	 * specified ResourceLocation.
 	 * 
-	 * @param entity
-	 *            - The entity class to provide the ModelBase instance with.
-	 * @param model
-	 *            - ModelBase instance to draw.
-	 * @param resource
-	 *            - ResourceLocation to draw on the ModelBase instance.
-	 * @param posX
-	 *            - x coordinate to draw this model at.
-	 * @param posY
-	 *            - y coordinate to draw this model at.
-	 * @param posZ
-	 *            - z coordinate to draw this model at.
+	 * @param entity - The entity class to provide the ModelBase instance with.
+	 * @param model - ModelBase instance to draw.
+	 * @param resource - ResourceLocation to draw on the ModelBase instance.
+	 * @param posX - x coordinate to draw this model at.
+	 * @param posY - y coordinate to draw this model at.
+	 * @param posZ - z coordinate to draw this model at.
 	 */
-	public static void drawModel(Entity entity, ModelBase model, ResourceLocation resource, double posX, double posY, double posZ) {
+	public static void drawModel(Entity entity, ModelBase model, ResourceLocation resource, double posX, double posY, double posZ)
+	{
 		OpenGL.disableCullFace();
 		TextureUtils.bindTexture(resource);
 		OpenGL.translate(posX, posY, posZ);
@@ -771,20 +702,17 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified ModelBase instance at the specified coordinates with the specified ResourceLocation.
+	 * Draw the specified ModelBase instance at the specified coordinates with the
+	 * specified ResourceLocation.
 	 * 
-	 * @param model
-	 *            - ModelBase instance to draw.
-	 * @param resource
-	 *            - ResourceLocation to draw on the ModelBase instance.
-	 * @param x
-	 *            - x coordinate to draw this model at.
-	 * @param y
-	 *            - y coordinate to draw this model at.
-	 * @param scale
-	 *            - The scale this model should be rendered at.
+	 * @param model - ModelBase instance to draw.
+	 * @param resource - ResourceLocation to draw on the ModelBase instance.
+	 * @param x - x coordinate to draw this model at.
+	 * @param y - y coordinate to draw this model at.
+	 * @param scale - The scale this model should be rendered at.
 	 */
-	public static void drawShowcaseModel(ModelBase model, ResourceLocation resource, int x, int y, float scale) {
+	public static void drawShowcaseModel(ModelBase model, ResourceLocation resource, int x, int y, float scale)
+	{
 		OpenGL.color(1.0F, 1.0F, 1.0F, 1.0F);
 		OpenGL.pushMatrix();
 		OpenGL.translate(x, y - (scale * 0.43f), 10);
@@ -801,23 +729,20 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified entity at the specified coordinates using the specified scale, yaw, and pitch.
+	 * Draw the specified entity at the specified coordinates using the specified
+	 * scale, yaw, and pitch.
 	 * 
-	 * @param x
-	 *            - x coordinate
-	 * @param y
-	 *            - y coordinate
-	 * @param scale
-	 *            - The scale this model should be rendered at.
-	 * @param yaw
-	 *            - The rotation yaw.
-	 * @param pitch
-	 *            - The rotation pitch.
-	 * @param entity
-	 *            - The Entity instance that is being rendered.
+	 * @param x - x coordinate
+	 * @param y - y coordinate
+	 * @param scale - The scale this model should be rendered at.
+	 * @param yaw - The rotation yaw.
+	 * @param pitch - The rotation pitch.
+	 * @param entity - The Entity instance that is being rendered.
 	 */
-	public static void drawEntity(int x, int y, int scale, float yaw, float pitch, Entity entity) {
-		if (!AccessHandler.getMinecraft().world.isRemote) {
+	public static void drawEntity(int x, int y, int scale, float yaw, float pitch, Entity entity)
+	{
+		if (!AccessHandler.getMinecraft().world.isRemote)
+		{
 			GlStateManager.enableColorMaterial();
 			OpenGL.pushMatrix();
 			{
@@ -834,21 +759,19 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the client player's face. Will default to a Steve face if one is not present.
+	 * Draw the client player's face. Will default to a Steve face if one is not
+	 * present.
 	 * 
-	 * @param player
-	 *            - The client player
-	 * @param x
-	 *            - x coordinate
-	 * @param y
-	 *            - y coordinate
-	 * @param width
-	 *            - Width to render the face at.
-	 * @param height
-	 *            - Height to render the face at.
+	 * @param player - The client player
+	 * @param x - x coordinate
+	 * @param y - y coordinate
+	 * @param width - Width to render the face at.
+	 * @param height - Height to render the face at.
 	 */
-	public static void drawPlayerFace(EntityPlayer player, int x, int y, int width, int height) {
-		if (player instanceof AbstractClientPlayer) {
+	public static void drawPlayerFace(EntityPlayer player, int x, int y, int width, int height)
+	{
+		if (player instanceof AbstractClientPlayer)
+		{
 			AbstractClientPlayer clientPlayer = (AbstractClientPlayer) player;
 			TextureUtils.bindTexture(clientPlayer.getLocationSkin());
 			drawQuad(x, y, width, height, 90, 0.125F, 0.25F, 0.125F, 0.25F);
@@ -857,76 +780,57 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified ResourceLocation at the specified coordinates and dimensions.
+	 * Draw the specified ResourceLocation at the specified coordinates and
+	 * dimensions.
 	 * 
-	 * @param resource
-	 *            - ResourceLocation to render
-	 * @param posX
-	 *            - x coordinate
-	 * @param posY
-	 *            - y coordinate
-	 * @param width
-	 *            - Width to render this resource at.
-	 * @param height
-	 *            - Height to render this resource at.
+	 * @param resource - ResourceLocation to render
+	 * @param posX - x coordinate
+	 * @param posY - y coordinate
+	 * @param width - Width to render this resource at.
+	 * @param height - Height to render this resource at.
 	 */
-	public static void drawResource(ResourceLocation resource, int posX, int posY, int width, int height) {
+	public static void drawResource(ResourceLocation resource, int posX, int posY, int width, int height)
+	{
 		Draw.drawResource(resource, posX, posY, width, height, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
 	}
 
 	/**
-	 * Draw the specified ResourceLocation at the specified coordinates and dimensions.
+	 * Draw the specified ResourceLocation at the specified coordinates and
+	 * dimensions.
 	 * 
-	 * @param resource
-	 *            - ResourceLocation to render
-	 * @param posX
-	 *            - x coordinate
-	 * @param posY
-	 *            - y coordinate
-	 * @param width
-	 *            - Width to render this resource at.
-	 * @param height
-	 *            - Height to render this resource at.
-	 * @param r
-	 *            - Red value
-	 * @param g
-	 *            - Green value
-	 * @param b
-	 *            - Blue value
-	 * @param a
-	 *            - Alpha value (Transparency)
+	 * @param resource - ResourceLocation to render
+	 * @param posX - x coordinate
+	 * @param posY - y coordinate
+	 * @param width - Width to render this resource at.
+	 * @param height - Height to render this resource at.
+	 * @param r - Red value
+	 * @param g - Green value
+	 * @param b - Blue value
+	 * @param a - Alpha value (Transparency)
 	 */
-	public static void drawResource(ResourceLocation resource, int posX, int posY, int width, int height, float r, float g, float b, float a) {
+	public static void drawResource(ResourceLocation resource, int posX, int posY, int width, int height, float r, float g, float b, float a)
+	{
 		Draw.drawResource(resource, posX, posY, width, height, r, g, b, a, 1.0f, 1.0f);
 	}
 
 	/**
-	 * Draw the specified ResourceLocation at the specified coordinates and dimensions.
+	 * Draw the specified ResourceLocation at the specified coordinates and
+	 * dimensions.
 	 * 
-	 * @param resource
-	 *            - ResourceLocation to render
-	 * @param posX
-	 *            - x coordinate
-	 * @param posY
-	 *            - y coordinate
-	 * @param width
-	 *            - Width to render this resource at.
-	 * @param height
-	 *            - Height to render this resource at.
-	 * @param r
-	 *            - Red value
-	 * @param g
-	 *            - Green value
-	 * @param b
-	 *            - Blue value
-	 * @param a
-	 *            - Alpha value (Transparency)
-	 * @param u
-	 *            - x coordinate of the texture offset
-	 * @param v
-	 *            - y coordinate of the texture offset
+	 * @param resource - ResourceLocation to render
+	 * @param posX - x coordinate
+	 * @param posY - y coordinate
+	 * @param width - Width to render this resource at.
+	 * @param height - Height to render this resource at.
+	 * @param r - Red value
+	 * @param g - Green value
+	 * @param b - Blue value
+	 * @param a - Alpha value (Transparency)
+	 * @param u - x coordinate of the texture offset
+	 * @param v - y coordinate of the texture offset
 	 */
-	public static void drawResource(ResourceLocation resource, int posX, int posY, int width, int height, float r, float g, float b, float a, float u, float v) {
+	public static void drawResource(ResourceLocation resource, int posX, int posY, int width, int height, float r, float g, float b, float a, float u, float v)
+	{
 		OpenGL.disableLighting();
 		OpenGL.disableFog();
 		TextureUtils.bindTexture(resource);
@@ -935,76 +839,57 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified ResourceLocation centered at the specified coordinates and dimensions.
+	 * Draw the specified ResourceLocation centered at the specified coordinates and
+	 * dimensions.
 	 * 
-	 * @param resource
-	 *            - ResourceLocation to render
-	 * @param posX
-	 *            - x coordinate
-	 * @param posY
-	 *            - y coordinate
-	 * @param width
-	 *            - Width to render this resource at.
-	 * @param height
-	 *            - Height to render this resource at.
+	 * @param resource - ResourceLocation to render
+	 * @param posX - x coordinate
+	 * @param posY - y coordinate
+	 * @param width - Width to render this resource at.
+	 * @param height - Height to render this resource at.
 	 */
-	public static void drawResourceCentered(ResourceLocation resource, int posX, int posY, int width, int height) {
+	public static void drawResourceCentered(ResourceLocation resource, int posX, int posY, int width, int height)
+	{
 		Draw.drawResourceCentered(resource, posX, posY, width, height, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f);
 	}
 
 	/**
-	 * Draw the specified ResourceLocation centered at the specified coordinates and dimensions.
+	 * Draw the specified ResourceLocation centered at the specified coordinates and
+	 * dimensions.
 	 * 
-	 * @param resource
-	 *            - ResourceLocation to render
-	 * @param posX
-	 *            - x coordinate
-	 * @param posY
-	 *            - y coordinate
-	 * @param width
-	 *            - Width to render this resource at.
-	 * @param height
-	 *            - Height to render this resource at.
-	 * @param r
-	 *            - Red value
-	 * @param g
-	 *            - Green value
-	 * @param b
-	 *            - Blue value
-	 * @param a
-	 *            - Alpha value (Transparency)
+	 * @param resource - ResourceLocation to render
+	 * @param posX - x coordinate
+	 * @param posY - y coordinate
+	 * @param width - Width to render this resource at.
+	 * @param height - Height to render this resource at.
+	 * @param r - Red value
+	 * @param g - Green value
+	 * @param b - Blue value
+	 * @param a - Alpha value (Transparency)
 	 */
-	public static void drawResourceCentered(ResourceLocation resource, int posX, int posY, int width, int height, float r, float g, float b, float a) {
+	public static void drawResourceCentered(ResourceLocation resource, int posX, int posY, int width, int height, float r, float g, float b, float a)
+	{
 		Draw.drawResourceCentered(resource, posX, posY, width, height, r, g, b, a, 1.0f, 1.0f);
 	}
 
 	/**
-	 * Draw the specified ResourceLocation centered at the specified coordinates and dimensions.
+	 * Draw the specified ResourceLocation centered at the specified coordinates and
+	 * dimensions.
 	 * 
-	 * @param resource
-	 *            - ResourceLocation to render
-	 * @param posX
-	 *            - x coordinate
-	 * @param posY
-	 *            - y coordinate
-	 * @param width
-	 *            - Width to render this resource at.
-	 * @param height
-	 *            - Height to render this resource at.
-	 * @param r
-	 *            - Red value
-	 * @param g
-	 *            - Green value
-	 * @param b
-	 *            - Blue value
-	 * @param a
-	 *            - Alpha value (Transparency)
-	 * @param u
-	 *            - x coordinate of the texture offset
-	 * @param v
-	 *            - y coordinate of the texture offset
+	 * @param resource - ResourceLocation to render
+	 * @param posX - x coordinate
+	 * @param posY - y coordinate
+	 * @param width - Width to render this resource at.
+	 * @param height - Height to render this resource at.
+	 * @param r - Red value
+	 * @param g - Green value
+	 * @param b - Blue value
+	 * @param a - Alpha value (Transparency)
+	 * @param u - x coordinate of the texture offset
+	 * @param v - y coordinate of the texture offset
 	 */
-	public static void drawResourceCentered(ResourceLocation resource, int posX, int posY, int width, int height, float r, float g, float b, float a, float u, float v) {
+	public static void drawResourceCentered(ResourceLocation resource, int posX, int posY, int width, int height, float r, float g, float b, float a, float u, float v)
+	{
 		OpenGL.disableLighting();
 		OpenGL.disableFog();
 		TextureUtils.bindTexture(resource);
@@ -1015,18 +900,14 @@ public class Draw {
 	/**
 	 * Draw the specified particle at the specified coordinates and dimensions.
 	 * 
-	 * @param particleId
-	 *            - ID of the particle to draw
-	 * @param x
-	 *            - x coordinate
-	 * @param y
-	 *            - y coordinate
-	 * @param width
-	 *            - Width to render the particle at
-	 * @param height
-	 *            - Height to render the particle at
+	 * @param particleId - ID of the particle to draw
+	 * @param x - x coordinate
+	 * @param y - y coordinate
+	 * @param width - Width to render the particle at
+	 * @param height - Height to render the particle at
 	 */
-	public static void drawParticle(int index, int x, int y, int width, int height) {
+	public static void drawParticle(int index, int x, int y, int width, int height)
+	{
 		float tS = 0.0624375F;
 		float u = (float) (index % 16) / 16.0F;
 		float mU = u + tS;
@@ -1037,7 +918,8 @@ public class Draw {
 		drawQuad(x, y, width, height, 0, u, mU, v, mV);
 	}
 
-	public static void renderItem(ItemStack stack, int x, int y) {
+	public static void renderItem(ItemStack stack, int x, int y)
+	{
 		OpenGL.pushMatrix();
 		OpenGL.translate(0F, 0F, -100F);
 
@@ -1072,24 +954,19 @@ public class Draw {
 	}
 
 	/**
-	 * Draw the specified itemstack in a GUI with a flat icon. No 3D rendering is done.
+	 * Draw the specified itemstack in a GUI with a flat icon. No 3D rendering is
+	 * done.
 	 * 
-	 * @param stack
-	 *            - The itemstack to draw
-	 * @param x
-	 *            - x coordinate
-	 * @param y
-	 *            - y corodinate
-	 * @param width
-	 *            - Width to render the icon at
-	 * @param height
-	 *            - Height to render the icon at
-	 * @param u
-	 *            - x coordinate of the texture offset
-	 * @param v
-	 *            - y coordinate of the texture offset
+	 * @param stack - The itemstack to draw
+	 * @param x - x coordinate
+	 * @param y - y corodinate
+	 * @param width - Width to render the icon at
+	 * @param height - Height to render the icon at
+	 * @param u - x coordinate of the texture offset
+	 * @param v - y coordinate of the texture offset
 	 */
-	public static void drawItem(ItemStack stack, int x, int y, int width, int height) {
+	public static void drawItem(ItemStack stack, int x, int y, int width, int height)
+	{
 		IBakedModel ibakedmodel = AccessHandler.getMinecraft().getRenderItem().getItemModelMesher().getItemModel(stack);
 		ibakedmodel = ibakedmodel.getOverrides().handleItemState(ibakedmodel, stack, AccessHandler.getMinecraft().world, AccessHandler.getMinecraft().player);
 
@@ -1120,69 +997,85 @@ public class Draw {
 //	}
 
 	/**
-	 * Get the full path of the specified ResourceLocation. Format: domain:path/to/resource.png
+	 * Get the full path of the specified ResourceLocation. Format:
+	 * domain:path/to/resource.png
 	 * 
-	 * @param resource
-	 *            - The ResourceLocation to retrieve a path of.
+	 * @param resource - The ResourceLocation to retrieve a path of.
 	 * @return The full path of the resource, including the domain.
 	 */
-	public static String getResourcePath(ResourceLocation resource) {
+	public static String getResourcePath(ResourceLocation resource)
+	{
 		return String.format("%s:%s", resource.getResourceDomain(), resource.getResourcePath());
 	}
 
-	public static ResourceLocation getMissingTexture() {
+	public static ResourceLocation getMissingTexture()
+	{
 		return getResourceLocationPartialPath(AccessHandler.getMinecraft().getTextureMapBlocks().getMissingSprite());
 	}
 
-	public static ResourceLocation getResourceLocationFullPath(TextureAtlasSprite sprite) {
-		if (sprite != null) {
+	public static ResourceLocation getResourceLocationFullPath(TextureAtlasSprite sprite)
+	{
+		if (sprite != null)
+		{
 			Minecraft mc = AccessHandler.getMinecraft();
 			ResourceLocation r = new ResourceLocation(sprite.getIconName());
-			return new ResourceLocation(r.getResourceDomain(), String.format("%s/%s%s", new Object[] { mc.getTextureMapBlocks().getBasePath(), r.getResourcePath(), ".png" }));
+			return new ResourceLocation(r.getResourceDomain(), String.format("%s/%s%s", new Object[]
+			{ mc.getTextureMapBlocks().getBasePath(), r.getResourcePath(), ".png" }));
 		}
 
 		return getMissingTexture();
 	}
 
-	public static ResourceLocation getResourceLocationPartialPath(TextureAtlasSprite sprite) {
-		if (sprite != null) {
+	public static ResourceLocation getResourceLocationPartialPath(TextureAtlasSprite sprite)
+	{
+		if (sprite != null)
+		{
 			ResourceLocation r = new ResourceLocation(sprite.getIconName());
-			return new ResourceLocation(r.getResourceDomain(), String.format("%s", new Object[] { r.getResourcePath() }));
+			return new ResourceLocation(r.getResourceDomain(), String.format("%s", new Object[]
+			{ r.getResourcePath() }));
 		}
 
 		return getMissingTexture();
 	}
 
-	public static void lightingHelper(Entity entity, float offset) {
+	public static void lightingHelper(Entity entity, float offset)
+	{
 
 		int brightness = Worlds.getLightAtCoord(entity.world, entity.getPosition());
 		OpenGL.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, brightness % 65536, brightness / 65536);
 		OpenGL.color(1.0F, 1.0F, 1.0F);
 	}
 
-	public static ArrayList<String> wrapString(String string, int width) {
+	public static ArrayList<String> wrapString(String string, int width)
+	{
 		ArrayList<String> strings = new ArrayList<String>();
 		int stringWidth = getStringRenderWidth(string);
 
-		if (stringWidth > width) {
+		if (stringWidth > width)
+		{
 			String currentLine = "";
 
-			for (String word : string.split(" ")) {
+			for (String word : string.split(" "))
+			{
 				int wordWidth = getStringRenderWidth(word);
 				int currentLineWidth = getStringRenderWidth(currentLine);
 
-				if ((currentLineWidth + wordWidth) <= width) {
+				if ((currentLineWidth + wordWidth) <= width)
+				{
 					currentLine = currentLine.isEmpty() ? word : currentLine + " " + word;
-				} else {
+				} else
+				{
 					strings.add(currentLine);
 					currentLine = word;
 				}
 			}
 
-			if (!currentLine.isEmpty()) {
+			if (!currentLine.isEmpty())
+			{
 				strings.add(currentLine);
 			}
-		} else {
+		} else
+		{
 			strings.add(string);
 		}
 

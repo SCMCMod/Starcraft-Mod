@@ -38,34 +38,42 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * Provider will not work without it.
  **/
 @EventBusSubscriber
-public abstract class StormProvider implements Predicate<Entity>, IStormProvider {
-	protected Random	random			= new Random();
+public abstract class StormProvider implements Predicate<Entity>, IStormProvider
+{
+	protected Random random = new Random();
 
-	protected float[]	stormX			= null;
-	protected float[]	stormZ			= null;
-	protected float		stormDensity	= 0.0F;
-	protected int		rainSoundCounter;
-	protected boolean	renderStorm;
+	protected float[] stormX = null;
+	protected float[] stormZ = null;
+	protected float stormDensity = 0.0F;
+	protected int rainSoundCounter;
+	protected boolean renderStorm;
 
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
-	public static void clientTickEvent(ClientTickEvent event) {
-		if (AccessHandler.getMinecraft().world != null && AccessHandler.getMinecraft().world.provider instanceof IClimateProvider && !AccessHandler.getMinecraft().isGamePaused()) {
+	public static void clientTickEvent(ClientTickEvent event)
+	{
+		if (AccessHandler.getMinecraft().world != null && AccessHandler.getMinecraft().world.provider instanceof IClimateProvider && !AccessHandler.getMinecraft().isGamePaused())
+		{
 			IClimateProvider climate = (IClimateProvider) AccessHandler.getMinecraft().world.provider;
 
-			if (climate.getStormProvider() instanceof StormProvider) {
+			if (climate.getStormProvider() instanceof StormProvider)
+			{
 				StormProvider storm = (StormProvider) climate.getStormProvider();
 
-				if (storm.isStormApplicableTo(AccessHandler.getMinecraft().world.provider)) {
+				if (storm.isStormApplicableTo(AccessHandler.getMinecraft().world.provider))
+				{
 					int s = storm.getStormSize();
 					storm.updateStorm(AccessHandler.getMinecraft().world);
 
-					if (storm.stormX == null || storm.stormZ == null) {
+					if (storm.stormX == null || storm.stormZ == null)
+					{
 						storm.stormX = new float[s * s];
 						storm.stormZ = new float[s * s];
 
-						for (int zCoord = 0; zCoord < s; ++zCoord) {
-							for (int xCoord = 0; xCoord < s; ++xCoord) {
+						for (int zCoord = 0; zCoord < s; ++zCoord)
+						{
+							for (int xCoord = 0; xCoord < s; ++xCoord)
+							{
 								float x = xCoord - 16;
 								float z = zCoord - 16;
 								float sq = MathHelper.sqrt(x * x + z * z);
@@ -75,29 +83,37 @@ public abstract class StormProvider implements Predicate<Entity>, IStormProvider
 						}
 					}
 
-					if (storm.isStormActive(AccessHandler.getMinecraft().world)) {
+					if (storm.isStormActive(AccessHandler.getMinecraft().world))
+					{
 						storm.renderStorm = true;
 
-						if (storm.stormDensity < 1.0F) {
+						if (storm.stormDensity < 1.0F)
+						{
 							storm.stormDensity += 0.0025F;
 						}
-					} else {
-						if (storm.stormDensity >= 0.0F) {
+					} else
+					{
+						if (storm.stormDensity >= 0.0F)
+						{
 							storm.stormDensity -= 0.0025F;
-						} else {
+						} else
+						{
 							storm.renderStorm = false;
 							storm.stormDensity = 0.0F;
 						}
 					}
 
-					if (storm.isStormActive(AccessHandler.getMinecraft().world)) {
+					if (storm.isStormActive(AccessHandler.getMinecraft().world))
+					{
 						float strength = storm.getStormStrength();
 
-						if (!AccessHandler.getMinecraft().gameSettings.fancyGraphics) {
+						if (!AccessHandler.getMinecraft().gameSettings.fancyGraphics)
+						{
 							strength /= 2.0F;
 						}
 
-						if (strength != 0.0F) {
+						if (strength != 0.0F)
+						{
 							Entity entity = AccessHandler.getMinecraft().getRenderViewEntity();
 							World world = entity.world;
 							BlockPos blockpos = new BlockPos(entity);
@@ -107,30 +123,37 @@ public abstract class StormProvider implements Predicate<Entity>, IStormProvider
 							int particleCount = 0;
 							int passes = (int) (100.0F * strength * strength);
 
-							if (AccessHandler.getMinecraft().gameSettings.particleSetting == 1) {
+							if (AccessHandler.getMinecraft().gameSettings.particleSetting == 1)
+							{
 								passes >>= 1;
-							} else if (AccessHandler.getMinecraft().gameSettings.particleSetting == 2) {
+							} else if (AccessHandler.getMinecraft().gameSettings.particleSetting == 2)
+							{
 								passes = 0;
 							}
 
 							storm.random = new Random();
 
-							for (int i = 0; i < passes; ++i) {
+							for (int i = 0; i < passes; ++i)
+							{
 								BlockPos pos1 = world.getPrecipitationHeight(blockpos.add(storm.random.nextInt(10) - storm.random.nextInt(10), 0, storm.random.nextInt(10) - storm.random.nextInt(10)));
 								Biome biome = world.getBiome(pos1);
 								BlockPos pos2 = pos1.down();
 								IBlockState state = world.getBlockState(pos2);
 
-								if (pos1.getY() <= blockpos.getY() + 10 && pos1.getY() >= blockpos.getY() - 10 && storm.isStormVisibleInBiome(biome)) {
+								if (pos1.getY() <= blockpos.getY() + 10 && pos1.getY() >= blockpos.getY() - 10 && storm.isStormVisibleInBiome(biome))
+								{
 									double xOffset = storm.random.nextDouble();
 									double zOffset = storm.random.nextDouble();
 									AxisAlignedBB box = state.getBoundingBox(world, pos2);
 
-									if (state.getMaterial() != Material.LAVA && state.getBlock() != Blocks.MAGMA) {
-										if (state.getMaterial() != Material.AIR) {
+									if (state.getMaterial() != Material.LAVA && state.getBlock() != Blocks.MAGMA)
+									{
+										if (state.getMaterial() != Material.AIR)
+										{
 											++particleCount;
 
-											if (storm.random.nextInt(particleCount) == 0) {
+											if (storm.random.nextInt(particleCount) == 0)
+											{
 												x = (double) pos2.getX() + xOffset;
 												y = (double) ((float) pos2.getY() + 0.1F) + box.maxY - 1.0D;
 												z = (double) pos2.getZ() + zOffset;
@@ -146,12 +169,15 @@ public abstract class StormProvider implements Predicate<Entity>, IStormProvider
 								}
 							}
 
-							if (particleCount > 0 && storm.random.nextInt(3) < storm.rainSoundCounter++) {
+							if (particleCount > 0 && storm.random.nextInt(3) < storm.rainSoundCounter++)
+							{
 								storm.rainSoundCounter = 0;
 
-								if (y > (double) (blockpos.getY() + 1) && world.getPrecipitationHeight(blockpos).getY() > MathHelper.floor((float) blockpos.getY())) {
+								if (y > (double) (blockpos.getY() + 1) && world.getPrecipitationHeight(blockpos).getY() > MathHelper.floor((float) blockpos.getY()))
+								{
 									storm.playStormSoundAbove(world, x, y, z);
-								} else {
+								} else
+								{
 									storm.playStormSound(world, x, y, z);
 								}
 							}
@@ -163,20 +189,27 @@ public abstract class StormProvider implements Predicate<Entity>, IStormProvider
 	}
 
 	@SubscribeEvent
-	public static void worldTickEvent(WorldTickEvent event) {
-		if (event.world != null && event.world.provider instanceof IClimateProvider) {
+	public static void worldTickEvent(WorldTickEvent event)
+	{
+		if (event.world != null && event.world.provider instanceof IClimateProvider)
+		{
 			IClimateProvider climate = (IClimateProvider) event.world.provider;
 			climate.getStormProvider().updateStorm(event.world);
 		}
 	}
 
-	public void updateStorm(World world) {
-		if (world != null && this.isStormApplicableTo(world.provider) && this.isStormActive(world)) {
-			for (Object o : world.loadedEntityList.toArray()) {
-				if (o instanceof Entity) {
+	public void updateStorm(World world)
+	{
+		if (world != null && this.isStormApplicableTo(world.provider) && this.isStormActive(world))
+		{
+			for (Object o : world.loadedEntityList.toArray())
+			{
+				if (o instanceof Entity)
+				{
 					Entity entity = (Entity) o;
 
-					if (this.apply(entity) && Worlds.canSeeSky(new BlockPos(entity), world)) {
+					if (this.apply(entity) && Worlds.canSeeSky(new BlockPos(entity), world))
+					{
 						entity.motionZ += 0.03F;
 						entity.motionY += MathHelper.sin(world.getWorldTime() * 0.4F) * 0.1F;
 						entity.fallDistance = 0F;
@@ -189,9 +222,12 @@ public abstract class StormProvider implements Predicate<Entity>, IStormProvider
 
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
-	public static void renderLast(RenderWorldLastEvent event) {
-		if (AccessHandler.getMinecraft().world != null) {
-			if (AccessHandler.getMinecraft().world.provider instanceof IClimateProvider) {
+	public static void renderLast(RenderWorldLastEvent event)
+	{
+		if (AccessHandler.getMinecraft().world != null)
+		{
+			if (AccessHandler.getMinecraft().world.provider instanceof IClimateProvider)
+			{
 				IClimateProvider climate = (IClimateProvider) AccessHandler.getMinecraft().world.provider;
 				climate.getStormProvider().renderStorm(event.getPartialTicks(), AccessHandler.getMinecraft().world, Minecraft.getMinecraft());
 			}
@@ -199,12 +235,15 @@ public abstract class StormProvider implements Predicate<Entity>, IStormProvider
 	}
 
 	@SideOnly(Side.CLIENT)
-	public void renderStorm(float partialTicks, WorldClient world, Minecraft mc) {
-		if (!isStormActive(world) && !renderStorm) {
+	public void renderStorm(float partialTicks, WorldClient world, Minecraft mc)
+	{
+		if (!isStormActive(world) && !renderStorm)
+		{
 			return;
 		}
 
-		if (stormX == null || stormZ == null) {
+		if (stormX == null || stormZ == null)
+		{
 			return;
 		}
 
@@ -222,7 +261,8 @@ public abstract class StormProvider implements Predicate<Entity>, IStormProvider
 		GlStateManager.enableColorMaterial();
 		GlStateManager.tryBlendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
 
-		if (!doesLightingApply()) {
+		if (!doesLightingApply())
+		{
 			OpenGL.disableLight();
 		}
 
@@ -233,7 +273,8 @@ public abstract class StormProvider implements Predicate<Entity>, IStormProvider
 		int stormDepth = 5;
 		int stormHeight = 6 + stormDepth;
 
-		if (AccessHandler.getMinecraft().gameSettings.fancyGraphics) {
+		if (AccessHandler.getMinecraft().gameSettings.fancyGraphics)
+		{
 			stormDepth = 10;
 		}
 
@@ -242,40 +283,49 @@ public abstract class StormProvider implements Predicate<Entity>, IStormProvider
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 		BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
 
-		for (int z = posZ - stormDepth; z <= posZ + stormDepth; ++z) {
-			for (int x = posX - stormDepth; x <= posX + stormDepth; ++x) {
+		for (int z = posZ - stormDepth; z <= posZ + stormDepth; ++z)
+		{
+			for (int x = posX - stormDepth; x <= posX + stormDepth; ++x)
+			{
 				int idx = (z - posZ + 16) * 32 + x - posX + 16;
 				double rX = (double) this.stormX[idx] * 0.5D;
 				double rZ = (double) this.stormZ[idx] * 0.5D;
 				pos.setPos(x, 0, z);
 				Biome biome = world.getBiome(pos);
 
-				if (isStormVisibleInBiome(biome) && renderStorm) {
+				if (isStormVisibleInBiome(biome) && renderStorm)
+				{
 					int startHeight = world.getPrecipitationHeight(pos).getY();
 					int minY = posY - stormHeight;
 					int maxY = posY + stormHeight;
 
-					if (minY < startHeight) {
+					if (minY < startHeight)
+					{
 						minY = startHeight;
 					}
 
-					if (maxY < startHeight) {
+					if (maxY < startHeight)
+					{
 						maxY = startHeight;
 					}
 
 					int vY = startHeight;
 
-					if (startHeight < renderYFloor) {
+					if (startHeight < renderYFloor)
+					{
 						vY = renderYFloor;
 					}
 
-					if (minY != maxY) {
+					if (minY != maxY)
+					{
 						this.random.setSeed((long) (x * x * 3121 + x * 45238971 ^ z * z * 418711 + z * 13761));
 						pos.setPos(x, minY, z);
 						OpenGL.enableCullFace();
 
-						if (lastPass != 0) {
-							if (lastPass >= 0) {
+						if (lastPass != 0)
+						{
+							if (lastPass >= 0)
+							{
 								Tessellator.getInstance().draw();
 							}
 
@@ -304,7 +354,8 @@ public abstract class StormProvider implements Predicate<Entity>, IStormProvider
 			}
 		}
 
-		if (lastPass >= 0) {
+		if (lastPass >= 0)
+		{
 			Tessellator.getInstance().draw();
 		}
 
@@ -317,11 +368,14 @@ public abstract class StormProvider implements Predicate<Entity>, IStormProvider
 	}
 
 	@Override
-	public boolean apply(Entity entity) {
-		if (entity instanceof EntityPlayer) {
+	public boolean apply(Entity entity)
+	{
+		if (entity instanceof EntityPlayer)
+		{
 			EntityPlayer player = (EntityPlayer) entity;
 
-			if (player.capabilities.isCreativeMode) {
+			if (player.capabilities.isCreativeMode)
+			{
 				return false;
 			}
 		}
@@ -330,22 +384,26 @@ public abstract class StormProvider implements Predicate<Entity>, IStormProvider
 	}
 
 	@Override
-	public float getStormStrength() {
+	public float getStormStrength()
+	{
 		return 1F;
 	}
 
 	@Override
-	public float getStormDensity() {
+	public float getStormDensity()
+	{
 		return stormDensity;
 	}
 
 	@Override
-	public boolean isStormVisibleInBiome(Biome biome) {
+	public boolean isStormVisibleInBiome(Biome biome)
+	{
 		return true;
 	}
 
 	@Override
-	public boolean doesLightingApply() {
+	public boolean doesLightingApply()
+	{
 		return true;
 	}
 }

@@ -31,12 +31,14 @@ import net.minecraft.world.BossInfo;
 import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
 
-public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<EntityLivingBase> {
+public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<EntityLivingBase>
+{
 
 	private final BossInfoServer bossInfo = (BossInfoServer) (new BossInfoServer(this.getDisplayName(), BossInfo.Color.BLUE, BossInfo.Overlay.PROGRESS)).setDarkenSky(true);
-	private static final DataParameter<Boolean>	SHEATH	= EntityDataManager.createKey(EntityZeratul.class, DataSerializers.BOOLEAN);
-	
-	public EntityZeratul(World world) {
+	private static final DataParameter<Boolean> SHEATH = EntityDataManager.createKey(EntityZeratul.class, DataSerializers.BOOLEAN);
+
+	public EntityZeratul(World world)
+	{
 		super(world);
 		setSize(1.5F, 2.5F);
 		this.setColor(EnumColors.LIGHT_BLUE);
@@ -52,23 +54,27 @@ public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<E
 	}
 
 	@Override
-	public void addTrackingPlayer(EntityPlayerMP player) {
+	public void addTrackingPlayer(EntityPlayerMP player)
+	{
 		super.addTrackingPlayer(player);
 		this.bossInfo.addPlayer(player);
 	}
-	
+
 	@Override
-	protected void entityInit() {
+	protected void entityInit()
+	{
 		super.entityInit();
 
 		this.getDataManager().register(SHEATH, false);
 	}
 
-	public boolean canSheathBlades() {
+	public boolean canSheathBlades()
+	{
 		return this.getDataManager().get(SHEATH);
 	}
 
-	protected void setSheathed(boolean bool) {
+	protected void setSheathed(boolean bool)
+	{
 		this.getDataManager().set(SHEATH, bool);
 	}
 
@@ -77,18 +83,21 @@ public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<E
 	 * {@link Entity#addTrackingPlayer} for more information on tracking.
 	 */
 	@Override
-	public void removeTrackingPlayer(EntityPlayerMP player) {
+	public void removeTrackingPlayer(EntityPlayerMP player)
+	{
 		super.removeTrackingPlayer(player);
 		this.bossInfo.removePlayer(player);
 	}
 
 	@Override
-	public boolean isNonBoss() {
+	public boolean isNonBoss()
+	{
 		return false;
 	}
 
 	@Override
-	protected void updateAITasks() {
+	protected void updateAITasks()
+	{
 		this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
 	}
 
@@ -97,17 +106,20 @@ public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<E
 	 * target.
 	 */
 	@Override
-	public boolean apply(EntityLivingBase entity) {
+	public boolean apply(EntityLivingBase entity)
+	{
 		return checkTarget(entity, EnumFactionTypes.DAELAAM);
 	}
 
 	@Override
-	protected boolean canDespawn() {
+	protected boolean canDespawn()
+	{
 		return false;
 	}
 
 	@Override
-	protected void applyEntityAttributes() {
+	protected void applyEntityAttributes()
+	{
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(300.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.39000000417232513);
@@ -120,19 +132,21 @@ public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<E
 	/**
 	 * Drop 0-2 items on death
 	 * 
-	 * @param recentPlayerDmg
-	 *            {@code true} if a player recently dealt damage to this entity
-	 * @param lootingLvl
-	 *            level of Looting enchant used to deliver killing blow of entity
+	 * @param recentPlayerDmg {@code true} if a player recently dealt damage to this
+	 *        entity
+	 * @param lootingLvl level of Looting enchant used to deliver killing blow of
+	 *        entity
 	 */
 	@Override
-	protected void dropFewItems(boolean recentPlayerDmg, int lootingLvl) {
+	protected void dropFewItems(boolean recentPlayerDmg, int lootingLvl)
+	{
 		dropItem(WeaponHandler.MASTER_PSI_BLADE, 1);
 		entityDropItem(new ItemStack(ItemHandler.ENERGY, 4 + rand.nextInt(2), 0), 0);
 	}
 
 	@Override
-	public SoundEvent getAmbientSound() {
+	public SoundEvent getAmbientSound()
+	{
 		if (rand.nextInt(1) == 0)
 			return SoundHandler.ENTITY_DARKTEMPLAR_LIVE1;
 
@@ -140,41 +154,51 @@ public class EntityZeratul extends EntityProtossMob implements IMob, Predicate<E
 	}
 
 	@Override
-	public SoundEvent getDeathSound() {
+	public SoundEvent getDeathSound()
+	{
 		return SoundHandler.ENTITY_DARKTEMPLAR_DEATH;
 	}
 
 	@Override
-	public SoundEvent getHurtSound(DamageSource source) {
+	public SoundEvent getHurtSound(DamageSource source)
+	{
 		return SoundHandler.ENTITY_DARKTEMPLAR_HURT;
 	}
 
 	@Override
-	public int getTalkInterval() {
+	public int getTalkInterval()
+	{
 		return 160;
 	}
-	
+
 	@Override
-	public void setAttackTarget(EntityLivingBase entitylivingbaseIn) {
-		if(entitylivingbaseIn != null && (int)this.getDistance(entitylivingbaseIn) < 16) {
+	public void setAttackTarget(EntityLivingBase entitylivingbaseIn)
+	{
+		if (entitylivingbaseIn != null && (int) this.getDistance(entitylivingbaseIn) < 16)
+		{
 			this.setSheathed(true);
 		}
 		super.setAttackTarget(entitylivingbaseIn);
 	}
-	
+
 	@Override
-	public boolean attackEntityFrom(DamageSource source, float amount) {
-		
+	public boolean attackEntityFrom(DamageSource source, float amount)
+	{
+
 		this.setSheathed(true);
 		return super.attackEntityFrom(source, amount);
 	}
-	
+
 	@Override
-	public void onUpdate() {
-		if (!world.isRemote) {
-			if (this.getAttackTarget() != null) {
+	public void onUpdate()
+	{
+		if (!world.isRemote)
+		{
+			if (this.getAttackTarget() != null)
+			{
 				this.setSheathed(true);
-			} else if (this.getAttackTarget() == null) {
+			} else if (this.getAttackTarget() == null)
+			{
 				this.setSheathed(false);
 			}
 		}

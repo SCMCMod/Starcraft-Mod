@@ -9,9 +9,11 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
 
-public class BiomeGenSlaynProtossCity extends BiomeHandler {
+public class BiomeGenSlaynProtossCity extends BiomeHandler
+{
 
-	public BiomeGenSlaynProtossCity(BiomeProperties id) {
+	public BiomeGenSlaynProtossCity(BiomeProperties id)
+	{
 		super(id);
 
 		setRegistryName("slayn_protoss_city");
@@ -25,7 +27,8 @@ public class BiomeGenSlaynProtossCity extends BiomeHandler {
 		spawnableCaveCreatureList.clear();
 	}
 
-	public final void genBiomeTerrain(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal) {
+	public final void genBiomeTerrain(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal)
+	{
 
 		int seaLevel = worldIn.getSeaLevel();
 		IBlockState topBlock = this.topBlock;
@@ -35,21 +38,27 @@ public class BiomeGenSlaynProtossCity extends BiomeHandler {
 		int zLoc = x & 15;
 		int xLoc = z & 15;
 
-		for (int yLoc = 255; yLoc >= 0; --yLoc) {
-			if (yLoc <= rand.nextInt(5)) {
+		for (int yLoc = 255; yLoc >= 0; --yLoc)
+		{
+			if (yLoc <= rand.nextInt(5))
+			{
 				chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, BEDROCK);
-			} else if (yLoc == seaLevel) {
+			} else if (yLoc == seaLevel)
+			{
 				chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, BlockHandler.PROTOSS_METAL_T1.getStateFromMeta(1));
-			} else if (yLoc > seaLevel) {
+			} else if (yLoc > seaLevel)
+			{
 				chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, AIR);
-			} else {
+			} else
+			{
 				chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, STONE);
 			}
 		}
 	}
 
 	@Override
-	public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal) {
+	public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal)
+	{
 		genBiomeTerrain(worldIn, rand, chunkPrimerIn, x, z, noiseVal);
 	}
 }

@@ -30,11 +30,13 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityProtossReaver extends EntityProtossMob implements IMob, IRangedAttackMob, IShieldEntity, Predicate<EntityLivingBase> {
+public class EntityProtossReaver extends EntityProtossMob implements IMob, IRangedAttackMob, IShieldEntity, Predicate<EntityLivingBase>
+{
 
-	public int		ammo	= 4;
+	public int ammo = 4;
 
-	public EntityProtossReaver(World world) {
+	public EntityProtossReaver(World world)
+	{
 		super(world);
 		setSize(5.0F, 5.0F);
 		this.setColor(EnumColors.LIGHT_BLUE);
@@ -42,9 +44,10 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 		setAttributes(EnumTypeAttributes.MASSIVE, EnumTypeAttributes.MECHANICAL, EnumTypeAttributes.GROUND, EnumTypeAttributes.ARMORED);
 		this.initEntityAI();
 	}
-	
+
 	@Override
-	protected void initEntityAI() {
+	protected void initEntityAI()
+	{
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new EntityAIAttackRanged(this, 0.25F, 85, 30));
 		tasks.addTask(2, new EntityAIMoveTowardsRestriction(this, 1));
@@ -57,18 +60,21 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 	}
 
 	@Override
-	public boolean apply(EntityLivingBase entity) {
+	public boolean apply(EntityLivingBase entity)
+	{
 		return checkTarget(entity, EnumFactionTypes.DAELAAM);
 	}
 
 	@Override
-	protected void dropFewItems(boolean recentlyHit, int looting) {
+	protected void dropFewItems(boolean recentlyHit, int looting)
+	{
 		ItemDrop drop = new ItemDrop(10, new ItemStack(ItemHandler.PROTOSS_INGOT, 1 + this.rand.nextInt(2), MetaHandler.ProtossIngotType.KHALAI.getID()));
 		drop.tryDrop(this);
 	}
 
 	@Override
-	protected void applyEntityAttributes() {
+	protected void applyEntityAttributes()
+	{
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(133.0D);
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(.24000000417232513);
@@ -78,8 +84,10 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 	}
 
 	@Override
-	public void attackEntityWithRangedAttack(EntityLivingBase entity, float distance) {
-		if (!world.isRemote && this.ammo > 1 && this.getAttackTarget() != null) {
+	public void attackEntityWithRangedAttack(EntityLivingBase entity, float distance)
+	{
+		if (!world.isRemote && this.ammo > 1 && this.getAttackTarget() != null)
+		{
 			EntityScarab scarab = new EntityScarab(world, this.getColor(), EnumFactionTypes.DAELAAM);
 			scarab.setLocationAndAngles(posX, posY, posZ, 0, 0);
 			world.spawnEntity(scarab);
@@ -88,15 +96,18 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 	}
 
 	@Override
-	public boolean canBePushed() {
+	public boolean canBePushed()
+	{
 		return false;
 	}
 
 	@Override
-	public SoundEvent getAmbientSound() {
+	public SoundEvent getAmbientSound()
+	{
 		Random rand = new Random();
 
-		switch (rand.nextInt(4)) {
+		switch (rand.nextInt(4))
+		{
 		case 0:
 			return SoundHandler.ENTITY_PREAVER_LIVE1;
 		case 1:
@@ -112,25 +123,31 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 	}
 
 	@Override
-	public SoundEvent getDeathSound() {
+	public SoundEvent getDeathSound()
+	{
 		return SoundHandler.ENTITY_PREAVER_DEATH;
 	}
 
 	@Override
-	public SoundEvent getHurtSound(DamageSource source) {
+	public SoundEvent getHurtSound(DamageSource source)
+	{
 		return SoundHandler.ENTITY_PREAVER_HURT;
 	}
 
 	@Override
-	public int getTalkInterval() {
+	public int getTalkInterval()
+	{
 		return 160;
 	}
 
 	@Override
-	public void onLivingUpdate() {
-		
-		if (ticksExisted % 160 == 0 || ticksExisted % 160 == 1) {
-			if (ammo < 4) {
+	public void onLivingUpdate()
+	{
+
+		if (ticksExisted % 160 == 0 || ticksExisted % 160 == 1)
+		{
+			if (ammo < 4)
+			{
 				ammo++;
 			}
 		}
@@ -138,12 +155,14 @@ public class EntityProtossReaver extends EntityProtossMob implements IMob, IRang
 	}
 
 	@Override
-	public void setSwingingArms(boolean swingingArms) {
-		
+	public void setSwingingArms(boolean swingingArms)
+	{
+
 	}
-	
+
 	@Override
-	public float getMaxShields() {
+	public float getMaxShields()
+	{
 		return 100.0F;
 	}
 }

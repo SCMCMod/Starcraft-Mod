@@ -6,7 +6,8 @@ package com.hypeirochus.scmc.tileentity;
  * 
  * @author Ocelot5836
  */
-public interface IProtossMachine {
+public interface IProtossMachine
+{
 
 	/**
 	 * @return Do we have enough pylons to preoceed with out function?

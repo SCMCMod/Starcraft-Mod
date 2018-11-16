@@ -15,9 +15,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockZerusLightcap extends BlockContainer {
+public class BlockZerusLightcap extends BlockContainer
+{
 
-	public BlockZerusLightcap() {
+	public BlockZerusLightcap()
+	{
 		super(Material.VINE, MapColor.GREEN);
 		setRegistryName("flora.zerus.lightcap");
 		setUnlocalizedName("flora.zerus.lightcap");
@@ -27,27 +29,32 @@ public class BlockZerusLightcap extends BlockContainer {
 	}
 
 	@Override
-	public boolean isReplaceable(IBlockAccess world, BlockPos pos) {
+	public boolean isReplaceable(IBlockAccess world, BlockPos pos)
+	{
 		return false;
 	}
 
 	@Override
-	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess world, BlockPos pos) {
+	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess world, BlockPos pos)
+	{
 		return NULL_AABB;
 	}
 
 	@Override
-	public boolean isOpaqueCube(IBlockState state) {
+	public boolean isOpaqueCube(IBlockState state)
+	{
 		return false;
 	}
 
 	@Override
-	public boolean isFullCube(IBlockState state) {
+	public boolean isFullCube(IBlockState state)
+	{
 		return false;
 	}
 
 	@Override
-	public TileEntity createNewTileEntity(World world, int meta) {
+	public TileEntity createNewTileEntity(World world, int meta)
+	{
 		return new TileEntityZerusLightcap();
 	}
 }

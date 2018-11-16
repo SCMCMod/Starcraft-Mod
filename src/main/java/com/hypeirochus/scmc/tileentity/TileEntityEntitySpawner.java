@@ -13,32 +13,39 @@ import net.minecraft.util.text.TextFormatting;
 /**
  * @author Ocelot5836
  */
-public class TileEntityEntitySpawner extends TileEntity implements ITickable {
+public class TileEntityEntitySpawner extends TileEntity implements ITickable
+{
 
-	private int				range;
-	private Entity			entityToSpawn;
-	private TextFormatting	textColor;
+	private int range;
+	private Entity entityToSpawn;
+	private TextFormatting textColor;
 
-	public TileEntityEntitySpawner() {
+	public TileEntityEntitySpawner()
+	{
 		this(0, null, TextFormatting.WHITE);
 	}
 
-	public TileEntityEntitySpawner(int range, Entity entityToSpawn, TextFormatting textColor) {
+	public TileEntityEntitySpawner(int range, Entity entityToSpawn, TextFormatting textColor)
+	{
 		this.range = range;
 		this.entityToSpawn = entityToSpawn;
 		this.textColor = textColor;
 	}
 
 	@Override
-	public void update() {
-		if (world != null && !world.isRemote) {
+	public void update()
+	{
+		if (world != null && !world.isRemote)
+		{
 			EntityPlayer player = world.getClosestPlayer(pos.getX(), pos.getY(), pos.getZ(), range, false);
-			if (player != null && entityToSpawn != null) {
+			if (player != null && entityToSpawn != null)
+			{
 				entityToSpawn.setPosition(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5);
 				world.spawnEntity(entityToSpawn);
 				world.setBlockToAir(pos);
 
-				for (int i = 0; i < world.playerEntities.size(); i++) {
+				for (int i = 0; i < world.playerEntities.size(); i++)
+				{
 					world.playerEntities.get(i).sendMessage(new TextComponentString(textColor + entityToSpawn.getName() + " has spawned!"));
 				}
 			}
@@ -46,7 +53,8 @@ public class TileEntityEntitySpawner extends TileEntity implements ITickable {
 	}
 
 	@Override
-	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
+	public NBTTagCompound writeToNBT(NBTTagCompound nbt)
+	{
 		super.writeToNBT(nbt);
 		nbt.setInteger("range", this.range);
 		if (this.entityToSpawn != null)
@@ -56,7 +64,8 @@ public class TileEntityEntitySpawner extends TileEntity implements ITickable {
 	}
 
 	@Override
-	public void readFromNBT(NBTTagCompound nbt) {
+	public void readFromNBT(NBTTagCompound nbt)
+	{
 		super.readFromNBT(nbt);
 		this.range = nbt.getInteger("range");
 		if (nbt.hasKey("entityToSpawn"))
@@ -65,7 +74,8 @@ public class TileEntityEntitySpawner extends TileEntity implements ITickable {
 	}
 
 	@Override
-	public SPacketUpdateTileEntity getUpdatePacket() {
+	public SPacketUpdateTileEntity getUpdatePacket()
+	{
 		NBTTagCompound nbt = new NBTTagCompound();
 		this.writeToNBT(nbt);
 		int metadata = getBlockMetadata();
@@ -73,24 +83,28 @@ public class TileEntityEntitySpawner extends TileEntity implements ITickable {
 	}
 
 	@Override
-	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
+	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt)
+	{
 		this.readFromNBT(pkt.getNbtCompound());
 	}
 
 	@Override
-	public NBTTagCompound getUpdateTag() {
+	public NBTTagCompound getUpdateTag()
+	{
 		NBTTagCompound nbt = new NBTTagCompound();
 		this.writeToNBT(nbt);
 		return nbt;
 	}
 
 	@Override
-	public void handleUpdateTag(NBTTagCompound tag) {
+	public void handleUpdateTag(NBTTagCompound tag)
+	{
 		this.readFromNBT(tag);
 	}
 
 	@Override
-	public NBTTagCompound getTileData() {
+	public NBTTagCompound getTileData()
+	{
 		NBTTagCompound nbt = new NBTTagCompound();
 		this.writeToNBT(nbt);
 		return nbt;

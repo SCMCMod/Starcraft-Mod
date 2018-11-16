@@ -30,52 +30,66 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @EventBusSubscriber(modid = Starcraft.MOD_ID)
 //TODO: MOVE TO CORE MOD, WARNING, there is some starcraft code used here. ALSO, note this class uses AccessHandler.class
-public class Registry {
+public class Registry
+{
 
-	public Registry() {
-		if (AccessHandler.isDeobfuscatedEnvironment()) {
+	public Registry()
+	{
+		if (AccessHandler.isDeobfuscatedEnvironment())
+		{
 			Starcraft.logger().info("Registry created");
 		}
 	}
 
 	@SubscribeEvent
-	public void registerItems(RegistryEvent.Register<Item> event) {
+	public void registerItems(RegistryEvent.Register<Item> event)
+	{
 		event.getRegistry().registerAll(ItemHandler.getItems());
 		event.getRegistry().registerAll(BlockHandler.getItems());
-		if (AccessHandler.isDeobfuscatedEnvironment()) {
+		if (AccessHandler.isDeobfuscatedEnvironment())
+		{
 			Starcraft.logger().info("Registered Items");
 		}
 	}
 
 	@SubscribeEvent
-	public void registerBlocks(RegistryEvent.Register<Block> event) {
+	public void registerBlocks(RegistryEvent.Register<Block> event)
+	{
 		event.getRegistry().registerAll(BlockHandler.getBlocks());
-		if (AccessHandler.isDeobfuscatedEnvironment()) {
+		if (AccessHandler.isDeobfuscatedEnvironment())
+		{
 			Starcraft.logger().info("Registered Blocks");
 		}
 	}
 
 	@SubscribeEvent
-	public void registerModels(ModelRegistryEvent event) {
+	public void registerModels(ModelRegistryEvent event)
+	{
 		RenderHandler.registerItemMetaRenders();
-		for (Item item : ItemHandler.getItems()) {
-			if (item != null && !item.getHasSubtypes()) {
+		for (Item item : ItemHandler.getItems())
+		{
+			if (item != null && !item.getHasSubtypes())
+			{
 				registerItemRender(item);
 			}
 		}
-		if (AccessHandler.isDeobfuscatedEnvironment()) {
+		if (AccessHandler.isDeobfuscatedEnvironment())
+		{
 			Starcraft.logger().info("Registered Item Models");
 		}
 
 		RenderHandler.registerBlockMetaRenders();
 		RenderHandler.registerFluidRenders();
-		for (ItemBlock item : BlockHandler.getItems()) {
-			if (item != null && !item.getHasSubtypes() && !(item.getBlock() instanceof BlockFluidBase)) {
+		for (ItemBlock item : BlockHandler.getItems())
+		{
+			if (item != null && !item.getHasSubtypes() && !(item.getBlock() instanceof BlockFluidBase))
+			{
 				registerItemRender(item);
 			}
 		}
 
-		if (AccessHandler.isDeobfuscatedEnvironment()) {
+		if (AccessHandler.isDeobfuscatedEnvironment())
+		{
 			Starcraft.logger().info("Registered Block Models");
 		}
 
@@ -83,60 +97,75 @@ public class Registry {
 	}
 
 	@SubscribeEvent
-	public void registerRecipes(RegistryEvent.Register<IRecipe> event) {
+	public void registerRecipes(RegistryEvent.Register<IRecipe> event)
+	{
 		event.getRegistry().registerAll(CustomRecipes.getRecipes());
-		if (AccessHandler.isDeobfuscatedEnvironment()) {
+		if (AccessHandler.isDeobfuscatedEnvironment())
+		{
 			Starcraft.logger().info("Registered Recipes");
 		}
 	}
 
 	@SubscribeEvent
-	public void registerEnchantments(RegistryEvent.Register<Enchantment> event) {
+	public void registerEnchantments(RegistryEvent.Register<Enchantment> event)
+	{
 		event.getRegistry().registerAll(EnchantmentHandler.getEnchantments());
-		if (AccessHandler.isDeobfuscatedEnvironment()) {
+		if (AccessHandler.isDeobfuscatedEnvironment())
+		{
 			Starcraft.logger().info("Registered Enchantments");
 		}
 	}
 
 	@SubscribeEvent
-	public void registerBiomes(RegistryEvent.Register<Biome> event) {
+	public void registerBiomes(RegistryEvent.Register<Biome> event)
+	{
 		event.getRegistry().registerAll(BiomeHandler.getBiomes());
 
-		for (Biome biome : BiomeHandler.getBiomes()) {
+		for (Biome biome : BiomeHandler.getBiomes())
+		{
 			BiomeDictionary.addTypes(biome, BiomeDictionary.Type.VOID);
 		}
 
-		if (AccessHandler.isDeobfuscatedEnvironment()) {
+		if (AccessHandler.isDeobfuscatedEnvironment())
+		{
 			Starcraft.logger().info("Registered Biomes");
 		}
 	}
 
-	public static void registerColors(ItemColors itemColors, BlockColors blockColors) {
+	public static void registerColors(ItemColors itemColors, BlockColors blockColors)
+	{
 		Item[] items = ItemHandler.getItems();
 		ItemBlock[] itemBlocks = BlockHandler.getItems();
 		Block[] blocks = BlockHandler.getBlocks();
 
-		for (int i = 0; i < items.length; i++) {
+		for (int i = 0; i < items.length; i++)
+		{
 			Item item = items[i];
-			if (item instanceof IItemColor) {
+			if (item instanceof IItemColor)
+			{
 				itemColors.registerItemColorHandler((IItemColor) item, item);
 			}
 		}
 
-		for (int i = 0; i < itemBlocks.length; i++) {
+		for (int i = 0; i < itemBlocks.length; i++)
+		{
 			Item item = itemBlocks[i];
-			if (item instanceof IItemColor) {
+			if (item instanceof IItemColor)
+			{
 				itemColors.registerItemColorHandler((IItemColor) item, item);
 			}
 		}
 
-		for (int i = 0; i < blocks.length; i++) {
+		for (int i = 0; i < blocks.length; i++)
+		{
 			Block block = blocks[i];
 			Item item = Item.getItemFromBlock(block);
-			if (block instanceof IBlockColor) {
+			if (block instanceof IBlockColor)
+			{
 				blockColors.registerBlockColorHandler((IBlockColor) block, block);
 			}
-			if (block instanceof IItemColor) {
+			if (block instanceof IItemColor)
+			{
 				itemColors.registerItemColorHandler((IItemColor) block, item);
 			}
 		}

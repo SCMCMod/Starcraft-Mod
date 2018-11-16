@@ -10,97 +10,99 @@ import net.minecraft.util.math.MathHelper;
 /**
  * broodling - Undefined Created using Tabula 5.1.0
  */
-public class ModelBroodling extends Model {
+public class ModelBroodling extends Model
+{
 
-	public ModelRenderer	body01;
-	public ModelRenderer	body02;
-	public ModelRenderer	chest;
-	public ModelRenderer	head;
-	public ModelRenderer	lArm1;
-	public ModelRenderer	lArm2;
-	public ModelRenderer	lArm3;
-	public ModelRenderer	lArm4;
-	public ModelRenderer	lArm5;
-	public ModelRenderer	lArmClaw1a;
-	public ModelRenderer	lArmClaw1b;
-	public ModelRenderer	lArmClaw1c;
-	public ModelRenderer	lArmClaw1d;
-	public ModelRenderer	lArmClaw2;
-	public ModelRenderer	lTailSpike1a;
-	public ModelRenderer	lTailSpike1a_1;
-	public ModelRenderer	lTailSpike1b;
-	public ModelRenderer	lTailSpike1c;
-	public ModelRenderer	lTailSpike1d;
-	public ModelRenderer	lTailSpike2;
-	public ModelRenderer	lTailSpike2_1;
-	public ModelRenderer	lTailSpike3a;
-	public ModelRenderer	lTailSpike3b;
-	public ModelRenderer	lTailSpike3c;
-	public ModelRenderer	lTailSpike3d;
-	public ModelRenderer	lTailSpike4;
-	public ModelRenderer	lTailSpike5a;
-	public ModelRenderer	lTailSpike5b;
-	public ModelRenderer	lTailSpike5c;
-	public ModelRenderer	lTailSpike5d;
-	public ModelRenderer	lTailSpike6;
-	public ModelRenderer	lTailSpike7a;
-	public ModelRenderer	lTailSpike7b;
-	public ModelRenderer	lTailSpike7c;
-	public ModelRenderer	lTailSpike7d;
-	public ModelRenderer	lTailSpike8;
-	public ModelRenderer	lTusk;
-	public ModelRenderer	lTusk2a;
-	public ModelRenderer	lTusk2b;
-	public ModelRenderer	lTusk2c;
-	public ModelRenderer	lTusk2d;
-	public ModelRenderer	lTusk3;
-	public ModelRenderer	lWing;
-	public ModelRenderer	lWing2;
-	public ModelRenderer	rArm1;
-	public ModelRenderer	rArm2;
-	public ModelRenderer	rArm3;
-	public ModelRenderer	rArm4;
-	public ModelRenderer	rArm5;
-	public ModelRenderer	rArmClaw1a;
-	public ModelRenderer	rArmClaw1b;
-	public ModelRenderer	rArmClaw1c;
-	public ModelRenderer	rArmClaw1d;
-	public ModelRenderer	rArmClaw2;
-	public ModelRenderer	rTailSpike1b;
-	public ModelRenderer	rTailSpike1c;
-	public ModelRenderer	rTailSpike1d;
-	public ModelRenderer	rTailSpike3a;
-	public ModelRenderer	rTailSpike3b;
-	public ModelRenderer	rTailSpike3c;
-	public ModelRenderer	rTailSpike3d;
-	public ModelRenderer	rTailSpike4;
-	public ModelRenderer	rTailSpike5a;
-	public ModelRenderer	rTailSpike5b;
-	public ModelRenderer	rTailSpike5c;
-	public ModelRenderer	rTailSpike5d;
-	public ModelRenderer	rTailSpike6;
-	public ModelRenderer	rTailSpike7a;
-	public ModelRenderer	rTailSpike7b;
-	public ModelRenderer	rTailSpike7c;
-	public ModelRenderer	rTailSpike7d;
-	public ModelRenderer	rTailSpike8;
-	public ModelRenderer	rTusk;
-	public ModelRenderer	rTusk2a;
-	public ModelRenderer	rTusk2b;
-	public ModelRenderer	rTusk2c;
-	public ModelRenderer	rTusk2d;
-	public ModelRenderer	rTusk3;
-	public ModelRenderer	rWing;
-	public ModelRenderer	rWing2;
-	public ModelRenderer	spinePlating01;
-	public ModelRenderer	spinePlating02;
-	public ModelRenderer	spinePlating03;
-	public ModelRenderer	spinePlating04;
-	public ModelRenderer	tail1;
-	public ModelRenderer	tail2;
-	public ModelRenderer	tail3;
+	public ModelRenderer body01;
+	public ModelRenderer body02;
+	public ModelRenderer chest;
+	public ModelRenderer head;
+	public ModelRenderer lArm1;
+	public ModelRenderer lArm2;
+	public ModelRenderer lArm3;
+	public ModelRenderer lArm4;
+	public ModelRenderer lArm5;
+	public ModelRenderer lArmClaw1a;
+	public ModelRenderer lArmClaw1b;
+	public ModelRenderer lArmClaw1c;
+	public ModelRenderer lArmClaw1d;
+	public ModelRenderer lArmClaw2;
+	public ModelRenderer lTailSpike1a;
+	public ModelRenderer lTailSpike1a_1;
+	public ModelRenderer lTailSpike1b;
+	public ModelRenderer lTailSpike1c;
+	public ModelRenderer lTailSpike1d;
+	public ModelRenderer lTailSpike2;
+	public ModelRenderer lTailSpike2_1;
+	public ModelRenderer lTailSpike3a;
+	public ModelRenderer lTailSpike3b;
+	public ModelRenderer lTailSpike3c;
+	public ModelRenderer lTailSpike3d;
+	public ModelRenderer lTailSpike4;
+	public ModelRenderer lTailSpike5a;
+	public ModelRenderer lTailSpike5b;
+	public ModelRenderer lTailSpike5c;
+	public ModelRenderer lTailSpike5d;
+	public ModelRenderer lTailSpike6;
+	public ModelRenderer lTailSpike7a;
+	public ModelRenderer lTailSpike7b;
+	public ModelRenderer lTailSpike7c;
+	public ModelRenderer lTailSpike7d;
+	public ModelRenderer lTailSpike8;
+	public ModelRenderer lTusk;
+	public ModelRenderer lTusk2a;
+	public ModelRenderer lTusk2b;
+	public ModelRenderer lTusk2c;
+	public ModelRenderer lTusk2d;
+	public ModelRenderer lTusk3;
+	public ModelRenderer lWing;
+	public ModelRenderer lWing2;
+	public ModelRenderer rArm1;
+	public ModelRenderer rArm2;
+	public ModelRenderer rArm3;
+	public ModelRenderer rArm4;
+	public ModelRenderer rArm5;
+	public ModelRenderer rArmClaw1a;
+	public ModelRenderer rArmClaw1b;
+	public ModelRenderer rArmClaw1c;
+	public ModelRenderer rArmClaw1d;
+	public ModelRenderer rArmClaw2;
+	public ModelRenderer rTailSpike1b;
+	public ModelRenderer rTailSpike1c;
+	public ModelRenderer rTailSpike1d;
+	public ModelRenderer rTailSpike3a;
+	public ModelRenderer rTailSpike3b;
+	public ModelRenderer rTailSpike3c;
+	public ModelRenderer rTailSpike3d;
+	public ModelRenderer rTailSpike4;
+	public ModelRenderer rTailSpike5a;
+	public ModelRenderer rTailSpike5b;
+	public ModelRenderer rTailSpike5c;
+	public ModelRenderer rTailSpike5d;
+	public ModelRenderer rTailSpike6;
+	public ModelRenderer rTailSpike7a;
+	public ModelRenderer rTailSpike7b;
+	public ModelRenderer rTailSpike7c;
+	public ModelRenderer rTailSpike7d;
+	public ModelRenderer rTailSpike8;
+	public ModelRenderer rTusk;
+	public ModelRenderer rTusk2a;
+	public ModelRenderer rTusk2b;
+	public ModelRenderer rTusk2c;
+	public ModelRenderer rTusk2d;
+	public ModelRenderer rTusk3;
+	public ModelRenderer rWing;
+	public ModelRenderer rWing2;
+	public ModelRenderer spinePlating01;
+	public ModelRenderer spinePlating02;
+	public ModelRenderer spinePlating03;
+	public ModelRenderer spinePlating04;
+	public ModelRenderer tail1;
+	public ModelRenderer tail2;
+	public ModelRenderer tail3;
 
-	public ModelBroodling() {
+	public ModelBroodling()
+	{
 		textureWidth = 128;
 		textureHeight = 64;
 		lArm1 = new ModelRenderer(this, 35, 21);
@@ -507,14 +509,16 @@ public class ModelBroodling extends Model {
 	}
 
 	@Override
-	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
+	{
 		super.render(entity, f, f1, f2, f3, f4, f5);
 		setRotationAngles(f, f1, f2, f3, f4, f4, entity);
 		chest.render(f5);
 	}
 
 	@Override
-	public void setRotationAngles(float par1, float par2, float par3, float par4, float par5, float par6, Entity par7Entity) {
+	public void setRotationAngles(float par1, float par2, float par3, float par4, float par5, float par6, Entity par7Entity)
+	{
 		super.setRotationAngles(par1, par2, par3, par4, par5, par6, par7Entity);
 		// super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks,
 		// netHeadYaw, headPitch, scaleFactor, entityIn);
@@ -523,7 +527,8 @@ public class ModelBroodling extends Model {
 	}
 
 	@Override
-	public void render(Object obj) {
+	public void render(Object obj)
+	{
 		EntityLivingBase base = (EntityLivingBase) obj;
 		lArm1.rotateAngleX = MathHelper.sin(swingProgress(obj) * 1F) * 1 * swingProgressPrev(obj) - 0.5F;
 		rArm1.rotateAngleX = MathHelper.cos(swingProgress(obj) * 1F) * 1 * swingProgressPrev(obj) - 0.5F;
