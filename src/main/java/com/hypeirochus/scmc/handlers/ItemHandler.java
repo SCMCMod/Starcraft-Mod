@@ -3,7 +3,7 @@ package com.hypeirochus.scmc.handlers;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.items.ItemC14GaussRifle;
 import com.hypeirochus.scmc.items.ItemCarbotifier;
 import com.hypeirochus.scmc.items.ItemDust;
@@ -107,10 +107,10 @@ public class ItemHandler
 
 		// Misc
 		MINERAL_SHARD = new ItemMineralShard();
-		PHOSPHORUS = new StarcraftItem("phosphorus").setCreativeTab(StarcraftCreativeTabs.MISC);
+		PHOSPHORUS = new StarcraftItem("phosphorus").setCreativeTab(SCCreativeTabs.MISC);
 		ENERGY = new ItemEnergy();
 		DUST = new ItemDust();
-		PLEDGE = new StarcraftItem("pledge").setCreativeTab(StarcraftCreativeTabs.MISC);
+		PLEDGE = new StarcraftItem("pledge").setCreativeTab(SCCreativeTabs.MISC);
 		INGOT = new ItemIngot();
 		CARBOTIFIER = new ItemCarbotifier();
 		LOG = new ItemLog();
@@ -123,21 +123,21 @@ public class ItemHandler
 
 		// Terran
 		STIMPACK = new ItemStimpack();
-		MARINE_HELMET_VISOR = new StarcraftItem("terran.marine.helmet.visor").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		MARINE_HELMET_VISOR = new StarcraftItem("terran.marine.helmet.visor").setCreativeTab(SCCreativeTabs.TERRAN);
 
 		// Terran Weapons
 		C14_GAUSS_RIFLE = new ItemC14GaussRifle();
-		C14_GAUSS_RIFLE_PARTS = new ItemGunParts("terran.riflec14.part", 3).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		C14_GAUSS_RIFLE_PARTS = new ItemGunParts("terran.riflec14.part", 3).setCreativeTab(SCCreativeTabs.TERRAN);
 		FLAMETHROWER = new ItemFlamethrower();
-		FLAMETHROWER_PARTS = new ItemGunParts("terran.flamethrower.part", 4).setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		FLAMETHROWER_PARTS = new ItemGunParts("terran.flamethrower.part", 4).setCreativeTab(SCCreativeTabs.TERRAN);
 		SOLARITE_REAPER = new ItemSolariteReaper();
 		BULLET_MAGAZINE = new ItemMagazine();
 
 		// Zerg
 		ZERG_CARAPACE = new ItemZergCarapace();
-		CREEP_RESIN = new StarcraftItem("zerg.creepresin").setCreativeTab(StarcraftCreativeTabs.ZERG);
-		ORGANIC_TISSUE = new StarcraftItem("zerg.tissue").setCreativeTab(StarcraftCreativeTabs.ZERG);
-		BIOMASS = new StarcraftItem("biomass").setCreativeTab(StarcraftCreativeTabs.ZERG);
+		CREEP_RESIN = new StarcraftItem("zerg.creepresin").setCreativeTab(SCCreativeTabs.ZERG);
+		ORGANIC_TISSUE = new StarcraftItem("zerg.tissue").setCreativeTab(SCCreativeTabs.ZERG);
+		BIOMASS = new StarcraftItem("biomass").setCreativeTab(SCCreativeTabs.ZERG);
 
 		// Tab Icons
 		ICON = new ItemIcon();

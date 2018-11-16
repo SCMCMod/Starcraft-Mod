@@ -1,7 +1,7 @@
 package com.hypeirochus.scmc.items;
 
 import com.hypeirochus.api.world.entity.player.inventory.Inventories;
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.handlers.AccessHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
@@ -31,7 +31,7 @@ public class ItemFlamethrower extends ItemGun
 		super("terran.flamethrower", 8, 15);
 		setFull3D();
 		setMaxStackSize(1);
-		setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		setCreativeTab(SCCreativeTabs.TERRAN);
 	}
 
 	@Override

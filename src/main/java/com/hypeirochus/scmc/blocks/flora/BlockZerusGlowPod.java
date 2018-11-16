@@ -2,7 +2,7 @@ package com.hypeirochus.scmc.blocks.flora;
 
 import java.util.List;
 
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.handlers.SoundHandler.SoundTypes;
 import com.hypeirochus.scmc.tileentity.TileEntityZerusGlowPod;
@@ -32,7 +32,7 @@ public class BlockZerusGlowPod extends BlockContainer
 		setSoundType(SoundTypes.FLESH);
 		setHardness(0.5f);
 		setLightLevel(13);
-		setCreativeTab(StarcraftCreativeTabs.FLORA);
+		setCreativeTab(SCCreativeTabs.FLORA);
 		BlockHandler.registerFullBlock(this);
 	}
 

@@ -6,7 +6,7 @@ import com.hypeirochus.scmc.blocks.RegistryType;
 import com.hypeirochus.scmc.blocks.StarcraftBlock;
 import com.hypeirochus.scmc.blocks.items.IMetaBlockName;
 import com.hypeirochus.scmc.blocks.metablocks.BlockMineral.CompressedMineralType;
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler.EnergyType;
 import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
@@ -53,7 +53,7 @@ public class BlockEnergy extends StarcraftBlock implements IMetaBlockName, IMeta
 		setLightLevel(1.0f);
 		setSoundType(SoundType.GLASS);
 		setHarvestLevel("pickaxe", 0);
-		setCreativeTab(StarcraftCreativeTabs.MISC);
+		setCreativeTab(SCCreativeTabs.MISC);
 	}
 
 	@Override

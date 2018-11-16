@@ -1,7 +1,7 @@
 package com.hypeirochus.scmc.items;
 
 import com.hypeirochus.api.world.entity.player.inventory.Inventories;
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.handlers.AccessHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
@@ -27,7 +27,7 @@ public class ItemC14GaussRifle extends ItemGun
 		super("terran.riflec14", 6, 60);
 		setFull3D();
 		setMaxStackSize(1);
-		setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		setCreativeTab(SCCreativeTabs.TERRAN);
 	}
 
 	@Override

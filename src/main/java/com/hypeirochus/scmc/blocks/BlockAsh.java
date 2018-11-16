@@ -1,6 +1,6 @@
 package com.hypeirochus.scmc.blocks;
 
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -22,6 +22,6 @@ public class BlockAsh extends StarcraftBlockLayered
 		setHardness(0.2F);
 		setResistance(0.16f);
 		setHarvestLevel("shovel", -1);
-		setCreativeTab(StarcraftCreativeTabs.MISC);
+		setCreativeTab(SCCreativeTabs.MISC);
 	}
 }

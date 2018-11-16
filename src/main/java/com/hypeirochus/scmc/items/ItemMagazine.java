@@ -2,7 +2,7 @@ package com.hypeirochus.scmc.items;
 
 import java.util.List;
 
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.enums.MetaHandler.BulletMagazineType;
 import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
@@ -32,7 +32,7 @@ public class ItemMagazine extends StarcraftItem implements IMetaRenderHandler
 		setHasSubtypes(true);
 		setMaxStackSize(1);
 		setMaxDamage(0);
-		setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		setCreativeTab(SCCreativeTabs.TERRAN);
 	}
 
 	@Override

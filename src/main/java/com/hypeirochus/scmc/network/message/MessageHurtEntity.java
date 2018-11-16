@@ -1,6 +1,6 @@
 package com.hypeirochus.scmc.network.message;
 
-import com.hypeirochus.scmc.damagesource.StarcraftDamageSources;
+import com.hypeirochus.scmc.damagesource.SCDamageSourceManager;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.EntityLivingBase;
@@ -49,7 +49,7 @@ public class MessageHurtEntity implements IMessage, IMessageHandler<MessageHurtE
 		if (!world.isRemote)
 		{
 			EntityLivingBase entity = (EntityLivingBase) world.getEntityByID(message.entityId);
-			entity.attackEntityFrom(StarcraftDamageSources.causeBulletDamage(entity), message.damage);
+			entity.attackEntityFrom(SCDamageSourceManager.causeBulletDamage(entity), message.damage);
 			entity.hurtResistantTime = 0;
 		}
 

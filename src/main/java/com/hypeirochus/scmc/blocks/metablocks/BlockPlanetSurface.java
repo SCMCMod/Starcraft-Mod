@@ -3,7 +3,7 @@ package com.hypeirochus.scmc.blocks.metablocks;
 import com.hypeirochus.scmc.blocks.RegistryType;
 import com.hypeirochus.scmc.blocks.StarcraftBlock;
 import com.hypeirochus.scmc.blocks.items.IMetaBlockName;
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
 
 import net.minecraft.block.SoundType;
@@ -47,7 +47,7 @@ public class BlockPlanetSurface extends StarcraftBlock implements IMetaBlockName
 		setHardness(10.0F);
 		setResistance(10.0F);
 		setDefaultState(blockState.getBaseState().withProperty(TYPE, PlanetSurfaceType.BLUE));
-		setCreativeTab(StarcraftCreativeTabs.MISC);
+		setCreativeTab(SCCreativeTabs.MISC);
 	}
 
 	@Override

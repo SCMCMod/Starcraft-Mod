@@ -1,7 +1,7 @@
 package com.hypeirochus.scmc.items.weapons;
 
 import com.hypeirochus.api.world.entity.player.inventory.Inventories;
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
 import com.hypeirochus.scmc.handlers.SoundHandler;
@@ -21,7 +21,7 @@ public class WeaponMasterPsiBlade extends ItemSword
 		super(material);
 		setUnlocalizedName("protoss.blade.master");
 		setRegistryName("protoss.blade.master");
-		setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		setCreativeTab(SCCreativeTabs.PROTOSS);
 	}
 
 	@Override

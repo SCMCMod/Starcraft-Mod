@@ -2,7 +2,7 @@ package com.hypeirochus.scmc.blocks.fluid;
 
 import java.util.Random;
 
-import com.hypeirochus.scmc.damagesource.StarcraftDamageSources;
+import com.hypeirochus.scmc.damagesource.SCDamageSourceManager;
 import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.handlers.FluidHandler;
 
@@ -69,6 +69,6 @@ public class BlockVespene extends BlockFluidClassic
 	@Override
 	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
 	{
-		entity.attackEntityFrom(StarcraftDamageSources.poisonFluid, 4);
+		entity.attackEntityFrom(SCDamageSourceManager.poisonFluid, 4);
 	}
 }

@@ -2,7 +2,7 @@ package com.hypeirochus.scmc.blocks;
 
 import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.api.Utils;
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.handlers.GuiHandler;
 import com.hypeirochus.scmc.tileentity.TileEntityProtossFurnace;
@@ -44,7 +44,7 @@ public class BlockProtossFurnace extends BlockContainer
 		super(Material.IRON, MapColor.GOLD);
 		this.setUnlocalizedName("protoss.furnace");
 		this.setRegistryName("protoss.furnace");
-		this.setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		this.setCreativeTab(SCCreativeTabs.PROTOSS);
 		setSoundType(SoundType.METAL);
 		setHardness(3.5F);
 		setResistance(17.5F);

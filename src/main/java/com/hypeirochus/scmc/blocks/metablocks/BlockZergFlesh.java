@@ -5,7 +5,7 @@ import java.util.Random;
 import com.hypeirochus.scmc.blocks.RegistryType;
 import com.hypeirochus.scmc.blocks.StarcraftBlock;
 import com.hypeirochus.scmc.blocks.items.IMetaBlockName;
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.entity.living.EntityBroodling;
 import com.hypeirochus.scmc.enums.EnumColors;
 import com.hypeirochus.scmc.handlers.BlockHandler;
@@ -55,7 +55,7 @@ public class BlockZergFlesh extends StarcraftBlock implements IMetaBlockName, IM
 		setHardness(5.0F);
 		setHarvestLevel("axe", 2);
 		setDefaultState(blockState.getBaseState().withProperty(TYPE, ZergFleshType.PURPLE)); // Default state
-		setCreativeTab(StarcraftCreativeTabs.ZERG);
+		setCreativeTab(SCCreativeTabs.ZERG);
 	}
 
 	@Override

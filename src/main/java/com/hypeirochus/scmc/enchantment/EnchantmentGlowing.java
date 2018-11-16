@@ -3,7 +3,7 @@ package com.hypeirochus.scmc.enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.inventory.EntityEquipmentSlot;
 
-public class EnchantmentGlowing extends StarcraftEnchantment
+public class EnchantmentGlowing extends SCEnchantment
 {
 
 	public EnchantmentGlowing()

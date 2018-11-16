@@ -1,6 +1,6 @@
 package com.hypeirochus.scmc.items;
 
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.enums.MetaHandler.EnergyType;
 import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
@@ -15,7 +15,7 @@ public class ItemEnergy extends StarcraftItem implements IMetaRenderHandler
 	public ItemEnergy()
 	{
 		super("energy");
-		setCreativeTab(StarcraftCreativeTabs.MISC);
+		setCreativeTab(SCCreativeTabs.MISC);
 		setHasSubtypes(true);
 	}
 

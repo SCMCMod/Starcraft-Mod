@@ -1,6 +1,6 @@
 package com.hypeirochus.scmc.blocks;
 
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -22,6 +22,6 @@ public class BlockZergKeratin extends StarcraftBlock
 		setHardness(10.0F);
 		setResistance(10.0F);
 		setHarvestLevel("pickaxe", 2);
-		setCreativeTab(StarcraftCreativeTabs.ZERG);
+		setCreativeTab(SCCreativeTabs.ZERG);
 	}
 }

@@ -4,7 +4,7 @@ import java.util.Random;
 
 import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.api.Utils;
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.enums.EnumWorldType;
 import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.tileentity.TileEntityStarcraftFurnace;
@@ -63,7 +63,7 @@ public class StarcraftFurnace extends BlockContainer
 		this.type = type;
 		this.setUnlocalizedName(type.getName() + ".furnace");
 		this.setRegistryName(type.getName() + ".furnace");
-		this.setCreativeTab(StarcraftCreativeTabs.MISC);
+		this.setCreativeTab(SCCreativeTabs.MISC);
 		setSoundType(SoundType.STONE);
 		setHardness(3.5F);
 		setResistance(17.5F);

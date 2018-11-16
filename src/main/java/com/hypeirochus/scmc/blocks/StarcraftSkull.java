@@ -6,7 +6,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
 import com.hypeirochus.scmc.tileentity.TileEntityStarcraftSkull;
@@ -63,7 +63,7 @@ public class StarcraftSkull extends BlockContainer implements IMetaRenderHandler
 		setResistance(1.6f);
 		setSoundType(SoundType.STONE);
 		setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(NODROP, Boolean.valueOf(false)));
-		setCreativeTab(StarcraftCreativeTabs.MISC);
+		setCreativeTab(SCCreativeTabs.MISC);
 	}
 
 	@Override

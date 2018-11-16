@@ -1,6 +1,6 @@
 package com.hypeirochus.scmc.entity;
 
-import com.hypeirochus.scmc.damagesource.StarcraftDamageSources;
+import com.hypeirochus.scmc.damagesource.SCDamageSourceManager;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -53,7 +53,7 @@ public class EntityMutaliskGlaiveWurm extends EntityThrowable
 		if (result.entityHit != null)
 		{
 			float i = 6.0F;
-			result.entityHit.attackEntityFrom(StarcraftDamageSources.causeMutaliskGlaiveWormDamage(this, this.getThrower()), i);
+			result.entityHit.attackEntityFrom(SCDamageSourceManager.causeMutaliskGlaiveWormDamage(this, this.getThrower()), i);
 			this.setDead();
 		}
 	}

@@ -3,7 +3,7 @@ package com.hypeirochus.scmc.blocks;
 import java.util.Random;
 
 import com.hypeirochus.scmc.config.StarcraftConfig;
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.entity.living.EntityNafash;
 import com.hypeirochus.scmc.entity.living.EntityQueen;
 import com.hypeirochus.scmc.entity.living.EntityZergMob;
@@ -37,7 +37,7 @@ public class BlockZergCreep extends StarcraftBlock
 		setResistance(5.0F);
 		setHarvestLevel("shovel", 2);
 		setTickRandomly(true);
-		setCreativeTab(StarcraftCreativeTabs.ZERG);
+		setCreativeTab(SCCreativeTabs.ZERG);
 	}
 
 	@Override

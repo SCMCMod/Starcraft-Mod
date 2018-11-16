@@ -1,6 +1,6 @@
 package com.hypeirochus.scmc.items;
 
-import com.hypeirochus.scmc.damagesource.StarcraftDamageSources;
+import com.hypeirochus.scmc.damagesource.SCDamageSourceManager;
 import com.ocelot.api.utils.WorldUtils;
 
 import net.minecraft.entity.Entity;
@@ -84,7 +84,7 @@ public abstract class ItemGun extends StarcraftItem
 		{
 			if (hitEntity != null)
 			{
-				hitEntity.attackEntityFrom(StarcraftDamageSources.causeBulletDamage(entity), this.getGunDamage(heldItem));
+				hitEntity.attackEntityFrom(SCDamageSourceManager.causeBulletDamage(entity), this.getGunDamage(heldItem));
 				hitEntity.hurtResistantTime = 0;
 			}
 		}

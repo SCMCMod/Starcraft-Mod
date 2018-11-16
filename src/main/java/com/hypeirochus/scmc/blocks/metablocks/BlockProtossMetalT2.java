@@ -5,7 +5,7 @@ import java.util.Random;
 import com.hypeirochus.scmc.blocks.RegistryType;
 import com.hypeirochus.scmc.blocks.StarcraftBlock;
 import com.hypeirochus.scmc.blocks.items.IMetaBlockName;
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
 
 import net.minecraft.block.SoundType;
@@ -50,7 +50,7 @@ public class BlockProtossMetalT2 extends StarcraftBlock implements IMetaBlockNam
 		setResistance(20.0F);
 		setHarvestLevel("pickaxe", 3);
 		setDefaultState(blockState.getBaseState().withProperty(TYPE, ProtossMetalType.AIUR));
-		setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		setCreativeTab(SCCreativeTabs.PROTOSS);
 	}
 
 	@Override

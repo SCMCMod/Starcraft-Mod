@@ -1,6 +1,6 @@
 package com.hypeirochus.scmc.items;
 
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler.CarapaceType;
 import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
 
@@ -15,7 +15,7 @@ public class ItemZergCarapace extends StarcraftItem implements IMetaRenderHandle
 	{
 		super("zerg.icarapace");
 		setHasSubtypes(true);
-		setCreativeTab(StarcraftCreativeTabs.ZERG);
+		setCreativeTab(SCCreativeTabs.ZERG);
 	}
 
 	@Override

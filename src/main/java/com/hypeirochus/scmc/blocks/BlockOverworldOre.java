@@ -4,7 +4,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
 
@@ -31,7 +31,7 @@ public class BlockOverworldOre extends StarcraftBlock
 		setHardness(3.0F);
 		setResistance(5.0F);
 		setHarvestLevel("pickaxe", level);
-		setCreativeTab(StarcraftCreativeTabs.MISC);
+		setCreativeTab(SCCreativeTabs.MISC);
 		setSoundType(SoundType.STONE);
 	}
 

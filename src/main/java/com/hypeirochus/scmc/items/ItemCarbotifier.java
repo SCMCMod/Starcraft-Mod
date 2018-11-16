@@ -2,7 +2,7 @@ package com.hypeirochus.scmc.items;
 
 import java.util.List;
 
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.ocelot.api.utils.GuiUtils;
 
 import net.minecraft.client.util.ITooltipFlag;
@@ -31,7 +31,7 @@ public class ItemCarbotifier extends Item
 	{
 		setRegistryName("carbotifier");
 		setUnlocalizedName("carbotifier");
-		setCreativeTab(StarcraftCreativeTabs.MISC);
+		setCreativeTab(SCCreativeTabs.MISC);
 	}
 
 	@Override
@@ -53,7 +53,7 @@ public class ItemCarbotifier extends Item
 				player.sendStatusMessage(new TextComponentString("You can't use this item"), true);
 			}
 		}
-		setCreativeTab(StarcraftCreativeTabs.MISC);
+		setCreativeTab(SCCreativeTabs.MISC);
 		return super.onItemRightClick(world, player, hand);
 	}
 

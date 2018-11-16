@@ -2,7 +2,7 @@ package com.hypeirochus.scmc.blocks;
 
 import java.util.Random;
 
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.handlers.ItemHandler;
 
 import net.minecraft.block.SoundType;
@@ -29,7 +29,7 @@ public class BlockProtossEnergyChannelDark extends StarcraftBlock
 		setResistance(15.0F);
 		setTickRandomly(true);
 		setHarvestLevel("pickaxe", 3);
-		setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		setCreativeTab(SCCreativeTabs.PROTOSS);
 	}
 
 	/**

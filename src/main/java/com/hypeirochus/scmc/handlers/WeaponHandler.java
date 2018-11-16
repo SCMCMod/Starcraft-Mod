@@ -1,6 +1,6 @@
 package com.hypeirochus.scmc.handlers;
 
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.items.weapons.WeaponMasterPsiBlade;
 import com.hypeirochus.scmc.items.weapons.WeaponPsiBlade;
 import com.hypeirochus.scmc.items.weapons.WeaponSwordBase;
@@ -35,18 +35,18 @@ public class WeaponHandler
 
 	private static void instantiate()
 	{
-		PSI_BLADE = new WeaponPsiBlade(WeaponMaterials.PSIBLADE_MATERIAL).setUnlocalizedName("protoss.blade.psi.aiur").setRegistryName("protoss.blade.psi.aiur").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		BANE_BLADE = new WeaponPsiBlade(WeaponMaterials.PSIBLADE_MATERIAL).setUnlocalizedName("protoss.blade.psi.dark").setRegistryName("protoss.blade.psi.dark").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		WARP_BLADE = new WeaponWarpBlade(WeaponMaterials.WARPBLADE_MATERIAL).setUnlocalizedName("protoss.blade.warp.aiur").setRegistryName("protoss.blade.warp.aiur").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		DARK_WARP_BLADE = new WeaponWarpBlade(WeaponMaterials.WARPBLADE_MATERIAL).setUnlocalizedName("protoss.blade.warp.dark").setRegistryName("protoss.blade.warp.dark").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PSI_BLADE = new WeaponPsiBlade(WeaponMaterials.PSIBLADE_MATERIAL).setUnlocalizedName("protoss.blade.psi.aiur").setRegistryName("protoss.blade.psi.aiur").setCreativeTab(SCCreativeTabs.PROTOSS);
+		BANE_BLADE = new WeaponPsiBlade(WeaponMaterials.PSIBLADE_MATERIAL).setUnlocalizedName("protoss.blade.psi.dark").setRegistryName("protoss.blade.psi.dark").setCreativeTab(SCCreativeTabs.PROTOSS);
+		WARP_BLADE = new WeaponWarpBlade(WeaponMaterials.WARPBLADE_MATERIAL).setUnlocalizedName("protoss.blade.warp.aiur").setRegistryName("protoss.blade.warp.aiur").setCreativeTab(SCCreativeTabs.PROTOSS);
+		DARK_WARP_BLADE = new WeaponWarpBlade(WeaponMaterials.WARPBLADE_MATERIAL).setUnlocalizedName("protoss.blade.warp.dark").setRegistryName("protoss.blade.warp.dark").setCreativeTab(SCCreativeTabs.PROTOSS);
 		MASTER_PSI_BLADE = new WeaponMasterPsiBlade(WeaponMaterials.MASTERPSIBLADE_MATERIAL);
 
-		BALISONG = new WeaponSwordBase(WeaponMaterials.BALISONG_MATERIAL).setUnlocalizedName("balisong").setRegistryName("balisong").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		MILITARY_KNIFE = new WeaponSwordBase(WeaponMaterials.MILITARYKNIFE_MATERIAL).setUnlocalizedName("terran.knife.military").setRegistryName("terran.knife.military").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		MONOMOLECULAR_BLADE = new WeaponSwordBase(WeaponMaterials.MONOMOLECULARBLADE_MATERIAL).setUnlocalizedName("blade.monomolecular").setRegistryName("blade.monomolecular").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		COPPER_SWORD = new WeaponSwordBase(WeaponMaterials.COPPER_MATERIAL).setUnlocalizedName("copper.sword").setRegistryName("copper.sword").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		TITANIUM_SWORD = new WeaponSwordBase(WeaponMaterials.TITANIUM_MATERIAL).setUnlocalizedName("titanium.sword").setRegistryName("titanium.sword").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		STEEL_SWORD = new WeaponSwordBase(WeaponMaterials.STEEL_MATERIAL).setUnlocalizedName("steel.sword").setRegistryName("steel.sword").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		BALISONG = new WeaponSwordBase(WeaponMaterials.BALISONG_MATERIAL).setUnlocalizedName("balisong").setRegistryName("balisong").setCreativeTab(SCCreativeTabs.TERRAN);
+		MILITARY_KNIFE = new WeaponSwordBase(WeaponMaterials.MILITARYKNIFE_MATERIAL).setUnlocalizedName("terran.knife.military").setRegistryName("terran.knife.military").setCreativeTab(SCCreativeTabs.TERRAN);
+		MONOMOLECULAR_BLADE = new WeaponSwordBase(WeaponMaterials.MONOMOLECULARBLADE_MATERIAL).setUnlocalizedName("blade.monomolecular").setRegistryName("blade.monomolecular").setCreativeTab(SCCreativeTabs.TERRAN);
+		COPPER_SWORD = new WeaponSwordBase(WeaponMaterials.COPPER_MATERIAL).setUnlocalizedName("copper.sword").setRegistryName("copper.sword").setCreativeTab(SCCreativeTabs.TERRAN);
+		TITANIUM_SWORD = new WeaponSwordBase(WeaponMaterials.TITANIUM_MATERIAL).setUnlocalizedName("titanium.sword").setRegistryName("titanium.sword").setCreativeTab(SCCreativeTabs.TERRAN);
+		STEEL_SWORD = new WeaponSwordBase(WeaponMaterials.STEEL_MATERIAL).setUnlocalizedName("steel.sword").setRegistryName("steel.sword").setCreativeTab(SCCreativeTabs.TERRAN);
 	}
 
 	private static void register()

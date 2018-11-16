@@ -1,6 +1,6 @@
 package com.hypeirochus.scmc.blocks;
 
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -24,6 +24,6 @@ public class BlockProtossEnergyStabilizerDark extends StarcraftBlock
 		setResistance(15.0F);
 		setTickRandomly(true);
 		setHarvestLevel("pickaxe", 3);
-		setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		setCreativeTab(SCCreativeTabs.PROTOSS);
 	}
 }

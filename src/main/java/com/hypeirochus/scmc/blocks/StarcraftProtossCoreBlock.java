@@ -1,6 +1,6 @@
 package com.hypeirochus.scmc.blocks;
 
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.lib.Library;
 
@@ -26,7 +26,7 @@ public class StarcraftProtossCoreBlock extends StarcraftBlock
 		setHardness(15.0F);
 		setResistance(15.0F);
 		setHarvestLevel("pickaxe", 3);
-		setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		setCreativeTab(SCCreativeTabs.PROTOSS);
 	}
 
 	public Block setDomeHeight(int height)

@@ -5,7 +5,7 @@ import com.hypeirochus.scmc.api.Utils;
 import com.hypeirochus.scmc.blocks.RegistryType;
 import com.hypeirochus.scmc.blocks.StarcraftBlock;
 import com.hypeirochus.scmc.blocks.items.IMetaBlockName;
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.handlers.GuiHandler;
 import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
 import com.hypeirochus.scmc.handlers.SoundHandler.SoundTypes;
@@ -65,7 +65,7 @@ public class BlockGasCollector extends StarcraftBlock implements IMetaBlockName,
 		setHarvestLevel("pickaxe", 3, blockState.getBaseState().withProperty(TYPE, GasCollectorType.PROTOSS));
 		setHarvestLevel("pickaxe", 2, blockState.getBaseState().withProperty(TYPE, GasCollectorType.TERRAN));
 		setHarvestLevel("pickaxe", 0, blockState.getBaseState().withProperty(TYPE, GasCollectorType.ZERG));
-		setCreativeTab(StarcraftCreativeTabs.MISC);
+		setCreativeTab(SCCreativeTabs.MISC);
 	}
 
 	@Override

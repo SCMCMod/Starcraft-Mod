@@ -1,7 +1,7 @@
 package com.hypeirochus.scmc.items;
 
 import com.hypeirochus.scmc.blocks.metablocks.BlockGasCollector.GasCollectorType;
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.enums.MetaHandler.ContainerType;
 import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
@@ -30,11 +30,11 @@ public class ItemGasContainer extends StarcraftItem implements IMetaRenderHandle
 			}
 		} else
 		{
-			if (tab == StarcraftCreativeTabs.PROTOSS)
+			if (tab == SCCreativeTabs.PROTOSS)
 				items.add(new ItemStack(this, 1, 0));
-			if (tab == StarcraftCreativeTabs.TERRAN)
+			if (tab == SCCreativeTabs.TERRAN)
 				items.add(new ItemStack(this, 1, 1));
-			if (tab == StarcraftCreativeTabs.ZERG)
+			if (tab == SCCreativeTabs.ZERG)
 				items.add(new ItemStack(this, 1, 2));
 		}
 	}

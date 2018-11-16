@@ -2,7 +2,7 @@ package com.hypeirochus.scmc.blocks;
 
 import java.util.Random;
 
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTallGrass;
@@ -45,7 +45,7 @@ public class StarcraftGrass extends StarcraftBlock implements IBlockColor, IItem
 		setHardness(0.6F);
 		setResistance(1.0F);
 		setHarvestLevel("shovel", -1);
-		setCreativeTab(StarcraftCreativeTabs.MISC);
+		setCreativeTab(SCCreativeTabs.MISC);
 		setSoundType(SoundType.PLANT);
 		setTickRandomly(true);
 	}

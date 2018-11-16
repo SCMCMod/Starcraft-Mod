@@ -1,6 +1,6 @@
 package com.hypeirochus.scmc.items;
 
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.enums.MetaHandler.ProtossIngotType;
 import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
@@ -15,7 +15,7 @@ public class ItemProtossIngot extends StarcraftItem implements IMetaRenderHandle
 	public ItemProtossIngot()
 	{
 		super("protoss.ingot");
-		setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		setCreativeTab(SCCreativeTabs.PROTOSS);
 		setHasSubtypes(true);
 	}
 

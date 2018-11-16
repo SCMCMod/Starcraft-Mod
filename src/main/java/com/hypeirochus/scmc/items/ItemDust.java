@@ -1,6 +1,6 @@
 package com.hypeirochus.scmc.items;
 
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler.DustType;
 import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
 
@@ -14,7 +14,7 @@ public class ItemDust extends StarcraftItem implements IMetaRenderHandler
 	public ItemDust()
 	{
 		super("dust");
-		setCreativeTab(StarcraftCreativeTabs.MISC);
+		setCreativeTab(SCCreativeTabs.MISC);
 		setHasSubtypes(true);
 	}
 

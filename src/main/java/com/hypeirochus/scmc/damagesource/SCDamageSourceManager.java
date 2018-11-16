@@ -13,15 +13,15 @@ import net.minecraft.util.EntityDamageSourceIndirect;
  * </br>
  * Contains the damage sources for the mod.
  */
-public class StarcraftDamageSources
+public class SCDamageSourceManager
 {
 
-	public static DamageSource bullet = new StarcraftDamageSource("bullet");
-	public static DamageSource hydraNeedle = new StarcraftDamageSource("hydraneedle").setProjectile();
-	public static DamageSource mutaGlaive = new StarcraftDamageSource("mutaglaive").setProjectile();
-	public static DamageSource acid = new StarcraftDamageSource("acid", "fluid").setDamageBypassesArmor().setFireDamage();
-	public static DamageSource poisonFluid = new StarcraftDamageSource("poison", "fluid").setMagicDamage();
-	public static DamageSource poison_gas = new StarcraftDamageSource("poison", "gas").setMagicDamage();
+	public static DamageSource bullet = new SCDamageSource("bullet");
+	public static DamageSource hydraNeedle = new SCDamageSource("hydraneedle").setProjectile();
+	public static DamageSource mutaGlaive = new SCDamageSource("mutaglaive").setProjectile();
+	public static DamageSource acid = new SCDamageSource("acid", "fluid").setDamageBypassesArmor().setFireDamage();
+	public static DamageSource poisonFluid = new SCDamageSource("poison", "fluid").setMagicDamage();
+	public static DamageSource poison_gas = new SCDamageSource("poison", "gas").setMagicDamage();
 
 	/**
 	 * Causes bullet damage to an entity.

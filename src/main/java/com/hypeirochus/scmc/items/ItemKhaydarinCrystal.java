@@ -2,7 +2,7 @@ package com.hypeirochus.scmc.items;
 
 import com.hypeirochus.scmc.blocks.metablocks.BlockKhaydarinCrystal;
 import com.hypeirochus.scmc.blocks.metablocks.BlockKhaydarinCrystal.PylonCrystalType;
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -23,7 +23,7 @@ public class ItemKhaydarinCrystal extends StarcraftItem implements IMetaRenderHa
 	{
 		super("protoss.khaydarincrystal");
 		setHasSubtypes(true);
-		setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		setCreativeTab(SCCreativeTabs.PROTOSS);
 	}
 
 	@Override

@@ -14,17 +14,17 @@ import net.minecraft.util.text.TextComponentTranslation;
  * 
  * @author Ocelot5836
  */
-public class StarcraftDamageSource extends DamageSource
+public class SCDamageSource extends DamageSource
 {
 
 	private String deathType;
 
-	public StarcraftDamageSource(String damageType)
+	public SCDamageSource(String damageType)
 	{
 		this(damageType, "attack");
 	}
 
-	public StarcraftDamageSource(String damageType, String deathType)
+	public SCDamageSource(String damageType, String deathType)
 	{
 		super(damageType);
 		this.deathType = deathType;

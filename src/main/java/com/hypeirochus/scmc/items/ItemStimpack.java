@@ -1,6 +1,6 @@
 package com.hypeirochus.scmc.items;
 
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -17,7 +17,7 @@ public class ItemStimpack extends StarcraftItem
 	{
 		super("stimpack");
 		setMaxStackSize(1);
-		setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		setCreativeTab(SCCreativeTabs.TERRAN);
 	}
 
 	@Override

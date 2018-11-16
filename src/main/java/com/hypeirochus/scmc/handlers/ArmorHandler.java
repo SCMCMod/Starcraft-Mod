@@ -1,7 +1,7 @@
 package com.hypeirochus.scmc.handlers;
 
 import com.hypeirochus.scmc.Starcraft;
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.items.armor.ItemCustomArmor;
 
 import net.minecraft.init.SoundEvents;
@@ -179,100 +179,100 @@ public class ArmorHandler
 
 	private static void instantiate()
 	{
-		TITANIUM_HELMET = new ItemArmor(TITANIUM_ARMOR_MATERIAL, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("titanium.helmet").setRegistryName("titanium.helmet").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		TITANIUM_CHESTPLATE = new ItemArmor(TITANIUM_ARMOR_MATERIAL, 0, EntityEquipmentSlot.CHEST).setUnlocalizedName("titanium.chestplate").setRegistryName("titanium.chestplate").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		TITANIUM_LEGGINGS = new ItemArmor(TITANIUM_ARMOR_MATERIAL, 0, EntityEquipmentSlot.LEGS).setUnlocalizedName("titanium.leggings").setRegistryName("titanium.leggings").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		TITANIUM_BOOTS = new ItemArmor(TITANIUM_ARMOR_MATERIAL, 0, EntityEquipmentSlot.FEET).setUnlocalizedName("titanium.boots").setRegistryName("titanium.boots").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		TITANIUM_HELMET = new ItemArmor(TITANIUM_ARMOR_MATERIAL, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("titanium.helmet").setRegistryName("titanium.helmet").setCreativeTab(SCCreativeTabs.TERRAN);
+		TITANIUM_CHESTPLATE = new ItemArmor(TITANIUM_ARMOR_MATERIAL, 0, EntityEquipmentSlot.CHEST).setUnlocalizedName("titanium.chestplate").setRegistryName("titanium.chestplate").setCreativeTab(SCCreativeTabs.TERRAN);
+		TITANIUM_LEGGINGS = new ItemArmor(TITANIUM_ARMOR_MATERIAL, 0, EntityEquipmentSlot.LEGS).setUnlocalizedName("titanium.leggings").setRegistryName("titanium.leggings").setCreativeTab(SCCreativeTabs.TERRAN);
+		TITANIUM_BOOTS = new ItemArmor(TITANIUM_ARMOR_MATERIAL, 0, EntityEquipmentSlot.FEET).setUnlocalizedName("titanium.boots").setRegistryName("titanium.boots").setCreativeTab(SCCreativeTabs.TERRAN);
 
-		COPPER_HELMET = new ItemArmor(COPPER_ARMOR_MATERIAL, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("copper.helmet").setRegistryName("copper.helmet").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		COPPER_CHESTPLATE = new ItemArmor(COPPER_ARMOR_MATERIAL, 0, EntityEquipmentSlot.CHEST).setUnlocalizedName("copper.chestplate").setRegistryName("copper.chestplate").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		COPPER_LEGGINGS = new ItemArmor(COPPER_ARMOR_MATERIAL, 0, EntityEquipmentSlot.LEGS).setUnlocalizedName("copper.leggings").setRegistryName("copper.leggings").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		COPPER_BOOTS = new ItemArmor(COPPER_ARMOR_MATERIAL, 0, EntityEquipmentSlot.FEET).setUnlocalizedName("copper.boots").setRegistryName("copper.boots").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		COPPER_HELMET = new ItemArmor(COPPER_ARMOR_MATERIAL, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("copper.helmet").setRegistryName("copper.helmet").setCreativeTab(SCCreativeTabs.TERRAN);
+		COPPER_CHESTPLATE = new ItemArmor(COPPER_ARMOR_MATERIAL, 0, EntityEquipmentSlot.CHEST).setUnlocalizedName("copper.chestplate").setRegistryName("copper.chestplate").setCreativeTab(SCCreativeTabs.TERRAN);
+		COPPER_LEGGINGS = new ItemArmor(COPPER_ARMOR_MATERIAL, 0, EntityEquipmentSlot.LEGS).setUnlocalizedName("copper.leggings").setRegistryName("copper.leggings").setCreativeTab(SCCreativeTabs.TERRAN);
+		COPPER_BOOTS = new ItemArmor(COPPER_ARMOR_MATERIAL, 0, EntityEquipmentSlot.FEET).setUnlocalizedName("copper.boots").setRegistryName("copper.boots").setCreativeTab(SCCreativeTabs.TERRAN);
 
-		STEEL_HELMET = new ItemArmor(STEEL_ARMOR_MATERIAL, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("steel.helmet").setRegistryName("steel.helmet").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		STEEL_CHESTPLATE = new ItemArmor(STEEL_ARMOR_MATERIAL, 0, EntityEquipmentSlot.CHEST).setUnlocalizedName("steel.chestplate").setRegistryName("steel.chestplate").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		STEEL_LEGGINGS = new ItemArmor(STEEL_ARMOR_MATERIAL, 0, EntityEquipmentSlot.LEGS).setUnlocalizedName("steel.leggings").setRegistryName("steel.leggings").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		STEEL_BOOTS = new ItemArmor(STEEL_ARMOR_MATERIAL, 0, EntityEquipmentSlot.FEET).setUnlocalizedName("steel.boots").setRegistryName("steel.boots").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		STEEL_HELMET = new ItemArmor(STEEL_ARMOR_MATERIAL, 0, EntityEquipmentSlot.HEAD).setUnlocalizedName("steel.helmet").setRegistryName("steel.helmet").setCreativeTab(SCCreativeTabs.TERRAN);
+		STEEL_CHESTPLATE = new ItemArmor(STEEL_ARMOR_MATERIAL, 0, EntityEquipmentSlot.CHEST).setUnlocalizedName("steel.chestplate").setRegistryName("steel.chestplate").setCreativeTab(SCCreativeTabs.TERRAN);
+		STEEL_LEGGINGS = new ItemArmor(STEEL_ARMOR_MATERIAL, 0, EntityEquipmentSlot.LEGS).setUnlocalizedName("steel.leggings").setRegistryName("steel.leggings").setCreativeTab(SCCreativeTabs.TERRAN);
+		STEEL_BOOTS = new ItemArmor(STEEL_ARMOR_MATERIAL, 0, EntityEquipmentSlot.FEET).setUnlocalizedName("steel.boots").setRegistryName("steel.boots").setCreativeTab(SCCreativeTabs.TERRAN);
 
-		ZERG_T1_HELMET = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.HEAD, 0, 1).setUnlocalizedName("zerg.helmet.1").setRegistryName("zerg.helmet.1").setCreativeTab(StarcraftCreativeTabs.ZERG);
-		ZERG_T1_CHESTPLATE = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.CHEST, 0, 1).setUnlocalizedName("zerg.chestplate.1").setRegistryName("zerg_chestplate.1").setCreativeTab(StarcraftCreativeTabs.ZERG);
-		ZERG_T1_LEGGINGS = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.LEGS, 0, 1).setUnlocalizedName("zerg.leggings.1").setRegistryName("zerg.leggings.1").setCreativeTab(StarcraftCreativeTabs.ZERG);
-		ZERG_T1_BOOTS = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.FEET, 0, 1).setUnlocalizedName("zerg.boots.1").setRegistryName("zerg.boots.1").setCreativeTab(StarcraftCreativeTabs.ZERG);
+		ZERG_T1_HELMET = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.HEAD, 0, 1).setUnlocalizedName("zerg.helmet.1").setRegistryName("zerg.helmet.1").setCreativeTab(SCCreativeTabs.ZERG);
+		ZERG_T1_CHESTPLATE = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.CHEST, 0, 1).setUnlocalizedName("zerg.chestplate.1").setRegistryName("zerg_chestplate.1").setCreativeTab(SCCreativeTabs.ZERG);
+		ZERG_T1_LEGGINGS = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.LEGS, 0, 1).setUnlocalizedName("zerg.leggings.1").setRegistryName("zerg.leggings.1").setCreativeTab(SCCreativeTabs.ZERG);
+		ZERG_T1_BOOTS = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.FEET, 0, 1).setUnlocalizedName("zerg.boots.1").setRegistryName("zerg.boots.1").setCreativeTab(SCCreativeTabs.ZERG);
 
-		ZERG_T2_HELMET = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.HEAD, 2, 3).setUnlocalizedName("zerg.helmet.2").setRegistryName("zerg.helmet.2").setCreativeTab(StarcraftCreativeTabs.ZERG);
-		ZERG_T2_CHESTPLATE = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.CHEST, 2, 3).setUnlocalizedName("zerg.chestplate.2").setRegistryName("zerg.chestplate.2").setCreativeTab(StarcraftCreativeTabs.ZERG);
-		ZERG_T2_LEGGINGS = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.LEGS, 2, 3).setUnlocalizedName("zerg.leggings.2").setRegistryName("zerg.leggings.2").setCreativeTab(StarcraftCreativeTabs.ZERG);
-		ZERG_T2_BOOTS = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.FEET, 2, 3).setUnlocalizedName("zerg.boots.2").setRegistryName("zerg.boots.2").setCreativeTab(StarcraftCreativeTabs.ZERG);
+		ZERG_T2_HELMET = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.HEAD, 2, 3).setUnlocalizedName("zerg.helmet.2").setRegistryName("zerg.helmet.2").setCreativeTab(SCCreativeTabs.ZERG);
+		ZERG_T2_CHESTPLATE = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.CHEST, 2, 3).setUnlocalizedName("zerg.chestplate.2").setRegistryName("zerg.chestplate.2").setCreativeTab(SCCreativeTabs.ZERG);
+		ZERG_T2_LEGGINGS = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.LEGS, 2, 3).setUnlocalizedName("zerg.leggings.2").setRegistryName("zerg.leggings.2").setCreativeTab(SCCreativeTabs.ZERG);
+		ZERG_T2_BOOTS = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.FEET, 2, 3).setUnlocalizedName("zerg.boots.2").setRegistryName("zerg.boots.2").setCreativeTab(SCCreativeTabs.ZERG);
 
-		ZERG_T3_HELMET = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.HEAD, 4, 5).setUnlocalizedName("zerg.helmet.3").setRegistryName("zerg.helmet.3").setCreativeTab(StarcraftCreativeTabs.ZERG);
-		ZERG_T3_CHESTPLATE = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.CHEST, 4, 5).setUnlocalizedName("zerg.chestplate.3").setRegistryName("zerg.chestplate.3").setCreativeTab(StarcraftCreativeTabs.ZERG);
-		ZERG_T3_LEGGINGS = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.LEGS, 4, 5).setUnlocalizedName("zerg.leggings.3").setRegistryName("zerg.leggings.3").setCreativeTab(StarcraftCreativeTabs.ZERG);
-		ZERG_T3_BOOTS = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.FEET, 4, 5).setUnlocalizedName("zerg.boots.3").setRegistryName("zerg.boots.3").setCreativeTab(StarcraftCreativeTabs.ZERG);
+		ZERG_T3_HELMET = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.HEAD, 4, 5).setUnlocalizedName("zerg.helmet.3").setRegistryName("zerg.helmet.3").setCreativeTab(SCCreativeTabs.ZERG);
+		ZERG_T3_CHESTPLATE = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.CHEST, 4, 5).setUnlocalizedName("zerg.chestplate.3").setRegistryName("zerg.chestplate.3").setCreativeTab(SCCreativeTabs.ZERG);
+		ZERG_T3_LEGGINGS = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.LEGS, 4, 5).setUnlocalizedName("zerg.leggings.3").setRegistryName("zerg.leggings.3").setCreativeTab(SCCreativeTabs.ZERG);
+		ZERG_T3_BOOTS = new ItemCustomArmor(ZERG_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.FEET, 4, 5).setUnlocalizedName("zerg.boots.3").setRegistryName("zerg.boots.3").setCreativeTab(SCCreativeTabs.ZERG);
 
-		TERRAN_MARINE_T1_HELMET = new ItemCustomArmor(TERRAN_MARINE_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.HEAD, 6, 7).setUnlocalizedName("terran.marine.helmet.1").setRegistryName("terran.marine.helmet.1").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		TERRAN_MARINE_T1_CHESTPLATE = new ItemCustomArmor(TERRAN_MARINE_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.CHEST, 6, 7).setUnlocalizedName("terran.marine.chestplate.1").setRegistryName("terran.marine.chestplate.1").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		TERRAN_MARINE_T1_LEGGINGS = new ItemCustomArmor(TERRAN_MARINE_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.LEGS, 6, 7).setUnlocalizedName("terran.marine.leggings.1").setRegistryName("terran.marine.leggings.1").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		TERRAN_MARINE_T1_BOOTS = new ItemCustomArmor(TERRAN_MARINE_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.FEET, 6, 7).setUnlocalizedName("terran.marine.boots.1").setRegistryName("terran.marine.boots.1").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		TERRAN_MARINE_T1_HELMET = new ItemCustomArmor(TERRAN_MARINE_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.HEAD, 6, 7).setUnlocalizedName("terran.marine.helmet.1").setRegistryName("terran.marine.helmet.1").setCreativeTab(SCCreativeTabs.TERRAN);
+		TERRAN_MARINE_T1_CHESTPLATE = new ItemCustomArmor(TERRAN_MARINE_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.CHEST, 6, 7).setUnlocalizedName("terran.marine.chestplate.1").setRegistryName("terran.marine.chestplate.1").setCreativeTab(SCCreativeTabs.TERRAN);
+		TERRAN_MARINE_T1_LEGGINGS = new ItemCustomArmor(TERRAN_MARINE_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.LEGS, 6, 7).setUnlocalizedName("terran.marine.leggings.1").setRegistryName("terran.marine.leggings.1").setCreativeTab(SCCreativeTabs.TERRAN);
+		TERRAN_MARINE_T1_BOOTS = new ItemCustomArmor(TERRAN_MARINE_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.FEET, 6, 7).setUnlocalizedName("terran.marine.boots.1").setRegistryName("terran.marine.boots.1").setCreativeTab(SCCreativeTabs.TERRAN);
 
-		TERRAN_MARINE_T2_HELMET = new ItemCustomArmor(TERRAN_MARINE_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.HEAD, 6, 7).setUnlocalizedName("terran.marine.helmet.2").setRegistryName("terran.marine.helmet.2").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		TERRAN_MARINE_T2_CHESTPLATE = new ItemCustomArmor(TERRAN_MARINE_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.CHEST, 6, 7).setUnlocalizedName("terran.marine.chestplate.2").setRegistryName("terran.marine.chestplate.2").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		TERRAN_MARINE_T2_LEGGINGS = new ItemCustomArmor(TERRAN_MARINE_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.LEGS, 6, 7).setUnlocalizedName("terran.marine.leggings.2").setRegistryName("terran.marine.leggings.2").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		TERRAN_MARINE_T2_BOOTS = new ItemCustomArmor(TERRAN_MARINE_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.FEET, 6, 7).setUnlocalizedName("terran.marine.boots.2").setRegistryName("terran.marine.boots.2").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		TERRAN_MARINE_T2_HELMET = new ItemCustomArmor(TERRAN_MARINE_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.HEAD, 6, 7).setUnlocalizedName("terran.marine.helmet.2").setRegistryName("terran.marine.helmet.2").setCreativeTab(SCCreativeTabs.TERRAN);
+		TERRAN_MARINE_T2_CHESTPLATE = new ItemCustomArmor(TERRAN_MARINE_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.CHEST, 6, 7).setUnlocalizedName("terran.marine.chestplate.2").setRegistryName("terran.marine.chestplate.2").setCreativeTab(SCCreativeTabs.TERRAN);
+		TERRAN_MARINE_T2_LEGGINGS = new ItemCustomArmor(TERRAN_MARINE_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.LEGS, 6, 7).setUnlocalizedName("terran.marine.leggings.2").setRegistryName("terran.marine.leggings.2").setCreativeTab(SCCreativeTabs.TERRAN);
+		TERRAN_MARINE_T2_BOOTS = new ItemCustomArmor(TERRAN_MARINE_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.FEET, 6, 7).setUnlocalizedName("terran.marine.boots.2").setRegistryName("terran.marine.boots.2").setCreativeTab(SCCreativeTabs.TERRAN);
 
-		TERRAN_MARINE_T3_HELMET = new ItemCustomArmor(TERRAN_MARINE_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.HEAD, 6, 7).setUnlocalizedName("terran.marine.helmet.3").setRegistryName("terran.marine.helmet.3").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		TERRAN_MARINE_T3_CHESTPLATE = new ItemCustomArmor(TERRAN_MARINE_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.CHEST, 6, 7).setUnlocalizedName("terran.marine.chestplate.3").setRegistryName("terran.marine.chestplate.3").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		TERRAN_MARINE_T3_LEGGINGS = new ItemCustomArmor(TERRAN_MARINE_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.LEGS, 6, 7).setUnlocalizedName("terran.marine.leggings.3").setRegistryName("terran.marine.leggings.3").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		TERRAN_MARINE_T3_BOOTS = new ItemCustomArmor(TERRAN_MARINE_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.FEET, 6, 7).setUnlocalizedName("terran.marine.boots.3").setRegistryName("terran.marine.boots.3").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		TERRAN_MARINE_T3_HELMET = new ItemCustomArmor(TERRAN_MARINE_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.HEAD, 6, 7).setUnlocalizedName("terran.marine.helmet.3").setRegistryName("terran.marine.helmet.3").setCreativeTab(SCCreativeTabs.TERRAN);
+		TERRAN_MARINE_T3_CHESTPLATE = new ItemCustomArmor(TERRAN_MARINE_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.CHEST, 6, 7).setUnlocalizedName("terran.marine.chestplate.3").setRegistryName("terran.marine.chestplate.3").setCreativeTab(SCCreativeTabs.TERRAN);
+		TERRAN_MARINE_T3_LEGGINGS = new ItemCustomArmor(TERRAN_MARINE_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.LEGS, 6, 7).setUnlocalizedName("terran.marine.leggings.3").setRegistryName("terran.marine.leggings.3").setCreativeTab(SCCreativeTabs.TERRAN);
+		TERRAN_MARINE_T3_BOOTS = new ItemCustomArmor(TERRAN_MARINE_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.FEET, 6, 7).setUnlocalizedName("terran.marine.boots.3").setRegistryName("terran.marine.boots.3").setCreativeTab(SCCreativeTabs.TERRAN);
 
-		TERRAN_RAYNOR_HELMET = new ItemCustomArmor(TERRAN_RAYNOR_ARMOR_MATERIAL, 0, EntityEquipmentSlot.HEAD, 6, 7).setUnlocalizedName("terran.raynor.helmet.1").setRegistryName("terran.raynor.helmet.1").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		TERRAN_RAYNOR_CHESTPLATE = new ItemCustomArmor(TERRAN_RAYNOR_ARMOR_MATERIAL, 0, EntityEquipmentSlot.CHEST, 6, 7).setUnlocalizedName("terran.raynor.chestplate.1").setRegistryName("terran.raynor.chestplate.1").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		TERRAN_RAYNOR_LEGGINGS = new ItemCustomArmor(TERRAN_RAYNOR_ARMOR_MATERIAL, 1, EntityEquipmentSlot.LEGS, 6, 7).setUnlocalizedName("terran.raynor.leggings.1").setRegistryName("terran.raynor.leggings.1").setCreativeTab(StarcraftCreativeTabs.TERRAN);
-		TERRAN_RAYNOR_BOOTS = new ItemCustomArmor(TERRAN_RAYNOR_ARMOR_MATERIAL, 1, EntityEquipmentSlot.FEET, 6, 7).setUnlocalizedName("terran.raynor.boots.1").setRegistryName("terran.raynor.boots.1").setCreativeTab(StarcraftCreativeTabs.TERRAN);
+		TERRAN_RAYNOR_HELMET = new ItemCustomArmor(TERRAN_RAYNOR_ARMOR_MATERIAL, 0, EntityEquipmentSlot.HEAD, 6, 7).setUnlocalizedName("terran.raynor.helmet.1").setRegistryName("terran.raynor.helmet.1").setCreativeTab(SCCreativeTabs.TERRAN);
+		TERRAN_RAYNOR_CHESTPLATE = new ItemCustomArmor(TERRAN_RAYNOR_ARMOR_MATERIAL, 0, EntityEquipmentSlot.CHEST, 6, 7).setUnlocalizedName("terran.raynor.chestplate.1").setRegistryName("terran.raynor.chestplate.1").setCreativeTab(SCCreativeTabs.TERRAN);
+		TERRAN_RAYNOR_LEGGINGS = new ItemCustomArmor(TERRAN_RAYNOR_ARMOR_MATERIAL, 1, EntityEquipmentSlot.LEGS, 6, 7).setUnlocalizedName("terran.raynor.leggings.1").setRegistryName("terran.raynor.leggings.1").setCreativeTab(SCCreativeTabs.TERRAN);
+		TERRAN_RAYNOR_BOOTS = new ItemCustomArmor(TERRAN_RAYNOR_ARMOR_MATERIAL, 1, EntityEquipmentSlot.FEET, 6, 7).setUnlocalizedName("terran.raynor.boots.1").setRegistryName("terran.raynor.boots.1").setCreativeTab(SCCreativeTabs.TERRAN);
 
-		PROTOSS_T1_HELMET = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.HEAD, 8, 9).setUnlocalizedName("protoss.helmet.1").setRegistryName("protoss.helmet.1").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		PROTOSS_T1_CHESTPLATE = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.CHEST, 8, 9).setUnlocalizedName("protoss.chestplate.1").setRegistryName("protoss.chestplate.1").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		PROTOSS_T1_LEGGINGS = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.LEGS, 8, 9).setUnlocalizedName("protoss.leggings.1").setRegistryName("protoss.leggings.1").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		PROTOSS_T1_BOOTS = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.FEET, 8, 9).setUnlocalizedName("protoss.boots.1").setRegistryName("protoss.boots.1").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PROTOSS_T1_HELMET = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.HEAD, 8, 9).setUnlocalizedName("protoss.helmet.1").setRegistryName("protoss.helmet.1").setCreativeTab(SCCreativeTabs.PROTOSS);
+		PROTOSS_T1_CHESTPLATE = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.CHEST, 8, 9).setUnlocalizedName("protoss.chestplate.1").setRegistryName("protoss.chestplate.1").setCreativeTab(SCCreativeTabs.PROTOSS);
+		PROTOSS_T1_LEGGINGS = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.LEGS, 8, 9).setUnlocalizedName("protoss.leggings.1").setRegistryName("protoss.leggings.1").setCreativeTab(SCCreativeTabs.PROTOSS);
+		PROTOSS_T1_BOOTS = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.FEET, 8, 9).setUnlocalizedName("protoss.boots.1").setRegistryName("protoss.boots.1").setCreativeTab(SCCreativeTabs.PROTOSS);
 
-		PROTOSS_T2_HELMET = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.HEAD, 8, 9).setUnlocalizedName("protoss.helmet.2").setRegistryName("protoss.helmet.2").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		PROTOSS_T2_CHESTPLATE = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.CHEST, 8, 9).setUnlocalizedName("protoss.chestplate.2").setRegistryName("protoss.chestplate.2").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		PROTOSS_T2_LEGGINGS = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.LEGS, 8, 9).setUnlocalizedName("protoss.leggings.2").setRegistryName("protoss.leggings.2").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		PROTOSS_T2_BOOTS = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.FEET, 8, 9).setUnlocalizedName("protoss.boots.2").setRegistryName("protoss.boots.2").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PROTOSS_T2_HELMET = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.HEAD, 8, 9).setUnlocalizedName("protoss.helmet.2").setRegistryName("protoss.helmet.2").setCreativeTab(SCCreativeTabs.PROTOSS);
+		PROTOSS_T2_CHESTPLATE = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.CHEST, 8, 9).setUnlocalizedName("protoss.chestplate.2").setRegistryName("protoss.chestplate.2").setCreativeTab(SCCreativeTabs.PROTOSS);
+		PROTOSS_T2_LEGGINGS = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.LEGS, 8, 9).setUnlocalizedName("protoss.leggings.2").setRegistryName("protoss.leggings.2").setCreativeTab(SCCreativeTabs.PROTOSS);
+		PROTOSS_T2_BOOTS = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.FEET, 8, 9).setUnlocalizedName("protoss.boots.2").setRegistryName("protoss.boots.2").setCreativeTab(SCCreativeTabs.PROTOSS);
 
-		PROTOSS_T3_HELMET = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.HEAD, 8, 9).setUnlocalizedName("protoss.helmet.3").setRegistryName("protoss.helmet.3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		PROTOSS_T3_CHESTPLATE = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.CHEST, 8, 9).setUnlocalizedName("protoss.chestplate.3").setRegistryName("protoss.chestplate.3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		PROTOSS_T3_LEGGINGS = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.LEGS, 8, 9).setUnlocalizedName("protoss.leggings.3").setRegistryName("protoss.leggings.3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		PROTOSS_T3_BOOTS = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.FEET, 8, 9).setUnlocalizedName("protoss.boots.3").setRegistryName("protoss.boots.3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PROTOSS_T3_HELMET = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.HEAD, 8, 9).setUnlocalizedName("protoss.helmet.3").setRegistryName("protoss.helmet.3").setCreativeTab(SCCreativeTabs.PROTOSS);
+		PROTOSS_T3_CHESTPLATE = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.CHEST, 8, 9).setUnlocalizedName("protoss.chestplate.3").setRegistryName("protoss.chestplate.3").setCreativeTab(SCCreativeTabs.PROTOSS);
+		PROTOSS_T3_LEGGINGS = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.LEGS, 8, 9).setUnlocalizedName("protoss.leggings.3").setRegistryName("protoss.leggings.3").setCreativeTab(SCCreativeTabs.PROTOSS);
+		PROTOSS_T3_BOOTS = new ItemCustomArmor(PROTOSS_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.FEET, 8, 9).setUnlocalizedName("protoss.boots.3").setRegistryName("protoss.boots.3").setCreativeTab(SCCreativeTabs.PROTOSS);
 
-		PROTOSS_NERAZIM_T1_HELMET = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.HEAD, 12, 13).setUnlocalizedName("protoss.nerazim.helmet.1").setRegistryName("protoss.nerazim.helmet.1").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		PROTOSS_NERAZIM_T1_CHESTPLATE = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.CHEST, 12, 13).setUnlocalizedName("protoss.nerazim.chestplate.1").setRegistryName("protoss.nerazim.chestplate.1").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		PROTOSS_NERAZIM_T1_LEGGINGS = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.LEGS, 12, 13).setUnlocalizedName("protoss.nerazim.leggings.1").setRegistryName("protoss.nerazim.leggings.1").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		PROTOSS_NERAZIM_T1_BOOTS = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.FEET, 12, 13).setUnlocalizedName("protoss.nerazim.boots.1").setRegistryName("protoss.nerazim.boots.1").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PROTOSS_NERAZIM_T1_HELMET = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.HEAD, 12, 13).setUnlocalizedName("protoss.nerazim.helmet.1").setRegistryName("protoss.nerazim.helmet.1").setCreativeTab(SCCreativeTabs.PROTOSS);
+		PROTOSS_NERAZIM_T1_CHESTPLATE = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.CHEST, 12, 13).setUnlocalizedName("protoss.nerazim.chestplate.1").setRegistryName("protoss.nerazim.chestplate.1").setCreativeTab(SCCreativeTabs.PROTOSS);
+		PROTOSS_NERAZIM_T1_LEGGINGS = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.LEGS, 12, 13).setUnlocalizedName("protoss.nerazim.leggings.1").setRegistryName("protoss.nerazim.leggings.1").setCreativeTab(SCCreativeTabs.PROTOSS);
+		PROTOSS_NERAZIM_T1_BOOTS = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.FEET, 12, 13).setUnlocalizedName("protoss.nerazim.boots.1").setRegistryName("protoss.nerazim.boots.1").setCreativeTab(SCCreativeTabs.PROTOSS);
 
-		PROTOSS_NERAZIM_T2_HELMET = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.HEAD, 12, 13).setUnlocalizedName("protoss.nerazim.helmet.2").setRegistryName("protoss.nerazim.helmet.2").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		PROTOSS_NERAZIM_T2_CHESTPLATE = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.CHEST, 12, 13).setUnlocalizedName("protoss.nerazim.chestplate.2").setRegistryName("protoss.nerazim.chestplate.2").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		PROTOSS_NERAZIM_T2_LEGGINGS = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.LEGS, 12, 13).setUnlocalizedName("protoss.nerazim.leggings.2").setRegistryName("protoss.nerazim.leggings.2").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		PROTOSS_NERAZIM_T2_BOOTS = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.FEET, 12, 13).setUnlocalizedName("protoss.nerazim.boots.2").setRegistryName("protoss.nerazim.boots.2").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PROTOSS_NERAZIM_T2_HELMET = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.HEAD, 12, 13).setUnlocalizedName("protoss.nerazim.helmet.2").setRegistryName("protoss.nerazim.helmet.2").setCreativeTab(SCCreativeTabs.PROTOSS);
+		PROTOSS_NERAZIM_T2_CHESTPLATE = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.CHEST, 12, 13).setUnlocalizedName("protoss.nerazim.chestplate.2").setRegistryName("protoss.nerazim.chestplate.2").setCreativeTab(SCCreativeTabs.PROTOSS);
+		PROTOSS_NERAZIM_T2_LEGGINGS = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.LEGS, 12, 13).setUnlocalizedName("protoss.nerazim.leggings.2").setRegistryName("protoss.nerazim.leggings.2").setCreativeTab(SCCreativeTabs.PROTOSS);
+		PROTOSS_NERAZIM_T2_BOOTS = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.FEET, 12, 13).setUnlocalizedName("protoss.nerazim.boots.2").setRegistryName("protoss.nerazim.boots.2").setCreativeTab(SCCreativeTabs.PROTOSS);
 
-		PROTOSS_NERAZIM_T3_HELMET = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.HEAD, 12, 13).setUnlocalizedName("protoss.nerazim.helmet.3").setRegistryName("protoss.nerazim.helmet.3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		PROTOSS_NERAZIM_T3_CHESTPLATE = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.CHEST, 12, 13).setUnlocalizedName("protoss.nerazim.chestplate.3").setRegistryName("protoss.nerazim.chestplate.3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		PROTOSS_NERAZIM_T3_LEGGINGS = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.LEGS, 12, 13).setUnlocalizedName("protoss.nerazim.leggings.3").setRegistryName("protoss.nerazim.leggings.3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		PROTOSS_NERAZIM_T3_BOOTS = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.FEET, 12, 13).setUnlocalizedName("protoss.nerazim.boots.3").setRegistryName("protoss.nerazim.boots.3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PROTOSS_NERAZIM_T3_HELMET = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.HEAD, 12, 13).setUnlocalizedName("protoss.nerazim.helmet.3").setRegistryName("protoss.nerazim.helmet.3").setCreativeTab(SCCreativeTabs.PROTOSS);
+		PROTOSS_NERAZIM_T3_CHESTPLATE = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.CHEST, 12, 13).setUnlocalizedName("protoss.nerazim.chestplate.3").setRegistryName("protoss.nerazim.chestplate.3").setCreativeTab(SCCreativeTabs.PROTOSS);
+		PROTOSS_NERAZIM_T3_LEGGINGS = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.LEGS, 12, 13).setUnlocalizedName("protoss.nerazim.leggings.3").setRegistryName("protoss.nerazim.leggings.3").setCreativeTab(SCCreativeTabs.PROTOSS);
+		PROTOSS_NERAZIM_T3_BOOTS = new ItemCustomArmor(PROTOSS_NERAZIM_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.FEET, 12, 13).setUnlocalizedName("protoss.nerazim.boots.3").setRegistryName("protoss.nerazim.boots.3").setCreativeTab(SCCreativeTabs.PROTOSS);
 
-		PROTOSS_TALDARIM_T1_HELMET = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.HEAD, 10, 11).setUnlocalizedName("protoss.taldarim.helmet.1").setRegistryName("protoss.taldarim.helmet.1").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		PROTOSS_TALDARIM_T1_CHESTPLATE = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.CHEST, 10, 11).setUnlocalizedName("protoss.taldarim.chestplate.1").setRegistryName("protoss.taldarim.chestplate.1").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		PROTOSS_TALDARIM_T1_LEGGINGS = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.LEGS, 10, 11).setUnlocalizedName("protoss.taldarim.leggings.1").setRegistryName("protoss.taldarim.leggings.1").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		PROTOSS_TALDARIM_T1_BOOTS = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.FEET, 10, 11).setUnlocalizedName("protoss.taldarim.boots.1").setRegistryName("protoss.taldarim.boots.1").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PROTOSS_TALDARIM_T1_HELMET = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.HEAD, 10, 11).setUnlocalizedName("protoss.taldarim.helmet.1").setRegistryName("protoss.taldarim.helmet.1").setCreativeTab(SCCreativeTabs.PROTOSS);
+		PROTOSS_TALDARIM_T1_CHESTPLATE = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T1, 0, EntityEquipmentSlot.CHEST, 10, 11).setUnlocalizedName("protoss.taldarim.chestplate.1").setRegistryName("protoss.taldarim.chestplate.1").setCreativeTab(SCCreativeTabs.PROTOSS);
+		PROTOSS_TALDARIM_T1_LEGGINGS = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.LEGS, 10, 11).setUnlocalizedName("protoss.taldarim.leggings.1").setRegistryName("protoss.taldarim.leggings.1").setCreativeTab(SCCreativeTabs.PROTOSS);
+		PROTOSS_TALDARIM_T1_BOOTS = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T1, 1, EntityEquipmentSlot.FEET, 10, 11).setUnlocalizedName("protoss.taldarim.boots.1").setRegistryName("protoss.taldarim.boots.1").setCreativeTab(SCCreativeTabs.PROTOSS);
 
-		PROTOSS_TALDARIM_T2_HELMET = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.HEAD, 10, 11).setUnlocalizedName("protoss.taldarim.helmet.2").setRegistryName("protoss.taldarim.helmet.2").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		PROTOSS_TALDARIM_T2_CHESTPLATE = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.CHEST, 10, 11).setUnlocalizedName("protoss.taldarim.chestplate.2").setRegistryName("protoss.taldarim.chestplate.2").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		PROTOSS_TALDARIM_T2_LEGGINGS = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.LEGS, 10, 11).setUnlocalizedName("protoss.taldarim.leggings.2").setRegistryName("protoss.taldarim.leggings.2").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		PROTOSS_TALDARIM_T2_BOOTS = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.FEET, 10, 11).setUnlocalizedName("protoss.taldarim.boots.2").setRegistryName("protoss.taldarim.boots.2").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PROTOSS_TALDARIM_T2_HELMET = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.HEAD, 10, 11).setUnlocalizedName("protoss.taldarim.helmet.2").setRegistryName("protoss.taldarim.helmet.2").setCreativeTab(SCCreativeTabs.PROTOSS);
+		PROTOSS_TALDARIM_T2_CHESTPLATE = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T2, 0, EntityEquipmentSlot.CHEST, 10, 11).setUnlocalizedName("protoss.taldarim.chestplate.2").setRegistryName("protoss.taldarim.chestplate.2").setCreativeTab(SCCreativeTabs.PROTOSS);
+		PROTOSS_TALDARIM_T2_LEGGINGS = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.LEGS, 10, 11).setUnlocalizedName("protoss.taldarim.leggings.2").setRegistryName("protoss.taldarim.leggings.2").setCreativeTab(SCCreativeTabs.PROTOSS);
+		PROTOSS_TALDARIM_T2_BOOTS = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T2, 1, EntityEquipmentSlot.FEET, 10, 11).setUnlocalizedName("protoss.taldarim.boots.2").setRegistryName("protoss.taldarim.boots.2").setCreativeTab(SCCreativeTabs.PROTOSS);
 
-		PROTOSS_TALDARIM_T3_HELMET = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.HEAD, 10, 11).setUnlocalizedName("protoss.taldarim.helmet.3").setRegistryName("protoss.taldarim.helmet.3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		PROTOSS_TALDARIM_T3_CHESTPLATE = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.CHEST, 10, 11).setUnlocalizedName("protoss.taldarim.chestplate.3").setRegistryName("protoss.taldarim.chestplate.3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		PROTOSS_TALDARIM_T3_LEGGINGS = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.LEGS, 10, 11).setUnlocalizedName("protoss.taldarim.leggings.3").setRegistryName("protoss.taldarim.leggings.3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
-		PROTOSS_TALDARIM_T3_BOOTS = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.FEET, 10, 11).setUnlocalizedName("protoss.taldarim.boots.3").setRegistryName("protoss.taldarim.boots.3").setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		PROTOSS_TALDARIM_T3_HELMET = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.HEAD, 10, 11).setUnlocalizedName("protoss.taldarim.helmet.3").setRegistryName("protoss.taldarim.helmet.3").setCreativeTab(SCCreativeTabs.PROTOSS);
+		PROTOSS_TALDARIM_T3_CHESTPLATE = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T3, 0, EntityEquipmentSlot.CHEST, 10, 11).setUnlocalizedName("protoss.taldarim.chestplate.3").setRegistryName("protoss.taldarim.chestplate.3").setCreativeTab(SCCreativeTabs.PROTOSS);
+		PROTOSS_TALDARIM_T3_LEGGINGS = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.LEGS, 10, 11).setUnlocalizedName("protoss.taldarim.leggings.3").setRegistryName("protoss.taldarim.leggings.3").setCreativeTab(SCCreativeTabs.PROTOSS);
+		PROTOSS_TALDARIM_T3_BOOTS = new ItemCustomArmor(PROTOSS_TALDARIM_ARMOR_MATERIAL_T3, 1, EntityEquipmentSlot.FEET, 10, 11).setUnlocalizedName("protoss.taldarim.boots.3").setRegistryName("protoss.taldarim.boots.3").setCreativeTab(SCCreativeTabs.PROTOSS);
 
 	}
 

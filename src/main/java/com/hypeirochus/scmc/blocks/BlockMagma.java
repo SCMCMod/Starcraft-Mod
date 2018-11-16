@@ -2,7 +2,7 @@ package com.hypeirochus.scmc.blocks;
 
 import java.util.Random;
 
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.lib.Library;
 
 import net.minecraft.block.BlockLiquid;
@@ -45,7 +45,7 @@ public class BlockMagma extends StarcraftBlock
 		setLightLevel(0.2F);
 		setTickRandomly(true);
 		setHarvestLevel("pickaxe", 0);
-		setCreativeTab(StarcraftCreativeTabs.MISC);
+		setCreativeTab(SCCreativeTabs.MISC);
 	}
 
 	@Override

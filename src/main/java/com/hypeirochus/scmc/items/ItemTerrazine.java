@@ -1,6 +1,6 @@
 package com.hypeirochus.scmc.items;
 
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.enums.MetaHandler.TerrazineType;
 import com.hypeirochus.scmc.enums.MetaHandler.VespeneType;
@@ -95,13 +95,13 @@ public class ItemTerrazine extends StarcraftItem implements IMetaRenderHandler
 			}
 		} else
 		{
-			if (tab == StarcraftCreativeTabs.MISC)
+			if (tab == SCCreativeTabs.MISC)
 				items.add(new ItemStack(this, 1, 0));
-			if (tab == StarcraftCreativeTabs.PROTOSS)
+			if (tab == SCCreativeTabs.PROTOSS)
 				items.add(new ItemStack(this, 1, 1));
-			if (tab == StarcraftCreativeTabs.TERRAN)
+			if (tab == SCCreativeTabs.TERRAN)
 				items.add(new ItemStack(this, 1, 2));
-			if (tab == StarcraftCreativeTabs.ZERG)
+			if (tab == SCCreativeTabs.ZERG)
 				items.add(new ItemStack(this, 1, 3));
 		}
 	}

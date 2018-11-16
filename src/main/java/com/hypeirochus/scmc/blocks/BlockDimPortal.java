@@ -3,7 +3,7 @@ package com.hypeirochus.scmc.blocks;
 import java.util.List;
 import java.util.Random;
 
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.handlers.TeleporterHandler;
 
 import net.minecraft.block.material.MapColor;
@@ -38,7 +38,7 @@ public class BlockDimPortal extends StarcraftBlock
 		super(name, RegistryType.BLOCK, Material.PORTAL, MapColor.BLACK);
 		setBlockUnbreakable();
 		setLightLevel(1.0F);
-		setCreativeTab(StarcraftCreativeTabs.MISC);
+		setCreativeTab(SCCreativeTabs.MISC);
 		this.dim = dim;
 	}
 

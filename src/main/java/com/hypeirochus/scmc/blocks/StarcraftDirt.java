@@ -1,6 +1,6 @@
 package com.hypeirochus.scmc.blocks;
 
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -39,7 +39,7 @@ public class StarcraftDirt extends StarcraftBlock
 		setHardness(0.5f);
 		setResistance(0.83f);
 		setHarvestLevel("shovel", -1);
-		setCreativeTab(StarcraftCreativeTabs.MISC);
+		setCreativeTab(SCCreativeTabs.MISC);
 		this.farmland = farmland;
 	}
 

@@ -6,7 +6,7 @@ import com.hypeirochus.scmc.blocks.items.IMetaBlockName;
 import com.hypeirochus.scmc.blocks.items.ItemBlockBrambles;
 import com.hypeirochus.scmc.client.renderer.Resources;
 import com.hypeirochus.scmc.client.renderer.particle.CustomTextureDestroyEffect;
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.tileentity.TileEntityBrambles;
 
 import net.minecraft.block.Block;
@@ -54,7 +54,7 @@ public class BlockBrambles extends BlockContainer implements IShearable, IMetaBl
 		setUnlocalizedName("flora.brambles");
 		setSoundType(SoundType.PLANT);
 		setDefaultState(this.blockState.getBaseState().withProperty(PART, Part.BOTTOM));
-		setCreativeTab(StarcraftCreativeTabs.FLORA);
+		setCreativeTab(SCCreativeTabs.FLORA);
 	}
 
 	@Override

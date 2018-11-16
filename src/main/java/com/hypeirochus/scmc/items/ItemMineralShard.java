@@ -1,6 +1,6 @@
 package com.hypeirochus.scmc.items;
 
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler.MineralType;
 import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
 
@@ -14,7 +14,7 @@ public class ItemMineralShard extends StarcraftItem implements IMetaRenderHandle
 	public ItemMineralShard()
 	{
 		super("mineral");
-		setCreativeTab(StarcraftCreativeTabs.MISC);
+		setCreativeTab(SCCreativeTabs.MISC);
 		setHasSubtypes(true);
 	}
 

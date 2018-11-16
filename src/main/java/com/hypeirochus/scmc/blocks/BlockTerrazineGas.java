@@ -4,7 +4,7 @@ import java.util.Random;
 
 import org.lwjgl.util.vector.Vector3f;
 
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.enums.MetaHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
 import com.hypeirochus.scmc.handlers.MaterialHandler;
@@ -33,7 +33,7 @@ public class BlockTerrazineGas extends BlockGas
 	public BlockTerrazineGas()
 	{
 		super(MaterialHandler.VESPENE_GAS, "gas.terrazine");
-		setCreativeTab(StarcraftCreativeTabs.MISC);
+		setCreativeTab(SCCreativeTabs.MISC);
 	}
 
 	@Override

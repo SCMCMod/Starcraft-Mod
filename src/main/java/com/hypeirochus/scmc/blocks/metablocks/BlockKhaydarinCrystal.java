@@ -3,7 +3,7 @@ package com.hypeirochus.scmc.blocks.metablocks;
 import com.hypeirochus.scmc.blocks.RegistryType;
 import com.hypeirochus.scmc.blocks.StarcraftBlock;
 import com.hypeirochus.scmc.blocks.items.IMetaBlockName;
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
 
 import net.minecraft.block.SoundType;
@@ -50,7 +50,7 @@ public class BlockKhaydarinCrystal extends StarcraftBlock implements IMetaBlockN
 		setTickRandomly(true);
 		setHarvestLevel("pickaxe", 2);
 		setDefaultState(blockState.getBaseState().withProperty(TYPE, PylonCrystalType.PURE));
-		setCreativeTab(StarcraftCreativeTabs.PROTOSS);
+		setCreativeTab(SCCreativeTabs.PROTOSS);
 	}
 
 	@Override

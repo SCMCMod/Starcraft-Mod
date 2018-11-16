@@ -1,7 +1,7 @@
 package com.hypeirochus.scmc.items;
 
 import com.hypeirochus.scmc.Starcraft;
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.handlers.GuiHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
 import com.hypeirochus.scmc.items.override.LogOverride;
@@ -26,7 +26,7 @@ public class ItemLog extends StarcraftItem
 	{
 		super("log");
 		setMaxStackSize(1);
-		setCreativeTab(StarcraftCreativeTabs.BOOKS);
+		setCreativeTab(SCCreativeTabs.BOOKS);
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
 		{
 			this.addPropertyOverride(new ResourceLocation("skin"), new LogOverride());

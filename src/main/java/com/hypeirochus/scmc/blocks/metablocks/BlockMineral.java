@@ -5,7 +5,7 @@ import java.util.Random;
 import com.hypeirochus.scmc.blocks.RegistryType;
 import com.hypeirochus.scmc.blocks.StarcraftBlock;
 import com.hypeirochus.scmc.blocks.items.IMetaBlockName;
-import com.hypeirochus.scmc.creativetabs.StarcraftCreativeTabs;
+import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
 
@@ -58,7 +58,7 @@ public class BlockMineral extends StarcraftBlock implements IMetaBlockName, IMet
 		setResistance(10.0F); // Sets the blocks blast resistance to explosions
 		setSoundType(SoundType.GLASS);
 		setDefaultState(blockState.getBaseState().withProperty(TYPE, CompressedMineralType.BLUE));
-		setCreativeTab(StarcraftCreativeTabs.MISC);
+		setCreativeTab(SCCreativeTabs.MISC);
 		this.ignoreSimilarity = false;
 	}
 

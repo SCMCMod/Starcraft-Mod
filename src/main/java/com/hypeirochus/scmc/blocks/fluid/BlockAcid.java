@@ -1,6 +1,6 @@
 package com.hypeirochus.scmc.blocks.fluid;
 
-import com.hypeirochus.scmc.damagesource.StarcraftDamageSources;
+import com.hypeirochus.scmc.damagesource.SCDamageSourceManager;
 import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.handlers.FluidHandler;
 
@@ -55,6 +55,6 @@ public class BlockAcid extends BlockFluidClassic
 	@Override
 	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
 	{
-		entity.attackEntityFrom(StarcraftDamageSources.acid, world.getDifficulty().getDifficultyId() + 1 + RANDOM.nextInt(2));
+		entity.attackEntityFrom(SCDamageSourceManager.acid, world.getDifficulty().getDifficultyId() + 1 + RANDOM.nextInt(2));
 	}
 }
