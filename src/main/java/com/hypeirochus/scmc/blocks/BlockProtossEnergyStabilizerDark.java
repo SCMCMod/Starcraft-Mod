@@ -12,7 +12,7 @@ import net.minecraft.block.material.Material;
  * 
  * @author Hypeirochus
  */
-public class BlockProtossEnergyStabilizerDark extends StarcraftBlock
+public class BlockProtossEnergyStabilizerDark extends SCBlock
 {
 
 	public BlockProtossEnergyStabilizerDark()

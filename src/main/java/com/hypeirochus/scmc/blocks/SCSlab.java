@@ -21,22 +21,22 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 //TODO: MOVE TO CORE MOD, AND make this generically named.
-public class StarcraftSlab extends StarcraftBlock
+public class SCSlab extends SCBlock
 {
 
-	public static final PropertyEnum<StarcraftSlab.Part> PART = PropertyEnum.<Part>create("part", Part.class);
+	public static final PropertyEnum<SCSlab.Part> PART = PropertyEnum.<Part>create("part", Part.class);
 
 	public static final AxisAlignedBB AABB_BOTTOM_HALF = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.5D, 1.0D);
 	public static final AxisAlignedBB AABB_TOP_HALF = new AxisAlignedBB(0.0D, 0.5D, 0.0D, 1.0D, 1.0D, 1.0D);
 
 	private final IBlockState blockType;
 
-	public StarcraftSlab(IBlockState blockType)
+	public SCSlab(IBlockState blockType)
 	{
 		this(null, blockType);
 	}
 
-	public StarcraftSlab(String name, IBlockState blockType)
+	public SCSlab(String name, IBlockState blockType)
 	{
 		super(name, RegistryType.FULL, blockType.getMaterial(), blockType.getMaterial().getMaterialMapColor());
 		this.blockType = blockType;
@@ -154,7 +154,7 @@ public class StarcraftSlab extends StarcraftBlock
 		return blockType;
 	}
 
-	public StarcraftSlab setBlockTab(CreativeTabs tab)
+	public SCSlab setBlockTab(CreativeTabs tab)
 	{
 		this.setCreativeTab(tab);
 		return this;

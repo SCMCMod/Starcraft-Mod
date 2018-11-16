@@ -15,7 +15,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class BlockSolarCore extends StarcraftBlock implements ITileEntityProvider
+public class BlockSolarCore extends SCBlock implements ITileEntityProvider
 {
 
 	private int range;

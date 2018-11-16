@@ -9,7 +9,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemEnergy extends StarcraftItem implements IMetaRenderHandler
+public class ItemEnergy extends SCItem implements IMetaRenderHandler
 {
 
 	public ItemEnergy()

@@ -28,7 +28,7 @@ import net.minecraft.world.World;
  * 
  * @author Ocelot5836
  */
-public class BlockDimPortal extends StarcraftBlock
+public class BlockDimPortal extends SCBlock
 {
 
 	protected int dim = 0;

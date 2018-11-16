@@ -2,7 +2,7 @@ package com.hypeirochus.scmc.config.category;
 
 import java.util.List;
 
-import com.hypeirochus.scmc.config.StarcraftConfig;
+import com.hypeirochus.scmc.config.SCConfig;
 
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
@@ -25,8 +25,8 @@ public class CategoryEntryDimensionIds extends CategoryEntry
 	@Override
 	protected GuiScreen buildChildScreen()
 	{
-		Configuration config = StarcraftConfig.getConfig();
-		ConfigElement categoryDimensionIds = new ConfigElement(config.getCategory(StarcraftConfig.CATEGORY_NAME_DIMENSION_IDS));
+		Configuration config = SCConfig.getConfig();
+		ConfigElement categoryDimensionIds = new ConfigElement(config.getCategory(SCConfig.CATEGORY_NAME_DIMENSION_IDS));
 		List<IConfigElement> propertiesOnScreen = categoryDimensionIds.getChildElements();
 		String windowTitle = I18n.format("gui.starcraft.config.category.dimension.ids");
 		return new GuiConfig(owningScreen, propertiesOnScreen, owningScreen.modID, this.configElement.requiresWorldRestart() || this.owningScreen.allRequireWorldRestart, this.configElement.requiresMcRestart() || this.owningScreen.allRequireMcRestart, windowTitle);

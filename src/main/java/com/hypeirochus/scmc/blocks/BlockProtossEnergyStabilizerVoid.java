@@ -12,7 +12,7 @@ import net.minecraft.block.material.Material;
  * 
  * @author Hypeirochus
  */
-public class BlockProtossEnergyStabilizerVoid extends StarcraftBlock
+public class BlockProtossEnergyStabilizerVoid extends SCBlock
 {
 
 	public BlockProtossEnergyStabilizerVoid()

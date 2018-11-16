@@ -8,7 +8,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemMineralShard extends StarcraftItem implements IMetaRenderHandler
+public class ItemMineralShard extends SCItem implements IMetaRenderHandler
 {
 
 	public ItemMineralShard()

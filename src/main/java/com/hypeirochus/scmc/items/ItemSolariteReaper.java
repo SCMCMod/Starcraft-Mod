@@ -3,7 +3,7 @@ package com.hypeirochus.scmc.items;
 import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.material.WeaponMaterials;
 
-public class ItemSolariteReaper extends StarcraftRangedMeleeWeapon
+public class ItemSolariteReaper extends SCRangedMeleeWeapon
 {
 
 	public ItemSolariteReaper()

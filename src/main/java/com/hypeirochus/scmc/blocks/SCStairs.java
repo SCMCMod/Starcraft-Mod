@@ -8,18 +8,18 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
 
 //TODO: MOVE TO CORE MOD, AND make this generically named.
-public class StarcraftStairs extends BlockStairs
+public class SCStairs extends BlockStairs
 {
 
 	private RegistryType type;
 	private ItemBlock item;
 
-	public StarcraftStairs(IBlockState material)
+	public SCStairs(IBlockState material)
 	{
 		super(material);
 	}
 
-	public StarcraftStairs(String name, RegistryType type, IBlockState material)
+	public SCStairs(String name, RegistryType type, IBlockState material)
 	{
 		super(material);
 		this.type = type;
@@ -27,7 +27,7 @@ public class StarcraftStairs extends BlockStairs
 		this.registerPre();
 	}
 
-	public StarcraftStairs(RegistryType type, IBlockState material)
+	public SCStairs(RegistryType type, IBlockState material)
 	{
 		super(material);
 		this.type = type;
@@ -58,9 +58,9 @@ public class StarcraftStairs extends BlockStairs
 	}
 
 	@Override
-	public StarcraftStairs setSoundType(SoundType sound)
+	public SCStairs setSoundType(SoundType sound)
 	{
-		return (StarcraftStairs) super.setSoundType(sound);
+		return (SCStairs) super.setSoundType(sound);
 	}
 
 	/**
@@ -69,7 +69,7 @@ public class StarcraftStairs extends BlockStairs
 	 * @param toolClass Class
 	 * @param level Harvest level: Wood: 0 Stone: 1 Iron: 2 Diamond: 3 Gold: 0
 	 */
-	public StarcraftStairs setBlockHarvestLevel(String toolClass, int level)
+	public SCStairs setBlockHarvestLevel(String toolClass, int level)
 	{
 		setHarvestLevel(toolClass, level);
 		return this;
@@ -82,13 +82,13 @@ public class StarcraftStairs extends BlockStairs
 	 * @param level Harvest level: Wood: 0 Stone: 1 Iron: 2 Diamond: 3 Gold: 0
 	 * @param state The specific state.
 	 */
-	public StarcraftStairs setBlockHarvestLevel(String toolClass, int level, IBlockState state)
+	public SCStairs setBlockHarvestLevel(String toolClass, int level, IBlockState state)
 	{
 		setHarvestLevel(toolClass, level, state);
 		return this;
 	}
 
-	public StarcraftStairs setItemBlock(ItemBlock item)
+	public SCStairs setItemBlock(ItemBlock item)
 	{
 		this.item = item;
 		return this;

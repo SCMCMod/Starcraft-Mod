@@ -27,12 +27,12 @@ import net.minecraftforge.common.IPlantable;
  * 
  * @author Ocelot5836
  */
-public class StarcraftDirt extends StarcraftBlock
+public class SCDirt extends SCBlock
 {
 
 	private IBlockState farmland;
 
-	public StarcraftDirt(String name, MapColor color, IBlockState farmland)
+	public SCDirt(String name, MapColor color, IBlockState farmland)
 	{
 		super(name, RegistryType.FULL, Material.GROUND, color);
 		setSoundType(SoundType.GROUND);

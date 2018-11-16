@@ -12,13 +12,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public abstract class StarcraftRangedMeleeWeapon extends StarcraftSword
+public abstract class SCRangedMeleeWeapon extends SCSword
 {
 
 	private float damage;
 	private float range;
 
-	public StarcraftRangedMeleeWeapon(String name, ToolMaterial material, float damage, float range)
+	public SCRangedMeleeWeapon(String name, ToolMaterial material, float damage, float range)
 	{
 		super(name, material);
 		this.damage = damage;

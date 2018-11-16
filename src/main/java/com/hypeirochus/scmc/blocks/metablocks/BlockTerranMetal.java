@@ -1,7 +1,7 @@
 package com.hypeirochus.scmc.blocks.metablocks;
 
 import com.hypeirochus.scmc.blocks.RegistryType;
-import com.hypeirochus.scmc.blocks.StarcraftBlock;
+import com.hypeirochus.scmc.blocks.SCBlock;
 import com.hypeirochus.scmc.blocks.items.IMetaBlockName;
 import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.handlers.IMetaRenderHandler;
@@ -27,7 +27,7 @@ import net.minecraft.world.World;
 /**
  * This block has three variants. Refer to {@link CompressedMetalType}
  */
-public class BlockTerranMetal extends StarcraftBlock implements IMetaBlockName, IMetaRenderHandler
+public class BlockTerranMetal extends SCBlock implements IMetaBlockName, IMetaRenderHandler
 {
 
 	/** The type property */

@@ -6,7 +6,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import com.google.common.collect.Lists;
-import com.hypeirochus.scmc.config.StarcraftConfig;
+import com.hypeirochus.scmc.config.SCConfig;
 import com.hypeirochus.scmc.handlers.TeleporterHandler;
 
 import net.minecraft.command.CommandBase;
@@ -74,7 +74,7 @@ public class CommandDimension extends CommandBase
 						{
 							EntityPlayerMP playerMp = (EntityPlayerMP) player;
 							playerMp.getServer().getPlayerList().transferPlayerToDimension(playerMp, dimId,
-									new TeleporterHandler(playerMp.getServerWorld().provider.getDimension(), server.getWorld(dimId), player.posX, playerMp.getServerWorld().getHeight((int) player.posX, (int) player.posZ), player.posZ, dimId == StarcraftConfig.INT_DIMENSION_SPACE, false));
+									new TeleporterHandler(playerMp.getServerWorld().provider.getDimension(), server.getWorld(dimId), player.posX, playerMp.getServerWorld().getHeight((int) player.posX, (int) player.posZ), player.posZ, dimId == SCConfig.INT_DIMENSION_SPACE, false));
 							notifyCommandListener(sender, this, "commands.dimension.success.id", new Object[]
 							{ player.getName(), dimId });
 						} else
@@ -97,7 +97,7 @@ public class CommandDimension extends CommandBase
 					{
 						EntityPlayerMP playerMp = (EntityPlayerMP) player;
 						playerMp.getServer().getPlayerList().transferPlayerToDimension(playerMp, i,
-								new TeleporterHandler(playerMp.getServerWorld().provider.getDimension(), server.getWorld(i), player.posX, playerMp.getServerWorld().getHeight((int) player.posX, (int) player.posZ), player.posZ, i == StarcraftConfig.INT_DIMENSION_SPACE, false));
+								new TeleporterHandler(playerMp.getServerWorld().provider.getDimension(), server.getWorld(i), player.posX, playerMp.getServerWorld().getHeight((int) player.posX, (int) player.posZ), player.posZ, i == SCConfig.INT_DIMENSION_SPACE, false));
 						notifyCommandListener(sender, this, "commands.dimension.success.name", new Object[]
 						{ player.getName(), dim });
 					} else

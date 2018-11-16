@@ -2,7 +2,7 @@ package com.hypeirochus.scmc.handlers;
 
 import javax.annotation.Nonnull;
 
-import com.hypeirochus.scmc.config.StarcraftConfig;
+import com.hypeirochus.scmc.config.SCConfig;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
@@ -29,7 +29,7 @@ public class TeleporterHandler extends Teleporter
 	{
 		super(world);
 		worldServer = world;
-		if (world.provider.getDimension() != StarcraftConfig.INT_DIMENSION_SPACE)
+		if (world.provider.getDimension() != SCConfig.INT_DIMENSION_SPACE)
 		{
 			BlockPos playerSpawn = new BlockPos(x, 100, z);
 			if (hasNoSurface == false)
@@ -64,27 +64,27 @@ public class TeleporterHandler extends Teleporter
 				this.x = 0;
 				this.y = 180;
 				this.z = 0;
-			} else if (lastDim == StarcraftConfig.INT_DIMENSION_CHAR)
+			} else if (lastDim == SCConfig.INT_DIMENSION_CHAR)
 			{
 				this.x = -1515;
 				this.y = 180;
 				this.z = 17776;
-			} else if (lastDim == StarcraftConfig.INT_DIMENSION_AIUR)
+			} else if (lastDim == SCConfig.INT_DIMENSION_AIUR)
 			{
 				this.x = 4444;
 				this.y = 180;
 				this.z = 17365;
-			} else if (lastDim == StarcraftConfig.INT_DIMENSION_SHAKURAS)
+			} else if (lastDim == SCConfig.INT_DIMENSION_SHAKURAS)
 			{
 				this.x = 6666;
 				this.y = 180;
 				this.z = 18180;
-			} else if (lastDim == StarcraftConfig.INT_DIMENSION_KORHAL)
+			} else if (lastDim == SCConfig.INT_DIMENSION_KORHAL)
 			{
 				this.x = 3290;
 				this.y = 180;
 				this.z = 11000;
-			} else if (lastDim == StarcraftConfig.INT_DIMENSION_SLAYN)
+			} else if (lastDim == SCConfig.INT_DIMENSION_SLAYN)
 			{
 				this.x = 7000;
 				this.y = 180;

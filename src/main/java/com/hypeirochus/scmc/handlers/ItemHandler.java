@@ -26,7 +26,7 @@ import com.hypeirochus.scmc.items.ItemTerrazine;
 import com.hypeirochus.scmc.items.ItemTest;
 import com.hypeirochus.scmc.items.ItemVespene;
 import com.hypeirochus.scmc.items.ItemZergCarapace;
-import com.hypeirochus.scmc.items.StarcraftItem;
+import com.hypeirochus.scmc.items.SCItem;
 
 import net.minecraft.item.Item;
 
@@ -107,10 +107,10 @@ public class ItemHandler
 
 		// Misc
 		MINERAL_SHARD = new ItemMineralShard();
-		PHOSPHORUS = new StarcraftItem("phosphorus").setCreativeTab(SCCreativeTabs.MISC);
+		PHOSPHORUS = new SCItem("phosphorus").setCreativeTab(SCCreativeTabs.MISC);
 		ENERGY = new ItemEnergy();
 		DUST = new ItemDust();
-		PLEDGE = new StarcraftItem("pledge").setCreativeTab(SCCreativeTabs.MISC);
+		PLEDGE = new SCItem("pledge").setCreativeTab(SCCreativeTabs.MISC);
 		INGOT = new ItemIngot();
 		CARBOTIFIER = new ItemCarbotifier();
 		LOG = new ItemLog();
@@ -123,7 +123,7 @@ public class ItemHandler
 
 		// Terran
 		STIMPACK = new ItemStimpack();
-		MARINE_HELMET_VISOR = new StarcraftItem("terran.marine.helmet.visor").setCreativeTab(SCCreativeTabs.TERRAN);
+		MARINE_HELMET_VISOR = new SCItem("terran.marine.helmet.visor").setCreativeTab(SCCreativeTabs.TERRAN);
 
 		// Terran Weapons
 		C14_GAUSS_RIFLE = new ItemC14GaussRifle();
@@ -135,9 +135,9 @@ public class ItemHandler
 
 		// Zerg
 		ZERG_CARAPACE = new ItemZergCarapace();
-		CREEP_RESIN = new StarcraftItem("zerg.creepresin").setCreativeTab(SCCreativeTabs.ZERG);
-		ORGANIC_TISSUE = new StarcraftItem("zerg.tissue").setCreativeTab(SCCreativeTabs.ZERG);
-		BIOMASS = new StarcraftItem("biomass").setCreativeTab(SCCreativeTabs.ZERG);
+		CREEP_RESIN = new SCItem("zerg.creepresin").setCreativeTab(SCCreativeTabs.ZERG);
+		ORGANIC_TISSUE = new SCItem("zerg.tissue").setCreativeTab(SCCreativeTabs.ZERG);
+		BIOMASS = new SCItem("biomass").setCreativeTab(SCCreativeTabs.ZERG);
 
 		// Tab Icons
 		ICON = new ItemIcon();

@@ -12,7 +12,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class StarcraftProtossCoreBlock extends StarcraftBlock
+public class SCProtossCoreBlock extends SCBlock
 {
 
 	public int startPos;
@@ -20,7 +20,7 @@ public class StarcraftProtossCoreBlock extends StarcraftBlock
 	public int domeTopLength;
 	public int slope;
 
-	public StarcraftProtossCoreBlock(String name, RegistryType type, Material material, MapColor color)
+	public SCProtossCoreBlock(String name, RegistryType type, Material material, MapColor color)
 	{
 		super(name, type, material, color);
 		setHardness(15.0F);

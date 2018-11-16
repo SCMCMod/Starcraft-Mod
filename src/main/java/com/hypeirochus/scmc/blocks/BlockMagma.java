@@ -33,7 +33,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * @author Ocelot5836
  * @author wundrweapon
  */
-public class BlockMagma extends StarcraftBlock
+public class BlockMagma extends SCBlock
 {
 
 	public BlockMagma(String name)

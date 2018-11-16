@@ -15,7 +15,7 @@ import net.minecraft.util.NonNullList;
  * 
  * @author Ocelot5836
  */
-public class ItemProtossUpgrade extends StarcraftItem implements IMetaRenderHandler
+public class ItemProtossUpgrade extends SCItem implements IMetaRenderHandler
 {
 
 	public ItemProtossUpgrade()

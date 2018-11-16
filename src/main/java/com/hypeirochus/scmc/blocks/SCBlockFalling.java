@@ -12,7 +12,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
 //TODO: MOVE TO CORE MOD, AND make this generically named.
-public class StarcraftBlockFalling extends BlockFalling
+public class SCBlockFalling extends BlockFalling
 {
 
 	private ItemBlock item;
@@ -20,31 +20,31 @@ public class StarcraftBlockFalling extends BlockFalling
 	private final MapColor mapColor;
 	private final int dustColor;
 
-	public StarcraftBlockFalling(Material material, int dustColor)
+	public SCBlockFalling(Material material, int dustColor)
 	{
 		super(material);
 		this.mapColor = material.getMaterialMapColor();
 		this.dustColor = dustColor;
 	}
 
-	public StarcraftBlockFalling(Material material, MapColor color, int dustColor)
+	public SCBlockFalling(Material material, MapColor color, int dustColor)
 	{
 		super(material);
 		this.mapColor = color;
 		this.dustColor = dustColor;
 	}
 
-	public StarcraftBlockFalling(String name, RegistryType type, Material material, int dustColor)
+	public SCBlockFalling(String name, RegistryType type, Material material, int dustColor)
 	{
 		this(name, type, material, material.getMaterialMapColor(), dustColor);
 	}
 
-	public StarcraftBlockFalling(RegistryType type, Material material, int dustColor)
+	public SCBlockFalling(RegistryType type, Material material, int dustColor)
 	{
 		this(type, material, material.getMaterialMapColor(), dustColor);
 	}
 
-	public StarcraftBlockFalling(String name, RegistryType type, Material material, MapColor color, int dustColor)
+	public SCBlockFalling(String name, RegistryType type, Material material, MapColor color, int dustColor)
 	{
 		super(material);
 		this.mapColor = color;
@@ -53,7 +53,7 @@ public class StarcraftBlockFalling extends BlockFalling
 		this.registerPre(type);
 	}
 
-	public StarcraftBlockFalling(RegistryType type, Material material, MapColor color, int dustColor)
+	public SCBlockFalling(RegistryType type, Material material, MapColor color, int dustColor)
 	{
 		super(material);
 		this.mapColor = color;
@@ -88,9 +88,9 @@ public class StarcraftBlockFalling extends BlockFalling
 	}
 
 	@Override
-	public StarcraftBlockFalling setSoundType(SoundType sound)
+	public SCBlockFalling setSoundType(SoundType sound)
 	{
-		return (StarcraftBlockFalling) super.setSoundType(sound);
+		return (SCBlockFalling) super.setSoundType(sound);
 	}
 
 	/**
@@ -99,7 +99,7 @@ public class StarcraftBlockFalling extends BlockFalling
 	 * @param toolClass Class
 	 * @param level Harvest level: Wood: 0 Stone: 1 Iron: 2 Diamond: 3 Gold: 0
 	 */
-	public StarcraftBlockFalling setBlockHarvestLevel(String toolClass, int level)
+	public SCBlockFalling setBlockHarvestLevel(String toolClass, int level)
 	{
 		setHarvestLevel(toolClass, level);
 		return this;
@@ -112,13 +112,13 @@ public class StarcraftBlockFalling extends BlockFalling
 	 * @param level Harvest level: Wood: 0 Stone: 1 Iron: 2 Diamond: 3 Gold: 0
 	 * @param state The specific state.
 	 */
-	public StarcraftBlockFalling setBlockHarvestLevel(String toolClass, int level, IBlockState state)
+	public SCBlockFalling setBlockHarvestLevel(String toolClass, int level, IBlockState state)
 	{
 		setHarvestLevel(toolClass, level, state);
 		return this;
 	}
 
-	public StarcraftBlockFalling setItemBlock(ItemBlock item)
+	public SCBlockFalling setItemBlock(ItemBlock item)
 	{
 		this.item = item;
 		return this;

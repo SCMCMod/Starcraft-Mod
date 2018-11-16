@@ -8,7 +8,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemZergCarapace extends StarcraftItem implements IMetaRenderHandler
+public class ItemZergCarapace extends SCItem implements IMetaRenderHandler
 {
 
 	public ItemZergCarapace()

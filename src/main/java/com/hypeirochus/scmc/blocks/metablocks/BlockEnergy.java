@@ -3,7 +3,7 @@ package com.hypeirochus.scmc.blocks.metablocks;
 import java.util.Random;
 
 import com.hypeirochus.scmc.blocks.RegistryType;
-import com.hypeirochus.scmc.blocks.StarcraftBlock;
+import com.hypeirochus.scmc.blocks.SCBlock;
 import com.hypeirochus.scmc.blocks.items.IMetaBlockName;
 import com.hypeirochus.scmc.blocks.metablocks.BlockMineral.CompressedMineralType;
 import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
@@ -31,7 +31,7 @@ import net.minecraft.world.World;
 /**
  * This block has three variants. Refer to {@link CompressedMineralType}
  */
-public class BlockEnergy extends StarcraftBlock implements IMetaBlockName, IMetaRenderHandler
+public class BlockEnergy extends SCBlock implements IMetaBlockName, IMetaRenderHandler
 {
 
 	/** The type property */

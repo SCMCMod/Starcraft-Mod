@@ -12,7 +12,7 @@ import net.minecraft.util.NonNullList;
  * 
  * @author Ocelot5836
  */
-public class ItemGunParts extends StarcraftItem implements IMetaRenderHandler
+public class ItemGunParts extends SCItem implements IMetaRenderHandler
 {
 
 	private final String name;

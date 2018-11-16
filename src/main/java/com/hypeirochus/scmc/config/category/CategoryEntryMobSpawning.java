@@ -2,7 +2,7 @@ package com.hypeirochus.scmc.config.category;
 
 import java.util.List;
 
-import com.hypeirochus.scmc.config.StarcraftConfig;
+import com.hypeirochus.scmc.config.SCConfig;
 
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
@@ -25,8 +25,8 @@ public class CategoryEntryMobSpawning extends CategoryEntry
 	@Override
 	protected GuiScreen buildChildScreen()
 	{
-		Configuration config = StarcraftConfig.getConfig();
-		ConfigElement categoryMobSpawning = new ConfigElement(config.getCategory(StarcraftConfig.CATEGORY_NAME_MOB_OPTIONS));
+		Configuration config = SCConfig.getConfig();
+		ConfigElement categoryMobSpawning = new ConfigElement(config.getCategory(SCConfig.CATEGORY_NAME_MOB_OPTIONS));
 		List<IConfigElement> propertiesOnScreen = categoryMobSpawning.getChildElements();
 		String windowTitle = I18n.format("gui.starcraft.config.category.mob.spawning");
 		return new GuiConfig(owningScreen, propertiesOnScreen, owningScreen.modID, this.configElement.requiresWorldRestart() || this.owningScreen.allRequireWorldRestart, this.configElement.requiresMcRestart() || this.owningScreen.allRequireMcRestart, windowTitle);

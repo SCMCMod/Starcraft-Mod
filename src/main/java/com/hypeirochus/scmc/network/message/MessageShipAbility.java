@@ -1,6 +1,6 @@
 package com.hypeirochus.scmc.network.message;
 
-import com.hypeirochus.scmc.entity.vehicles.AbstractSpaceship;
+import com.hypeirochus.scmc.entity.vehicles.EntitySpaceship;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -46,9 +46,9 @@ public class MessageShipAbility implements IMessage
 
 		void processMessage(MessageShipAbility msg, MessageContext ctx)
 		{
-			if (ctx.getServerHandler().player.getRidingEntity() instanceof AbstractSpaceship)
+			if (ctx.getServerHandler().player.getRidingEntity() instanceof EntitySpaceship)
 			{
-				AbstractSpaceship ship = (AbstractSpaceship) ctx.getServerHandler().player.getRidingEntity();
+				EntitySpaceship ship = (EntitySpaceship) ctx.getServerHandler().player.getRidingEntity();
 				ship.useAbility(msg.abilityIndex);
 			}
 

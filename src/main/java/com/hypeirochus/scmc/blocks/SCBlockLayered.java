@@ -32,7 +32,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  */
 
 //TODO: MOVE TO CORE MOD, AND make this generically named.
-public abstract class StarcraftBlockLayered extends StarcraftBlock
+public abstract class SCBlockLayered extends SCBlock
 {
 
 	public static final PropertyInteger LAYERS = PropertyInteger.create("layers", 1, 8);
@@ -40,12 +40,12 @@ public abstract class StarcraftBlockLayered extends StarcraftBlock
 	{ new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.0D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.125D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.25D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.375D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.5D, 1.0D),
 			new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.625D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.75D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.875D, 1.0D), new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D) };
 
-	public StarcraftBlockLayered(String name, Material material)
+	public SCBlockLayered(String name, Material material)
 	{
 		this(name, material, material.getMaterialMapColor());
 	}
 
-	public StarcraftBlockLayered(String name, Material material, MapColor color)
+	public SCBlockLayered(String name, Material material, MapColor color)
 	{
 		super(name, RegistryType.LAYERED, material, color);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(LAYERS, Integer.valueOf(1)));

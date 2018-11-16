@@ -17,7 +17,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class BlockOverworldOre extends StarcraftBlock
+public class BlockOverworldOre extends SCBlock
 {
 
 	public BlockOverworldOre(String name, RegistryType type, Material material, int harvestLevel)

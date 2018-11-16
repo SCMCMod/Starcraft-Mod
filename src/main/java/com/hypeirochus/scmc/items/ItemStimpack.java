@@ -10,7 +10,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
-public class ItemStimpack extends StarcraftItem
+public class ItemStimpack extends SCItem
 {
 
 	public ItemStimpack()

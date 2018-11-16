@@ -33,7 +33,7 @@ import net.minecraft.item.ItemStack;
  * @see IModPlugin
  */
 @JEIPlugin
-public class StarcraftJeiPlugin implements IModPlugin
+public class SCJeiPlugin implements IModPlugin
 {
 
 	@Override
@@ -44,10 +44,10 @@ public class StarcraftJeiPlugin implements IModPlugin
 		IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
 		IRecipeTransferRegistry recipeTransferRegistry = registry.getRecipeTransferRegistry();
 
-		registry.addRecipes(RecipeMaker.getGasCollectorRecipes(jeiHelpers), StarcraftRecipeCategoryUid.GAS_COLLECTOR);
-		registry.addRecipeCatalyst(new ItemStack(BlockHandler.GAS_COLLECTOR, 1, 0), StarcraftRecipeCategoryUid.GAS_COLLECTOR);
-		registry.addRecipeCatalyst(new ItemStack(BlockHandler.GAS_COLLECTOR, 1, 1), StarcraftRecipeCategoryUid.GAS_COLLECTOR);
-		registry.addRecipeCatalyst(new ItemStack(BlockHandler.GAS_COLLECTOR, 1, 2), StarcraftRecipeCategoryUid.GAS_COLLECTOR);
+		registry.addRecipes(RecipeMaker.getGasCollectorRecipes(jeiHelpers), SCRecipeCategoryUid.GAS_COLLECTOR);
+		registry.addRecipeCatalyst(new ItemStack(BlockHandler.GAS_COLLECTOR, 1, 0), SCRecipeCategoryUid.GAS_COLLECTOR);
+		registry.addRecipeCatalyst(new ItemStack(BlockHandler.GAS_COLLECTOR, 1, 1), SCRecipeCategoryUid.GAS_COLLECTOR);
+		registry.addRecipeCatalyst(new ItemStack(BlockHandler.GAS_COLLECTOR, 1, 2), SCRecipeCategoryUid.GAS_COLLECTOR);
 
 		registry.addRecipeCatalyst(new ItemStack(BlockHandler.FURNACE_SHAKURAS), VanillaRecipeCategoryUid.SMELTING, VanillaRecipeCategoryUid.FUEL);
 		registry.addRecipeCatalyst(new ItemStack(BlockHandler.FURNACE_CHAR), VanillaRecipeCategoryUid.SMELTING, VanillaRecipeCategoryUid.FUEL);
@@ -56,7 +56,7 @@ public class StarcraftJeiPlugin implements IModPlugin
 		registry.addRecipeCatalyst(new ItemStack(BlockHandler.FURNACE_PROTOSS), VanillaRecipeCategoryUid.SMELTING);
 
 		registry.addRecipeClickArea(GuiProtossFurnace.class, 78, 32, 28, 23, VanillaRecipeCategoryUid.SMELTING);
-		registry.addRecipeClickArea(GuiGasCollector.class, 34, 34, 18, 18, StarcraftRecipeCategoryUid.GAS_COLLECTOR);
+		registry.addRecipeClickArea(GuiGasCollector.class, 34, 34, 18, 18, SCRecipeCategoryUid.GAS_COLLECTOR);
 		registry.addRecipeClickArea(GuiStarcraftFurnace.class, 78, 32, 28, 23, VanillaRecipeCategoryUid.SMELTING, VanillaRecipeCategoryUid.FUEL);
 
 		recipeTransferRegistry.addRecipeTransferHandler(ContainerStarcraftFurnace.class, VanillaRecipeCategoryUid.SMELTING, 0, 1, 3, 36);

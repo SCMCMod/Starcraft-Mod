@@ -16,7 +16,7 @@ import net.minecraft.util.NonNullList;
  * 
  * @author Ocelot5836
  */
-public class ItemKhaydarinCrystal extends StarcraftItem implements IMetaRenderHandler
+public class ItemKhaydarinCrystal extends SCItem implements IMetaRenderHandler
 {
 
 	public ItemKhaydarinCrystal()

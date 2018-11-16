@@ -15,7 +15,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public class BlockEntitySpawner extends StarcraftBlock implements ITileEntityProvider
+public class BlockEntitySpawner extends SCBlock implements ITileEntityProvider
 {
 
 	private int range;

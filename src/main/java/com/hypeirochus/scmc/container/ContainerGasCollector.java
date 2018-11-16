@@ -2,7 +2,7 @@ package com.hypeirochus.scmc.container;
 
 import com.hypeirochus.scmc.container.slot.SlotGasCollectorOutput;
 import com.hypeirochus.scmc.container.slot.SlotWhitelist;
-import com.hypeirochus.scmc.events.StarcraftEventHandler;
+import com.hypeirochus.scmc.events.SCEventHandler;
 import com.hypeirochus.scmc.handlers.ItemHandler;
 import com.hypeirochus.scmc.tileentity.TileEntityGasCollector;
 
@@ -48,7 +48,7 @@ public class ContainerGasCollector extends Container
 			@Override
 			public TextureAtlasSprite getBackgroundSprite()
 			{
-				return te.getType() == 0 ? StarcraftEventHandler.gasCollectorIngot : te.getType() == 1 ? StarcraftEventHandler.gasCollectorBlock : StarcraftEventHandler.gasCollectorFlesh;
+				return te.getType() == 0 ? SCEventHandler.gasCollectorIngot : te.getType() == 1 ? SCEventHandler.gasCollectorBlock : SCEventHandler.gasCollectorFlesh;
 			}
 		});
 

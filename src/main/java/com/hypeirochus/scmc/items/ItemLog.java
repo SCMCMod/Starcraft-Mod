@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
 
-public class ItemLog extends StarcraftItem
+public class ItemLog extends SCItem
 {
 
 	public ItemLog()

@@ -5,15 +5,15 @@ import com.hypeirochus.scmc.handlers.ItemHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemSword;
 
-public class StarcraftSword extends ItemSword
+public class SCSword extends ItemSword
 {
 
-	public StarcraftSword(ToolMaterial material)
+	public SCSword(ToolMaterial material)
 	{
 		super(material);
 	}
 
-	public StarcraftSword(String name, ToolMaterial material)
+	public SCSword(String name, ToolMaterial material)
 	{
 		super(material);
 		this.setRegistryName(name);
@@ -22,8 +22,8 @@ public class StarcraftSword extends ItemSword
 	}
 
 	@Override
-	public StarcraftSword setCreativeTab(CreativeTabs tab)
+	public SCSword setCreativeTab(CreativeTabs tab)
 	{
-		return (StarcraftSword) super.setCreativeTab(tab);
+		return (SCSword) super.setCreativeTab(tab);
 	}
 }

@@ -3,7 +3,7 @@ package com.hypeirochus.scmc.worldgen.dimslayn;
 import com.hypeirochus.api.client.render.world.IClimateProvider;
 import com.hypeirochus.api.client.render.world.ICloudProvider;
 import com.hypeirochus.api.client.render.world.IStormProvider;
-import com.hypeirochus.scmc.config.StarcraftConfig;
+import com.hypeirochus.scmc.config.SCConfig;
 import com.hypeirochus.scmc.handlers.DimensionHandler;
 
 import net.minecraft.util.math.MathHelper;
@@ -85,7 +85,7 @@ public class WorldProviderSlayn extends WorldProvider implements IClimateProvide
 	@Override
 	public int getRespawnDimension(net.minecraft.entity.player.EntityPlayerMP player)
 	{
-		return StarcraftConfig.INT_DIMENSION_SLAYN;
+		return SCConfig.INT_DIMENSION_SLAYN;
 	}
 
 	@Override

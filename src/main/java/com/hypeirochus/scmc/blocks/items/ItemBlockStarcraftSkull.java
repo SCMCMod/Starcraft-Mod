@@ -1,6 +1,6 @@
 package com.hypeirochus.scmc.blocks.items;
 
-import com.hypeirochus.scmc.blocks.StarcraftSkull;
+import com.hypeirochus.scmc.blocks.SCSkull;
 import com.hypeirochus.scmc.handlers.BlockHandler;
 import com.hypeirochus.scmc.tileentity.TileEntityStarcraftSkull;
 
@@ -80,7 +80,7 @@ public class ItemBlockStarcraftSkull extends ItemBlock
 					return EnumActionResult.SUCCESS;
 				} else
 				{
-					world.setBlockState(pos, BlockHandler.STARCRAFT_SKULL.getDefaultState().withProperty(StarcraftSkull.FACING, facing), 11);
+					world.setBlockState(pos, BlockHandler.STARCRAFT_SKULL.getDefaultState().withProperty(SCSkull.FACING, facing), 11);
 					int i = 0;
 
 					if (facing == EnumFacing.UP)
@@ -113,7 +113,7 @@ public class ItemBlockStarcraftSkull extends ItemBlock
 	{
 		if (isInCreativeTab(tab))
 		{
-			for (int i = 0; i < StarcraftSkull.EnumSkullType.values().length; ++i)
+			for (int i = 0; i < SCSkull.EnumSkullType.values().length; ++i)
 			{
 				items.add(new ItemStack(this, 1, i));
 			}
@@ -125,11 +125,11 @@ public class ItemBlockStarcraftSkull extends ItemBlock
 	{
 		int i = stack.getMetadata();
 
-		if (i < 0 || i >= StarcraftSkull.EnumSkullType.values().length)
+		if (i < 0 || i >= SCSkull.EnumSkullType.values().length)
 		{
 			i = 0;
 		}
 
-		return super.getUnlocalizedName() + "." + StarcraftSkull.EnumSkullType.values()[i];
+		return super.getUnlocalizedName() + "." + SCSkull.EnumSkullType.values()[i];
 	}
 }

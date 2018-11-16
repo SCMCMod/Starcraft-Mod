@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class OreStarcraftRedstone extends StarcraftBlock
+public class OreStarcraftRedstone extends SCBlock
 {
 
 	public static final PropertyBool ACTIVE = PropertyBool.create("active");

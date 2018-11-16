@@ -49,7 +49,7 @@ import net.minecraftforge.items.IItemHandler;
  *
  * @author CJMinecraft
  */
-public class StarcraftFurnace extends BlockContainer
+public class SCFurnace extends BlockContainer
 {
 
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
@@ -57,7 +57,7 @@ public class StarcraftFurnace extends BlockContainer
 
 	private EnumWorldType type;
 
-	public StarcraftFurnace(MapColor mapColor, EnumWorldType type)
+	public SCFurnace(MapColor mapColor, EnumWorldType type)
 	{
 		super(Material.ROCK, mapColor);
 		this.type = type;

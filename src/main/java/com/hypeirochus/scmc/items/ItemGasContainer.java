@@ -10,7 +10,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemGasContainer extends StarcraftItem implements IMetaRenderHandler
+public class ItemGasContainer extends SCItem implements IMetaRenderHandler
 {
 
 	public ItemGasContainer()

@@ -20,7 +20,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class BlockSlaynOre extends StarcraftBlock
+public class BlockSlaynOre extends SCBlock
 {
 
 	public BlockSlaynOre(String name, RegistryType type, Material material, int level)

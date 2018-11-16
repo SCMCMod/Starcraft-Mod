@@ -2,7 +2,7 @@ package com.hypeirochus.scmc.blocks;
 
 import java.util.Random;
 
-import com.hypeirochus.scmc.config.StarcraftConfig;
+import com.hypeirochus.scmc.config.SCConfig;
 import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.entity.living.EntityNafash;
 import com.hypeirochus.scmc.entity.living.EntityQueen;
@@ -26,7 +26,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BlockZergCreep extends StarcraftBlock
+public class BlockZergCreep extends SCBlock
 {
 
 	public BlockZergCreep()
@@ -107,7 +107,7 @@ public class BlockZergCreep extends StarcraftBlock
 	@Override
 	public int tickRate(World world)
 	{
-		return StarcraftConfig.INT_CREEP_SPREAD_BASE_VALUE * 20;
+		return SCConfig.INT_CREEP_SPREAD_BASE_VALUE * 20;
 	}
 
 	@Override
@@ -115,9 +115,9 @@ public class BlockZergCreep extends StarcraftBlock
 	{
 		if (!world.isRemote)
 		{
-			if (world.getLightFromNeighbors(pos.up()) >= 9 && StarcraftConfig.BOOL_CREEP_CAN_SPREAD)
+			if (world.getLightFromNeighbors(pos.up()) >= 9 && SCConfig.BOOL_CREEP_CAN_SPREAD)
 			{
-				for (int i = 0; i < 1000 * StarcraftConfig.INT_CREEP_SPREAD_BASE_VALUE; ++i)
+				for (int i = 0; i < 1000 * SCConfig.INT_CREEP_SPREAD_BASE_VALUE; ++i)
 				{
 					BlockPos blockpos = pos.add(rand.nextInt(3) - 1, rand.nextInt(5) - 3, rand.nextInt(3) - 1);
 

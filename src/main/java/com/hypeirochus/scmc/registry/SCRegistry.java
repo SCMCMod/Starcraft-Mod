@@ -8,18 +8,18 @@ import com.google.common.collect.Maps;
  * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
  * <br>
  * </br>
- * A basic implementation of {@link IStarcraftRegistry}.
+ * A basic implementation of {@link ISCRegistry}.
  * 
  * @author Ocelot5836
  * @param <K> The key for registered objects
  * @param <V> The value of the registered objects
  */
-public abstract class StarcraftRegistry<K, V> implements IStarcraftRegistry<K, V>
+public abstract class SCRegistry<K, V> implements ISCRegistry<K, V>
 {
 
 	protected Map<K, V> registered;
 
-	public StarcraftRegistry()
+	public SCRegistry()
 	{
 		this.registered = Maps.<K, V>newHashMap();
 	}

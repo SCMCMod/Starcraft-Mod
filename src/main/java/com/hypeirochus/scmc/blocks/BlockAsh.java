@@ -12,7 +12,7 @@ import net.minecraft.block.material.Material;
  * 
  * @author Hypeirochus
  */
-public class BlockAsh extends StarcraftBlockLayered
+public class BlockAsh extends SCBlockLayered
 {
 
 	public BlockAsh()

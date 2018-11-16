@@ -17,7 +17,7 @@ import net.minecraft.item.Item;
  * 
  * @author Hypeirochus
  */
-public class BlockProtossEnergyChannel extends StarcraftBlock
+public class BlockProtossEnergyChannel extends SCBlock
 {
 
 	public BlockProtossEnergyChannel()

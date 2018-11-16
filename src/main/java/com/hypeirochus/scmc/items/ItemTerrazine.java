@@ -24,7 +24,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
-public class ItemTerrazine extends StarcraftItem implements IMetaRenderHandler
+public class ItemTerrazine extends SCItem implements IMetaRenderHandler
 {
 
 	public ItemTerrazine()

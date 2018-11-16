@@ -8,7 +8,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemDust extends StarcraftItem implements IMetaRenderHandler
+public class ItemDust extends SCItem implements IMetaRenderHandler
 {
 
 	public ItemDust()

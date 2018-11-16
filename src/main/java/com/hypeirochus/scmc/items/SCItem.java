@@ -5,14 +5,14 @@ import com.hypeirochus.scmc.handlers.ItemHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
-public class StarcraftItem extends Item
+public class SCItem extends Item
 {
 
-	public StarcraftItem()
+	public SCItem()
 	{
 	}
 
-	public StarcraftItem(String name)
+	public SCItem(String name)
 	{
 		this.setRegistryName(name);
 		this.setUnlocalizedName(name);
@@ -20,8 +20,8 @@ public class StarcraftItem extends Item
 	}
 
 	@Override
-	public StarcraftItem setCreativeTab(CreativeTabs tab)
+	public SCItem setCreativeTab(CreativeTabs tab)
 	{
-		return (StarcraftItem) super.setCreativeTab(tab);
+		return (SCItem) super.setCreativeTab(tab);
 	}
 }

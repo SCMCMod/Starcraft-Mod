@@ -25,7 +25,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockProtossWormhole extends StarcraftBlock implements ITileEntityProvider
+public class BlockProtossWormhole extends SCBlock implements ITileEntityProvider
 {
 
 	public BlockProtossWormhole()

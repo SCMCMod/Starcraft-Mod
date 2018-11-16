@@ -10,7 +10,7 @@ package com.hypeirochus.scmc.registry;
  * @param <K> The key for registered objects
  * @param <V> The value of the registered objects
  */
-public interface IStarcraftRegistry<E, T>
+public interface ISCRegistry<E, T>
 {
 
 	/**

@@ -1,6 +1,6 @@
 package com.hypeirochus.scmc.blocks.items;
 
-import com.hypeirochus.scmc.blocks.StarcraftBlockLayered;
+import com.hypeirochus.scmc.blocks.SCBlockLayered;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
@@ -30,7 +30,7 @@ import net.minecraft.world.World;
 public class ItemBlockLayered extends ItemBlock
 {
 
-	public ItemBlockLayered(StarcraftBlockLayered block)
+	public ItemBlockLayered(SCBlockLayered block)
 	{
 		super(block);
 	}
@@ -55,11 +55,11 @@ public class ItemBlockLayered extends ItemBlock
 
 			if (block == this.block)
 			{
-				int i = ((Integer) iblockstate.getValue(StarcraftBlockLayered.LAYERS)).intValue();
+				int i = ((Integer) iblockstate.getValue(SCBlockLayered.LAYERS)).intValue();
 
 				if (i < 8)
 				{
-					IBlockState iblockstate1 = iblockstate.withProperty(StarcraftBlockLayered.LAYERS, Integer.valueOf(i + 1));
+					IBlockState iblockstate1 = iblockstate.withProperty(SCBlockLayered.LAYERS, Integer.valueOf(i + 1));
 					AxisAlignedBB axisalignedbb = iblockstate1.getCollisionBoundingBox(world, blockpos);
 
 					if (axisalignedbb != Block.NULL_AABB && world.checkNoEntityCollision(axisalignedbb.offset(blockpos)) && world.setBlockState(blockpos, iblockstate1, 10))
@@ -95,6 +95,6 @@ public class ItemBlockLayered extends ItemBlock
 	public boolean canPlaceBlockOnSide(World world, BlockPos pos, EnumFacing side, EntityPlayer player, ItemStack stack)
 	{
 		IBlockState state = world.getBlockState(pos);
-		return (state.getBlock() != this.block || ((Integer) state.getValue(StarcraftBlockLayered.LAYERS)) > 7) ? super.canPlaceBlockOnSide(world, pos, side, player, stack) : true;
+		return (state.getBlock() != this.block || ((Integer) state.getValue(SCBlockLayered.LAYERS)) > 7) ? super.canPlaceBlockOnSide(world, pos, side, player, stack) : true;
 	}
 }

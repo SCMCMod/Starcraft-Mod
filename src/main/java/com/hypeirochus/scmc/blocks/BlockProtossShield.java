@@ -26,7 +26,7 @@ import net.minecraft.world.World;
  * 
  * @author Ocelot5836
  */
-public class BlockProtossShield extends StarcraftBlock
+public class BlockProtossShield extends SCBlock
 {
 
 	public BlockProtossShield()

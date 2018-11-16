@@ -3,7 +3,7 @@ package com.hypeirochus.scmc.worldgen.dimaiur;
 import com.hypeirochus.api.client.render.world.IClimateProvider;
 import com.hypeirochus.api.client.render.world.ICloudProvider;
 import com.hypeirochus.api.client.render.world.IStormProvider;
-import com.hypeirochus.scmc.config.StarcraftConfig;
+import com.hypeirochus.scmc.config.SCConfig;
 import com.hypeirochus.scmc.handlers.DimensionHandler;
 
 import net.minecraft.world.DimensionType;
@@ -83,7 +83,7 @@ public class WorldProviderAiur extends WorldProvider implements IClimateProvider
 	@Override
 	public int getRespawnDimension(net.minecraft.entity.player.EntityPlayerMP player)
 	{
-		return StarcraftConfig.INT_DIMENSION_AIUR;
+		return SCConfig.INT_DIMENSION_AIUR;
 	}
 
 	@Override

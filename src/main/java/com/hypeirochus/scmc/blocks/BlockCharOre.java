@@ -20,7 +20,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class BlockCharOre extends StarcraftBlock
+public class BlockCharOre extends SCBlock
 {
 
 	public BlockCharOre(String name, RegistryType type, Material material, int harvestLevel)

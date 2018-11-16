@@ -14,7 +14,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-public abstract class ItemGun extends StarcraftItem
+public abstract class ItemGun extends SCItem
 {
 
 	private float damage;

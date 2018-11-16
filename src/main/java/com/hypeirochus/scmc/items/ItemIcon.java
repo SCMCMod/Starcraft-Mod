@@ -8,7 +8,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemIcon extends StarcraftItem implements IMetaRenderHandler
+public class ItemIcon extends SCItem implements IMetaRenderHandler
 {
 
 	public ItemIcon()

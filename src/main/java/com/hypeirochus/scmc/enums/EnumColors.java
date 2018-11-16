@@ -2,7 +2,7 @@ package com.hypeirochus.scmc.enums;
 
 import java.awt.Color;
 
-import com.hypeirochus.scmc.lib.StarcraftUtils;
+import com.hypeirochus.scmc.lib.SCUtils;
 
 /**
  * This holds all the possible team colors for entities.
@@ -79,6 +79,6 @@ public enum EnumColors
 	 */
 	public static EnumColors getColorStarcraft(int id)
 	{
-		return EnumColors.values()[StarcraftUtils.minecraftColorToStarcraftColor(id)];
+		return EnumColors.values()[SCUtils.minecraftColorToStarcraftColor(id)];
 	}
 }

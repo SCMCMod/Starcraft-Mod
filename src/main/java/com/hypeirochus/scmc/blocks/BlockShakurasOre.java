@@ -20,7 +20,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class BlockShakurasOre extends StarcraftBlock
+public class BlockShakurasOre extends SCBlock
 {
 
 	public BlockShakurasOre(String name, RegistryType type, Material material, int harvestLevel)

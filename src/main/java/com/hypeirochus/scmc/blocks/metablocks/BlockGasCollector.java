@@ -3,7 +3,7 @@ package com.hypeirochus.scmc.blocks.metablocks;
 import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.api.Utils;
 import com.hypeirochus.scmc.blocks.RegistryType;
-import com.hypeirochus.scmc.blocks.StarcraftBlock;
+import com.hypeirochus.scmc.blocks.SCBlock;
 import com.hypeirochus.scmc.blocks.items.IMetaBlockName;
 import com.hypeirochus.scmc.creativetabs.SCCreativeTabs;
 import com.hypeirochus.scmc.handlers.GuiHandler;
@@ -43,7 +43,7 @@ import net.minecraftforge.items.ItemStackHandler;
  * 
  * @author Ocelot5836
  */
-public class BlockGasCollector extends StarcraftBlock implements IMetaBlockName, ITileEntityProvider, IMetaRenderHandler
+public class BlockGasCollector extends SCBlock implements IMetaBlockName, ITileEntityProvider, IMetaRenderHandler
 {
 
 	/** The type property */

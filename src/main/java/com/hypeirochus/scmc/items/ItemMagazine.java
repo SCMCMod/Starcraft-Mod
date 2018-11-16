@@ -23,7 +23,7 @@ import net.minecraft.world.World;
  * 
  * @author Ocelot5836
  */
-public class ItemMagazine extends StarcraftItem implements IMetaRenderHandler
+public class ItemMagazine extends SCItem implements IMetaRenderHandler
 {
 
 	public ItemMagazine()

@@ -1,6 +1,6 @@
 package com.hypeirochus.scmc.worldgen.dimkorhal;
 
-import com.hypeirochus.scmc.config.StarcraftConfig;
+import com.hypeirochus.scmc.config.SCConfig;
 import com.hypeirochus.scmc.handlers.DimensionHandler;
 
 import net.minecraft.world.DimensionType;
@@ -39,6 +39,6 @@ public class WorldProviderKorhal extends WorldProvider
 	@Override
 	public int getRespawnDimension(net.minecraft.entity.player.EntityPlayerMP player)
 	{
-		return StarcraftConfig.INT_DIMENSION_KORHAL;
+		return SCConfig.INT_DIMENSION_KORHAL;
 	}
 }

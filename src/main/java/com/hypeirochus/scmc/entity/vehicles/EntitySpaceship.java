@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
 import org.lwjgl.input.Mouse;
 
 import com.google.common.collect.Lists;
-import com.hypeirochus.scmc.config.StarcraftConfig;
+import com.hypeirochus.scmc.config.SCConfig;
 import com.hypeirochus.scmc.vehicles.weapons.VehicleWeapon;
 
 import net.minecraft.block.BlockLiquid;
@@ -41,9 +41,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 //TODO: Clean this up a bit.
-public class AbstractSpaceship extends Entity
+public class EntitySpaceship extends Entity
 {
-	private static final DataParameter<Float> DAMAGE_TAKEN = EntityDataManager.<Float>createKey(AbstractSpaceship.class, DataSerializers.FLOAT);
+	private static final DataParameter<Float> DAMAGE_TAKEN = EntityDataManager.<Float>createKey(EntitySpaceship.class, DataSerializers.FLOAT);
 	/** How much of current speed to retain. Value zero to one. */
 	private float momentum;
 	private float deltaRotation;
@@ -122,18 +122,18 @@ public class AbstractSpaceship extends Entity
 	 * gliding over. Halved every tick.
 	 */
 	private float shipGlide;
-	private AbstractSpaceship.Status status;
-	private AbstractSpaceship.Status previousStatus;
+	private EntitySpaceship.Status status;
+	private EntitySpaceship.Status previousStatus;
 	private double lastYd;
 
-	public AbstractSpaceship(World worldIn)
+	public EntitySpaceship(World worldIn)
 	{
 		super(worldIn);
 		this.preventEntitySpawning = true;
 		this.setSize(1.375F, 0.5625F);
 	}
 
-	public AbstractSpaceship(World worldIn, double x, double y, double z)
+	public EntitySpaceship(World worldIn, double x, double y, double z)
 	{
 		this(worldIn);
 		this.setPosition(x, y, z);
@@ -243,7 +243,7 @@ public class AbstractSpaceship extends Entity
 	 */
 	public void applyEntityCollision(Entity entityIn)
 	{
-		if (entityIn instanceof AbstractSpaceship)
+		if (entityIn instanceof EntitySpaceship)
 		{
 			if (entityIn.getEntityBoundingBox().minY < this.getEntityBoundingBox().maxY)
 			{
@@ -378,9 +378,9 @@ public class AbstractSpaceship extends Entity
 	/**
 	 * Determines whether the ship is in water, gliding on land, or in air
 	 */
-	private AbstractSpaceship.Status getShipStatus()
+	private EntitySpaceship.Status getShipStatus()
 	{
-		AbstractSpaceship.Status entityship$status = this.getUnderwaterStatus();
+		EntitySpaceship.Status entityship$status = this.getUnderwaterStatus();
 
 		if (entityship$status != null)
 		{
@@ -388,7 +388,7 @@ public class AbstractSpaceship extends Entity
 			return entityship$status;
 		} else if (this.checkInWater())
 		{
-			return AbstractSpaceship.Status.IN_WATER;
+			return EntitySpaceship.Status.IN_WATER;
 		} else
 		{
 			float f = this.getShipGlide();
@@ -396,10 +396,10 @@ public class AbstractSpaceship extends Entity
 			if (f > 0.0F)
 			{
 				this.shipGlide = f;
-				return AbstractSpaceship.Status.ON_LAND;
+				return EntitySpaceship.Status.ON_LAND;
 			} else
 			{
-				return AbstractSpaceship.Status.IN_AIR;
+				return EntitySpaceship.Status.IN_AIR;
 			}
 		}
 	}
@@ -567,7 +567,7 @@ public class AbstractSpaceship extends Entity
 	 * Decides whether the ship is currently underwater.
 	 */
 	@Nullable
-	private AbstractSpaceship.Status getUnderwaterStatus()
+	private EntitySpaceship.Status getUnderwaterStatus()
 	{
 		AxisAlignedBB axisalignedbb = this.getEntityBoundingBox();
 		double d0 = axisalignedbb.maxY + 0.001D;
@@ -595,7 +595,7 @@ public class AbstractSpaceship extends Entity
 						{
 							if (((Integer) iblockstate.getValue(BlockLiquid.LEVEL)).intValue() != 0)
 							{
-								AbstractSpaceship.Status entityship$status = AbstractSpaceship.Status.UNDER_FLOWING_WATER;
+								EntitySpaceship.Status entityship$status = EntitySpaceship.Status.UNDER_FLOWING_WATER;
 								return entityship$status;
 							}
 
@@ -609,7 +609,7 @@ public class AbstractSpaceship extends Entity
 			blockpos$pooledmutableblockpos.release();
 		}
 
-		return flag ? AbstractSpaceship.Status.UNDER_WATER : null;
+		return flag ? EntitySpaceship.Status.UNDER_WATER : null;
 	}
 
 	/**
@@ -622,31 +622,31 @@ public class AbstractSpaceship extends Entity
 		double d2 = 0.0D;
 		this.momentum = 0.05F;
 
-		if (this.previousStatus == AbstractSpaceship.Status.IN_AIR && this.status != AbstractSpaceship.Status.IN_AIR && this.status != AbstractSpaceship.Status.ON_LAND)
+		if (this.previousStatus == EntitySpaceship.Status.IN_AIR && this.status != EntitySpaceship.Status.IN_AIR && this.status != EntitySpaceship.Status.ON_LAND)
 		{
 			this.waterLevel = this.getEntityBoundingBox().minY + (double) this.height;
 			this.setPosition(this.posX, (double) (this.getWaterLevelAbove() - this.height) + 0.101D, this.posZ);
 			this.motionY = 0.0D;
 			this.lastYd = 0.0D;
-			this.status = AbstractSpaceship.Status.IN_WATER;
+			this.status = EntitySpaceship.Status.IN_WATER;
 		} else
 		{
-			if (this.status == AbstractSpaceship.Status.IN_WATER)
+			if (this.status == EntitySpaceship.Status.IN_WATER)
 			{
 				d2 = (this.waterLevel - this.getEntityBoundingBox().minY) / (double) this.height;
 				this.momentum = 0.9F;
-			} else if (this.status == AbstractSpaceship.Status.UNDER_FLOWING_WATER)
+			} else if (this.status == EntitySpaceship.Status.UNDER_FLOWING_WATER)
 			{
 				d1 = -7.0E-4D;
 				this.momentum = 0.9F;
-			} else if (this.status == AbstractSpaceship.Status.UNDER_WATER)
+			} else if (this.status == EntitySpaceship.Status.UNDER_WATER)
 			{
 				d2 = 0.009999999776482582D;
 				this.momentum = 0.45F;
-			} else if (this.status == AbstractSpaceship.Status.IN_AIR)
+			} else if (this.status == EntitySpaceship.Status.IN_AIR)
 			{
 				this.momentum = 0.9F;
-			} else if (this.status == AbstractSpaceship.Status.ON_LAND)
+			} else if (this.status == EntitySpaceship.Status.ON_LAND)
 			{
 				this.momentum = this.shipGlide;
 
@@ -713,7 +713,7 @@ public class AbstractSpaceship extends Entity
 			} else
 			{
 				this.isAccelerating = false;
-				if (speed > 0 && this.dimension != StarcraftConfig.INT_DIMENSION_SPACE)
+				if (speed > 0 && this.dimension != SCConfig.INT_DIMENSION_SPACE)
 				{
 					if (this.onGround || this.inWater)
 					{
@@ -844,7 +844,7 @@ public class AbstractSpaceship extends Entity
 			{
 				if (this.fallDistance > 3.0F)
 				{
-					if (this.status != AbstractSpaceship.Status.ON_LAND)
+					if (this.status != EntitySpaceship.Status.ON_LAND)
 					{
 						this.fallDistance = 0.0F;
 						return;

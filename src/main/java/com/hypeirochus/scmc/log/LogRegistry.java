@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.handlers.AccessHandler;
-import com.hypeirochus.scmc.registry.IStarcraftRegistry;
+import com.hypeirochus.scmc.registry.ISCRegistry;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -15,7 +15,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * 
  * @author Ocelot5836
  */
-public class LogRegistry implements IStarcraftRegistry<Integer, Log>
+public class LogRegistry implements ISCRegistry<Integer, Log>
 {
 
 	int id = 0;

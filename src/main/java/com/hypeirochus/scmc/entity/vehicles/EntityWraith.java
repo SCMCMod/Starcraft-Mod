@@ -11,7 +11,7 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityWraith extends AbstractSpaceship implements IEnergyEntity
+public class EntityWraith extends EntitySpaceship implements IEnergyEntity
 {
 
 	private static final DataParameter<Float> ENERGY = EntityDataManager.createKey(EntityWraith.class, DataSerializers.FLOAT);

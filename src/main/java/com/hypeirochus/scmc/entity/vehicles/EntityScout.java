@@ -6,7 +6,7 @@ import com.hypeirochus.scmc.vehicles.weapons.VehicleWeapon;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-public class EntityScout extends AbstractSpaceship
+public class EntityScout extends EntitySpaceship
 {
 
 	VehicleWeapon scoutPrimary = new VehicleWeapon(this, "Photon Blaster", 8, 200);

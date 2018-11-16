@@ -12,7 +12,7 @@ import net.minecraft.block.material.Material;
  * 
  * @author Hypeirochus
  */
-public class BlockZergKeratin extends StarcraftBlock
+public class BlockZergKeratin extends SCBlock
 {
 
 	public BlockZergKeratin()

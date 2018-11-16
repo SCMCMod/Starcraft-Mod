@@ -12,9 +12,9 @@ import com.hypeirochus.scmc.capabilities.LockedItemsStorage;
 import com.hypeirochus.scmc.capabilities.Shield;
 import com.hypeirochus.scmc.capabilities.ShieldStorage;
 import com.hypeirochus.scmc.command.CommandDimension;
-import com.hypeirochus.scmc.config.StarcraftConfig;
+import com.hypeirochus.scmc.config.SCConfig;
 import com.hypeirochus.scmc.events.GuiRenderEventHandler;
-import com.hypeirochus.scmc.events.StarcraftEventHandler;
+import com.hypeirochus.scmc.events.SCEventHandler;
 import com.hypeirochus.scmc.handlers.AccessHandler;
 import com.hypeirochus.scmc.handlers.CapabilityHandler;
 import com.hypeirochus.scmc.handlers.EntityHandler;
@@ -90,7 +90,7 @@ public class Starcraft
 
 		MinecraftForge.EVENT_BUS.register(new Registry());
 
-		StarcraftConfig.pre(event);
+		SCConfig.pre(event);
 		NetworkHandler.pre(event);
 		FluidHandler.pre(event);
 		SoundHandler.pre(event);
@@ -98,7 +98,7 @@ public class Starcraft
 
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
 		{
-			StarcraftConfig.clientPre(event);
+			SCConfig.clientPre(event);
 			WavefrontModelHandler.pre(event);
 			KeybindingHandler.pre(event);
 		}
@@ -125,7 +125,7 @@ public class Starcraft
 		CapabilityManager.INSTANCE.register(ILockedItems.class, new LockedItemsStorage(), LockedItems::new);
 
 		MinecraftForge.EVENT_BUS.register(new com.hypeirochus.scmc.capabilities.CapabilityHandler());
-		MinecraftForge.EVENT_BUS.register(new StarcraftEventHandler());
+		MinecraftForge.EVENT_BUS.register(new SCEventHandler());
 
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
 		{

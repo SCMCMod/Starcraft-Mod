@@ -1,6 +1,6 @@
 package com.hypeirochus.scmc.blocks.items;
 
-import com.hypeirochus.scmc.blocks.StarcraftSlab;
+import com.hypeirochus.scmc.blocks.SCSlab;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
@@ -24,7 +24,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ItemBlockSlab extends ItemBlock
 {
 
-	public ItemBlockSlab(StarcraftSlab slab)
+	public ItemBlockSlab(SCSlab slab)
 	{
 		super(slab);
 	}
@@ -39,9 +39,9 @@ public class ItemBlockSlab extends ItemBlock
 
 			if (iblockstate.getBlock() == this.block)
 			{
-				StarcraftSlab.Part StarcraftSlab$Part = (StarcraftSlab.Part) iblockstate.getValue(StarcraftSlab.PART);
+				SCSlab.Part StarcraftSlab$Part = (SCSlab.Part) iblockstate.getValue(SCSlab.PART);
 
-				if ((facing == EnumFacing.UP && StarcraftSlab$Part == StarcraftSlab.Part.BOTTOM || facing == EnumFacing.DOWN && StarcraftSlab$Part == StarcraftSlab.Part.TOP))
+				if ((facing == EnumFacing.UP && StarcraftSlab$Part == SCSlab.Part.BOTTOM || facing == EnumFacing.DOWN && StarcraftSlab$Part == SCSlab.Part.TOP))
 				{
 					IBlockState iblockstate1 = this.block.getDefaultState();
 					AxisAlignedBB axisalignedbb = iblockstate1.getCollisionBoundingBox(worldIn, pos);
@@ -76,7 +76,7 @@ public class ItemBlockSlab extends ItemBlock
 
 		if (iblockstate.getBlock() == this.block)
 		{
-			boolean flag = iblockstate.getValue(StarcraftSlab.PART) == StarcraftSlab.Part.TOP;
+			boolean flag = iblockstate.getValue(SCSlab.PART) == SCSlab.Part.TOP;
 
 			if ((side == EnumFacing.UP && !flag || side == EnumFacing.DOWN && flag))
 			{

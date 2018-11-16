@@ -13,10 +13,10 @@ import net.minecraft.item.Item;
 /**
  * @author Ocelot5836
  */
-public class StarcraftGravel extends StarcraftBlockFalling
+public class SCGravel extends SCBlockFalling
 {
 
-	public StarcraftGravel(String name, RegistryType type, Material material, MapColor color, int dustcolor)
+	public SCGravel(String name, RegistryType type, Material material, MapColor color, int dustcolor)
 	{
 		super(name, type, material, color, dustcolor);
 		setHarvestLevel("shovel", -1);

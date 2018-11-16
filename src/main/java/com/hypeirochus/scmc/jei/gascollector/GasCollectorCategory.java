@@ -1,7 +1,7 @@
 package com.hypeirochus.scmc.jei.gascollector;
 
 import com.hypeirochus.scmc.Starcraft;
-import com.hypeirochus.scmc.jei.StarcraftRecipeCategoryUid;
+import com.hypeirochus.scmc.jei.SCRecipeCategoryUid;
 
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawable;
@@ -44,7 +44,7 @@ public class GasCollectorCategory implements IRecipeCategory<GasCollectorRecipe>
 	@Override
 	public String getUid()
 	{
-		return StarcraftRecipeCategoryUid.GAS_COLLECTOR;
+		return SCRecipeCategoryUid.GAS_COLLECTOR;
 	}
 
 	@Override

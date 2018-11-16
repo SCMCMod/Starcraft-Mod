@@ -16,7 +16,7 @@ import net.minecraft.entity.player.EntityPlayer;
  * 
  * @author Ocelot5836
  */
-public class StarcraftUtils
+public class SCUtils
 {
 
 	private static Random random = new Random();

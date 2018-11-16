@@ -20,7 +20,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class BlockZerusOre extends StarcraftBlock
+public class BlockZerusOre extends SCBlock
 {
 
 	public BlockZerusOre(String name, RegistryType type, Material material, int harvestLevel)

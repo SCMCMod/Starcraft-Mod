@@ -44,7 +44,7 @@ import net.minecraft.world.World;
  * 
  * @author Ocelot5836
  */
-public class StarcraftSkull extends BlockContainer implements IMetaRenderHandler
+public class SCSkull extends BlockContainer implements IMetaRenderHandler
 {
 
 	public static final PropertyDirection FACING = BlockDirectional.FACING;
@@ -54,7 +54,7 @@ public class StarcraftSkull extends BlockContainer implements IMetaRenderHandler
 	public static final AxisAlignedBB[] BOXES = new AxisAlignedBB[]
 	{ new AxisAlignedBB(0.25D, 0.25D, 0.0D, 0.75D, 0.75D, 0.5D), new AxisAlignedBB(0.5D, 0.25D, 0.25D, 1.0D, 0.75D, 0.75D), new AxisAlignedBB(0.25D, 0.25D, 0.5D, 0.75D, 0.75D, 1.0D), new AxisAlignedBB(0.0D, 0.25D, 0.25D, 0.5D, 0.75D, 0.75D) };
 
-	public StarcraftSkull()
+	public SCSkull()
 	{
 		super(Material.CIRCUITS, MapColor.SNOW);
 		setUnlocalizedName("skull");

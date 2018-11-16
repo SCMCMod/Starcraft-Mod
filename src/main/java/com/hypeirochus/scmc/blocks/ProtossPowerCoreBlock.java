@@ -8,7 +8,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class ProtossPowerCoreBlock extends StarcraftProtossCoreBlock implements ITileEntityProvider
+public class ProtossPowerCoreBlock extends SCProtossCoreBlock implements ITileEntityProvider
 {
 
 	public ProtossPowerCoreBlock(String name, Material material, MapColor color)
