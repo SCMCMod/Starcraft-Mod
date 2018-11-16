@@ -1,6 +1,7 @@
 package com.hypeirochus.scmc.quests.unlocks;
 
 import com.hypeirochus.scmc.capabilities.LockedItemsProvider;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 

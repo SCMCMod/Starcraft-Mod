@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 import com.google.common.base.Predicate;
 
-import net.minecraft.block.BlockStructure;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 

@@ -1,14 +1,15 @@
 package com.hypeirochus.scmc.capabilities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.hypeirochus.scmc.Starcraft;
+
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class LockedItems implements ILockedItems {
 

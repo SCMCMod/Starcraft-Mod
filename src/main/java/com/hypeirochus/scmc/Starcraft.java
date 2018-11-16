@@ -1,8 +1,16 @@
 package com.hypeirochus.scmc;
 
-import com.hypeirochus.scmc.capabilities.*;
 import org.apache.logging.log4j.Logger;
 
+import com.hypeirochus.scmc.capabilities.Color;
+import com.hypeirochus.scmc.capabilities.ColorStorage;
+import com.hypeirochus.scmc.capabilities.IColor;
+import com.hypeirochus.scmc.capabilities.ILockedItems;
+import com.hypeirochus.scmc.capabilities.IShield;
+import com.hypeirochus.scmc.capabilities.LockedItems;
+import com.hypeirochus.scmc.capabilities.LockedItemsStorage;
+import com.hypeirochus.scmc.capabilities.Shield;
+import com.hypeirochus.scmc.capabilities.ShieldStorage;
 import com.hypeirochus.scmc.command.CommandDimension;
 import com.hypeirochus.scmc.config.StarcraftConfig;
 import com.hypeirochus.scmc.events.GuiRenderEventHandler;

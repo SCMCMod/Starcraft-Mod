@@ -1,8 +1,14 @@
 package com.hypeirochus.scmc.quests;
 
+import java.util.LinkedList;
+import java.util.List;
+
+import javax.annotation.Nullable;
+
 import com.hypeirochus.scmc.Starcraft;
 import com.hypeirochus.scmc.quests.unlocks.QuestReward;
 import com.hypeirochus.scmc.quests.unlocks.QuestRewardItem;
+
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -10,10 +16,6 @@ import net.minecraftforge.event.entity.player.AdvancementEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-
-import javax.annotation.Nullable;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * Create custom rewards when completing advancements

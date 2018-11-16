@@ -1,13 +1,15 @@
 package com.hypeirochus.scmc.quests;
 
+import java.util.List;
+
+import javax.annotation.Nullable;
+
 import com.hypeirochus.scmc.quests.unlocks.QuestReward;
+
 import net.minecraft.advancements.Advancement;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import scala.actors.threadpool.Arrays;
-
-import javax.annotation.Nullable;
-import java.util.List;
 
 public class Quest {
 
