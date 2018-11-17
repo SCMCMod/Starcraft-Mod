@@ -117,14 +117,11 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
-import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
-import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -346,18 +343,6 @@ public class RenderHandler
 			protected ModelResourceLocation getModelResourceLocation(IBlockState state)
 			{
 				return new ModelResourceLocation(block.getRegistryName(), "normal");
-			}
-		};
-	}
-
-	public static IRenderFactory getRenderFactory(Render renderer)
-	{
-		return new IRenderFactory()
-		{
-			@Override
-			public Render createRenderFor(RenderManager manager)
-			{
-				return renderer;
 			}
 		};
 	}
