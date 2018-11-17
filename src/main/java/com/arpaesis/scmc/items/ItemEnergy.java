@@ -32,19 +32,19 @@ public class ItemEnergy extends SCItem implements IMetaRenderHandler
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack)
+	public String getTranslationKey(ItemStack stack)
 	{
 		for (int i = 0; i < EnergyType.values().length; i++)
 		{
 			if (stack.getItemDamage() == i)
 			{
-				return getUnlocalizedName() + "." + EnergyType.values()[i].getName();
+				return getTranslationKey() + "." + EnergyType.values()[i].getName();
 			} else
 			{
 				continue;
 			}
 		}
-		return getUnlocalizedName() + "." + EnergyType.PURE.getName();
+		return getTranslationKey() + "." + EnergyType.PURE.getName();
 	}
 
 	@Override

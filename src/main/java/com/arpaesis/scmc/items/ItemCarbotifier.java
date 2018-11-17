@@ -30,7 +30,7 @@ public class ItemCarbotifier extends Item
 	public ItemCarbotifier()
 	{
 		setRegistryName("carbotifier");
-		setUnlocalizedName("carbotifier");
+		setTranslationKey("carbotifier");
 		setCreativeTab(SCCreativeTabs.MISC);
 	}
 

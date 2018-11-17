@@ -31,11 +31,11 @@ public class BlockCharOre extends SCBlock
 	public BlockCharOre(String name, RegistryType type, Material material, MapColor color, int harvestLevel)
 	{
 		super(name, type, material, color);
-		setHardness(3.0F);
-		setResistance(5.0F);
-		setHarvestLevel("pickaxe", harvestLevel);
-		setCreativeTab(SCCreativeTabs.MISC);
-		setSoundType(SoundType.STONE);
+		this.setHardness(3.0F);
+		this.setResistance(5.0F);
+		this.setHarvestLevel("pickaxe", harvestLevel);
+		this.setCreativeTab(SCCreativeTabs.MISC);
+		this.setSoundType(SoundType.STONE);
 	}
 
 	@Override

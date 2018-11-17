@@ -39,19 +39,19 @@ public class ItemGunParts extends SCItem implements IMetaRenderHandler
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack)
+	public String getTranslationKey(ItemStack stack)
 	{
 		for (int i = 0; i < numParts; i++)
 		{
 			if (stack.getItemDamage() == i)
 			{
-				return getUnlocalizedName() + "." + i;
+				return getTranslationKey() + "." + i;
 			} else
 			{
 				continue;
 			}
 		}
-		return getUnlocalizedName() + ".0";
+		return getTranslationKey() + ".0";
 	}
 
 	public int getNumParts()

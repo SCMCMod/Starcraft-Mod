@@ -32,19 +32,19 @@ public class ItemIngot extends SCItem implements IMetaRenderHandler
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack)
+	public String getTranslationKey(ItemStack stack)
 	{
 		for (int i = 0; i < IngotType.values().length; i++)
 		{
 			if (stack.getItemDamage() == i)
 			{
-				return getUnlocalizedName() + "." + IngotType.values()[i].getName();
+				return getTranslationKey() + "." + IngotType.values()[i].getName();
 			} else
 			{
 				continue;
 			}
 		}
-		return getUnlocalizedName() + "." + IngotType.STEEL.getName();
+		return getTranslationKey() + "." + IngotType.STEEL.getName();
 	}
 
 	@Override

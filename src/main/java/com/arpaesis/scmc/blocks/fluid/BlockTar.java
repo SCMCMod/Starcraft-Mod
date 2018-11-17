@@ -25,7 +25,6 @@ public class BlockTar extends BlockFluidClassic
 	public BlockTar()
 	{
 		super(FluidHandler.TAR, Material.WATER);
-		setUnlocalizedName("fluid.tar");
 		setRegistryName("fluid.tar");
 		BlockHandler.registerFullBlock(this);
 	}
@@ -43,7 +42,7 @@ public class BlockTar extends BlockFluidClassic
 		return MapColor.BLACK;
 	}
 
-	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
+	public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
 	{
 		entityIn.setInWeb();
 	}

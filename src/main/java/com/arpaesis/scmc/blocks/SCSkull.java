@@ -57,13 +57,13 @@ public class SCSkull extends BlockContainer implements IMetaRenderHandler
 	public SCSkull()
 	{
 		super(Material.CIRCUITS, MapColor.SNOW);
-		setUnlocalizedName("skull");
-		setRegistryName("skull");
-		setHardness(1.0F);
-		setResistance(1.6f);
-		setSoundType(SoundType.STONE);
-		setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(NODROP, Boolean.valueOf(false)));
-		setCreativeTab(SCCreativeTabs.MISC);
+		this.setTranslationKey("skull");
+		this.setRegistryName("skull");
+		this.setHardness(1.0F);
+		this.setResistance(1.6f);
+		this.setSoundType(SoundType.STONE);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(NODROP, Boolean.valueOf(false)));
+		this.setCreativeTab(SCCreativeTabs.MISC);
 	}
 
 	@Override
@@ -156,7 +156,7 @@ public class SCSkull extends BlockContainer implements IMetaRenderHandler
 	@Override
 	public IBlockState getStateFromMeta(int meta)
 	{
-		return this.getDefaultState().withProperty(FACING, EnumFacing.getFront(meta & 7)).withProperty(NODROP, Boolean.valueOf((meta & 8) > 0));
+		return this.getDefaultState().withProperty(FACING, EnumFacing.byIndex(meta & 7)).withProperty(NODROP, Boolean.valueOf((meta & 8) > 0));
 	}
 
 	@Override

@@ -59,13 +59,13 @@ public class BlockGasCollector extends SCBlock implements IMetaBlockName, ITileE
 	public BlockGasCollector()
 	{
 		super("gas.collector", RegistryType.META, Material.IRON);
-		setHardness(5.0f);
-		setResistance(15.0f);
-		setDefaultState(blockState.getBaseState().withProperty(TYPE, GasCollectorType.PROTOSS));
-		setHarvestLevel("pickaxe", 3, blockState.getBaseState().withProperty(TYPE, GasCollectorType.PROTOSS));
-		setHarvestLevel("pickaxe", 2, blockState.getBaseState().withProperty(TYPE, GasCollectorType.TERRAN));
-		setHarvestLevel("pickaxe", 0, blockState.getBaseState().withProperty(TYPE, GasCollectorType.ZERG));
-		setCreativeTab(SCCreativeTabs.MISC);
+		this.setHardness(5.0f);
+		this.setResistance(15.0f);
+		this.setDefaultState(blockState.getBaseState().withProperty(TYPE, GasCollectorType.PROTOSS));
+		this.setHarvestLevel("pickaxe", 3, blockState.getBaseState().withProperty(TYPE, GasCollectorType.PROTOSS));
+		this.setHarvestLevel("pickaxe", 2, blockState.getBaseState().withProperty(TYPE, GasCollectorType.TERRAN));
+		this.setHarvestLevel("pickaxe", 0, blockState.getBaseState().withProperty(TYPE, GasCollectorType.ZERG));
+		this.setCreativeTab(SCCreativeTabs.MISC);
 	}
 
 	@Override

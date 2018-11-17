@@ -31,19 +31,19 @@ public class ItemZergCarapace extends SCItem implements IMetaRenderHandler
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack)
+	public String getTranslationKey(ItemStack stack)
 	{
 		for (int i = 0; i < CarapaceType.values().length; i++)
 		{
 			if (stack.getItemDamage() == i)
 			{
-				return getUnlocalizedName() + "." + CarapaceType.values()[i].getName();
+				return getTranslationKey() + "." + CarapaceType.values()[i].getName();
 			} else
 			{
 				continue;
 			}
 		}
-		return getUnlocalizedName() + "." + CarapaceType.T1.getName();
+		return getTranslationKey() + "." + CarapaceType.T1.getName();
 	}
 
 	@Override

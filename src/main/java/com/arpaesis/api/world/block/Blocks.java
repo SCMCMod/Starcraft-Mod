@@ -122,9 +122,10 @@ public class Blocks
 	{
 		String domain = "minecraft:";
 
-		if (block.getUnlocalizedName().contains(":"))
+		//TODO: These used to be getUNLocalizedName, ensure the getTranslationKey is still correct.
+		if (block.getTranslationKey().contains(":"))
 		{
-			domain = (block.getUnlocalizedName().split(":")[0] + ":").replace("tile.", "");
+			domain = (block.getTranslationKey().split(":")[0] + ":").replace("tile.", "");
 		}
 
 		return domain;

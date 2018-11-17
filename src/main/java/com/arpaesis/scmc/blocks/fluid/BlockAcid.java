@@ -26,7 +26,6 @@ public class BlockAcid extends BlockFluidClassic
 	public BlockAcid()
 	{
 		super(FluidHandler.ACID, Material.WATER);
-		setUnlocalizedName("fluid.acid");
 		setRegistryName("fluid.acid");
 		BlockHandler.registerFullBlock(this);
 	}
@@ -53,8 +52,8 @@ public class BlockAcid extends BlockFluidClassic
 	 * @param entity that collides with the block
 	 */
 	@Override
-	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
+	public void onEntityCollision(World world, BlockPos pos, IBlockState state, Entity entity)
 	{
-		entity.attackEntityFrom(SCDamageSourceManager.acid, world.getDifficulty().getDifficultyId() + 1 + RANDOM.nextInt(2));
+		entity.attackEntityFrom(SCDamageSourceManager.acid, world.getDifficulty().getId() + 1 + RANDOM.nextInt(2));
 	}
 }

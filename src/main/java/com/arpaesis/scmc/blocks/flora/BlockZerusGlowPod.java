@@ -27,12 +27,12 @@ public class BlockZerusGlowPod extends BlockContainer
 	public BlockZerusGlowPod()
 	{
 		super(Material.GOURD, MapColor.BROWN);
-		setRegistryName("flora.zerus.glowpod");
-		setUnlocalizedName("flora.zerus.glowpod");
-		setSoundType(SoundTypes.FLESH);
-		setHardness(0.5f);
-		setLightLevel(13);
-		setCreativeTab(SCCreativeTabs.FLORA);
+		this.setTranslationKey("flora.zerus.glowpod");
+		this.setRegistryName("flora.zerus.glowpod");
+		this.setSoundType(SoundTypes.FLESH);
+		this.setHardness(0.5f);
+		this.setLightLevel(13);
+		this.setCreativeTab(SCCreativeTabs.FLORA);
 		BlockHandler.registerFullBlock(this);
 	}
 
@@ -57,7 +57,7 @@ public class BlockZerusGlowPod extends BlockContainer
 	@Override
 	public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, Entity entityIn, boolean isActualState)
 	{
-		super.addCollisionBoxToList(pos, entityBox, collidingBoxes, new AxisAlignedBB(0.0625 * 4, 0, 0.0625 * 4, 0.0625 * 12, 0.0625 * 6, 0.0625 * 12));
+		state.addCollisionBoxToList(worldIn, pos, entityBox, collidingBoxes, entityIn, isActualState);
 	}
 
 	@Override

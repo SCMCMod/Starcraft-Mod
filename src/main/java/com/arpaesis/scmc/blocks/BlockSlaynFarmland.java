@@ -34,12 +34,12 @@ public class BlockSlaynFarmland extends BlockFarmland
 
 	public BlockSlaynFarmland()
 	{
-		setUnlocalizedName("slayn.farmland");
-		setRegistryName("slayn.farmland");
-		setSoundType(SoundType.GROUND);
-		setHardness(0.6f);
-		setResistance(1);
-		setCreativeTab(null);
+		this.setTranslationKey("slayn.farmland");
+		this.setRegistryName("slayn.farmland");
+		this.setSoundType(SoundType.GROUND);
+		this.setHardness(0.6f);
+		this.setResistance(1);
+		this.setCreativeTab(null);
 		BlockHandler.registerFullBlock(this);
 	}
 
@@ -116,7 +116,7 @@ public class BlockSlaynFarmland extends BlockFarmland
 			Block block = iblockstate.getBlock();
 			return !iblockstate.isOpaqueCube() && !(block instanceof BlockFarmland) && block != Blocks.GRASS_PATH;
 		default:
-			return super.shouldSideBeRendered(blockState, blockAccess, pos, side);
+			return false;
 		}
 	}
 

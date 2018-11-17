@@ -35,11 +35,11 @@ public class BlockProtossShield extends SCBlock
 	}
 
 	@Override
-	public BlockRenderLayer getBlockLayer()
+	public BlockRenderLayer getRenderLayer()
 	{
 		return BlockRenderLayer.TRANSLUCENT;
 	}
-
+	
 	@Override
 	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess world, BlockPos pos)
 	{
@@ -51,9 +51,9 @@ public class BlockProtossShield extends SCBlock
 	{
 		return false;
 	}
-
+	
 	@Override
-	public void onBlockDestroyedByExplosion(World world, BlockPos pos, Explosion explosionIn)
+	public void onExplosionDestroy(World worldIn, BlockPos pos, Explosion explosionIn)
 	{
 	}
 
@@ -64,13 +64,13 @@ public class BlockProtossShield extends SCBlock
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
+	public void onEntityCollision(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
 	{
 		if (entityIn instanceof IProjectile || entityIn instanceof EntityFireball || entityIn instanceof EntitySmallFireball || entityIn instanceof EntityLargeFireball)
 		{
 			entityIn.setDead();
 		}
-		super.onEntityCollidedWithBlock(worldIn, pos, state, entityIn);
+		super.onEntityCollision(worldIn, pos, state, entityIn);
 	}
 
 	@Override
@@ -91,6 +91,6 @@ public class BlockProtossShield extends SCBlock
 			}
 		}
 
-		return block == this ? false : super.shouldSideBeRendered(blockState, blockAccess, pos, side);
+		return block == this ? false : iblockstate.shouldSideBeRendered(blockAccess, pos, side);
 	}
 }

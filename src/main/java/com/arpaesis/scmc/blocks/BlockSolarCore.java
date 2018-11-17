@@ -35,7 +35,7 @@ public class BlockSolarCore extends SCBlock implements ITileEntityProvider
 	}
 
 	@Override
-	public BlockRenderLayer getBlockLayer()
+	public BlockRenderLayer getRenderLayer()
 	{
 		return BlockRenderLayer.CUTOUT;
 	}

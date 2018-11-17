@@ -53,7 +53,7 @@ public class SCStairs extends BlockStairs
 
 	public void setNames(String name)
 	{
-		this.setUnlocalizedName(name);
+		this.setTranslationKey(name);
 		this.setRegistryName(name);
 	}
 

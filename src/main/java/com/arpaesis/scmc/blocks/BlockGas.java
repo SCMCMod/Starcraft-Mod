@@ -32,11 +32,11 @@ public abstract class BlockGas extends BlockGlass
 	public BlockGas(Material material, String name)
 	{
 		super(material, false);
-		setRegistryName(name);
-		setUnlocalizedName(name);
-		setSoundType(SoundType.CLOTH);
-		setTickRandomly(true);
-		setCreativeTab(null);
+		this.setTranslationKey(name);
+		this.setRegistryName(name);
+		this.setSoundType(SoundType.CLOTH);
+		this.setTickRandomly(true);
+		this.setCreativeTab(null);
 		BlockHandler.registerFullBlock(this);
 	}
 

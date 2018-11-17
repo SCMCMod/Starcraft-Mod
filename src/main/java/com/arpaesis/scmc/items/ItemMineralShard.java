@@ -31,19 +31,19 @@ public class ItemMineralShard extends SCItem implements IMetaRenderHandler
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack)
+	public String getTranslationKey(ItemStack stack)
 	{
 		for (int i = 0; i < MineralType.values().length; i++)
 		{
 			if (stack.getItemDamage() == i)
 			{
-				return getUnlocalizedName() + "." + MineralType.values()[i].getName();
+				return getTranslationKey() + "." + MineralType.values()[i].getName();
 			} else
 			{
 				continue;
 			}
 		}
-		return getUnlocalizedName() + "." + MineralType.BLUE.getName();
+		return getTranslationKey() + "." + MineralType.BLUE.getName();
 	}
 
 	@Override

@@ -37,7 +37,7 @@ public class TileEntityPlanetTeleporter extends TileEntity implements ITickable
 			EntityPlayerMP player = (EntityPlayerMP) world.getClosestPlayer(pos.getX(), pos.getY(), pos.getZ(), range, false);
 			if (player != null)
 			{
-				player.getServer().getPlayerList().transferPlayerToDimension(player, dim, new TeleporterHandler(player.world.provider.getDimension(), player.mcServer.getWorld(dim), player.posX, player.posY, player.posZ, false));
+				player.getServer().getPlayerList().transferPlayerToDimension(player, dim, new TeleporterHandler(player.world.provider.getDimension(), player.getServer().getWorld(dim), player.posX, player.posY, player.posZ, false));
 			}
 		}
 	}

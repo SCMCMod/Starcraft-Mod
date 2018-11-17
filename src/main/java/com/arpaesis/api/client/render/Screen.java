@@ -81,7 +81,7 @@ public class Screen
 	 */
 	public static void saveScreenshot(String filename, int x, int y, int width, int height)
 	{
-		File file = new File(AccessHandler.getMinecraft().mcDataDir.getPath());
+		File file = new File(AccessHandler.getMinecraft().gameDir.getPath());
 
 		if (!file.exists())
 		{

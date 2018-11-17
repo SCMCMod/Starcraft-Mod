@@ -61,7 +61,7 @@ public class SCFurnace extends BlockContainer
 	{
 		super(Material.ROCK, mapColor);
 		this.type = type;
-		this.setUnlocalizedName(type.getName() + ".furnace");
+		this.setTranslationKey(type.getName() + ".furnace");
 		this.setRegistryName(type.getName() + ".furnace");
 		this.setCreativeTab(SCCreativeTabs.MISC);
 		setSoundType(SoundType.STONE);
@@ -246,7 +246,7 @@ public class SCFurnace extends BlockContainer
 	@Override
 	public IBlockState getStateFromMeta(int meta)
 	{
-		EnumFacing face = EnumFacing.getFront(meta / 2 + 2);
+		EnumFacing face = EnumFacing.byIndex(meta / 2 + 2);
 
 		if (face.getAxis() == EnumFacing.Axis.Y)
 			face = EnumFacing.NORTH;

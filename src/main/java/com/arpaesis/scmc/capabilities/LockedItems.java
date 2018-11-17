@@ -21,7 +21,7 @@ public class LockedItems implements ILockedItems
 		this.lockedItems = new ArrayList<>();
 		for (ResourceLocation key : ForgeRegistries.ITEMS.getKeys())
 		{
-			if (key.getResourceDomain().equals(Starcraft.MOD_ID))
+			if (key.getNamespace().equals(Starcraft.MOD_ID))
 			{
 				Item item = ForgeRegistries.ITEMS.getValue(key);
 				if (item.getHasSubtypes())

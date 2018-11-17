@@ -31,19 +31,19 @@ public class ItemDust extends SCItem implements IMetaRenderHandler
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack)
+	public String getTranslationKey(ItemStack stack)
 	{
 		for (int i = 0; i < DustType.values().length; i++)
 		{
 			if (stack.getItemDamage() == i)
 			{
-				return getUnlocalizedName() + "." + DustType.values()[i].getName();
+				return getTranslationKey() + "." + DustType.values()[i].getName();
 			} else
 			{
 				continue;
 			}
 		}
-		return getUnlocalizedName() + "." + DustType.STEEL.getName();
+		return getTranslationKey() + "." + DustType.STEEL.getName();
 	}
 
 	@Override

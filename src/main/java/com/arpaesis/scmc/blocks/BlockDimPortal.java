@@ -36,9 +36,9 @@ public class BlockDimPortal extends SCBlock
 	public BlockDimPortal(String name, int dim)
 	{
 		super(name, RegistryType.BLOCK, Material.PORTAL, MapColor.BLACK);
-		setBlockUnbreakable();
-		setLightLevel(1.0F);
-		setCreativeTab(SCCreativeTabs.MISC);
+		this.setBlockUnbreakable();
+		this.setLightLevel(1.0F);
+		this.setCreativeTab(SCCreativeTabs.MISC);
 		this.dim = dim;
 	}
 
@@ -97,7 +97,7 @@ public class BlockDimPortal extends SCBlock
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
+	public void onEntityCollision(World world, BlockPos pos, IBlockState state, Entity entity)
 	{
 		boolean hasNoSurface = false;
 		if (dim == 9)
@@ -113,7 +113,7 @@ public class BlockDimPortal extends SCBlock
 					EntityPlayerMP player = (EntityPlayerMP) entity;
 					if (player.dimension != dim)
 					{
-						player.getServer().getPlayerList().transferPlayerToDimension(player, dim, new TeleporterHandler(player.getServerWorld().provider.getDimension(), player.mcServer.getWorld(dim), player.posX, player.posY, player.posZ, hasNoSurface));
+						player.getServer().getPlayerList().transferPlayerToDimension(player, dim, new TeleporterHandler(player.getServerWorld().provider.getDimension(), player.getServer().getWorld(dim), player.posX, player.posY, player.posZ, hasNoSurface));
 					}
 				}
 			} catch (Exception e)

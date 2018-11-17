@@ -41,20 +41,20 @@ public class ToolHandler
 
 	private static void instantiate()
 	{
-		COPPER_PICKAXE = new ToolPickaxe(ToolMaterials.COPPER).setUnlocalizedName("copper.pickaxe").setRegistryName("copper.pickaxe").setCreativeTab(SCCreativeTabs.TERRAN);
-		COPPER_AXE = new ToolAxe(ToolMaterials.COPPER, 8, -3.2f).setUnlocalizedName("copper.axe").setRegistryName("copper.axe").setCreativeTab(SCCreativeTabs.TERRAN);
-		COPPER_SHOVEL = new ToolShovel(ToolMaterials.COPPER).setUnlocalizedName("copper.shovel").setRegistryName("copper.shovel").setCreativeTab(SCCreativeTabs.TERRAN);
-		COPPER_HOE = new ToolHoe(ToolMaterials.COPPER).setUnlocalizedName("copper.hoe").setRegistryName("copper.hoe").setCreativeTab(SCCreativeTabs.TERRAN);
+		COPPER_PICKAXE = new ToolPickaxe(ToolMaterials.COPPER).setTranslationKey("copper.pickaxe").setRegistryName("copper.pickaxe").setCreativeTab(SCCreativeTabs.TERRAN);
+		COPPER_AXE = new ToolAxe(ToolMaterials.COPPER, 8, -3.2f).setTranslationKey("copper.axe").setRegistryName("copper.axe").setCreativeTab(SCCreativeTabs.TERRAN);
+		COPPER_SHOVEL = new ToolShovel(ToolMaterials.COPPER).setTranslationKey("copper.shovel").setRegistryName("copper.shovel").setCreativeTab(SCCreativeTabs.TERRAN);
+		COPPER_HOE = new ToolHoe(ToolMaterials.COPPER).setTranslationKey("copper.hoe").setRegistryName("copper.hoe").setCreativeTab(SCCreativeTabs.TERRAN);
 
-		TITANIUM_PICKAXE = new ToolPickaxe(ToolMaterials.TITANIUM).setUnlocalizedName("titanium.pickaxe").setRegistryName("titanium.pickaxe").setCreativeTab(SCCreativeTabs.TERRAN);
-		TITANIUM_AXE = new ToolAxe(ToolMaterials.TITANIUM, 8, -3.2f).setUnlocalizedName("titanium.axe").setRegistryName("titanium.axe").setCreativeTab(SCCreativeTabs.TERRAN);
-		TITANIUM_SHOVEL = new ToolShovel(ToolMaterials.TITANIUM).setUnlocalizedName("titanium.shovel").setRegistryName("titanium.shovel").setCreativeTab(SCCreativeTabs.TERRAN);
-		TITANIUM_HOE = new ToolHoe(ToolMaterials.TITANIUM).setUnlocalizedName("titanium.hoe").setRegistryName("titanium.hoe").setCreativeTab(SCCreativeTabs.TERRAN);
+		TITANIUM_PICKAXE = new ToolPickaxe(ToolMaterials.TITANIUM).setTranslationKey("titanium.pickaxe").setRegistryName("titanium.pickaxe").setCreativeTab(SCCreativeTabs.TERRAN);
+		TITANIUM_AXE = new ToolAxe(ToolMaterials.TITANIUM, 8, -3.2f).setTranslationKey("titanium.axe").setRegistryName("titanium.axe").setCreativeTab(SCCreativeTabs.TERRAN);
+		TITANIUM_SHOVEL = new ToolShovel(ToolMaterials.TITANIUM).setTranslationKey("titanium.shovel").setRegistryName("titanium.shovel").setCreativeTab(SCCreativeTabs.TERRAN);
+		TITANIUM_HOE = new ToolHoe(ToolMaterials.TITANIUM).setTranslationKey("titanium.hoe").setRegistryName("titanium.hoe").setCreativeTab(SCCreativeTabs.TERRAN);
 
-		STEEL_PICKAXE = new ToolPickaxe(ToolMaterials.STEEL).setUnlocalizedName("steel.pickaxe").setRegistryName("steel.pickaxe").setCreativeTab(SCCreativeTabs.TERRAN);
-		STEEL_AXE = new ToolAxe(ToolMaterials.STEEL, 7, -3.1f).setUnlocalizedName("steel.axe").setRegistryName("steel.axe").setCreativeTab(SCCreativeTabs.TERRAN);
-		STEEL_SHOVEL = new ToolShovel(ToolMaterials.STEEL).setUnlocalizedName("steel.shovel").setRegistryName("steel.shovel").setCreativeTab(SCCreativeTabs.TERRAN);
-		STEEL_HOE = new ToolHoe(ToolMaterials.STEEL).setUnlocalizedName("steel.hoe").setRegistryName("steel.hoe").setCreativeTab(SCCreativeTabs.TERRAN);
+		STEEL_PICKAXE = new ToolPickaxe(ToolMaterials.STEEL).setTranslationKey("steel.pickaxe").setRegistryName("steel.pickaxe").setCreativeTab(SCCreativeTabs.TERRAN);
+		STEEL_AXE = new ToolAxe(ToolMaterials.STEEL, 7, -3.1f).setTranslationKey("steel.axe").setRegistryName("steel.axe").setCreativeTab(SCCreativeTabs.TERRAN);
+		STEEL_SHOVEL = new ToolShovel(ToolMaterials.STEEL).setTranslationKey("steel.shovel").setRegistryName("steel.shovel").setCreativeTab(SCCreativeTabs.TERRAN);
+		STEEL_HOE = new ToolHoe(ToolMaterials.STEEL).setTranslationKey("steel.hoe").setRegistryName("steel.hoe").setCreativeTab(SCCreativeTabs.TERRAN);
 	}
 
 	public static void register()
