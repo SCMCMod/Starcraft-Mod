@@ -11,7 +11,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-//TODO: MOVE TO CORE MOD
 public class VehicleWeapon implements IWeaponSystem
 {
 
@@ -90,7 +89,7 @@ public class VehicleWeapon implements IWeaponSystem
 
 			if (shouldCauseExplosion)
 			{
-				this.vehicle.world.createExplosion(this.vehicle, hitEntity.posX, hitEntity.posY, hitEntity.posZ, 10, true);
+				this.vehicle.world.createExplosion(this.vehicle, hitEntity.posX, hitEntity.posY, hitEntity.posZ, this.damage, true);
 			}
 		} else if (hitBlock != null)
 		{
@@ -98,7 +97,7 @@ public class VehicleWeapon implements IWeaponSystem
 
 			if (shouldCauseExplosion)
 			{
-				this.vehicle.world.createExplosion(this.vehicle, hitBlock.getX(), hitBlock.getY(), hitBlock.getZ(), 10, true);
+				this.vehicle.world.createExplosion(this.vehicle, hitBlock.getX(), hitBlock.getY(), hitBlock.getZ(), this.damage, true);
 			}
 		}
 	}
