@@ -47,20 +47,10 @@ public class EntityZergFlying extends EntityZergMob
 		{
 			float f = 0.91F;
 
-			if (this.onGround)
-			{
-				f = this.world.getBlockState(new BlockPos(MathHelper.floor(this.posX), MathHelper.floor(this.getEntityBoundingBox().minY) - 1, MathHelper.floor(this.posZ))).getBlock().slipperiness * 0.91F;
-			}
-
 			float f1 = 0.16277136F / (f * f * f);
 			this.moveRelative(strafe, 0, forward, this.onGround ? 0.1F * f1 : 0.02F);
 			f = 0.91F;
-
-			if (this.onGround)
-			{
-				f = this.world.getBlockState(new BlockPos(MathHelper.floor(this.posX), MathHelper.floor(this.getEntityBoundingBox().minY) - 1, MathHelper.floor(this.posZ))).getBlock().slipperiness * 0.91F;
-			}
-
+			
 			this.move(MoverType.SELF, this.motionX, this.motionY, this.motionZ);
 			this.motionX *= (double) f;
 			this.motionY *= (double) f;
