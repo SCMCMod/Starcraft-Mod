@@ -19,7 +19,6 @@ import net.minecraft.entity.MoverType;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityWaterMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -40,7 +39,6 @@ import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-//TODO: Clean this up a bit.
 public class EntitySpaceship extends Entity
 {
 	private static final DataParameter<Float> DAMAGE_TAKEN = EntityDataManager.<Float>createKey(EntitySpaceship.class, DataSerializers.FLOAT);
@@ -277,7 +275,6 @@ public class EntitySpaceship extends Entity
 	/**
 	 * Sets a target for the client to interpolate towards over the next few ticks
 	 */
-	@SideOnly(Side.CLIENT)
 	public void setPositionAndRotationDirect(double x, double y, double z, float yaw, float pitch, int posRotationIncrements, boolean teleport)
 	{
 		this.lerpX = x;
@@ -318,14 +315,6 @@ public class EntitySpaceship extends Entity
 
 		if (this.canPassengerSteer())
 		{
-
-			this.updateMotion();
-
-			if (this.world.isRemote)
-			{
-				this.controlShip();
-			}
-
 			this.move(MoverType.SELF, this.motionX, this.motionY, this.motionZ);
 		} else
 		{
@@ -617,7 +606,6 @@ public class EntitySpaceship extends Entity
 	 */
 	private void updateMotion()
 	{
-		double d0 = -0.03999999910593033D;
 		double d1 = this.hasNoGravity() ? 0.0D : -0.03999999910593033D;
 		double d2 = 0.0D;
 		this.momentum = 0.05F;
@@ -663,9 +651,7 @@ public class EntitySpaceship extends Entity
 
 			if (d2 > 0.0D)
 			{
-				double d3 = 0.65D;
 				this.motionY += d2 * 0.06153846016296973D;
-				double d4 = 0.75D;
 				this.motionY *= 0.75D;
 			}
 		}
@@ -750,6 +736,7 @@ public class EntitySpaceship extends Entity
 			this.setCoolingDown(false);
 		}
 
+		this.controlShip();
 		super.onEntityUpdate();
 	}
 
@@ -849,27 +836,6 @@ public class EntitySpaceship extends Entity
 						this.fallDistance = 0.0F;
 						return;
 					}
-
-					this.fall(this.fallDistance, 1.0F);
-
-					if (!this.world.isRemote && !this.isDead)
-					{
-						this.setDead();
-
-						if (this.world.getGameRules().getBoolean("doEntityDrops"))
-						{
-							for (int i = 0; i < 3; ++i)
-							{
-								// TODO this.entityDropItem(new ItemStack(Item.getItemFromBlock(Blocks.PLANKS),
-								// 1, this.getShipType().getMetadata()), 0.0F);
-							}
-
-							for (int j = 0; j < 2; ++j)
-							{
-								this.dropItemWithOffset(Items.STICK, 1, 0.0F);
-							}
-						}
-					}
 				}
 
 				this.fallDistance = 0.0F;
@@ -909,8 +875,7 @@ public class EntitySpaceship extends Entity
 	@Nullable
 	public Entity getControllingPassenger()
 	{
-		List<Entity> list = this.getPassengers();
-		return list.isEmpty() ? null : (Entity) list.get(0);
+		return this.getPassengers().isEmpty() ? null : (Entity) this.getPassengers().get(0);
 	}
 
 	public static enum Status
@@ -954,6 +919,9 @@ public class EntitySpaceship extends Entity
 	@Override
 	public void fall(float distance, float damageMultiplier)
 	{
+		if (this.speed < this.maxSpeed / 4)
+		{
+			super.fall(distance, damageMultiplier);
+		}
 	}
-
 }
