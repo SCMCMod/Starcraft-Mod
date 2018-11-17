@@ -119,17 +119,4 @@ public class ItemBlockStarcraftSkull extends ItemBlock
 			}
 		}
 	}
-
-	@Override
-	public String getUnlocalizedName(ItemStack stack)
-	{
-		int i = stack.getMetadata();
-
-		if (i < 0 || i >= SCSkull.EnumSkullType.values().length)
-		{
-			i = 0;
-		}
-
-		return super.getUnlocalizedName() + "." + SCSkull.EnumSkullType.values()[i];
-	}
 }

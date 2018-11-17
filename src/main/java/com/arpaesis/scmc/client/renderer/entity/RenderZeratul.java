@@ -5,26 +5,25 @@ import com.arpaesis.scmc.client.renderer.ColoredLayerRender;
 import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityZeratul;
 
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderZeratul extends RenderLiving<EntityZeratul> implements LayerRenderer<EntityZeratul>
 {
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.ZERATUL_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.ZERATUL_OVERLAY);
 	private static final ResourceLocation STATICGLOW = new ResourceLocation(Resources.ZERATUL_GLOW_STATIC);
-	private final RenderZeratul RENDERER;
-	protected ModelZeratul model;
 
-	public RenderZeratul(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
+	public static final Factory FACTORY = new Factory();
+
+	public RenderZeratul(RenderManager renderManagerIn)
 	{
-		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		model = ((ModelZeratul) mainModel);
-		this.RENDERER = this;
+		super(renderManagerIn, new ModelZeratul(), 0.4f);
 		this.addLayer(this);
 	}
 
@@ -54,13 +53,24 @@ public class RenderZeratul extends RenderLiving<EntityZeratul> implements LayerR
 	@Override
 	public void doRenderLayer(EntityZeratul entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
 	{
-		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-		ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
+		ColoredLayerRender.render(this, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		ColoredLayerRender.renderStaticGlow(this, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
 	}
 
 	@Override
 	public boolean shouldCombineTextures()
 	{
 		return true;
+	}
+
+	public static class Factory implements IRenderFactory<EntityZeratul>
+	{
+
+		@Override
+		public Render<? super EntityZeratul> createRenderFor(RenderManager manager)
+		{
+			return new RenderZeratul(manager);
+		}
+
 	}
 }

@@ -32,19 +32,19 @@ public class ItemProtossIngot extends SCItem implements IMetaRenderHandler
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack)
+	public String getTranslationKey(ItemStack stack)
 	{
 		for (int i = 0; i < ProtossIngotType.values().length; i++)
 		{
 			if (stack.getItemDamage() == i)
 			{
-				return getUnlocalizedName() + "." + ProtossIngotType.values()[i].getName();
+				return getTranslationKey() + "." + ProtossIngotType.values()[i].getName();
 			} else
 			{
 				continue;
 			}
 		}
-		return getUnlocalizedName() + "." + ProtossIngotType.KHALAI.getName();
+		return getTranslationKey() + "." + ProtossIngotType.KHALAI.getName();
 	}
 
 	@Override

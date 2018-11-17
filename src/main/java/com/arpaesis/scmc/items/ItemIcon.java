@@ -24,19 +24,19 @@ public class ItemIcon extends SCItem implements IMetaRenderHandler
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack)
+	public String getTranslationKey(ItemStack stack)
 	{
 		for (int i = 0; i < IconType.values().length; i++)
 		{
 			if (stack.getItemDamage() == i)
 			{
-				return getUnlocalizedName() + "." + IconType.values()[i].getName();
+				return getTranslationKey() + "." + IconType.values()[i].getName();
 			} else
 			{
 				continue;
 			}
 		}
-		return getUnlocalizedName() + "." + IconType.PROTOSS.getName();
+		return getTranslationKey() + "." + IconType.PROTOSS.getName();
 	}
 
 	@Override

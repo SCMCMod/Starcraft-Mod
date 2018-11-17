@@ -107,19 +107,19 @@ public class ItemTerrazine extends SCItem implements IMetaRenderHandler
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack)
+	public String getTranslationKey(ItemStack stack)
 	{
 		for (int i = 0; i < TerrazineType.values().length; i++)
 		{
 			if (stack.getItemDamage() == i)
 			{
-				return getUnlocalizedName() + "." + TerrazineType.values()[i].getName();
+				return getTranslationKey() + "." + TerrazineType.values()[i].getName();
 			} else
 			{
 				continue;
 			}
 		}
-		return getUnlocalizedName() + "." + TerrazineType.RAW.getName();
+		return getTranslationKey() + "." + TerrazineType.RAW.getName();
 	}
 
 	@Override

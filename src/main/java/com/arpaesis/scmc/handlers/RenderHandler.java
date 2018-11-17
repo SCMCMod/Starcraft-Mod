@@ -3,49 +3,6 @@ package com.arpaesis.scmc.handlers;
 import static com.arpaesis.scmc.handlers.BlockHandler.STARCRAFT_SKULL;
 
 import com.arpaesis.scmc.Starcraft;
-import com.arpaesis.scmc.client.model.entity.ModelBrakk;
-import com.arpaesis.scmc.client.model.entity.ModelBroodling;
-import com.arpaesis.scmc.client.model.entity.ModelBroodmother;
-import com.arpaesis.scmc.client.model.entity.ModelBrutalisk;
-import com.arpaesis.scmc.client.model.entity.ModelCivilian;
-import com.arpaesis.scmc.client.model.entity.ModelDarkProbe;
-import com.arpaesis.scmc.client.model.entity.ModelDarkTemplar;
-import com.arpaesis.scmc.client.model.entity.ModelHydralisk;
-import com.arpaesis.scmc.client.model.entity.ModelHydraliskPrimalDehaka;
-import com.arpaesis.scmc.client.model.entity.ModelInfestedCivilian;
-import com.arpaesis.scmc.client.model.entity.ModelKakaru;
-import com.arpaesis.scmc.client.model.entity.ModelLarva;
-import com.arpaesis.scmc.client.model.entity.ModelLarvaCocoon;
-import com.arpaesis.scmc.client.model.entity.ModelLope;
-import com.arpaesis.scmc.client.model.entity.ModelMarine;
-import com.arpaesis.scmc.client.model.entity.ModelMutalisk;
-import com.arpaesis.scmc.client.model.entity.ModelMutaliskBroodlord;
-import com.arpaesis.scmc.client.model.entity.ModelMutaliskGlaiveWurm;
-import com.arpaesis.scmc.client.model.entity.ModelMutaliskPrimal;
-import com.arpaesis.scmc.client.model.entity.ModelMutaliskPrimalDehaka;
-import com.arpaesis.scmc.client.model.entity.ModelMutaliskViper;
-import com.arpaesis.scmc.client.model.entity.ModelPredator;
-import com.arpaesis.scmc.client.model.entity.ModelProbe;
-import com.arpaesis.scmc.client.model.entity.ModelProtossReaver;
-import com.arpaesis.scmc.client.model.entity.ModelPurifierProbe;
-import com.arpaesis.scmc.client.model.entity.ModelQueen;
-import com.arpaesis.scmc.client.model.entity.ModelScarab;
-import com.arpaesis.scmc.client.model.entity.ModelTyrannozor;
-import com.arpaesis.scmc.client.model.entity.ModelTyrannozorDehaka;
-import com.arpaesis.scmc.client.model.entity.ModelUrsadon;
-import com.arpaesis.scmc.client.model.entity.ModelVoidProbe;
-import com.arpaesis.scmc.client.model.entity.ModelZealot;
-import com.arpaesis.scmc.client.model.entity.ModelZeratul;
-import com.arpaesis.scmc.client.model.entity.ModelZergling;
-import com.arpaesis.scmc.client.model.entity.ModelZerglingBoost;
-import com.arpaesis.scmc.client.model.entity.ModelZerglingPrimal1;
-import com.arpaesis.scmc.client.model.entity.ModelZerglingPrimal2;
-import com.arpaesis.scmc.client.model.entity.ModelZerglingPrimal3;
-import com.arpaesis.scmc.client.model.entity.ModelZerglingPrimalDehaka;
-import com.arpaesis.scmc.client.model.entity.ModelZerglingPrimalDehakaBoost;
-import com.arpaesis.scmc.client.model.entity.ModelZerglingRaptor;
-import com.arpaesis.scmc.client.model.entity.ModelZerglingSwarmling;
-import com.arpaesis.scmc.client.model.entity.projectile.ModelHydraliskSpike;
 import com.arpaesis.scmc.client.renderer.entity.RenderArtosilope;
 import com.arpaesis.scmc.client.renderer.entity.RenderBrakk;
 import com.arpaesis.scmc.client.renderer.entity.RenderBroodling;
@@ -157,21 +114,17 @@ import com.arpaesis.scmc.tileentity.TileEntityZerusLightcap;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
-import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
-import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -233,7 +186,7 @@ public class RenderHandler
 		registerFluid(BlockHandler.TAR);
 	}
 
-	public static void init(FMLInitializationEvent event)
+	public static void init(FMLPreInitializationEvent event)
 	{
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
 		{
@@ -253,63 +206,62 @@ public class RenderHandler
 
 	private static void registerEntityRenderers()
 	{
-		RenderingRegistry.registerEntityRenderingHandler(EntityZealot.class, new RenderZealot(Minecraft.getMinecraft().getRenderManager(), new ModelZealot(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityProbe.class, new RenderProbe(Minecraft.getMinecraft().getRenderManager(), new ModelProbe(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityProtossReaver.class, new RenderProtossReaver(Minecraft.getMinecraft().getRenderManager(), new ModelProtossReaver(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityScarab.class, new RenderScarab(Minecraft.getMinecraft().getRenderManager(), new ModelScarab(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityDarkTemplar.class, new RenderDarkTemplar(Minecraft.getMinecraft().getRenderManager(), new ModelDarkTemplar(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityVoidProbe.class, new RenderVoidProbe(Minecraft.getMinecraft().getRenderManager(), new ModelVoidProbe(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityScarab.class, new RenderScarab(Minecraft.getMinecraft().getRenderManager(), new ModelScarab(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityDarkProbe.class, new RenderDarkProbe(Minecraft.getMinecraft().getRenderManager(), new ModelDarkProbe(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityPurifierProbe.class, new RenderPurifierProbe(Minecraft.getMinecraft().getRenderManager(), new ModelPurifierProbe(), 0.4f));
+		RenderingRegistry.registerEntityRenderingHandler(EntityZealot.class, RenderZealot.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityProbe.class, RenderProbe.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityProtossReaver.class, RenderProtossReaver.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityScarab.class, RenderScarab.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityDarkTemplar.class, RenderDarkTemplar.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityVoidProbe.class, RenderVoidProbe.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityDarkProbe.class, RenderDarkProbe.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityPurifierProbe.class, RenderPurifierProbe.FACTORY);
 
-		RenderingRegistry.registerEntityRenderingHandler(EntityZeratul.class, new RenderZeratul(Minecraft.getMinecraft().getRenderManager(), new ModelZeratul(), 0.4f));
+		RenderingRegistry.registerEntityRenderingHandler(EntityZeratul.class, RenderZeratul.FACTORY);
 
-		RenderingRegistry.registerEntityRenderingHandler(EntityBrutalisk.class, new RenderBrutalisk(Minecraft.getMinecraft().getRenderManager(), new ModelBrutalisk(), 3.0f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityHydralisk.class, new RenderHydralisk(Minecraft.getMinecraft().getRenderManager(), new ModelHydralisk(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityZergling.class, new RenderZergling(Minecraft.getMinecraft().getRenderManager(), new ModelZergling(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityZerglingRaptor.class, new RenderZerglingRaptor(Minecraft.getMinecraft().getRenderManager(), new ModelZerglingRaptor(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityZerglingSwarmling.class, new RenderZerglingSwarmling(Minecraft.getMinecraft().getRenderManager(), new ModelZerglingSwarmling(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityZerglingBoost.class, new RenderZerglingBoost(Minecraft.getMinecraft().getRenderManager(), new ModelZerglingBoost(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityLarva.class, new RenderLarva(Minecraft.getMinecraft().getRenderManager(), new ModelLarva(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityLarvaCocoon.class, new RenderLarvaCocoon(Minecraft.getMinecraft().getRenderManager(), new ModelLarvaCocoon(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityBroodling.class, new RenderBroodling(Minecraft.getMinecraft().getRenderManager(), new ModelBroodling(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityInfestedCivilian.class, new RenderInfestedCivilian(Minecraft.getMinecraft().getRenderManager(), new ModelInfestedCivilian(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityQueen.class, new RenderQueen(Minecraft.getMinecraft().getRenderManager(), new ModelQueen(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityNafash.class, new RenderNafash(Minecraft.getMinecraft().getRenderManager(), new ModelBroodmother(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityMutalisk.class, new RenderMutalisk(Minecraft.getMinecraft().getRenderManager(), new ModelMutalisk(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityMutaliskBroodlord.class, new RenderMutaliskBroodlord(Minecraft.getMinecraft().getRenderManager(), new ModelMutaliskBroodlord(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityMutaliskPrimal.class, new RenderMutaliskPrimal(Minecraft.getMinecraft().getRenderManager(), new ModelMutaliskPrimal(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityMutaliskViper.class, new RenderMutaliskViper(Minecraft.getMinecraft().getRenderManager(), new ModelMutaliskViper(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityZerglingPrimal1.class, new RenderZerglingPrimal1(Minecraft.getMinecraft().getRenderManager(), new ModelZerglingPrimal1(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityZerglingPrimal2.class, new RenderZerglingPrimal2(Minecraft.getMinecraft().getRenderManager(), new ModelZerglingPrimal2(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityZerglingPrimal3.class, new RenderZerglingPrimal3(Minecraft.getMinecraft().getRenderManager(), new ModelZerglingPrimal3(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityZerglingPrimalDehaka.class, new RenderZerglingPrimalDehaka(Minecraft.getMinecraft().getRenderManager(), new ModelZerglingPrimalDehaka(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityZerglingPrimalDehakaBoost.class, new RenderZerglingPrimalDehakaBoost(Minecraft.getMinecraft().getRenderManager(), new ModelZerglingPrimalDehakaBoost(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityHydraliskPrimal.class, new RenderHydraliskPrimal(Minecraft.getMinecraft().getRenderManager(), new ModelHydralisk(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityBrakk.class, new RenderBrakk(Minecraft.getMinecraft().getRenderManager(), new ModelBrakk(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityTyrannozor.class, new RenderTyrannozor(Minecraft.getMinecraft().getRenderManager(), new ModelTyrannozor(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityTyrannozorDehaka.class, new RenderTyrannozorDehaka(Minecraft.getMinecraft().getRenderManager(), new ModelTyrannozorDehaka(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityMutaliskPrimalDehaka.class, new RenderMutaliskPrimalDehaka(Minecraft.getMinecraft().getRenderManager(), new ModelMutaliskPrimalDehaka(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityHydraliskPrimalDehaka.class, new RenderHydraliskPrimalDehaka(Minecraft.getMinecraft().getRenderManager(), new ModelHydraliskPrimalDehaka(), 0.4f));
+		RenderingRegistry.registerEntityRenderingHandler(EntityBrutalisk.class, RenderBrutalisk.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityHydralisk.class, RenderHydralisk.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityZergling.class, RenderZergling.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityZerglingRaptor.class, RenderZerglingRaptor.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityZerglingSwarmling.class, RenderZerglingSwarmling.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityZerglingBoost.class, RenderZerglingBoost.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityLarva.class, RenderLarva.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityLarvaCocoon.class, RenderLarvaCocoon.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityBroodling.class, RenderBroodling.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityInfestedCivilian.class, RenderInfestedCivilian.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityQueen.class, RenderQueen.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityNafash.class, RenderNafash.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityMutalisk.class, RenderMutalisk.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityMutaliskBroodlord.class, RenderMutaliskBroodlord.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityMutaliskPrimal.class, RenderMutaliskPrimal.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityMutaliskViper.class, RenderMutaliskViper.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityZerglingPrimal1.class, RenderZerglingPrimal1.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityZerglingPrimal2.class, RenderZerglingPrimal2.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityZerglingPrimal3.class, RenderZerglingPrimal3.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityZerglingPrimalDehaka.class, RenderZerglingPrimalDehaka.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityZerglingPrimalDehakaBoost.class, RenderZerglingPrimalDehakaBoost.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityHydraliskPrimal.class, RenderHydraliskPrimal.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityBrakk.class, RenderBrakk.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityTyrannozor.class, RenderTyrannozor.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityTyrannozorDehaka.class, RenderTyrannozorDehaka.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityMutaliskPrimalDehaka.class, RenderMutaliskPrimalDehaka.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityHydraliskPrimalDehaka.class, RenderHydraliskPrimalDehaka.FACTORY);
 
-		RenderingRegistry.registerEntityRenderingHandler(EntityCivilian.class, new RenderCivilian(Minecraft.getMinecraft().getRenderManager(), new ModelCivilian(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityPredator.class, new RenderPredator(Minecraft.getMinecraft().getRenderManager(), new ModelPredator(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityMarine.class, new RenderMarine(Minecraft.getMinecraft().getRenderManager(), new ModelMarine(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityJimRaynor.class, new RenderJimRaynor(Minecraft.getMinecraft().getRenderManager(), new ModelMarine(), 0.4f));
+		RenderingRegistry.registerEntityRenderingHandler(EntityCivilian.class, RenderCivilian.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityPredator.class, RenderPredator.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityMarine.class, RenderMarine.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityJimRaynor.class, RenderJimRaynor.FACTORY);
 
-		RenderingRegistry.registerEntityRenderingHandler(EntityKakaru.class, new RenderKakaru(Minecraft.getMinecraft().getRenderManager(), new ModelKakaru(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityTastelope.class, new RenderTastelope(Minecraft.getMinecraft().getRenderManager(), new ModelLope(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityArtosilope.class, new RenderArtosilope(Minecraft.getMinecraft().getRenderManager(), new ModelLope(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityUrsadon.class, new RenderUrsadon(Minecraft.getMinecraft().getRenderManager(), new ModelUrsadon(), 0.4f));
-		RenderingRegistry.registerEntityRenderingHandler(EntityUrsadonMatriarch.class, new RenderUrsadonMatriarch(Minecraft.getMinecraft().getRenderManager(), new ModelUrsadon(), 0.4f));
+		RenderingRegistry.registerEntityRenderingHandler(EntityKakaru.class, RenderKakaru.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityTastelope.class, RenderTastelope.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityArtosilope.class, RenderArtosilope.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityUrsadon.class, RenderUrsadon.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityUrsadonMatriarch.class, RenderUrsadonMatriarch.FACTORY);
 
-		RenderingRegistry.registerEntityRenderingHandler(EntityHydraliskSpike.class, new RenderHydraliskSpike(Minecraft.getMinecraft().getRenderManager(), new ModelHydraliskSpike()));
-		RenderingRegistry.registerEntityRenderingHandler(EntityMutaliskGlaiveWurm.class, new RenderMutaliskGlaiveWurm(Minecraft.getMinecraft().getRenderManager(), new ModelMutaliskGlaiveWurm()));
+		RenderingRegistry.registerEntityRenderingHandler(EntityHydraliskSpike.class, RenderHydraliskSpike.FACTORY);
+		RenderingRegistry.registerEntityRenderingHandler(EntityMutaliskGlaiveWurm.class, RenderMutaliskGlaiveWurm.FACTORY);
 
-		RenderingRegistry.registerEntityRenderingHandler(EntityScout.class, new RenderScout(Minecraft.getMinecraft().getRenderManager()));
+		RenderingRegistry.registerEntityRenderingHandler(EntityScout.class, RenderScout.FACTORY);
 
-		RenderingRegistry.registerEntityRenderingHandler(EntityWraith.class, new RenderWraith(Minecraft.getMinecraft().getRenderManager()));
+		RenderingRegistry.registerEntityRenderingHandler(EntityWraith.class, RenderWraith.FACTORY);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -391,18 +343,6 @@ public class RenderHandler
 			protected ModelResourceLocation getModelResourceLocation(IBlockState state)
 			{
 				return new ModelResourceLocation(block.getRegistryName(), "normal");
-			}
-		};
-	}
-
-	public static IRenderFactory getRenderFactory(Render renderer)
-	{
-		return new IRenderFactory()
-		{
-			@Override
-			public Render createRenderFor(RenderManager manager)
-			{
-				return renderer;
 			}
 		};
 	}

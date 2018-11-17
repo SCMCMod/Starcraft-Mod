@@ -5,26 +5,25 @@ import com.arpaesis.scmc.client.renderer.ColoredLayerRender;
 import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityDarkTemplar;
 
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderDarkTemplar extends RenderLiving<EntityDarkTemplar> implements LayerRenderer<EntityDarkTemplar>
 {
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.DARKTEMPLAR_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.DARKTEMPLAR_OVERLAY);
 	private static final ResourceLocation STATICGLOW = new ResourceLocation(Resources.DARKTEMPLAR_GLOW_STATIC);
-	private final RenderDarkTemplar RENDERER;
-	protected ModelDarkTemplar model;
 
-	public RenderDarkTemplar(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
+	public static final Factory FACTORY = new Factory();
+
+	public RenderDarkTemplar(RenderManager renderManagerIn)
 	{
-		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		model = ((ModelDarkTemplar) mainModel);
-		this.RENDERER = this;
+		super(renderManagerIn, new ModelDarkTemplar(), 0.4f);
 		this.addLayer(this);
 	}
 
@@ -54,13 +53,24 @@ public class RenderDarkTemplar extends RenderLiving<EntityDarkTemplar> implement
 	@Override
 	public void doRenderLayer(EntityDarkTemplar entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
 	{
-		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-		ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
+		ColoredLayerRender.render(this, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		ColoredLayerRender.renderStaticGlow(this, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
 	}
 
 	@Override
 	public boolean shouldCombineTextures()
 	{
 		return true;
+	}
+
+	public static class Factory implements IRenderFactory<EntityDarkTemplar>
+	{
+
+		@Override
+		public Render<? super EntityDarkTemplar> createRenderFor(RenderManager manager)
+		{
+			return new RenderDarkTemplar(manager);
+		}
+
 	}
 }

@@ -19,9 +19,9 @@ public class WeaponMasterPsiBlade extends ItemSword
 	public WeaponMasterPsiBlade(ToolMaterial material)
 	{
 		super(material);
-		setUnlocalizedName("protoss.blade.master");
-		setRegistryName("protoss.blade.master");
-		setCreativeTab(SCCreativeTabs.PROTOSS);
+		this.setTranslationKey("protoss.blade.master");
+		this.setRegistryName("protoss.blade.master");
+		this.setCreativeTab(SCCreativeTabs.PROTOSS);
 	}
 
 	@Override

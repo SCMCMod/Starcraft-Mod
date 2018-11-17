@@ -29,7 +29,6 @@ public class BlockVespene extends BlockFluidClassic
 	public BlockVespene()
 	{
 		super(FluidHandler.VESPENE, Material.WATER);
-		setUnlocalizedName("fluid.vespene");
 		setRegistryName("fluid.vespene");
 		BlockHandler.registerFullBlock(this);
 	}
@@ -67,7 +66,7 @@ public class BlockVespene extends BlockFluidClassic
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
+	public void onEntityCollision(World world, BlockPos pos, IBlockState state, Entity entity)
 	{
 		entity.attackEntityFrom(SCDamageSourceManager.poisonFluid, 4);
 	}

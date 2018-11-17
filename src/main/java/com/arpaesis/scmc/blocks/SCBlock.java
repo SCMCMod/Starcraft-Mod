@@ -26,7 +26,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
 
-//TODO: MOVE TO CORE MOD, AND make this generic and not SCMC based.
 public class SCBlock extends Block
 {
 
@@ -123,7 +122,7 @@ public class SCBlock extends Block
 				}
 			} else
 			{
-				throw new IllegalArgumentException(String.format("The given Block %s tried to register as a layered block, but it is not an instance of StarcraftBlockLayered!", this.getUnlocalizedName()));
+				throw new IllegalArgumentException(String.format("The given Block %s tried to register as a layered block, but it is not an instance of StarcraftBlockLayered!", this.getRegistryName()));
 			}
 		} else if (type == RegistryType.META)
 		{
@@ -155,7 +154,7 @@ public class SCBlock extends Block
 	{
 		List<RayTraceResult> list = Lists.<RayTraceResult>newArrayList();
 		List<AxisAlignedBB> boxes = Lists.<AxisAlignedBB>newArrayList();
-		this.getCollisionBoxes(this.getActualState(blockState, world, pos), world, pos, boxes);
+		this.getCollisionBoxes(blockState, world, pos, boxes);
 
 		for (AxisAlignedBB axisalignedbb : boxes)
 		{
@@ -211,12 +210,12 @@ public class SCBlock extends Block
 	 */
 	protected void getCollisionBoxes(IBlockState state, World world, BlockPos pos, List<AxisAlignedBB> boxes)
 	{
-		boxes.add(this.getCollisionBoundingBox(state, world, pos));
+		boxes.add(state.getBoundingBox(world, pos));
 	}
 
 	public void setNames(String name)
 	{
-		this.setUnlocalizedName(name);
+		this.setTranslationKey(name);
 		this.setRegistryName(name);
 	}
 

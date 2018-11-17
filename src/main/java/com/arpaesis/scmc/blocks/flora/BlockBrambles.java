@@ -50,11 +50,11 @@ public class BlockBrambles extends BlockContainer implements IShearable, IMetaBl
 	public BlockBrambles()
 	{
 		super(Material.VINE, MapColor.GREEN);
-		setRegistryName("flora.brambles");
-		setUnlocalizedName("flora.brambles");
-		setSoundType(SoundType.PLANT);
-		setDefaultState(this.blockState.getBaseState().withProperty(PART, Part.BOTTOM));
-		setCreativeTab(SCCreativeTabs.FLORA);
+		this.setTranslationKey("flora.brambles");
+		this.setRegistryName("flora.brambles");
+		this.setSoundType(SoundType.PLANT);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(PART, Part.BOTTOM));
+		this.setCreativeTab(SCCreativeTabs.FLORA);
 	}
 
 	@Override
@@ -100,7 +100,6 @@ public class BlockBrambles extends BlockContainer implements IShearable, IMetaBl
 			if (world.isRemote)
 			{
 				state = state.getActualState(world, pos);
-				int i = 4;
 
 				ResourceLocation location = TextureMap.LOCATION_BLOCKS_TEXTURE;
 				int u = 0;

@@ -5,12 +5,13 @@ import com.arpaesis.scmc.client.renderer.ColoredLayerRender;
 import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityHydraliskPrimalDehaka;
 
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderHydraliskPrimalDehaka extends RenderLiving<EntityHydraliskPrimalDehaka> implements LayerRenderer<EntityHydraliskPrimalDehaka>
 {
@@ -18,15 +19,12 @@ public class RenderHydraliskPrimalDehaka extends RenderLiving<EntityHydraliskPri
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.HYDRALISKPRIMALDEHAKA_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.HYDRALISK_OVERLAY);
 	private static final ResourceLocation STATICGLOW = new ResourceLocation(Resources.HYDRALISKPRIMALDEHAKA_GLOW_STATIC);
-	private final RenderHydraliskPrimalDehaka RENDERER;
 
-	protected ModelHydraliskPrimalDehaka model;
+	public static final Factory FACTORY = new Factory();
 
-	public RenderHydraliskPrimalDehaka(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
+	public RenderHydraliskPrimalDehaka(RenderManager renderManagerIn)
 	{
-		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		model = ((ModelHydraliskPrimalDehaka) mainModel);
-		this.RENDERER = this;
+		super(renderManagerIn, new ModelHydraliskPrimalDehaka(), 0.8f);
 		this.addLayer(this);
 	}
 
@@ -56,13 +54,24 @@ public class RenderHydraliskPrimalDehaka extends RenderLiving<EntityHydraliskPri
 	@Override
 	public void doRenderLayer(EntityHydraliskPrimalDehaka entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
 	{
-		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-		ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
+		ColoredLayerRender.render(this, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		ColoredLayerRender.renderStaticGlow(this, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
 	}
 
 	@Override
 	public boolean shouldCombineTextures()
 	{
 		return true;
+	}
+
+	public static class Factory implements IRenderFactory<EntityHydraliskPrimalDehaka>
+	{
+
+		@Override
+		public Render<? super EntityHydraliskPrimalDehaka> createRenderFor(RenderManager manager)
+		{
+			return new RenderHydraliskPrimalDehaka(manager);
+		}
+
 	}
 }

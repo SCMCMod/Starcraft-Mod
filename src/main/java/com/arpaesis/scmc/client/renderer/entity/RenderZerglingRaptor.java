@@ -5,12 +5,13 @@ import com.arpaesis.scmc.client.renderer.ColoredLayerRender;
 import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityZerglingRaptor;
 
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderZerglingRaptor extends RenderLiving<EntityZerglingRaptor> implements LayerRenderer<EntityZerglingRaptor>
 {
@@ -18,14 +19,12 @@ public class RenderZerglingRaptor extends RenderLiving<EntityZerglingRaptor> imp
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.ZERGLINGRAPTOR_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.ZERGLING_OVERLAY);
 	private static final ResourceLocation STATICGLOW = new ResourceLocation(Resources.ZERGLINGSWARMLING_GLOW_STATIC);
-	private final RenderZerglingRaptor RENDERER;
-	protected ModelZerglingRaptor model;
 
-	public RenderZerglingRaptor(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
+	public static final Factory FACTORY = new Factory();
+
+	public RenderZerglingRaptor(RenderManager renderManagerIn)
 	{
-		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		model = ((ModelZerglingRaptor) mainModel);
-		this.RENDERER = this;
+		super(renderManagerIn, new ModelZerglingRaptor(), 0.4f);
 		this.addLayer(this);
 	}
 
@@ -60,13 +59,24 @@ public class RenderZerglingRaptor extends RenderLiving<EntityZerglingRaptor> imp
 	@Override
 	public void doRenderLayer(EntityZerglingRaptor entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
 	{
-		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-		ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
+		ColoredLayerRender.render(this, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		ColoredLayerRender.renderStaticGlow(this, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
 	}
 
 	@Override
 	public boolean shouldCombineTextures()
 	{
 		return true;
+	}
+
+	public static class Factory implements IRenderFactory<EntityZerglingRaptor>
+	{
+
+		@Override
+		public Render<? super EntityZerglingRaptor> createRenderFor(RenderManager manager)
+		{
+			return new RenderZerglingRaptor(manager);
+		}
+
 	}
 }

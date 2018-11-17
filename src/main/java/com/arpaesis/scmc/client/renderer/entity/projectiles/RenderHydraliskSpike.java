@@ -9,11 +9,14 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderHydraliskSpike extends Render<EntityHydraliskSpike>
 {
 
 	private ModelBase model = new ModelHydraliskSpike();
+
+	public static final Factory FACTORY = new Factory();
 
 	public RenderHydraliskSpike(RenderManager renderManager)
 	{
@@ -50,5 +53,16 @@ public class RenderHydraliskSpike extends Render<EntityHydraliskSpike>
 	protected ResourceLocation getEntityTexture(EntityHydraliskSpike entity)
 	{
 		return new ResourceLocation(Starcraft.RL_BASE + "textures/entity/hydraliskspike.png");
+	}
+
+	public static class Factory implements IRenderFactory<EntityHydraliskSpike>
+	{
+
+		@Override
+		public Render<? super EntityHydraliskSpike> createRenderFor(RenderManager manager)
+		{
+			return new RenderHydraliskSpike(manager);
+		}
+
 	}
 }

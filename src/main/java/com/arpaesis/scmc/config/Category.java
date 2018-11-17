@@ -9,7 +9,7 @@ public class Category
 
 	private String name;
 	private String formattedName;
-	private Class entryClass;
+	private Class<? extends CategoryEntry> entryClass;
 
 	public Category(String name, Class<? extends CategoryEntry> entryClass)
 	{

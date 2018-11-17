@@ -17,7 +17,7 @@ public class SCSword extends ItemSword
 	{
 		super(material);
 		this.setRegistryName(name);
-		this.setUnlocalizedName(name);
+		this.setTranslationKey(name);
 		ItemHandler.register(this);
 	}
 

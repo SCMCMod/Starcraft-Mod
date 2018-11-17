@@ -15,7 +15,7 @@ public class SCItem extends Item
 	public SCItem(String name)
 	{
 		this.setRegistryName(name);
-		this.setUnlocalizedName(name);
+		this.setTranslationKey(name);
 		ItemHandler.register(this);
 	}
 

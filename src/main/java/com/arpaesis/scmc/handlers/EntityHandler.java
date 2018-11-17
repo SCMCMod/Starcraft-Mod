@@ -107,10 +107,10 @@ public class EntityHandler
 	 */
 	private static void registerTileEntities()
 	{
-		Class[] tileEntities = getTileEntities();
+		Class<? extends TileEntity>[] tileEntities = getTileEntities();
 		for (int i = 0; i < tileEntities.length; i++)
 		{
-			GameRegistry.registerTileEntity(tileEntities[i], Starcraft.RL_BASE + tileEntities[i].getSimpleName());
+			GameRegistry.registerTileEntity(tileEntities[i], new ResourceLocation(Starcraft.RL_BASE, tileEntities[i].getSimpleName()));
 		}
 	}
 
@@ -294,7 +294,7 @@ public class EntityHandler
 	 * 
 	 * @param te The tile entity to register
 	 */
-	public static void registerTileEntity(Class te)
+	public static void registerTileEntity(Class<? extends TileEntity> te)
 	{
 		tileEntities.add(te);
 	}

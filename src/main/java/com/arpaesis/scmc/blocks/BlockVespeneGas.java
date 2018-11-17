@@ -61,13 +61,13 @@ public class BlockVespeneGas extends BlockGas
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public BlockRenderLayer getBlockLayer()
+	public BlockRenderLayer getRenderLayer()
 	{
 		return BlockRenderLayer.TRANSLUCENT;
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
+	public void onEntityCollision(World world, BlockPos pos, IBlockState state, Entity entity)
 	{
 		if (world.getBlockState(new BlockPos(pos.getX(), pos.getY() + entity.getEyeHeight(), pos.getZ())).getBlock() == this)
 			entity.attackEntityFrom(SCDamageSourceManager.poison_gas, 4);

@@ -83,7 +83,7 @@ public class SCBlockFalling extends BlockFalling
 
 	public void setNames(String name)
 	{
-		this.setUnlocalizedName(name);
+		this.setTranslationKey(name);
 		this.setRegistryName(name);
 	}
 

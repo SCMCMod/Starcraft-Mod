@@ -25,7 +25,6 @@ public class BlockBlood extends BlockFluidClassic
 	public BlockBlood()
 	{
 		super(FluidHandler.BLOOD, Material.WATER);
-		setUnlocalizedName("fluid.blood");
 		setRegistryName("fluid.blood");
 		BlockHandler.registerFullBlock(this);
 	}

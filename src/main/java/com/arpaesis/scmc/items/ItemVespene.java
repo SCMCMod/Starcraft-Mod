@@ -41,19 +41,19 @@ public class ItemVespene extends SCItem implements IMetaRenderHandler
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack)
+	public String getTranslationKey(ItemStack stack)
 	{
 		for (int i = 0; i < VespeneType.values().length; i++)
 		{
 			if (stack.getItemDamage() == i)
 			{
-				return getUnlocalizedName() + "." + VespeneType.values()[i].getName();
+				return getTranslationKey() + "." + VespeneType.values()[i].getName();
 			} else
 			{
 				continue;
 			}
 		}
-		return getUnlocalizedName() + "." + VespeneType.RAW.getName();
+		return getTranslationKey() + "." + VespeneType.RAW.getName();
 	}
 
 	@Override

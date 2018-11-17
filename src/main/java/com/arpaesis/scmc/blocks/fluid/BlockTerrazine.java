@@ -31,7 +31,6 @@ public class BlockTerrazine extends BlockFluidClassic
 	public BlockTerrazine()
 	{
 		super(FluidHandler.TERRAZINE, Material.WATER);
-		setUnlocalizedName("fluid.terrazine");
 		setRegistryName("fluid.terrazine");
 		BlockHandler.registerFullBlock(this);
 	}
@@ -56,7 +55,7 @@ public class BlockTerrazine extends BlockFluidClassic
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
+	public void onEntityCollision(World world, BlockPos pos, IBlockState state, Entity entity)
 	{
 		if (entity instanceof EntityPlayer)
 		{

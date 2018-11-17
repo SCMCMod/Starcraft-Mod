@@ -21,10 +21,10 @@ public class BlockZerusLightcap extends BlockContainer
 	public BlockZerusLightcap()
 	{
 		super(Material.VINE, MapColor.GREEN);
-		setRegistryName("flora.zerus.lightcap");
-		setUnlocalizedName("flora.zerus.lightcap");
-		setSoundType(SoundType.PLANT);
-		setCreativeTab(SCCreativeTabs.FLORA);
+		this.setTranslationKey("flora.zerus.lightcap");
+		this.setRegistryName("flora.zerus.lightcap");
+		this.setSoundType(SoundType.PLANT);
+		this.setCreativeTab(SCCreativeTabs.FLORA);
 		BlockHandler.registerFullBlock(this);
 	}
 

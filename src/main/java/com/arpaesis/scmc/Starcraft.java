@@ -107,6 +107,11 @@ public class Starcraft
 		{
 			logger.info("Pre Initialized");
 		}
+
+		if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
+		{
+			RenderHandler.init(event);
+		}
 	}
 
 	/** Initialization **/
@@ -129,7 +134,6 @@ public class Starcraft
 
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
 		{
-			RenderHandler.init(event);
 			MinecraftForge.EVENT_BUS.register(new GuiRenderEventHandler());
 			logs().init();
 		}

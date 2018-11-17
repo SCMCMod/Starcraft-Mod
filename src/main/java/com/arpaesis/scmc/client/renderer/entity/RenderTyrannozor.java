@@ -5,12 +5,13 @@ import com.arpaesis.scmc.client.renderer.ColoredLayerRender;
 import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityTyrannozor;
 
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderTyrannozor extends RenderLiving<EntityTyrannozor> implements LayerRenderer<EntityTyrannozor>
 {
@@ -18,14 +19,12 @@ public class RenderTyrannozor extends RenderLiving<EntityTyrannozor> implements 
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.TYRANNOZOR_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.TYRANNOZOR_OVERLAY);
 	private static final ResourceLocation DYNAMICGLOW = new ResourceLocation(Resources.TYRANNOZOR_GLOW_DYNAMIC);
-	private final RenderTyrannozor RENDERER;
-	protected ModelTyrannozor model;
 
-	public RenderTyrannozor(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
+	public static final Factory FACTORY = new Factory();
+
+	public RenderTyrannozor(RenderManager renderManagerIn)
 	{
-		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		model = ((ModelTyrannozor) mainModel);
-		this.RENDERER = this;
+		super(renderManagerIn, new ModelTyrannozor(), 3.0f);
 		this.addLayer(this);
 	}
 
@@ -51,13 +50,24 @@ public class RenderTyrannozor extends RenderLiving<EntityTyrannozor> implements 
 	@Override
 	public void doRenderLayer(EntityTyrannozor entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
 	{
-		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-		ColoredLayerRender.renderDynamicGlow(this.RENDERER, entitylivingbaseIn, DYNAMICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
+		ColoredLayerRender.render(this, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		ColoredLayerRender.renderDynamicGlow(this, entitylivingbaseIn, DYNAMICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
 	}
 
 	@Override
 	public boolean shouldCombineTextures()
 	{
 		return true;
+	}
+
+	public static class Factory implements IRenderFactory<EntityTyrannozor>
+	{
+
+		@Override
+		public Render<? super EntityTyrannozor> createRenderFor(RenderManager manager)
+		{
+			return new RenderTyrannozor(manager);
+		}
+
 	}
 }

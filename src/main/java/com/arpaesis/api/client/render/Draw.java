@@ -1005,7 +1005,7 @@ public class Draw
 	 */
 	public static String getResourcePath(ResourceLocation resource)
 	{
-		return String.format("%s:%s", resource.getResourceDomain(), resource.getResourcePath());
+		return String.format("%s:%s", resource.getNamespace(), resource.getPath());
 	}
 
 	public static ResourceLocation getMissingTexture()
@@ -1019,8 +1019,8 @@ public class Draw
 		{
 			Minecraft mc = AccessHandler.getMinecraft();
 			ResourceLocation r = new ResourceLocation(sprite.getIconName());
-			return new ResourceLocation(r.getResourceDomain(), String.format("%s/%s%s", new Object[]
-			{ mc.getTextureMapBlocks().getBasePath(), r.getResourcePath(), ".png" }));
+			return new ResourceLocation(r.getNamespace(), String.format("%s/%s%s", new Object[]
+			{ mc.getTextureMapBlocks().getBasePath(), r.getPath(), ".png" }));
 		}
 
 		return getMissingTexture();
@@ -1031,8 +1031,8 @@ public class Draw
 		if (sprite != null)
 		{
 			ResourceLocation r = new ResourceLocation(sprite.getIconName());
-			return new ResourceLocation(r.getResourceDomain(), String.format("%s", new Object[]
-			{ r.getResourcePath() }));
+			return new ResourceLocation(r.getNamespace(), String.format("%s", new Object[]
+			{ r.getPath() }));
 		}
 
 		return getMissingTexture();

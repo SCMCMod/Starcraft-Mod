@@ -40,19 +40,19 @@ public class ItemGasContainer extends SCItem implements IMetaRenderHandler
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack)
+	public String getTranslationKey(ItemStack stack)
 	{
 		for (int i = 0; i < ContainerType.values().length; i++)
 		{
 			if (stack.getItemDamage() == i)
 			{
-				return getUnlocalizedName() + "." + ContainerType.values()[i].getName();
+				return getTranslationKey() + "." + ContainerType.values()[i].getName();
 			} else
 			{
 				continue;
 			}
 		}
-		return getUnlocalizedName() + "." + ContainerType.PROTOSS.getName();
+		return getTranslationKey() + "." + ContainerType.PROTOSS.getName();
 	}
 
 	@Override

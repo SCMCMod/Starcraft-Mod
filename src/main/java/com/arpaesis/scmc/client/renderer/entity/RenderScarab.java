@@ -5,22 +5,23 @@ import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.client.renderer.entity.layers.LayerScarab;
 import com.arpaesis.scmc.entity.living.EntityScarab;
 
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderScarab<T> extends RenderLiving<EntityScarab>
 {
 	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.SCARAB);
-	protected ModelScarab model;
 
-	public RenderScarab(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
+	public static final Factory FACTORY = new Factory();
+
+	public RenderScarab(RenderManager renderManagerIn)
 	{
-		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		model = ((ModelScarab) mainModel);
-		addLayer(new LayerScarab(this));
+		super(renderManagerIn, new ModelScarab(), 0.4f);
+		this.addLayer(new LayerScarab(this));
 	}
 
 	@Override
@@ -44,5 +45,16 @@ public class RenderScarab<T> extends RenderLiving<EntityScarab>
 	protected void preRenderCallback(EntityScarab entitylivingbaseIn, float partialTickTime)
 	{
 		GlStateManager.scale(0.65F, 0.65F, 0.65F);
+	}
+
+	public static class Factory implements IRenderFactory<EntityScarab>
+	{
+
+		@Override
+		public Render<? super EntityScarab> createRenderFor(RenderManager manager)
+		{
+			return new RenderScarab(manager);
+		}
+
 	}
 }

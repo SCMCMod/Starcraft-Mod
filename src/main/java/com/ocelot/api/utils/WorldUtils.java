@@ -46,7 +46,7 @@ public class WorldUtils
 		double d1 = d0;
 		Vec3d vec3 = mc.getRenderViewEntity().getPositionEyes(partialTicks);
 		Vec3d vec31 = mc.getRenderViewEntity().getLook(partialTicks);
-		Vec3d vec32 = vec3.addVector(vec31.x * d0, vec31.y * d0, vec31.z * d0);
+		Vec3d vec32 = vec3.add(vec31.x * d0, vec31.y * d0, vec31.z * d0);
 		pointedEntity = null;
 		Vec3d vec33 = null;
 		float f1 = 1.0F;
@@ -135,7 +135,7 @@ public class WorldUtils
 		double d1 = d0;
 		Vec3d vec3 = mc.getRenderViewEntity().getPositionEyes(partialTicks);
 		Vec3d vec31 = mc.getRenderViewEntity().getLook(partialTicks);
-		Vec3d vec32 = vec3.addVector(vec31.x * d0, vec31.y * d0, vec31.z * d0);
+		Vec3d vec32 = vec3.add(vec31.x * d0, vec31.y * d0, vec31.z * d0);
 		pointedEntity = null;
 		Vec3d vec33 = null;
 		float f1 = 1.0F;

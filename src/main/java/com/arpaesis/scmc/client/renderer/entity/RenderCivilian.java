@@ -4,20 +4,21 @@ import com.arpaesis.scmc.client.model.entity.ModelCivilian;
 import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityCivilian;
 
-import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderCivilian extends RenderLiving<EntityCivilian>
 {
 	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.CIVILIAN);
-	protected ModelCivilian model;
 
-	public RenderCivilian(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
+	public static final Factory FACTORY = new Factory();
+
+	public RenderCivilian(RenderManager renderManagerIn)
 	{
-		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		model = ((ModelCivilian) mainModel);
+		super(renderManagerIn, new ModelCivilian(), 0.4f);
 	}
 
 	@Override
@@ -35,5 +36,16 @@ public class RenderCivilian extends RenderLiving<EntityCivilian>
 	protected ResourceLocation getEntityTexture(EntityCivilian entity)
 	{
 		return TEXTURE;
+	}
+
+	public static class Factory implements IRenderFactory<EntityCivilian>
+	{
+
+		@Override
+		public Render<? super EntityCivilian> createRenderFor(RenderManager manager)
+		{
+			return new RenderCivilian(manager);
+		}
+
 	}
 }

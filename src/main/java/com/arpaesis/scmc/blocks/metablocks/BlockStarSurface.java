@@ -120,7 +120,7 @@ public class BlockStarSurface extends SCBlock implements IMetaBlockName, IMetaRe
 	}
 
 	@SideOnly(Side.CLIENT)
-	public BlockRenderLayer getBlockLayer()
+	public BlockRenderLayer getRenderLayer()
 	{
 		return BlockRenderLayer.SOLID;
 	}

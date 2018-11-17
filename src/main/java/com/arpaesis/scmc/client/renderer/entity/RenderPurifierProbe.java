@@ -5,12 +5,13 @@ import com.arpaesis.scmc.client.renderer.ColoredLayerRender;
 import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityPurifierProbe;
 
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderPurifierProbe extends RenderLiving<EntityPurifierProbe> implements LayerRenderer<EntityPurifierProbe>
 {
@@ -18,15 +19,14 @@ public class RenderPurifierProbe extends RenderLiving<EntityPurifierProbe> imple
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.PURIFIERPROBE_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.PURIFIERPROBE_OVERLAY);
 	private static final ResourceLocation DYNAMICGLOW = new ResourceLocation(Resources.PURIFIERPROBE_GLOW_DYNAMIC);
-	private final RenderPurifierProbe RENDERER;
-	protected ModelPurifierProbe model;
 
-	public RenderPurifierProbe(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
+	public static final Factory FACTORY = new Factory();
+
+	public RenderPurifierProbe(RenderManager renderManagerIn)
 	{
-		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		model = ((ModelPurifierProbe) mainModel);
+		super(renderManagerIn, new ModelPurifierProbe(), 0.4f);
 		this.addLayer(this);
-		this.RENDERER = this;
+
 	}
 
 	@Override
@@ -55,13 +55,24 @@ public class RenderPurifierProbe extends RenderLiving<EntityPurifierProbe> imple
 	@Override
 	public void doRenderLayer(EntityPurifierProbe entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
 	{
-		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-		ColoredLayerRender.renderDynamicGlow(this.RENDERER, entitylivingbaseIn, DYNAMICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
+		ColoredLayerRender.render(this, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		ColoredLayerRender.renderDynamicGlow(this, entitylivingbaseIn, DYNAMICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
 	}
 
 	@Override
 	public boolean shouldCombineTextures()
 	{
 		return true;
+	}
+
+	public static class Factory implements IRenderFactory<EntityPurifierProbe>
+	{
+
+		@Override
+		public Render<? super EntityPurifierProbe> createRenderFor(RenderManager manager)
+		{
+			return new RenderPurifierProbe(manager);
+		}
+
 	}
 }

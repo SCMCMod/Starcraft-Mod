@@ -32,19 +32,19 @@ public class ItemPsiBladeFocuserUncharged extends SCItem implements IMetaRenderH
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack)
+	public String getTranslationKey(ItemStack stack)
 	{
 		for (int i = 0; i < FocuserType.values().length; i++)
 		{
 			if (stack.getItemDamage() == i)
 			{
-				return getUnlocalizedName() + "." + FocuserType.values()[i].getName();
+				return getTranslationKey() + "." + FocuserType.values()[i].getName();
 			} else
 			{
 				continue;
 			}
 		}
-		return getUnlocalizedName() + "." + FocuserType.AIUR.getName();
+		return getTranslationKey() + "." + FocuserType.AIUR.getName();
 	}
 
 	@Override

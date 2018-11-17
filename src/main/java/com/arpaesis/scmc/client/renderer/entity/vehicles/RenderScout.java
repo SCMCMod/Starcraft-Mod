@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -17,6 +18,8 @@ public class RenderScout extends Render<EntityScout>
 {
 	/** instance of ModelScout for rendering */
 	protected ModelBase modelScout = new ModelScout();
+
+	public static final Factory FACTORY = new Factory();
 
 	public RenderScout(RenderManager renderManagerIn)
 	{
@@ -94,5 +97,16 @@ public class RenderScout extends Render<EntityScout>
 		this.setupRotation(p_188300_1_, p_188300_8_, p_188300_9_);
 		this.bindEntityTexture(p_188300_1_);
 		GlStateManager.popMatrix();
+	}
+
+	public static class Factory implements IRenderFactory<EntityScout>
+	{
+
+		@Override
+		public Render<? super EntityScout> createRenderFor(RenderManager manager)
+		{
+			return new RenderScout(manager);
+		}
+
 	}
 }

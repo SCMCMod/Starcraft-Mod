@@ -24,8 +24,8 @@ public class BlockPlanetTeleporter extends SCBlock implements ITileEntityProvide
 	{
 		super(name, RegistryType.FULL, Material.IRON, MapColor.IRON);
 		this.range = range;
-		setSoundType(SoundType.METAL);
-		setBlockUnbreakable();
+		this.setSoundType(SoundType.METAL);
+		this.setBlockUnbreakable();
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class BlockPlanetTeleporter extends SCBlock implements ITileEntityProvide
 	}
 
 	@Override
-	public BlockRenderLayer getBlockLayer()
+	public BlockRenderLayer getRenderLayer()
 	{
 		return BlockRenderLayer.CUTOUT;
 	}

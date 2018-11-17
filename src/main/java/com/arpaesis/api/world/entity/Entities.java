@@ -215,7 +215,7 @@ public class Entities
 				double distance = reach;
 				Vec3d renderPosition = AccessHandler.getMinecraft().getRenderViewEntity().getPositionEyes(partialTicks);
 				Vec3d lookVec = AccessHandler.getMinecraft().getRenderViewEntity().getLook(partialTicks);
-				Vec3d lookPos = renderPosition.addVector(lookVec.x * reach, lookVec.y * reach, lookVec.z * reach);
+				Vec3d lookPos = renderPosition.add(lookVec.x * reach, lookVec.y * reach, lookVec.z * reach);
 				RayTraceResult blockTrace = rayTraceBlocks(AccessHandler.getMinecraft().world, AccessHandler.getMinecraft().getRenderViewEntity().getPositionEyes(partialTicks), lookPos, false, true, true);
 
 				if (blockTrace != null)
@@ -324,7 +324,7 @@ public class Entities
 
 		if (lookVec != null)
 		{
-			posHit = pos.addVector(lookVec.x * reach, lookVec.y * reach, lookVec.z * reach);
+			posHit = pos.add(lookVec.x * reach, lookVec.y * reach, lookVec.z * reach);
 			List<Entity> entities = world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(pos.x, pos.y, pos.z, pos.x + 1F, pos.y + 1F, pos.z + 1F).expand(lookVec.x * reach, lookVec.y * reach, lookVec.z * reach).expand(1.0F, 1.0F, 1.0F));
 
 			for (Entity e : entities)
@@ -558,7 +558,8 @@ public class Entities
 							}
 						} else
 						{
-							movObjPos = new RayTraceResult(RayTraceResult.Type.MISS, pos, EnumFacing.getFront(side), newPos);
+							// TODO: Ensure this EnumFacing param is correct.
+							movObjPos = new RayTraceResult(RayTraceResult.Type.MISS, pos, EnumFacing.byIndex(side), newPos);
 						}
 					}
 				}
@@ -740,7 +741,7 @@ public class Entities
 
 						try
 						{
-							block.onEntityCollidedWithBlock(entity.world, pos, blockstate, entity);
+							block.onEntityCollision(entity.world, pos, blockstate, entity);
 						} catch (Throwable throwable)
 						{
 							System.out.println("Exception while handling entity collision with block.");
@@ -769,41 +770,6 @@ public class Entities
 		}
 
 		return false;
-	}
-
-	/*
-	 * TODO: Fix these public static void setMoveHelper(EntityLiving living,
-	 * EntityMoveHelper moveHelper) { MDX.access().setMoveHelper(living,
-	 * moveHelper); }
-	 * 
-	 * public static void setNavigator(EntityLiving living, PathNavigate navigator)
-	 * { MDX.access().setNavigator(living, navigator); }
-	 * 
-	 * public static void setLookHelper(EntityLiving living, EntityLookHelper
-	 * lookHelper) { MDX.access().setLookHelper(living, lookHelper); }
-	 * 
-	 * /**
-	 * 
-	 * @param render - The Render instance of the Entity to obtain a
-	 * ResourceLocation from.
-	 * 
-	 * @param entity - The Entity to obtain the ResourceLocation for.
-	 * 
-	 * @return The ResourceLocation of the Entity.
-	 *
-	 * @SideOnly(Side.CLIENT) public static ResourceLocation getEntityTexture(Render
-	 * render, Entity entity) { return MDX.access().getEntityTexture(render,
-	 * entity); }
-	 */
-
-	// FIXME this does not work any longer
-	/**
-	 * @deprecated This needs to be fixed. It returns null so do not use it for now.
-	 */
-	public static Class<? extends Entity> getRegisteredEntityClass(String entityId)
-	{
-		// return (Class<? extends Entity>) EntityList.NAME_TO_CLASS.get(entityId);
-		return null;
 	}
 
 	public static String getEntityRegistrationId(Entity entity)
@@ -912,7 +878,7 @@ public class Entities
 
 	public static boolean canPlaceEntityOnSide(World world, Block block, BlockPos pos, boolean skipBoundsCheck, int side, Entity entity, ItemStack stack)
 	{
-		return canPlaceEntityOnSide(world, block, pos, skipBoundsCheck, EnumFacing.getFront(side), entity, stack);
+		return canPlaceEntityOnSide(world, block, pos, skipBoundsCheck, EnumFacing.byIndex(side), entity, stack);
 	}
 
 	public static boolean canPlaceEntityOnSide(World world, Block block, BlockPos pos, boolean skipBoundsCheck, EnumFacing side, Entity entity, ItemStack stack)

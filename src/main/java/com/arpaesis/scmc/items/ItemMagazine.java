@@ -63,19 +63,19 @@ public class ItemMagazine extends SCItem implements IMetaRenderHandler
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack)
+	public String getTranslationKey(ItemStack stack)
 	{
 		for (int i = 0; i < BulletMagazineType.values().length; i++)
 		{
 			if (stack.getItemDamage() == i)
 			{
-				return getUnlocalizedName() + "." + BulletMagazineType.values()[i].getName();
+				return getTranslationKey() + "." + BulletMagazineType.values()[i].getName();
 			} else
 			{
 				continue;
 			}
 		}
-		return getUnlocalizedName() + "." + BulletMagazineType.C14.getName();
+		return getTranslationKey() + "." + BulletMagazineType.C14.getName();
 	}
 
 	@Override

@@ -42,7 +42,7 @@ public class BlockProtossFurnace extends BlockContainer
 	public BlockProtossFurnace()
 	{
 		super(Material.IRON, MapColor.GOLD);
-		this.setUnlocalizedName("protoss.furnace");
+		this.setTranslationKey("protoss.furnace");
 		this.setRegistryName("protoss.furnace");
 		this.setCreativeTab(SCCreativeTabs.PROTOSS);
 		setSoundType(SoundType.METAL);
@@ -163,7 +163,7 @@ public class BlockProtossFurnace extends BlockContainer
 	@Override
 	public IBlockState getStateFromMeta(int meta)
 	{
-		EnumFacing face = EnumFacing.getFront(meta / 2 + 2);
+		EnumFacing face = EnumFacing.byIndex(meta / 2 + 2);
 
 		if (face.getAxis() == EnumFacing.Axis.Y)
 			face = EnumFacing.NORTH;

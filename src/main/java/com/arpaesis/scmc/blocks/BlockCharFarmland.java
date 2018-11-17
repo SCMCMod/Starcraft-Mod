@@ -34,12 +34,12 @@ public class BlockCharFarmland extends BlockFarmland
 
 	public BlockCharFarmland()
 	{
-		setUnlocalizedName("char.farmland");
-		setRegistryName("char.farmland");
-		setSoundType(SoundType.GROUND);
-		setHardness(0.6f);
-		setResistance(1);
-		setCreativeTab(null);
+		this.setTranslationKey("char.farmland");
+		this.setRegistryName("char.farmland");
+		this.setSoundType(SoundType.GROUND);
+		this.setHardness(0.6f);
+		this.setResistance(1);
+		this.setCreativeTab(null);
 		BlockHandler.registerFullBlock(this);
 	}
 

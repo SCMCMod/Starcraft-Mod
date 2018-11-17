@@ -21,7 +21,7 @@ public class SCTab extends CreativeTabs
 	}
 
 	@Override
-	public ItemStack getTabIconItem()
+	public ItemStack createIcon()
 	{
 		return null;
 	}

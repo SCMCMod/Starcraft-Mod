@@ -102,7 +102,7 @@ public class GasCollectorRecipes
 	{
 		for (Entry<IBlockState, ItemStack> entry : this.protossList.entrySet())
 		{
-			if (entry.getKey().getBlock().getUnlocalizedName().equalsIgnoreCase(state.getBlock().getUnlocalizedName()))
+			if (entry.getKey().getBlock().getTranslationKey().equalsIgnoreCase(state.getBlock().getTranslationKey()))
 			{
 				return entry.getValue();
 			}
@@ -121,7 +121,7 @@ public class GasCollectorRecipes
 	{
 		for (Entry<IBlockState, ItemStack> entry : this.terranList.entrySet())
 		{
-			if (entry.getKey().getBlock().getUnlocalizedName().equalsIgnoreCase(state.getBlock().getUnlocalizedName()))
+			if (entry.getKey().getBlock().getTranslationKey().equalsIgnoreCase(state.getBlock().getTranslationKey()))
 			{
 				return entry.getValue();
 			}
@@ -140,7 +140,7 @@ public class GasCollectorRecipes
 	{
 		for (Entry<IBlockState, ItemStack> entry : this.zergList.entrySet())
 		{
-			if (entry.getKey().getBlock().getUnlocalizedName().equalsIgnoreCase(state.getBlock().getUnlocalizedName()))
+			if (entry.getKey().getBlock().getTranslationKey().equalsIgnoreCase(state.getBlock().getTranslationKey()))
 			{
 				return entry.getValue();
 			}

@@ -39,19 +39,19 @@ public class ItemKhaydarinCrystal extends SCItem implements IMetaRenderHandler
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack stack)
+	public String getTranslationKey(ItemStack stack)
 	{
 		for (int i = 0; i < BlockKhaydarinCrystal.PylonCrystalType.values().length; i++)
 		{
 			if (stack.getItemDamage() == i)
 			{
-				return getUnlocalizedName() + "." + BlockKhaydarinCrystal.PylonCrystalType.values()[i].getName();
+				return getTranslationKey() + "." + BlockKhaydarinCrystal.PylonCrystalType.values()[i].getName();
 			} else
 			{
 				continue;
 			}
 		}
-		return getUnlocalizedName() + "." + PylonCrystalType.PURE.getName();
+		return getTranslationKey() + "." + PylonCrystalType.PURE.getName();
 	}
 
 	@Override

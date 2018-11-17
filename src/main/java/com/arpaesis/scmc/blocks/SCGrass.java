@@ -151,7 +151,7 @@ public class SCGrass extends SCBlock implements IBlockColor, IItemColor, IGrowab
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public BlockRenderLayer getBlockLayer()
+	public BlockRenderLayer getRenderLayer()
 	{
 		return BlockRenderLayer.CUTOUT_MIPPED;
 	}
