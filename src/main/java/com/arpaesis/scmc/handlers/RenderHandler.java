@@ -34,7 +34,6 @@ import com.arpaesis.scmc.client.model.entity.ModelTyrannozor;
 import com.arpaesis.scmc.client.model.entity.ModelTyrannozorDehaka;
 import com.arpaesis.scmc.client.model.entity.ModelUrsadon;
 import com.arpaesis.scmc.client.model.entity.ModelVoidProbe;
-import com.arpaesis.scmc.client.model.entity.ModelZealot;
 import com.arpaesis.scmc.client.model.entity.ModelZeratul;
 import com.arpaesis.scmc.client.model.entity.ModelZergling;
 import com.arpaesis.scmc.client.model.entity.ModelZerglingBoost;
@@ -172,6 +171,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -233,7 +233,7 @@ public class RenderHandler
 		registerFluid(BlockHandler.TAR);
 	}
 
-	public static void init(FMLInitializationEvent event)
+	public static void init(FMLPreInitializationEvent event)
 	{
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
 		{
@@ -253,7 +253,8 @@ public class RenderHandler
 
 	private static void registerEntityRenderers()
 	{
-		RenderingRegistry.registerEntityRenderingHandler(EntityZealot.class, new RenderZealot(Minecraft.getMinecraft().getRenderManager(), new ModelZealot(), 0.4f));
+		RenderingRegistry.registerEntityRenderingHandler(EntityZealot.class, RenderZealot.FACTORY);
+		
 		RenderingRegistry.registerEntityRenderingHandler(EntityProbe.class, new RenderProbe(Minecraft.getMinecraft().getRenderManager(), new ModelProbe(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityProtossReaver.class, new RenderProtossReaver(Minecraft.getMinecraft().getRenderManager(), new ModelProtossReaver(), 0.4f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityScarab.class, new RenderScarab(Minecraft.getMinecraft().getRenderManager(), new ModelScarab(), 0.4f));
