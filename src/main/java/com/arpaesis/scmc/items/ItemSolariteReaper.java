@@ -9,8 +9,9 @@ public class ItemSolariteReaper extends SCRangedMeleeWeapon
 	public ItemSolariteReaper()
 	{
 		super("protoss.weapon.solaritereaper", WeaponMaterials.SOLARITEREAPER_MATERIAL, 8, 5);
-		setCreativeTab(SCCreativeTabs.PROTOSS);
-		setFull3D();
-		setMaxStackSize(1);
+		this.setCreativeTab(SCCreativeTabs.PROTOSS);
+		this.setFull3D();
+		this.setMaxStackSize(1);
+		this.setMaxDamage(300);
 	}
 }
