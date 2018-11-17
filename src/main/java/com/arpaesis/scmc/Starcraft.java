@@ -64,7 +64,7 @@ public class Starcraft
 	public static final String MOD_ID = "starcraft";
 	public static final String RL_BASE = MOD_ID + ":";
 	public static final String UN_BASE = MOD_ID + "_";
-	public static final String VERSION = "2.1.810";
+	public static final String VERSION = "${version}";
 
 	/** The mod's instance. Used for GUI stuff. */
 	@Instance(MOD_ID)
