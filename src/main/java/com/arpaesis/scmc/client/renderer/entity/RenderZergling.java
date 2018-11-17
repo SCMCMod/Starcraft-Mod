@@ -7,7 +7,6 @@ import com.arpaesis.scmc.entity.living.EntityZergling;
 import com.arpaesis.scmc.enums.MetaHandler;
 import com.arpaesis.scmc.handlers.ItemHandler;
 
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -21,16 +20,12 @@ public class RenderZergling extends RenderLiving<EntityZergling> implements Laye
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.ZERGLING_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.ZERGLING_OVERLAY);
 	private static final ResourceLocation STATICGLOW = new ResourceLocation(Resources.ZERGLING_GLOW_STATIC);
-	private final RenderZergling RENDERER;
-	protected ModelZergling model;
 
 	protected ItemStack icon = new ItemStack(ItemHandler.ICON, 1, MetaHandler.IconType.ZERG.getID());
 
-	public RenderZergling(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
+	public RenderZergling(RenderManager renderManagerIn)
 	{
-		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		model = ((ModelZergling) mainModel);
-		this.RENDERER = this;
+		super(renderManagerIn, new ModelZergling(), 0.4f);
 		this.addLayer(this);
 	}
 
@@ -64,8 +59,8 @@ public class RenderZergling extends RenderLiving<EntityZergling> implements Laye
 	@Override
 	public void doRenderLayer(EntityZergling entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
 	{
-		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-		ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
+		ColoredLayerRender.render(this, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		ColoredLayerRender.renderStaticGlow(this, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
 	}
 
 	@Override

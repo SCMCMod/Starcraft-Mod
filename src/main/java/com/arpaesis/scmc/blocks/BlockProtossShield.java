@@ -39,7 +39,7 @@ public class BlockProtossShield extends SCBlock
 	{
 		return BlockRenderLayer.TRANSLUCENT;
 	}
-	
+
 	@Override
 	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess world, BlockPos pos)
 	{
@@ -51,7 +51,7 @@ public class BlockProtossShield extends SCBlock
 	{
 		return false;
 	}
-	
+
 	@Override
 	public void onExplosionDestroy(World worldIn, BlockPos pos, Explosion explosionIn)
 	{

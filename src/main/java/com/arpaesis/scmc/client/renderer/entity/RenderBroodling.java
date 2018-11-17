@@ -5,7 +5,6 @@ import com.arpaesis.scmc.client.renderer.ColoredLayerRender;
 import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityBroodling;
 
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
@@ -15,14 +14,10 @@ public class RenderBroodling extends RenderLiving<EntityBroodling> implements La
 {
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.BROODLING_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.BROODLING_OVERLAY);
-	private final RenderBroodling RENDERER;
-	protected ModelBroodling model;
 
-	public RenderBroodling(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
+	public RenderBroodling(RenderManager renderManagerIn)
 	{
-		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		model = ((ModelBroodling) mainModel);
-		this.RENDERER = this;
+		super(renderManagerIn, new ModelBroodling(), 0.4f);
 		this.addLayer(this);
 	}
 
@@ -46,7 +41,7 @@ public class RenderBroodling extends RenderLiving<EntityBroodling> implements La
 	@Override
 	public void doRenderLayer(EntityBroodling entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
 	{
-		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		ColoredLayerRender.render(this, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 	}
 
 	@Override

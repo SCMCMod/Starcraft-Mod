@@ -558,7 +558,7 @@ public class Entities
 							}
 						} else
 						{
-							//TODO: Ensure this EnumFacing param is correct.
+							// TODO: Ensure this EnumFacing param is correct.
 							movObjPos = new RayTraceResult(RayTraceResult.Type.MISS, pos, EnumFacing.byIndex(side), newPos);
 						}
 					}

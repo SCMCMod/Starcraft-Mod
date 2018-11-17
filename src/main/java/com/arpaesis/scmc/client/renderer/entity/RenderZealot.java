@@ -23,10 +23,9 @@ public class RenderZealot extends RenderLiving<EntityZealot> implements LayerRen
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.ZEALOT_OVERLAY);
 	private static final ResourceLocation STATICGLOW = new ResourceLocation(Resources.ZEALOT_GLOW_STATIC);
 	private static final ResourceLocation DYNAMICGLOW = new ResourceLocation(Resources.ZEALOT_GLOW_DYNAMIC);
-	
-	public static final Factory FACTORY = new Factory();
-
 	protected ItemStack icon = new ItemStack(ItemHandler.ICON, 1, MetaHandler.IconType.PROTOSS.getID());
+
+	public static final Factory FACTORY = new Factory();
 
 	public RenderZealot(RenderManager renderManagerIn)
 	{

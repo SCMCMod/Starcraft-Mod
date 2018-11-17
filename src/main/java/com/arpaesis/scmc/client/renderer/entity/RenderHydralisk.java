@@ -5,7 +5,6 @@ import com.arpaesis.scmc.client.renderer.ColoredLayerRender;
 import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityHydralisk;
 
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -18,15 +17,10 @@ public class RenderHydralisk extends RenderLiving<EntityHydralisk> implements La
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.HYDRALISK_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.HYDRALISK_OVERLAY);
 	private static final ResourceLocation STATICGLOW = new ResourceLocation(Resources.HYDRALISK_GLOW_STATIC);
-	private final RenderHydralisk RENDERER;
 
-	protected ModelHydralisk model;
-
-	public RenderHydralisk(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
+	public RenderHydralisk(RenderManager renderManagerIn)
 	{
-		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		model = ((ModelHydralisk) mainModel);
-		this.RENDERER = this;
+		super(renderManagerIn, new ModelHydralisk(), 0.7f);
 		this.addLayer(this);
 	}
 
@@ -61,8 +55,8 @@ public class RenderHydralisk extends RenderLiving<EntityHydralisk> implements La
 	@Override
 	public void doRenderLayer(EntityHydralisk entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
 	{
-		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-		ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
+		ColoredLayerRender.render(this, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		ColoredLayerRender.renderStaticGlow(this, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
 	}
 
 	@Override

@@ -57,8 +57,9 @@ public class BlockZerusGlowPod extends BlockContainer
 	@Override
 	public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, Entity entityIn, boolean isActualState)
 	{
-		//TODO: Placing this block crashes the game, due to this line.
-		//state.addCollisionBoxToList(worldIn, pos, entityBox, collidingBoxes, entityIn, isActualState);
+		// TODO: Placing this block crashes the game, due to this line.
+		// state.addCollisionBoxToList(worldIn, pos, entityBox, collidingBoxes,
+		// entityIn, isActualState);
 	}
 
 	@Override

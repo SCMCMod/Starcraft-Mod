@@ -5,7 +5,6 @@ import com.arpaesis.scmc.client.renderer.ColoredLayerRender;
 import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityTastelope;
 
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
@@ -16,27 +15,23 @@ public class RenderTastelope extends RenderLiving<EntityTastelope> implements La
 
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.TASTELOPE_BASE);
 	private static final ResourceLocation STATICGLOW = new ResourceLocation(Resources.TASTELOPE_GLOW_STATIC);
-	private final RenderTastelope RENDERER;
-	protected ModelLope model;
 
-	public RenderTastelope(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
+	public RenderTastelope(RenderManager renderManagerIn)
 	{
-		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		model = ((ModelLope) mainModel);
-		this.RENDERER = this;
+		super(renderManagerIn, new ModelLope(), 0.4f);
 		this.addLayer(this);
 	}
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityTastelope entity)
 	{
-		return new ResourceLocation(Resources.TASTELOPE_BASE);
+		return BASE;
 	}
 
 	@Override
 	public void doRenderLayer(EntityTastelope entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
 	{
-		ColoredLayerRender.renderStaticGlow(this.RENDERER, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
+		ColoredLayerRender.renderStaticGlow(this, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
 	}
 
 	@Override

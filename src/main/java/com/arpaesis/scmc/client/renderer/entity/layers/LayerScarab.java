@@ -16,9 +16,9 @@ public class LayerScarab<T extends EntityScarab> implements LayerRenderer<T>
 {
 
 	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.SCARAB);
-	private final RenderScarab RENDERER;
+	private final RenderScarab<?> RENDERER;
 
-	public LayerScarab(RenderScarab scarabRenderer)
+	public LayerScarab(RenderScarab<?> scarabRenderer)
 	{
 		this.RENDERER = scarabRenderer;
 	}

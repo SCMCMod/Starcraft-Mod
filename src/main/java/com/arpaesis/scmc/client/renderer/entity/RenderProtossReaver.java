@@ -5,7 +5,6 @@ import com.arpaesis.scmc.client.renderer.ColoredLayerRender;
 import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityProtossReaver;
 
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -17,14 +16,10 @@ public class RenderProtossReaver extends RenderLiving<EntityProtossReaver> imple
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.PREAVER_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.PREAVER_OVERLAY);
 	private static final ResourceLocation DYNAMICGLOW = new ResourceLocation(Resources.PREAVER_GLOW_DYNAMIC);
-	private final RenderProtossReaver RENDERER;
-	protected ModelProtossReaver model;
 
-	public RenderProtossReaver(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
+	public RenderProtossReaver(RenderManager renderManagerIn)
 	{
-		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		model = ((ModelProtossReaver) mainModel);
-		this.RENDERER = this;
+		super(renderManagerIn, new ModelProtossReaver(), 0.4f);
 		this.addLayer(this);
 	}
 
@@ -54,8 +49,8 @@ public class RenderProtossReaver extends RenderLiving<EntityProtossReaver> imple
 	@Override
 	public void doRenderLayer(EntityProtossReaver entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
 	{
-		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-		ColoredLayerRender.renderDynamicGlow(this.RENDERER, entitylivingbaseIn, DYNAMICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
+		ColoredLayerRender.render(this, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		ColoredLayerRender.renderDynamicGlow(this, entitylivingbaseIn, DYNAMICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
 	}
 
 	@Override

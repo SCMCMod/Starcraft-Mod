@@ -5,7 +5,6 @@ import com.arpaesis.scmc.client.renderer.ColoredLayerRender;
 import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityProbe;
 
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -18,15 +17,11 @@ public class RenderProbe extends RenderLiving<EntityProbe> implements LayerRende
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.PROBE_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.PROBE_OVERLAY);
 	private static final ResourceLocation DYNAMICGLOW = new ResourceLocation(Resources.PROBE_GLOW_DYNAMIC);
-	private final RenderProbe RENDERER;
-	protected ModelProbe model;
 
-	public RenderProbe(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
+	public RenderProbe(RenderManager renderManagerIn)
 	{
-		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		model = ((ModelProbe) mainModel);
+		super(renderManagerIn, new ModelProbe(), 0.4f);
 		this.addLayer(this);
-		this.RENDERER = this;
 	}
 
 	@Override
@@ -55,8 +50,8 @@ public class RenderProbe extends RenderLiving<EntityProbe> implements LayerRende
 	@Override
 	public void doRenderLayer(EntityProbe entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
 	{
-		ColoredLayerRender.render(this.RENDERER, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-		ColoredLayerRender.renderDynamicGlow(this.RENDERER, entitylivingbaseIn, DYNAMICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
+		ColoredLayerRender.render(this, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		ColoredLayerRender.renderDynamicGlow(this, entitylivingbaseIn, DYNAMICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
 	}
 
 	@Override

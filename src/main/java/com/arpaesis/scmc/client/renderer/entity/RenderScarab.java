@@ -5,7 +5,6 @@ import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.client.renderer.entity.layers.LayerScarab;
 import com.arpaesis.scmc.entity.living.EntityScarab;
 
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -14,13 +13,11 @@ import net.minecraft.util.ResourceLocation;
 public class RenderScarab<T> extends RenderLiving<EntityScarab>
 {
 	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.SCARAB);
-	protected ModelScarab model;
 
-	public RenderScarab(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
+	public RenderScarab(RenderManager renderManagerIn)
 	{
-		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		model = ((ModelScarab) mainModel);
-		addLayer(new LayerScarab(this));
+		super(renderManagerIn, new ModelScarab(), 0.4f);
+		this.addLayer(new LayerScarab(this));
 	}
 
 	@Override

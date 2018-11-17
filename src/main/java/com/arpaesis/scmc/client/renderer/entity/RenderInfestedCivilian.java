@@ -4,7 +4,6 @@ import com.arpaesis.scmc.client.model.entity.ModelInfestedCivilian;
 import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityInfestedCivilian;
 
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -13,12 +12,10 @@ import net.minecraft.util.ResourceLocation;
 public class RenderInfestedCivilian extends RenderLiving<EntityInfestedCivilian>
 {
 	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.INFESTED_CIVILIAN);
-	protected ModelInfestedCivilian model;
 
-	public RenderInfestedCivilian(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
+	public RenderInfestedCivilian(RenderManager renderManagerIn)
 	{
-		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		model = ((ModelInfestedCivilian) mainModel);
+		super(renderManagerIn, new ModelInfestedCivilian(), 0.4f);
 	}
 
 	@Override

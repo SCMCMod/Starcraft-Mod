@@ -107,7 +107,7 @@ public class Starcraft
 		{
 			logger.info("Pre Initialized");
 		}
-		
+
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
 		{
 			RenderHandler.init(event);

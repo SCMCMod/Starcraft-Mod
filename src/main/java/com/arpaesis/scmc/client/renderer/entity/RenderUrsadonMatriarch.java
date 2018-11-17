@@ -4,7 +4,6 @@ import com.arpaesis.scmc.client.model.entity.ModelUrsadon;
 import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityUrsadonMatriarch;
 
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -14,12 +13,10 @@ public class RenderUrsadonMatriarch<T> extends RenderLiving<EntityUrsadonMatriar
 {
 
 	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.URSADON_MATRIARCH_BASE);
-	protected ModelUrsadon model;
 
-	public RenderUrsadonMatriarch(RenderManager renderManagerIn, ModelBase modelBaseIn, float shadowSizeIn)
+	public RenderUrsadonMatriarch(RenderManager renderManagerIn)
 	{
-		super(renderManagerIn, modelBaseIn, shadowSizeIn);
-		this.model = ((ModelUrsadon) this.mainModel);
+		super(renderManagerIn, new ModelUrsadon(), 0.6f);
 	}
 
 	@Override

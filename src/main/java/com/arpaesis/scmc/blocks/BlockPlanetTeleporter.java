@@ -33,7 +33,7 @@ public class BlockPlanetTeleporter extends SCBlock implements ITileEntityProvide
 	{
 		return null;
 	}
-	
+
 	@Override
 	public BlockRenderLayer getRenderLayer()
 	{
