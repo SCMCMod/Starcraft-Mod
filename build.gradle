@@ -13,7 +13,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 def currentJvm = org.gradle.internal.jvm.Jvm.current()
 
 version = "2.1.810"
-group = "com.hypeirochus.scmc" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group = "com.arpaesis.scmc" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "starcraft"
 
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.

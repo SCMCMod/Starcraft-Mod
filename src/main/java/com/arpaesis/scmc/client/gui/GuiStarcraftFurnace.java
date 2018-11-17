@@ -79,7 +79,7 @@ public class GuiStarcraftFurnace extends GuiContainer
 		this.drawTexturedModalRect(this.guiLeft, this.guiTop, 0, 0, this.xSize, this.ySize);
 
 		if (this.sync == 0)
-			NetworkHandler.sendToServer(new MessageGetFurnaceData(this.pos, "com.hypeirochus.scmc.client.gui.GuiStarcraftFurnace", "burnTime", "cookTime"));
+			NetworkHandler.sendToServer(new MessageGetFurnaceData(this.pos, "com.arpaesis.scmc.client.gui.GuiStarcraftFurnace", "burnTime", "cookTime"));
 		this.sync++;
 		this.sync %= 10;
 

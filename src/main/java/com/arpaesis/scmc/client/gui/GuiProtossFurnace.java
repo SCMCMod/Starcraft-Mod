@@ -68,7 +68,7 @@ public class GuiProtossFurnace extends GuiContainer
 		TextureUtils.bindTexture(TEXTURE);
 		this.drawTexturedModalRect(this.guiLeft, this.guiTop, 0, 0, this.xSize, this.ySize);
 
-		NetworkHandler.sendToServer(new MessageGetFurnaceData(this.pos, "com.hypeirochus.scmc.client.gui.GuiProtossFurnace", "burnTime", "cookTime"));
+		NetworkHandler.sendToServer(new MessageGetFurnaceData(this.pos, "com.arpaesis.scmc.client.gui.GuiProtossFurnace", "burnTime", "cookTime"));
 
 		this.drawTexturedModalRect(this.guiLeft + 80, this.guiTop + 35, 176, 0, (int) (cookTime * 24.0F), 17);
 	}

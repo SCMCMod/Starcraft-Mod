@@ -57,7 +57,7 @@ import net.minecraftforge.fml.relauncher.Side;
  * @author Hypeirochus
  * @author Ocelot
  */
-@Mod(modid = Starcraft.MOD_ID, acceptedMinecraftVersions = "[1.12,1.12.2]", useMetadata = true, guiFactory = "com.hypeirochus.scmc.config.StarcraftConfigGuiFactory")
+@Mod(modid = Starcraft.MOD_ID, acceptedMinecraftVersions = "[1.12,1.12.2]", useMetadata = true, guiFactory = "com.arpaesis.scmc.config.StarcraftConfigGuiFactory")
 public class Starcraft
 {
 
@@ -71,7 +71,7 @@ public class Starcraft
 	public static Starcraft instance;
 
 	/** The common proxy instance */
-	@SidedProxy(clientSide = "com.hypeirochus.scmc.proxy.ClientProxy", serverSide = "com.hypeirochus.scmc.proxy.ServerProxy")
+	@SidedProxy(clientSide = "com.arpaesis.scmc.proxy.ClientProxy", serverSide = "com.arpaesis.scmc.proxy.ServerProxy")
 	public static CommonProxy proxy;
 
 	private static Logger logger;
