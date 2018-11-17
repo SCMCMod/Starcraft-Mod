@@ -8,11 +8,13 @@ import com.arpaesis.scmc.enums.MetaHandler;
 import com.arpaesis.scmc.handlers.ItemHandler;
 
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderZergling extends RenderLiving<EntityZergling> implements LayerRenderer<EntityZergling>
 {
@@ -20,6 +22,8 @@ public class RenderZergling extends RenderLiving<EntityZergling> implements Laye
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.ZERGLING_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.ZERGLING_OVERLAY);
 	private static final ResourceLocation STATICGLOW = new ResourceLocation(Resources.ZERGLING_GLOW_STATIC);
+
+	public static final Factory FACTORY = new Factory();
 
 	protected ItemStack icon = new ItemStack(ItemHandler.ICON, 1, MetaHandler.IconType.ZERG.getID());
 
@@ -67,5 +71,16 @@ public class RenderZergling extends RenderLiving<EntityZergling> implements Laye
 	public boolean shouldCombineTextures()
 	{
 		return false;
+	}
+
+	public static class Factory implements IRenderFactory<EntityZergling>
+	{
+
+		@Override
+		public Render<? super EntityZergling> createRenderFor(RenderManager manager)
+		{
+			return new RenderZergling(manager);
+		}
+
 	}
 }

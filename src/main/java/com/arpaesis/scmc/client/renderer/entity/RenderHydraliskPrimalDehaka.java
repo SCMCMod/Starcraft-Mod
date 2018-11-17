@@ -6,10 +6,12 @@ import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityHydraliskPrimalDehaka;
 
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderHydraliskPrimalDehaka extends RenderLiving<EntityHydraliskPrimalDehaka> implements LayerRenderer<EntityHydraliskPrimalDehaka>
 {
@@ -17,6 +19,8 @@ public class RenderHydraliskPrimalDehaka extends RenderLiving<EntityHydraliskPri
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.HYDRALISKPRIMALDEHAKA_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.HYDRALISK_OVERLAY);
 	private static final ResourceLocation STATICGLOW = new ResourceLocation(Resources.HYDRALISKPRIMALDEHAKA_GLOW_STATIC);
+
+	public static final Factory FACTORY = new Factory();
 
 	public RenderHydraliskPrimalDehaka(RenderManager renderManagerIn)
 	{
@@ -58,5 +62,16 @@ public class RenderHydraliskPrimalDehaka extends RenderLiving<EntityHydraliskPri
 	public boolean shouldCombineTextures()
 	{
 		return true;
+	}
+
+	public static class Factory implements IRenderFactory<EntityHydraliskPrimalDehaka>
+	{
+
+		@Override
+		public Render<? super EntityHydraliskPrimalDehaka> createRenderFor(RenderManager manager)
+		{
+			return new RenderHydraliskPrimalDehaka(manager);
+		}
+
 	}
 }

@@ -6,10 +6,12 @@ import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityZerglingPrimalDehaka;
 
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderZerglingPrimalDehaka extends RenderLiving<EntityZerglingPrimalDehaka> implements LayerRenderer<EntityZerglingPrimalDehaka>
 {
@@ -17,6 +19,8 @@ public class RenderZerglingPrimalDehaka extends RenderLiving<EntityZerglingPrima
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.ZERGLINGPRIMALDEHAKA_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.ZERGLINGPRIMALDEHAKA_OVERLAY);
 	private static final ResourceLocation STATICGLOW = new ResourceLocation(Resources.ZERGLINGPRIMALDEHAKA_GLOW_STATIC);
+
+	public static final Factory FACTORY = new Factory();
 
 	public RenderZerglingPrimalDehaka(RenderManager renderManagerIn)
 	{
@@ -58,5 +62,16 @@ public class RenderZerglingPrimalDehaka extends RenderLiving<EntityZerglingPrima
 	public boolean shouldCombineTextures()
 	{
 		return true;
+	}
+
+	public static class Factory implements IRenderFactory<EntityZerglingPrimalDehaka>
+	{
+
+		@Override
+		public Render<? super EntityZerglingPrimalDehaka> createRenderFor(RenderManager manager)
+		{
+			return new RenderZerglingPrimalDehaka(manager);
+		}
+
 	}
 }

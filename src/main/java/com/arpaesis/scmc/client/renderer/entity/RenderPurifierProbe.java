@@ -6,10 +6,12 @@ import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityPurifierProbe;
 
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderPurifierProbe extends RenderLiving<EntityPurifierProbe> implements LayerRenderer<EntityPurifierProbe>
 {
@@ -17,6 +19,8 @@ public class RenderPurifierProbe extends RenderLiving<EntityPurifierProbe> imple
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.PURIFIERPROBE_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.PURIFIERPROBE_OVERLAY);
 	private static final ResourceLocation DYNAMICGLOW = new ResourceLocation(Resources.PURIFIERPROBE_GLOW_DYNAMIC);
+
+	public static final Factory FACTORY = new Factory();
 
 	public RenderPurifierProbe(RenderManager renderManagerIn)
 	{
@@ -59,5 +63,16 @@ public class RenderPurifierProbe extends RenderLiving<EntityPurifierProbe> imple
 	public boolean shouldCombineTextures()
 	{
 		return true;
+	}
+
+	public static class Factory implements IRenderFactory<EntityPurifierProbe>
+	{
+
+		@Override
+		public Render<? super EntityPurifierProbe> createRenderFor(RenderManager manager)
+		{
+			return new RenderPurifierProbe(manager);
+		}
+
 	}
 }

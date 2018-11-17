@@ -5,16 +5,20 @@ import com.arpaesis.scmc.client.renderer.ColoredLayerRender;
 import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityMutaliskBroodlord;
 
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderMutaliskBroodlord extends RenderLiving<EntityMutaliskBroodlord> implements LayerRenderer<EntityMutaliskBroodlord>
 {
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.MUTALISKBROODLORD_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.MUTALISKBROODLORD_OVERLAY);
 	private static final ResourceLocation STATICGLOW = new ResourceLocation(Resources.MUTALISK_GLOW_STATIC);
+
+	public static final Factory FACTORY = new Factory();
 
 	public RenderMutaliskBroodlord(RenderManager renderManagerIn)
 	{
@@ -55,5 +59,16 @@ public class RenderMutaliskBroodlord extends RenderLiving<EntityMutaliskBroodlor
 	public boolean shouldCombineTextures()
 	{
 		return true;
+	}
+
+	public static class Factory implements IRenderFactory<EntityMutaliskBroodlord>
+	{
+
+		@Override
+		public Render<? super EntityMutaliskBroodlord> createRenderFor(RenderManager manager)
+		{
+			return new RenderMutaliskBroodlord(manager);
+		}
+
 	}
 }

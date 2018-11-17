@@ -5,16 +5,20 @@ import com.arpaesis.scmc.client.renderer.ColoredLayerRender;
 import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityLarva;
 
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderLarva extends RenderLiving<EntityLarva> implements LayerRenderer<EntityLarva>
 {
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.LARVA_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.LARVA_OVERLAY);
 	private static final ResourceLocation STATICGLOW = new ResourceLocation(Resources.LARVA_GLOW_STATIC);
+
+	public static final Factory FACTORY = new Factory();
 
 	public RenderLarva(RenderManager renderManagerIn)
 	{
@@ -50,5 +54,16 @@ public class RenderLarva extends RenderLiving<EntityLarva> implements LayerRende
 	public boolean shouldCombineTextures()
 	{
 		return true;
+	}
+
+	public static class Factory implements IRenderFactory<EntityLarva>
+	{
+
+		@Override
+		public Render<? super EntityLarva> createRenderFor(RenderManager manager)
+		{
+			return new RenderLarva(manager);
+		}
+
 	}
 }

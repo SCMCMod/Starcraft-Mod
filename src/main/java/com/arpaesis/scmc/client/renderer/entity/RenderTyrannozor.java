@@ -6,10 +6,12 @@ import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityTyrannozor;
 
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderTyrannozor extends RenderLiving<EntityTyrannozor> implements LayerRenderer<EntityTyrannozor>
 {
@@ -17,6 +19,8 @@ public class RenderTyrannozor extends RenderLiving<EntityTyrannozor> implements 
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.TYRANNOZOR_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.TYRANNOZOR_OVERLAY);
 	private static final ResourceLocation DYNAMICGLOW = new ResourceLocation(Resources.TYRANNOZOR_GLOW_DYNAMIC);
+
+	public static final Factory FACTORY = new Factory();
 
 	public RenderTyrannozor(RenderManager renderManagerIn)
 	{
@@ -54,5 +58,16 @@ public class RenderTyrannozor extends RenderLiving<EntityTyrannozor> implements 
 	public boolean shouldCombineTextures()
 	{
 		return true;
+	}
+
+	public static class Factory implements IRenderFactory<EntityTyrannozor>
+	{
+
+		@Override
+		public Render<? super EntityTyrannozor> createRenderFor(RenderManager manager)
+		{
+			return new RenderTyrannozor(manager);
+		}
+
 	}
 }

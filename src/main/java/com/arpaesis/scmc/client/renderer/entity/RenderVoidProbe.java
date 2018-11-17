@@ -6,10 +6,12 @@ import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityVoidProbe;
 
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderVoidProbe extends RenderLiving<EntityVoidProbe> implements LayerRenderer<EntityVoidProbe>
 {
@@ -17,6 +19,8 @@ public class RenderVoidProbe extends RenderLiving<EntityVoidProbe> implements La
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.VOID_PROBE_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.VOID_PROBE_OVERLAY);
 	private static final ResourceLocation DYNAMICGLOW = new ResourceLocation(Resources.VOID_PROBE_GLOW_DYNAMIC);
+
+	public static final Factory FACTORY = new Factory();
 
 	public RenderVoidProbe(RenderManager renderManagerIn)
 	{
@@ -59,5 +63,16 @@ public class RenderVoidProbe extends RenderLiving<EntityVoidProbe> implements La
 	public boolean shouldCombineTextures()
 	{
 		return true;
+	}
+
+	public static class Factory implements IRenderFactory<EntityVoidProbe>
+	{
+
+		@Override
+		public Render<? super EntityVoidProbe> createRenderFor(RenderManager manager)
+		{
+			return new RenderVoidProbe(manager);
+		}
+
 	}
 }

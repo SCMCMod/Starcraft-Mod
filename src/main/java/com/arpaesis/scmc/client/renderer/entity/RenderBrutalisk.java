@@ -6,15 +6,19 @@ import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityBrutalisk;
 
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderBrutalisk extends RenderLiving<EntityBrutalisk> implements LayerRenderer<EntityBrutalisk>
 {
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.BRUTALISK_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.BRUTALISK_OVERLAY);
+
+	public static final Factory FACTORY = new Factory();
 
 	public RenderBrutalisk(RenderManager renderManagerIn)
 	{
@@ -60,5 +64,16 @@ public class RenderBrutalisk extends RenderLiving<EntityBrutalisk> implements La
 		{
 			GlStateManager.translate(0, 2.55F, 0);
 		}
+	}
+
+	public static class Factory implements IRenderFactory<EntityBrutalisk>
+	{
+
+		@Override
+		public Render<? super EntityBrutalisk> createRenderFor(RenderManager manager)
+		{
+			return new RenderBrutalisk(manager);
+		}
+
 	}
 }

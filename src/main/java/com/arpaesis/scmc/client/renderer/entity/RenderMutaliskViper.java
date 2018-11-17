@@ -5,16 +5,20 @@ import com.arpaesis.scmc.client.renderer.ColoredLayerRender;
 import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityMutaliskViper;
 
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderMutaliskViper extends RenderLiving<EntityMutaliskViper> implements LayerRenderer<EntityMutaliskViper>
 {
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.MUTALISKVIPER_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.MUTALISKVIPER_OVERLAY);
 	private static final ResourceLocation STATICGLOW = new ResourceLocation(Resources.MUTALISK_GLOW_STATIC);
+
+	public static final Factory FACTORY = new Factory();
 
 	public RenderMutaliskViper(RenderManager renderManagerIn)
 	{
@@ -55,5 +59,16 @@ public class RenderMutaliskViper extends RenderLiving<EntityMutaliskViper> imple
 	public boolean shouldCombineTextures()
 	{
 		return true;
+	}
+
+	public static class Factory implements IRenderFactory<EntityMutaliskViper>
+	{
+
+		@Override
+		public Render<? super EntityMutaliskViper> createRenderFor(RenderManager manager)
+		{
+			return new RenderMutaliskViper(manager);
+		}
+
 	}
 }

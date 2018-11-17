@@ -6,10 +6,12 @@ import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityHydralisk;
 
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderHydralisk extends RenderLiving<EntityHydralisk> implements LayerRenderer<EntityHydralisk>
 {
@@ -17,6 +19,8 @@ public class RenderHydralisk extends RenderLiving<EntityHydralisk> implements La
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.HYDRALISK_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.HYDRALISK_OVERLAY);
 	private static final ResourceLocation STATICGLOW = new ResourceLocation(Resources.HYDRALISK_GLOW_STATIC);
+
+	public static final Factory FACTORY = new Factory();
 
 	public RenderHydralisk(RenderManager renderManagerIn)
 	{
@@ -63,5 +67,16 @@ public class RenderHydralisk extends RenderLiving<EntityHydralisk> implements La
 	public boolean shouldCombineTextures()
 	{
 		return true;
+	}
+
+	public static class Factory implements IRenderFactory<EntityHydralisk>
+	{
+
+		@Override
+		public Render<? super EntityHydralisk> createRenderFor(RenderManager manager)
+		{
+			return new RenderHydralisk(manager);
+		}
+
 	}
 }

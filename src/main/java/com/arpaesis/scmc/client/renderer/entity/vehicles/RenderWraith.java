@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -17,6 +18,8 @@ public class RenderWraith extends Render<EntityWraith>
 {
 	/** instance of ModelWraith for rendering */
 	protected ModelBase modelWraith = new ModelWraith();
+
+	public static final Factory FACTORY = new Factory();
 
 	// TODO: make this NBT based for the wraith, to make phases of the cloaking
 	private float mod = 1.0F;
@@ -114,5 +117,16 @@ public class RenderWraith extends Render<EntityWraith>
 		this.setupRotation(p_188300_1_, p_188300_8_, p_188300_9_);
 		this.bindEntityTexture(p_188300_1_);
 		GlStateManager.popMatrix();
+	}
+
+	public static class Factory implements IRenderFactory<EntityWraith>
+	{
+
+		@Override
+		public Render<? super EntityWraith> createRenderFor(RenderManager manager)
+		{
+			return new RenderWraith(manager);
+		}
+
 	}
 }

@@ -6,10 +6,12 @@ import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityBrakk;
 
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderBrakk extends RenderLiving<EntityBrakk> implements LayerRenderer<EntityBrakk>
 {
@@ -17,6 +19,8 @@ public class RenderBrakk extends RenderLiving<EntityBrakk> implements LayerRende
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.BRAKK_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.BRAKK_OVERLAY);
 	private static final ResourceLocation DYNAMICGLOW = new ResourceLocation(Resources.BRAKK_GLOW_DYNAMIC);
+
+	public static final Factory FACTORY = new Factory();
 
 	public RenderBrakk(RenderManager renderManagerIn)
 	{
@@ -54,5 +58,16 @@ public class RenderBrakk extends RenderLiving<EntityBrakk> implements LayerRende
 	public boolean shouldCombineTextures()
 	{
 		return true;
+	}
+
+	public static class Factory implements IRenderFactory<EntityBrakk>
+	{
+
+		@Override
+		public Render<? super EntityBrakk> createRenderFor(RenderManager manager)
+		{
+			return new RenderBrakk(manager);
+		}
+
 	}
 }

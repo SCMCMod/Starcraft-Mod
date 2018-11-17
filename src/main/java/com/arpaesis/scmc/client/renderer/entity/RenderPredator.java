@@ -6,10 +6,12 @@ import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityPredator;
 
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderPredator extends RenderLiving<EntityPredator> implements LayerRenderer<EntityPredator>
 {
@@ -18,6 +20,8 @@ public class RenderPredator extends RenderLiving<EntityPredator> implements Laye
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.PREDATOR_OVERLAY);
 	private static final ResourceLocation STATICGLOW = new ResourceLocation(Resources.PREDATOR_GLOW_STATIC);
 	private static final ResourceLocation DYNAMICGLOW = new ResourceLocation(Resources.PREDATOR_GLOW_DYNAMIC);
+
+	public static final Factory FACTORY = new Factory();
 
 	public RenderPredator(RenderManager renderManagerIn)
 	{
@@ -60,5 +64,16 @@ public class RenderPredator extends RenderLiving<EntityPredator> implements Laye
 	public boolean shouldCombineTextures()
 	{
 		return true;
+	}
+
+	public static class Factory implements IRenderFactory<EntityPredator>
+	{
+
+		@Override
+		public Render<? super EntityPredator> createRenderFor(RenderManager manager)
+		{
+			return new RenderPredator(manager);
+		}
+
 	}
 }

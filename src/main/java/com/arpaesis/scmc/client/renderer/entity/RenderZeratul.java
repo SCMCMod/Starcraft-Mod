@@ -6,16 +6,20 @@ import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityZeratul;
 
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderZeratul extends RenderLiving<EntityZeratul> implements LayerRenderer<EntityZeratul>
 {
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.ZERATUL_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.ZERATUL_OVERLAY);
 	private static final ResourceLocation STATICGLOW = new ResourceLocation(Resources.ZERATUL_GLOW_STATIC);
+
+	public static final Factory FACTORY = new Factory();
 
 	public RenderZeratul(RenderManager renderManagerIn)
 	{
@@ -57,5 +61,16 @@ public class RenderZeratul extends RenderLiving<EntityZeratul> implements LayerR
 	public boolean shouldCombineTextures()
 	{
 		return true;
+	}
+
+	public static class Factory implements IRenderFactory<EntityZeratul>
+	{
+
+		@Override
+		public Render<? super EntityZeratul> createRenderFor(RenderManager manager)
+		{
+			return new RenderZeratul(manager);
+		}
+
 	}
 }

@@ -5,16 +5,20 @@ import com.arpaesis.scmc.client.renderer.ColoredLayerRender;
 import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityMutaliskPrimalDehaka;
 
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderMutaliskPrimalDehaka extends RenderLiving<EntityMutaliskPrimalDehaka> implements LayerRenderer<EntityMutaliskPrimalDehaka>
 {
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.MUTALISKPRIMALDEHAKA_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.MUTALISKPRIMALDEHAKA_OVERLAY);
 	private static final ResourceLocation STATICGLOW = new ResourceLocation(Resources.MUTALISKPRIMALDEHAKA_GLOW_STATIC);
+
+	public static final Factory FACTORY = new Factory();
 
 	public RenderMutaliskPrimalDehaka(RenderManager renderManagerIn)
 	{
@@ -55,5 +59,16 @@ public class RenderMutaliskPrimalDehaka extends RenderLiving<EntityMutaliskPrima
 	public boolean shouldCombineTextures()
 	{
 		return true;
+	}
+
+	public static class Factory implements IRenderFactory<EntityMutaliskPrimalDehaka>
+	{
+
+		@Override
+		public Render<? super EntityMutaliskPrimalDehaka> createRenderFor(RenderManager manager)
+		{
+			return new RenderMutaliskPrimalDehaka(manager);
+		}
+
 	}
 }

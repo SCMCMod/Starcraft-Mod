@@ -6,10 +6,12 @@ import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityZerglingBoost;
 
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderZerglingBoost extends RenderLiving<EntityZerglingBoost> implements LayerRenderer<EntityZerglingBoost>
 {
@@ -17,6 +19,8 @@ public class RenderZerglingBoost extends RenderLiving<EntityZerglingBoost> imple
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.ZERGLINGBOOST_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.ZERGLING_OVERLAY);
 	private static final ResourceLocation STATICGLOW = new ResourceLocation(Resources.ZERGLING_GLOW_STATIC);
+
+	public static final Factory FACTORY = new Factory();
 
 	public RenderZerglingBoost(RenderManager renderManagerIn)
 	{
@@ -63,5 +67,16 @@ public class RenderZerglingBoost extends RenderLiving<EntityZerglingBoost> imple
 	public boolean shouldCombineTextures()
 	{
 		return true;
+	}
+
+	public static class Factory implements IRenderFactory<EntityZerglingBoost>
+	{
+
+		@Override
+		public Render<? super EntityZerglingBoost> createRenderFor(RenderManager manager)
+		{
+			return new RenderZerglingBoost(manager);
+		}
+
 	}
 }

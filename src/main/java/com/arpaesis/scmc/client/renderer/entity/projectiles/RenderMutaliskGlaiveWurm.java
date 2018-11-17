@@ -9,12 +9,15 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderMutaliskGlaiveWurm extends Render<EntityMutaliskGlaiveWurm>
 {
 
 	private ModelBase model = new ModelMutaliskGlaiveWurm();
 	int x = 0;
+
+	public static final Factory FACTORY = new Factory();
 
 	public RenderMutaliskGlaiveWurm(RenderManager renderManager)
 	{
@@ -52,5 +55,16 @@ public class RenderMutaliskGlaiveWurm extends Render<EntityMutaliskGlaiveWurm>
 	protected ResourceLocation getEntityTexture(EntityMutaliskGlaiveWurm entity)
 	{
 		return new ResourceLocation(Starcraft.RL_BASE + "textures/entity/mutaliskglaivewurm.png");
+	}
+
+	public static class Factory implements IRenderFactory<EntityMutaliskGlaiveWurm>
+	{
+
+		@Override
+		public Render<? super EntityMutaliskGlaiveWurm> createRenderFor(RenderManager manager)
+		{
+			return new RenderMutaliskGlaiveWurm(manager);
+		}
+
 	}
 }

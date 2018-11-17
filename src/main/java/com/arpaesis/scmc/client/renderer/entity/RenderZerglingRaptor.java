@@ -6,10 +6,12 @@ import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityZerglingRaptor;
 
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderZerglingRaptor extends RenderLiving<EntityZerglingRaptor> implements LayerRenderer<EntityZerglingRaptor>
 {
@@ -17,6 +19,8 @@ public class RenderZerglingRaptor extends RenderLiving<EntityZerglingRaptor> imp
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.ZERGLINGRAPTOR_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.ZERGLING_OVERLAY);
 	private static final ResourceLocation STATICGLOW = new ResourceLocation(Resources.ZERGLINGSWARMLING_GLOW_STATIC);
+
+	public static final Factory FACTORY = new Factory();
 
 	public RenderZerglingRaptor(RenderManager renderManagerIn)
 	{
@@ -63,5 +67,16 @@ public class RenderZerglingRaptor extends RenderLiving<EntityZerglingRaptor> imp
 	public boolean shouldCombineTextures()
 	{
 		return true;
+	}
+
+	public static class Factory implements IRenderFactory<EntityZerglingRaptor>
+	{
+
+		@Override
+		public Render<? super EntityZerglingRaptor> createRenderFor(RenderManager manager)
+		{
+			return new RenderZerglingRaptor(manager);
+		}
+
 	}
 }

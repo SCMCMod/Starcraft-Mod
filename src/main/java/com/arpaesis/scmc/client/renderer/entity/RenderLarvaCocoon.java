@@ -6,15 +6,19 @@ import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityLarvaCocoon;
 
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderLarvaCocoon extends RenderLiving<EntityLarvaCocoon> implements LayerRenderer<EntityLarvaCocoon>
 {
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.LARVA_COCOON_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.LARVA_COCOON_OVERLAY);
+
+	public static final Factory FACTORY = new Factory();
 
 	public RenderLarvaCocoon(RenderManager renderManagerIn)
 	{
@@ -55,5 +59,16 @@ public class RenderLarvaCocoon extends RenderLiving<EntityLarvaCocoon> implement
 	public boolean shouldCombineTextures()
 	{
 		return true;
+	}
+
+	public static class Factory implements IRenderFactory<EntityLarvaCocoon>
+	{
+
+		@Override
+		public Render<? super EntityLarvaCocoon> createRenderFor(RenderManager manager)
+		{
+			return new RenderLarvaCocoon(manager);
+		}
+
 	}
 }

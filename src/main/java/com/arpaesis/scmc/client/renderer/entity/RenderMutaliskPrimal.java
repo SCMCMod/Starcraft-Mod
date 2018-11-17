@@ -5,16 +5,20 @@ import com.arpaesis.scmc.client.renderer.ColoredLayerRender;
 import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityMutaliskPrimal;
 
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderMutaliskPrimal extends RenderLiving<EntityMutaliskPrimal> implements LayerRenderer<EntityMutaliskPrimal>
 {
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.MUTALISKPRIMAL_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.MUTALISKPRIMAL_OVERLAY);
 	private static final ResourceLocation STATICGLOW = new ResourceLocation(Resources.MUTALISK_GLOW_STATIC);
+
+	public static final Factory FACTORY = new Factory();
 
 	public RenderMutaliskPrimal(RenderManager renderManagerIn)
 	{
@@ -55,5 +59,16 @@ public class RenderMutaliskPrimal extends RenderLiving<EntityMutaliskPrimal> imp
 	public boolean shouldCombineTextures()
 	{
 		return true;
+	}
+
+	public static class Factory implements IRenderFactory<EntityMutaliskPrimal>
+	{
+
+		@Override
+		public Render<? super EntityMutaliskPrimal> createRenderFor(RenderManager manager)
+		{
+			return new RenderMutaliskPrimal(manager);
+		}
+
 	}
 }

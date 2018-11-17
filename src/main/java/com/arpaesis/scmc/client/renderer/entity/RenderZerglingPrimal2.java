@@ -6,10 +6,12 @@ import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityZerglingPrimal2;
 
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class RenderZerglingPrimal2 extends RenderLiving<EntityZerglingPrimal2> implements LayerRenderer<EntityZerglingPrimal2>
 {
@@ -17,6 +19,8 @@ public class RenderZerglingPrimal2 extends RenderLiving<EntityZerglingPrimal2> i
 	private static final ResourceLocation BASE = new ResourceLocation(Resources.ZERGLINGPRIMAL2_BASE);
 	private static final ResourceLocation OVERLAY = new ResourceLocation(Resources.ZERGLINGPRIMAL2_OVERLAY);
 	private static final ResourceLocation DYNAMICGLOW = new ResourceLocation(Resources.ZERGLINGPRIMAL_GLOW_DYNAMIC);
+
+	public static final Factory FACTORY = new Factory();
 
 	public RenderZerglingPrimal2(RenderManager renderManagerIn)
 	{
@@ -58,5 +62,16 @@ public class RenderZerglingPrimal2 extends RenderLiving<EntityZerglingPrimal2> i
 	public boolean shouldCombineTextures()
 	{
 		return true;
+	}
+
+	public static class Factory implements IRenderFactory<EntityZerglingPrimal2>
+	{
+
+		@Override
+		public Render<? super EntityZerglingPrimal2> createRenderFor(RenderManager manager)
+		{
+			return new RenderZerglingPrimal2(manager);
+		}
+
 	}
 }

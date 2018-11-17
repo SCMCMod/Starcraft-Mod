@@ -5,14 +5,18 @@ import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.entity.living.EntityUrsadonMatriarch;
 
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 
-public class RenderUrsadonMatriarch<T> extends RenderLiving<EntityUrsadonMatriarch>
+public class RenderUrsadonMatriarch extends RenderLiving<EntityUrsadonMatriarch>
 {
 
 	private static final ResourceLocation TEXTURE = new ResourceLocation(Resources.URSADON_MATRIARCH_BASE);
+
+	public static final Factory FACTORY = new Factory();
 
 	public RenderUrsadonMatriarch(RenderManager renderManagerIn)
 	{
@@ -36,5 +40,16 @@ public class RenderUrsadonMatriarch<T> extends RenderLiving<EntityUrsadonMatriar
 	{
 		GlStateManager.scale(2.0F, 2.0F, 2.0F);
 		super.preRenderCallback(entitylivingbaseIn, partialTickTime);
+	}
+
+	public static class Factory implements IRenderFactory<EntityUrsadonMatriarch>
+	{
+
+		@Override
+		public Render<? super EntityUrsadonMatriarch> createRenderFor(RenderManager manager)
+		{
+			return new RenderUrsadonMatriarch(manager);
+		}
+
 	}
 }
