@@ -18,7 +18,6 @@ import com.arpaesis.scmc.events.SCEventHandler;
 import com.arpaesis.scmc.handlers.AccessHandler;
 import com.arpaesis.scmc.handlers.CapabilityHandler;
 import com.arpaesis.scmc.handlers.EntityHandler;
-import com.arpaesis.scmc.handlers.FluidHandler;
 import com.arpaesis.scmc.handlers.GuiHandler;
 import com.arpaesis.scmc.handlers.KeybindingHandler;
 import com.arpaesis.scmc.handlers.RenderHandler;
@@ -92,7 +91,6 @@ public class Starcraft
 
 		SCConfig.pre(event);
 		NetworkHandler.pre(event);
-		FluidHandler.pre(event);
 		SoundHandler.pre(event);
 		EntityHandler.pre(event);
 

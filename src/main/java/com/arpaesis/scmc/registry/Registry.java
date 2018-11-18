@@ -79,7 +79,6 @@ public class Registry
 		}
 
 		RenderHandler.registerBlockMetaRenders();
-		RenderHandler.registerFluidRenders();
 		for (ItemBlock item : BlockHandler.getItems())
 		{
 			if (item != null && !item.getHasSubtypes() && !(item.getBlock() instanceof BlockFluidBase))

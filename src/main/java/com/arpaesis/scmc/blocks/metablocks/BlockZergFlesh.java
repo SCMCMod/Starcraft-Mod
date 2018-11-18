@@ -8,7 +8,6 @@ import com.arpaesis.scmc.blocks.items.IMetaBlockName;
 import com.arpaesis.scmc.creativetabs.SCCreativeTabs;
 import com.arpaesis.scmc.entity.living.EntityBroodling;
 import com.arpaesis.scmc.enums.EnumColors;
-import com.arpaesis.scmc.handlers.BlockHandler;
 import com.arpaesis.scmc.handlers.IMetaRenderHandler;
 import com.arpaesis.scmc.handlers.ItemHandler;
 import com.arpaesis.scmc.handlers.MaterialHandler;
@@ -137,7 +136,8 @@ public class BlockZergFlesh extends SCBlock implements IMetaBlockName, IMetaRend
 		} else if (this.RANDOM.nextInt(100) > 99)
 		{
 			BlockPos pos2 = pos;
-			worldIn.setBlockState(pos2, BlockHandler.BLOOD.getDefaultState());
+			//TODO: Put this back when blood is re-added to the mod.
+			//worldIn.setBlockState(pos2, BlockHandler.BLOOD.getDefaultState());
 		}
 		super.breakBlock(worldIn, pos, state);
 	}
