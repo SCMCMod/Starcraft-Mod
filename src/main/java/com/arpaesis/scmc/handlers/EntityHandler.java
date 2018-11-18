@@ -110,7 +110,7 @@ public class EntityHandler
 		Class<? extends TileEntity>[] tileEntities = getTileEntities();
 		for (int i = 0; i < tileEntities.length; i++)
 		{
-			GameRegistry.registerTileEntity(tileEntities[i], new ResourceLocation(Starcraft.RL_BASE, tileEntities[i].getSimpleName()));
+			GameRegistry.registerTileEntity(tileEntities[i], new ResourceLocation(Starcraft.MOD_ID, tileEntities[i].getSimpleName()));
 		}
 	}
 
