@@ -139,4 +139,14 @@ public class BlockZergCreep extends SCBlock
 			}
 		}
 	}
+
+	@Override
+	public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state)
+	{
+		/*
+		 * Find parent here. If no parent, the creep will instead have a null parent.
+		 * This will force the creep to decay over time without a parent
+		 */
+		super.onBlockAdded(worldIn, pos, state);
+	}
 }
