@@ -2,10 +2,12 @@ package com.arpaesis.scmc.blocks.flora;
 
 import java.util.List;
 
+import org.lwjgl.util.vector.Vector4f;
+
 import com.arpaesis.scmc.blocks.items.IMetaBlockName;
 import com.arpaesis.scmc.blocks.items.ItemBlockBrambles;
 import com.arpaesis.scmc.client.renderer.Resources;
-import com.arpaesis.scmc.client.renderer.particle.CustomTextureDestroyEffect;
+import com.arpaesis.scmc.client.renderer.particle.ParticleCustomDigging;
 import com.arpaesis.scmc.creativetabs.SCCreativeTabs;
 import com.arpaesis.scmc.tileentity.TileEntityBrambles;
 
@@ -133,7 +135,7 @@ public class BlockBrambles extends BlockContainer implements IShearable, IMetaBl
 							double d0 = ((double) j + 0.5D) / 4.0D;
 							double d1 = ((double) k + 0.5D) / 4.0D;
 							double d2 = ((double) l + 0.5D) / 4.0D;
-							manager.addEffect((new CustomTextureDestroyEffect(world, (double) pos.getX() + d0, (double) pos.getY() + d1, (double) pos.getZ() + d2, d0 - 0.5D, d1 - 0.5D, d2 - 0.5D, state, location, u, v, 16, 16)).setBlockPos(pos));
+							manager.addEffect((new ParticleCustomDigging(world, (double) pos.getX() + d0, (double) pos.getY() + d1, (double) pos.getZ() + d2, d0 - 0.5D, d1 - 0.5D, d2 - 0.5D, location, new Vector4f(u, v, 16, 16))).setBlockPos(pos));
 						}
 					}
 				}
