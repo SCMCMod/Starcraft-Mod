@@ -21,8 +21,11 @@ import org.lwjgl.opengl.GL11;
 import com.arpaesis.scmc.handlers.AccessHandler;
 
 import net.minecraft.client.Minecraft;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
 
 //TODO: MOVE TO CORE MOD
+@SideOnly(Side.CLIENT)
 public class Screen
 {
 

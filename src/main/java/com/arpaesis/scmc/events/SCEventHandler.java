@@ -116,6 +116,7 @@ public class SCEventHandler
 	}
 
 	@SubscribeEvent
+	@SideOnly(Side.CLIENT)
 	public void onLivingRender(RenderLivingEvent.Pre e)
 	{
 		if (e.getEntity().getRidingEntity() instanceof EntitySpaceship)
@@ -125,6 +126,7 @@ public class SCEventHandler
 	}
 
 	@SubscribeEvent
+	@SideOnly(Side.CLIENT)
 	public void cameraPosition(EntityViewRenderEvent.CameraSetup e)
 	{
 		if (e.getEntity().getRidingEntity() instanceof EntitySpaceship)
@@ -134,6 +136,7 @@ public class SCEventHandler
 	}
 
 	@SubscribeEvent
+	@SideOnly(Side.CLIENT)
 	public void cameraPosition(EntityViewRenderEvent.FOVModifier e)
 	{
 
@@ -167,6 +170,7 @@ public class SCEventHandler
 	}
 
 	@SubscribeEvent
+	@SideOnly(Side.CLIENT)
 	public void onHUDRender(RenderGameOverlayEvent e)
 	{
 		if (Minecraft.getMinecraft().player.getRidingEntity() instanceof EntitySpaceship)

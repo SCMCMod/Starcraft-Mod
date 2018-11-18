@@ -13,25 +13,18 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.color.IBlockColor;
-import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class SCGrass extends SCBlock implements IBlockColor, IItemColor, IGrowable
+public class SCGrass extends SCBlock implements IGrowable
 {
 
 	public static final PropertyBool SNOWY = PropertyBool.create("snowy");
@@ -179,18 +172,5 @@ public class SCGrass extends SCBlock implements IBlockColor, IItemColor, IGrowab
 	protected BlockStateContainer createBlockState()
 	{
 		return new BlockStateContainer(this, SNOWY);
-	}
-
-	@Override
-	public int colorMultiplier(IBlockState state, IBlockAccess world, BlockPos pos, int tintIndex)
-	{
-		return world != null && pos != null ? BiomeColorHelper.getGrassColorAtPos(world, pos) : ColorizerGrass.getGrassColor(0.5, 1.0);
-	}
-
-	@Override
-	public int colorMultiplier(ItemStack stack, int tintIndex)
-	{
-		IBlockState iblockstate = ((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata());
-		return Minecraft.getMinecraft().getBlockColors().colorMultiplier(iblockstate, (IBlockAccess) null, (BlockPos) null, tintIndex);
 	}
 }

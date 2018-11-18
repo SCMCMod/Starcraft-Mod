@@ -31,7 +31,6 @@ import com.arpaesis.scmc.recipes.OreDictionaryHandler;
 import com.arpaesis.scmc.recipes.SmeltingRecipes;
 import com.arpaesis.scmc.registry.Registry;
 
-import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -53,7 +52,7 @@ import net.minecraftforge.fml.relauncher.Side;
  * The main Starcraft Mod class. Registers and sets everything into motion when
  * the game starts up.
  * 
- * @author Hypeirochus
+ * @author Arpaesis
  * @author Ocelot
  */
 @Mod(modid = Starcraft.MOD_ID, acceptedMinecraftVersions = "[1.12,1.12.2]", useMetadata = true, guiFactory = "com.arpaesis.scmc.config.StarcraftConfigGuiFactory")
@@ -62,7 +61,6 @@ public class Starcraft
 
 	public static final String MOD_ID = "starcraft";
 	public static final String RL_BASE = MOD_ID + ":";
-	public static final String UN_BASE = MOD_ID + "_";
 	public static final String VERSION = "${version}";
 
 	/** The mod's instance. Used for GUI stuff. */
@@ -90,6 +88,7 @@ public class Starcraft
 		MinecraftForge.EVENT_BUS.register(new Registry());
 
 		SCConfig.pre(event);
+
 		NetworkHandler.pre(event);
 		SoundHandler.pre(event);
 		EntityHandler.pre(event);
@@ -147,11 +146,6 @@ public class Starcraft
 	public void postInit(FMLPostInitializationEvent event)
 	{
 		Library.checkMods();
-
-		if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
-		{
-			Registry.registerColors(Minecraft.getMinecraft().getItemColors(), Minecraft.getMinecraft().getBlockColors());
-		}
 
 		if (AccessHandler.isDeobfuscatedEnvironment())
 		{

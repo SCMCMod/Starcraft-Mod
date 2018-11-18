@@ -38,6 +38,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.IShearable;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockBrambles extends BlockContainer implements IShearable, IMetaBlockName, IPlantable
 {
@@ -91,6 +93,7 @@ public class BlockBrambles extends BlockContainer implements IShearable, IMetaBl
 		return super.canPlaceBlockAt(world, pos) && world.getBlockState(pos.up()).getBlock().isReplaceable(world, pos.up()) && world.getBlockState(pos.down()).getBlock().canSustainPlant(this.getDefaultState(), world, pos, EnumFacing.DOWN, this);
 	}
 
+	@SideOnly(Side.CLIENT)
 	@Override
 	public boolean addDestroyEffects(World world, BlockPos pos, ParticleManager manager)
 	{
