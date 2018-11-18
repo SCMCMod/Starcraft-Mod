@@ -53,7 +53,7 @@ public class LogRegistry implements ISCRegistry<Integer, Log>
 		register("log.general.driftingplatforms");
 		register("log.general.heimdalliv");
 		register("log.general.polarisprime");
-		register("log.general.scant");
+		register("log.general.scantid");
 		register("log.general.shakurasterrain");
 		register("log.general.uileliv");
 		register("log.general.untamedwilds");
@@ -67,7 +67,7 @@ public class LogRegistry implements ISCRegistry<Integer, Log>
 		register("log.protoss.warpgates");
 		register("log.protoss.asari");
 		register("log.protoss.overview");
-		register("log.protoss.rassan");
+		register("log.protoss.rassidan");
 		register("log.protoss.tenarsis");
 		register("log.protoss.eldritchspring");
 		register("log.protoss.protossproverb");
@@ -97,7 +97,7 @@ public class LogRegistry implements ISCRegistry<Integer, Log>
 		register("log.terran.mcalester");
 		register("log.terran.newgauntlet");
 		register("log.terran.newstation");
-		register("log.terran.nhoggiii");
+		register("log.terran.nidhoggiii");
 		register("log.terran.normangoodfellow");
 		register("log.terran.norrisbailey");
 		register("log.terran.northvssouth");
@@ -199,11 +199,11 @@ public class LogRegistry implements ISCRegistry<Integer, Log>
 		register("log.science.protoss.tempest1");
 		register("log.science.protoss.tempest2");
 		register("log.science.protoss.tempest3");
-		register("log.science.protoss.voray0");
-		register("log.science.protoss.voray1");
-		register("log.science.protoss.voray2");
-		register("log.science.protoss.voray3");
-		register("log.science.protoss.voray4");
+		register("log.science.protoss.voidray0");
+		register("log.science.protoss.voidray1");
+		register("log.science.protoss.voidray2");
+		register("log.science.protoss.voidray3");
+		register("log.science.protoss.voidray4");
 		register("log.science.protoss.warpprism0");
 		register("log.science.protoss.warpprism1");
 		register("log.science.protoss.warpprism2");
