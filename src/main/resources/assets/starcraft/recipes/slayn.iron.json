@@ -1,0 +1,21 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "DD",
+    "S "
+  ],
+  "key": {
+    "S": {
+      "item": "starcraft:slayn.stone",
+      "data": 0
+    },
+    "D": {
+      "type": "forge:ore_dict",
+      "ore": "dustIron"
+    }
+  },
+  "result": {
+    "item": "starcraft:slayn.iron",
+    "data": 0
+  }
+}

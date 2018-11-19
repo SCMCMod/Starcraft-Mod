@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X  ",
+    " Y ",
+    "  Z"
+  ],
+  "key": {
+    "X": {
+      "item": "starcraft:terran.riflec14.part",
+      "data": 0
+    },
+    "Y": {
+      "item": "starcraft:terran.riflec14.part",
+      "data": 1
+    },
+    "Z": {
+      "item": "starcraft:terran.riflec14.part",
+      "data": 2
+    }
+  },
+  "result": {
+    "item": "starcraft:terran.riflec14",
+    "data": 0
+  }
+}

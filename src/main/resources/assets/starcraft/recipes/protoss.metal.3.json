@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "AZA",
+    "AAA"
+  ],
+  "key": {
+    "A": {
+      "item": "starcraft:protoss.ingot",
+      "data": 0
+    },
+    "Z": {
+      "item": "starcraft:protoss.metal.2",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "starcraft:protoss.metal.3",
+    "data": 0
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CC",
+    "CC"
+  ],
+  "key": {
+    "C": {
+      "item": "starcraft:zerg.creepresin",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "starcraft:zerg.creep",
+    "data": 0
+  }
+}

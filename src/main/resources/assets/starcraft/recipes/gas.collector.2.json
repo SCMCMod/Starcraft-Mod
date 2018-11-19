@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "FFF",
+    "FMF",
+    "F F"
+  ],
+  "key": {
+    "F": {
+      "item": "starcraft:zerg.flesh",
+      "data": 32767
+    },
+    "M": {
+      "item": "starcraft:container",
+      "data": 2
+    }
+  },
+  "result": {
+    "item": "starcraft:gas.collector",
+    "data": 2
+  }
+}

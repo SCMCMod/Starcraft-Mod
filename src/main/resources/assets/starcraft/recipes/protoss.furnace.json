@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "CFC",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "starcraft:protoss.ingot",
+      "data": 32767
+    },
+    "F": {
+      "item": "minecraft:furnace",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "starcraft:protoss.furnace",
+    "data": 0
+  }
+}

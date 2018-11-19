@@ -1,0 +1,22 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    " P ",
+    "PVP",
+    " P "
+  ],
+  "key": {
+    "P": {
+      "type": "forge:ore_dict",
+      "ore": "plankWood"
+    },
+    "V": {
+      "item": "starcraft:vespene",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "starcraft:vespene",
+    "data": 2
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " F ",
+    "F F",
+    " F "
+  ],
+  "key": {
+    "F": {
+      "item": "starcraft:zerg.tissue",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "starcraft:container",
+    "data": 2
+  }
+}

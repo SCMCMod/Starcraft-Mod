@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " D ",
+    "DCD",
+    " DD"
+  ],
+  "key": {
+    "C": {
+      "item": "starcraft:energy",
+      "data": 1
+    },
+    "D": {
+      "item": "starcraft:protoss.ingot",
+      "data": 1
+    }
+  },
+  "result": {
+    "item": "starcraft:protoss.blade.warp.aiur",
+    "data": 0
+  }
+}

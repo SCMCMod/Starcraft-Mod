@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " F ",
+    "FVF",
+    " F "
+  ],
+  "key": {
+    "F": {
+      "item": "starcraft:zerg.tissue",
+      "data": 0
+    },
+    "V": {
+      "item": "starcraft:vespene",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "starcraft:vespene",
+    "data": 3
+  }
+}

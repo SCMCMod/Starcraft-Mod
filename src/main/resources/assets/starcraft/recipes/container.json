@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " I ",
+    "I I",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "item": "starcraft:protoss.ingot",
+      "data": 32767
+    }
+  },
+  "result": {
+    "item": "starcraft:container",
+    "data": 0
+  }
+}

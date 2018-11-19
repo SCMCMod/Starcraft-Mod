@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "AEA",
+    " AA"
+  ],
+  "key": {
+    "A": {
+      "item": "starcraft:protoss.ingot",
+      "data": 0
+    },
+    "E": {
+      "item": "starcraft:energy",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "starcraft:protoss.blade.psi.aiur",
+    "data": 0
+  }
+}

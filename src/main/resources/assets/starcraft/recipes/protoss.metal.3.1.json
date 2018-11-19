@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DDD",
+    "DZD",
+    "DDD"
+  ],
+  "key": {
+    "D": {
+      "item": "starcraft:protoss.ingot",
+      "data": 1
+    },
+    "Z": {
+      "item": "starcraft:protoss.metal.2",
+      "data": 1
+    }
+  },
+  "result": {
+    "item": "starcraft:protoss.metal.3",
+    "data": 1
+  }
+}

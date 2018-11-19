@@ -1,0 +1,33 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "type": "forge:ore_dict",
+      "ore": "dustCarbon"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "dustCarbon"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "dustCarbon"
+    },
+    {
+      "item": "starcraft:phosphorus",
+      "data": 0
+    },
+    {
+      "item": "starcraft:phosphorus",
+      "data": 0
+    },
+    {
+      "item": "starcraft:phosphorus",
+      "data": 0
+    }
+  ],
+  "result": {
+    "item": "minecraft:gunpowder",
+    "data": 0
+  }
+}

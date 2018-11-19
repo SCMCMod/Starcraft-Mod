@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "starcraft:protoss.pyloncrystal",
+      "data": 0
+    }
+  ],
+  "result": {
+    "item": "starcraft:protoss.khaydarincrystal",
+    "data": 0,
+    "count": 9
+  }
+}
