@@ -1,16 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "CCC",
-    "CCC",
-    "CCC"
+    "III",
+    "III",
+    "III"
   ],
   "key": {
-    "C": {
-      "item": "starcraft:ingot"
+    "I": {
+      "item": "starcraft:ingot",
+      "data": 0
     }
   },
   "result": {
-    "item": "starcraft:terran.metal"
+    "item": "starcraft:terran.metal",
+    "data": 0
   }
 }

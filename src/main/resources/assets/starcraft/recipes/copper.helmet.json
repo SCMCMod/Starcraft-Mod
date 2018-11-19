@@ -11,6 +11,7 @@
     }
   },
   "result": {
-    "item": "starcraft:copper.helmet"
+    "item": "starcraft:copper.helmet",
+    "data": 0
   }
 }

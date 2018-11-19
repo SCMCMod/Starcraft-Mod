@@ -16,6 +16,7 @@
     }
   },
   "result": {
-    "item": "starcraft:titanium.sword"
+    "item": "starcraft:titanium.sword",
+    "data": 0
   }
 }

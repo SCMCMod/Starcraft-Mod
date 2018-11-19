@@ -1,19 +1,21 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    {
-      "item": "starcraft:dust",
-      "data": 1
-    },
-    {
-      "item": "starcraft:dust",
-      "data": 1
-    },
-    {
-      "item": "starcraft:shakuras.stone"
-    }
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "DD",
+    "S "
   ],
+  "key": {
+    "S": {
+      "item": "starcraft:shakuras.stone",
+      "data": 0
+    },
+    "D": {
+      "type": "forge:ore_dict",
+      "ore": "dustIron"
+    }
+  },
   "result": {
-    "item": "starcraft:shakuras.iron"
+    "item": "starcraft:shakuras.iron",
+    "data": 0
   }
 }

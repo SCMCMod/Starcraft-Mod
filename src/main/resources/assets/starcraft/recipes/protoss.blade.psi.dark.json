@@ -16,6 +16,7 @@
     }
   },
   "result": {
-    "item": "starcraft:protoss.blade.psi.dark"
+    "item": "starcraft:protoss.blade.psi.dark",
+    "data": 0
   }
 }

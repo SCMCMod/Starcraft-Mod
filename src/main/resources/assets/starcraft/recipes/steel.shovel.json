@@ -16,6 +16,7 @@
     }
   },
   "result": {
-    "item": "starcraft:steel.shovel"
+    "item": "starcraft:steel.shovel",
+    "data": 0
   }
 }

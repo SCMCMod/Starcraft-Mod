@@ -83,8 +83,7 @@ public class OreDictionaryHandler
 		OreDictionary.registerOre("orePhosphorus", BlockHandler.ORE_PHOSPHORUS_SLAYN);
 		OreDictionary.registerOre("orePhosphorus", BlockHandler.ORE_PHOSPHORUS_ZERUS);
 
-		OreDictionary.registerOre("carbon", new ItemStack(Items.COAL, 1, 0));
-		OreDictionary.registerOre("carbon", new ItemStack(Items.COAL, 1, 1));
+		OreDictionary.registerOre("carbon", new ItemStack(Items.COAL, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("phosphorus", new ItemStack(ItemHandler.PHOSPHORUS, 1, 0));
 
 		OreDictionary.registerOre("dust", new ItemStack(ItemHandler.DUST, 1, OreDictionary.WILDCARD_VALUE));

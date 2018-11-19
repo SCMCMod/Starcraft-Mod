@@ -11,6 +11,7 @@
     }
   },
   "result": {
-    "item": "starcraft:copper.boots"
+    "item": "starcraft:copper.boots",
+    "data": 0
   }
 }

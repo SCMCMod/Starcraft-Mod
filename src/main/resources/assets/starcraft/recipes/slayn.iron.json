@@ -1,22 +1,21 @@
 {
   "type": "forge:ore_shaped",
   "pattern": [
-    "TT",
-    "ST",
+    "DD",
     "S "
   ],
   "key": {
     "S": {
-      "type": "forge:ore_dict",
-      "ore": "stickWood"
+      "item": "starcraft:slayn.stone",
+      "data": 0
     },
-    "T": {
+    "D": {
       "type": "forge:ore_dict",
-      "ore": "ingotTitanium"
+      "ore": "dustIron"
     }
   },
   "result": {
-    "item": "starcraft:titanium.axe",
+    "item": "starcraft:slayn.iron",
     "data": 0
   }
 }

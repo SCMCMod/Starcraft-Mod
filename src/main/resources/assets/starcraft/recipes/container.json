@@ -12,6 +12,7 @@
     }
   },
   "result": {
-    "item": "starcraft:container"
+    "item": "starcraft:container",
+    "data": 0
   }
 }

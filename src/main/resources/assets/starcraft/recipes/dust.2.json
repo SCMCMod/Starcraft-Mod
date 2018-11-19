@@ -2,12 +2,13 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "minecraft:coal"
+      "item": "minecraft:coal",
+      "data": 0
     }
   ],
   "result": {
     "item": "starcraft:dust",
-    "count": 9,
-    "data": 2
+    "data": 2,
+    "count": 9
   }
 }

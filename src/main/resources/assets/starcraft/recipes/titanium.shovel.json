@@ -16,6 +16,7 @@
     }
   },
   "result": {
-    "item": "starcraft:titanium.shovel"
+    "item": "starcraft:titanium.shovel",
+    "data": 0
   }
 }

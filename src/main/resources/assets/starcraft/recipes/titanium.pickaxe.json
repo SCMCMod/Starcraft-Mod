@@ -16,6 +16,7 @@
     }
   },
   "result": {
-    "item": "starcraft:titanium.pickaxe"
+    "item": "starcraft:titanium.pickaxe",
+    "data": 0
   }
 }

@@ -16,6 +16,7 @@
     }
   },
   "result": {
-    "item": "starcraft:titanium.hoe"
+    "item": "starcraft:titanium.hoe",
+    "data": 0
   }
 }

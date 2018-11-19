@@ -19,6 +19,7 @@
     }
   ],
   "result": {
-    "item": "starcraft:dust"
+    "item": "starcraft:dust",
+    "data": 0
   }
 }

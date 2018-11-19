@@ -16,6 +16,7 @@
     }
   },
   "result": {
-    "item": "starcraft:protoss.energychannel.void"
+    "item": "starcraft:protoss.energychannel.void",
+    "data": 0
   }
 }

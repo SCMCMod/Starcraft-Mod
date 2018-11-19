@@ -11,10 +11,12 @@
       "data": 32767
     },
     "M": {
-      "item": "starcraft:container"
+      "item": "starcraft:container",
+      "data": 0
     }
   },
   "result": {
-    "item": "starcraft:gas.collector"
+    "item": "starcraft:gas.collector",
+    "data": 0
   }
 }

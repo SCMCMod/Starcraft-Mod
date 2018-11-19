@@ -7,10 +7,12 @@
   ],
   "key": {
     "E": {
-      "item": "starcraft:energy"
+      "item": "starcraft:energy",
+      "data": 0
     }
   },
   "result": {
-    "item": "starcraft:block.energy"
+    "item": "starcraft:block.energy",
+    "data": 0
   }
 }

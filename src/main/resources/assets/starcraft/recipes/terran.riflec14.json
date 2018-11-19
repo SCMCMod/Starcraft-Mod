@@ -7,7 +7,8 @@
   ],
   "key": {
     "X": {
-      "item": "starcraft:terran.riflec14.part"
+      "item": "starcraft:terran.riflec14.part",
+      "data": 0
     },
     "Y": {
       "item": "starcraft:terran.riflec14.part",
@@ -19,6 +20,7 @@
     }
   },
   "result": {
-    "item": "starcraft:terran.riflec14"
+    "item": "starcraft:terran.riflec14",
+    "data": 0
   }
 }

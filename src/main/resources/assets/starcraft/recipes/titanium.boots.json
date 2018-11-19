@@ -11,6 +11,7 @@
     }
   },
   "result": {
-    "item": "starcraft:titanium.boots"
+    "item": "starcraft:titanium.boots",
+    "data": 0
   }
 }

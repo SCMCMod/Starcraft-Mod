@@ -1,12 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "VVV",
-    "VVV",
-    "VVV"
+    "EEE",
+    "EEE",
+    "EEE"
   ],
   "key": {
-    "V": {
+    "E": {
       "item": "starcraft:energy",
       "data": 2
     }

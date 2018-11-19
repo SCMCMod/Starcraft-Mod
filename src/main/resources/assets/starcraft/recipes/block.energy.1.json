@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "III",
-    "III",
-    "III"
+    "EEE",
+    "EEE",
+    "EEE"
   ],
   "key": {
-    "I": {
-      "item": "starcraft:ingot",
+    "E": {
+      "item": "starcraft:energy",
       "data": 1
     }
   },
   "result": {
-    "item": "starcraft:terran.metal",
+    "item": "starcraft:block.energy",
     "data": 1
   }
 }

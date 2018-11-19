@@ -16,6 +16,7 @@
     }
   },
   "result": {
-    "item": "starcraft:steel.pickaxe"
+    "item": "starcraft:steel.pickaxe",
+    "data": 0
   }
 }

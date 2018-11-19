@@ -7,10 +7,12 @@
   ],
   "key": {
     "A": {
-      "item": "starcraft:protoss.ingot"
+      "item": "starcraft:protoss.ingot",
+      "data": 0
     }
   },
   "result": {
-    "item": "starcraft:protoss.focuser"
+    "item": "starcraft:protoss.focuser",
+    "data": 0
   }
 }

@@ -11,7 +11,8 @@
       "ore": "plankWood"
     },
     "V": {
-      "item": "starcraft:terrazine"
+      "item": "starcraft:terrazine",
+      "data": 0
     }
   },
   "result": {

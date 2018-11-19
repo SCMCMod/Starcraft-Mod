@@ -5,11 +5,13 @@
   ],
   "key": {
     "C": {
-      "item": "starcraft:terran.metal"
+      "item": "starcraft:terran.metal",
+      "data": 0
     }
   },
   "result": {
     "item": "starcraft:ingot",
+    "data": 0,
     "count": 9
   }
 }

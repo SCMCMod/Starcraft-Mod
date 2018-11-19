@@ -15,6 +15,7 @@
     }
   },
   "result": {
-    "item": "starcraft:terran.knife.military"
+    "item": "starcraft:terran.knife.military",
+    "data": 0
   }
 }

@@ -7,10 +7,12 @@
   ],
   "key": {
     "C": {
-      "item": "starcraft:char.cobblestone"
+      "item": "starcraft:char.cobblestone",
+      "data": 0
     }
   },
   "result": {
-    "item": "starcraft:char.furnace"
+    "item": "starcraft:char.furnace",
+    "data": 0
   }
 }

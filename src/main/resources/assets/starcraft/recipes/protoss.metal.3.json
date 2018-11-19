@@ -7,13 +7,16 @@
   ],
   "key": {
     "A": {
-      "item": "starcraft:protoss.ingot"
+      "item": "starcraft:protoss.ingot",
+      "data": 0
     },
     "Z": {
-      "item": "starcraft:protoss.metal.2"
+      "item": "starcraft:protoss.metal.2",
+      "data": 0
     }
   },
   "result": {
-    "item": "starcraft:protoss.metal.3"
+    "item": "starcraft:protoss.metal.3",
+    "data": 0
   }
 }

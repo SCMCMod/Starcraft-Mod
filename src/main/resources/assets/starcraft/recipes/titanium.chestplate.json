@@ -12,6 +12,7 @@
     }
   },
   "result": {
-    "item": "starcraft:titanium.chestplate"
+    "item": "starcraft:titanium.chestplate",
+    "data": 0
   }
 }

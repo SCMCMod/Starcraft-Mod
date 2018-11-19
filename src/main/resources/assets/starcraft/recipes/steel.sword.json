@@ -16,6 +16,7 @@
     }
   },
   "result": {
-    "item": "starcraft:steel.sword"
+    "item": "starcraft:steel.sword",
+    "data": 0
   }
 }

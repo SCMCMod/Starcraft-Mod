@@ -16,6 +16,7 @@
     }
   },
   "result": {
-    "item": "starcraft:terran.riflec14.part"
+    "item": "starcraft:terran.riflec14.part",
+    "data": 0
   }
 }

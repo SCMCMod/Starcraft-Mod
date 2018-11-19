@@ -16,6 +16,7 @@
     }
   },
   "result": {
-    "item": "starcraft:copper.shovel"
+    "item": "starcraft:copper.shovel",
+    "data": 0
   }
 }

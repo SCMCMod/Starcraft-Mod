@@ -7,7 +7,8 @@
   ],
   "key": {
     "V": {
-      "item": "starcraft:terrazine"
+      "item": "starcraft:terrazine",
+      "data": 0
     },
     "I": {
       "item": "starcraft:protoss.ingot",

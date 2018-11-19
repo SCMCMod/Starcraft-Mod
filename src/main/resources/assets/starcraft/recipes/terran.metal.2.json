@@ -1,13 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "TTT",
-    "TTT",
-    "TTT"
+    "III",
+    "III",
+    "III"
   ],
   "key": {
-    "T": {
-      "item": "ingotTitanium"
+    "I": {
+      "item": "starcraft:ingot",
+      "data": 2
     }
   },
   "result": {

@@ -12,6 +12,7 @@
     }
   },
   "result": {
-    "item": "starcraft:titanium.leggings"
+    "item": "starcraft:titanium.leggings",
+    "data": 0
   }
 }

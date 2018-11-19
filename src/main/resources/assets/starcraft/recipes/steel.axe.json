@@ -16,6 +16,7 @@
     }
   },
   "result": {
-    "item": "starcraft:steel.axe"
+    "item": "starcraft:steel.axe",
+    "data": 0
   }
 }

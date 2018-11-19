@@ -1,19 +1,21 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    {
-      "item": "starcraft:dust",
-      "data": 1
-    },
-    {
-      "item": "starcraft:dust",
-      "data": 1
-    },
-    {
-      "item": "starcraft:char.stone"
-    }
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "DD",
+    "S "
   ],
+  "key": {
+    "S": {
+      "item": "starcraft:char.stone",
+      "data": 0
+    },
+    "D": {
+      "type": "forge:ore_dict",
+      "ore": "dustIron"
+    }
+  },
   "result": {
-    "item": "starcraft:char.iron"
+    "item": "starcraft:char.iron",
+    "data": 0
   }
 }

@@ -7,10 +7,12 @@
   ],
   "key": {
     "F": {
-      "item": "starcraft:zerg.tissue"
+      "item": "starcraft:zerg.tissue",
+      "data": 0
     },
     "V": {
-      "item": "starcraft:terrazine"
+      "item": "starcraft:terrazine",
+      "data": 0
     }
   },
   "result": {

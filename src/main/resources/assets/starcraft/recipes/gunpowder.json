@@ -14,16 +14,20 @@
       "ore": "dustCarbon"
     },
     {
-      "item": "starcraft:phosphorus"
+      "item": "starcraft:phosphorus",
+      "data": 0
     },
     {
-      "item": "starcraft:phosphorus"
+      "item": "starcraft:phosphorus",
+      "data": 0
     },
     {
-      "item": "starcraft:phosphorus"
+      "item": "starcraft:phosphorus",
+      "data": 0
     }
   ],
   "result": {
-    "item": "minecraft:gunpowder"
+    "item": "minecraft:gunpowder",
+    "data": 0
   }
 }

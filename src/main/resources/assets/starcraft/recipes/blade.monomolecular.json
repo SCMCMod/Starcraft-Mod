@@ -11,10 +11,12 @@
       "ore": "ingotSteel"
     },
     "E": {
-      "item": "starcraft:energy"
+      "item": "starcraft:energy",
+      "data": 0
     }
   },
   "result": {
-    "item": "starcraft:blade.monomolecular"
+    "item": "starcraft:blade.monomolecular",
+    "data": 0
   }
 }

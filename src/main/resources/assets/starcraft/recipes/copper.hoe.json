@@ -16,6 +16,7 @@
     }
   },
   "result": {
-    "item": "starcraft:copper.hoe"
+    "item": "starcraft:copper.hoe",
+    "data": 0
   }
 }

@@ -12,6 +12,7 @@
     }
   },
   "result": {
-    "item": "starcraft:copper.chestplate"
+    "item": "starcraft:copper.chestplate",
+    "data": 0
   }
 }

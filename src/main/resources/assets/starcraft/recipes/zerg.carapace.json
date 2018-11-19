@@ -7,10 +7,12 @@
   ],
   "key": {
     "C": {
-      "item": "starcraft:zerg.icarapace"
+      "item": "starcraft:zerg.icarapace",
+      "data": 0
     }
   },
   "result": {
-    "item": "starcraft:zerg.carapace"
+    "item": "starcraft:zerg.carapace",
+    "data": 0
   }
 }

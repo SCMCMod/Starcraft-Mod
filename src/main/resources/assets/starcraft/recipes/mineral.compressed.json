@@ -7,10 +7,12 @@
   ],
   "key": {
     "M": {
-      "item": "starcraft:mineral"
+      "item": "starcraft:mineral",
+      "data": 0
     }
   },
   "result": {
-    "item": "starcraft:mineral.compressed"
+    "item": "starcraft:mineral.compressed",
+    "data": 0
   }
 }

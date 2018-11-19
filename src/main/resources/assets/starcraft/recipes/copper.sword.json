@@ -16,6 +16,7 @@
     }
   },
   "result": {
-    "item": "starcraft:copper.sword"
+    "item": "starcraft:copper.sword",
+    "data": 0
   }
 }

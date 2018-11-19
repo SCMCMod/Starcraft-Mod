@@ -16,6 +16,7 @@
     }
   },
   "result": {
-    "item": "starcraft:steel.hoe"
+    "item": "starcraft:steel.hoe",
+    "data": 0
   }
 }

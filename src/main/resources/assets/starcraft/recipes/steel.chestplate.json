@@ -12,6 +12,7 @@
     }
   },
   "result": {
-    "item": "starcraft:steel.chestplate"
+    "item": "starcraft:steel.chestplate",
+    "data": 0
   }
 }

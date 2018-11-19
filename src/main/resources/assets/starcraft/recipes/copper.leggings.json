@@ -12,6 +12,7 @@
     }
   },
   "result": {
-    "item": "starcraft:copper.leggings"
+    "item": "starcraft:copper.leggings",
+    "data": 0
   }
 }

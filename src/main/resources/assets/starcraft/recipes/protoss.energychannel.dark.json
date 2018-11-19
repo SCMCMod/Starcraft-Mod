@@ -16,6 +16,7 @@
     }
   },
   "result": {
-    "item": "starcraft:protoss.energychannel.dark"
+    "item": "starcraft:protoss.energychannel.dark",
+    "data": 0
   }
 }

@@ -2,11 +2,13 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "starcraft:zerg.creep"
+      "item": "starcraft:zerg.creep",
+      "data": 0
     }
   ],
   "result": {
     "item": "starcraft:zerg.creepresin",
+    "data": 0,
     "count": 4
   }
 }
