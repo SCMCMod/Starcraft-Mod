@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IEI",
+    "III",
+    "III"
+  ],
+  "key": {
+    "E": {
+      "item": "starcraft:energy"
+    },
+    "I": {
+      "item": "starcraft:protoss.ingot"
+    }
+  },
+  "result": {
+    "item": "starcraft:protoss.stabilizer"
+  }
+}

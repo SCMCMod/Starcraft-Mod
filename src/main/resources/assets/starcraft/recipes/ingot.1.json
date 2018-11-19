@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "T"
+  ],
+  "key": {
+    "T": {
+      "item": "starcraft:terran.metal",
+      "data": 2
+    }
+  },
+  "result": {
+    "item": "starcraft:ingot",
+    "count": 9,
+    "data": 1
+  }
+}

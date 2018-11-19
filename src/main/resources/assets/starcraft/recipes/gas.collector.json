@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPP",
+    "PMP",
+    "P P"
+  ],
+  "key": {
+    "P": {
+      "item": "starcraft:protoss.ingot",
+      "data": 32767
+    },
+    "M": {
+      "item": "starcraft:container"
+    }
+  },
+  "result": {
+    "item": "starcraft:gas.collector"
+  }
+}

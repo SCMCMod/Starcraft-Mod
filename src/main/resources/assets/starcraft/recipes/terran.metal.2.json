@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TTT",
+    "TTT",
+    "TTT"
+  ],
+  "key": {
+    "T": {
+      "item": "ingotTitanium"
+    }
+  },
+  "result": {
+    "item": "starcraft:terran.metal",
+    "data": 2
+  }
+}

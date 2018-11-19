@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "VVV",
+    "VVV",
+    "VVV"
+  ],
+  "key": {
+    "V": {
+      "item": "starcraft:energy",
+      "data": 2
+    }
+  },
+  "result": {
+    "item": "starcraft:block.energy",
+    "data": 2
+  }
+}

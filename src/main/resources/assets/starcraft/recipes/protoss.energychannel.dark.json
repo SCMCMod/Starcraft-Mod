@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IEI",
+    "IEI",
+    "IEI"
+  ],
+  "key": {
+    "E": {
+      "item": "starcraft:energy",
+      "data": 2
+    },
+    "I": {
+      "item": "starcraft:protoss.ingot",
+      "data": 1
+    }
+  },
+  "result": {
+    "item": "starcraft:protoss.energychannel.dark"
+  }
+}

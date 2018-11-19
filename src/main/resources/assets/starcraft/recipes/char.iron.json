@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "starcraft:dust",
+      "data": 1
+    },
+    {
+      "item": "starcraft:dust",
+      "data": 1
+    },
+    {
+      "item": "starcraft:char.stone"
+    }
+  ],
+  "result": {
+    "item": "starcraft:char.iron"
+  }
+}

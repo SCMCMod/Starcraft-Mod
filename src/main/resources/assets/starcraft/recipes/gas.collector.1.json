@@ -1,0 +1,22 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "III",
+    "IMI",
+    "I I"
+  ],
+  "key": {
+    "I": {
+      "type": "forge:ore_dict",
+      "ore": "ingotSteel"
+    },
+    "M": {
+      "item": "starcraft:container",
+      "data": 1
+    }
+  },
+  "result": {
+    "item": "starcraft:gas.collector",
+    "data": 1
+  }
+}

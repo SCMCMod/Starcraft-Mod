@@ -1,0 +1,21 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    " P ",
+    "PVP",
+    " P "
+  ],
+  "key": {
+    "P": {
+      "type": "forge:ore_dict",
+      "ore": "plankWood"
+    },
+    "V": {
+      "item": "starcraft:terrazine"
+    }
+  },
+  "result": {
+    "item": "starcraft:terrazine",
+    "data": 2
+  }
+}

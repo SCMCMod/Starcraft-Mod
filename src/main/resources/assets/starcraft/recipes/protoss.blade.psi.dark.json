@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " D ",
+    "DVD",
+    " DD"
+  ],
+  "key": {
+    "D": {
+      "item": "starcraft:protoss.ingot",
+      "data": 1
+    },
+    "V": {
+      "item": "starcraft:energy",
+      "data": 2
+    }
+  },
+  "result": {
+    "item": "starcraft:protoss.blade.psi.dark"
+  }
+}

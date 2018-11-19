@@ -1,0 +1,20 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "E",
+    "E",
+    "S"
+  ],
+  "key": {
+    "S": {
+      "type": "forge:ore_dict",
+      "ore": "ingotSteel"
+    },
+    "E": {
+      "item": "starcraft:energy"
+    }
+  },
+  "result": {
+    "item": "starcraft:blade.monomolecular"
+  }
+}

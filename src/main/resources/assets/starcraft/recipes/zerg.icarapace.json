@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "C"
+  ],
+  "key": {
+    "C": {
+      "item": "starcraft:zerg.carapace"
+    }
+  },
+  "result": {
+    "item": "starcraft:zerg.icarapace",
+    "count": 9
+  }
+}

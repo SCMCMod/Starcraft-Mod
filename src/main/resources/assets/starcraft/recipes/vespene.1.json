@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " I ",
+    "IVI",
+    " I "
+  ],
+  "key": {
+    "V": {
+      "item": "starcraft:vespene"
+    },
+    "I": {
+      "item": "starcraft:protoss.ingot",
+      "data": 32767
+    }
+  },
+  "result": {
+    "item": "starcraft:vespene",
+    "data": 1
+  }
+}

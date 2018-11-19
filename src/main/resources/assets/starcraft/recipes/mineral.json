@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "M"
+  ],
+  "key": {
+    "M": {
+      "item": "starcraft:mineral.compressed"
+    }
+  },
+  "result": {
+    "item": "starcraft:mineral",
+    "count": 9
+  }
+}

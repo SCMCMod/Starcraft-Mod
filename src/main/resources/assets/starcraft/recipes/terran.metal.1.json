@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "SSS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "starcraft:ingot",
+      "data": 2
+    }
+  },
+  "result": {
+    "item": "starcraft:terran.metal",
+    "data": 1
+  }
+}

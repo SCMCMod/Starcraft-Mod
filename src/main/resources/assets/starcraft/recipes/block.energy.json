@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EEE",
+    "EEE",
+    "EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "starcraft:energy"
+    }
+  },
+  "result": {
+    "item": "starcraft:block.energy"
+  }
+}

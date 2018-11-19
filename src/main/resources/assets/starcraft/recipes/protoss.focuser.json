@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "A A",
+    " AA"
+  ],
+  "key": {
+    "A": {
+      "item": "starcraft:protoss.ingot"
+    }
+  },
+  "result": {
+    "item": "starcraft:protoss.focuser"
+  }
+}

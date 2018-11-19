@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "C C",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "starcraft:shakuras.cobblestone"
+    }
+  },
+  "result": {
+    "item": "starcraft:shakuras.furnace"
+  }
+}

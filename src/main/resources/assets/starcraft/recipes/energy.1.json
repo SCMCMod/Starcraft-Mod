@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "starcraft:block.energy",
+      "data": 1
+    }
+  ],
+  "result": {
+    "item": "starcraft:energy",
+    "count": 9,
+    "data": 1
+  }
+}

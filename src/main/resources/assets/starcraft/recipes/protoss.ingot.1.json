@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "D"
+  ],
+  "key": {
+    "D": {
+      "item": "starcraft:protoss.metal.1",
+      "data": 1
+    }
+  },
+  "result": {
+    "item": "starcraft:protoss.ingot",
+    "count": 9,
+    "data": 1
+  }
+}

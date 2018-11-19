@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RRR",
+    "RRR",
+    "RRR"
+  ],
+  "key": {
+    "R": {
+      "item": "starcraft:mineral",
+      "data": 1
+    }
+  },
+  "result": {
+    "item": "starcraft:mineral.compressed",
+    "data": 1
+  }
+}
