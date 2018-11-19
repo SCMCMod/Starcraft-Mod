@@ -60,7 +60,7 @@ public class ItemCarbotifier extends Item
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn)
 	{
-		tooltip.add("§dWinner: §5§o" + USABLE_USER);
+		tooltip.add("ï¿½dWinner: ï¿½5ï¿½o" + USABLE_USER);
 	}
 
 	@Override

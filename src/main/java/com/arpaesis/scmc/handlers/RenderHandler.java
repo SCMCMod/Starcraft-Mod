@@ -177,15 +177,6 @@ public class RenderHandler
 		}
 	}
 
-	public static void registerFluidRenders()
-	{
-		registerFluid(BlockHandler.ACID);
-		registerFluid(BlockHandler.BLOOD);
-		registerFluid(BlockHandler.VESPENE);
-		registerFluid(BlockHandler.TERRAZINE);
-		registerFluid(BlockHandler.TAR);
-	}
-
 	public static void init(FMLPreInitializationEvent event)
 	{
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT)

@@ -3,7 +3,6 @@ package com.arpaesis.scmc.handlers;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.arpaesis.scmc.blocks.BlockAsh;
 import com.arpaesis.scmc.blocks.BlockCharFarmland;
 import com.arpaesis.scmc.blocks.BlockCharOre;
 import com.arpaesis.scmc.blocks.BlockDimPortal;
@@ -46,11 +45,6 @@ import com.arpaesis.scmc.blocks.SCSkull;
 import com.arpaesis.scmc.blocks.flora.BlockBrambles;
 import com.arpaesis.scmc.blocks.flora.BlockZerusGlowPod;
 import com.arpaesis.scmc.blocks.flora.BlockZerusLightcap;
-import com.arpaesis.scmc.blocks.fluid.BlockAcid;
-import com.arpaesis.scmc.blocks.fluid.BlockBlood;
-import com.arpaesis.scmc.blocks.fluid.BlockTar;
-import com.arpaesis.scmc.blocks.fluid.BlockTerrazine;
-import com.arpaesis.scmc.blocks.fluid.BlockVespene;
 import com.arpaesis.scmc.blocks.items.ItemBlockBrambles;
 import com.arpaesis.scmc.blocks.items.ItemBlockStarcraftSkull;
 import com.arpaesis.scmc.blocks.metablocks.BlockEnergy;
@@ -85,13 +79,6 @@ public class BlockHandler
 
 	public static List<Block> blocks;
 	public static List<ItemBlock> items;
-
-	// Fluids
-	public static Block ACID;
-	public static Block BLOOD;
-	public static Block VESPENE;
-	public static Block TERRAZINE;
-	public static Block TAR;
 
 	// Misc
 	public static Block ENTITY_SPAWNER;
@@ -131,7 +118,6 @@ public class BlockHandler
 	public static Block DIRT_CHAR;
 	public static Block GRAVEL_CHAR;
 	public static Block MAGMA_CHAR;
-	public static Block ASH_CHAR;
 
 	// Char Ores
 	public static Block ORE_COAL_CHAR;
@@ -295,14 +281,7 @@ public class BlockHandler
 
 	private static void instantiate()
 	{
-
-		// Fluids
-		ACID = new BlockAcid().setCreativeTab(null);
-		BLOOD = new BlockBlood().setCreativeTab(null);
-		TAR = new BlockTar().setCreativeTab(null);
-		TERRAZINE = new BlockTerrazine().setCreativeTab(null);
-		VESPENE = new BlockVespene().setCreativeTab(null);
-
+		
 		// Misc
 		ENTITY_SPAWNER = new BlockEntitySpawner("block.entityspawner", 5);
 		PLANET_TELEPORTER = new BlockPlanetTeleporter("block.planetteleporter", 100);
@@ -355,8 +334,7 @@ public class BlockHandler
 		ORE_TITANIUM_CHAR = new BlockCharOre("char.titanium", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 2).setBlockHarvestLevel("pickaxe", 2).setCreativeTab(SCCreativeTabs.MISC);
 		ORE_URANIUM_CHAR = new BlockCharOre("char.uranium", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 1).setBlockHarvestLevel("pickaxe", 2).setCreativeTab(SCCreativeTabs.MISC);
 		ORE_PHOSPHORUS_CHAR = new BlockCharOre("char.phosphorus", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 1).setBlockHarvestLevel("pickaxe", 1).setCreativeTab(SCCreativeTabs.MISC);
-		ASH_CHAR = new BlockAsh();
-
+		
 		// Shakuras
 		COBBLESTONE_SHAKURAS = new SCBlock("shakuras.cobblestone", RegistryType.FULL, Material.ROCK, MapColor.BLUE).setBlockHarvestLevel("pickaxe", 0).setCreativeTab(SCCreativeTabs.MISC).setHardness(2).setResistance(10);
 		STONE_SHAKURAS = new SCBlockCustomDrop("shakuras.stone", RegistryType.FULL, Material.ROCK, MapColor.LIGHT_BLUE, new ItemStack(COBBLESTONE_SHAKURAS)).setHardness(1.5f).setResistance(10).setCreativeTab(SCCreativeTabs.MISC);
