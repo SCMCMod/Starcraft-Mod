@@ -1,8 +1,8 @@
 package com.arpaesis.scmc.client.renderer.entity;
 
 import com.arpaesis.scmc.client.model.entity.ModelQueen;
-import com.arpaesis.scmc.client.renderer.ColoredLayerRender;
 import com.arpaesis.scmc.client.renderer.Resources;
+import com.arpaesis.scmc.client.renderer.SCRenderUtilities;
 import com.arpaesis.scmc.entity.living.EntityQueen;
 
 import net.minecraft.client.renderer.entity.Render;
@@ -46,8 +46,8 @@ public class RenderQueen extends RenderLiving<EntityQueen> implements LayerRende
 	@Override
 	public void doRenderLayer(EntityQueen entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
 	{
-		ColoredLayerRender.render(this, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-		ColoredLayerRender.renderStaticGlow(this, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
+		SCRenderUtilities.render(this, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		SCRenderUtilities.renderStaticGlow(this, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
 	}
 
 	@Override

@@ -1,8 +1,8 @@
 package com.arpaesis.scmc.client.renderer.entity;
 
 import com.arpaesis.scmc.client.model.entity.ModelLope;
-import com.arpaesis.scmc.client.renderer.ColoredLayerRender;
 import com.arpaesis.scmc.client.renderer.Resources;
+import com.arpaesis.scmc.client.renderer.SCRenderUtilities;
 import com.arpaesis.scmc.entity.living.EntityArtosilope;
 
 import net.minecraft.client.renderer.entity.Render;
@@ -35,7 +35,7 @@ public class RenderArtosilope extends RenderLiving<EntityArtosilope> implements 
 	@Override
 	public void doRenderLayer(EntityArtosilope entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
 	{
-		ColoredLayerRender.renderStaticGlow(this, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
+		SCRenderUtilities.renderStaticGlow(this, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
 	}
 
 	@Override

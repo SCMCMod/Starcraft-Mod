@@ -15,6 +15,7 @@ public class EntityProtossPassive extends EntityStarcraftPassive implements IShi
 
 	public static final DataParameter<Float> SHIELDS = EntityDataManager.createKey(EntityProtossPassive.class, DataSerializers.FLOAT);
 	public int timeSinceHurt = 0;
+	public int cooldown = 0;
 
 	public EntityProtossPassive(World world)
 	{
@@ -75,6 +76,7 @@ public class EntityProtossPassive extends EntityStarcraftPassive implements IShi
 		{
 			this.setShields(this.getShields() - amount);
 			this.timeSinceHurt = this.ticksExisted;
+			this.cooldown = 24;
 			if (this.getShields() < 0)
 			{
 				amount = -this.getShields();
@@ -103,6 +105,14 @@ public class EntityProtossPassive extends EntityStarcraftPassive implements IShi
 				}
 			}
 		}
+
+		if (this.ticksExisted % 5 == 0 && this.cooldown > 0)
+		{
+			System.out.println("cooling down...");
+			this.cooldown--;
+			System.out.println(this.cooldown);
+		}
+
 		super.onLivingUpdate();
 	}
 

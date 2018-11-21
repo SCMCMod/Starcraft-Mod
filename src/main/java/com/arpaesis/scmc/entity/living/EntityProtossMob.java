@@ -14,7 +14,8 @@ public class EntityProtossMob extends EntityStarcraftMob implements IShieldEntit
 {
 
 	public static final DataParameter<Float> SHIELDS = EntityDataManager.createKey(EntityProtossMob.class, DataSerializers.FLOAT);
-	public int timeSinceHurt = 0;
+	public int timeHurt = 0;
+	public int cooldown = 0;
 
 	public EntityProtossMob(World world)
 	{
@@ -74,7 +75,8 @@ public class EntityProtossMob extends EntityStarcraftMob implements IShieldEntit
 		if (this.getShields() > 0)
 		{
 			this.setShields(this.getShields() - amount);
-			this.timeSinceHurt = this.ticksExisted;
+			this.timeHurt = this.ticksExisted;
+			this.cooldown = 24;
 			if (this.getShields() < 0)
 			{
 				amount = -this.getShields();
@@ -91,7 +93,7 @@ public class EntityProtossMob extends EntityStarcraftMob implements IShieldEntit
 	{
 		if (!this.world.isRemote)
 		{
-			if (this.getShields() < this.getMaxShields() && this.ticksExisted % 20 == 0 && (this.ticksExisted - this.timeSinceHurt) / 20 > 10)
+			if (this.getShields() < this.getMaxShields() && this.ticksExisted % 20 == 0 && (this.ticksExisted - this.timeHurt) / 20 > 10)
 			{
 
 				this.setShields(this.getShields() + 2);
@@ -103,13 +105,21 @@ public class EntityProtossMob extends EntityStarcraftMob implements IShieldEntit
 				}
 			}
 		}
+
+		if (this.ticksExisted % 5 == 0 && this.cooldown > 0)
+		{
+			System.out.println("cooling down...");
+			this.cooldown--;
+			System.out.println(this.cooldown);
+		}
+
 		super.onLivingUpdate();
 	}
 
 	@Override
 	protected void damageEntity(DamageSource damageSrc, float damageAmount)
 	{
-		timeSinceHurt = this.ticksExisted;
+		timeHurt = this.ticksExisted;
 		super.damageEntity(damageSrc, damageAmount);
 	}
 

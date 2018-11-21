@@ -21,8 +21,8 @@ import org.lwjgl.opengl.GL11;
 import com.arpaesis.scmc.handlers.AccessHandler;
 
 import net.minecraft.client.Minecraft;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 //TODO: MOVE TO CORE MOD
 @SideOnly(Side.CLIENT)

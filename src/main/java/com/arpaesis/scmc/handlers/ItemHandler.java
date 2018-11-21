@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.arpaesis.scmc.creativetabs.SCCreativeTabs;
 import com.arpaesis.scmc.items.ItemC14GaussRifle;
-import com.arpaesis.scmc.items.ItemCarbotifier;
 import com.arpaesis.scmc.items.ItemDust;
 import com.arpaesis.scmc.items.ItemEnergy;
 import com.arpaesis.scmc.items.ItemFlamethrower;

@@ -1,8 +1,8 @@
 package com.arpaesis.scmc.client.renderer.entity;
 
 import com.arpaesis.scmc.client.model.entity.ModelZealot;
-import com.arpaesis.scmc.client.renderer.ColoredLayerRender;
 import com.arpaesis.scmc.client.renderer.Resources;
+import com.arpaesis.scmc.client.renderer.SCRenderUtilities;
 import com.arpaesis.scmc.entity.living.EntityZealot;
 import com.arpaesis.scmc.enums.MetaHandler;
 import com.arpaesis.scmc.handlers.ItemHandler;
@@ -24,6 +24,7 @@ public class RenderZealot extends RenderLiving<EntityZealot> implements LayerRen
 	private static final ResourceLocation STATICGLOW = new ResourceLocation(Resources.ZEALOT_GLOW_STATIC);
 	private static final ResourceLocation DYNAMICGLOW = new ResourceLocation(Resources.ZEALOT_GLOW_DYNAMIC);
 	protected ItemStack icon = new ItemStack(ItemHandler.ICON, 1, MetaHandler.IconType.PROTOSS.getID());
+	private ModelZealot aura = new ModelZealot();
 
 	public static final Factory FACTORY = new Factory();
 
@@ -45,6 +46,14 @@ public class RenderZealot extends RenderLiving<EntityZealot> implements LayerRen
 	}
 
 	@Override
+	protected void renderModel(EntityZealot entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor)
+	{
+
+		super.renderModel(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor);
+		SCRenderUtilities.renderShields(this.mainModel, entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor);
+	}
+
+	@Override
 	protected ResourceLocation getEntityTexture(EntityZealot entity)
 	{
 		return BASE;
@@ -59,9 +68,9 @@ public class RenderZealot extends RenderLiving<EntityZealot> implements LayerRen
 	@Override
 	public void doRenderLayer(EntityZealot entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale)
 	{
-		ColoredLayerRender.render(this, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-		ColoredLayerRender.renderStaticGlow(this, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
-		ColoredLayerRender.renderDynamicGlow(this, entitylivingbaseIn, DYNAMICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
+		SCRenderUtilities.render(this, entitylivingbaseIn, OVERLAY, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		SCRenderUtilities.renderStaticGlow(this, entitylivingbaseIn, STATICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
+		SCRenderUtilities.renderDynamicGlow(this, entitylivingbaseIn, DYNAMICGLOW, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, partialTicks);
 	}
 
 	@Override

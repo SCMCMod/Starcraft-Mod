@@ -3,12 +3,16 @@ package com.arpaesis.scmc.client.renderer;
 import org.lwjgl.opengl.GL11;
 
 import com.arpaesis.scmc.api.IEntityTeamColorable;
+import com.arpaesis.scmc.entity.living.EntityProtossMob;
+import com.arpaesis.scmc.entity.living.EntityProtossPassive;
 
+import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.MathHelper;
 
 /**
  * The code to rendering the entity layers
@@ -16,7 +20,7 @@ import net.minecraft.util.ResourceLocation;
  * @author CJMinecraft
  */
 //TODO: MOVE TO CORE MOD
-public class ColoredLayerRender
+public class SCRenderUtilities
 {
 
 	public static <T extends EntityLiving> void render(RenderLiving<T> renderer, T entity, ResourceLocation overlayTexture, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale)
@@ -95,6 +99,56 @@ public class ColoredLayerRender
 				GlStateManager.disableBlend();
 				GlStateManager.color(1, 1, 1, 1);
 			}
+		}
+	}
+
+	public static <T extends EntityProtossMob> void renderShields(ModelBase shields, T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor)
+	{
+		if (entity.getShields() > 0f)
+		{
+			GlStateManager.pushMatrix();
+
+			GlStateManager.color(0.4f, 0.4f, 1f, MathHelper.clamp((float) entity.cooldown / 48, 0.0f, 0.4f));
+			GlStateManager.disableTexture2D();
+			GlStateManager.depthMask(false);
+			GlStateManager.enableBlend();
+			GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+
+			shields.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor);
+			GlStateManager.scale(1f, 1f, 1.1f);
+			GlStateManager.translate(0f, 0f, -0.025f);
+			shields.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor);
+
+			GlStateManager.disableBlend();
+			GlStateManager.depthMask(true);
+			GlStateManager.enableTexture2D();
+
+			GlStateManager.popMatrix();
+		}
+	}
+
+	public static <T extends EntityProtossPassive> void renderShields(ModelBase shields, T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor)
+	{
+		if (entity.getShields() > 0f)
+		{
+			GlStateManager.pushMatrix();
+
+			GlStateManager.color(0.4f, 0.4f, 1f, MathHelper.clamp((float) entity.cooldown / 48, 0.0f, 0.4f));
+			GlStateManager.disableTexture2D();
+			GlStateManager.depthMask(false);
+			GlStateManager.enableBlend();
+			GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+
+			shields.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor);
+			GlStateManager.scale(1f, 1f, 1.1f);
+			GlStateManager.translate(0f, 0f, -0.025f);
+			shields.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor);
+
+			GlStateManager.disableBlend();
+			GlStateManager.depthMask(true);
+			GlStateManager.enableTexture2D();
+
+			GlStateManager.popMatrix();
 		}
 	}
 }
