@@ -39,6 +39,13 @@ public class RenderPurifierProbe extends RenderLiving<EntityPurifierProbe> imple
 			renderLeash(entity, x, y, z, entityYaw, partialTicks);
 		}
 	}
+	
+	@Override
+	protected void renderModel(EntityPurifierProbe entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor)
+	{
+		super.renderModel(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor);
+		SCRenderUtilities.renderShields(this.mainModel, entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor);
+	}
 
 	@Override
 	protected ResourceLocation getEntityTexture(EntityPurifierProbe entity)
