@@ -76,7 +76,8 @@ public class BiomeGenCharAshPlains extends BiomeHandler
 						if (yLoc >= seaLevel - 1)
 						{
 							chunkPrimerIn.setBlockState(xLoc, yLoc, zLoc, topBlock);
-							//TODO: Make this char ash once ash is re-added to the game. Metal is replacing it temporarily.
+							// TODO: Make this char ash once ash is re-added to the game. Metal is replacing
+							// it temporarily.
 							chunkPrimerIn.setBlockState(xLoc, yLoc + 1, zLoc, BlockHandler.PROTOSS_METAL_T1.getStateFromMeta(0));
 						} else if (yLoc < seaLevel - 7 - randHeight)
 						{

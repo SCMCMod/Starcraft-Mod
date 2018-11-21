@@ -138,7 +138,7 @@ public class BlockBrambles extends BlockContainer implements IShearable, IMetaBl
 							double d0 = ((double) j + 0.5D) / 4.0D;
 							double d1 = ((double) k + 0.5D) / 4.0D;
 							double d2 = ((double) l + 0.5D) / 4.0D;
-							manager.addEffect((new ParticleCustomDigging(world, (double) pos.getX() + d0, (double) pos.getY() + d1, (double) pos.getZ() + d2, d0 - 0.5D, d1 - 0.5D, d2 - 0.5D, location, new Vector4f(u/16, v/16, 1, 1))).setBlockPos(pos));
+							manager.addEffect((new ParticleCustomDigging(world, (double) pos.getX() + d0, (double) pos.getY() + d1, (double) pos.getZ() + d2, d0 - 0.5D, d1 - 0.5D, d2 - 0.5D, location, new Vector4f(u / 16, v / 16, 1, 1))).setBlockPos(pos));
 						}
 					}
 				}

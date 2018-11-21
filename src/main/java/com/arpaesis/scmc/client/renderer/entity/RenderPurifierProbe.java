@@ -39,7 +39,7 @@ public class RenderPurifierProbe extends RenderLiving<EntityPurifierProbe> imple
 			renderLeash(entity, x, y, z, entityYaw, partialTicks);
 		}
 	}
-	
+
 	@Override
 	protected void renderModel(EntityPurifierProbe entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor)
 	{

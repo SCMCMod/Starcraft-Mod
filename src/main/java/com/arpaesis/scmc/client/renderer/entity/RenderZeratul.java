@@ -37,7 +37,7 @@ public class RenderZeratul extends RenderLiving<EntityZeratul> implements LayerR
 			renderLeash(entity, x, y, z, entityYaw, partialTicks);
 		}
 	}
-	
+
 	@Override
 	protected void renderModel(EntityZeratul entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor)
 	{

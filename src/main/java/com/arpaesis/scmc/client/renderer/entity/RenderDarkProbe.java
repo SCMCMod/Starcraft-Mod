@@ -39,7 +39,7 @@ public class RenderDarkProbe extends RenderLiving<EntityDarkProbe> implements La
 			renderLeash(entity, x, y, z, entityYaw, partialTicks);
 		}
 	}
-	
+
 	@Override
 	protected void renderModel(EntityDarkProbe entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor)
 	{

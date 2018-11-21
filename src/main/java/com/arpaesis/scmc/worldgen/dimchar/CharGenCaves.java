@@ -15,7 +15,7 @@ public class CharGenCaves extends MapGenCaves
 	protected boolean canReplaceBlock(IBlockState p_175793_1_, IBlockState p_175793_2_)
 	{
 		Block test = p_175793_1_.getBlock();
-		//TODO: Check for char ash once it is re-added to the game.
+		// TODO: Check for char ash once it is re-added to the game.
 		return (test == BlockHandler.STONE_CHAR || test == BlockHandler.DIRT_CHAR || test == BlockHandler.ZERG_CREEP ? true : (test == Blocks.SAND || test == Blocks.GRAVEL) && p_175793_2_.getMaterial() != Material.LAVA);
 	}
 }

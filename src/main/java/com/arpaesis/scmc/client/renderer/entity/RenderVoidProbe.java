@@ -39,7 +39,7 @@ public class RenderVoidProbe extends RenderLiving<EntityVoidProbe> implements La
 			renderLeash(entity, x, y, z, entityYaw, partialTicks);
 		}
 	}
-	
+
 	@Override
 	protected void renderModel(EntityVoidProbe entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor)
 	{

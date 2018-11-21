@@ -281,7 +281,7 @@ public class BlockHandler
 
 	private static void instantiate()
 	{
-		
+
 		// Misc
 		ENTITY_SPAWNER = new BlockEntitySpawner("block.entityspawner", 5);
 		PLANET_TELEPORTER = new BlockPlanetTeleporter("block.planetteleporter", 100);
@@ -334,7 +334,7 @@ public class BlockHandler
 		ORE_TITANIUM_CHAR = new BlockCharOre("char.titanium", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 2).setBlockHarvestLevel("pickaxe", 2).setCreativeTab(SCCreativeTabs.MISC);
 		ORE_URANIUM_CHAR = new BlockCharOre("char.uranium", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 1).setBlockHarvestLevel("pickaxe", 2).setCreativeTab(SCCreativeTabs.MISC);
 		ORE_PHOSPHORUS_CHAR = new BlockCharOre("char.phosphorus", RegistryType.FULL, Material.ROCK, MapColor.BLACK, 1).setBlockHarvestLevel("pickaxe", 1).setCreativeTab(SCCreativeTabs.MISC);
-		
+
 		// Shakuras
 		COBBLESTONE_SHAKURAS = new SCBlock("shakuras.cobblestone", RegistryType.FULL, Material.ROCK, MapColor.BLUE).setBlockHarvestLevel("pickaxe", 0).setCreativeTab(SCCreativeTabs.MISC).setHardness(2).setResistance(10);
 		STONE_SHAKURAS = new SCBlockCustomDrop("shakuras.stone", RegistryType.FULL, Material.ROCK, MapColor.LIGHT_BLUE, new ItemStack(COBBLESTONE_SHAKURAS)).setHardness(1.5f).setResistance(10).setCreativeTab(SCCreativeTabs.MISC);

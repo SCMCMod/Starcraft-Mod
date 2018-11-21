@@ -186,9 +186,8 @@ public class Library
 		}
 		for (int x = -radius; x <= radius; x++)
 			for (int z = -radius; z <= radius; z++)
-				//TODO: Check here for char ash when it is re-added to the mod.
-				if (world.getBlockState(pos.add(x, domeHeight - 1, z)).getBlock() == Blocks.SNOW_LAYER || world.getBlockState(pos.add(x, domeHeight - 1, z)).getBlock() == Blocks.AIR
-						|| world.getBlockState(pos.add(x, domeHeight - 1, z)).getBlock() == BlockHandler.PROTOSS_SHIELD)
+				// TODO: Check here for char ash when it is re-added to the mod.
+				if (world.getBlockState(pos.add(x, domeHeight - 1, z)).getBlock() == Blocks.SNOW_LAYER || world.getBlockState(pos.add(x, domeHeight - 1, z)).getBlock() == Blocks.AIR || world.getBlockState(pos.add(x, domeHeight - 1, z)).getBlock() == BlockHandler.PROTOSS_SHIELD)
 					world.setBlockState(pos.add(x, domeHeight - 1, z), state);
 	}
 

@@ -111,8 +111,9 @@ public class ItemHandler
 		DUST = new ItemDust();
 		PLEDGE = new SCItem("pledge").setCreativeTab(SCCreativeTabs.MISC);
 		INGOT = new ItemIngot();
-		//TODO: This item crashes serverside, something related to sound. Add it back once we get around to carbotifying.
-		//CARBOTIFIER = new ItemCarbotifier();
+		// TODO: This item crashes serverside, something related to sound. Add it back
+		// once we get around to carbotifying.
+		// CARBOTIFIER = new ItemCarbotifier();
 		LOG = new ItemLog();
 
 		// Protoss

@@ -15,19 +15,22 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
-public class ParticleCustomDigging extends ParticleDigging {
+public class ParticleCustomDigging extends ParticleDigging
+{
 
 	private ResourceLocation texture;
 	private Vector4f textureCoords;
 
-	public ParticleCustomDigging(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, ResourceLocation texture, Vector4f textureCoords) {
+	public ParticleCustomDigging(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, ResourceLocation texture, Vector4f textureCoords)
+	{
 		super(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeedIn, ySpeedIn, zSpeedIn, Blocks.DIRT.getDefaultState());
 		this.texture = texture;
 		this.textureCoords = textureCoords;
 	}
 
 	@Override
-	public void renderParticle(BufferBuilder buffer, Entity entity, float partialTicks, float rotationX, float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
+	public void renderParticle(BufferBuilder buffer, Entity entity, float partialTicks, float rotationX, float rotationZ, float rotationYZ, float rotationXY, float rotationXZ)
+	{
 		float f = ((float) this.textureCoords.x + this.particleTextureJitterX / 4.0F) / 16.0F;
 		float f1 = f + 0.015609375F;
 		float f2 = ((float) this.textureCoords.y + this.particleTextureJitterY / 4.0F) / 16.0F;
@@ -60,13 +63,15 @@ public class ParticleCustomDigging extends ParticleDigging {
 		TextureUtils.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
 	}
 
-	public float getInterpolatedU(double u) {
-		float f = this.textureCoords.z/16;
+	public float getInterpolatedU(double u)
+	{
+		float f = this.textureCoords.z / 16;
 		return this.textureCoords.x + f * (float) u / 16.0F;
 	}
 
-	public float getInterpolatedV(double v) {
-		float f = this.textureCoords.w/16;
+	public float getInterpolatedV(double v)
+	{
+		float f = this.textureCoords.w / 16;
 		return this.textureCoords.y + f * (float) v / 16.0F;
 	}
 }

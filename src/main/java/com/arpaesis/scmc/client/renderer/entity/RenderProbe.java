@@ -38,7 +38,7 @@ public class RenderProbe extends RenderLiving<EntityProbe> implements LayerRende
 			renderLeash(entity, x, y, z, entityYaw, partialTicks);
 		}
 	}
-	
+
 	@Override
 	protected void renderModel(EntityProbe entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor)
 	{
