@@ -76,6 +76,7 @@ import net.minecraftforge.fml.relauncher.Side;
 
 public class BlockHandler
 {
+	// TODO add fluids back in
 
 	public static List<Block> blocks;
 	public static List<ItemBlock> items;
@@ -506,7 +507,7 @@ public class BlockHandler
 	 * represents the block.
 	 * 
 	 * @param block The block to register
-	 * @param item The item block to link to this block
+	 * @param item  The item block to link to this block
 	 */
 	public static void registerBlockWithItemBlock(Block block, ItemBlock item)
 	{
