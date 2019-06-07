@@ -40,10 +40,10 @@ public class SCSlab extends SCBlock
 	{
 		super(name, RegistryType.FULL, blockType.getMaterial(), blockType.getMaterial().getMaterialMapColor());
 		this.blockType = blockType;
-		this.setSoundType(blockType.getBlock().blockSoundType);
-		this.setHardness(blockType.getBlock().blockHardness);
-		this.setResistance(blockType.getBlock().blockResistance / 3.0F);
-		this.setSoundType(blockType.getBlock().blockSoundType);
+		this.setSoundType(blockType.getBlock().getSoundType());// TODO improve these getters with reflection or smth
+		this.setHardness(blockType.getBlock().getBlockHardness(null, null, null));
+		this.setResistance(blockType.getBlock().getExplosionResistance(null) / 3.0F);
+		this.setSoundType(blockType.getBlock().getSoundType());
 	}
 
 	@Override
@@ -117,8 +117,7 @@ public class SCSlab extends SCBlock
 	@Override
 	protected BlockStateContainer createBlockState()
 	{
-		return new BlockStateContainer(this, new IProperty[]
-		{ PART });
+		return new BlockStateContainer(this, new IProperty[] { PART });
 	}
 
 	@SideOnly(Side.CLIENT)

@@ -26,7 +26,7 @@ public class AccessHandler
 	@SideOnly(Side.CLIENT)
 	public static Minecraft getMinecraft()
 	{
-		return Minecraft.instance;
+		return Minecraft.getMinecraft();
 	}
 
 	/**
@@ -44,7 +44,7 @@ public class AccessHandler
 	@SideOnly(Side.CLIENT)
 	public static float getPartialTicks()
 	{
-		return getMinecraft().timer.renderPartialTicks;
+		return getMinecraft().getRenderPartialTicks();
 	}
 
 	/**
