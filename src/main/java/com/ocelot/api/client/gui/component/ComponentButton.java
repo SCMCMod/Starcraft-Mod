@@ -1,6 +1,6 @@
 package com.ocelot.api.client.gui.component;
 
-import com.ocelot.api.utils.SoundUtils;
+import com.ocelot.api.utils.GuiUtils;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
@@ -94,7 +94,7 @@ public class ComponentButton extends Component
 		super.mousePressed(mouseButton, mouseX, mouseY);
 		if (mouseButton == 0)
 		{
-			SoundUtils.playButtonClick();
+			GuiUtils.playButtonClick();
 		}
 	}
 

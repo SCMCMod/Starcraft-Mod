@@ -69,7 +69,7 @@ public class VehicleWeapon implements IWeaponSystem
 	@Override
 	public void fire(boolean shouldCauseExplosion)
 	{
-		RayTraceResult ray = WorldUtils.getRay(this.getWeaponRange());
+		RayTraceResult ray = WorldUtils.rayTrace(this.getWeaponRange());
 		Entity entity = ray.entityHit;
 
 		BlockPos hitBlock = ray.getBlockPos();

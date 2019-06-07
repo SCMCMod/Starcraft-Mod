@@ -47,12 +47,19 @@ repositories {
   }
 }
 
+configurations {
+    embed
+    compile.extendsFrom(embed)
+}
+
 dependencies {
   // compile against the JEI API but do not include it at runtime
   deobfProvided "mezz.jei:jei_1.12.2:4.9.2.196:api"
   // at runtime, use the full JEI jar
   runtime "mezz.jei:jei_1.12.2:4.9.2.196"
   compile 'com.github.CJMinecraft01:CJCore:1.12-SNAPSHOT'
+  
+  embed 'com.github.Ocelot5836:Ocelot-Mod-Utilities:v1.0'
 }
 
 jar {
@@ -62,6 +69,12 @@ jar {
             "Implementation-Title": archivesBaseName,
             "Implementation-Version": project.version,
             "FMLAT": "SCMC_at.cfg")
+    
+    from configurations.embed.collect {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        it.isDirectory() ? it : zipTree(it)
+    }
 }
 
 processResources {

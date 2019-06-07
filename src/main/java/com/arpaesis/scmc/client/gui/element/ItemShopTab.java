@@ -6,7 +6,6 @@ import com.arpaesis.scmc.Starcraft;
 import com.arpaesis.scmc.client.gui.GuiLists.Product;
 import com.google.common.collect.ImmutableList;
 import com.ocelot.api.utils.GuiUtils;
-import com.ocelot.api.utils.SoundUtils;
 import com.ocelot.api.utils.TextureUtils;
 import com.ocelot.api.utils.TimeUtils;
 
@@ -99,7 +98,7 @@ public class ItemShopTab extends GuiScreen
 	{
 		if (GuiUtils.isMouseInside(x, y, width, height, mouseX, mouseY))
 		{
-			SoundUtils.playButtonClick();
+			GuiUtils.playButtonClick();
 		}
 	}
 

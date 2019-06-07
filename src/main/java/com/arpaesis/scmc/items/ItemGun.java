@@ -37,7 +37,7 @@ public abstract class ItemGun extends SCItem
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
 	{
 		ItemStack heldItem = player.getHeldItem(hand);
-		RayTraceResult ray = WorldUtils.getRay(this.getGunRange(heldItem));
+		RayTraceResult ray = WorldUtils.rayTrace(this.getGunRange(heldItem));
 		Entity entity = ray.entityHit;
 		BlockPos hitBlock = ray.getBlockPos();
 

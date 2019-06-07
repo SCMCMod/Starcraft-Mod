@@ -30,7 +30,7 @@ public abstract class SCRangedMeleeWeapon extends SCSword
 	{
 		EntityPlayer player = (EntityPlayer) entityLiving;
 		World world = player.world;
-		RayTraceResult ray = WorldUtils.getRay(this.getMeleeRange(stack));
+		RayTraceResult ray = WorldUtils.rayTrace(this.getMeleeRange(stack));
 		Entity entity = ray.entityHit;
 		BlockPos hitBlock = ray.getBlockPos();
 
