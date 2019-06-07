@@ -2,6 +2,7 @@ package com.arpaesis.scmc.tileentity;
 
 import com.arpaesis.scmc.api.Utils;
 import com.arpaesis.scmc.handlers.BlockHandler;
+import com.arpaesis.scmc.handlers.ItemHandler;
 import com.arpaesis.scmc.handlers.SoundHandler;
 import com.arpaesis.scmc.recipes.gascollector.GasCollectorRecipes;
 
@@ -10,6 +11,7 @@ import net.minecraft.block.BlockDynamicLiquid;
 import net.minecraft.block.BlockStaticLiquid;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
@@ -32,12 +34,26 @@ public class TileEntityGasCollector extends TileEntitySidedInventory implements 
 
 	public TileEntityGasCollector(int type)
 	{
-		super(new int[1], new int[1], new int[]
-		{ 9 }, new int[]
-		{ 9 }, new int[]
-		{ 9 }, new int[]
-		{ 9 });
+		super(new int[1], new int[1], new int[] { 9 }, new int[] { 9 }, new int[] { 9 }, new int[] { 9 });
 		this.type = type;
+	}
+
+	@Override
+	protected boolean isStackValid(int slot, ItemStack stack)
+	{
+		if (slot == 9)
+		{
+			switch (this.type)
+			{
+			case 0:
+				return stack.getItem() == ItemHandler.PROTOSS_INGOT;
+			case 1:
+				return stack.getItem() == Item.getItemFromBlock(Blocks.PLANKS);
+			case 2:
+				return stack.getItem() == ItemHandler.ORGANIC_TISSUE;
+			}
+		}
+		return false;
 	}
 
 	@Override
