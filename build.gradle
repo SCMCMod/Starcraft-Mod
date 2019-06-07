@@ -59,7 +59,7 @@ dependencies {
   runtime "mezz.jei:jei_1.12.2:4.9.2.196"
   compile 'com.github.CJMinecraft01:CJCore:1.12-SNAPSHOT'
   
-  embed 'com.github.Ocelot5836:Ocelot-Mod-Utilities:1.1-alpha'
+  embed 'com.github.Ocelot5836:Ocelot-Mod-Utilities:1.2-alpha'
 }
 
 jar {
