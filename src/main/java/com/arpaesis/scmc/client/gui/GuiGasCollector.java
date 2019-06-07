@@ -8,7 +8,6 @@ import com.arpaesis.scmc.blocks.metablocks.BlockGasCollector.GasCollectorType;
 import com.arpaesis.scmc.container.ContainerGasCollector;
 import com.arpaesis.scmc.handlers.BlockHandler;
 import com.arpaesis.scmc.handlers.ItemHandler;
-import com.arpaesis.scmc.lib.Library;
 import com.arpaesis.scmc.tileentity.TileEntityGasCollector;
 import com.ocelot.api.utils.GuiUtils;
 import com.ocelot.api.utils.TextureUtils;
@@ -39,7 +38,9 @@ public class GuiGasCollector extends GuiContainer
 	private IInventory playerInv;
 	private IItemHandler itemHandler;
 
-	private String[] names;
+	private String[][] names;
+	private int nameCounter;
+	private int currentName;
 
 	public GuiGasCollector(EntityPlayer player, TileEntityGasCollector te)
 	{
@@ -55,9 +56,7 @@ public class GuiGasCollector extends GuiContainer
 	{
 		this.guiLeft = 175;
 		this.guiTop = 165;
-		names = new String[]
-		{ ItemHandler.PROTOSS_INGOT.getItemStackDisplayName(new ItemStack(ItemHandler.PROTOSS_INGOT, 4, 0)) + "s", Item.getItemFromBlock(Blocks.PLANKS).getItemStackDisplayName(new ItemStack(Blocks.PLANKS, 4)),
-				ItemHandler.ORGANIC_TISSUE.getItemStackDisplayName(new ItemStack(ItemHandler.ORGANIC_TISSUE, 1, 0)) };
+		names = new String[][] { { ItemHandler.PROTOSS_INGOT.getItemStackDisplayName(new ItemStack(ItemHandler.PROTOSS_INGOT, 4, 0)) }, { Item.getItemFromBlock(Blocks.PLANKS).getItemStackDisplayName(new ItemStack(Blocks.PLANKS, 4, 0)), Item.getItemFromBlock(Blocks.PLANKS).getItemStackDisplayName(new ItemStack(Blocks.PLANKS, 4, 1)), Item.getItemFromBlock(Blocks.PLANKS).getItemStackDisplayName(new ItemStack(Blocks.PLANKS, 4, 2)), Item.getItemFromBlock(Blocks.PLANKS).getItemStackDisplayName(new ItemStack(Blocks.PLANKS, 4, 3)), Item.getItemFromBlock(Blocks.PLANKS).getItemStackDisplayName(new ItemStack(Blocks.PLANKS, 4, 4)), Item.getItemFromBlock(Blocks.PLANKS).getItemStackDisplayName(new ItemStack(Blocks.PLANKS, 4, 5)) }, { ItemHandler.ORGANIC_TISSUE.getItemStackDisplayName(new ItemStack(ItemHandler.ORGANIC_TISSUE, 1, 0)) } };
 		super.initGui();
 	}
 
@@ -67,10 +66,21 @@ public class GuiGasCollector extends GuiContainer
 		bindTexture();
 		GlStateManager.color(1F, 1F, 1F, 1F);
 		drawTexturedModalRect((width - xSize) / 2, (height - ySize) / 2, 0, 0, this.xSize, this.ySize);
-		if (Library.isJeiInstalled())
+	}
+
+	@Override
+	public void updateScreen()
+	{
+		super.updateScreen();
+		this.nameCounter++;
+		this.nameCounter %= 20;
+		if (this.nameCounter == 0)
 		{
-			TextureUtils.bindTexture(Starcraft.MOD_ID, "textures/gui/container/gas_collector_base.png");
-			drawTexturedModalRect(guiLeft + 35, guiTop + 35, 63, 0, 16, 16);
+			this.currentName++;
+			if (this.currentName >= this.names[this.te.getType()].length)
+			{
+				this.currentName = 0;
+			}
 		}
 	}
 
@@ -80,11 +90,11 @@ public class GuiGasCollector extends GuiContainer
 		drawDefaultBackground();
 		super.drawScreen(mouseX, mouseY, partialTicks);
 		renderHoveredToolTip(mouseX, mouseY);
-		if (itemHandler.getStackInSlot(9).isEmpty())
+		if (this.itemHandler.getStackInSlot(9).isEmpty())
 		{
 			bindTexture();
-			String s = TextFormatting.GRAY + I18n.format("gui.gas_collector." + GasCollectorType.values()[te.getType()] + ".fuel.tooltip", getRequiredFuel(), TextFormatting.DARK_GRAY + names[te.getType()] + TextFormatting.GRAY);
-			drawTooltip(s, guiLeft + 133, guiTop + 34, 18, 18, mouseX, mouseY);
+			String s = TextFormatting.GRAY + I18n.format("gui.gas_collector." + GasCollectorType.values()[this.te.getType()] + ".fuel.tooltip", getRequiredFuel(), TextFormatting.DARK_GRAY + this.names[this.te.getType()][this.currentName] + TextFormatting.GRAY);
+			drawTooltip(this.fontRenderer.listFormattedStringToWidth(s, 150), this.guiLeft + 133, this.guiTop + 34, 18, 18, mouseX, mouseY);
 		}
 	}
 
@@ -92,20 +102,21 @@ public class GuiGasCollector extends GuiContainer
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
 	{
 		int color = 4210752;
-		String title = Item.getItemFromBlock(BlockHandler.GAS_COLLECTOR).getItemStackDisplayName(new ItemStack(BlockHandler.GAS_COLLECTOR, 1, te.getType()));
+		String title = Item.getItemFromBlock(BlockHandler.GAS_COLLECTOR).getItemStackDisplayName(new ItemStack(BlockHandler.GAS_COLLECTOR, 1, this.te.getType()));
 		this.mc.fontRenderer.drawString(title, this.xSize / 2 - this.mc.fontRenderer.getStringWidth(title) / 2, 6, 4210752);
 		this.mc.fontRenderer.drawString(this.playerInv.getDisplayName().getFormattedText(), 8, 72, color);
 	}
 
 	public int getRequiredFuel()
 	{
-		ItemStack stack = itemHandler.getStackInSlot(9);
+		ItemStack stack = this.itemHandler.getStackInSlot(9);
 		if (!stack.isEmpty())
 		{
 			if (stack.getCount() > 4)
 			{
 				return 0;
-			} else
+			}
+			else
 			{
 				return stack.getCount();
 			}
@@ -121,7 +132,7 @@ public class GuiGasCollector extends GuiContainer
 
 	private void bindTexture()
 	{
-		TextureUtils.bindTexture(Starcraft.MOD_ID, "textures/gui/container/gas_collector_" + GasCollectorType.values()[te.getType()].getName() + ".png");
+		TextureUtils.bindTexture(Starcraft.MOD_ID, "textures/gui/container/gas_collector_" + GasCollectorType.values()[this.te.getType()].getName() + ".png");
 	}
 
 	public void drawTooltip(List<String> lines, int posX, int posY, int width, int height, int mouseX, int mouseY)
