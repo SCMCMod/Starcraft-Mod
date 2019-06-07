@@ -56,7 +56,7 @@ public class SCJeiPlugin implements IModPlugin
 		registry.addRecipeCatalyst(new ItemStack(BlockHandler.FURNACE_PROTOSS), VanillaRecipeCategoryUid.SMELTING);
 
 		registry.addRecipeClickArea(GuiProtossFurnace.class, 78, 32, 28, 23, VanillaRecipeCategoryUid.SMELTING);
-		registry.addRecipeClickArea(GuiGasCollector.class, 34, 34, 18, 18, SCRecipeCategoryUid.GAS_COLLECTOR);
+		registry.addRecipeClickArea(GuiGasCollector.class, 61, 3, 54, 13, SCRecipeCategoryUid.GAS_COLLECTOR);
 		registry.addRecipeClickArea(GuiStarcraftFurnace.class, 78, 32, 28, 23, VanillaRecipeCategoryUid.SMELTING, VanillaRecipeCategoryUid.FUEL);
 
 		recipeTransferRegistry.addRecipeTransferHandler(ContainerStarcraftFurnace.class, VanillaRecipeCategoryUid.SMELTING, 0, 1, 3, 36);
