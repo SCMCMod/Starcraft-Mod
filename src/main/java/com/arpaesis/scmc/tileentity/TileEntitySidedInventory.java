@@ -42,17 +42,16 @@ public abstract class TileEntitySidedInventory extends TileEntity
 	 * Create a sided {@link TileEntity}, like the
 	 * {@link net.minecraft.inventory.ISidedInventory interface}
 	 *
-	 * @param slotsDown The slots which are represented on the down face
-	 * @param slotsUp The slots which are represented on the up face
+	 * @param slotsDown  The slots which are represented on the down face
+	 * @param slotsUp    The slots which are represented on the up face
 	 * @param slotsNorth The slots which are represented on the north face
 	 * @param slotsSouth The slots which are represented on the south face
-	 * @param slotsWest The slots which are represented on the west face
-	 * @param slotsEast The slots which are represented on the east face
+	 * @param slotsWest  The slots which are represented on the west face
+	 * @param slotsEast  The slots which are represented on the east face
 	 */
 	public TileEntitySidedInventory(int[] slotsDown, int[] slotsUp, int[] slotsNorth, int[] slotsSouth, int[] slotsWest, int[] slotsEast)
 	{
-		this.slotsForFace = new int[][]
-		{ slotsDown, slotsUp, slotsNorth, slotsSouth, slotsWest, slotsEast };
+		this.slotsForFace = new int[][] { slotsDown, slotsUp, slotsNorth, slotsSouth, slotsWest, slotsEast };
 		this.handler = new ItemStackHandler(calculateSizeOfMainHandler())
 		{
 			@Override
@@ -130,7 +129,7 @@ public abstract class TileEntitySidedInventory extends TileEntity
 	/**
 	 * Returns whether the stack in the given slot is valid
 	 * 
-	 * @param slot The slot in which the item stack is in
+	 * @param slot  The slot in which the item stack is in
 	 * @param stack The item stack which is in the slot
 	 * @return whether the stack in the given slot is valid
 	 */
@@ -143,14 +142,15 @@ public abstract class TileEntitySidedInventory extends TileEntity
 	 * Insert an {@link ItemStack} (used by the main handler) into all of the faces
 	 * handlers
 	 *
-	 * @param slot The slot of the main handler that the {@link ItemStack} is in
+	 * @param slot  The slot of the main handler that the {@link ItemStack} is in
 	 * @param stack The {@link ItemStack} to insert into all the of the faces
-	 *        handlers
+	 *              handlers
 	 */
 	private void insertStack(int slot, ItemStack stack)
 	{
 		if (!world.isRemote)
 		{
+			ItemStack newStack = stack.copy();
 			this.transferringStacks = true;
 			for (int i = 0; i < this.slotsForFace.length; i++)
 			{
@@ -161,22 +161,22 @@ public abstract class TileEntitySidedInventory extends TileEntity
 						switch (i)
 						{
 						case 0:
-							this.downHandler.insertItem(j, stack, false);
+							newStack = this.downHandler.insertItem(j, newStack, false);
 							break;
 						case 1:
-							this.upHandler.insertItem(j, stack, false);
+							newStack = this.upHandler.insertItem(j, newStack, false);
 							break;
 						case 2:
-							this.northHandler.insertItem(j, stack, false);
+							newStack = this.northHandler.insertItem(j, newStack, false);
 							break;
 						case 3:
-							this.southHandler.insertItem(j, stack, false);
+							newStack = this.southHandler.insertItem(j, newStack, false);
 							break;
 						case 4:
-							this.westHandler.insertItem(j, stack, false);
+							newStack = this.westHandler.insertItem(j, newStack, false);
 							break;
 						case 5:
-							this.eastHandler.insertItem(j, stack, false);
+							newStack = this.eastHandler.insertItem(j, newStack, false);
 							break;
 						}
 						break;
@@ -191,7 +191,7 @@ public abstract class TileEntitySidedInventory extends TileEntity
 	 * Extract an {@link ItemStack} (used by the main handler) from all of the faces
 	 * handlers
 	 *
-	 * @param slot The slot of the main handler that the {@link ItemStack} is in
+	 * @param slot   The slot of the main handler that the {@link ItemStack} is in
 	 * @param amount The amount of items to be extracted
 	 */
 	private void extractStack(int slot, int amount)
