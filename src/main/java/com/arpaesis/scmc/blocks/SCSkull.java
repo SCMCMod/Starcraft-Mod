@@ -6,6 +6,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import com.arpaesis.scmc.blocks.items.IMetaBlockName;
 import com.arpaesis.scmc.creativetabs.SCCreativeTabs;
 import com.arpaesis.scmc.handlers.BlockHandler;
 import com.arpaesis.scmc.handlers.IMetaRenderHandler;
@@ -44,7 +45,7 @@ import net.minecraft.world.World;
  * 
  * @author Ocelot5836
  */
-public class SCSkull extends BlockContainer implements IMetaRenderHandler
+public class SCSkull extends BlockContainer implements IMetaRenderHandler, IMetaBlockName
 {
 
 	public static final PropertyDirection FACING = BlockDirectional.FACING;
@@ -240,5 +241,11 @@ public class SCSkull extends BlockContainer implements IMetaRenderHandler
 	public String getName(int meta)
 	{
 		return "skull";
+	}
+
+	@Override
+	public String getSpecialName(ItemStack stack)
+	{
+		return EnumSkullType.values()[stack.getMetadata() >= EnumSkullType.values().length ? 0 : stack.getMetadata()].getName();
 	}
 }

@@ -2,6 +2,7 @@ package com.arpaesis.scmc.blocks.items;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 
 /**
  * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
@@ -15,12 +16,6 @@ import net.minecraft.item.ItemBlock;
 //TODO: MOVE TO CORE MOD
 public class ItemBlockMeta extends ItemBlock
 {
-
-	/**
-	 * Default {@link ItemBlock} constructor
-	 * 
-	 * @param block The original block
-	 */
 	public ItemBlockMeta(Block block)
 	{
 		super(block);
@@ -34,9 +29,12 @@ public class ItemBlockMeta extends ItemBlock
 		setMaxDamage(0);
 	}
 
-	/**
-	 * Fixes a bug with not placing the correct variant of the block THIS IS NEEDED
-	 */
+	@Override
+	public String getUnlocalizedNameInefficiently(ItemStack stack)
+	{
+		return this.getTranslationKey() + "." + ((IMetaBlockName) this.block).getSpecialName(stack);
+	}
+
 	@Override
 	public int getMetadata(int damage)
 	{

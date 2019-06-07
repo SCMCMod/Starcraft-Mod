@@ -10,7 +10,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumActionResult;
@@ -23,9 +22,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemBlockStarcraftSkull extends ItemBlock
+public class ItemBlockStarcraftSkull extends ItemBlockMeta
 {
-
 	public ItemBlockStarcraftSkull()
 	{
 		super(BlockHandler.STARCRAFT_SKULL);
@@ -52,7 +50,8 @@ public class ItemBlockStarcraftSkull extends ItemBlock
 		if (facing == EnumFacing.DOWN)
 		{
 			return EnumActionResult.FAIL;
-		} else
+		}
+		else
 		{
 			if (world.getBlockState(pos).getBlock().isReplaceable(world, pos))
 			{
@@ -78,7 +77,8 @@ public class ItemBlockStarcraftSkull extends ItemBlock
 				if (world.isRemote)
 				{
 					return EnumActionResult.SUCCESS;
-				} else
+				}
+				else
 				{
 					world.setBlockState(pos, BlockHandler.STARCRAFT_SKULL.getDefaultState().withProperty(SCSkull.FACING, facing), 11);
 					int i = 0;
@@ -101,7 +101,8 @@ public class ItemBlockStarcraftSkull extends ItemBlock
 					stack.shrink(1);
 					return EnumActionResult.SUCCESS;
 				}
-			} else
+			}
+			else
 			{
 				return EnumActionResult.FAIL;
 			}
