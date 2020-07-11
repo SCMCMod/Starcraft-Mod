@@ -6,6 +6,6 @@ Minecraft mod based on Starcraft. To setup the development environment:
 
 3. Run command `gradlew eclipse` in {SCMC} For those using IDEA, use `gradlew idea` instead.
 
-**If confused about anything, PM Ocelot#2614 or Bloody#0484 on Discord**
+**If confused about anything, PM CJMinecraft#7387, ROM#0950 or Bloody#0484 on Discord**
 
 If you require immediate support, please visit our discord: https://discord.gg/fPhgfwR
