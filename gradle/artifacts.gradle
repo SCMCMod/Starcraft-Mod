@@ -2,8 +2,8 @@ javadoc {
 	failOnError = false
 }
 
-ext.apiFiles = ['com/arpaesis/api/**']
-ext.coreFiles = ['com/arpaesis/scmc/**']
+ext.apiFiles = ['io/github/scmcmod/api/**']
+ext.coreFiles = ['io/github/scmcmod/**']
 
 jar {
 	outputs.upToDateWhen {false}
