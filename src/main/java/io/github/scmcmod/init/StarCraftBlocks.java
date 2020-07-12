@@ -1,17 +1,17 @@
 /**
  * Starcraft-Mod
  * Copyright (C) 2020
- * 
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
@@ -84,217 +84,216 @@ import net.rom.registry.ReadOnlyRegistry;
 
 public class StarCraftBlocks {
 
-	public static Block PLANET_TELEPORTER = new BlockPlanetTeleporter(100);
-	public static Block SOLAR_CORE = new BlockSolarCore(100);
-	public static Block STARCRAFT_SKULL = new SCSkull();
-	public static Block ENERGY_BLOCK = new BlockEnergy();
-	public static Block COMP_MINERAL = new BlockMineral();
-	public static Block GAS_COLLECTOR = new BlockGasCollector();
-	public static Block STAR_SURFACE = new BlockStarSurface();
-	public static Block PLANET_SURFACE = new BlockPlanetSurface();
+	public static final Block PLANET_TELEPORTER = new BlockPlanetTeleporter(100);
+	public static final Block SOLAR_CORE = new BlockSolarCore(100);
+	public static final Block STARCRAFT_SKULL = new SCSkull();
+	public static final Block ENERGY_BLOCK = new BlockEnergy();
+	public static final Block COMP_MINERAL = new BlockMineral();
+	public static final Block GAS_COLLECTOR = new BlockGasCollector();
+	public static final Block STAR_SURFACE = new BlockStarSurface();
+	public static final Block PLANET_SURFACE = new BlockPlanetSurface();
 
-	public static Block DIM_PORTAL_OVERWORLD = new BlockDimPortal("overworld.portal", 0);
-	public static Block DIM_PORTAL_KORHAL = new BlockDimPortal("korhal.portal", SCConfig.INT_DIMENSION_KORHAL);
-	public static Block DIM_PORTAL_KALDIR = new BlockDimPortal("kaldir.portal", SCConfig.INT_DIMENSION_KALDIR);
-	public static Block DIM_PORTAL_CHAR = new BlockDimPortal("char.portal", SCConfig.INT_DIMENSION_CHAR);
-	public static Block DIM_PORTAL_SHAKURAS = new BlockDimPortal("shakuras.portal", SCConfig.INT_DIMENSION_SHAKURAS);
-	public static Block DIM_PORTAL_SLAYN = new BlockDimPortal("slayn.portal", SCConfig.INT_DIMENSION_SLAYN);
-	public static Block DIM_PORTAL_AIUR = new BlockDimPortal("aiur.portal", SCConfig.INT_DIMENSION_AIUR);
-	public static Block DIM_PORTAL_ZERUS = new BlockDimPortal("zerus.portal", SCConfig.INT_DIMENSION_ZERUS);
-	public static Block DIM_PORTAL_SPACE = new BlockDimPortal("space.portal", SCConfig.INT_DIMENSION_SPACE);
+	public static final Block DIM_PORTAL_OVERWORLD = new BlockDimPortal("overworld.portal", 0);
+	public static final Block DIM_PORTAL_KORHAL = new BlockDimPortal("korhal.portal", SCConfig.INT_DIMENSION_KORHAL);
+	public static final Block DIM_PORTAL_KALDIR = new BlockDimPortal("kaldir.portal", SCConfig.INT_DIMENSION_KALDIR);
+	public static final Block DIM_PORTAL_CHAR = new BlockDimPortal("char.portal", SCConfig.INT_DIMENSION_CHAR);
+	public static final Block DIM_PORTAL_SHAKURAS = new BlockDimPortal("shakuras.portal", SCConfig.INT_DIMENSION_SHAKURAS);
+	public static final Block DIM_PORTAL_SLAYN = new BlockDimPortal("slayn.portal", SCConfig.INT_DIMENSION_SLAYN);
+	public static final Block DIM_PORTAL_AIUR = new BlockDimPortal("aiur.portal", SCConfig.INT_DIMENSION_AIUR);
+	public static final Block DIM_PORTAL_ZERUS = new BlockDimPortal("zerus.portal", SCConfig.INT_DIMENSION_ZERUS);
+	public static final Block DIM_PORTAL_SPACE = new BlockDimPortal("space.portal", SCConfig.INT_DIMENSION_SPACE);
 
-	public static Block ORE_COPPER_OW = new BlockOverworldOre(Material.ROCK, 1).setBlockHarvestLevel("pickaxe", 1)
+	public static final Block ORE_COPPER_OW = new BlockOverworldOre(Material.ROCK, 1).setBlockHarvestLevel("pickaxe", 1)
 			.setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_TITANIUM_OW = new BlockOverworldOre(Material.ROCK, 2).setBlockHarvestLevel("pickaxe", 2)
+	public static final Block ORE_TITANIUM_OW = new BlockOverworldOre(Material.ROCK, 2).setBlockHarvestLevel("pickaxe", 2)
 			.setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_URANIUM_OW = new BlockOverworldOre(Material.ROCK, 1).setBlockHarvestLevel("pickaxe", 2)
+	public static final Block ORE_URANIUM_OW = new BlockOverworldOre(Material.ROCK, 1).setBlockHarvestLevel("pickaxe", 2)
 			.setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_MINERAL_OW = new BlockOverworldOre(Material.ROCK, 1).setBlockHarvestLevel("pickaxe", 1)
+	public static final Block ORE_MINERAL_OW = new BlockOverworldOre(Material.ROCK, 1).setBlockHarvestLevel("pickaxe", 1)
 			.setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_RICHMINERAL_OW = new BlockOverworldOre(Material.ROCK, 1).setBlockHarvestLevel("pickaxe", 1)
+	public static final Block ORE_RICHMINERAL_OW = new BlockOverworldOre(Material.ROCK, 1).setBlockHarvestLevel("pickaxe", 1)
 			.setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_PHOSPHORUS_OW = new BlockOverworldOre(Material.ROCK, 1).setBlockHarvestLevel("pickaxe", 1)
+	public static final Block ORE_PHOSPHORUS_OW = new BlockOverworldOre(Material.ROCK, 1).setBlockHarvestLevel("pickaxe", 1)
 			.setCreativeTab(SCCreativeTabs.MISC);
 
 	// Char
-	public static Block COBBLESTONE_CHAR = new BlockGeneric(Material.ROCK).setBlockHarvestLevel("pickaxe", 0)
+	public static final Block COBBLESTONE_CHAR = new BlockGeneric(Material.ROCK).setBlockHarvestLevel("pickaxe", 0)
 			.setCreativeTab(SCCreativeTabs.MISC).setHardness(2).setResistance(10);
-	public static Block STONE_CHAR = new BlockCustomDrop(Material.ROCK, MapColor.BLACK, new ItemStack(COBBLESTONE_CHAR))
+	public static final Block STONE_CHAR = new BlockCustomDrop(Material.ROCK, MapColor.BLACK, new ItemStack(COBBLESTONE_CHAR))
 			.setBlockHarvestLevel("pickaxe", 0).setHardness(1.5f).setResistance(10).setCreativeTab(SCCreativeTabs.MISC);
-	public static Block FARMLAND_CHAR = new BlockCharFarmland();
-	public static Block DIRT_CHAR = new SCDirt(MapColor.BLACK, FARMLAND_CHAR.getDefaultState());
-	public static Block GRAVEL_CHAR = new SCGravel(Material.GROUND, MapColor.BLACK, 0x000000)
+	public static final Block FARMLAND_CHAR = new BlockCharFarmland();
+	public static final Block DIRT_CHAR = new SCDirt(MapColor.BLACK, FARMLAND_CHAR.getDefaultState());
+	public static final Block GRAVEL_CHAR = new SCGravel(Material.GROUND, MapColor.BLACK, 0x000000)
 			.setSoundType(SoundType.GROUND).setHardness(0.6f).setResistance(1).setCreativeTab(SCCreativeTabs.MISC);
-	public static Block MAGMA_CHAR = new BlockMagma();
+	public static final Block MAGMA_CHAR = new BlockMagma();
 
-	public static Block ORE_COAL_CHAR = new BlockCharOre(Material.ROCK, 0).setBlockHarvestLevel("pickaxe", 0)
+	public static final Block ORE_COAL_CHAR = new BlockCharOre(Material.ROCK, 0).setBlockHarvestLevel("pickaxe", 0)
 			.setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_COPPER_CHAR = new BlockCharOre(Material.ROCK, 1).setBlockHarvestLevel("pickaxe", 1)
+	public static final Block ORE_COPPER_CHAR = new BlockCharOre(Material.ROCK, 1).setBlockHarvestLevel("pickaxe", 1)
 			.setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_DIAMOND_CHAR = new BlockCharOre(Material.ROCK, 2).setBlockHarvestLevel("pickaxe", 2)
+	public static final Block ORE_DIAMOND_CHAR = new BlockCharOre(Material.ROCK, 2).setBlockHarvestLevel("pickaxe", 2)
 			.setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_GOLD_CHAR = new BlockCharOre(Material.ROCK, 2).setBlockHarvestLevel("pickaxe", 2)
+	public static final Block ORE_GOLD_CHAR = new BlockCharOre(Material.ROCK, 2).setBlockHarvestLevel("pickaxe", 2)
 			.setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_IRON_CHAR = new BlockCharOre(Material.ROCK, 1).setBlockHarvestLevel("pickaxe", 1)
+	public static final Block ORE_IRON_CHAR = new BlockCharOre(Material.ROCK, 1).setBlockHarvestLevel("pickaxe", 1)
 			.setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_LAPIS_CHAR = new BlockCharOre(Material.ROCK, 1).setBlockHarvestLevel("pickaxe", 1)
+	public static final Block ORE_LAPIS_CHAR = new BlockCharOre(Material.ROCK, 1).setBlockHarvestLevel("pickaxe", 1)
 			.setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_MINERAL_CHAR = new BlockCharOre(Material.ROCK, 1).setBlockHarvestLevel("pickaxe", 1)
+	public static final Block ORE_MINERAL_CHAR = new BlockCharOre(Material.ROCK, 1).setBlockHarvestLevel("pickaxe", 1)
 			.setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_RICHMINERAL_CHAR = new BlockCharOre(Material.ROCK, 1).setBlockHarvestLevel("pickaxe", 1)
+	public static final Block ORE_RICHMINERAL_CHAR = new BlockCharOre(Material.ROCK, 1).setBlockHarvestLevel("pickaxe", 1)
 			.setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_REDSTONE_CHAR = new OreStarcraftRedstone(MapColor.BLACK)
+	public static final Block ORE_REDSTONE_CHAR = new OreStarcraftRedstone(MapColor.BLACK)
 			.setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_TITANIUM_CHAR = new BlockCharOre(Material.ROCK, 2).setBlockHarvestLevel("pickaxe", 2)
+	public static final Block ORE_TITANIUM_CHAR = new BlockCharOre(Material.ROCK, 2).setBlockHarvestLevel("pickaxe", 2)
 			.setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_URANIUM_CHAR = new BlockCharOre(Material.ROCK, 1).setBlockHarvestLevel("pickaxe", 2)
+	public static final Block ORE_URANIUM_CHAR = new BlockCharOre(Material.ROCK, 1).setBlockHarvestLevel("pickaxe", 2)
 			.setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_PHOSPHORUS_CHAR = new BlockCharOre(Material.ROCK, 1).setBlockHarvestLevel("pickaxe", 1)
+	public static final Block ORE_PHOSPHORUS_CHAR = new BlockCharOre(Material.ROCK, 1).setBlockHarvestLevel("pickaxe", 1)
 			.setCreativeTab(SCCreativeTabs.MISC);
 
-	public static Block COBBLESTONE_SHAKURAS = new BlockGeneric(Material.ROCK).setBlockHarvestLevel("pickaxe", 0)
+	public static final Block COBBLESTONE_SHAKURAS = new BlockGeneric(Material.ROCK).setBlockHarvestLevel("pickaxe", 0)
 			.setCreativeTab(SCCreativeTabs.MISC).setHardness(2).setResistance(10);
-	public static Block STONE_SHAKURAS = new BlockCustomDrop(Material.ROCK, MapColor.LIGHT_BLUE,
+	public static final Block STONE_SHAKURAS = new BlockCustomDrop(Material.ROCK, MapColor.LIGHT_BLUE,
 			new ItemStack(COBBLESTONE_SHAKURAS)).setHardness(1.5f).setResistance(10)
 					.setCreativeTab(SCCreativeTabs.MISC);
-	public static Block FARMLAND_SHAKURAS = new BlockShakurasFarmland();
-	public static Block DIRT_SHAKURAS = new SCDirt(MapColor.LIGHT_BLUE, FARMLAND_SHAKURAS.getDefaultState());
-	public static Block GRAVEL_SHAKURAS = new SCGravel(Material.GROUND, MapColor.LIGHT_BLUE, 0x55539B)
+	public static final Block FARMLAND_SHAKURAS = new BlockShakurasFarmland();
+	public static final Block DIRT_SHAKURAS = new SCDirt(MapColor.LIGHT_BLUE, FARMLAND_SHAKURAS.getDefaultState());
+	public static final Block GRAVEL_SHAKURAS = new SCGravel(Material.GROUND, MapColor.LIGHT_BLUE, 0x55539B)
 			.setSoundType(SoundType.GROUND).setHardness(0.6f).setResistance(1).setCreativeTab(SCCreativeTabs.MISC);
-	public static Block SAND_SHAKURAS = new BlockFallingGeneric(Material.SAND, MapColor.LIGHT_BLUE, 6724056)
+	public static final Block SAND_SHAKURAS = new BlockFallingGeneric(Material.SAND, MapColor.LIGHT_BLUE, 6724056)
 			.setSoundType(SoundType.SAND).setCreativeTab(SCCreativeTabs.MISC).setHardness(0.5f).setResistance(0.83f);
 
-	public static Block ORE_COAL_SHAKURAS = new BlockShakurasOre(Material.ROCK, 0).setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_COPPER_SHAKURAS = new BlockShakurasOre(Material.ROCK, 1)
+	public static final Block ORE_COAL_SHAKURAS = new BlockShakurasOre(Material.ROCK, 0).setCreativeTab(SCCreativeTabs.MISC);
+	public static final Block ORE_COPPER_SHAKURAS = new BlockShakurasOre(Material.ROCK, 1)
 			.setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_DIAMOND_SHAKURAS = new BlockShakurasOre(Material.ROCK, 2)
+	public static final Block ORE_DIAMOND_SHAKURAS = new BlockShakurasOre(Material.ROCK, 2)
 			.setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_GOLD_SHAKURAS = new BlockShakurasOre(Material.ROCK, 2).setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_IRON_SHAKURAS = new BlockShakurasOre(Material.ROCK, 1).setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_LAPIS_SHAKURAS = new BlockShakurasOre(Material.ROCK, 1).setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_MINERAL_SHAKURAS = new BlockShakurasOre(Material.ROCK, 1)
+	public static final Block ORE_GOLD_SHAKURAS = new BlockShakurasOre(Material.ROCK, 2).setCreativeTab(SCCreativeTabs.MISC);
+	public static final Block ORE_IRON_SHAKURAS = new BlockShakurasOre(Material.ROCK, 1).setCreativeTab(SCCreativeTabs.MISC);
+	public static final Block ORE_LAPIS_SHAKURAS = new BlockShakurasOre(Material.ROCK, 1).setCreativeTab(SCCreativeTabs.MISC);
+	public static final Block ORE_MINERAL_SHAKURAS = new BlockShakurasOre(Material.ROCK, 1)
 			.setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_RICHMINERAL_SHAKURAS = new BlockShakurasOre(Material.ROCK, 1)
+	public static final Block ORE_RICHMINERAL_SHAKURAS = new BlockShakurasOre(Material.ROCK, 1)
 			.setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_REDSTONE_SHAKURAS = new OreStarcraftRedstone(MapColor.LIGHT_BLUE)
+	public static final Block ORE_REDSTONE_SHAKURAS = new OreStarcraftRedstone(MapColor.LIGHT_BLUE)
 			.setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_TITANIUM_SHAKURAS = new BlockShakurasOre(Material.ROCK, 2)
+	public static final Block ORE_TITANIUM_SHAKURAS = new BlockShakurasOre(Material.ROCK, 2)
 			.setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_URANIUM_SHAKURAS = new BlockShakurasOre(Material.ROCK, 2)
+	public static final Block ORE_URANIUM_SHAKURAS = new BlockShakurasOre(Material.ROCK, 2)
 			.setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_PHOSPHORUS_SHAKURAS = new BlockShakurasOre(Material.ROCK, 1)
+	public static final Block ORE_PHOSPHORUS_SHAKURAS = new BlockShakurasOre(Material.ROCK, 1)
 			.setCreativeTab(SCCreativeTabs.MISC);
 
-	public static Block COBBLESTONE_ZERUS = new BlockGeneric(Material.ROCK).setBlockHarvestLevel("pickaxe", 0)
+	public static final Block COBBLESTONE_ZERUS = new BlockGeneric(Material.ROCK).setBlockHarvestLevel("pickaxe", 0)
 			.setCreativeTab(SCCreativeTabs.MISC).setHardness(2).setResistance(10);
-	public static Block STONE_ZERUS = new BlockCustomDrop(Material.ROCK, MapColor.BROWN,
+	public static final Block STONE_ZERUS = new BlockCustomDrop(Material.ROCK, MapColor.BROWN,
 			new ItemStack(COBBLESTONE_ZERUS)).setHardness(1.5f).setResistance(10).setCreativeTab(SCCreativeTabs.MISC);
-	public static Block FARMLAND_ZERUS = new BlockZerusFarmland();
-	public static Block DIRT_ZERUS = new SCDirt(MapColor.BROWN, FARMLAND_ZERUS.getDefaultState());
-	public static Block GRASS_ZERUS = new SCGrass("zerus.grass", MapColor.GRASS, DIRT_ZERUS.getDefaultState());
-	public static Block GRAVEL_ZERUS = new SCGravel(Material.GROUND, MapColor.BROWN, 0x55539B)
+	public static final Block FARMLAND_ZERUS = new BlockZerusFarmland();
+	public static final Block DIRT_ZERUS = new SCDirt(MapColor.BROWN, FARMLAND_ZERUS.getDefaultState());
+	public static final Block GRASS_ZERUS = new SCGrass("zerus.grass", MapColor.GRASS, DIRT_ZERUS.getDefaultState());
+	public static final Block GRAVEL_ZERUS = new SCGravel(Material.GROUND, MapColor.BROWN, 0x55539B)
 			.setSoundType(SoundType.GROUND).setHardness(0.6f).setResistance(1).setCreativeTab(SCCreativeTabs.MISC);
-	public static Block SAND_ZERUS = new BlockFallingGeneric(Material.SAND, MapColor.BROWN, 6724056)
+	public static final Block SAND_ZERUS = new BlockFallingGeneric(Material.SAND, MapColor.BROWN, 6724056)
 			.setSoundType(SoundType.SAND).setCreativeTab(SCCreativeTabs.MISC).setHardness(0.5f).setResistance(0.83f);
 
-	public static Block ORE_COAL_ZERUS = new BlockZerusOre(Material.ROCK, 0).setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_COPPER_ZERUS = new BlockZerusOre(Material.ROCK, 1).setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_DIAMOND_ZERUS = new BlockZerusOre(Material.ROCK, 2).setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_GOLD_ZERUS = new BlockZerusOre(Material.ROCK, 2).setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_IRON_ZERUS = new BlockZerusOre(Material.ROCK, 1).setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_LAPIS_ZERUS = new BlockZerusOre(Material.ROCK, 1).setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_MINERAL_ZERUS = new BlockZerusOre(Material.ROCK, 1).setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_RICHMINERAL_ZERUS = new BlockZerusOre(Material.ROCK, 1).setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_REDSTONE_ZERUS = new OreStarcraftRedstone(MapColor.BROWN)
+	public static final Block ORE_COAL_ZERUS = new BlockZerusOre(Material.ROCK, 0).setCreativeTab(SCCreativeTabs.MISC);
+	public static final Block ORE_COPPER_ZERUS = new BlockZerusOre(Material.ROCK, 1).setCreativeTab(SCCreativeTabs.MISC);
+	public static final Block ORE_DIAMOND_ZERUS = new BlockZerusOre(Material.ROCK, 2).setCreativeTab(SCCreativeTabs.MISC);
+	public static final Block ORE_GOLD_ZERUS = new BlockZerusOre(Material.ROCK, 2).setCreativeTab(SCCreativeTabs.MISC);
+	public static final Block ORE_IRON_ZERUS = new BlockZerusOre(Material.ROCK, 1).setCreativeTab(SCCreativeTabs.MISC);
+	public static final Block ORE_LAPIS_ZERUS = new BlockZerusOre(Material.ROCK, 1).setCreativeTab(SCCreativeTabs.MISC);
+	public static final Block ORE_MINERAL_ZERUS = new BlockZerusOre(Material.ROCK, 1).setCreativeTab(SCCreativeTabs.MISC);
+	public static final Block ORE_RICHMINERAL_ZERUS = new BlockZerusOre(Material.ROCK, 1).setCreativeTab(SCCreativeTabs.MISC);
+	public static final Block ORE_REDSTONE_ZERUS = new OreStarcraftRedstone(MapColor.BROWN)
 			.setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_TITANIUM_ZERUS = new BlockZerusOre(Material.ROCK, 2).setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_URANIUM_ZERUS = new BlockZerusOre(Material.ROCK, 2).setCreativeTab(SCCreativeTabs.MISC);
-	public static Block ORE_PHOSPHORUS_ZERUS = new BlockZerusOre(Material.ROCK, 1).setCreativeTab(SCCreativeTabs.MISC);
+	public static final Block ORE_TITANIUM_ZERUS = new BlockZerusOre(Material.ROCK, 2).setCreativeTab(SCCreativeTabs.MISC);
+	public static final Block ORE_URANIUM_ZERUS = new BlockZerusOre(Material.ROCK, 2).setCreativeTab(SCCreativeTabs.MISC);
+	public static final Block ORE_PHOSPHORUS_ZERUS = new BlockZerusOre(Material.ROCK, 1).setCreativeTab(SCCreativeTabs.MISC);
 
-	public static Block COBBLESTONE_SLAYN = new BlockGeneric(Material.ROCK).setBlockHarvestLevel("pickaxe", 0)
+	public static final Block COBBLESTONE_SLAYN = new BlockGeneric(Material.ROCK).setBlockHarvestLevel("pickaxe", 0)
 			.setCreativeTab(SCCreativeTabs.MISC).setHardness(2).setResistance(10);
-	public static Block STONE_SLAYN = new BlockCustomDrop(Material.ROCK, MapColor.BLACK,
+	public static final Block STONE_SLAYN = new BlockCustomDrop(Material.ROCK, MapColor.BLACK,
 			new ItemStack(COBBLESTONE_SLAYN)).setBlockHarvestLevel("pickaxe", 0).setHardness(1.5f).setResistance(10)
 					.setCreativeTab(SCCreativeTabs.MISC);
-	public static Block FARMLAND_SLAYN = new BlockSlaynFarmland();
-	public static Block DIRT_SLAYN = new SCDirt(MapColor.BLACK, FARMLAND_SLAYN.getDefaultState());
-	public static Block SAND_SLAYN = new BlockFallingGeneric(Material.SAND, MapColor.BLACK, 6724056)
+	public static final Block FARMLAND_SLAYN = new BlockSlaynFarmland();
+	public static final Block DIRT_SLAYN = new SCDirt(MapColor.BLACK, FARMLAND_SLAYN.getDefaultState());
+	public static final Block SAND_SLAYN = new BlockFallingGeneric(Material.SAND, MapColor.BLACK, 6724056)
 			.setSoundType(SoundType.SAND).setCreativeTab(SCCreativeTabs.MISC).setHardness(0.5f).setResistance(0.83f);
-	public static Block GRAVEL_SLAYN = new SCGravel(Material.GROUND, MapColor.BLACK, 0x000000)
+	public static final Block GRAVEL_SLAYN = new SCGravel(Material.GROUND, MapColor.BLACK, 0x000000)
 			.setSoundType(SoundType.GROUND).setHardness(0.6f).setResistance(1).setCreativeTab(SCCreativeTabs.MISC);
 
-	public static Block ORE_COAL_SLAYN = new BlockSlaynOre(0);
-	public static Block ORE_COPPER_SLAYN = new BlockSlaynOre(1);
-	public static Block ORE_DIAMOND_SLAYN = new BlockSlaynOre(2);
-	public static Block ORE_GOLD_SLAYN = new BlockSlaynOre(2);
-	public static Block ORE_IRON_SLAYN = new BlockSlaynOre(1);
-	public static Block ORE_LAPIS_SLAYN = new BlockSlaynOre(1);
-	public static Block ORE_MINERAL_SLAYN = new BlockSlaynOre(1);
-	public static Block ORE_RICHMINERAL_SLAYN = new BlockSlaynOre(1);
-	public static Block ORE_REDSTONE_SLAYN = new OreStarcraftRedstone(MapColor.BLACK);
-	public static Block ORE_TITANIUM_SLAYN = new BlockSlaynOre(2);
-	public static Block ORE_URANIUM_SLAYN = new BlockSlaynOre(1);
-	public static Block ORE_PHOSPHORUS_SLAYN = new BlockSlaynOre(1);
+	public static final Block ORE_COAL_SLAYN = new BlockSlaynOre(0);
+	public static final Block ORE_COPPER_SLAYN = new BlockSlaynOre(1);
+	public static final Block ORE_DIAMOND_SLAYN = new BlockSlaynOre(2);
+	public static final Block ORE_GOLD_SLAYN = new BlockSlaynOre(2);
+	public static final Block ORE_IRON_SLAYN = new BlockSlaynOre(1);
+	public static final Block ORE_LAPIS_SLAYN = new BlockSlaynOre(1);
+	public static final Block ORE_MINERAL_SLAYN = new BlockSlaynOre(1);
+	public static final Block ORE_RICHMINERAL_SLAYN = new BlockSlaynOre(1);
+	public static final Block ORE_REDSTONE_SLAYN = new OreStarcraftRedstone(MapColor.BLACK);
+	public static final Block ORE_TITANIUM_SLAYN = new BlockSlaynOre(2);
+	public static final Block ORE_URANIUM_SLAYN = new BlockSlaynOre(1);
+	public static final Block ORE_PHOSPHORUS_SLAYN = new BlockSlaynOre(1);
 
-	public static Block CITY_STONE_KORHAL = new BlockGeneric(Material.ROCK).setBlockHarvestLevel("pickaxe", 0)
+	public static final Block CITY_STONE_KORHAL = new BlockGeneric(Material.ROCK).setBlockHarvestLevel("pickaxe", 0)
 			.setHardness(1.5f).setResistance(10.0f).setCreativeTab(SCCreativeTabs.MISC);
 
-	public static Block FURNACE_SHAKURAS = new SCFurnace(MapColor.LIGHT_BLUE, EnumWorldType.SHAKURAS);
-	public static Block FURNACE_CHAR = new SCFurnace(MapColor.BLACK, EnumWorldType.CHAR);
-	public static Block FURNACE_SLAYN = new SCFurnace(MapColor.BLACK, EnumWorldType.SLAYN);
-	public static Block FURNACE_ZERUS = new SCFurnace(MapColor.BROWN, EnumWorldType.ZERUS);
-	public static Block FURNACE_PROTOSS = new BlockProtossFurnace();
+	public static final Block FURNACE_SHAKURAS = new SCFurnace(MapColor.LIGHT_BLUE, EnumWorldType.SHAKURAS);
+	public static final Block FURNACE_CHAR = new SCFurnace(MapColor.BLACK, EnumWorldType.CHAR);
+	public static final Block FURNACE_SLAYN = new SCFurnace(MapColor.BLACK, EnumWorldType.SLAYN);
+	public static final Block FURNACE_ZERUS = new SCFurnace(MapColor.BROWN, EnumWorldType.ZERUS);
+	public static final Block FURNACE_PROTOSS = new BlockProtossFurnace();
 
-	public static Block PROTOSS_SHIELD = new BlockProtossShield();
-	public static Block PROTOSS_VOID_ENERGY_CHANNEL = new BlockProtossEnergyChannelVoid();
-	public static Block PROTOSS_VOID_ENERGY_STABILIZER = new BlockProtossEnergyStabilizerVoid();
-	public static Block PROTOSS_ENERGY_CHANNEL = new BlockProtossEnergyChannel();
-	public static Block PROTOSS_ENERGY_STABILIZER = new BlockProtossEnergyStabilizer();
-	public static Block PROTOSS_DARK_ENERGY_CHANNEL = new BlockProtossEnergyChannelDark();
-	public static Block PROTOSS_DARK_ENERGY_STABILIZER = new BlockProtossEnergyStabilizerDark();
-	public static Block PROTOSS_WORMHOLE = new BlockProtossWormhole();
-	public static Block PROTOSS_METAL_T1 = new BlockProtossMetalT1();
-	public static Block PROTOSS_METAL_T2 = new BlockProtossMetalT2();
-	public static Block PROTOSS_METAL_T3 = new BlockProtossMetalT3();
-	public static Block PYLON_CRYSTAL = new BlockKhaydarinCrystal();
+	public static final Block PROTOSS_SHIELD = new BlockProtossShield();
+	public static final Block PROTOSS_VOID_ENERGY_CHANNEL = new BlockProtossEnergyChannelVoid();
+	public static final Block PROTOSS_VOID_ENERGY_STABILIZER = new BlockProtossEnergyStabilizerVoid();
+	public static final Block PROTOSS_ENERGY_CHANNEL = new BlockProtossEnergyChannel();
+	public static final Block PROTOSS_ENERGY_STABILIZER = new BlockProtossEnergyStabilizer();
+	public static final Block PROTOSS_DARK_ENERGY_CHANNEL = new BlockProtossEnergyChannelDark();
+	public static final Block PROTOSS_DARK_ENERGY_STABILIZER = new BlockProtossEnergyStabilizerDark();
+	public static final Block PROTOSS_WORMHOLE = new BlockProtossWormhole();
+	public static final Block PROTOSS_METAL_T1 = new BlockProtossMetalT1();
+	public static final Block PROTOSS_METAL_T2 = new BlockProtossMetalT2();
+	public static final Block PROTOSS_METAL_T3 = new BlockProtossMetalT3();
+	public static final Block PYLON_CRYSTAL = new BlockKhaydarinCrystal();
 
-	public static Block CORE_CYBERNETICSCORE_VOID = new SCProtossCoreBlock(MapColor.GREEN).setDomeSize(-5, 24, 24, 3);
-	public static Block CORE_CYBERNETICSCORE_DARK = new SCProtossCoreBlock(MapColor.BLACK).setDomeSize(-5, 24, 24, 3);
-	public static Block CORE_CYBERNETICSCORE_KHALAI = new SCProtossCoreBlock(MapColor.YELLOW).setDomeSize(-5, 24, 24,
+	public static final Block CORE_CYBERNETICSCORE_VOID = new SCProtossCoreBlock(MapColor.GREEN).setDomeSize(-5, 24, 24, 3);
+	public static final Block CORE_CYBERNETICSCORE_DARK = new SCProtossCoreBlock(MapColor.BLACK).setDomeSize(-5, 24, 24, 3);
+	public static final Block CORE_CYBERNETICSCORE_KHALAI = new SCProtossCoreBlock(MapColor.YELLOW).setDomeSize(-5, 24, 24,
 			3);
-	public static Block CORE_PYLON_VOID = new ProtossPowerCoreBlock(MapColor.GREEN).setDomeSize(-10, 16, 10, 6);
-	public static Block CORE_PYLON_DARK = new ProtossPowerCoreBlock(MapColor.BLACK).setDomeSize(-10, 16, 10, 6);
-	public static Block CORE_PYLON_KHALAI = new ProtossPowerCoreBlock(MapColor.YELLOW).setDomeSize(-10, 16, 10, 6);
-	public static Block CORE_WARPGATE_VOID = new SCProtossCoreBlock(MapColor.GREEN).setDomeSize(-5, 16, 13, 3);
-	public static Block CORE_WARPGATE_DARK = new SCProtossCoreBlock(MapColor.BLACK).setDomeSize(-5, 16, 13, 3);
-	public static Block CORE_WARPGATE_KHALAI = new SCProtossCoreBlock(MapColor.YELLOW).setDomeSize(-5, 16, 13, 3);
+	public static final Block CORE_PYLON_VOID = new ProtossPowerCoreBlock(MapColor.GREEN).setDomeSize(-10, 16, 10, 6);
+	public static final Block CORE_PYLON_DARK = new ProtossPowerCoreBlock(MapColor.BLACK).setDomeSize(-10, 16, 10, 6);
+	public static final Block CORE_PYLON_KHALAI = new ProtossPowerCoreBlock(MapColor.YELLOW).setDomeSize(-10, 16, 10, 6);
+	public static final Block CORE_WARPGATE_VOID = new SCProtossCoreBlock(MapColor.GREEN).setDomeSize(-5, 16, 13, 3);
+	public static final Block CORE_WARPGATE_DARK = new SCProtossCoreBlock(MapColor.BLACK).setDomeSize(-5, 16, 13, 3);
+	public static final Block CORE_WARPGATE_KHALAI = new SCProtossCoreBlock(MapColor.YELLOW).setDomeSize(-5, 16, 13, 3);
 
-	public static Block TERRAN_WARNING_TAPE = new BlockGeneric(Material.IRON).setSoundType(SoundType.METAL)
+	public static final Block TERRAN_WARNING_TAPE = new BlockGeneric(Material.IRON).setSoundType(SoundType.METAL)
 			.setHardness(3.5f).setResistance(10.0f).setCreativeTab(SCCreativeTabs.TERRAN);
-	public static Block TERRAN_METAL = new BlockTerranMetal();
-	public static Block NEOSTEEL_METAL = new BlockNeosteel();
-	public static Block PARISTEEL_METAL = new BlockParisteel();
+	public static final Block TERRAN_METAL = new BlockTerranMetal();
+	public static final Block NEOSTEEL_METAL = new BlockNeosteel();
+	public static final Block PARISTEEL_METAL = new BlockParisteel();
 
-	public static Block CORE_BARRACKS = new BlockGeneric(Material.IRON).setBlockHarvestLevel("pickaxe", 2)
+	public static final Block CORE_BARRACKS = new BlockGeneric(Material.IRON).setBlockHarvestLevel("pickaxe", 2)
 			.setHardness(15.0F).setResistance(15.0F).setCreativeTab(SCCreativeTabs.TERRAN);
-	public static Block CORE_COMMANDCENTER = new BlockGeneric(Material.IRON).setBlockHarvestLevel("pickaxe", 2)
+	public static final Block CORE_COMMANDCENTER = new BlockGeneric(Material.IRON).setBlockHarvestLevel("pickaxe", 2)
 			.setHardness(15.0F).setResistance(15.0F).setCreativeTab(SCCreativeTabs.TERRAN);
 
-	public static Block ZERG_CREEP = new BlockZergCreep();
-	public static Block KERATIN_CHUNK = new BlockZergKeratin();
-	public static Block ZERG_CARAPACE_BLOCK = new BlockZergCarapace();
-	public static Block ZERG_FLESH = new BlockZergFlesh();
+	public static final Block ZERG_CREEP = new BlockZergCreep();
+	public static final Block KERATIN_CHUNK = new BlockZergKeratin();
+	public static final Block ZERG_CARAPACE_BLOCK = new BlockZergCarapace();
+	public static final Block ZERG_FLESH = new BlockZergFlesh();
 
 	// Gasses
-	public static Block GAS_VESPENE = new BlockVespeneGas();
-	public static Block GAS_TERRAZINE = new BlockTerrazineGas();
+	public static final Block GAS_VESPENE = new BlockVespeneGas();
+	public static final Block GAS_TERRAZINE = new BlockTerrazineGas();
 
-	public static Block FLORA_ZERUS_GLOW_POD = new BlockZerusGlowPod();
-	public static Block FLORA_BRAMBLES = new BlockBrambles();
-	public static Block FLORA_ZERUS_LIGHTCAP = new BlockZerusLightcap();
+	public static final Block FLORA_ZERUS_GLOW_POD = new BlockZerusGlowPod();
+	public static final Block FLORA_BRAMBLES = new BlockBrambles();
+	public static final Block FLORA_ZERUS_LIGHTCAP = new BlockZerusLightcap();
 
 	public static void registerAll(ReadOnlyRegistry registry) {
-
 		registry.registerBlock(PLANET_TELEPORTER, "planet_teleporter");
 		registry.registerBlock(SOLAR_CORE, "solar_core");
 		registry.registerBlock(STARCRAFT_SKULL, "starcraft_skull");
