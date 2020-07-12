@@ -1,9 +1,6 @@
 package com.arpaesis.scmc.worldgen.dimchar;
 
-import com.arpaesis.api.client.render.Texture;
-import com.arpaesis.api.client.render.world.StormProvider;
-import com.arpaesis.api.world.Worlds;
-import com.arpaesis.scmc.Starcraft;
+import com.arpaesis.scmc.SCConstants;
 import com.arpaesis.scmc.worldgen.dimkaldir.WorldProviderKaldir;
 
 import net.minecraft.entity.Entity;
@@ -12,6 +9,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.Biome;
+import net.rom.client.render.Texture;
+import net.rom.client.render.world.StormProvider;
+import net.rom.utils.Worlds;
 
 public class StormProviderChar extends StormProvider
 {
@@ -43,7 +43,7 @@ public class StormProviderChar extends StormProvider
 		}
 	}
 
-	public static final Texture STORM_TEXTURE = new Texture(Starcraft.MOD_ID, "textures/world/hellfire.png");
+	public static final Texture STORM_TEXTURE = new Texture(SCConstants.MODID, "textures/world/hellfire.png");
 
 	public boolean isStormActive(World world)
 	{

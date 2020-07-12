@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.lwjgl.util.vector.Vector4f;
 
-import com.arpaesis.scmc.blocks.items.IMetaBlockName;
-import com.arpaesis.scmc.blocks.items.ItemBlockBrambles;
+import com.arpaesis.scmc.blocks.itemblock.IMetaBlockName;
+import com.arpaesis.scmc.blocks.itemblock.ItemBlockBrambles;
 import com.arpaesis.scmc.client.renderer.Resources;
 import com.arpaesis.scmc.client.renderer.particle.ParticleCustomDigging;
 import com.arpaesis.scmc.creativetabs.SCCreativeTabs;

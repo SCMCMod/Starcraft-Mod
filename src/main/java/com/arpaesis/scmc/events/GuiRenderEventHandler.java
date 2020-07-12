@@ -3,8 +3,6 @@ package com.arpaesis.scmc.events;
 import com.arpaesis.scmc.handlers.BlockHandler;
 import com.arpaesis.scmc.handlers.ItemHandler;
 import com.arpaesis.scmc.items.ItemGun;
-import com.ocelot.api.utils.TextureUtils;
-import com.ocelot.api.utils.WorldUtils;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -23,6 +21,7 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.rom.utils.CoreUtil;
 
 /**
  * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
@@ -62,7 +61,7 @@ public class GuiRenderEventHandler
 
 			if (stack.getItem() instanceof ItemGun && !player.world.isAirBlock(event.getTarget().getBlockPos()) && false)
 			{
-				TextureUtils.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
+				CoreUtil.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
 
 				GlStateManager.pushMatrix();
 				GlStateManager.enableCull();

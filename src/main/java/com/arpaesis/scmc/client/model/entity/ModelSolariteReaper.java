@@ -12,7 +12,7 @@ import net.minecraft.util.ResourceLocation;
  */
 public class ModelSolariteReaper extends Model
 {
-	public static final ResourceLocation TEXTURE = new ResourceLocation(Starcraft.MOD_ID, "textures/models/solaritereaper.png");
+	public static final ResourceLocation TEXTURE = new ResourceLocation(SCConstants.MODID, "textures/models/solaritereaper.png");
 	public ModelRenderer shape1;
 	public ModelRenderer shape2;
 	public ModelRenderer shape3;

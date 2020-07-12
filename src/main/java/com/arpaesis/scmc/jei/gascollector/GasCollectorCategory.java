@@ -1,6 +1,6 @@
 package com.arpaesis.scmc.jei.gascollector;
 
-import com.arpaesis.scmc.Starcraft;
+import com.arpaesis.scmc.SCConstants;
 import com.arpaesis.scmc.jei.SCRecipeCategoryUid;
 
 import mezz.jei.api.IGuiHelper;
@@ -24,9 +24,9 @@ public class GasCollectorCategory implements IRecipeCategory<GasCollectorRecipe>
 
 	public GasCollectorCategory(IGuiHelper guiHelper)
 	{
-		ResourceLocation location = new ResourceLocation(Starcraft.RL_BASE + "textures/gui/container/gas_collector_base.png");
+		ResourceLocation location = new ResourceLocation(SCConstants.MODID + "textures/gui/container/gas_collector_base.png");
 		background = guiHelper.createDrawable(location, 0, 0, 63, 50);
-		localizedName = I18n.format("gui." + Starcraft.MOD_ID + ".category.gascollector");
+		localizedName = I18n.format("gui." + SCConstants.MODID + ".category.gascollector");
 	}
 
 	@Override

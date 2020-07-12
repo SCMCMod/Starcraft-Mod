@@ -1,7 +1,5 @@
 package com.arpaesis.scmc.client.gui.element;
 
-import com.ocelot.api.client.gui.component.Component;
-
 public class ComponentItemShopTab extends Component
 {
 

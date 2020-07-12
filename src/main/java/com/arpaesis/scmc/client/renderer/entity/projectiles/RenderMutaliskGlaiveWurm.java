@@ -54,7 +54,7 @@ public class RenderMutaliskGlaiveWurm extends Render<EntityMutaliskGlaiveWurm>
 	@Override
 	protected ResourceLocation getEntityTexture(EntityMutaliskGlaiveWurm entity)
 	{
-		return new ResourceLocation(Starcraft.RL_BASE + "textures/entity/mutaliskglaivewurm.png");
+		return new ResourceLocation(SCConstants.MODID + "textures/entity/mutaliskglaivewurm.png");
 	}
 
 	public static class Factory implements IRenderFactory<EntityMutaliskGlaiveWurm>

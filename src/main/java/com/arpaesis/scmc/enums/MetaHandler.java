@@ -8,7 +8,7 @@ import net.minecraft.util.IStringSerializable;
  * </br>
  * Holds the enums for the meta blocks/items in the mod.
  */
-//TODO: Clean this up, Ocelot.
+@Deprecated
 public class MetaHandler
 {
 

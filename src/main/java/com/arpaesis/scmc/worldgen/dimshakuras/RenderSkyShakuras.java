@@ -4,9 +4,6 @@ import java.util.Random;
 
 import org.lwjgl.opengl.GL11;
 
-import com.arpaesis.api.client.render.Color;
-import com.arpaesis.api.client.render.OpenGL;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -17,6 +14,8 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.rom.client.render.Color;
+import net.rom.client.render.OpenGL;
 
 public class RenderSkyShakuras extends IRenderHandler
 {

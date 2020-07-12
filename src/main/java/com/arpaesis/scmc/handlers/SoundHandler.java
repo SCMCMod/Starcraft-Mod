@@ -1,6 +1,6 @@
 package com.arpaesis.scmc.handlers;
 
-import com.arpaesis.scmc.Starcraft;
+import com.arpaesis.scmc.SCConstants;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.util.ResourceLocation;
@@ -283,7 +283,7 @@ public class SoundHandler
 
 	private static SoundEvent registerSound(String soundName)
 	{
-		ResourceLocation soundID = new ResourceLocation(Starcraft.MOD_ID, soundName);
+		ResourceLocation soundID = new ResourceLocation(SCConstants.MODID, soundName);
 		SoundEvent event = new SoundEvent(soundID);
 		ForgeRegistries.SOUND_EVENTS.register(event.setRegistryName(soundID));
 		return event;

@@ -3,7 +3,7 @@ package com.arpaesis.scmc.entity.living;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.arpaesis.scmc.api.IEntityTeamColorable;
+import com.arpaesis.api.IEntityTeamColorable;
 import com.arpaesis.scmc.enums.EnumColors;
 import com.arpaesis.scmc.enums.EnumFactionTypes;
 import com.arpaesis.scmc.enums.EnumTypeAttributes;
@@ -106,7 +106,7 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	{
 		for (EnumColors color : EnumColors.values())
 		{
-			if (color.getId() == this.getColorID())
+			if (color.ordinal() == this.getColorID())
 			{
 				return color;
 			}
@@ -120,7 +120,8 @@ public abstract class EntityStarcraftMob extends EntityMob implements IEntityTea
 	public EntityStarcraftMob setColor(EnumColors color)
 	{
 		this.color = color;
-		this.setColorID(color.getId());
+		//TODO CHANGE
+		this.setColorID(color.ordinal());
 		return this;
 	}
 

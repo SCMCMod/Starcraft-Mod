@@ -3,7 +3,7 @@ package com.arpaesis.scmc.capabilities;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.arpaesis.scmc.Starcraft;
+import com.arpaesis.scmc.SCConstants;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -21,7 +21,7 @@ public class LockedItems implements ILockedItems
 		this.lockedItems = new ArrayList<>();
 		for (ResourceLocation key : ForgeRegistries.ITEMS.getKeys())
 		{
-			if (key.getNamespace().equals(Starcraft.MOD_ID))
+			if (key.getNamespace().equals(SCConstants.MODID))
 			{
 				Item item = ForgeRegistries.ITEMS.getValue(key);
 				if (item.getHasSubtypes())

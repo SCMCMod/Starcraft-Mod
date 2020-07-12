@@ -2,11 +2,9 @@ package com.arpaesis.scmc.client.gui.element;
 
 import java.io.IOException;
 
-import com.arpaesis.scmc.Starcraft;
+import com.arpaesis.scmc.SCConstants;
 import com.arpaesis.scmc.client.gui.GuiLists.Product;
 import com.google.common.collect.ImmutableList;
-import com.ocelot.api.utils.GuiUtils;
-import com.ocelot.api.utils.TextureUtils;
 import com.ocelot.api.utils.TimeUtils;
 
 import net.minecraft.client.Minecraft;
@@ -14,6 +12,8 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.config.GuiUtils;
+import net.rom.utils.CoreUtil;
 
 /**
  * @author Ocelot5836
@@ -37,7 +37,7 @@ public class ItemShopTab extends GuiScreen
 
 	public ItemShopTab(ItemStack icon, String name, int x, int y, ImmutableList<Product> items)
 	{
-		this(icon, name, x, y, 32, 28, TimeUtils.isChristmas() ? new ResourceLocation(Starcraft.RL_BASE + "textures/gui/item_shop/item_shop_christmas.png") : new ResourceLocation(Starcraft.RL_BASE + "textures/gui/item_shop/item_shop.png"), items);
+		this(icon, name, x, y, 32, 28, TimeUtils.isChristmas() ? new ResourceLocation(SCConstants.MODID + "textures/gui/item_shop/item_shop_christmas.png") : new ResourceLocation(SCConstants.MODID + "textures/gui/item_shop/item_shop.png"), items);
 	}
 
 	public ItemShopTab(ItemStack icon, String name, int x, int y, ResourceLocation texture, ImmutableList<Product> items)
@@ -47,7 +47,7 @@ public class ItemShopTab extends GuiScreen
 
 	public ItemShopTab(ItemStack icon, String name, int x, int y, int width, int height, ImmutableList<Product> items)
 	{
-		this(icon, name, x, y, width, height, TimeUtils.isChristmas() ? new ResourceLocation(Starcraft.RL_BASE + "textures/gui/item_shop/item_shop_christmas.png") : new ResourceLocation(Starcraft.RL_BASE + "textures/gui/item_shop/item_shop.png"), items);
+		this(icon, name, x, y, width, height, TimeUtils.isChristmas() ? new ResourceLocation(SCConstants.MODID + "textures/gui/item_shop/item_shop_christmas.png") : new ResourceLocation(SCConstants.MODID + "textures/gui/item_shop/item_shop.png"), items);
 	}
 
 	public ItemShopTab(ItemStack icon, String name, int x, int y, int width, int height, ResourceLocation texture, ImmutableList<Product> items)
@@ -104,7 +104,7 @@ public class ItemShopTab extends GuiScreen
 
 	public void bindTexture()
 	{
-		TextureUtils.bindTexture(texture);
+		CoreUtil.bindTexture(texture);
 	}
 
 	public String getName()

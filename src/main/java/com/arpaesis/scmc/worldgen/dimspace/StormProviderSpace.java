@@ -1,12 +1,12 @@
 package com.arpaesis.scmc.worldgen.dimspace;
 
-import com.arpaesis.api.client.render.Texture;
-import com.arpaesis.api.client.render.world.StormProvider;
 import com.arpaesis.scmc.worldgen.dimchar.WorldProviderChar;
 
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.Biome;
+import net.rom.client.render.Texture;
+import net.rom.client.render.world.StormProvider;
 
 public class StormProviderSpace extends StormProvider
 {

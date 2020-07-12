@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import com.arpaesis.scmc.Starcraft;
+import com.arpaesis.scmc.SCConstants;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
@@ -14,7 +14,7 @@ import net.minecraftforge.fml.client.config.DummyConfigElement.DummyCategoryElem
 import net.minecraftforge.fml.client.config.GuiConfig;
 import net.minecraftforge.fml.client.config.IConfigElement;
 
-//TODO: MOVE TO CORE MOD, however, note that there is some starcraft stuff referenced here. Be careful!
+
 public class SCConfigGuiFactory implements IModGuiFactory
 {
 
@@ -46,7 +46,7 @@ public class SCConfigGuiFactory implements IModGuiFactory
 
 		public SCConfigGui(GuiScreen parentScreen)
 		{
-			super(parentScreen, getConfigElements(), Starcraft.MOD_ID, false, false, I18n.format("gui.starcraft.config.main_title"));
+			super(parentScreen, getConfigElements(), SCConstants.MODID, false, false, I18n.format("gui.starcraft.config.main_title"));
 		}
 
 		private static List<IConfigElement> getConfigElements()

@@ -6,7 +6,7 @@ import java.util.Map.Entry;
 
 import javax.annotation.Nullable;
 
-import com.arpaesis.scmc.api.Utils;
+import com.arpaesis.api.Utils;
 import com.arpaesis.scmc.enums.MetaHandler.TerrazineType;
 import com.arpaesis.scmc.enums.MetaHandler.VespeneType;
 import com.arpaesis.scmc.handlers.BlockHandler;
@@ -55,7 +55,7 @@ public class GasCollectorRecipes
 	{
 		if (getProtossResult(input) != null)
 		{
-			Utils.getLogger().info("Ignored protoss gas collector recipe recipe with conflicting input: " + input + " = " + stack);
+			//Utils.getLogger().info("Ignored protoss gas collector recipe recipe with conflicting input: " + input + " = " + stack);
 			return;
 		}
 		this.protossList.put(input, stack);
@@ -70,7 +70,7 @@ public class GasCollectorRecipes
 	{
 		if (getTerranResult(input) != null)
 		{
-			Utils.getLogger().info("Ignored terran gas collector recipe recipe with conflicting input: " + input + " = " + stack);
+			//Utils.getLogger().info("Ignored terran gas collector recipe recipe with conflicting input: " + input + " = " + stack);
 			return;
 		}
 		this.terranList.put(input, stack);
@@ -85,7 +85,7 @@ public class GasCollectorRecipes
 	{
 		if (getZergResult(input) != null)
 		{
-			Utils.getLogger().info("Ignored zerg gas collector recipe recipe with conflicting input: " + input + " = " + stack);
+			//Utils.getLogger().info("Ignored zerg gas collector recipe recipe with conflicting input: " + input + " = " + stack);
 			return;
 		}
 		this.zergList.put(input, stack);

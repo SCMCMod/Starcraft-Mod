@@ -1,6 +1,6 @@
 package com.arpaesis.scmc.vehicles.weapons;
 
-//TODO: MOVE TO CORE MOD
+
 public interface IWeaponSystem
 {
 

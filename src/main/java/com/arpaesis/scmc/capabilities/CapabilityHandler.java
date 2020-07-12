@@ -1,6 +1,6 @@
 package com.arpaesis.scmc.capabilities;
 
-import com.arpaesis.scmc.Starcraft;
+import com.arpaesis.scmc.SCConstants;
 import com.arpaesis.scmc.capabilities.playerrace.RaceProvider;
 
 import net.minecraft.entity.Entity;
@@ -17,10 +17,10 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class CapabilityHandler
 {
 
-	public static final ResourceLocation COLOR = new ResourceLocation(Starcraft.MOD_ID, "color");
-	public static final ResourceLocation SHIELD = new ResourceLocation(Starcraft.MOD_ID, "shield");
-	public static final ResourceLocation RACE = new ResourceLocation(Starcraft.MOD_ID, "race");
-	public static final ResourceLocation LOCKED_ITEMS = new ResourceLocation(Starcraft.MOD_ID, "locked_items");
+	public static final ResourceLocation COLOR = new ResourceLocation(SCConstants.MODID, "color");
+	public static final ResourceLocation SHIELD = new ResourceLocation(SCConstants.MODID, "shield");
+	public static final ResourceLocation RACE = new ResourceLocation(SCConstants.MODID, "race");
+	public static final ResourceLocation LOCKED_ITEMS = new ResourceLocation(SCConstants.MODID, "locked_items");
 
 	@SubscribeEvent
 	public void attachCapability(AttachCapabilitiesEvent<Entity> event)

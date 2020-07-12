@@ -21,9 +21,9 @@ public class RendererBrambles extends TileEntitySpecialRenderer<TileEntityBrambl
 	private static final ModelBrambles BRAMBLES = new ModelBrambles();
 	private static final ModelPalm PALM = new ModelPalm();
 
-	public static final ResourceLocation KALDIR_BRAMBLES_TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/kaldir_brambles.png");
-	public static final ResourceLocation SHAKURAS_BRAMBLES_TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/shakuras_brambles.png");
-	public static final ResourceLocation ZERUS_BRAMBLES_TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/zerus_brambles.png");
+	public static final ResourceLocation KALDIR_BRAMBLES_TEXTURE = new ResourceLocation(SCConstants.MODID + "textures/models/block/kaldir_brambles.png");
+	public static final ResourceLocation SHAKURAS_BRAMBLES_TEXTURE = new ResourceLocation(SCConstants.MODID + "textures/models/block/shakuras_brambles.png");
+	public static final ResourceLocation ZERUS_BRAMBLES_TEXTURE = new ResourceLocation(SCConstants.MODID + "textures/models/block/zerus_brambles.png");
 
 	@Override
 	public void render(TileEntityBrambles te, double x, double y, double z, float partialTicks, int destroyStage, float alpha)

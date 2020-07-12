@@ -15,7 +15,7 @@ import net.minecraftforge.items.SlotItemHandler;
  * 
  * @author Ocelot5836
  */
-//TODO: MOVE TO CORE MOD
+
 public class SlotBlacklist extends SlotItemHandler
 {
 

@@ -52,7 +52,7 @@ public class RenderHydraliskSpike extends Render<EntityHydraliskSpike>
 	@Override
 	protected ResourceLocation getEntityTexture(EntityHydraliskSpike entity)
 	{
-		return new ResourceLocation(Starcraft.RL_BASE + "textures/entity/hydraliskspike.png");
+		return new ResourceLocation(SCConstants.MODID + "textures/entity/hydraliskspike.png");
 	}
 
 	public static class Factory implements IRenderFactory<EntityHydraliskSpike>

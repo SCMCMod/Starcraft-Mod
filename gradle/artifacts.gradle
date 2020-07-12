@@ -1,0 +1,219 @@
+javadoc {
+	failOnError = false
+}
+
+ext.apiFiles = ['com/arpaesis/api/**']
+ext.coreFiles = ['com/arpaesis/scmc/**']
+
+jar {
+	outputs.upToDateWhen {false}
+	manifest {
+		mainAttributes(
+				'Maven-Artifact': "${project.group}:${project.archivesBaseName}:${project.version}",
+				'Timestamp': System.currentTimeMillis(),
+				'Specification-Title': project.title,
+				'Specification-Vendor': project.vendor,
+				'Specification-Version': '1',
+				'Implementation-Title': project.archivesBaseName,
+				'Implementation-Version': project.version,
+				'Implementation-Vendor' : project.vendor,
+				'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+				'Built-On-Java': "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
+				'Built-On': "${project.forge_mc_version}-${project.forge_version}"
+				)
+		if (project.hasProperty('core_plugin')) {
+			attributes 'FMLCorePluginContainsFMLMod': 'true'
+			attributes 'FMLCorePlugin': project.core_plugin
+		}
+		if (project.hasProperty('mod_at_file')) {
+			attributes 'FMLAT': project.mod_at_file
+		}
+		if (project.hasProperty('mod_contained_deps')) {
+			attributes 'ContainedDeps': project.mod_contained_deps
+		}
+	}
+}
+
+task apiJar(type: Jar) {
+	onlyIf {
+		getBooleanProperty('create_api_jar')
+	}
+	outputs.upToDateWhen {false}
+	from (sourceSets.main.output) {
+		includes.addAll(project.ext.apiFiles)
+	}
+	from(sourceSets.main.java) {
+		includes.addAll(project.ext.apiFiles)
+	}
+	classifier = 'api'
+	manifest {
+		mainAttributes(
+				'Maven-Artifact': "${project.group}:${project.archivesBaseName}:${project.version}:api",
+				'Timestamp': System.currentTimeMillis(),
+				'Specification-Title': project.title,
+				'Specification-Vendor': project.vendor,
+				'Specification-Version': '1',
+				'Implementation-Title': project.name + '-api',
+				'Implementation-Version': project.version,
+				'Implementation-Vendor' : project.vendor,
+				'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+				'Built-On-Java': "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
+				'Built-On': "${project.forge_mc_version}-${project.forge_version}"
+				)
+	}
+}
+
+task deobfJar(type: Jar) {
+	onlyIf {
+		getBooleanProperty('create_deobf_jar')
+	}
+	outputs.upToDateWhen {false}
+	description = 'Creates a JAR containing the non-obfuscated compiled code.'
+	classifier = 'dev'
+	from (sourceSets.main.output) {
+		includes.addAll(project.ext.apiFiles)
+		includes.addAll(project.ext.coreFiles)
+	}
+	from(sourceSets.main.java) {
+		includes.addAll(project.ext.apiFiles)
+		includes.addAll(project.ext.coreFiles)
+	}
+	manifest {
+		mainAttributes(
+				'Maven-Artifact': "${project.group}:${project.archivesBaseName}:${project.version}:dev",
+				'Timestamp': System.currentTimeMillis(),
+				'Specification-Title': project.title,
+				'Specification-Vendor': project.vendor,
+				'Specification-Version': '1',
+				'Implementation-Title': project.name + '-dev',
+				'Implementation-Version': project.version,
+				'Implementation-Vendor' : project.vendor,
+				'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+				'Built-On-Java': "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
+				'Built-On': "${project.forge_mc_version}-${project.forge_version}"
+				)
+		if (project.hasProperty('mod_at_file')) {
+			attributes 'FMLAT': project.mod_at_file
+		}
+		if (project.hasProperty('core_plugin')) {
+			attributes 'FMLCorePlugin': project.core_plugin
+		}
+	}
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+	onlyIf {
+		getBooleanProperty('create_javadoc_jar')
+	}
+	outputs.upToDateWhen {false}
+	description = 'Creates a JAR containing the JavaDocs.'
+	classifier = 'javadoc'
+	from javadoc.getDestinationDir()
+	manifest.mainAttributes(
+			'Maven-Artifact': "${project.group}:${project.archivesBaseName}:${project.version}:javadoc",
+			'Timestamp': System.currentTimeMillis(),
+			'Implementation-Title': project.name + '-javadoc',
+			'Implementation-Version': project.version,
+			'Built-On-Java': "${System.getProperty('java.vm.version')} + (${System.getProperty('java.vm.vendor')})",
+			'Built-On': "${project.forge_mc_version}-${project.forge_version}"
+			)
+}
+
+task signJar(type: SignJar, dependsOn: reobfJar) {
+	onlyIf {
+		getBooleanProperty('do_sign_jar') &&
+				project.hasProperty('keyStore')
+	}
+
+	description = 'Sign the Main JAR'
+	inputFile = jar.archivePath
+	outputFile = jar.archivePath
+
+	keyStore = project.findProperty('keyStore')
+	alias = project.findProperty('keyStoreAlias')
+	storePass = project.findProperty('keyStorePass')
+	keyPass = project.findProperty('keyStoreKeyPass')
+}
+
+task signApiJar(type: SignJar) {
+	onlyIf {
+		getBooleanProperty('create_api_jar') &&
+				getBooleanProperty('do_sign_jar') &&
+				project.hasProperty('keyStore')
+	}
+
+	description = 'Sign the API JAR'
+	keyStore = project.findProperty('keyStore')
+	alias = project.findProperty('keyStoreAlias')
+	storePass = project.findProperty('keyStorePass')
+	keyPass = project.findProperty('keyStoreKeyPass')
+
+	inputFile = apiJar.archivePath
+	outputFile = apiJar.archivePath
+}
+
+task signDeobfJar(type: SignJar) {
+	onlyIf {
+		getBooleanProperty('create_deobf_jar') &&
+				getBooleanProperty('do_sign_jar') &&
+				project.hasProperty('keyStore')
+	}
+
+	description = 'Sign the deobf JAR'
+	keyStore = project.findProperty('keyStore')
+	alias = project.findProperty('keyStoreAlias')
+	storePass = project.findProperty('keyStorePass')
+	keyPass = project.findProperty('keyStoreKeyPass')
+
+	inputFile = deobfJar.archivePath
+	outputFile = deobfJar.archivePath
+}
+
+task signJavadocJar(type: SignJar) {
+	onlyIf {
+		getBooleanProperty('create_javadoc_jar') &&
+				getBooleanProperty('do_sign_jar') &&
+				project.hasProperty('keyStore')
+	}
+
+	keyStore = project.findProperty('keyStore')
+	alias = project.findProperty('keyStoreAlias')
+	storePass = project.findProperty('keyStorePass')
+	keyPass = project.findProperty('keyStoreKeyPass')
+
+	inputFile = javadocJar.archivePath
+	outputFile = javadocJar.archivePath
+}
+
+if (getBooleanProperty('do_sign_jar')) {
+	build.dependsOn signJar
+	if (getBooleanProperty('create_api_jar')) {
+		build.dependsOn signApiJar
+	}
+	if (getBooleanProperty('create_deobf_jar')) {
+		build.dependsOn signDeobfJar
+	}
+	if (getBooleanProperty('create_javadoc_jar')) {
+		build.dependsOn signJavadocJar
+	}
+}
+
+artifacts {
+	if (getBooleanProperty('create_api_jar')) {
+		archives apiJar
+	}
+	if (getBooleanProperty('create_deobf_jar')) {
+		archives deobfJar
+	}
+	if (getBooleanProperty('create_javadoc_jar')) {
+		archives javadocJar
+	}
+}
+
+boolean getBooleanProperty(final String property) {
+	if (project.hasProperty(property)) {
+		return ((String) project.findProperty(property)).toBoolean()
+	} else {
+		return false
+	}
+}

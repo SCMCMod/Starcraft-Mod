@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.arpaesis.scmc.Starcraft;
-import com.arpaesis.scmc.handlers.AccessHandler;
 import com.arpaesis.scmc.handlers.BlockHandler;
 import com.arpaesis.scmc.recipes.gascollector.GasCollectorRecipes;
 
@@ -54,10 +52,6 @@ public class RecipeMaker
 			recipes.add(recipe);
 		}
 
-		if (AccessHandler.isDeobfuscatedEnvironment())
-		{
-			Starcraft.logger().info("Constructed Gas Collector Recipes: " + recipes);
-		}
 
 		return recipes;
 	}

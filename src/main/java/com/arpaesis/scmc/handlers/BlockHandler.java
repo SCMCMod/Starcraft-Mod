@@ -32,7 +32,6 @@ import com.arpaesis.scmc.blocks.BlockZerusFarmland;
 import com.arpaesis.scmc.blocks.BlockZerusOre;
 import com.arpaesis.scmc.blocks.OreStarcraftRedstone;
 import com.arpaesis.scmc.blocks.ProtossPowerCoreBlock;
-import com.arpaesis.scmc.blocks.RegistryType;
 import com.arpaesis.scmc.blocks.SCBlock;
 import com.arpaesis.scmc.blocks.SCBlockCustomDrop;
 import com.arpaesis.scmc.blocks.SCBlockFalling;
@@ -45,8 +44,8 @@ import com.arpaesis.scmc.blocks.SCSkull;
 import com.arpaesis.scmc.blocks.flora.BlockBrambles;
 import com.arpaesis.scmc.blocks.flora.BlockZerusGlowPod;
 import com.arpaesis.scmc.blocks.flora.BlockZerusLightcap;
-import com.arpaesis.scmc.blocks.items.ItemBlockBrambles;
-import com.arpaesis.scmc.blocks.items.ItemBlockStarcraftSkull;
+import com.arpaesis.scmc.blocks.itemblock.ItemBlockBrambles;
+import com.arpaesis.scmc.blocks.itemblock.ItemBlockStarcraftSkull;
 import com.arpaesis.scmc.blocks.metablocks.BlockEnergy;
 import com.arpaesis.scmc.blocks.metablocks.BlockGasCollector;
 import com.arpaesis.scmc.blocks.metablocks.BlockKhaydarinCrystal;
@@ -73,6 +72,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
+import net.rom.block.RegistryType;
 
 public class BlockHandler
 {

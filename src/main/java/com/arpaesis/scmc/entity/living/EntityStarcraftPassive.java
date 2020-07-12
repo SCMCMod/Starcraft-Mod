@@ -3,7 +3,7 @@ package com.arpaesis.scmc.entity.living;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.arpaesis.scmc.api.IEntityTeamColorable;
+import com.arpaesis.api.IEntityTeamColorable;
 import com.arpaesis.scmc.enums.EnumColors;
 import com.arpaesis.scmc.enums.EnumFactionTypes;
 import com.arpaesis.scmc.enums.EnumTypeAttributes;
@@ -95,13 +95,13 @@ public abstract class EntityStarcraftPassive extends EntityTameable implements I
 	}
 
 	/**
-	 * Gets the color of the creature.
+	 * Gets the color of the mob.
 	 */
 	public EnumColors getColor()
 	{
 		for (EnumColors color : EnumColors.values())
 		{
-			if (color.getId() == this.getColorID())
+			if (color.ordinal() == this.getColorID())
 			{
 				return color;
 			}
@@ -110,12 +110,13 @@ public abstract class EntityStarcraftPassive extends EntityTameable implements I
 	}
 
 	/**
-	 * Sets the color of this creature to whatever the color specified is.
+	 * Sets the color of this mob to whatever the color specified is.
 	 */
 	public EntityStarcraftPassive setColor(EnumColors color)
 	{
 		this.color = color;
-		this.setColorID(color.getId());
+		//TODO CHANGE
+		this.setColorID(color.ordinal());
 		return this;
 	}
 

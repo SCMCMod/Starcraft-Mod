@@ -19,7 +19,7 @@ import net.minecraftforge.fml.common.Loader;
  * </br>
  * A set of utilities that simplify code in other areas<br>
  */
-//TODO: MOVE TO CORE MOD
+
 public class Library
 {
 

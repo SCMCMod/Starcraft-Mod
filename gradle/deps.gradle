@@ -1,0 +1,33 @@
+def mc = "1.12.2"
+def jei_version = "4.15.0.293"
+def lombok = "1.18.12"
+def apachemaths = "3.6.1"
+def junit = "4.13"
+
+repositories {
+	maven {
+		name = 'curseforge'
+		url = 'https://minecraft.curseforge.com/api/maven/'
+	}
+	maven {
+		name = 'DVS1 Maven FS'
+		url = 'http://dvs1.progwml6.com/files/maven'
+	}
+	maven {
+		name = 'ReadOnlyMaven'
+		url = 'https://mvn.romvoid.dev/'
+	}
+	mavenCentral()
+}
+
+dependencies {
+
+	compile "mezz.jei:jei_${mc}:${jei_version}:api"
+	runtime "mezz.jei:jei_${mc}:${jei_version}"
+	compile 'net.rom:ReadOnlyCore:1.0.15:dev'
+	
+	compile "org.apache.commons:commons-math3:${apachemaths}"
+	
+	testImplementation "junit:junit:${junit}"
+	
+}

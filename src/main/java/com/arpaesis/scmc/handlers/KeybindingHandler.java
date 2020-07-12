@@ -2,7 +2,7 @@ package com.arpaesis.scmc.handlers;
 
 import org.lwjgl.input.Keyboard;
 
-import com.arpaesis.scmc.Starcraft;
+import com.arpaesis.scmc.SCConstants;
 import com.arpaesis.scmc.network.NetworkHandler;
 import com.arpaesis.scmc.network.message.MessageShipAbility;
 
@@ -17,7 +17,7 @@ import net.minecraftforge.fml.common.gameevent.InputEvent;
 public class KeybindingHandler
 {
 
-	public static final String STARCRAFT_CATEGORY = "key.categories." + Starcraft.MOD_ID;
+	public static final String STARCRAFT_CATEGORY = "key.categories." + SCConstants.MODID;
 
 	public static KeyBinding toggleMarineVisor;
 	public static KeyBinding shipAbilityOne;

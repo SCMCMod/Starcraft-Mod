@@ -1,6 +1,6 @@
 package com.arpaesis.scmc.blocks.metablocks;
 
-import com.arpaesis.scmc.blocks.items.IMetaBlockName;
+import com.arpaesis.scmc.blocks.itemblock.IMetaBlockName;
 import com.arpaesis.scmc.handlers.IMetaRenderHandler;
 
 /**
@@ -12,7 +12,7 @@ import com.arpaesis.scmc.handlers.IMetaRenderHandler;
  * 
  * @author Ocelot5836
  */
-//TODO: MOVE TO CORE MOD
+
 public interface IMetaBlock extends IMetaBlockName, IMetaRenderHandler
 {
 }

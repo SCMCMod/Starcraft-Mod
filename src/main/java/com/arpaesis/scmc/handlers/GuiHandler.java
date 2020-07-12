@@ -5,7 +5,6 @@ import com.arpaesis.scmc.client.gui.GuiGasCollector;
 import com.arpaesis.scmc.client.gui.GuiItemShop;
 import com.arpaesis.scmc.client.gui.GuiLarvaMorph;
 import com.arpaesis.scmc.client.gui.GuiLarvaProgress;
-import com.arpaesis.scmc.client.gui.GuiLog;
 import com.arpaesis.scmc.client.gui.GuiPlayerMessage;
 import com.arpaesis.scmc.client.gui.GuiPlayerMessage.EnumPlayerMessageType;
 import com.arpaesis.scmc.client.gui.GuiProtossFurnace;
@@ -15,7 +14,6 @@ import com.arpaesis.scmc.container.ContainerProtossFurnace;
 import com.arpaesis.scmc.container.ContainerStarcraftFurnace;
 import com.arpaesis.scmc.enums.EnumWorldType;
 import com.arpaesis.scmc.tileentity.TileEntityGasCollector;
-import com.ocelot.api.client.gui.GuiTest;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
@@ -91,8 +89,6 @@ public class GuiHandler implements IGuiHandler
 			return new GuiLarvaMorph();
 		if (ID == LARVA_PROGRESS_ID)
 			return new GuiLarvaProgress();
-		if (ID == LOG)
-			return new GuiLog(Starcraft.logs().get(x));
 		if (ID == PLAYER_MESSAGE)
 			return new GuiPlayerMessage(EnumPlayerMessageType.values()[x & EnumPlayerMessageType.values().length - 1]);
 		if (ID == CHAR_FURNACE)

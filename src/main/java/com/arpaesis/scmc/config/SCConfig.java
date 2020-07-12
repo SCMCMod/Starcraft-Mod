@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.arpaesis.scmc.Starcraft;
+import com.arpaesis.scmc.SCConstants;
 import com.arpaesis.scmc.config.category.CategoryEntryDimensionIds;
 import com.arpaesis.scmc.config.category.CategoryEntryGeneral;
 import com.arpaesis.scmc.config.category.CategoryEntryMobSpawning;
@@ -200,7 +200,7 @@ public class SCConfig
 		@SubscribeEvent(priority = EventPriority.LOWEST)
 		public void onEvent(ConfigChangedEvent.OnConfigChangedEvent event)
 		{
-			if (event.getModID().equals(Starcraft.MOD_ID))
+			if (event.getModID().equals(SCConstants.MODID))
 			{
 				syncFromGui();
 			}

@@ -1,6 +1,6 @@
 package com.arpaesis.scmc.handlers;
 
-import com.arpaesis.scmc.Starcraft;
+import com.arpaesis.scmc.SCConstants;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -16,7 +16,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * 
  * @author Ocelot5836
  */
-//TODO: CONSIDER if this should be moved to the core mod or not.
 @SideOnly(Side.CLIENT)
 public class WavefrontModelHandler
 {
@@ -26,7 +25,7 @@ public class WavefrontModelHandler
 	 */
 	public static void pre(FMLPreInitializationEvent event)
 	{
-		OBJLoader.INSTANCE.addDomain(Starcraft.MOD_ID);
+		OBJLoader.INSTANCE.addDomain(SCConstants.MODID);
 		register();
 	}
 

@@ -4,51 +4,61 @@ import java.awt.Color;
 
 import com.arpaesis.scmc.lib.SCUtils;
 
+import net.minecraft.util.IStringSerializable;
+
 /**
  * This holds all the possible team colors for entities.
  * 
  * @author Ocelot5836
  */
-public enum EnumColors
-{
-	WHITE(0, 238, 237, 233), ORANGE(1, 228, 113, 10), MAGENTA(2, 172, 62, 166), LIGHT_BLUE(3, 143, 211, 230), YELLOW(4, 231, 204, 54), LIME(5, 93, 234, 68), PINK(6, 216, 147, 178), GRAY(7, 70, 70, 70), SILVER(8, 187, 187, 191), CYAN(9, 67, 181, 216), PURPLE(10, 153, 50, 204), BLUE(11, 56, 95, 183),
-	BROWN(12, 117, 77, 43), GREEN(13, 52, 122, 29), RED(14, 168, 21, 24), BLACK(15, 25, 25, 25);
+public enum EnumColors implements IStringSerializable{
+	WHITE("White", 238, 237, 233),
+	ORANGE("Orange",228, 113, 10),
+	MAGENTA("Magenta",172, 62, 166),
+	LIGHT_BLUE("LightBlue",143, 211, 230),
+	YELLOW("Yellow",231, 204, 54),
+	LIME("Lime",93, 234, 68),
+	PINK("Pink",216, 147, 178),
+	GRAY("Gray",70, 70, 70),
+	SILVER("Silver",187, 187, 191),
+	CYAN("Cyan",67, 181, 216),
+	PURPLE("Purple",153, 50, 204),
+	BLUE("Blue",56, 95, 183),
+	BROWN("Brown",117, 77, 43),
+	GREEN("Green",52, 122, 29),
+	RED("Red",168, 21, 24),
+	BLACK("Black",25, 25, 25);
 
-	private int ID;
+	private String name;
 	private float r;
 	private float g;
 	private float b;
 
-	EnumColors(int ID, float r, float g, float b)
-	{
-		this.ID = ID;
+	EnumColors(String name, float r, float g, float b) {
+		this.name = name;
 		this.r = r;
 		this.g = g;
 		this.b = b;
 	}
-
-	public int getId()
-	{
-		return ID;
+	
+	@Override
+	public String getName() {
+		return name;
 	}
 
-	public Color getColor()
-	{
+	public Color getColor() {
 		return new Color(r, g, b);
 	}
 
-	public float getR()
-	{
+	public float getR() {
 		return r;
 	}
 
-	public float getG()
-	{
+	public float getG() {
 		return g;
 	}
 
-	public float getB()
-	{
+	public float getB() {
 		return b;
 	}
 
@@ -57,8 +67,7 @@ public enum EnumColors
 	 * 
 	 * @param id The id of the color
 	 */
-	public static EnumColors getColorById(int id)
-	{
+	public static EnumColors getColorById(int id) {
 		return EnumColors.values()[id];
 	}
 
@@ -67,8 +76,7 @@ public enum EnumColors
 	 * 
 	 * @param id The id of the color
 	 */
-	public static EnumColors getColorByMeta(int id)
-	{
+	public static EnumColors getColorByMeta(int id) {
 		return EnumColors.values()[EnumColors.values().length - id];
 	}
 
@@ -77,8 +85,7 @@ public enum EnumColors
 	 * 
 	 * @param id The id of the color
 	 */
-	public static EnumColors getColorStarcraft(int id)
-	{
+	public static EnumColors getColorStarcraft(int id) {
 		return EnumColors.values()[SCUtils.minecraftColorToStarcraftColor(id)];
 	}
 }

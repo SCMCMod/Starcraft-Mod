@@ -2,7 +2,7 @@ package com.arpaesis.scmc.vehicles.weapons;
 
 import com.arpaesis.scmc.network.NetworkHandler;
 import com.arpaesis.scmc.network.message.MessageHurtEntity;
-import com.ocelot.api.utils.WorldUtils;
+import com.arpaesis.scmc.utils.RayTracing;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -69,7 +69,7 @@ public class VehicleWeapon implements IWeaponSystem
 	@Override
 	public void fire(boolean shouldCauseExplosion)
 	{
-		RayTraceResult ray = WorldUtils.rayTrace(this.getWeaponRange());
+		RayTraceResult ray = RayTracing.rayTrace(this.getWeaponRange());
 		Entity entity = ray.entityHit;
 
 		BlockPos hitBlock = ray.getBlockPos();

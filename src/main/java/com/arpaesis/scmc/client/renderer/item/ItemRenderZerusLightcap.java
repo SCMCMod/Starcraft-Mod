@@ -16,7 +16,7 @@ public class ItemRenderZerusLightcap extends ItemRenderer
 {
 
 	public static final ModelZerusLightcap MODEL = new ModelZerusLightcap();
-	public static final ResourceLocation TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/zerus_lightcap.png");
+	public static final ResourceLocation TEXTURE = new ResourceLocation(SCConstants.MODID + "textures/models/block/zerus_lightcap.png");
 
 	public ItemRenderZerusLightcap()
 	{

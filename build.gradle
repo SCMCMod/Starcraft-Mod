@@ -1,97 +1,414 @@
 buildscript {
-    repositories {
-        jcenter()
-        maven { url = "http://files.minecraftforge.net/maven" }
-    }
-    dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
-    }
+
+	repositories {
+
+		jcenter()
+
+		maven {
+
+			url = 'http://files.minecraftforge.net/maven'
+		}
+		maven {
+			name = 'gradle'
+			url 'https://plugins.gradle.org/m2/'
+		}
+	}
+
+	dependencies {
+
+		classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+	}
 }
+
+plugins {
+	id 'com.matthewprenger.cursegradle' version '1.4.0'
+	id "com.wynprice.cursemaven" version "2.1.5"
+	id 'com.github.spotbugs' version '1.6.9'
+	id "io.freefair.lombok" version "2.9.5"
+	id "maven-publish"
+	id 'jacoco'
+}
+
 apply plugin: 'net.minecraftforge.gradle.forge'
-//Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
+apply plugin: 'maven-publish'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
 
-def currentJvm = org.gradle.internal.jvm.Jvm.current()
+import org.gradle.util.GradleVersion
+project.afterEvaluate {
+	jacoco {
+		toolVersion = '0.8.3'
+		reportsDir = file("$buildDir/reports")
+	}
 
-version = "2.1.810"
-group = "com.arpaesis.scmc" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "starcraft"
+	project.task(type: JacocoReport, 'junitPlatformJacocoReport', {
+		if (GradleVersion.current() >= GradleVersion.version('5.0')) {
+			getSourceDirectories().from(files('./src/main'))
+			getClassDirectories().from(files("${project.buildDir}/classes/main"))
+		} else {
+			sourceDirectories = files('./src/main')
+			classDirectories = files("${project.buildDir}/classes/main")
+		}
+	})
+}
 
-sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
-compileJava {
-    sourceCompatibility = targetCompatibility = '1.8'
+
+spotbugs {
+	ignoreFailures = true
+	toolVersion = '3.1.6'
+	effort = 'max'
+	reportLevel = 'low'
+}
+
+tasks.withType(com.github.spotbugs.SpotBugsTask) {
+	reports {
+		xml.enabled = false
+		html.enabled = true
+	}
+}
+
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+	options.compilerArgs = ['-Xlint:unchecked', // deprecation, rawtypes, cast, unchecked, all
+	]
+	compileJava.options.compilerArgs += '-proc:none'
+}
+
+tasks.withType(Test) {
+	compileTestJava.options.compilerArgs += '-proc:none'
+}
+
+class Secrets {
+	Map m_data = null
+
+	final String getProperty(final String key) {
+		return (m_data && (m_data[key] != null)) ? m_data[key] : ''
+	}
+}
+
+final def secretFile
+if (System.getenv('SECRET_FILE')) {
+	secretFile = file System.getenv().SECRET_FILE
+} else {
+	secretFile = file 'secret.json'
+}
+
+import groovy.json.JsonSlurper
+project.ext.secret = new Secrets()
+secretFile.withReader {
+	project.secret.m_data = new JsonSlurper().parse it
+}
+
+def short_version = "${mod_version}"
+version = "${mod_version}." + getBuildNumber()
+group = "${mod_group}"
+archivesBaseName = "${mod_name}-${forge_mc_version}"
+
+ext {
+	v = "${mod_version}." + getBuildNumber()
+}
+
+apply from: 'gradle/artifacts.gradle'
+apply from: 'gradle/deps.gradle'
+apply from: 'gradle/restcall.gradle'
+apply from: 'gradle/changelog.gradle'
+
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+
+eclipse.project {
+	buildCommand 'org.eclipse.buildship.core.gradleprojectbuilder'
+	natures 'org.eclipse.buildship.core.gradleprojectnature'
+}
+
+idea.module {
+	downloadJavadoc = true
+	iml {
+		whenMerged { module ->
+			module.dependencies*.exported = true
+		}
+	}
 }
 
 minecraft {
-    version = "1.12.2-14.23.5.2814"
-    runDir = "run"
-    mappings = "stable_39"
-    replace '${version}', project.version
-}
 
-repositories {
-  maven {
-    // location of the maven that hosts JEI files
-    name = "Progwml6 maven"
-    url = "http://dvs1.progwml6.com/files/maven"
-  }
-  maven {
-    // location of a maven mirror for JEI files, as a fallback
-    name = "ModMaven"
-    url = "modmaven.k-4u.nl"
-  }
-  maven {
-        url = 'https://repo.elytradev.com/'
-  }
-  maven {
-        url 'https://jitpack.io'
-  }
-}
+	version = "${forge_mc_version}-${forge_version}"
+	mappings = "${mcp_mappings_version}"
+	runDir = 'run'
 
-configurations {
-    embed
-    compile.extendsFrom(embed)
-}
-
-dependencies {
-  // compile against the JEI API but do not include it at runtime
-  deobfProvided "mezz.jei:jei_1.12.2:4.9.2.196:api"
-  // at runtime, use the full JEI jar
-  runtime "mezz.jei:jei_1.12.2:4.9.2.196"
-  compile 'com.github.CJMinecraft01:CJCore:1.12-SNAPSHOT'
-  
-  embed 'com.github.Ocelot5836:Ocelot-Mod-Utilities:1.2-alpha'
-}
-
-jar {
-     manifest.mainAttributes(
-            "Built-By": System.getProperty('user.name'),
-            "Created-By": currentJvm,
-            "Implementation-Title": archivesBaseName,
-            "Implementation-Version": project.version,
-            "FMLAT": "SCMC_at.cfg")
-    
-    from configurations.embed.collect {
-        exclude 'META-INF/LICENSE.txt'
-        exclude 'META-INF/NOTICE.txt'
-        it.isDirectory() ? it : zipTree(it)
-    }
+	replace '@BUILD@', getBuildNumber()
+	replace '@VERSION@', short_version
+	replaceIn "${mod_class}.java"
 }
 
 processResources {
-    // this will ensure that this task is redone when the versions change.
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
 
-    // replace stuff in mcmod.info, nothing else
-    from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
-                
-        // replace version and mcversion
-        expand 'version':project.version, 'mcversion':project.minecraft.version
-    }
-        
-    // copy everything else except the mcmod.info
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
-    }
+	inputs.property "version", project.version
+	inputs.property "mcversion", project.minecraft.version
+
+	from(sourceSets.main.resources.srcDirs) {
+
+		include 'mcmod.info'
+		expand 'version':project.version, 'mcversion':project.minecraft.version
+	}
+
+	from(sourceSets.main.resources.srcDirs) {
+
+		exclude 'mcmod.info'
+	}
+
+	from 'LICENSE'
 }
+
+//Shuts up javadoc failures
+if (JavaVersion.current().isJava8Compatible()) {
+
+	allprojects {
+
+		tasks.withType(Javadoc) {
+
+			options.addStringOption('Xdoclint:none', '-quiet')
+		}
+	}
+}
+
+publishing {
+	publications {
+		Exoplanets(MavenPublication) {
+			artifactId mod_name
+			groupId project.mod_group
+			version project.version
+			from components.java
+			if (getBooleanProperty('create_source_jar')) {
+				artifact sourceJar {
+					classifier 'sources'
+				}
+			}
+			if (getBooleanProperty('create_api_jar')) {
+				artifact apiJar {
+					classifier 'api'
+				}
+			}
+			if (getBooleanProperty('create_deobf_jar')) {
+				artifact deobfJar {
+					classifier 'dev'
+				}
+			}
+
+			pom {
+				name = project.POM_NAME
+				description = project.POM_DESCRIPTION
+				url = project.POM_URL
+				packaging = project.POM_PACKAGING
+				inceptionYear = project.POM_INCEPTION_YEAR
+				licenses {
+					license {
+						name = project.POM_LICENSE_NAME
+						url = project.POM_LICENSE_URL
+						distribution = project.POM_LICENSE_DIST
+					}
+				}
+				scm {
+					connection = project.POM_SCM_CONNECTION
+					developerConnection = project.POM_SCM_DEV_CONNECTION
+					url = project.POM_SCM_URL
+				}
+				issueManagement {
+					system = project.POM_ISSUE_MANAGEMENT
+					url = project.POM_ISSUE_MANAGEMENT_URL
+				}
+				developers {
+					developer {
+						id = "Hypeirochus"
+						name = "Hypeirochus"
+					}
+					developer {
+						id = "Cybercat"
+						name = "Cybercat"
+					}
+					developer {
+						id = "Ocelot"
+						name = "Ocelot"
+					}
+					developer {
+						id = "CJMinecraft"
+						name = "CJMinecraft"
+					}
+					developer {
+						id = "ROMVoid"
+						name = "ROMVoid"
+					}
+				}
+			}
+		}
+	}
+	repositories {
+		maven {
+			name = "LocalMaven"
+			url = "file://${buildDir}/repo/"
+		}
+	}
+}
+
+curseforge {
+	if (project.hasProperty('curseforge_project_id')) {
+		apiKey = secret.curseforgeAPIKey
+		project {
+			id = project.curseforge_project_id
+			if (project.hasProperty('curseforge_changelog_filename')) {
+				changelog = file(project.curseforge_changelog_filename)
+			} else {
+				changelog = ''
+			}
+			if (project.hasProperty('curseforge_changelog_type')) {
+				changelogType = project.curseforge_changelog_type
+			}
+			if ((project.hasProperty('curseforge_release_type')) && ((project.curseforge_release_type == 'alpha') || (project.curseforge_release_type == 'beta') || (project.curseforge_release_type == 'release'))) {
+				releaseType = project.curseforge_release_type
+			} else {
+				releaseType = 'alpha'
+			}
+			if (project.hasProperty('curseforge_versions')) {
+				final def versions = "${project.curseforge_versions}".split(', ')
+				versions.each {
+					addGameVersion "${it}"
+				}
+			}
+			mainArtifact(jar) {
+				if (getBooleanProperty('curseforge_use_custom_display_name')) {
+					displayName = "${project.name} ${project.display_version}"
+				}
+				if (project.hasProperty('curseforge_requirements') || project.hasProperty('curseforge_optionals') || project.hasProperty('curseforge_embeddeds') || project.hasProperty('curseforge_tools') || project.hasProperty('curseforge_incompatibles') || project.hasProperty('curseforge_includes')) {
+					relations {
+						if (project.hasProperty('curseforge_requirements')) {
+							final def requirements = "${project.curseforge_requirements}".split(', ')
+							requirements.each {
+								requiredDependency "${it}"
+							}
+						}
+						if (project.hasProperty('curseforge_optionals')) {
+							final def optionals = "${project.curseforge_optionals}".split(', ')
+							optionals.each {
+								optionalDependency "${it}"
+							}
+						}
+						if (project.hasProperty('curseforge_embeddeds')) {
+							final def embeddeds = "${project.curseforge_embeddeds}".split(', ')
+							embeddeds.each {
+								embeddedLibrary "${it}"
+							}
+						}
+						if (project.hasProperty('curseforge_tools')) {
+							final def tools = "${project.curseforge_tools}".split(', ')
+							tools.each {
+								tool "${it}"
+							}
+						}
+						if (project.hasProperty('curseforge_incompatibles')) {
+							final def incompatibles = "${project.curseforge_incompatibles}".split(', ')
+							incompatibles.each {
+								incompatible "${it}"
+							}
+						}
+						if (project.hasProperty('curseforge_includes')) {
+							final def includes = "${project.curseforge_includes}".split(', ')
+							includes.each {
+								include "${it}"
+							}
+						}
+					}
+				}
+			}
+			if (getBooleanProperty('create_api_jar')) {
+				addArtifact(apiJar) {
+					if (getBooleanProperty('curseforge_use_custom_display_name')) {
+						displayName = "${project.name} ${project.display_version} API"
+					}
+				}
+			}
+			if (getBooleanProperty('create_source_jar')) {
+				addArtifact(sourceJar) {
+					if (getBooleanProperty('curseforge_use_custom_display_name')) {
+						displayName = "${project.name} ${project.display_version} Sources"
+					}
+				}
+			}
+			if (getBooleanProperty('create_deobf_jar')) {
+				addArtifact(deobfJar) {
+					if (getBooleanProperty('curseforge_use_custom_display_name')) {
+						displayName = "${project.name} ${project.display_version} Development"
+					}
+				}
+			}
+			if (getBooleanProperty('create_javadoc_jar')) {
+				addArtifact(javadocJar) {
+					if (getBooleanProperty('curseforge_use_custom_display_name')) {
+						displayName = "${project.name} ${project.display_version} Javadoc"
+					}
+				}
+			}
+		}
+	}
+}
+
+boolean getBooleanProperty(final String property) {
+	if (project.hasProperty(property)) {
+		return ((String) project.findProperty(property)).toBoolean()
+	} else {
+		return false
+	}
+}
+
+def getModVersion() {
+	try {
+		return getVersion()
+	} catch (Exception ex) {
+		System.out.println("Could not get the Mod version!")
+	}
+}
+
+static def makeVersionMap(sem, bn) {
+	def out = [:]
+	out['build.number'] = bn.toString()
+	out['version_short'] = "${sem}".toString()
+	out['version'] = "${sem}.${bn}".toString()
+	return out
+}
+
+def getVersion() {
+	String sem = project.mod_version.toString()
+	String bn = getBuildNumber()
+
+	return makeVersionMap(sem, bn)
+}
+
+String getBuildNumber() {
+	def versionFile = file('version.properties')
+	if (versionFile.canRead()) {
+		Properties versionProps = new Properties()
+		versionProps.load(new FileInputStream(versionFile))
+		return versionProps['build_num'].toString()
+	}
+	return "1"
+}
+
+task incrementBuild {
+	doFirst {
+		def versionFile = file('version.properties')
+		if (versionFile.canRead()) {
+			Properties versionProps = new Properties()
+			versionProps.load(new FileInputStream(versionFile))
+			def num = versionProps['build_num'].toInteger() + 1
+			println("incrementing BuildNumber to: " + num)
+			versionProps['build_num'] = num.toString()
+			versionProps.store(versionFile.newWriter(), null)
+		} else {
+			println("version.properties file not found! Ignoring.")
+		}
+	}
+}
+
+build.dependsOn signJar
+build.finalizedBy incrementBuild // only increment on successful builds
+tasks.build.dependsOn signJar
+tasks.publish.dependsOn build
+tasks.curseforge.dependsOn build, postRelease

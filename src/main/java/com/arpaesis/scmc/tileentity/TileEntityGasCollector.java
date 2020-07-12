@@ -1,6 +1,6 @@
 package com.arpaesis.scmc.tileentity;
 
-import com.arpaesis.scmc.api.Utils;
+import com.arpaesis.api.Utils;
 import com.arpaesis.scmc.handlers.BlockHandler;
 import com.arpaesis.scmc.handlers.ItemHandler;
 import com.arpaesis.scmc.handlers.SoundHandler;

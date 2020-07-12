@@ -2,8 +2,8 @@ package com.arpaesis.scmc.blocks;
 
 import java.util.Random;
 
+import com.arpaesis.api.Utils;
 import com.arpaesis.scmc.Starcraft;
-import com.arpaesis.scmc.api.Utils;
 import com.arpaesis.scmc.creativetabs.SCCreativeTabs;
 import com.arpaesis.scmc.enums.EnumWorldType;
 import com.arpaesis.scmc.handlers.BlockHandler;

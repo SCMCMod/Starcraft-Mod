@@ -13,7 +13,7 @@ import net.minecraftforge.fml.client.config.GuiConfigEntries;
 import net.minecraftforge.fml.client.config.GuiConfigEntries.CategoryEntry;
 import net.minecraftforge.fml.client.config.IConfigElement;
 
-//TODO: MOVE TO CORE MOD
+
 public class CategoryEntryMobSpawning extends CategoryEntry
 {
 

@@ -2,7 +2,7 @@ package com.arpaesis.scmc.blocks.metablocks;
 
 import com.arpaesis.scmc.blocks.RegistryType;
 import com.arpaesis.scmc.blocks.SCBlock;
-import com.arpaesis.scmc.blocks.items.IMetaBlockName;
+import com.arpaesis.scmc.blocks.itemblock.IMetaBlockName;
 import com.arpaesis.scmc.creativetabs.SCCreativeTabs;
 import com.arpaesis.scmc.handlers.IMetaRenderHandler;
 import com.arpaesis.scmc.handlers.SoundHandler.SoundTypes;

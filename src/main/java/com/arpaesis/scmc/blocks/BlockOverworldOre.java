@@ -16,6 +16,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import net.rom.block.RegistryType;
 
 public class BlockOverworldOre extends SCBlock
 {

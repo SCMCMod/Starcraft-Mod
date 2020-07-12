@@ -18,7 +18,7 @@ public class RendererZerusGlowPod extends TileEntitySpecialRenderer<TileEntityZe
 {
 
 	private static final ModelZerusGlowPod MODEL = new ModelZerusGlowPod();
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/zerus_glow_pod.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(SCConstants.MODID + "textures/models/block/zerus_glow_pod.png");
 
 	@Override
 	public void render(TileEntityZerusGlowPod te, double x, double y, double z, float partialTicks, int destroyStage, float alpha)

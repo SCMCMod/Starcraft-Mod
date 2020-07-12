@@ -8,11 +8,11 @@ import com.arpaesis.scmc.entity.living.EntityLarvaCocoon;
 import com.arpaesis.scmc.entity.living.EntityZergling;
 import com.arpaesis.scmc.entity.living.EntityZerglingRaptor;
 import com.arpaesis.scmc.entity.living.EntityZerglingSwarmling;
-import com.ocelot.api.utils.GuiUtils;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraftforge.fml.client.config.GuiUtils;
 
 /**
  * This class is an option for the larva morph larva GUI.

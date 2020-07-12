@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.arpaesis.scmc.SCConstants;
 import com.arpaesis.scmc.Starcraft;
 import com.arpaesis.scmc.client.gui.element.LarvaOption;
 import com.arpaesis.scmc.entity.living.EntityLarva;
@@ -11,10 +12,8 @@ import com.arpaesis.scmc.handlers.ItemHandler;
 import com.arpaesis.scmc.network.NetworkHandler;
 import com.arpaesis.scmc.network.message.MessageMorphLarva;
 import com.arpaesis.scmc.network.message.MessageSyncLarvaGui;
-import com.ocelot.api.utils.GuiUtils;
 import com.ocelot.api.utils.GuiUtils.GuiType;
 import com.ocelot.api.utils.InventoryUtils;
-import com.ocelot.api.utils.TextureUtils;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
@@ -23,6 +22,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.client.config.GuiUtils;
+import net.rom.utils.CoreUtil;
 
 /**
  * @since 5.1
@@ -32,7 +33,7 @@ public class GuiLarvaMorph extends BasicGui {
 
 	public static final GuiLarvaMorph INSTANCE = new GuiLarvaMorph();
 
-	public static final ResourceLocation LARVA_GUI = new ResourceLocation(Starcraft.RL_BASE + "textures/gui/larva.png");
+	public static final ResourceLocation LARVA_GUI = new ResourceLocation(SCConstants.MODID + "textures/gui/larva.png");
 
 	private EntityLarva larva;
 	private List<LarvaOption> subOptions = new ArrayList<LarvaOption>();
@@ -52,7 +53,7 @@ public class GuiLarvaMorph extends BasicGui {
 
 	@Override
 	public void drawGuiBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
-		TextureUtils.bindTexture(LARVA_GUI);
+		CoreUtil.bindTexture(LARVA_GUI);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		int entityX = guiLeft + 124;
 		int entityY = guiTop + 26;

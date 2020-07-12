@@ -34,11 +34,11 @@ public class RendererStarcraftSkull extends TileEntitySpecialRenderer<TileEntity
 	private static final ModelHydralisk HYDRALISK = new ModelHydralisk();
 	private static final ModelBrutalisk BRUTALISK = new ModelBrutalisk();
 
-	public static final ResourceLocation ZERGLING_BASE = new ResourceLocation(Starcraft.RL_BASE + "textures/entity/zergling_base.png");
-	public static final ResourceLocation ZERGLING_OVERLAY = new ResourceLocation(Starcraft.RL_BASE + "textures/entity/zergling_overlay.png");
-	public static final ResourceLocation HYDRALISK_BASE = new ResourceLocation(Starcraft.RL_BASE + "textures/entity/hydralisk_base.png");
-	public static final ResourceLocation BRUTALISK_BASE = new ResourceLocation(Starcraft.RL_BASE + "textures/entity/brutalisk_base.png");
-	public static final ResourceLocation CIVILIAN = new ResourceLocation(Starcraft.RL_BASE + "textures/entity/civilian.png");
+	public static final ResourceLocation ZERGLING_BASE = new ResourceLocation(SCConstants.MODID + "textures/entity/zergling_base.png");
+	public static final ResourceLocation ZERGLING_OVERLAY = new ResourceLocation(SCConstants.MODID + "textures/entity/zergling_overlay.png");
+	public static final ResourceLocation HYDRALISK_BASE = new ResourceLocation(SCConstants.MODID + "textures/entity/hydralisk_base.png");
+	public static final ResourceLocation BRUTALISK_BASE = new ResourceLocation(SCConstants.MODID + "textures/entity/brutalisk_base.png");
+	public static final ResourceLocation CIVILIAN = new ResourceLocation(SCConstants.MODID + "textures/entity/civilian.png");
 	public static final ResourceLocation SKELETON_TEXTURE = new ResourceLocation("textures/entity/skeleton/skeleton.png");
 
 	public void render(TileEntityStarcraftSkull te, double x, double y, double z, float partialTicks, int destroyStage, float alpha)

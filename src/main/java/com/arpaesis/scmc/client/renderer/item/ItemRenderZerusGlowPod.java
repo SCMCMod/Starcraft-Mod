@@ -16,7 +16,7 @@ public class ItemRenderZerusGlowPod extends ItemRenderer
 {
 
 	private static final ModelZerusGlowPod MODEL = new ModelZerusGlowPod();
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/zerus_glow_pod.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(SCConstants.MODID + "textures/models/block/zerus_glow_pod.png");
 
 	public ItemRenderZerusGlowPod()
 	{

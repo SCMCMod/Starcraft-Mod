@@ -1,6 +1,6 @@
 package com.arpaesis.scmc.handlers;
 
-import com.arpaesis.scmc.Starcraft;
+import com.arpaesis.scmc.SCConstants;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.tileentity.TileEntity;
@@ -52,6 +52,6 @@ public class LootTableHandler
 	 */
 	private static ResourceLocation register(String id)
 	{
-		return LootTableList.register(new ResourceLocation(Starcraft.MOD_ID, id));
+		return LootTableList.register(new ResourceLocation(SCConstants.MODID, id));
 	}
 }

@@ -2,19 +2,20 @@ package com.arpaesis.scmc.client.gui;
 
 import java.io.IOException;
 
+import com.arpaesis.scmc.SCConstants;
 import com.arpaesis.scmc.Starcraft;
 import com.arpaesis.scmc.entity.living.EntityLarvaCocoon;
 import com.arpaesis.scmc.network.NetworkHandler;
 import com.arpaesis.scmc.network.message.MessageKillEntity;
 import com.arpaesis.scmc.network.message.MessageSyncLarvaCocoonGui;
-import com.ocelot.api.utils.GuiUtils;
-import com.ocelot.api.utils.TextureUtils;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.client.config.GuiUtils;
+import net.rom.utils.CoreUtil;
 
 public class GuiLarvaProgress extends BasicGui
 {
@@ -43,7 +44,7 @@ public class GuiLarvaProgress extends BasicGui
 	@Override
 	protected void drawGuiBackgroundLayer(float partialTicks, int mouseX, int mouseY)
 	{
-		TextureUtils.bindTexture(Starcraft.MOD_ID, "textures/gui/larva_progress.png");
+		CoreUtil.bindTexture(SCConstants.MODID, "textures/gui/larva_progress.png");
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		if (cocoon != null)
 		{

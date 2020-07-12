@@ -15,10 +15,6 @@ import com.arpaesis.scmc.handlers.ToolHandler;
 import com.arpaesis.scmc.items.ItemMagazine;
 import com.arpaesis.scmc.network.NetworkHandler;
 import com.arpaesis.scmc.network.message.MessageSpawnItem;
-import com.ocelot.api.utils.GuiUtils;
-import com.ocelot.api.utils.GuiUtils.GuiType;
-import com.ocelot.api.utils.InventoryUtils;
-import com.ocelot.api.utils.TimeUtils;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
@@ -31,6 +27,7 @@ import net.minecraft.client.util.ITooltipFlag.TooltipFlags;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraftforge.fml.client.config.GuiUtils;
 
 /**
  * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>

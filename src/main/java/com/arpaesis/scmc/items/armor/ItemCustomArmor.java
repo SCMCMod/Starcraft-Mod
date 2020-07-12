@@ -1,7 +1,6 @@
 package com.arpaesis.scmc.items.armor;
 
 import com.arpaesis.scmc.Starcraft;
-import com.arpaesis.scmc.client.model.armor.ModelArmorBase;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.EntityLivingBase;
@@ -10,8 +9,9 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.rom.client.model.armor.ModelArmorBase;
 
-//TODO: MOVE TO CORE MOD
+
 public class ItemCustomArmor extends ItemArmor
 {
 

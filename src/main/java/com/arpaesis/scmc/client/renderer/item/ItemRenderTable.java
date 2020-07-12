@@ -13,7 +13,7 @@ public class ItemRenderTable extends ItemRenderer
 {
 
 	private static final ModelTable MODEL = new ModelTable();
-	private static final ResourceLocation TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/table.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(SCConstants.MODID + "textures/models/block/table.png");
 
 	public ItemRenderTable()
 	{

@@ -13,7 +13,7 @@ import net.minecraft.util.ResourceLocation;
  */
 public class ModelC14GaussRifle extends Model
 {
-	public static final ResourceLocation TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/c14GaussRifle.png");
+	public static final ResourceLocation TEXTURE = new ResourceLocation(SCConstants.MODID + "textures/models/c14GaussRifle.png");
 
 	public ModelRenderer main2;
 	public ModelRenderer main4;

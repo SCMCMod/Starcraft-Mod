@@ -25,6 +25,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.rom.block.RegistryType;
 
 /**
  * Basic magma block that will set water above it to air and set itself to lava

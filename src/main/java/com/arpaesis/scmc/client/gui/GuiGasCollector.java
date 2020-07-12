@@ -3,14 +3,12 @@ package com.arpaesis.scmc.client.gui;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.arpaesis.scmc.Starcraft;
+import com.arpaesis.scmc.SCConstants;
 import com.arpaesis.scmc.blocks.metablocks.BlockGasCollector.GasCollectorType;
 import com.arpaesis.scmc.container.ContainerGasCollector;
 import com.arpaesis.scmc.handlers.BlockHandler;
 import com.arpaesis.scmc.handlers.ItemHandler;
 import com.arpaesis.scmc.tileentity.TileEntityGasCollector;
-import com.ocelot.api.utils.GuiUtils;
-import com.ocelot.api.utils.TextureUtils;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -21,8 +19,10 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraftforge.fml.client.config.GuiUtils;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
+import net.rom.utils.CoreUtil;
 
 /**
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
@@ -132,7 +132,7 @@ public class GuiGasCollector extends GuiContainer
 
 	private void bindTexture()
 	{
-		TextureUtils.bindTexture(Starcraft.MOD_ID, "textures/gui/container/gas_collector_" + GasCollectorType.values()[this.te.getType()].getName() + ".png");
+		CoreUtil.bindTexture(SCConstants.MODID, "textures/gui/container/gas_collector_" + GasCollectorType.values()[this.te.getType()].getName() + ".png");
 	}
 
 	public void drawTooltip(List<String> lines, int posX, int posY, int width, int height, int mouseX, int mouseY)

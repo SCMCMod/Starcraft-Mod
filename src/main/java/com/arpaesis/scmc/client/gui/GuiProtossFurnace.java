@@ -1,12 +1,11 @@
 package com.arpaesis.scmc.client.gui;
 
-import com.arpaesis.scmc.Starcraft;
+import com.arpaesis.scmc.SCConstants;
 import com.arpaesis.scmc.container.ContainerProtossFurnace;
 import com.arpaesis.scmc.handlers.BlockHandler;
 import com.arpaesis.scmc.network.NetworkHandler;
 import com.arpaesis.scmc.network.message.MessageGetFurnaceData;
 import com.arpaesis.scmc.tileentity.IProtossMachine;
-import com.ocelot.api.utils.TextureUtils;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -17,6 +16,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.items.IItemHandler;
+import net.rom.utils.CoreUtil;
 
 /**
  * @author Ocelot5836
@@ -24,7 +24,7 @@ import net.minecraftforge.items.IItemHandler;
 public class GuiProtossFurnace extends GuiContainer
 {
 
-	public static final ResourceLocation TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/gui/container/protoss_furnace.png");
+	public static final ResourceLocation TEXTURE = new ResourceLocation(SCConstants.MODID + "textures/gui/container/protoss_furnace.png");
 
 	private BlockPos pos;
 	private EntityPlayer player;
@@ -65,7 +65,7 @@ public class GuiProtossFurnace extends GuiContainer
 	protected void drawGuiContainerBackgroundLayer(float v, int i, int i1)
 	{
 		GlStateManager.color(1F, 1F, 1F, 1F);
-		TextureUtils.bindTexture(TEXTURE);
+		CoreUtil.bindTexture(TEXTURE);
 		this.drawTexturedModalRect(this.guiLeft, this.guiTop, 0, 0, this.xSize, this.ySize);
 
 		NetworkHandler.sendToServer(new MessageGetFurnaceData(this.pos, "com.arpaesis.scmc.client.gui.GuiProtossFurnace", "burnTime", "cookTime"));

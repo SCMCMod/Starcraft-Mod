@@ -66,7 +66,7 @@ public class ItemRenderC14GaussRifle extends ItemRenderer
 		GlStateManager.rotate(-20, 0, 1, 0);
 		GlStateManager.rotate(180, .13f, .04f, .8200002f);
 		GlStateManager.translate(x, y, z);
-		TextureUtils.bindTexture(this.getResourceLocation());
+		CoreUtil.bindTexture(this.getResourceLocation());
 		getModel().render(null, 0, 0, 0, 0, 0, 1);
 		GlStateManager.popMatrix();
 	}
@@ -83,7 +83,7 @@ public class ItemRenderC14GaussRifle extends ItemRenderer
 		GlStateManager.rotate(-90, .1999999999999993f, -.19000000000000006f * 6, -2.209999999999997f);
 		GlStateManager.translate(-1.0, -15, -30.379999999999875);
 		GlStateManager.color(1, 1, 1);
-		TextureUtils.bindTexture(this.getResourceLocation());
+		CoreUtil.bindTexture(this.getResourceLocation());
 		getModel().render(null, 0, 0, 0, 0, 0, 1);
 		GlStateManager.popMatrix();
 	}
@@ -100,7 +100,7 @@ public class ItemRenderC14GaussRifle extends ItemRenderer
 		GlStateManager.rotate(-90, .1999999999999993f, -.19000000000000006f, -2.209999999999997f);
 		GlStateManager.translate(1.0, -15, -30.379999999999875);
 		GlStateManager.color(1, 1, 1);
-		TextureUtils.bindTexture(this.getResourceLocation());
+		CoreUtil.bindTexture(this.getResourceLocation());
 		getModel().render(null, 0, 0, 0, 0, 0, 1);
 		GlStateManager.popMatrix();
 	}
@@ -116,7 +116,7 @@ public class ItemRenderC14GaussRifle extends ItemRenderer
 		GlStateManager.rotate(190, 1.1799998f, -0.69999963f, 3.1599975f);
 		GlStateManager.translate(1, -6.090000042691827, -16.57999962940812);
 		GlStateManager.disableLighting();
-		TextureUtils.bindTexture(this.getResourceLocation());
+		CoreUtil.bindTexture(this.getResourceLocation());
 		getModel().render(null, 0, 0, 0, 0, 0, 1);
 		GlStateManager.enableLighting();
 		GlStateManager.popMatrix();
@@ -134,7 +134,7 @@ public class ItemRenderC14GaussRifle extends ItemRenderer
 		GlStateManager.rotate(-90, 1, 0, 0);
 		GlStateManager.translate(.7300000462681062, -11.259999882429838, -19.649999560788274);
 		GlStateManager.color(1, 1, 1);
-		TextureUtils.bindTexture(this.getResourceLocation());
+		CoreUtil.bindTexture(this.getResourceLocation());
 		getModel().render(null, 0, 0, 0, 0, 0, 1);
 		GlStateManager.popMatrix();
 	}
@@ -152,7 +152,7 @@ public class ItemRenderC14GaussRifle extends ItemRenderer
 		GlStateManager.rotate(0, 0, 1, 0);
 		GlStateManager.translate(0, -8.259999882429838, -20);
 		GlStateManager.color(1, 1, 1);
-		TextureUtils.bindTexture(this.getResourceLocation());
+		CoreUtil.bindTexture(this.getResourceLocation());
 		getModel().render(null, 0, 0, 0, 0, 0, 1);
 		GlStateManager.popMatrix();
 	}

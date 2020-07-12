@@ -7,6 +7,7 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import net.rom.block.RegistryType;
 
 public class ProtossPowerCoreBlock extends SCProtossCoreBlock implements ITileEntityProvider
 {

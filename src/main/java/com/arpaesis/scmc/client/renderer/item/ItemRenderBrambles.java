@@ -21,9 +21,9 @@ public class ItemRenderBrambles extends ItemRenderer
 	private static final ModelBrambles BRAMBLES = new ModelBrambles();
 	private static final ModelPalm PALM = new ModelPalm();
 
-	public static final ResourceLocation KALDIR_BRAMBLES_TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/kaldir_brambles.png");
-	public static final ResourceLocation SHAKURAS_BRAMBLES_TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/shakuras_brambles.png");
-	public static final ResourceLocation ZERUS_BRAMBLES_TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/zerus_brambles.png");
+	public static final ResourceLocation KALDIR_BRAMBLES_TEXTURE = new ResourceLocation(SCConstants.MODID + "textures/models/block/kaldir_brambles.png");
+	public static final ResourceLocation SHAKURAS_BRAMBLES_TEXTURE = new ResourceLocation(SCConstants.MODID + "textures/models/block/shakuras_brambles.png");
+	public static final ResourceLocation ZERUS_BRAMBLES_TEXTURE = new ResourceLocation(SCConstants.MODID + "textures/models/block/zerus_brambles.png");
 
 	public ItemRenderBrambles()
 	{
@@ -120,25 +120,25 @@ public class ItemRenderBrambles extends ItemRenderer
 				switch (nbt.getInteger("variant"))
 				{
 				case 0:
-					TextureUtils.bindTexture(KALDIR_BRAMBLES_TEXTURE);
+					CoreUtil.bindTexture(KALDIR_BRAMBLES_TEXTURE);
 					BRAMBLES.render((float) scale, ticksAlive);
 					break;
 				case 1:
-					TextureUtils.bindTexture(SHAKURAS_BRAMBLES_TEXTURE);
+					CoreUtil.bindTexture(SHAKURAS_BRAMBLES_TEXTURE);
 					PALM.render((float) scale, ticksAlive);
 					break;
 				case 2:
-					TextureUtils.bindTexture(ZERUS_BRAMBLES_TEXTURE);
+					CoreUtil.bindTexture(ZERUS_BRAMBLES_TEXTURE);
 					PALM.render((float) scale, ticksAlive);
 					break;
 				}
 			} else
 			{
-				TextureUtils.bindTexture(KALDIR_BRAMBLES_TEXTURE);
+				CoreUtil.bindTexture(KALDIR_BRAMBLES_TEXTURE);
 			}
 		} else
 		{
-			TextureUtils.bindTexture(KALDIR_BRAMBLES_TEXTURE);
+			CoreUtil.bindTexture(KALDIR_BRAMBLES_TEXTURE);
 			BRAMBLES.render((float) scale, ticksAlive);
 		}
 		GlStateManager.popMatrix();

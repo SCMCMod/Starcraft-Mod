@@ -1,10 +1,10 @@
 package com.arpaesis.scmc.blocks.metablocks;
 
+import com.arpaesis.api.Utils;
 import com.arpaesis.scmc.Starcraft;
-import com.arpaesis.scmc.api.Utils;
 import com.arpaesis.scmc.blocks.RegistryType;
 import com.arpaesis.scmc.blocks.SCBlock;
-import com.arpaesis.scmc.blocks.items.IMetaBlockName;
+import com.arpaesis.scmc.blocks.itemblock.IMetaBlockName;
 import com.arpaesis.scmc.creativetabs.SCCreativeTabs;
 import com.arpaesis.scmc.handlers.GuiHandler;
 import com.arpaesis.scmc.handlers.IMetaRenderHandler;

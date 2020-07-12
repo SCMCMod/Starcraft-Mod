@@ -21,7 +21,7 @@ public class RendererZerusLightcap extends TileEntitySpecialRenderer<TileEntityZ
 	public static final ModelZerusLightcap MODEL = new ModelZerusLightcap();
 	public static final ModelZerusLightcapVariant MODEL_VARIANT = new ModelZerusLightcapVariant();
 
-	public static final ResourceLocation TEXTURE = new ResourceLocation(Starcraft.RL_BASE + "textures/models/block/zerus_lightcap.png");
+	public static final ResourceLocation TEXTURE = new ResourceLocation(SCConstants.MODID + "textures/models/block/zerus_lightcap.png");
 
 	@Override
 	public void render(TileEntityZerusLightcap te, double x, double y, double z, float partialTicks, int destroyStage, float alpha)

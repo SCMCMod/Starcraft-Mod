@@ -1,11 +1,9 @@
 package com.arpaesis.scmc.items;
 
-import com.arpaesis.api.world.entity.player.inventory.Inventories;
+
 import com.arpaesis.scmc.creativetabs.SCCreativeTabs;
 import com.arpaesis.scmc.enums.MetaHandler;
-import com.arpaesis.scmc.handlers.AccessHandler;
 import com.arpaesis.scmc.handlers.ItemHandler;
-import com.ocelot.api.utils.InventoryUtils;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;

@@ -1,0 +1,75 @@
+def stdout = new ByteArrayOutputStream()
+
+def add = []
+def fix = []
+def remove = []
+def change = []
+def refractor = []
+
+task getGitChangelog(type:Exec) {
+	commandLine 'git', 'log', '--pretty=tformat:%s', '' + project.ext.getLastTag + '...HEAD'
+	standardOutput = stdout
+}
+
+getGitChangelog << {
+	String[] arr =  stdout.toString().split("\n")
+	for(String st : arr) {
+		if(st.contains("Add:")) {
+			add << st.replace("Add:", "")
+		}
+		if(st.contains("Fix:")) {
+			fix << st.replace("Fix:", "")
+		}
+		if(st.contains("Remove:")) {
+			remove << st.replace("Remove:", "")
+		}
+		if(st.contains("Change:")) {
+			change << st.replace("Change:", "")
+		}
+		if(st.contains("Refactor:")) {
+			refractor << st.replace("Refactor:", "")
+		}
+	}
+}
+
+task generateChangelog(dependsOn: getGitChangelog) {
+	doLast {
+		File file = new File("CHANGELOG.md")
+		file.delete()
+		if(!add.isEmpty()) {
+			file << "**[Added]**\n"
+			for(String st : add) {
+				file << " -" + st + "\n"
+				
+			}
+		}
+		if(!fix.isEmpty()) {
+			file << "\n**[Fixed]**\n"
+			for(String st : fix) {
+				file << " -" + st + "\n"
+				
+			}
+		}
+		if(!remove.isEmpty()) {
+			file << "\n**[Removed]**\n"
+			for(String st : remove) {
+				file << " -" + st + "\n"
+				
+			}
+		}
+		if(!change.isEmpty()) {
+			file << "\n**[Changed]**\n"
+			for(String st : change) {
+				file << " -" + st + "\n"
+				
+			}
+		}
+		if(!refractor.isEmpty()) {
+			file << "\n**[Refractor]**\n"
+			for(String st : refractor) {
+				file << " -" + st + "\n"
+				
+			}
+		}
+	}
+}

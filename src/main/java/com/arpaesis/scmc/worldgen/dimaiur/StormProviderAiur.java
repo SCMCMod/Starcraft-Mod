@@ -1,9 +1,6 @@
 package com.arpaesis.scmc.worldgen.dimaiur;
 
-import com.arpaesis.api.client.render.Texture;
-import com.arpaesis.api.client.render.world.StormProvider;
-import com.arpaesis.api.world.Worlds;
-import com.arpaesis.scmc.Starcraft;
+import com.arpaesis.scmc.SCConstants;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -15,11 +12,14 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.rom.client.render.Texture;
+import net.rom.client.render.world.StormProvider;
+import net.rom.utils.Worlds;
 
 @EventBusSubscriber
 public class StormProviderAiur extends StormProvider
 {
-	public static final Texture STORM_TEXTURE = new Texture(Starcraft.MOD_ID, "textures/world/blizzard.png");
+	public static final Texture STORM_TEXTURE = new Texture(SCConstants.MODID, "textures/world/blizzard.png");
 	public static final PotionEffect POTION_EFFECT = new PotionEffect(MobEffects.SLOWNESS);
 
 	@Override

@@ -1,6 +1,6 @@
 package com.arpaesis.scmc.items;
 
-import com.ocelot.api.utils.WorldUtils;
+import com.arpaesis.scmc.utils.RayTracing;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -30,7 +30,7 @@ public abstract class SCRangedMeleeWeapon extends SCSword
 	{
 		EntityPlayer player = (EntityPlayer) entityLiving;
 		World world = player.world;
-		RayTraceResult ray = WorldUtils.rayTrace(this.getMeleeRange(stack));
+		RayTraceResult ray = RayTracing.rayTrace(this.getMeleeRange(stack));
 		Entity entity = ray.entityHit;
 		BlockPos hitBlock = ray.getBlockPos();
 

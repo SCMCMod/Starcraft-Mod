@@ -14,6 +14,7 @@ import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+import net.rom.block.RegistryType;
 
 public class BlockEntitySpawner extends SCBlock implements ITileEntityProvider
 {

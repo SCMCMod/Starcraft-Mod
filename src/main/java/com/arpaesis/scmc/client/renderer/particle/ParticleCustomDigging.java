@@ -51,7 +51,7 @@ public class ParticleCustomDigging extends ParticleDigging
 		int j = i >> 16 & 65535;
 		int k = i & 65535;
 
-		TextureUtils.bindTexture(this.texture);
+		CoreUtil.bindTexture(this.texture);
 
 		buffer.pos((double) (f5 - rotationX * f4 - rotationXY * f4), (double) (f6 - rotationZ * f4), (double) (f7 - rotationYZ * f4 - rotationXZ * f4)).tex((double) f, (double) f3).color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(j, k).endVertex();
 		buffer.pos((double) (f5 - rotationX * f4 + rotationXY * f4), (double) (f6 + rotationZ * f4), (double) (f7 - rotationYZ * f4 + rotationXZ * f4)).tex((double) f, (double) f2).color(this.particleRed, this.particleGreen, this.particleBlue, 1.0F).lightmap(j, k).endVertex();
@@ -60,7 +60,7 @@ public class ParticleCustomDigging extends ParticleDigging
 		Tessellator.getInstance().draw();
 		buffer.begin(GL11.GL_QUADS, DefaultVertexFormats.PARTICLE_POSITION_TEX_COLOR_LMAP);
 
-		TextureUtils.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
+		CoreUtil.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
 	}
 
 	public float getInterpolatedU(double u)

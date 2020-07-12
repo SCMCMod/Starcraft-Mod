@@ -2,7 +2,7 @@ package com.arpaesis.scmc.handlers;
 
 import static com.arpaesis.scmc.handlers.BlockHandler.STARCRAFT_SKULL;
 
-import com.arpaesis.scmc.Starcraft;
+import com.arpaesis.scmc.SCConstants;
 import com.arpaesis.scmc.client.renderer.entity.RenderArtosilope;
 import com.arpaesis.scmc.client.renderer.entity.RenderBrakk;
 import com.arpaesis.scmc.client.renderer.entity.RenderBroodling;
@@ -268,7 +268,7 @@ public class RenderHandler
 
 	public static void registerItemRender(Item item, int meta, String fileName)
 	{
-		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(new ResourceLocation(Starcraft.MOD_ID, fileName), "inventory"));
+		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(new ResourceLocation(SCConstants.MODID, fileName), "inventory"));
 	}
 
 	public static void registerBlockRender(Block block)

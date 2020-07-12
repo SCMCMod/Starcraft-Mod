@@ -1,0 +1,23 @@
+if (!(GradleVersion.current() <= GradleVersion.version('2.14.1'))) {
+pluginManagement {
+  repositories {
+    gradlePluginPortal()
+    maven { url = ArtifactRepositoryContainer.MAVEN_CENTRAL_URL }
+  }
+  resolutionStrategy {
+    eachPlugin {
+      if (requested.id.id == 'org.junit.platform.gradle.plugin') {
+        useModule("org.junit.platform:junit-platform-gradle-plugin:${requested.version}")
+      }
+    }
+  }
+}
+}
+
+rootProject.name = mod_name
+import org.gradle.util.GradleVersion
+if ((GradleVersion.current() >= GradleVersion.version('4.8')) && (GradleVersion.current() <= GradleVersion.version('4.10.3'))) {
+  enableFeaturePreview('STABLE_PUBLISHING') // 4.10.3
+  //enableFeaturePreview('IMPROVED_POM_SUPPORT')	// Previously -Dorg.gradle.advancedpomsupport=true
+  //enableFeaturePreview('GRADLE_METADATA')		// Previously -Dorg.gradle.gradlemetadata=true
+}

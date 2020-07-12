@@ -1,6 +1,6 @@
 package com.arpaesis.scmc.client.gui;
 
-import com.arpaesis.scmc.Starcraft;
+import com.arpaesis.scmc.SCConstants;
 import com.arpaesis.scmc.container.ContainerStarcraftFurnace;
 import com.arpaesis.scmc.enums.EnumWorldType;
 import com.arpaesis.scmc.network.NetworkHandler;
@@ -57,7 +57,7 @@ public class GuiStarcraftFurnace extends GuiContainer
 	public GuiStarcraftFurnace(EntityPlayer player, IItemHandler furnaceInv, EnumWorldType worldType, BlockPos pos)
 	{
 		super(new ContainerStarcraftFurnace(player, furnaceInv));
-		this.texturePath = new ResourceLocation(Starcraft.RL_BASE + "textures/gui/container/" + worldType.getName() + "_furnace.png");
+		this.texturePath = new ResourceLocation(SCConstants.MODID + "textures/gui/container/" + worldType.getName() + "_furnace.png");
 		this.pos = pos;
 		this.player = player;
 		setGuiSize(175, 165);

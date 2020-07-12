@@ -4,12 +4,6 @@ import java.util.Random;
 
 import org.lwjgl.opengl.GL11;
 
-import com.arpaesis.api.GameResources;
-import com.arpaesis.api.client.render.Color;
-import com.arpaesis.api.client.render.Draw;
-import com.arpaesis.api.client.render.OpenGL;
-import com.ocelot.api.utils.TextureUtils;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -20,6 +14,11 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.rom.client.Resources;
+import net.rom.client.render.Color;
+import net.rom.client.render.Draw;
+import net.rom.client.render.OpenGL;
+import net.rom.utils.CoreUtil;
 
 public class RenderSkyZerus extends IRenderHandler
 {
@@ -135,7 +134,7 @@ public class RenderSkyZerus extends IRenderHandler
 				OpenGL.rotate(-90.0F, 0.0F, 1.0F, 0.0F);
 				OpenGL.color(1.0F, 1.0F, 1.0F, 1.0F);
 				OpenGL.rotate(world.getCelestialAngle(partialTicks) * 360.0F, 1.0F, 0.0F, 0.0F);
-				TextureUtils.bindTexture(GameResources.SKY_SUN);
+				CoreUtil.bindTexture(Resources.SKY_SUN);
 				Draw.startQuads();
 				Draw.vertex(-scale, 150.0D, -scale, 0.0D, 0.0D).endVertex();
 				Draw.vertex(scale, 150.0D, -scale, 1.0D, 0.0D).endVertex();

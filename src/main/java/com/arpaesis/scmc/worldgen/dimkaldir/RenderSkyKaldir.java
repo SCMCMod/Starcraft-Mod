@@ -4,13 +4,7 @@ import java.util.Random;
 
 import org.lwjgl.opengl.GL11;
 
-import com.arpaesis.api.GameResources;
-import com.arpaesis.api.client.render.Color;
-import com.arpaesis.api.client.render.Draw;
-import com.arpaesis.api.client.render.OpenGL;
-import com.arpaesis.scmc.Starcraft;
-import com.arpaesis.scmc.worldgen.DimensionUtil;
-import com.ocelot.api.utils.TextureUtils;
+import com.arpaesis.scmc.SCConstants;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
@@ -22,6 +16,12 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.rom.client.Resources;
+import net.rom.client.render.Color;
+import net.rom.client.render.Draw;
+import net.rom.client.render.OpenGL;
+import net.rom.utils.CoreUtil;
+import net.rom.utils.MCUtil;
 
 public class RenderSkyKaldir extends IRenderHandler
 {
@@ -137,7 +137,7 @@ public class RenderSkyKaldir extends IRenderHandler
 				OpenGL.rotate(-90.0F, 0.0F, 1.0F, 0.0F);
 				OpenGL.color(1.0F, 1.0F, 1.0F, 1.0F);
 				OpenGL.rotate(world.getCelestialAngle(partialTicks) * 360.0F, 1.0F, 0.0F, 0.0F);
-				TextureUtils.bindTexture(GameResources.SKY_SUN);
+				CoreUtil.bindTexture(Resources.SKY_SUN);
 				Draw.startQuads();
 				Draw.vertex(-scale, 150.0D, -scale, 0.0D, 0.0D).endVertex();
 				Draw.vertex(scale, 150.0D, -scale, 1.0D, 0.0D).endVertex();
@@ -151,11 +151,11 @@ public class RenderSkyKaldir extends IRenderHandler
 			{
 				float scale = 175.0F;
 				OpenGL.translate(30F, 0F, 0F);
-				OpenGL.rotate(DimensionUtil.calculateCelestialAngle(world.getWorldTime(), partialTicks) * 360.0F, 0.0F, 1.0F, 0.0F);
+				OpenGL.rotate(MCUtil.calculateCelestialAngle(world.getWorldTime(), partialTicks) * 360.0F, 0.0F, 1.0F, 0.0F);
 				OpenGL.color(1.0F, 1.0F, 1.0F, 1.0F);
-				OpenGL.rotate(DimensionUtil.calculateCelestialAngle(world.getWorldTime(), partialTicks) * 360.0F, 10.0F, -6.0F, -20.0F);
+				OpenGL.rotate(MCUtil.calculateCelestialAngle(world.getWorldTime(), partialTicks) * 360.0F, 10.0F, -6.0F, -20.0F);
 				OpenGL.rotate(135F, 0.0F, 1.0F, 0.0F);
-				TextureUtils.bindTexture(Starcraft.MOD_ID, "textures/world/midr-iv.png");
+				CoreUtil.bindTexture(SCConstants.MODID, "textures/world/midr-iv.png");
 				Draw.startQuads();
 				Draw.vertex(-scale, 150.0D, -scale, 0.0D, 0.0D).endVertex();
 				Draw.vertex(scale, 150.0D, -scale, 1.0D, 0.0D).endVertex();

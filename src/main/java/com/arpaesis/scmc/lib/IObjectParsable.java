@@ -8,7 +8,7 @@ package com.arpaesis.scmc.lib;
  * 
  * @author Ocelot5836
  */
-//TODO: MOVE TO CORE MOD
+
 public interface IObjectParsable
 {
 

@@ -1,0 +1,54 @@
+buildscript {
+	repositories {
+		jcenter()
+		mavenCentral()
+	}
+	dependencies {
+		classpath group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.3'
+	}
+}
+
+import org.apache.http.client.methods.HttpGet
+import org.apache.http.impl.client.HttpClientBuilder
+
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+
+
+
+def String getLastTag() {
+	def get = new HttpGet('https://api.github.com/repos/SCMCMod/Starcraft-Mod/tags')
+	get.addHeader("content-type", "application/json")
+	def response = HttpClientBuilder.create().build().execute(get)
+	def bufferedReader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()))
+	def json_beauty = JsonOutput.prettyPrint(bufferedReader.getText())
+	def slurper = new groovy.json.JsonSlurper()
+	def r = slurper.parseText(json_beauty)
+	return r[0].get("name")
+}
+
+task createTag(type:Exec) {
+	commandLine 'git', 'tag', '-a', '' + "${project.ext.v}", '-m', '' + "${project.ext.v}"
+}
+
+task pushTag(type:Exec, dependsOn: createTag) {
+	commandLine 'git', 'push', 'origin', '' + "${project.ext.v}"
+}
+
+task postRelease() {
+	doLast {
+		def body = ["tag_name": "${project.ext.v}", "target_commitish": "dev-1.12.2", "name": "${project.ext.v}","body": "${project.ext.v}"]
+		def req = new URL('https://api.github.com/repos/SCMCMod/Starcraft-Mod/releases').openConnection()
+		req.setRequestMethod("POST")
+		req.setRequestProperty("Authorization","token " + secret.GHTOKEN.toString())
+		req.setDoOutput(true)
+		req.getOutputStream().write(JsonOutput.toJson(body).getBytes("UTF-8"))
+		logger.quiet "Status code: ${req.getResponseCode()}" // HTTP request done on first read
+		def resp = new JsonSlurper().parseText(req.getInputStream().getText())
+		logger.quiet "Response: ${resp}"
+	}
+}
+
+ext {
+	getLastTag = getLastTag()
+}

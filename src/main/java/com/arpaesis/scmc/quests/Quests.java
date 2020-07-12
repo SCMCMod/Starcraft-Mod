@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import com.arpaesis.scmc.Starcraft;
+import com.arpaesis.scmc.SCConstants;
 import com.arpaesis.scmc.quests.unlocks.QuestReward;
 import com.arpaesis.scmc.quests.unlocks.QuestRewardItem;
 
@@ -45,7 +45,7 @@ public class Quests
 
 	public static Quest register(@Nullable Quest parent, String id, QuestReward... rewards)
 	{
-		return register(new Quest(parent, FMLCommonHandler.instance().getMinecraftServerInstance().getAdvancementManager().getAdvancement(new ResourceLocation(Starcraft.MOD_ID, id)), rewards));
+		return register(new Quest(parent, FMLCommonHandler.instance().getMinecraftServerInstance().getAdvancementManager().getAdvancement(new ResourceLocation(SCConstants.MODID, id)), rewards));
 	}
 
 	public static Quest register(Quest quest)

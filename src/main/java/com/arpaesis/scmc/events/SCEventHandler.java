@@ -1,5 +1,6 @@
 package com.arpaesis.scmc.events;
 
+import com.arpaesis.scmc.SCConstants;
 import com.arpaesis.scmc.Starcraft;
 import com.arpaesis.scmc.capabilities.ColorProvider;
 import com.arpaesis.scmc.capabilities.IColor;
@@ -110,9 +111,9 @@ public class SCEventHandler
 	public void onTextureStitchEvent(TextureStitchEvent.Pre event)
 	{
 		TextureMap map = event.getMap();
-		gasCollectorIngot = map.registerSprite(new ResourceLocation(Starcraft.MOD_ID, "items/gas_collector/ingot"));
-		gasCollectorBlock = map.registerSprite(new ResourceLocation(Starcraft.MOD_ID, "items/gas_collector/block"));
-		gasCollectorFlesh = map.registerSprite(new ResourceLocation(Starcraft.MOD_ID, "items/gas_collector/flesh"));
+		gasCollectorIngot = map.registerSprite(new ResourceLocation(SCConstants.MODID, "items/gas_collector/ingot"));
+		gasCollectorBlock = map.registerSprite(new ResourceLocation(SCConstants.MODID, "items/gas_collector/block"));
+		gasCollectorFlesh = map.registerSprite(new ResourceLocation(SCConstants.MODID, "items/gas_collector/flesh"));
 	}
 
 	@SubscribeEvent

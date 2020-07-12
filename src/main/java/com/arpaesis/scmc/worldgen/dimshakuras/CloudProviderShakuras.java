@@ -1,16 +1,16 @@
 package com.arpaesis.scmc.worldgen.dimshakuras;
 
-import com.arpaesis.api.client.render.Texture;
-import com.arpaesis.api.client.render.world.CloudProvider;
-import com.arpaesis.api.client.render.world.IStormProvider;
-import com.arpaesis.scmc.Starcraft;
+import com.arpaesis.scmc.SCConstants;
 
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
+import net.rom.client.render.Texture;
+import net.rom.client.render.world.CloudProvider;
+import net.rom.client.render.world.IStormProvider;
 
 public class CloudProviderShakuras extends CloudProvider
 {
-	private static final Texture CLOUDS = new Texture(Starcraft.MOD_ID, "textures/world/varda-clouds.png");
+	private static final Texture CLOUDS = new Texture(SCConstants.MODID, "textures/world/varda-clouds.png");
 
 	private IStormProvider stormProvider;
 

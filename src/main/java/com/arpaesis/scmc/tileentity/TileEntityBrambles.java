@@ -2,7 +2,7 @@ package com.arpaesis.scmc.tileentity;
 
 import javax.annotation.Nullable;
 
-import com.arpaesis.scmc.blocks.items.ItemBlockBrambles;
+import com.arpaesis.scmc.blocks.itemblock.ItemBlockBrambles;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;

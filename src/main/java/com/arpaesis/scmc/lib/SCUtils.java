@@ -3,7 +3,6 @@ package com.arpaesis.scmc.lib;
 import java.util.Random;
 
 import com.arpaesis.scmc.capabilities.playerrace.IPlayerRace.Race;
-import com.arpaesis.scmc.enums.EnumColors;
 import com.arpaesis.scmc.handlers.CapabilityHandler;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -29,36 +28,37 @@ public class SCUtils
 	 */
 	public static int minecraftColorToStarcraftColor(int id)
 	{
-		if (id == 0)
-			return EnumColors.PURPLE.getId();
-		if (id == 1)
-			return EnumColors.BROWN.getId();
-		if (id == 2)
-			return EnumColors.PINK.getId();
-		if (id == 3)
-			return EnumColors.BLUE.getId();
-		if (id == 4)
-			return EnumColors.CYAN.getId();
-		if (id == 5)
-			return EnumColors.GRAY.getId();
-		if (id == 6)
-			return EnumColors.GREEN.getId();
-		if (id == 7)
-			return EnumColors.LIGHT_BLUE.getId();
-		if (id == 8)
-			return EnumColors.LIME.getId();
-		if (id == 9)
-			return EnumColors.MAGENTA.getId();
-		if (id == 10)
-			return EnumColors.ORANGE.getId();
-		if (id == 11)
-			return EnumColors.RED.getId();
-		if (id == 12)
-			return EnumColors.SILVER.getId();
-		if (id == 14)
-			return EnumColors.YELLOW.getId();
-
-		return EnumColors.WHITE.getId();
+		return id;
+//		if (id == 0)
+//			return EnumColors.PURPLE.getId();
+//		if (id == 1)
+//			return EnumColors.BROWN.getId();
+//		if (id == 2)
+//			return EnumColors.PINK.getId();
+//		if (id == 3)
+//			return EnumColors.BLUE.getId();
+//		if (id == 4)
+//			return EnumColors.CYAN.getId();
+//		if (id == 5)
+//			return EnumColors.GRAY.getId();
+//		if (id == 6)
+//			return EnumColors.GREEN.getId();
+//		if (id == 7)
+//			return EnumColors.LIGHT_BLUE.getId();
+//		if (id == 8)
+//			return EnumColors.LIME.getId();
+//		if (id == 9)
+//			return EnumColors.MAGENTA.getId();
+//		if (id == 10)
+//			return EnumColors.ORANGE.getId();
+//		if (id == 11)
+//			return EnumColors.RED.getId();
+//		if (id == 12)
+//			return EnumColors.SILVER.getId();
+//		if (id == 14)
+//			return EnumColors.YELLOW.getId();
+//
+//		return EnumColors.WHITE.getId();
 	}
 
 	/**

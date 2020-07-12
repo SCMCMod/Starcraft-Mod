@@ -13,7 +13,6 @@ import com.arpaesis.scmc.items.ItemGunParts;
 import com.arpaesis.scmc.items.ItemIcon;
 import com.arpaesis.scmc.items.ItemIngot;
 import com.arpaesis.scmc.items.ItemKhaydarinCrystal;
-import com.arpaesis.scmc.items.ItemLog;
 import com.arpaesis.scmc.items.ItemMagazine;
 import com.arpaesis.scmc.items.ItemMineralShard;
 import com.arpaesis.scmc.items.ItemProtossIngot;
@@ -114,7 +113,6 @@ public class ItemHandler
 		// TODO: This item crashes serverside, something related to sound. Add it back
 		// once we get around to carbotifying.
 		// CARBOTIFIER = new ItemCarbotifier();
-		LOG = new ItemLog();
 
 		// Protoss
 		PROTOSS_INGOT = new ItemProtossIngot();

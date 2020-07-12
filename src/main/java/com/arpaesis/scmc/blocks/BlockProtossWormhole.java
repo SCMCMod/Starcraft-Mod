@@ -3,7 +3,6 @@ package com.arpaesis.scmc.blocks;
 import java.util.List;
 import java.util.Random;
 
-import com.arpaesis.api.client.entityfx.EntityFXElectricArc;
 import com.arpaesis.scmc.handlers.AccessHandler;
 import com.arpaesis.scmc.tileentity.TileEntityProtossWormhole;
 
@@ -24,6 +23,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.rom.block.RegistryType;
+import net.rom.client.entityfx.EntityFXElectricArc;
 
 public class BlockProtossWormhole extends SCBlock implements ITileEntityProvider
 {

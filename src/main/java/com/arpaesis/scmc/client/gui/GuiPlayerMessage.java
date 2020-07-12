@@ -1,21 +1,17 @@
 package com.arpaesis.scmc.client.gui;
 
 import java.awt.Color;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.arpaesis.scmc.network.NetworkHandler;
 import com.arpaesis.scmc.network.message.MessageKillEntity;
-import com.ocelot.api.client.gui.GuiBase;
-import com.ocelot.api.client.gui.component.Component;
-import com.ocelot.api.client.gui.component.ComponentTextButton;
-import com.ocelot.api.client.gui.component.listener.MouseListener;
-import com.ocelot.api.utils.GuiUtils;
-import com.ocelot.api.utils.GuiUtils.GuiType;
 
 import net.minecraft.util.text.TextFormatting;
+import net.minecraftforge.fml.client.config.GuiUtils;
 
-//TODO: MOVE TO CORE MOD, if possible. Also, NO PROFANITY IN THE CODE BASE, OCELOT!
+
 public class GuiPlayerMessage extends GuiBase
 {
 

@@ -3,6 +3,7 @@ package com.arpaesis.scmc.handlers;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.arpaesis.scmc.SCConstants;
 import com.arpaesis.scmc.Starcraft;
 import com.arpaesis.scmc.entity.EntityHydraliskSpike;
 import com.arpaesis.scmc.entity.EntityMutaliskGlaiveWurm;
@@ -110,7 +111,7 @@ public class EntityHandler
 		Class<? extends TileEntity>[] tileEntities = getTileEntities();
 		for (int i = 0; i < tileEntities.length; i++)
 		{
-			GameRegistry.registerTileEntity(tileEntities[i], new ResourceLocation(Starcraft.MOD_ID, tileEntities[i].getSimpleName()));
+			GameRegistry.registerTileEntity(tileEntities[i], new ResourceLocation(SCConstants.MODID, tileEntities[i].getSimpleName()));
 		}
 	}
 
@@ -267,7 +268,7 @@ public class EntityHandler
 	 */
 	private static void registerEntity(Class<? extends Entity> entityClass, String entityName, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates)
 	{
-		EntityRegistry.registerModEntity(new ResourceLocation(Starcraft.RL_BASE + entityName), entityClass, entityName, entityID++, Starcraft.instance, trackingRange, updateFrequency, sendsVelocityUpdates);
+		EntityRegistry.registerModEntity(new ResourceLocation(SCConstants.MODID + entityName), entityClass, entityName, entityID++, Starcraft.instance, trackingRange, updateFrequency, sendsVelocityUpdates);
 	}
 
 	/**
@@ -284,7 +285,7 @@ public class EntityHandler
 	 */
 	private static void registerEntity(Class<? extends Entity> entityClass, String entityName, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates, int primaryColor, int secondaryColor)
 	{
-		ResourceLocation name = new ResourceLocation(Starcraft.RL_BASE + entityName);
+		ResourceLocation name = new ResourceLocation(SCConstants.MODID + entityName);
 		EntityRegistry.registerModEntity(name, entityClass, entityName, entityID++, Starcraft.instance, trackingRange, updateFrequency, sendsVelocityUpdates);
 		EntityRegistry.registerEgg(name, primaryColor, secondaryColor);
 	}

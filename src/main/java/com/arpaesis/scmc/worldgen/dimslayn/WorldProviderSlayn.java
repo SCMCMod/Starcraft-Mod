@@ -1,8 +1,5 @@
 package com.arpaesis.scmc.worldgen.dimslayn;
 
-import com.arpaesis.api.client.render.world.IClimateProvider;
-import com.arpaesis.api.client.render.world.ICloudProvider;
-import com.arpaesis.api.client.render.world.IStormProvider;
 import com.arpaesis.scmc.config.SCConfig;
 import com.arpaesis.scmc.handlers.DimensionHandler;
 
@@ -15,6 +12,9 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.rom.client.render.world.IClimateProvider;
+import net.rom.client.render.world.ICloudProvider;
+import net.rom.client.render.world.IStormProvider;
 
 public class WorldProviderSlayn extends WorldProvider implements IClimateProvider
 {

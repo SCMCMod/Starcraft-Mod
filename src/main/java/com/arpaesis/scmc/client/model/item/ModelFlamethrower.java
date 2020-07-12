@@ -14,7 +14,7 @@ import net.minecraft.util.ResourceLocation;
 public class ModelFlamethrower extends Model
 {
 
-	public static final ResourceLocation TEXTURE = new ResourceLocation(Starcraft.MOD_ID, "textures/models/flamethrower.png");
+	public static final ResourceLocation TEXTURE = new ResourceLocation(SCConstants.MODID, "textures/models/flamethrower.png");
 
 	public ModelRenderer main1;
 	public ModelRenderer main2;

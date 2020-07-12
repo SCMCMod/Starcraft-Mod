@@ -1,6 +1,6 @@
 package com.arpaesis.scmc.handlers;
 
-import com.arpaesis.scmc.Starcraft;
+import com.arpaesis.scmc.SCConstants;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
@@ -9,7 +9,7 @@ import net.minecraft.world.storage.WorldSavedData;
 
 public class SCWorldSavedData extends WorldSavedData
 {
-	private static final String DATA_NAME = Starcraft.MOD_ID + "_StarcraftData";
+	private static final String DATA_NAME = SCConstants.MODID + "_StarcraftData";
 
 	public SCWorldSavedData()
 	{
