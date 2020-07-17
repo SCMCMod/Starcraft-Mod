@@ -1,10 +1,10 @@
 package io.github.scmcmod.client.model.entity;
 
-import io.github.scmcmod.api.client.render.model.Model;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.MathHelper;
+import net.rom.client.render.model.Model;
 
 /**
  * primalzerg_brakk - cybercat5555 Created using Tabula 6.0.0

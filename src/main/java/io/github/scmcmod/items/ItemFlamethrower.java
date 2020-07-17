@@ -19,6 +19,7 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.rom.utils.CoreUtil;
 
 public class ItemFlamethrower extends ItemGun
 {
@@ -74,32 +75,32 @@ public class ItemFlamethrower extends ItemGun
 	@Override
 	public boolean hasAmmo(World world, EntityPlayer player, ItemStack stack)
 	{
-		if (Inventories.playerHas(getAmmo(), player))
-		{
-			ItemStack ammoStack = player.inventory.mainInventory.get(InventoryUtils.getItemSlot(player, getAmmo(), MetaHandler.BulletMagazineType.FLAMETHROWER.getID()));
-
-			if (ammoStack != null && ammoStack.getItem() != null && ammoStack.getMetadata() == MetaHandler.BulletMagazineType.FLAMETHROWER.getID() && ammoStack.hasTagCompound())
-			{
-				NBTTagCompound nbt = ammoStack.getTagCompound();
-				return nbt.getInteger("BulletCount") >= 1;
-			}
-		}
+//		if (Inventories.playerHas(getAmmo(), player))
+//		{
+//			ItemStack ammoStack = player.inventory.mainInventory.get(InventoryUtils.getItemSlot(player, getAmmo(), MetaHandler.BulletMagazineType.FLAMETHROWER.getID()));
+//
+//			if (ammoStack != null && ammoStack.getItem() != null && ammoStack.getMetadata() == MetaHandler.BulletMagazineType.FLAMETHROWER.getID() && ammoStack.hasTagCompound())
+//			{
+//				NBTTagCompound nbt = ammoStack.getTagCompound();
+//				return nbt.getInteger("BulletCount") >= 1;
+//			}
+//		}
 		return false;
 	}
 
 	@Override
 	public void takeAmmo(World world, EntityPlayer player, ItemStack stack)
 	{
-		ItemStack ammoStack = player.inventory.mainInventory.get(InventoryUtils.getItemSlot(player, getAmmo(), MetaHandler.BulletMagazineType.FLAMETHROWER.getID()));
-
-		if (ammoStack != null && ammoStack.getItem() != null && ammoStack.getMetadata() == MetaHandler.BulletMagazineType.FLAMETHROWER.getID() && ammoStack.hasTagCompound())
-		{
-			NBTTagCompound nbt = ammoStack.getTagCompound();
-			if (nbt.getInteger("BulletCount") >= 1)
-			{
-				nbt.setInteger("BulletCount", nbt.getInteger("BulletCount") - 1);
-			}
-		}
+//		ItemStack ammoStack = player.inventory.mainInventory.get(InventoryUtils.getItemSlot(player, getAmmo(), MetaHandler.BulletMagazineType.FLAMETHROWER.getID()));
+//
+//		if (ammoStack != null && ammoStack.getItem() != null && ammoStack.getMetadata() == MetaHandler.BulletMagazineType.FLAMETHROWER.getID() && ammoStack.hasTagCompound())
+//		{
+//			NBTTagCompound nbt = ammoStack.getTagCompound();
+//			if (nbt.getInteger("BulletCount") >= 1)
+//			{
+//				nbt.setInteger("BulletCount", nbt.getInteger("BulletCount") - 1);
+//			}
+//		}
 	}
 
 	public Item getAmmo()

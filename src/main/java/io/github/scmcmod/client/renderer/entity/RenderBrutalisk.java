@@ -1,7 +1,7 @@
 package io.github.scmcmod.client.renderer.entity;
 
 import io.github.scmcmod.client.model.entity.ModelBrutalisk;
-import io.github.scmcmod.client.renderer.RenderUtilities;
+import net.rom.client.RenderUtilities;
 import io.github.scmcmod.client.renderer.Resources;
 import io.github.scmcmod.entity.living.EntityBrutalisk;
 import net.minecraft.client.renderer.GlStateManager;

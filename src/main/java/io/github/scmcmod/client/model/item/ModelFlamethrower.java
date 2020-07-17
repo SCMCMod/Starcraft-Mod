@@ -2,8 +2,9 @@ package io.github.scmcmod.client.model.item;
 
 import com.ocelot.api.utils.ModelUtils;
 
+import io.github.scmcmod.SCConstants;
 import io.github.scmcmod.Starcraft;
-import io.github.scmcmod.api.client.render.model.Model;
+import net.rom.client.render.model.Model;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;

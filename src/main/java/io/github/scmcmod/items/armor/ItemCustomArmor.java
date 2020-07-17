@@ -40,11 +40,11 @@ public class ItemCustomArmor extends ItemArmor
 				{
 				case HEAD:
 				case LEGS:
-					armorModel = Starcraft.proxy.getArmorModel(layer1);
+//					armorModel = Starcraft.proxy.getArmorModel(layer1);
 					break;
 				case FEET:
 				case CHEST:
-					armorModel = Starcraft.proxy.getArmorModel(layer2);
+//					armorModel = Starcraft.proxy.getArmorModel(layer2);
 					break;
 				default:
 					break;

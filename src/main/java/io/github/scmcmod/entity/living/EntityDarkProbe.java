@@ -1,11 +1,11 @@
 package io.github.scmcmod.entity.living;
 
-import io.github.scmcmod.api.client.entityfx.EntityFXElectricArc;
 import io.github.scmcmod.entity.IShieldEntity;
 import io.github.scmcmod.enums.EnumColors;
 import io.github.scmcmod.enums.EnumFactionTypes;
 import io.github.scmcmod.enums.EnumTypeAttributes;
-import io.github.scmcmod.handlers.CoreUtil;
+import net.rom.client.entityfx.EntityFXElectricArc;
+import net.rom.utils.CoreUtil;
 import io.github.scmcmod.handlers.LootTableHandler;
 import io.github.scmcmod.handlers.SoundHandler;
 import net.minecraft.entity.EntityAgeable;

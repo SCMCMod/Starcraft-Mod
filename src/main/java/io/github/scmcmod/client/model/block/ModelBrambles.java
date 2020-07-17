@@ -1,11 +1,11 @@
 package io.github.scmcmod.client.model.block;
 
-import io.github.scmcmod.handlers.CoreUtil;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.rom.utils.CoreUtil;
 
 /**
  * kaldirbrambles - cybercat5555 Created using Tabula 6.0.0

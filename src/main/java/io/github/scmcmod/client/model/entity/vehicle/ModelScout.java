@@ -1,6 +1,6 @@
 package io.github.scmcmod.client.model.entity.vehicle;
 
-import io.github.scmcmod.api.client.render.model.Model;
+import net.rom.client.render.model.Model;
 import io.github.scmcmod.entity.vehicles.EntityScout;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;

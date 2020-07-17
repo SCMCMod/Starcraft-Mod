@@ -15,14 +15,9 @@ import io.github.scmcmod.command.CommandDimension;
 import io.github.scmcmod.config.SCConfig;
 import io.github.scmcmod.events.GuiRenderEventHandler;
 import io.github.scmcmod.events.SCEventHandler;
-import io.github.scmcmod.handlers.CapabilityHandler;
-import io.github.scmcmod.handlers.EntityHandler;
-import io.github.scmcmod.handlers.GuiHandler;
-import io.github.scmcmod.handlers.KeybindingHandler;
-import io.github.scmcmod.handlers.RenderHandler;
-import io.github.scmcmod.handlers.SoundHandler;
-import io.github.scmcmod.handlers.WavefrontModelHandler;
+import io.github.scmcmod.handlers.*;
 import io.github.scmcmod.init.StarCraftBlocks;
+import io.github.scmcmod.init.StarCraftItems;
 import io.github.scmcmod.lib.Library;
 import io.github.scmcmod.network.NetworkHandler;
 import io.github.scmcmod.proxy.CommonProxy;
@@ -30,6 +25,7 @@ import io.github.scmcmod.recipes.OreDictionaryHandler;
 import io.github.scmcmod.recipes.SmeltingRecipes;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -58,8 +54,8 @@ public class Starcraft implements IMod {
 	public static Starcraft instance;
 	public static ReadOnlyRegistry registry = new ReadOnlyRegistry();
 	public static TranslateUtil translate = new TranslateUtil(SCConstants.MODID);
-	public static ModLogger logger = new ModLogger(SCConstants.MODID, Integer.parseInt(SCConstants.BUILD));
-	
+	public static ModLogger logger = new ModLogger(SCConstants.MODID, Integer.parseInt(SCConstants.BUILD == "@BUILD@" ? "1" : SCConstants.BUILD));
+
 	@SidedProxy(clientSide = SCConstants.CLIENT, serverSide = SCConstants.COMMON)
 	public static CommonProxy proxy;
 
@@ -73,12 +69,15 @@ public class Starcraft implements IMod {
 	public void preInit(FMLPreInitializationEvent event) {
 		registry.setMod(this);
 		registry.getRecipeMaker();
-		
+
 		// Register Block
 		registry.addRegistrationHandler(StarCraftBlocks::registerAll, Block.class);
-		
+		// Register Item
+		registry.addRegistrationHandler(StarCraftItems::registerAll, Item.class);
+
 		SCConfig.pre(event);
 
+		MaterialHandler.init();
 		NetworkHandler.pre(event);
 		SoundHandler.pre(event);
 		EntityHandler.pre(event);
@@ -116,7 +115,7 @@ public class Starcraft implements IMod {
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 			MinecraftForge.EVENT_BUS.register(new GuiRenderEventHandler());
 		}
-		
+
 		//// Above ////
 		proxy.init(registry, event);
 	}
@@ -125,7 +124,7 @@ public class Starcraft implements IMod {
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 		Library.checkMods();
-		
+
 		//// Above ////
 		proxy.postInit(registry, event);
 	}

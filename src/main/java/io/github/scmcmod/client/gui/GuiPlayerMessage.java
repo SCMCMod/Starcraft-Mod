@@ -1,10 +1,13 @@
 package io.github.scmcmod.client.gui;
 
 import java.awt.Color;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ocelot.api.client.gui.GuiBase;
+import com.ocelot.api.client.gui.component.Component;
+import com.ocelot.api.client.gui.component.ComponentTextButton;
+import com.ocelot.api.client.gui.component.listener.MouseListener;
 import io.github.scmcmod.network.NetworkHandler;
 import io.github.scmcmod.network.message.MessageKillEntity;
 import net.minecraft.util.text.TextFormatting;
@@ -147,8 +150,8 @@ public class GuiPlayerMessage extends GuiBase
 	@Override
 	protected void renderGuiBackgroundLayer(float partialTicks, int mouseX, int mouseY)
 	{
-		GuiUtils.drawCustomSizeGui(guiLeft - 8, guiTop, xSize / 2, ySize, GuiType.DEFAULT);
-		GuiUtils.drawCustomSizeGui(guiLeft + xSize / 2 + 8, guiTop, xSize / 2, ySize, GuiType.DEFAULT);
+//		GuiUtils.drawCustomSizeGui(guiLeft - 8, guiTop, xSize / 2, ySize, GuiType.DEFAULT);
+//		GuiUtils.drawCustomSizeGui(guiLeft + xSize / 2 + 8, guiTop, xSize / 2, ySize, GuiType.DEFAULT);
 	}
 
 	@Override

@@ -2,8 +2,6 @@ package io.github.scmcmod.items;
 
 import java.util.List;
 
-import com.ocelot.api.utils.InventoryUtils;
-
 import io.github.scmcmod.creativetabs.SCCreativeTabs;
 import io.github.scmcmod.enums.MetaHandler;
 import io.github.scmcmod.enums.MetaHandler.BulletMagazineType;
@@ -20,7 +18,7 @@ import net.minecraft.world.World;
 
 /**
  * A basic item that has a bullet count and capacity stored in nbt.
- * 
+ *
  * @author Ocelot5836
  */
 public class ItemMagazine extends SCItem implements IMetaRenderHandler
@@ -108,7 +106,7 @@ public class ItemMagazine extends SCItem implements IMetaRenderHandler
 			if (stack.hasTagCompound() && stack.getTagCompound().hasKey("BulletCount") && stack.getTagCompound().getInteger("BulletCount") <= 0)
 			{
 				EntityPlayer player = (EntityPlayer) entity;
-				player.inventory.setInventorySlotContents(InventoryUtils.getItemSlot(player, stack), ItemStack.EMPTY);
+//				player.inventory.setInventorySlotContents(InventoryUtils.getItemSlot(player, stack), ItemStack.EMPTY);
 			}
 		}
 	}
@@ -127,7 +125,7 @@ public class ItemMagazine extends SCItem implements IMetaRenderHandler
 	 * If the specified stack is a bullet magazine, it will return the amount of
 	 * bullets inside. If the specified stack is not a bullet magazine, it will
 	 * return 0.
-	 * 
+	 *
 	 * @param stack The stack to get the count from
 	 * @return The amount of bullets found in the magazine if the stack is one
 	 */

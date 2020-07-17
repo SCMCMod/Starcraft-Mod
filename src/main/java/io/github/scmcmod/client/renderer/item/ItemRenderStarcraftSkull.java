@@ -1,7 +1,6 @@
 package io.github.scmcmod.client.renderer.item;
 
-import io.github.scmcmod.Starcraft;
-import io.github.scmcmod.client.model.IModelSkull;
+import io.github.scmcmod.SCConstants;
 import io.github.scmcmod.client.model.entity.ModelBrutalisk;
 import io.github.scmcmod.client.model.entity.ModelHydralisk;
 import io.github.scmcmod.client.model.entity.ModelZergling;
@@ -14,6 +13,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.rom.client.item.ItemRenderer;
+import net.rom.client.model.IModelSkull;
 
 public class ItemRenderStarcraftSkull extends ItemRenderer
 {

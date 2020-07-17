@@ -2,7 +2,7 @@ package io.github.scmcmod.entity.living;
 
 import com.google.common.base.Predicate;
 
-import io.github.scmcmod.api.world.entity.ItemDrop;
+
 import io.github.scmcmod.enums.EnumColors;
 import io.github.scmcmod.enums.EnumFactionTypes;
 import io.github.scmcmod.enums.EnumTypeAttributes;
@@ -82,7 +82,7 @@ public class EntityTyrannozorDehaka extends EntityZergMob implements IMob, Predi
 
 	/**
 	 * Drop up to 2 items when killed
-	 * 
+	 *
 	 * @param damagedByPlayer true if the most recent damage was dealt by a player
 	 * @param lootingLevel level of Looting on kill weapon
 	 */

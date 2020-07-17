@@ -1,11 +1,8 @@
 package io.github.scmcmod.items;
 
-import com.ocelot.api.utils.InventoryUtils;
-
-import io.github.scmcmod.api.world.entity.player.inventory.Inventories;
 import io.github.scmcmod.creativetabs.SCCreativeTabs;
 import io.github.scmcmod.enums.MetaHandler;
-import io.github.scmcmod.handlers.CoreUtil;
+import net.rom.utils.CoreUtil;
 import io.github.scmcmod.handlers.ItemHandler;
 import io.github.scmcmod.handlers.SoundHandler;
 import net.minecraft.client.Minecraft;
@@ -48,32 +45,32 @@ public class ItemC14GaussRifle extends ItemGun
 	@Override
 	public boolean hasAmmo(World world, EntityPlayer player, ItemStack stack)
 	{
-		if (Inventories.playerHas(getAmmo(world, player), player))
-		{
-			ItemStack ammoStack = player.inventory.mainInventory.get(InventoryUtils.getItemSlot(player, getAmmo(world, player), MetaHandler.BulletMagazineType.C14.getID()));
-
-			if (!ammoStack.isEmpty() && ammoStack.getMetadata() == MetaHandler.BulletMagazineType.C14.getID() && ammoStack.hasTagCompound())
-			{
-				NBTTagCompound nbt = ammoStack.getTagCompound();
-				return nbt.getInteger("BulletCount") >= 1;
-			}
-		}
+//		if (Inventories.playerHas(getAmmo(world, player), player))
+//		{
+//			ItemStack ammoStack = player.inventory.mainInventory.get(InventoryUtils.getItemSlot(player, getAmmo(world, player), MetaHandler.BulletMagazineType.C14.getID()));
+//
+//			if (!ammoStack.isEmpty() && ammoStack.getMetadata() == MetaHandler.BulletMagazineType.C14.getID() && ammoStack.hasTagCompound())
+//			{
+//				NBTTagCompound nbt = ammoStack.getTagCompound();
+//				return nbt.getInteger("BulletCount") >= 1;
+//			}
+//		}
 		return false;
 	}
 
 	@Override
 	public void takeAmmo(World world, EntityPlayer player, ItemStack stack)
 	{
-		ItemStack ammoStack = player.inventory.mainInventory.get(InventoryUtils.getItemSlot(player, getAmmo(world, player), MetaHandler.BulletMagazineType.C14.getID()));
+//		ItemStack ammoStack = player.inventory.mainInventory.get(InventoryUtils.getItemSlot(player, getAmmo(world, player), MetaHandler.BulletMagazineType.C14.getID()));
 
-		if (!ammoStack.isEmpty() && ammoStack.getMetadata() == MetaHandler.BulletMagazineType.C14.getID() && ammoStack.hasTagCompound())
-		{
-			NBTTagCompound nbt = ammoStack.getTagCompound();
-			if (nbt.getInteger("BulletCount") >= 1)
-			{
-				nbt.setInteger("BulletCount", nbt.getInteger("BulletCount") - 1);
-			}
-		}
+//		if (!ammoStack.isEmpty() && ammoStack.getMetadata() == MetaHandler.BulletMagazineType.C14.getID() && ammoStack.hasTagCompound())
+//		{
+//			NBTTagCompound nbt = ammoStack.getTagCompound();
+//			if (nbt.getInteger("BulletCount") >= 1)
+//			{
+//				nbt.setInteger("BulletCount", nbt.getInteger("BulletCount") - 1);
+//			}
+//		}
 	}
 
 	public Item getAmmo(World world, EntityPlayer player)

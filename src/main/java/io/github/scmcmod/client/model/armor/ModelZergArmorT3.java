@@ -2,12 +2,13 @@ package io.github.scmcmod.client.model.armor;
 
 import com.ocelot.api.utils.ModelUtils;
 
-import io.github.scmcmod.client.model.IArmorItem;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.EnumHandSide;
+import net.rom.client.model.IArmorItem;
+import net.rom.client.model.armor.ModelArmorBase;
 
 /**
  * zergArmorT3 v3 - cybercat5555 Created using Tabula 5.1.0

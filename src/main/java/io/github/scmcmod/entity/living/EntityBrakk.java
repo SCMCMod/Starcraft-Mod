@@ -4,12 +4,11 @@ import java.util.Random;
 
 import com.google.common.base.Predicate;
 
-import io.github.scmcmod.api.world.entity.ItemDrop;
 import io.github.scmcmod.enums.EnumColors;
 import io.github.scmcmod.enums.EnumFactionTypes;
 import io.github.scmcmod.enums.EnumTypeAttributes;
 import io.github.scmcmod.enums.MetaHandler;
-import io.github.scmcmod.handlers.CoreUtil;
+import net.rom.utils.CoreUtil;
 import io.github.scmcmod.handlers.ItemHandler;
 import io.github.scmcmod.handlers.LootTableHandler;
 import io.github.scmcmod.handlers.SoundHandler;
@@ -41,7 +40,7 @@ import net.minecraft.world.World;
 
 /**
  * Work in progress
- * 
+ *
  * @author Hypeirochus
  */
 public class EntityBrakk extends EntityZergMob implements IMob, Predicate<EntityLivingBase>
@@ -126,7 +125,7 @@ public class EntityBrakk extends EntityZergMob implements IMob, Predicate<Entity
 
 	/**
 	 * Drop up to 2 items when killed
-	 * 
+	 *
 	 * @param damagedByPlayer true if the most recent damage was dealt by a player
 	 * @param lootingLevel level of Looting on kill weapon
 	 */

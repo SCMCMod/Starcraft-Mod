@@ -1,7 +1,6 @@
 package io.github.scmcmod.client.renderer.entity;
 
 import io.github.scmcmod.client.model.entity.ModelLope;
-import io.github.scmcmod.client.renderer.RenderUtilities;
 import io.github.scmcmod.client.renderer.Resources;
 import io.github.scmcmod.entity.living.EntityArtosilope;
 import net.minecraft.client.renderer.entity.Render;
@@ -10,6 +9,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
+import net.rom.client.RenderUtilities;
 
 public class RenderArtosilope extends RenderLiving<EntityArtosilope> implements LayerRenderer<EntityArtosilope>
 {

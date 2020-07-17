@@ -3,17 +3,16 @@ package io.github.scmcmod.entity.living;
 import java.util.Random;
 
 import io.github.scmcmod.Starcraft;
-import io.github.scmcmod.api.world.entity.ItemDrop;
 import io.github.scmcmod.client.gui.GuiLarvaMorph;
 import io.github.scmcmod.entity.ai.pathfinding.PathNavigateCreep;
 import io.github.scmcmod.enums.EnumColors;
 import io.github.scmcmod.enums.EnumFactionTypes;
 import io.github.scmcmod.enums.EnumTypeAttributes;
 import io.github.scmcmod.enums.MetaHandler;
-import io.github.scmcmod.handlers.StarCraftBlocks;
 import io.github.scmcmod.handlers.GuiHandler;
 import io.github.scmcmod.handlers.ItemHandler;
 import io.github.scmcmod.handlers.SoundHandler;
+import io.github.scmcmod.init.StarCraftBlocks;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAvoidEntity;

@@ -52,7 +52,7 @@ public class GuiLarvaProgress extends BasicGui
 		}
 		int entityX = guiLeft + xSize - 29;
 		int entityY = guiTop + 45;
-		GuiUtils.drawEntityOnScreen(entityX, entityY, 15, entityX - mouseX, entityY - mouseY - 10, cocoon);
+//		GuiUtils.drawEntityOnScreen(entityX, entityY, 15, entityX - mouseX, entityY - mouseY - 10, cocoon);
 	}
 
 	@Override

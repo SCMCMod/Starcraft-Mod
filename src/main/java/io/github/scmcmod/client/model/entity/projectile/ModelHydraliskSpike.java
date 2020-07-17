@@ -1,6 +1,6 @@
 package io.github.scmcmod.client.model.entity.projectile;
 
-import io.github.scmcmod.api.client.render.model.Model;
+import net.rom.client.render.model.Model;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;

@@ -96,10 +96,10 @@ public class ItemShopTab extends GuiScreen
 
 	public void onMouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException
 	{
-		if (GuiUtils.isMouseInside(x, y, width, height, mouseX, mouseY))
-		{
-			GuiUtils.playButtonClick();
-		}
+//		if (GuiUtils.isMouseInside(x, y, width, height, mouseX, mouseY))
+//		{
+//			GuiUtils.playButtonClick();
+//		}
 	}
 
 	public void bindTexture()

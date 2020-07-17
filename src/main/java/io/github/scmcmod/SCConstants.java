@@ -17,7 +17,7 @@ public class SCConstants {
     public static final float halfPI = (float) Math.PI / 2F;
     public static final double twoPI_D = Math.PI * 2.0D;
     public static final double halfPI_D = Math.PI / 2.0D;
-    
+
 	public static final String MODID = "starcraft";
 	public static final String NAME = "Starcraft-Mod";
 	public static final String BUILD = "@BUILD@";
@@ -28,7 +28,7 @@ public class SCConstants {
 	public static final String ACCEPTED_MC_VERSION = ForgeVersion.mcVersion;
 	public static final String DEPENDENCIES_MODS = "required-after:readonlycore@[1.12.2-1.0.9.0,]";
 	public static final String GUI_FACTORY = "com.arpaesis.scmc.config.StarcraftConfigGuiFactory";
-	public static final String CLIENT = "com.arpaesis.scmc.proxy.ClientProxy";
-	public static final String COMMON = "com.arpaesis.scmc.proxy.ServerProxy";
+	public static final String CLIENT = "io.github.scmcmod.proxy.ClientProxy";
+	public static final String COMMON = "io.github.scmcmod.proxy.ServerProxy";
 
 }

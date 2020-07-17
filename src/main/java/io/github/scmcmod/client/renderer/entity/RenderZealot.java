@@ -1,7 +1,7 @@
 package io.github.scmcmod.client.renderer.entity;
 
 import io.github.scmcmod.client.model.entity.ModelZealot;
-import io.github.scmcmod.client.renderer.RenderUtilities;
+import net.rom.client.RenderUtilities;
 import io.github.scmcmod.client.renderer.Resources;
 import io.github.scmcmod.entity.living.EntityZealot;
 import io.github.scmcmod.enums.MetaHandler;
@@ -49,7 +49,7 @@ public class RenderZealot extends RenderLiving<EntityZealot> implements LayerRen
 	{
 
 		super.renderModel(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor);
-		RenderUtilities.renderShields(this.mainModel, entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor);
+//		RenderUtilities.renderShields(this.mainModel, entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor);
 	}
 
 	@Override

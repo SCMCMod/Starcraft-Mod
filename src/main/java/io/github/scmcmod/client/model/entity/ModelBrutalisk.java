@@ -1,7 +1,7 @@
 package io.github.scmcmod.client.model.entity;
 
-import io.github.scmcmod.api.client.render.model.Model;
-import io.github.scmcmod.client.model.IModelSkull;
+import net.rom.client.model.IModelSkull;
+import net.rom.client.render.model.Model;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;

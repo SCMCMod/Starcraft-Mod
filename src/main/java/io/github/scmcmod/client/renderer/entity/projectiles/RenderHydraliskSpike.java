@@ -1,5 +1,6 @@
 package io.github.scmcmod.client.renderer.entity.projectiles;
 
+import io.github.scmcmod.SCConstants;
 import io.github.scmcmod.Starcraft;
 import io.github.scmcmod.client.model.entity.projectile.ModelHydraliskSpike;
 import io.github.scmcmod.entity.EntityHydraliskSpike;

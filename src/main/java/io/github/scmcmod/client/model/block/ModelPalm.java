@@ -1,6 +1,6 @@
 package io.github.scmcmod.client.model.block;
 
-import io.github.scmcmod.handlers.CoreUtil;
+import net.rom.utils.CoreUtil;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;

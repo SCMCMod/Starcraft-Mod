@@ -1,7 +1,7 @@
 package io.github.scmcmod.client.renderer.entity;
 
 import io.github.scmcmod.client.model.entity.ModelDarkTemplar;
-import io.github.scmcmod.client.renderer.RenderUtilities;
+import net.rom.client.RenderUtilities;
 import io.github.scmcmod.client.renderer.Resources;
 import io.github.scmcmod.entity.living.EntityDarkTemplar;
 import net.minecraft.client.renderer.GlStateManager;
@@ -41,7 +41,7 @@ public class RenderDarkTemplar extends RenderLiving<EntityDarkTemplar> implement
 	protected void renderModel(EntityDarkTemplar entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor)
 	{
 		super.renderModel(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor);
-		RenderUtilities.renderShields(this.mainModel, entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor);
+//		RenderUtilities.renderShields(this.mainModel, entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor);
 	}
 
 	@Override

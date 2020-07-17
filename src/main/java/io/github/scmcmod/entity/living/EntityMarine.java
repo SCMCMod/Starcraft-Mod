@@ -2,7 +2,7 @@ package io.github.scmcmod.entity.living;
 
 import com.google.common.base.Predicate;
 
-import io.github.scmcmod.api.world.entity.ItemDrop;
+
 import io.github.scmcmod.enums.EnumColors;
 import io.github.scmcmod.enums.EnumFactionTypes;
 import io.github.scmcmod.enums.EnumTypeAttributes;
@@ -31,7 +31,7 @@ import net.minecraft.world.World;
 
 /**
  * Work in progress
- * 
+ *
  * @author Hypeirochus
  */
 public class EntityMarine extends EntityTerranMob implements IMob, IRangedAttackMob, Predicate<EntityLivingBase>

@@ -4,7 +4,7 @@ import java.util.Random;
 
 import com.google.common.base.Predicate;
 
-import io.github.scmcmod.api.world.entity.ItemDrop;
+
 import io.github.scmcmod.entity.IShieldEntity;
 import io.github.scmcmod.enums.EnumColors;
 import io.github.scmcmod.enums.EnumFactionTypes;
@@ -97,7 +97,7 @@ public class EntityZealot extends EntityProtossMob implements IMob, Predicate<En
 
 	/**
 	 * Drop 0-2 items of this living's type.
-	 * 
+	 *
 	 * @param recentlyHit - Whether this entity has recently been hit by a player.
 	 * @param looting - Level of Looting used to kill this mob.
 	 */

@@ -2,7 +2,7 @@ package io.github.scmcmod.client.gui;
 
 import io.github.scmcmod.SCConstants;
 import io.github.scmcmod.container.ContainerProtossFurnace;
-import io.github.scmcmod.handlers.StarCraftBlocks;
+import io.github.scmcmod.init.StarCraftBlocks;
 import io.github.scmcmod.network.NetworkHandler;
 import io.github.scmcmod.network.message.MessageGetFurnaceData;
 import io.github.scmcmod.tileentity.IProtossMachine;
@@ -30,7 +30,7 @@ public class GuiProtossFurnace extends GuiContainer
 
 	/**
 	 * Used for synchronisation with the server
-	 * 
+	 *
 	 * @author CJMinecraft
 	 */
 	public static float burnTime, cookTime;

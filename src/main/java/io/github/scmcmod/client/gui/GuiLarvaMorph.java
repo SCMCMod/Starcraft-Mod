@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ocelot.api.utils.GuiUtils.GuiType;
 
 import io.github.scmcmod.SCConstants;
 import io.github.scmcmod.Starcraft;
@@ -14,8 +13,6 @@ import io.github.scmcmod.handlers.ItemHandler;
 import io.github.scmcmod.network.NetworkHandler;
 import io.github.scmcmod.network.message.MessageMorphLarva;
 import io.github.scmcmod.network.message.MessageSyncLarvaGui;
-
-import com.ocelot.api.utils.InventoryUtils;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
@@ -59,7 +56,7 @@ public class GuiLarvaMorph extends BasicGui {
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		int entityX = guiLeft + 124;
 		int entityY = guiTop + 26;
-		GuiUtils.drawEntityOnScreen(entityX, entityY, 26, entityX - mouseX, entityY - mouseY - 5, larva);
+//		GuiUtils.drawEntityOnScreen(entityX, entityY, 26, entityX - mouseX, entityY - mouseY - 5, larva);
 	}
 
 	@Override
@@ -82,10 +79,10 @@ public class GuiLarvaMorph extends BasicGui {
 
 			int x = subOptionsX - guiLeft;
 			int y = subOptionsY - guiTop;
-			GuiUtils.drawCustomSizeGui(x - 6, y - 6, 16 * (subOptions.size() + 1) + subOptions.size(), 30,
-					GuiType.DEFAULT);
+//			GuiUtils.drawCustomSizeGui(x - 6, y - 6, 16 * (subOptions.size() + 1) + subOptions.size(), 30,
+//					GuiType.DEFAULT);
 			for (int index = 0; index < subOptions.size(); index++) {
-				GuiUtils.drawSlot(x + index * 18, y, 18, 18);
+//				GuiUtils.drawSlot(x + index * 18, y, 18, 18);
 				subOptions.get(index).render(true, 1 + x + index * 18, 1 + y);
 				if (!canPurchase(mc.player, subOptions.get(index))) {
 					drawRect(1 + x + index * 18, 1 + y, (1 + x + index * 18) + 16, (1 + y) + 16,
@@ -141,57 +138,58 @@ public class GuiLarvaMorph extends BasicGui {
 					for (int x = 0; x < 5; x++) {
 						int index = x + y * 5;
 						if (index < GuiLists.LARVA_OPTIONS.size()) {
-							if (GuiUtils.isMouseInside(guiLeft + 7 + x * 18, guiTop + 7 + y * 18, 17, 18, mouseX,
-									mouseY)) {
-								LarvaOption option = GuiLists.LARVA_OPTIONS.get(index);
-								EntityPlayer player = Minecraft.getMinecraft().player;
-								GuiUtils.playButtonClick();
-
-								if (option.getChildren().length > 0) {
-									for (int i = 0; i < option.getChildren().length; i++)
-										subOptions.add(option.getChildren()[i]);
-									subOptionsX = mouseX + 8;
-									subOptionsY = mouseY - 8;
-								} else {
-									if (canPurchase(mc.player, option)) {
-										InventoryUtils.removeItemWithAmount(player, ItemHandler.MINERAL_SHARD,
-												option.getMineralCost(), 0);
-										InventoryUtils.removeItemWithAmount(player, ItemHandler.VESPENE,
-												option.getVespeneCost(), 0);
-										NetworkHandler.sendToServer(new MessageMorphLarva(larva, option.getId()));
-										Minecraft.getMinecraft().player.closeScreen();
-										break;
-									}
-								}
-								return;
-							}
+//							if (GuiUtils.isMouseInside(guiLeft + 7 + x * 18, guiTop + 7 + y * 18, 17, 18, mouseX,
+//									mouseY)) {
+//								LarvaOption option = GuiLists.LARVA_OPTIONS.get(index);
+//								EntityPlayer player = Minecraft.getMinecraft().player;
+//								GuiUtils.playButtonClick();
+//
+//								if (option.getChildren().length > 0) {
+//									for (int i = 0; i < option.getChildren().length; i++)
+//										subOptions.add(option.getChildren()[i]);
+//									subOptionsX = mouseX + 8;
+//									subOptionsY = mouseY - 8;
+//								} else {
+//									if (canPurchase(mc.player, option)) {
+//										InventoryUtils.removeItemWithAmount(player, ItemHandler.MINERAL_SHARD,
+//												option.getMineralCost(), 0);
+//										InventoryUtils.removeItemWithAmount(player, ItemHandler.VESPENE,
+//												option.getVespeneCost(), 0);
+//										NetworkHandler.sendToServer(new MessageMorphLarva(larva, option.getId()));
+//										Minecraft.getMinecraft().player.closeScreen();
+//										break;
+//									}
+//								}
+//								return;
+//							}
 						}
 					}
 				}
 			}
 		} else {
 			for (int i = 0; i < subOptions.size(); i++) {
-				if (GuiUtils.isMouseInside(subOptionsX + i * 18, subOptionsY, 18, 18, mouseX, mouseY)) {
-					LarvaOption option = subOptions.get(i);
-					EntityPlayer player = Minecraft.getMinecraft().player;
-					GuiUtils.playButtonClick();
-					if (canPurchase(mc.player, option)) {
-						InventoryUtils.removeItemWithAmount(player, ItemHandler.MINERAL_SHARD, option.getMineralCost(),
-								0);
-						InventoryUtils.removeItemWithAmount(player, ItemHandler.VESPENE, option.getVespeneCost(), 0);
-						NetworkHandler.sendToServer(new MessageMorphLarva(larva, option.getId()));
-						player.closeScreen();
-					}
-					return;
-				}
+//				if (GuiUtils.isMouseInside(subOptionsX + i * 18, subOptionsY, 18, 18, mouseX, mouseY)) {
+//					LarvaOption option = subOptions.get(i);
+//					EntityPlayer player = Minecraft.getMinecraft().player;
+//					GuiUtils.playButtonClick();
+//					if (canPurchase(mc.player, option)) {
+//						InventoryUtils.removeItemWithAmount(player, ItemHandler.MINERAL_SHARD, option.getMineralCost(),
+//								0);
+//						InventoryUtils.removeItemWithAmount(player, ItemHandler.VESPENE, option.getVespeneCost(), 0);
+//						NetworkHandler.sendToServer(new MessageMorphLarva(larva, option.getId()));
+//						player.closeScreen();
+//					}
+//					return;
+//				}
 			}
 			subOptions.clear();
 		}
 	}
 
 	public static boolean canPurchase(EntityPlayer player, LarvaOption option) {
-		return InventoryUtils.hasItemAndAmount(player, ItemHandler.MINERAL_SHARD, option.getMineralCost(), 0)
-				&& InventoryUtils.hasItemAndAmount(player, ItemHandler.VESPENE, option.getVespeneCost());
+		return false;
+//		return InventoryUtils.hasItemAndAmount(player, ItemHandler.MINERAL_SHARD, option.getMineralCost(), 0)
+//				&& InventoryUtils.hasItemAndAmount(player, ItemHandler.VESPENE, option.getVespeneCost());
 	}
 
 	@Override

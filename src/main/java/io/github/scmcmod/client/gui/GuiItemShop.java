@@ -4,12 +4,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ocelot.api.utils.TimeUtils;
 import org.lwjgl.input.Keyboard;
 
 import io.github.scmcmod.client.gui.element.ItemShopTab;
 import io.github.scmcmod.enums.MetaHandler;
 import io.github.scmcmod.handlers.ArmorHandler;
-import io.github.scmcmod.handlers.StarCraftBlocks;
+import io.github.scmcmod.init.StarCraftBlocks;
 import io.github.scmcmod.handlers.ItemHandler;
 import io.github.scmcmod.handlers.ToolHandler;
 import io.github.scmcmod.items.ItemMagazine;
@@ -26,13 +27,12 @@ import net.minecraft.client.util.ITooltipFlag.TooltipFlags;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraftforge.fml.client.config.GuiUtils;
 
 /**
  * <em><b>Copyright (c) 2018 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
  * <br>
  * </br>
- * 
+ *
  * @author Ocelot5836
  */
 public class GuiItemShop extends BasicGui {
@@ -130,8 +130,8 @@ public class GuiItemShop extends BasicGui {
 		if (modifyingStack != null) {
 			drawDefaultBackground();
 			GlStateManager.color(1, 1, 1, 1);
-			GuiUtils.drawCustomSizeGui(modifyingStackWindowX, modifyingStackWindowY, 80, 50, GuiType.DEFAULT);
-			GuiUtils.drawSlot(modifyingStackWindowX + 5, modifyingStackWindowY + 5, 18, 18);
+//			GuiUtils.drawCustomSizeGui(modifyingStackWindowX, modifyingStackWindowY, 80, 50, GuiType.DEFAULT);
+//			GuiUtils.drawSlot(modifyingStackWindowX + 5, modifyingStackWindowY + 5, 18, 18);
 			GlStateManager.enableDepth();
 			Minecraft.getMinecraft().getRenderItem().renderItemAndEffectIntoGUI(modifyingStack,
 					modifyingStackWindowX + 6, modifyingStackWindowY + 6);
@@ -211,8 +211,8 @@ public class GuiItemShop extends BasicGui {
 					0x005f00);
 		}
 
-		MINERAL.setCount(InventoryUtils.getItemAmount(customer, MINERAL.getItem(), MINERAL.getMetadata()));
-		VESPENE.setCount(InventoryUtils.getItemAmount(customer, VESPENE.getItem(), VESPENE.getMetadata()));
+//		MINERAL.setCount(InventoryUtils.getItemAmount(customer, MINERAL.getItem(), MINERAL.getMetadata()));
+//		VESPENE.setCount(InventoryUtils.getItemAmount(customer, VESPENE.getItem(), VESPENE.getMetadata()));
 
 		if (MINERAL.getCount() > 0) {
 			Minecraft.getMinecraft().getRenderItem().renderItemAndEffectIntoGUI(MINERAL, 105, 91);
@@ -280,27 +280,27 @@ public class GuiItemShop extends BasicGui {
 		textBox.mouseClicked(mouseX, mouseY, mouseButton);
 
 		if (modifyingStack != null) {
-			if (!GuiUtils.isMouseInside(modifyingStackWindowX, modifyingStackWindowY, 80, 40, mouseX, mouseY)) {
-				try {
-					int newAmount = Integer.parseInt(textBox.getText());
-					this.buyAmount = newAmount;
-				} catch (NumberFormatException e) {
-					textBox.setText(Integer.toString(this.buyAmount));
-				}
-				modifyingStack = null;
-			}
-			return;
+//			if (!GuiUtils.isMouseInside(modifyingStackWindowX, modifyingStackWindowY, 80, 40, mouseX, mouseY)) {
+//				try {
+//					int newAmount = Integer.parseInt(textBox.getText());
+//					this.buyAmount = newAmount;
+//				} catch (NumberFormatException e) {
+//					textBox.setText(Integer.toString(this.buyAmount));
+//				}
+//				modifyingStack = null;
+//			}
+//			return;
 		}
 
 		for (int i = 0; i < tabs.size(); i++) {
 			tabs.get(i).onMouseClicked(mouseX, mouseY, mouseButton);
 
 			if (mouseButton == 0) {
-				if (GuiUtils.isMouseInside((int) tabs.get(i).getX(), (int) tabs.get(i).getY(), tabs.get(i).getWidth(),
-						tabs.get(i).getHeight(), mouseX, mouseY)) {
-					tab = i;
-					selectedIndex = -1;
-				}
+//				if (GuiUtils.isMouseInside((int) tabs.get(i).getX(), (int) tabs.get(i).getY(), tabs.get(i).getWidth(),
+//						tabs.get(i).getHeight(), mouseX, mouseY)) {
+//					tab = i;
+//					selectedIndex = -1;
+//				}
 			}
 		}
 
@@ -309,25 +309,25 @@ public class GuiItemShop extends BasicGui {
 				for (int x = 0; x < 4; x++) {
 					int index = 4 * y + x;
 					if (index < tabs.get(tab).getItems().size()) {
-						if (GuiUtils.isMouseInside(guiLeft + 25 + x * 18, guiTop + 25 + y * 22, 16, 16, mouseX,
-								mouseY)) {
-							if (mouseButton == 0) {
-								this.selectedIndex = index;
-								this.buyAmount = tabs.get(tab).getItems().get(index).getStack().getCount();
-								GuiUtils.playButtonClick();
-								return;
-							} else {
-								this.selectedIndex = index;
-								this.modifyingStack = tabs.get(tab).getItems().get(index).getStack().copy();
-								this.modifyingStackWindowX = mouseX + 10;
-								this.modifyingStackWindowY = mouseY - 15;
-								textBox = new GuiTextField(TEXT_BOX, mc.fontRenderer, modifyingStackWindowX + 6,
-										modifyingStackWindowY + 28, 65, 14);
-								textBox.setText(Integer.toString(buyAmount));
-								GuiUtils.playButtonClick();
-								return;
-							}
-						}
+//						if (GuiUtils.isMouseInside(guiLeft + 25 + x * 18, guiTop + 25 + y * 22, 16, 16, mouseX,
+//								mouseY)) {
+//							if (mouseButton == 0) {
+//								this.selectedIndex = index;
+//								this.buyAmount = tabs.get(tab).getItems().get(index).getStack().getCount();
+//								GuiUtils.playButtonClick();
+//								return;
+//							} else {
+//								this.selectedIndex = index;
+//								this.modifyingStack = tabs.get(tab).getItems().get(index).getStack().copy();
+//								this.modifyingStackWindowX = mouseX + 10;
+//								this.modifyingStackWindowY = mouseY - 15;
+//								textBox = new GuiTextField(TEXT_BOX, mc.fontRenderer, modifyingStackWindowX + 6,
+//										modifyingStackWindowY + 28, 65, 14);
+//								textBox.setText(Integer.toString(buyAmount));
+//								GuiUtils.playButtonClick();
+//								return;
+//							}
+//						}
 					}
 				}
 			}
@@ -369,10 +369,10 @@ public class GuiItemShop extends BasicGui {
 				ItemStack stack = tabs.get(tab).getItems().get(selectedIndex).getStack().copy();
 				stack.setCount(stack.getCount() * buyAmount);
 				NetworkHandler.sendToServer(new MessageSpawnItem(stack));
-				InventoryUtils.removeItemWithAmount(customer, MINERAL.getItem(),
-						tabs.get(tab).getItems().get(selectedIndex).getMineralCost() * buyAmount);
-				InventoryUtils.removeItemWithAmount(customer, VESPENE.getItem(),
-						tabs.get(tab).getItems().get(selectedIndex).getVespeneCost() * buyAmount);
+//				InventoryUtils.removeItemWithAmount(customer, MINERAL.getItem(),
+//						tabs.get(tab).getItems().get(selectedIndex).getMineralCost() * buyAmount);
+//				InventoryUtils.removeItemWithAmount(customer, VESPENE.getItem(),
+//						tabs.get(tab).getItems().get(selectedIndex).getVespeneCost() * buyAmount);
 			}
 			break;
 		}

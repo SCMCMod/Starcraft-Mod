@@ -5,7 +5,7 @@ import io.github.scmcmod.client.gui.GuiProtossFurnace;
 import io.github.scmcmod.client.gui.GuiStarcraftFurnace;
 import io.github.scmcmod.container.ContainerProtossFurnace;
 import io.github.scmcmod.container.ContainerStarcraftFurnace;
-import io.github.scmcmod.handlers.StarCraftBlocks;
+import io.github.scmcmod.init.StarCraftBlocks;
 import io.github.scmcmod.jei.gascollector.GasCollectorCategory;
 import io.github.scmcmod.jei.gascollector.RecipeMaker;
 import mezz.jei.api.IGuiHelper;
@@ -27,7 +27,7 @@ import net.minecraft.item.ItemStack;
  * </br>
  * This class allows for basic JEI support. It adds all the recipes, catalysts,
  * and recipe click areas for JEI.
- * 
+ *
  * @author Ocelot5836
  * @see IModPlugin
  */

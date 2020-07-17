@@ -84,13 +84,13 @@ public class ItemHandler
 
 	private static void init()
 	{
-		items = new ArrayList<Item>();
-
-		instantiate();
-
-		WeaponHandler.init();
-		ToolHandler.init();
-		ArmorHandler.init();
+//		items = new ArrayList<Item>();
+//
+//		instantiate();
+//
+//		WeaponHandler.init();
+//		ToolHandler.init();
+//		ArmorHandler.init();
 	}
 
 	private static void instantiate()
@@ -144,7 +144,7 @@ public class ItemHandler
 
 	/**
 	 * Registers an item.
-	 * 
+	 *
 	 * @param item The item to register
 	 */
 	public static void register(Item item)
@@ -154,7 +154,7 @@ public class ItemHandler
 
 	/**
 	 * Used for registry.
-	 * 
+	 *
 	 * @return The list of items to be registered
 	 */
 	public static Item[] getItems()

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import io.github.scmcmod.handlers.StarCraftBlocks;
+import io.github.scmcmod.init.StarCraftBlocks;
 import io.github.scmcmod.recipes.gascollector.GasCollectorRecipes;
 import mezz.jei.api.IJeiHelpers;
 import mezz.jei.api.recipe.IStackHelper;

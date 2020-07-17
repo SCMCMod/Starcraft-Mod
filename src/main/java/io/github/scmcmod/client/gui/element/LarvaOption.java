@@ -15,7 +15,7 @@ import net.minecraftforge.fml.client.config.GuiUtils;
 
 /**
  * This class is an option for the larva morph larva GUI.
- * 
+ *
  * @author Ocelot5836
  */
 public class LarvaOption
@@ -33,7 +33,7 @@ public class LarvaOption
 
 	/**
 	 * Creates a new larva option with the specified prices.
-	 * 
+	 *
 	 * @param mineralCost The cost in minerals
 	 * @param vespeneCost The cost in vespene
 	 */
@@ -49,7 +49,7 @@ public class LarvaOption
 
 	/**
 	 * Creates a new larva option that has the specified children.
-	 * 
+	 *
 	 * @param options The options to be added as children
 	 */
 	public LarvaOption(LarvaOption... options)
@@ -111,11 +111,11 @@ public class LarvaOption
 			}
 
 			GlStateManager.color(1, 1, 1, 1);
-			GuiUtils.drawEntityOnScreen(xx, yy, scale, 100, -50, entity);
+//			GuiUtils.drawEntityOnScreen(xx, yy, scale, 100, -50, entity);
 		} else
 		{
 			GlStateManager.enableDepth();
-			GuiUtils.drawEntityOnScreen(xx, yy, scale, 100, -50, entity);
+//			GuiUtils.drawEntityOnScreen(xx, yy, scale, 100, -50, entity);
 			GlStateManager.disableDepth();
 		}
 		GlStateManager.color(1, 1, 1, 1);
@@ -161,7 +161,7 @@ public class LarvaOption
 
 	/**
 	 * Sets the highlighted tooltip to the specified string.
-	 * 
+	 *
 	 * @param tooltip The tooltip for the option
 	 */
 	public LarvaOption setTooltip(String tooltip)
@@ -174,7 +174,7 @@ public class LarvaOption
 	/**
 	 * Sets the highlighted tooltip to the specified string with the specified
 	 * string to add new lines.
-	 * 
+	 *
 	 * @param tooltip The tooltip for the option
 	 * @param delimeter The split point in the string
 	 */
@@ -190,7 +190,7 @@ public class LarvaOption
 
 	/**
 	 * Adds a new child option to the option.
-	 * 
+	 *
 	 * @param child The child to add
 	 * @deprecated Use the second constructor instead of this because it works
 	 *             better

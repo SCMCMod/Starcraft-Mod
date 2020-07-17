@@ -1,6 +1,5 @@
 package io.github.scmcmod.client.renderer.entity.vehicles;
 
-import io.github.scmcmod.api.client.Resources;
 import io.github.scmcmod.client.model.entity.vehicle.ModelScout;
 import io.github.scmcmod.entity.vehicles.EntityScout;
 import net.minecraft.client.model.ModelBase;
@@ -11,6 +10,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.rom.client.Resources;
 
 @SideOnly(Side.CLIENT)
 public class RenderScout extends Render<EntityScout>

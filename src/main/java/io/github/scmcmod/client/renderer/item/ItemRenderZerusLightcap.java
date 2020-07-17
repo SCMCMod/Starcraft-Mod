@@ -1,5 +1,6 @@
 package io.github.scmcmod.client.renderer.item;
 
+import io.github.scmcmod.SCConstants;
 import io.github.scmcmod.Starcraft;
 import io.github.scmcmod.client.model.block.ModelZerusLightcap;
 import net.minecraft.client.renderer.GlStateManager;
@@ -7,6 +8,7 @@ import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformT
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.rom.client.item.ItemRenderer;
 
 /**
  * @author Ocelot5836

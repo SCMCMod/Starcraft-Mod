@@ -1,6 +1,6 @@
 package io.github.scmcmod.entity.ai.pathfinding;
 
-import io.github.scmcmod.handlers.StarCraftBlocks;
+import io.github.scmcmod.init.StarCraftBlocks;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.pathfinding.Path;
 import net.minecraft.pathfinding.PathNavigateGround;

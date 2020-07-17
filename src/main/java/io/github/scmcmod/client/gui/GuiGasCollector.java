@@ -1,13 +1,12 @@
 package io.github.scmcmod.client.gui;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import io.github.scmcmod.SCConstants;
 import io.github.scmcmod.blocks.metablocks.BlockGasCollector.GasCollectorType;
 import io.github.scmcmod.container.ContainerGasCollector;
-import io.github.scmcmod.handlers.StarCraftBlocks;
 import io.github.scmcmod.handlers.ItemHandler;
+import io.github.scmcmod.init.StarCraftBlocks;
 import io.github.scmcmod.tileentity.TileEntityGasCollector;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -18,7 +17,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraftforge.fml.client.config.GuiUtils;
+//import net.minecraftforge.fml.client.config.GuiUtils;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.rom.utils.CoreUtil;
@@ -27,7 +26,7 @@ import net.rom.utils.CoreUtil;
  * <em><b>Copyright (c) 2017 The Starcraft Minecraft (SCMC) Mod Team.</b></em>
  * <br>
  * </br>
- * 
+ *
  * @author Ocelot5836
  */
 public class GuiGasCollector extends GuiContainer
@@ -136,19 +135,19 @@ public class GuiGasCollector extends GuiContainer
 
 	public void drawTooltip(List<String> lines, int posX, int posY, int width, int height, int mouseX, int mouseY)
 	{
-		if (GuiUtils.isMouseInside(posX, posY, width, height, mouseX, mouseY))
-		{
-			drawHoveringText(lines, mouseX, mouseY);
-		}
+//		if (GuiUtils.isMouseInside(posX, posY, width, height, mouseX, mouseY))
+//		{
+//			drawHoveringText(lines, mouseX, mouseY);
+//		}
 	}
 
 	public void drawTooltip(String line, int posX, int posY, int width, int height, int mouseX, int mouseY)
 	{
-		if (GuiUtils.isMouseInside(posX, posY, width, height, mouseX, mouseY))
-		{
-			List<String> lines = new ArrayList<String>();
-			lines.add(line);
-			drawHoveringText(lines, mouseX, mouseY);
-		}
+//		if (GuiUtils.isMouseInside(posX, posY, width, height, mouseX, mouseY))
+//		{
+//			List<String> lines = new ArrayList<String>();
+//			lines.add(line);
+//			drawHoveringText(lines, mouseX, mouseY);
+//		}
 	}
 }

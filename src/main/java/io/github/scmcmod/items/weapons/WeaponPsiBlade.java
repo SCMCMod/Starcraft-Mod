@@ -1,6 +1,5 @@
 package io.github.scmcmod.items.weapons;
 
-import io.github.scmcmod.api.world.entity.player.inventory.Inventories;
 import io.github.scmcmod.enums.MetaHandler;
 import io.github.scmcmod.handlers.ItemHandler;
 import io.github.scmcmod.handlers.SoundHandler;
@@ -28,7 +27,7 @@ public class WeaponPsiBlade extends ItemSword
 
 	public void checkCanReplace(EntityPlayer player, ItemStack stack)
 	{
-		Inventories.consumeItem(player, stack.getItem());
+//		Inventories.consumeItem(player, stack.getItem());
 		player.inventory.addItemStackToInventory(new ItemStack(ItemHandler.PSI_BLADE_FOCUSER_UNCHARGED, 1, MetaHandler.FocuserType.AIUR.getID()));
 	}
 
