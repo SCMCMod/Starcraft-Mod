@@ -1,22 +1,18 @@
-package com.arpaesis.scmc.worldgen;
+package io.github.scmcmod.worldgen;
 
 //TODO: MOVE TO CORE MOD
-public class DimensionUtil
-{
+public class DimensionUtil {
 
-	public static float calculateCelestialAngle(long worldTime, float renderPartialTicks)
-	{
-		long cycleTime = 48000L;
-		int remainingTime = (int) (worldTime % cycleTime);
-		float angle = (remainingTime + renderPartialTicks) / cycleTime - 0.25F;
+	public static float calculateCelestialAngle(long worldTime, float renderPartialTicks) {
+		long  cycleTime     = 48000L;
+		int   remainingTime = (int) (worldTime % cycleTime);
+		float angle         = (remainingTime + renderPartialTicks) / cycleTime - 0.25F;
 
-		if (angle < 0.0F)
-		{
+		if (angle < 0.0F) {
 			angle += 1.0F;
 		}
 
-		if (angle > 1.0F)
-		{
+		if (angle > 1.0F) {
 			angle -= 1.0F;
 		}
 

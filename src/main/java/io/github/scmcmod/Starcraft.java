@@ -15,7 +15,14 @@ import io.github.scmcmod.command.CommandDimension;
 import io.github.scmcmod.config.SCConfig;
 import io.github.scmcmod.events.GuiRenderEventHandler;
 import io.github.scmcmod.events.SCEventHandler;
-import io.github.scmcmod.handlers.*;
+import io.github.scmcmod.handlers.CapabilityHandler;
+import io.github.scmcmod.handlers.EntityHandler;
+import io.github.scmcmod.handlers.GuiHandler;
+import io.github.scmcmod.handlers.KeybindingHandler;
+import io.github.scmcmod.handlers.MaterialHandler;
+import io.github.scmcmod.handlers.RenderHandler;
+import io.github.scmcmod.handlers.SoundHandler;
+import io.github.scmcmod.handlers.WavefrontModelHandler;
 import io.github.scmcmod.init.StarCraftBlocks;
 import io.github.scmcmod.init.StarCraftItems;
 import io.github.scmcmod.lib.Library;
@@ -49,16 +56,14 @@ import net.rom.utils.TranslateUtil;
 @MethodsReturnNonnullByDefault
 public class Starcraft implements IMod {
 
-
 	@Instance(SCConstants.MODID)
-	public static Starcraft instance;
-	public static ReadOnlyRegistry registry = new ReadOnlyRegistry();
-	public static TranslateUtil translate = new TranslateUtil(SCConstants.MODID);
-	public static ModLogger logger = new ModLogger(SCConstants.MODID, Integer.parseInt(SCConstants.BUILD == "@BUILD@" ? "1" : SCConstants.BUILD));
+	public static Starcraft        instance;
+	public static ReadOnlyRegistry registry  = new ReadOnlyRegistry();
+	public static TranslateUtil    translate = new TranslateUtil(SCConstants.MODID);
+	public static ModLogger        logger    = new ModLogger(SCConstants.MODID, Integer.parseInt(SCConstants.BUILD == "@BUILD@" ? "1" : SCConstants.BUILD));
 
 	@SidedProxy(clientSide = SCConstants.CLIENT, serverSide = SCConstants.COMMON)
 	public static CommonProxy proxy;
-
 
 	static {
 		FluidRegistry.enableUniversalBucket();
@@ -98,7 +103,7 @@ public class Starcraft implements IMod {
 	/** Initialization **/
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-		EntityHandler.init(event);
+		// EntityHandler.init(event);
 		OreDictionaryHandler.init(event);
 		SmeltingRecipes.init(event);
 		GuiHandler.init(event);

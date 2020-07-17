@@ -24,7 +24,7 @@ dependencies {
 
 	compile "mezz.jei:jei_${mc}:${jei_version}:api"
 	runtime "mezz.jei:jei_${mc}:${jei_version}"
-	compile 'net.rom:ReadOnlyCore:1.0.15:dev'
+	compile 'net.rom:ReadOnlyCore:1.1.0:dev'
 	
 	compile "org.apache.commons:commons-math3:${apachemaths}"
 	

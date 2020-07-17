@@ -1,6 +1,5 @@
 package io.github.scmcmod.handlers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import io.github.scmcmod.creativetabs.SCCreativeTabs;
@@ -27,8 +26,7 @@ import io.github.scmcmod.items.ItemZergCarapace;
 import io.github.scmcmod.items.SCItem;
 import net.minecraft.item.Item;
 
-public class ItemHandler
-{
+public class ItemHandler {
 
 	public static List<Item> items;
 
@@ -62,12 +60,12 @@ public class ItemHandler
 	public static Item TERRAN_STRUCTURE_SPAWNER;
 
 	// Terran Weapons
-	public static ItemC14GaussRifle C14_GAUSS_RIFLE;
-	public static ItemGunParts C14_GAUSS_RIFLE_PARTS;
-	public static ItemFlamethrower FLAMETHROWER;
-	public static ItemGunParts FLAMETHROWER_PARTS;
+	public static ItemC14GaussRifle  C14_GAUSS_RIFLE;
+	public static ItemGunParts       C14_GAUSS_RIFLE_PARTS;
+	public static ItemFlamethrower   FLAMETHROWER;
+	public static ItemGunParts       FLAMETHROWER_PARTS;
 	public static ItemSolariteReaper SOLARITE_REAPER;
-	public static Item BULLET_MAGAZINE;
+	public static Item               BULLET_MAGAZINE;
 
 	// Zerg
 	public static Item ZERG_CARAPACE;
@@ -82,8 +80,7 @@ public class ItemHandler
 	// Testing
 	public static Item TERRAN_POWER_CELL;
 
-	private static void init()
-	{
+	private static void init() {
 //		items = new ArrayList<Item>();
 //
 //		instantiate();
@@ -93,8 +90,7 @@ public class ItemHandler
 //		ArmorHandler.init();
 	}
 
-	private static void instantiate()
-	{
+	private static void instantiate() {
 		TEST = new ItemTest();
 
 		// Vespene/Terrazine/Gas Container
@@ -147,9 +143,8 @@ public class ItemHandler
 	 *
 	 * @param item The item to register
 	 */
-	public static void register(Item item)
-	{
-		items.add(item);
+	public static void register(Item item) {
+		// items.add(item);
 	}
 
 	/**
@@ -157,8 +152,7 @@ public class ItemHandler
 	 *
 	 * @return The list of items to be registered
 	 */
-	public static Item[] getItems()
-	{
+	public static Item[] getItems() {
 		if (items == null)
 			init();
 		return items.toArray(new Item[items.size()]);

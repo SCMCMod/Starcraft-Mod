@@ -2,13 +2,9 @@ package io.github.scmcmod.worldgen.dimchar;
 
 import java.util.Random;
 
-import net.rom.client.render.Color;
-import net.rom.client.render.Draw;
-import net.rom.client.render.OpenGL;
 import org.lwjgl.opengl.GL11;
 
-import com.arpaesis.scmc.worldgen.DimensionUtil;
-
+import io.github.scmcmod.worldgen.DimensionUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -19,24 +15,23 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.rom.client.render.Color;
+import net.rom.client.render.Draw;
+import net.rom.client.render.OpenGL;
 
-public class RenderSkyChar extends IRenderHandler
-{
-	private Color skyColor = new Color(0.5F, 0.225F, 0.265F, 1F);
-	public int glCallListStars = GLAllocation.generateDisplayLists(3);
+public class RenderSkyChar extends IRenderHandler {
+	private Color skyColor        = new Color(0.5F, 0.225F, 0.265F, 1F);
+	public int    glCallListStars = GLAllocation.generateDisplayLists(3);
 
-	public RenderSkyChar()
-	{
+	public RenderSkyChar() {
 		this.generateStars();
 	}
 
-	private void generateStars()
-	{
-		Tessellator tessellator = Tessellator.getInstance();
+	private void generateStars() {
+		Tessellator   tessellator   = Tessellator.getInstance();
 		BufferBuilder BufferBuilder = tessellator.getBuffer();
 
-		if (this.glCallListStars >= 0)
-		{
+		if (this.glCallListStars >= 0) {
 			GLAllocation.deleteDisplayLists(this.glCallListStars);
 			this.glCallListStars = -1;
 		}
@@ -51,30 +46,27 @@ public class RenderSkyChar extends IRenderHandler
 		this.glCallListStars += 1;
 	}
 
-	private void renderStars(BufferBuilder buffer)
-	{
+	private void renderStars(BufferBuilder buffer) {
 		Random random = new Random(10842L);
 		buffer.begin(7, DefaultVertexFormats.POSITION);
 
-		for (int stars = 0; stars < 1500; ++stars)
-		{
-			double d0 = (double) (random.nextFloat() * 2.0F - 1.0F);
-			double d1 = (double) (random.nextFloat() * 2.0F - 1.0F);
-			double d2 = (double) (random.nextFloat() * 2.0F - 1.0F);
-			double d3 = (double) (0.15F + random.nextFloat() * 0.1F);
+		for (int stars = 0; stars < 1500; ++stars) {
+			double d0 = random.nextFloat() * 2.0F - 1.0F;
+			double d1 = random.nextFloat() * 2.0F - 1.0F;
+			double d2 = random.nextFloat() * 2.0F - 1.0F;
+			double d3 = 0.15F + random.nextFloat() * 0.1F;
 			double d4 = d0 * d0 + d1 * d1 + d2 * d2;
 
-			if (d4 < 1.0D && d4 > 0.01D)
-			{
+			if (d4 < 1.0D && d4 > 0.01D) {
 				d4 = 1.0D / Math.sqrt(d4);
 				d0 = d0 * d4;
 				d1 = d1 * d4;
 				d2 = d2 * d4;
-				double d5 = d0 * 100.0D;
-				double d6 = d1 * 100.0D;
-				double d7 = d2 * 100.0D;
-				double d8 = Math.atan2(d0, d2);
-				double d9 = Math.sin(d8);
+				double d5  = d0 * 100.0D;
+				double d6  = d1 * 100.0D;
+				double d7  = d2 * 100.0D;
+				double d8  = Math.atan2(d0, d2);
+				double d9  = Math.sin(d8);
 				double d10 = Math.cos(d8);
 				double d11 = Math.atan2(Math.sqrt(d0 * d0 + d2 * d2), d1);
 				double d12 = Math.sin(d11);
@@ -83,10 +75,9 @@ public class RenderSkyChar extends IRenderHandler
 				double d15 = Math.sin(d14);
 				double d16 = Math.cos(d14);
 
-				for (int j = 0; j < 4; ++j)
-				{
-					double d18 = (double) ((j & 2) - 1) * d3;
-					double d19 = (double) ((j + 1 & 2) - 1) * d3;
+				for (int j = 0; j < 4; ++j) {
+					double d18 = ((j & 2) - 1) * d3;
+					double d19 = ((j + 1 & 2) - 1) * d3;
 					double d21 = d18 * d16 - d19 * d15;
 					double d22 = d19 * d16 + d18 * d15;
 					double d23 = d21 * d12 + 0.0D * d13;
@@ -102,10 +93,8 @@ public class RenderSkyChar extends IRenderHandler
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void render(float partialTicks, WorldClient world, Minecraft mc)
-	{
-		if (world.provider instanceof WorldProviderChar)
-		{
+	public void render(float partialTicks, WorldClient world, Minecraft mc) {
+		if (world.provider instanceof WorldProviderChar) {
 			WorldProviderChar provider = (WorldProviderChar) world.provider;
 
 			OpenGL.disable(GL11.GL_TEXTURE_2D);
