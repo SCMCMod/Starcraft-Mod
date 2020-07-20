@@ -47,6 +47,9 @@ public class ClientProxy extends CommonProxy {
 		Assets.addTexture("KALDIR_BRAMBLES", "textures/models/block/kaldir_brambles.png");
 		Assets.addTexture("SHAKURAS_PALM", "textures/models/block/shakuras_brambles.png");
 		Assets.addTexture("ZERUS_PALM", "textures/models/block/zerus_brambles.png");
+		Assets.addTexture("tab_protoss", "textures/gui/container/creative_inventory/tab_protoss.png");
+		Assets.addTexture("tab_terran", "textures/gui/container/creative_inventory/tab_terran.png");
+		Assets.addTexture("tab_zerg", "textures/gui/container/creative_inventory/tab_zerg.png");
 		
 	}
 	
