@@ -34,6 +34,13 @@ apply plugin: 'maven-publish'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 
+apply from: 'gradle/secrets.gradle'
+
+if (project.hasProperty('secretFile')) {
+
+    loadSecrets(new File((String) findProperty('secretFile')))
+}
+
 import org.gradle.util.GradleVersion
 project.afterEvaluate {
 	jacoco {
@@ -78,27 +85,6 @@ tasks.withType(Test) {
 	compileTestJava.options.compilerArgs += '-proc:none'
 }
 
-class Secrets {
-	Map m_data = null
-
-	final String getProperty(final String key) {
-		return (m_data && (m_data[key] != null)) ? m_data[key] : ''
-	}
-}
-
-final def secretFile
-if (System.getenv('SECRET_FILE')) {
-	secretFile = file System.getenv().SECRET_FILE
-} else {
-	secretFile = file 'secret.json'
-}
-
-import groovy.json.JsonSlurper
-project.ext.secret = new Secrets()
-secretFile.withReader {
-	project.secret.m_data = new JsonSlurper().parse it
-}
-
 def short_version = "${mod_version}"
 version = "${mod_version}." + getBuildNumber()
 group = "${mod_group}"
@@ -108,9 +94,9 @@ ext {
 	v = "${mod_version}." + getBuildNumber()
 }
 
+apply from: 'gradle/restcall.gradle'
 apply from: 'gradle/artifacts.gradle'
 apply from: 'gradle/deps.gradle'
-apply from: 'gradle/restcall.gradle'
 apply from: 'gradle/changelog.gradle'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
@@ -251,7 +237,7 @@ publishing {
 
 curseforge {
 	if (project.hasProperty('curseforge_project_id')) {
-		apiKey = secret.curseforgeAPIKey
+		apiKey = findProperty('curse_auth') ?: 0 
 		project {
 			id = project.curseforge_project_id
 			if (project.hasProperty('curseforge_changelog_filename')) {
