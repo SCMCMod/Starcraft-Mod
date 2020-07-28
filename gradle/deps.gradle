@@ -15,7 +15,7 @@ repositories {
 	}
 	maven {
 		name = 'ReadOnlyMaven'
-		url = 'https://mvn.romvoid.dev/'
+		url = 'https://service.romvoid.dev/'
 	}
 	mavenCentral()
 }
