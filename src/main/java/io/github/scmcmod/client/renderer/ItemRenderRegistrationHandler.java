@@ -1,6 +1,11 @@
 package io.github.scmcmod.client.renderer;
 
 import io.github.scmcmod.SCConstants;
+import io.github.scmcmod.client.model.block.DynamicOreBakedModel;
+import io.github.scmcmod.init.StarCraftBlocks;
+import net.minecraft.block.Block;
+import net.minecraft.client.renderer.block.model.IBakedModel;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -12,14 +17,34 @@ public class ItemRenderRegistrationHandler
 {
 
 	private static ModelBakeEvent eventObj;
-	
+
 	private static String id = SCConstants.MODID;
+
+	private static void registerOre(Block block, ModelBakeEvent event) {
+		ModelResourceLocation location = new ModelResourceLocation(Block.REGISTRY.getNameForObject(block), "normal");
+		IBakedModel existingModel = event.getModelRegistry().getObject(location);
+		event.getModelRegistry().putObject(location, new DynamicOreBakedModel(existingModel));
+
+		location = new ModelResourceLocation(Block.REGISTRY.getNameForObject(block), "inventory");
+		existingModel = event.getModelRegistry().getObject(location);
+		if (existingModel != null)
+			event.getModelRegistry().putObject(location, new DynamicOreBakedModel(existingModel));
+	}
 
 	@SubscribeEvent
 	@SideOnly(Side.CLIENT)
 	public static void onModelBake(ModelBakeEvent event)
 	{
 		eventObj = event;
+
+		registerOre(StarCraftBlocks.DYNAMIC_COAL_ORE, event);
+		registerOre(StarCraftBlocks.DYNAMIC_IRON_ORE, event);
+		registerOre(StarCraftBlocks.DYNAMIC_GOLD_ORE, event);
+		registerOre(StarCraftBlocks.DYNAMIC_REDSTONE_ORE_UNLIT, event);
+		registerOre(StarCraftBlocks.DYNAMIC_REDSTONE_ORE_LIT, event);
+		registerOre(StarCraftBlocks.DYNAMIC_DIAMOND_ORE, event);
+		registerOre(StarCraftBlocks.DYNAMIC_LAPIS_ORE, event);
+		registerOre(StarCraftBlocks.DYNAMIC_EMERALD_ORE, event);
 
 //		register(ItemHandler.C14_GAUSS_RIFLE, new ItemRenderC14GaussRifle());
 //		register(ItemHandler.FLAMETHROWER, new ItemRenderFlamethrower());

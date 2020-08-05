@@ -27,7 +27,7 @@ public class SCConstants {
 	public static final String ACCEPTED_MC_VERSIONS = "[1.12.2]";
 	public static final String ACCEPTED_MC_VERSION = ForgeVersion.mcVersion;
 	public static final String DEPENDENCIES_MODS = "required-after:readonlycore@[1.12.2-1.0.9.0,]";
-	public static final String GUI_FACTORY = "com.arpaesis.scmc.config.StarcraftConfigGuiFactory";
+	public static final String GUI_FACTORY = "io.github.scmcmod.config.StarcraftConfigGuiFactory";
 	public static final String CLIENT = "io.github.scmcmod.proxy.ClientProxy";
 	public static final String COMMON = "io.github.scmcmod.proxy.ServerProxy";
 

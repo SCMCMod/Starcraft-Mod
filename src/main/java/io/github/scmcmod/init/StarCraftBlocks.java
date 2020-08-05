@@ -17,40 +17,8 @@
  */
 package io.github.scmcmod.init;
 
-import io.github.scmcmod.blocks.BlockCharFarmland;
-import io.github.scmcmod.blocks.BlockCharOre;
-import io.github.scmcmod.blocks.BlockDimPortal;
-import io.github.scmcmod.blocks.BlockMagma;
-import io.github.scmcmod.blocks.BlockOverworldOre;
-import io.github.scmcmod.blocks.BlockPlanetTeleporter;
-import io.github.scmcmod.blocks.BlockProtossEnergyChannel;
-import io.github.scmcmod.blocks.BlockProtossEnergyChannelDark;
-import io.github.scmcmod.blocks.BlockProtossEnergyChannelVoid;
-import io.github.scmcmod.blocks.BlockProtossEnergyStabilizer;
-import io.github.scmcmod.blocks.BlockProtossEnergyStabilizerDark;
-import io.github.scmcmod.blocks.BlockProtossEnergyStabilizerVoid;
-import io.github.scmcmod.blocks.BlockProtossFurnace;
-import io.github.scmcmod.blocks.BlockProtossShield;
-import io.github.scmcmod.blocks.BlockProtossWormhole;
-import io.github.scmcmod.blocks.BlockShakurasFarmland;
-import io.github.scmcmod.blocks.BlockShakurasOre;
-import io.github.scmcmod.blocks.BlockSlaynFarmland;
-import io.github.scmcmod.blocks.BlockSlaynOre;
-import io.github.scmcmod.blocks.BlockSolarCore;
-import io.github.scmcmod.blocks.BlockTerrazineGas;
-import io.github.scmcmod.blocks.BlockVespeneGas;
-import io.github.scmcmod.blocks.BlockZergCreep;
-import io.github.scmcmod.blocks.BlockZergKeratin;
-import io.github.scmcmod.blocks.BlockZerusFarmland;
-import io.github.scmcmod.blocks.BlockZerusOre;
-import io.github.scmcmod.blocks.OreStarcraftRedstone;
-import io.github.scmcmod.blocks.ProtossPowerCoreBlock;
-import io.github.scmcmod.blocks.SCDirt;
-import io.github.scmcmod.blocks.SCFurnace;
-import io.github.scmcmod.blocks.SCGrass;
-import io.github.scmcmod.blocks.SCGravel;
-import io.github.scmcmod.blocks.SCProtossCoreBlock;
-import io.github.scmcmod.blocks.SCSkull;
+import io.github.scmcmod.api.OreType;
+import io.github.scmcmod.blocks.*;
 import io.github.scmcmod.blocks.flora.BlockBrambles;
 import io.github.scmcmod.blocks.flora.BlockZerusGlowPod;
 import io.github.scmcmod.blocks.flora.BlockZerusLightcap;
@@ -73,6 +41,7 @@ import io.github.scmcmod.config.SCConfig;
 import io.github.scmcmod.creativetabs.SCCreativeTabs;
 import io.github.scmcmod.enums.EnumWorldType;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockRedstoneOre;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -293,6 +262,15 @@ public class StarCraftBlocks {
 	public static final Block FLORA_BRAMBLES = new BlockBrambles();
 	public static final Block FLORA_ZERUS_LIGHTCAP = new BlockZerusLightcap();
 
+	public static final Block DYNAMIC_COAL_ORE = new DynamicOreBlock(OreType.COAL);
+	public static final Block DYNAMIC_IRON_ORE = new DynamicOreBlock(OreType.IRON);
+	public static final Block DYNAMIC_GOLD_ORE = new DynamicOreBlock(OreType.GOLD);
+	public static final Block DYNAMIC_REDSTONE_ORE_UNLIT = new DynamicRedstoneOreBlock(false);
+	public static final Block DYNAMIC_REDSTONE_ORE_LIT = new DynamicRedstoneOreBlock(true);
+	public static final Block DYNAMIC_DIAMOND_ORE = new DynamicOreBlock(OreType.DIAMOND);
+	public static final Block DYNAMIC_LAPIS_ORE = new DynamicOreBlock(OreType.LAPIS);
+	public static final Block DYNAMIC_EMERALD_ORE = new DynamicOreBlock(OreType.EMERALD);
+
 	public static void registerAll(ReadOnlyRegistry registry) {
 		registry.registerBlock(PLANET_TELEPORTER, "planet_teleporter");
 		registry.registerBlock(SOLAR_CORE, "solar_core");
@@ -432,5 +410,13 @@ public class StarCraftBlocks {
 		registry.registerBlock(FLORA_ZERUS_GLOW_POD, "flora_zerus_glow_pod");
 		registry.registerBlock(FLORA_BRAMBLES, "flora_brambles", new ItemBlockBrambles());
 		registry.registerBlock(FLORA_ZERUS_LIGHTCAP, "flora_zerus_lightcap");
+		registry.registerBlock(DYNAMIC_COAL_ORE, "coal_ore");
+		registry.registerBlock(DYNAMIC_IRON_ORE, "iron_ore");
+		registry.registerBlock(DYNAMIC_GOLD_ORE, "gold_ore");
+		registry.registerBlock(DYNAMIC_REDSTONE_ORE_UNLIT, "redstone_ore_unlit");
+		registry.registerBlock(DYNAMIC_REDSTONE_ORE_LIT, "redstone_ore_lit");
+		registry.registerBlock(DYNAMIC_DIAMOND_ORE, "diamond_ore");
+		registry.registerBlock(DYNAMIC_LAPIS_ORE, "lapis_ore");
+		registry.registerBlock(DYNAMIC_EMERALD_ORE, "emerald_ore");
 	}
 }

@@ -18,7 +18,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 /**
  * Create custom rewards when completing advancements
- * 
+ *
  * @author CJMinecraft
  */
 @Mod.EventBusSubscriber
@@ -32,14 +32,14 @@ public class Quests
 	@SubscribeEvent
 	public static void onAdvancementComplete(AdvancementEvent event)
 	{
-		for (Quest quest : QUESTS)
-		{
-			if (quest.getAdvancement().getId().equals(event.getAdvancement().getId()))
-			{
-				quest.triggerComplete(event.getEntityPlayer());
-				break;
-			}
-		}
+//		for (Quest quest : QUESTS)
+//		{
+//			if (quest.getAdvancement().getId().equals(event.getAdvancement().getId()))
+//			{
+//				quest.triggerComplete(event.getEntityPlayer());
+//				break;
+//			}
+//		}
 	}
 
 	public static Quest register(@Nullable Quest parent, String id, QuestReward... rewards)
